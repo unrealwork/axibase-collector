@@ -99,4 +99,6 @@ file:///tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 | Set to `count` | Empty | Send `count` field to server since the items level contains the highest count of numeric fields (1). |
 | Set to `count`, `name` | Empty | Send `count` numeric field and `name` string field to server since the items level contains the highest count of numeric fields (1). |
 
+__________________________________________________________
+
 ![File Forwarding Configuration](http://axibase.com/wp-content/uploads/2015/01/file_job_configuration_example.png)
