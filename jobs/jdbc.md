@@ -10,6 +10,9 @@ JDBC (Java Database Connectivity Technology) is an API for java programming lang
 | ATSD            | ATSD server that will ingest the data |
 |Data Source      | remote data source from which the collector will retrieve the data |
 ![JDBC Job](http://axibase.com/wp-content/uploads/2015/01/new_jdbc_JOB.png)
+
+_______________________________________________________
+
 <h4>JDBC Query</h4>
 On the JDBC Job page click on “Create Query” to add a query.
 
