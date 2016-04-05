@@ -34,4 +34,21 @@ Click on Viewer tab to open a tree-based JMX viewer displaying available JMX Man
 
 You can manually modify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean java.lang:*,type=GarbageCollector, specify * in the corresponding attribute selector field.
 
+| Expression        | Attribute  |
+|:-------------|:-------------|
+| `java.lang:*,type=GarbageCollector` | `CollectionCount, CollectionTime, LastGcInfo.GcThreadCount`, <br> `LastGcInfo.memoryUsageAfterGc.Code Cache.value.committed,` <br> `LastGcInfo.memoryUsageAfterGc.Code Cache.value.init`, <br> `LastGcInfo.memoryUsageAfterGc.Code Cache.value.max`,<br> `LastGcInfo.memoryUsageAfterGc.Code Cache.value.used `|
+| `java.lang:type=Memory` | `HeapMemoryUsage*` |
+| `java.lang:*,type=MemoryPool` | 	`Usage.*, Name ` |
+| `com.axibase.tsd:name=metrics` | 		`MetricsMap.*` |
 
+
+The left column specifies expressions to filter Managements Beans by type and name.
+_* is supported as a wildcard_
+The right column contains Management Bean attribute names enabled for collection.
+_* is supported as a wildcard_
+
+In the Property type column you can specify property type you can use instead of the default type that is equal to MBean type for the Propery command.  
+
+Click on Test to validate expressions.
+
+![](https://axibase.com/wp-content/uploads/2015/08/property_type.png)
