@@ -68,7 +68,7 @@ tail -f ~/axibase-collector/logs/axibase-collector.log
 **Step 10.** 
 Configure Axibase Collector to send data into Axibase Time Series Database
 
-*   [Configure ATSD connection](/products/axibase-time-series-database/writing-data/collector/axibase-collector-connect-to-atsd/)
+*   [Configure ATSD connection](https://axibase.com/products/axibase-time-series-database/writing-data/collector/axibase-collector-connect-to-atsd/)
 
 #### Stoping Axibase Collector
 
