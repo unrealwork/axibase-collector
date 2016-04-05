@@ -2,7 +2,7 @@
 
 File protocol is supported by the Axibase Collector. It is used to retrieve data stored in CSV or JSON formats. File Job Configuration Examples:
 
-*   [Basic CSV Example](/products/axibase-time-series-database/writing-data/collector/file/basic-file-example/ "Basic CSV File Example")
+*   [Basic CSV Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/basic-file-example/ "Basic CSV File Example")
 *   [JSON - HTTP Pool & Entity Group Example](/products/axibase-time-series-database/writing-data/collector/file/entity-group-example/ "JSON - HTTP Pool & Entity Group Example")
 *   [CSV - Entity Group Example](/products/axibase-time-series-database/writing-data/collector/file/csv-entity-group-example/ "CSV - Entity Group Example")
 
