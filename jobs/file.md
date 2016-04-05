@@ -3,8 +3,8 @@
 File protocol is supported by the Axibase Collector. It is used to retrieve data stored in CSV or JSON formats. File Job Configuration Examples:
 
 *   [Basic CSV Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/basic-file-example/ "Basic CSV File Example")
-*   [JSON - HTTP Pool & Entity Group Example](/products/axibase-time-series-database/writing-data/collector/file/entity-group-example/ "JSON - HTTP Pool & Entity Group Example")
-*   [CSV - Entity Group Example](/products/axibase-time-series-database/writing-data/collector/file/csv-entity-group-example/ "CSV - Entity Group Example")
+*   [JSON - HTTP Pool & Entity Group Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/entity-group-example/ "JSON - HTTP Pool & Entity Group Example")
+*   [CSV - Entity Group Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/csv-entity-group-example/ "CSV - Entity Group Example")
 
 Below are screenshots and descriptions of the File job and configuration settings:
 
@@ -30,14 +30,14 @@ TIME placeholder format: `${TIME("end_time_syntax", "time_format")}`
 
 TIME placeholder example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}` 
 
-You can learn more about [End Time syntax here.](/products/axibase-time-series-database/visualization/end-time/ "Chart Lab") <br>Time format can be specified using any combination of: `y`, `M`, `d`, `H`, `m`, `s` 
+You can learn more about [End Time syntax here.](https://axibase.com/products/axibase-time-series-database/visualization/end-time/ "Chart Lab") <br>Time format can be specified using any combination of: `y`, `M`, `d`, `H`, `m`, `s` 
 
 _NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated in Axibase Collector version 11164._
 
 
 | FIELD	          | DESCRIPTION |
 |:---------------|:------------|
-| Parser Name | ATSD parser configuration name. For more information, see [Parser Configuration Guide](/products/axibase-time-series-database/writing-data/csv/#parser "Parser Configuration"). |
+| Parser Name | ATSD parser configuration name. For more information, see [Parser Configuration Guide](https://axibase.com/products/axibase-time-series-database/writing-data/csv/#parser "Parser Configuration"). |
 | Parser Type | Downloaded file format: CSV or JSON. |
 | HTTP Pool | Relative path to the file if HTTP Pool is selected or full URL in case HTTP Pool is set to NONE. |
 | Path | Path to CSV or JSON target files located on remote or local file system from which they will be read. <br>Path to files on remote systems can be set using a relative path if HTTP Pool is selected or full URL in case HTTP Pool is set to NONE. <br>Path to files on the local file system should start with `file://` and contain the absolute path. <br>File path can include `${TIME}` placeholders: `file:///opt/app/data-${TIME("previous_day", "yyyy-MM-dd")}.csv` <br>File path supports collections (multiple files): `file:///opt/app/data-${ITEM}.csv` <br>File path can match multiple files, all of which would need to be uploaded. <br>The wildcard characters `?` and `*` can be used to represent a single or multiple wildcard characters. <br>See examples below this table. |
@@ -47,7 +47,7 @@ _NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated i
 | Entity Group | List of entries from entity group created in Axibase Collector. Entries from Entity Group are placed instead of ${ENTITY} (if contained) placeholders in Path, Metric Prefix, Default Entity, Included Fields, Excluded Fields and Default Tags fields. The number of ingested files will correspond to the number of lines contained in Entity Group. |
 | Encoding | Character encoding of target files. |
 | Wait for Upload | Wait for ATSD server to finish processing of the uploaded file. |
-| Rules | Process incoming data in [ATSD Rule Engine](/products/axibase-time-series-database/rule-engine/ "Rule Engine"). | 
+| Rules | Process incoming data in [ATSD Rule Engine](https://axibase.com/products/axibase-time-series-database/rule-engine/ "Rule Engine"). | 
 | Metric Prefix | Prefix added to metric names, used to identify and group the metrics. |
 | Default Entity | Default entity under which the metrics and data will be stored in ATSD. |
 | Default Tags | Assign predefined tags to all series. |
@@ -101,4 +101,4 @@ file:///tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 
 __________________________________________________________
 
-![File Forwarding Configuration](http://axibase.com/wp-content/uploads/2015/01/file_job_configuration_example.png)
+![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2015/01/file_job_configuration_example.png)
