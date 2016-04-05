@@ -1,6 +1,6 @@
 # JDBC
 
-JDBC (Java Database Connectivity Technology) is an API for java programming language which provides methods for querying and updating a primarily relational database. JDBC protocol is supported by the Axibase Collector. [Read our detailed example of JDBC Jobs for SolarWinds.](/products/axibase-time-series-database/writing-data/collector/solarwinds/ "SolarWinds") Below are instruction on how to create a JDBC job and it's query settings.
+JDBC (Java Database Connectivity Technology) is an API for java programming language which provides methods for querying and updating a primarily relational database. JDBC protocol is supported by the Axibase Collector. [Read our detailed example of JDBC Jobs for SolarWinds.](https://axibase.com/products/axibase-time-series-database/writing-data/collector/solarwinds/ "SolarWinds") Below are instruction on how to create a JDBC job and it's query settings.
 <h4>JDBC Job</h4>
 | FIELD           | DESCRIPTION |
 | :-------------- |:-------------| 
@@ -21,7 +21,7 @@ On the JDBC Job page click on “Create Query” to add a query.
 | Query           | Query field must contain the entity name, time and a collection of metric columns |
 | Default Entity  | Assign a default entity to the collected metrics |
 | Entity Column   | Assign a column that contains the entity names | 
-| Use Entity Lookup | Entity Lookup mappings will be searched for the entities being stored. For example if Entity Lookup mappings contain entity001=sensor001 and the entity being stored is named entity001 then it will be saved in ATSD as sensor001. More details can be found on the [Entity Lookup page](/products/axibase-time-series-database/download-atsd/administration/entity-lookup/ "Entity Lookup") |
+| Use Entity Lookup | Entity Lookup mappings will be searched for the entities being stored. For example if Entity Lookup mappings contain entity001=sensor001 and the entity being stored is named entity001 then it will be saved in ATSD as sensor001. More details can be found on the [Entity Lookup page](https://axibase.com/products/axibase-time-series-database/download-atsd/administration/entity-lookup/ "Entity Lookup") |
 | Tag Columns     | Columns that contain tags or meta data defining the series |
 | Default Tags    | Assign predefined tags to all series |
 | Put Type        | Type of data. Possible values: METRIC, PROPERTY, BOTH |
