@@ -17,7 +17,7 @@ Each Axibase Collector job has a set of properties that are common for all jobs.
 | Enabled       |The check box determines if the job is enabled or disabled. By default, new jobs are disabled. <br> To enable a job, select the check box. |
 | Name     | Collector job name. |
 | Cron Expression | Cron expression determining how frequently the collector job runs. For more information on crone expressions, see [Scheduling](https://github.com/atsd-collector-docs/scheduling.md).
-| ATSD | Target ATSD server. |
+| ATSD | Target ATSD server. If you have recently added a server, click the Refresh icon to update the list. |
 
 ![](https://axibase.com/wp-content/uploads/2015/08/job_example.png)
 
