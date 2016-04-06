@@ -19,4 +19,17 @@ Each Axibase Collector job has a set of properties that are common for all jobs.
 | Cron Expression | Cron expression determining how frequently the collector job runs. For more information on crone expressions, see [Scheduling](https://github.com/atsd-collector-docs/scheduling.md).
 | ATSD | Target ATSD server. |
 
-Apart from these common settings, some jobs have specific parameters you can configure.
+![](https://axibase.com/wp-content/uploads/2015/08/job_example.png)
+
+You can create the exact copy of the job. To do so, click Clone. <br>
+The copied job will have the same name as the original job but with the '-cloned' postfix. By default, cloned jobs are disabled. You can change the necessary settings and enable the job by selecting the Enabled check box. 
+
+Click Run to manually start the job. 
+To stop the job, click Stop. 
+
+To permanently remove the job, click Delete. 
+
+To discard all unsaved changes, click Cancel. 
+
+
+**Note** that apart from common settings, some jobs have specific parameters you can configure. 
