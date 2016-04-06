@@ -28,8 +28,8 @@ Use the table below to fill in the fields and configure the query.
 | Time Zone | Time zone in which the data was originally collected and stored. |
 | Check Last Time | Ignore metrics that have time set to less than the previous entry. |
 | Query With Time | When executing the job, the server will be set the maximum time of the previous data. |
-| Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited |
-| Query Timeout Seconds| Amount of seconds after which the query will be interrupted, -1 is unlimited |
+| Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited. |
+| Query Timeout Seconds| Amount of seconds after which the query will be interrupted, -1 is unlimited. |
 
 ![JDBC Query](http://axibase.com/wp-content/uploads/2015/01/JDBC_query.png)
 
