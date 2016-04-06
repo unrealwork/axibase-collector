@@ -1,6 +1,6 @@
 # JDBC
 
-JDBC (Java Database Connectivity Technology) is an API for java programming language which provides methods for querying and updating a primarily relational database. JDBC protocol is supported by the Axibase Collector. [Read our detailed example of JDBC Jobs for SolarWinds.](https://axibase.com/products/axibase-time-series-database/writing-data/collector/solarwinds/ "SolarWinds") Below are instruction on how to create a JDBC job and it's query settings.
+JDBC (Java Database Connectivity Technology) is an API for java programming language which provides methods for querying and updating a primarily relational database. JDBC protocol is supported by the Axibase Collector. <br> [Read our detailed example of JDBC Jobs for SolarWinds.](https://axibase.com/products/axibase-time-series-database/writing-data/collector/solarwinds/ "SolarWinds").<br> From this article, you can learn  how to create a JDBC job and configure its query settings.
 <h4>Job Configuration</h4>
 
 On the JDBC Job page click on “Create Query” to add a query.
