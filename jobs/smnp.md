@@ -3,7 +3,8 @@
 SNMP (Simple Network Management Protocol) is a standard internet protocol for managing devices connected to IP networks. <br>[Learn more about SNMP here.](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol "SNMP")
 
 ## SNMP Job Configuration
-Use the table below to fill in the fields and configure SNMP job.
+Click Create SNMP configuration to set paraters for the SMNP job
+Use the table below to fill in the fields correctly.
 
 | FIELD          | DESCRIPTION  |
 | :------------- |:-------------|
@@ -30,4 +31,4 @@ Use the table below to fill in the fields and configure SNMP job.
 #### SNMP Configuration Example
 
 
-![SNMP Configuration](http://axibase.com/wp-content/uploads/2015/01/SNMP.png)
+![SNMP Configuration](https://axibase.com/wp-content/uploads/2015/08/snmp_configuration.png)
