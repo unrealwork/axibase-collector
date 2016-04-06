@@ -31,4 +31,4 @@ Use the table below to fill in the fields correctly.
 #### SNMP Configuration Example
 
 
-![SNMP Configuration](https://axibase.com/wp-content/uploads/2015/08/snmp_configuration.png)
+![SNMP Configuration](https://axibase.com/wp-content/uploads/2015/01/SNMP.png)
