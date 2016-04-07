@@ -1,4 +1,4 @@
-# FILE
+# File Job
 
 Use the job to retrieve data stored in CSV or JSON formats.<br> To learn about file job configuration examples, follow the links:
 
@@ -6,7 +6,7 @@ Use the job to retrieve data stored in CSV or JSON formats.<br> To learn about f
 *   [JSON - HTTP Pool & Entity Group Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/entity-group-example/ "JSON - HTTP Pool & Entity Group Example")
 *   [CSV - Entity Group Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/csv-entity-group-example/ "CSV - Entity Group Example")
 
-### Configuration
+### File Job Configuration
 Use the table below to change File  configuration.
 
 | Field	          | Description |
