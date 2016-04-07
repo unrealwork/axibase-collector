@@ -1,9 +1,21 @@
 # ICMP
-ICMP (Internet Control Message Protocol) is supported by the Axibase Collector.
+ICMP (Internet Control Message Protocol) is one of the main protocols of the TCP/IP suite. It is used by network devices to send error messages or to relay query messages.
 
-Below are screenshots of the ICMP job and configuration settings:
+#### ICMP Job Configuration
 
-![ICMP Job](http://axibase.com/wp-content/uploads/2015/01/icmp-job.png)
-__________________________________________________________
+| Field       | Description   |
+|:-------------|:--------------|
+| Configuration Name     | Name of the configuration. |
+| Collection     |  Name of the collection you want to use. |
+| Metric Name | Name of the metric you want to use. |
+| Ping Type | Type of Ping request. |
+| Request Timeout, seconds | Time Axibase Collector will wait for the response before the request expires. |
+| Failure Retests | Number attempts to re-establish the connection.  |
+| Failure Retest Delay, seconds	|  Delay between attempts to re-establish connection.  |
+| ICMP Request TTL, seconds |  Request time to live value in seconds.   |
+| Packets Size, bytes | Size of packets to transfer.   |
+| IP Version |   Version on IP protocol.  |
 
-![ICMP Configuration](http://axibase.com/wp-content/uploads/2015/01/icmp_job_collector.png)
+#### Configuration Example
+The image below shows ICMP configuration example. 
+![ICMP Configuration](https://axibase.com/wp-content/uploads/2014/06/icmp_job.png)
