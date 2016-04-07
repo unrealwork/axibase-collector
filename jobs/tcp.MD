@@ -15,4 +15,5 @@ Use the table below to create TCP job configuration.
 | Failure Retests | Number attempts to re-establish the connection. |
 | Failure Retest Delay, seconds | Delay between attempts to re-establish connection. | 
 
+#### Configuration Example
 ![TCP Configuration](http://axibase.com/wp-content/uploads/2015/01/tcp_collector.png)
