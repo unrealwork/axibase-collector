@@ -1,4 +1,4 @@
-# ICMP
+# ICMP Job
 ICMP (Internet Control Message Protocol) is one of the main protocols of the TCP/IP suite. It is used by network devices to send error messages or to relay query messages.
 
 #### ICMP Job Configuration
