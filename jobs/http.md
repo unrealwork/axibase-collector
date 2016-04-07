@@ -11,7 +11,7 @@ Use the table below to create HTTP job configuration.
 | HTTP Pool |  Name of one of the configured HTTP pools that you want to use. |
 | Path |   Path to target files located on remote or local file system from which they will be read.  |
 | Response Text |  Text that Axibase Collector will look for in the response from the server.   |
-| Response Text Match Type |  Defines how Collector will  search for the necessary response text. <br> Possible options: CONTAINS - select this option if you want Collector to search for partial match. <br>  EQUALS - select this option if you want to search for the exact match. <br> REGEXP - select this option if you want to use reqular expressions for the search. |
+| Response Text Match Type |  Defines how Collector will  search for the necessary response text. <br> Possible options: <br>  CONTAINS - select this option if you want Collector to search for partial match. <br>  EQUALS - select this option if you want to search for the exact match. <br> REGEXP - select this option if you want to use reqular expressions for the search. |
 | Failure Retest |  Number attempts to re-establish the connection.   |
 | Failure Retest Interval |   Delay between attempts to re-establish connection.    |
 | Enable Web Driver |  Defines whether you want to enable the Web Driver tool.  |
