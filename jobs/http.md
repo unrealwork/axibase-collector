@@ -1,14 +1,24 @@
 # HTTP
 
-HTTP (Hypertext Transfer Protocol) is the foundation of all data communication and exchange for the whole world wide web.
+HTTP (Hypertext Transfer Protocol) is the underlying protocol used by the World Wide Web that defines how messages are formatted and transmitted.
 
-HTTP protocol is supported by the Axibase Collector.
+#### HTTP Job Configuration
+Use the table below to create HTTP job configuration.
 
-Below are screenshots of the HTTP job and configuration settings:
-
-![HTTP Job](http://axibase.com/wp-content/uploads/2015/01/http-job.png)
-
-___________________________________________________
+| Field         | Description |
+|:------------- |:-------------|
+| Name     | Name of the configuration. |
+| HTTP Pool |  Name of one of the configured HTTP pools that you want to use. |
+| Path |   Path to target files located on remote or local file system from which they will be read.  |
+| Response Text |  Text that Axibase Collector will look for in the response from the server.   |
+| Response Text Match Type |  Defines how Collector will  search for the necessary response text. <br> Possible options: CONTAINS - select this option if you want Collector to search for partial match. <br>  EQUALS - select this option if you want to search for the exact match. <br> REGEXP - select this option if you want to use reqular expressions for the search. |
+| Failure Retest |  Number attempts to re-establish the connection.   |
+| Failure Retest Interval |   Delay between attempts to re-establish connection.    |
+| Enable Web Driver |  Defines whether you want to enable the Web Driver tool.  |
+| Driver Script | Script you want to test. *  |
+| Driver Timeout, seconds |  Defines the amount of time Driver will wait to complete the request before it will return the timeout exception message.*  |
+| Driver File Encoding |  Encoding you use in your tests. * |
+_*These fields become available if you select the Enable Web Driver check box._
 
 ### <code>http.status</code> metric values based on http response codes:
 
@@ -24,6 +34,7 @@ ___________________________________________________
 | 200 | HTTP response status = 200 but response text failed to match |
 | xxx | HTTP response status, for example 500 (Server Error) |
 
-____________________________________________
+### Configuration Example
 
-![HTTP Configuration](http://axibase.com/wp-content/uploads/2015/01/http_job_collector.png)
+![HTTP Configuration](https://axibase.com/wp-content/uploads/2014/06/http_job.png)
+
