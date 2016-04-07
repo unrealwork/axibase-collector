@@ -5,7 +5,7 @@ TCP (Transmission Control Protocol) is one of the major IP protocols which provi
 #### TCP Job Configuration
 Use the table below to create TCP job configuration.
 
-| FIELD           | DESCRIPTION      
+| Field          | Description   | 
 | :--------------- |:-------------|
 | Configuration Name | Name of the configuration. |
 | TCP Port           | Target machine TCP port. |
