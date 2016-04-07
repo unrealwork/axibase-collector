@@ -40,7 +40,7 @@ When ingesting files from the local file system you can combine the Error Direct
 
 #### <code>${TIME}</code> placeholder
 
-The File оob supports the `${TIME}` placeholder.<br>Time placeholder is used to determine the Start time and/or End time for data retrieval from target file. <br> You can use the placeholder in the Path field. 
+The File job supports the `${TIME}` placeholder.<br>Time placeholder is used to determine the Start time and/or End time for data retrieval from target file. <br> You can use the placeholder in the Path field. 
 
 TIME placeholder format: `${TIME("end_time_syntax", "time_format")}` 
 
