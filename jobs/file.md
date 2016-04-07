@@ -7,7 +7,7 @@ Use the job to retrieve data stored in CSV or JSON formats.<br> To learn about f
 *   [CSV - Entity Group Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/csv-entity-group-example/ "CSV - Entity Group Example")
 
 ### File Job Configuration
-Use the table below to change File  configuration.
+Use the table below to perform File job configuration.
 
 | Field	          | Description |
 |:---------------|:------------|
