@@ -1,41 +1,15 @@
 # FILE
 
-File protocol is supported by the Axibase Collector. It is used to retrieve data stored in CSV or JSON formats. File Job Configuration Examples:
+Use the job to retrieve data stored in CSV or JSON formats.<br> To learn about file job configuration examples, follow the links:
 
 *   [Basic CSV Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/basic-file-example/ "Basic CSV File Example")
 *   [JSON - HTTP Pool & Entity Group Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/entity-group-example/ "JSON - HTTP Pool & Entity Group Example")
 *   [CSV - Entity Group Example](https://axibase.com/products/axibase-time-series-database/writing-data/collector/file/csv-entity-group-example/ "CSV - Entity Group Example")
 
-Below are screenshots and descriptions of the File job and configuration settings:
+### Configuration
+Use the table below to change File  configuration.
 
-
-
-| FIELD	          | DESCRIPTION |
-|:---------------|:------------|
-| Enabled | Determines if the job is active or disabled |
-| Name | Name of the collector job |
-| Cron Expression | Cron expression determining how frequently the collector job runs |
-| ATSD | ATSD server that will ingest the data |
-
-
-![File Job](http://axibase.com/wp-content/uploads/2015/01/file-job.png)
-
-_____________________________________________________________
-
-#### <code>${TIME}</code> placeholder
-
-The File Job supports the `${TIME}` placeholder.<br>Time placeholder is used to determine the Start time and/or End time for data retrieval from target file. 
-
-TIME placeholder format: `${TIME("end_time_syntax", "time_format")}` 
-
-TIME placeholder example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}` 
-
-You can learn more about [End Time syntax here.](https://axibase.com/products/axibase-time-series-database/visualization/end-time/ "Chart Lab") <br>Time format can be specified using any combination of: `y`, `M`, `d`, `H`, `m`, `s` 
-
-_NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated in Axibase Collector version 11164._
-
-
-| FIELD	          | DESCRIPTION |
+| Field	          | Description |
 |:---------------|:------------|
 | Parser Name | ATSD parser configuration name. For more information, see [Parser Configuration Guide](https://axibase.com/products/axibase-time-series-database/writing-data/csv/#parser "Parser Configuration"). |
 | Parser Type | Downloaded file format: CSV or JSON. |
@@ -62,6 +36,23 @@ _NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated i
 #### Ingesting Files from the Local File System
 
 When ingesting files from the local file system you can combine the Error Directory and Delete File on Upload settings to implement a particular upload workflow. Files are first copied to a /tmp directory from which they are sent into ATSD, if the upload and parsing is successful, the file is deleted. If there is an upload or parsing error, then the file is moved into the specified Error Directory, where the admin can inspect the file or resolve the upload issue. This approach prevents data loss and creates an optimal workflow.
+
+
+#### <code>${TIME}</code> placeholder
+
+The File оob supports the `${TIME}` placeholder.<br>Time placeholder is used to determine the Start time and/or End time for data retrieval from target file. <br> You can use the placeholder in the Path field. 
+
+TIME placeholder format: `${TIME("end_time_syntax", "time_format")}` 
+
+TIME placeholder example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}` 
+
+Time format can be specified using any combination of: `y`, `M`, `d`, `H`, `m`, `s` <br>
+You can learn more about [End Time syntax here.](https://axibase.com/products/axibase-time-series-database/visualization/end-time/ "Chart Lab")
+
+_NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated in Axibase Collector version 11164._
+
+
+
 
 ##### Example `Path` Settings to Files on the Local File System:
 
@@ -100,5 +91,8 @@ file:///tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 | Set to `count`, `name` | Empty | Send `count` numeric field and `name` string field to server since the items level contains the highest count of numeric fields (1). |
 
 __________________________________________________________
+#### Configuration Example
+
+The image below shows an example of the File job configuration. 
 
 ![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2015/01/file_job_configuration_example.png)
