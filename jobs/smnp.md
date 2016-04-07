@@ -25,6 +25,8 @@ Use the table below to fill in the fields correctly.
 
 #### Additional Fields for Version3c
 
+If you choose option **Version3c** in the **Version** field, you will be prompted to set the following parameters. 
+
 | Field          | Description  |
 | :------------- |:-------------|
 | Security Name | Name of user for the 3rd version of the protocol with security support. |
