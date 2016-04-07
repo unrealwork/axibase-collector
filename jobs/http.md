@@ -36,5 +36,5 @@ _*These fields become available if you select the Enable Web Driver check box._
 
 ### Configuration Example
 
-![HTTP Configuration](https://axibase.com/wp-content/uploads/2014/06/http_job.png)
+![HTTP Configuration](https://axibase.com/wp-content/uploads/2014/06/http_job_example.png)
 
