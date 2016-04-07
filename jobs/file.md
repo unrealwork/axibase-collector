@@ -83,7 +83,7 @@ file:///tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 
 ##### `Included Fields` and `Excluded Fields` Interaction Logic Examples for the Above JSON:
 
-| FIELD	          | DESCRIPTION | RESULT |
+| Field          | Description | Result |
 |:---------------|:------------|:--------|
 | Empty | Empty | Send `quota_max` and `quota_min` fields from the root level to server since the root level contains the highest count of numeric fields (2). |
 | Empty | Set to `quota_max`, `quota_min` | Send `count` field to server since the items level contains the highest count of numeric fields (1). |
