@@ -15,9 +15,9 @@ Use the table below to create HTTP job configuration.
 | Failure Retest |  Number attempts to re-establish the connection.   |
 | Failure Retest Interval |   Delay between attempts to re-establish connection.    |
 | Enable Web Driver |  Defines whether you want to enable the Web Driver tool.  |
-| Driver Script | Script you want to test. *  |
+| Driver Script | Selenium script. *  |
 | Driver Timeout, seconds |  Defines the amount of time Driver will wait to complete the request before it will return the timeout exception message.*  |
-| Driver File Encoding |  Encoding you use in your tests. * |
+| Driver File Encoding |  Encoding of the file you are requesting with the script. * |
 _*These fields become available if you select the Enable Web Driver check box._
 
 ### <code>http.status</code> metric values based on http response codes:
