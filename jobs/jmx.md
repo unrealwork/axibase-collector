@@ -51,12 +51,12 @@ _* is supported as a wildcard_
 
 ##### Specify Property type
 
-
-
-In the Property type column you can specify property type you can use instead of the default type that is equal to MBean type for the Propery command.  
-
-![](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
+To the left of the property expression there is a culumn with property types. You can enter custom property type to override the default property type. The default property type is equal to MBean type. <br>
+Note that this option is available for the Property command. 
 
 Click Test to validate expressions.
+![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
+
+
 
 
