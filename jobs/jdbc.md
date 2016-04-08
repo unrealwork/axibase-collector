@@ -1,7 +1,14 @@
 # JDBC Job
 
 JDBC (Java Database Connectivity Technology) is an API for java programming language which provides methods for querying and updating a primarily relational database.  <br> To learn more, read our detailed example of [JDBC Jobs for SolarWinds.](https://axibase.com/products/axibase-time-series-database/writing-data/collector/solarwinds/ "SolarWinds")<br> 
-<h4>Job Configuration</h4>
+
+#### Job Settings
+Apart from job settings that are common for all Axibase Collector jobs specified on the [Axibase Collector Jobs](https://github.com/axibase/axibase-collector-docs/blob/master/job-generic.md ) page, JDBC job has an additional field. <br>
+**Data Source** list allows you to select a database where you want to gather data from. The list contains all databases connected as data sources. 
+
+![JDBC job settings](https://axibase.com/wp-content/uploads/2014/06/jdbc_job_settings2.png)
+
+#### Job Configuration
 
 To add a new query, on the JDBC Job page click Create Query. <br>
 Use the table below to fill in the fields and configure the query.
