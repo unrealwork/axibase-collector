@@ -1,21 +1,13 @@
-# JMX
+# JMX Job
 
 JMX (Java Management Extensions) is used for managing and monitoring Java applications, devices, system objects, and service-orientated networks.
 
-JMX protocol is supported by the Axibase Collector.
-
-| FIELD        | DESCRIPTION  |
-|:-------------|:-------------|
-| Enabled     | Determines if the job is enabled or disabled. |
-| Name     | Collector job name. |
-| Cron Expression | Cron expression determining how frequently the collector job runs.  |
-| ATSD | 	ATSD server for sending the data. |
-
-![JMX Job](http://axibase.com/wp-content/uploads/2015/01/jmx-job.png)
-
 ###JMX Configuration
+To configure a JMX job, click Create JMX configuration. <br>
+Use the table below to set configuration paramters. 
 
-| FIELD        | DESCRIPTION  |
+
+| Field       | Description |
 |:-------------|:-------------|
 | Name | Job configuration name. |
 | Host | Hostname or IP address of the remote server running Java application with JMX service. |
@@ -28,10 +20,20 @@ JMX protocol is supported by the Axibase Collector.
 | Excluded Attributes | 	List of MBean attribute names excluded from collection. |
 | Service Name | Name of the JMX service. The default service name is `jmxrmi`.|
 
-Click on Viewer tab to open a tree-based JMX viewer displaying available JMX Management Beans and their attributes. Click on row checkbox to enable collection of the selected attribute.
+#### JMX Configuration Example
 
-![JMX Viewer](http://axibase.com/wp-content/uploads/2015/08/jmx_viewer.png)
+![](https://axibase.com/wp-content/uploads/2014/06/jmx_config.png)
 
+
+#### More Options
+##### Choose Attributes
+
+Click Viewer to open a tree-based JMX viewer displaying available JMX Management Beans and their attributes. <br> 
+Select a check box next to a row to enable collection of the selected attribute.
+
+![JMX Viewer](https://axibase.com/wp-content/uploads/2014/06/jmx_viewer.png)
+
+##### Use Wildcards
 You can manually modify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean java.lang:*,type=GarbageCollector, specify * in the corresponding attribute selector field.
 
 | Expression        | Attribute  |
@@ -42,13 +44,19 @@ You can manually modify the list of collected attributes by replacing specific a
 | `com.axibase.tsd:name=metrics` | 		`MetricsMap.*` |
 
 
-The left column specifies expressions to filter Managements Beans by type and name.
-_* is supported as a wildcard_
+The left column contains expressions to filter Managements Beans by type and name.
+_* is supported as a wildcard_ <br>
 The right column contains Management Bean attribute names enabled for collection.
 _* is supported as a wildcard_
 
+##### Specify Property type
+
+
+
 In the Property type column you can specify property type you can use instead of the default type that is equal to MBean type for the Propery command.  
 
-Click on Test to validate expressions.
+![](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 
-![](https://axibase.com/wp-content/uploads/2015/08/property_type.png)
+Click Test to validate expressions.
+
+
