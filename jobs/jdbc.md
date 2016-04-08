@@ -3,7 +3,7 @@
 JDBC (Java Database Connectivity Technology) is an API for java programming language which provides methods for querying and updating a primarily relational database.  <br> To learn more, read our detailed example of [JDBC Jobs for SolarWinds.](https://axibase.com/products/axibase-time-series-database/writing-data/collector/solarwinds/ "SolarWinds")<br> 
 <h4>Job Configuration</h4>
 
-To add a new query, on the JDBC Job page click Create Query.
+To add a new query, on the JDBC Job page click Create Query. <br>
 Use the table below to fill in the fields and configure the query.
 
 | FIELD              | DESCRIPTION  |
