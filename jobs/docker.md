@@ -15,14 +15,13 @@ Run Axibase Collector container on each Docker host locally. It will collect sta
 - Start Axibase Collector container:
 
 ```properties
-docker run -d -p 9443:9443 \
-   -h axibase-collector \
+docker run -d -P \
+   --name=axibase-collector \
+   --restart=always \
    -v /var/run/docker.sock:/var/run/docker.sock \
    -v /tmp/docker.xml:/tmp/docker.xml \
   axibase/collector \
    -atsd-url=https://atsd_user:atsd_password@atsd_host:8443 \
-   -atsd-tcp-host=atsd_host \
-   -atsd-tcp-port=8081 \
    -job-path=/tmp/docker.xml
 ```
 
@@ -60,6 +59,7 @@ services:
       - "8082:8082/udp"
     container_name: atsd
     hostname: atsd
+    restart: always
     environment:
       - ATSD_USER_NAME=${USER}
       - ATSD_USER_PASSWORD=${PASSWORD}
@@ -71,7 +71,7 @@ services:
     ports:
       - "9443:9443"
     container_name: axibase-collector
-    hostname: axibase-collector
+    restart: always
     volumes:
       - /tmp/docker.xml:/tmp/docker.xml
       - /var/run/docker.sock:/var/run/docker.sock
@@ -115,6 +115,7 @@ services:
       - "8082:8082/udp"
     container_name: atsd
     hostname: atsd
+    restart: always
     extends:
       file: base.yml
       service: base
@@ -126,7 +127,7 @@ services:
     ports:
       - "9443:9443"
     container_name: axibase-collector
-    hostname: axibase-collector
+    restart: always
     extends:
       file: base.yml
       service: base
