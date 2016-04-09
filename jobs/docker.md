@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Install [ATSD container](../atsd-install.md) on one of the Docker hosts. 
+Install [Axibase Time-Series Database container](../atsd-install.md) on one of the Docker hosts. 
 
 This ATSD instance will serve as a centralized repository for container and image properties, events, and statistics collected from multiple Docker hosts in your environment. 
 
