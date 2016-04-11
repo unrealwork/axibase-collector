@@ -4,7 +4,7 @@ OVPM protocol is used to retrieve data from HP OpenView Performance Manager.
 Apart from general job settings that are specified in the [Axibase Collector Jobs](https://github.com/axibase/axibase-collector-docs/blob/master/job-generic.md), OVMP job has an additional job-specific parameter. <br>
 **Max. serial errors threshold** - defines maximum amount of consecutive errors after which no more queries will be sent.
 
-![](https://axibase.com/wp-content/uploads/2016/03/ovpm_job_settings.png)
+![](https://axibase.com/wp-content/uploads/2015/08/ovpm_settings.png)
 
 #### OVPM Configuration 
 To configure an OVPM job, click Create OVPM configuration.
