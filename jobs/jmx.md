@@ -4,7 +4,7 @@ JMX (Java Management Extensions) is used for managing and monitoring Java applic
 
 ###JMX Configuration
 To configure a JMX job, click Create JMX configuration. <br>
-Use the table below to set configuration paramters. 
+Use the table below to set configuration parameters. 
 
 
 | Field       | Description |
