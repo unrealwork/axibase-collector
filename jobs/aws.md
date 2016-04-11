@@ -5,7 +5,7 @@ AWS job allows you to collect data from Amazon Web Services and store it in ATSD
 To configure an AWS job, click Create AWS configuration. <br>
 Use the table below to set configuration parameters. 
 
-| Filed        | Description    |
+| Field        | Description    |
 |:------------- |:--------------|
 | Name   | Configuration name.    |
 | HTTP Pool |  Data source.    |
