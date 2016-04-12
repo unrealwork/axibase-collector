@@ -10,9 +10,8 @@ This ATSD instance will serve as a centralized repository for container and imag
 
 #### Local Collection
 
-Run Axibase Collector container on each Docker host locally. It will collect statistics from the Docker engine API exposed locally on Unix socket at [/var/run/docker.sock](https://docs.docker.com/engine/reference/api/docker_remote_api/)
+Run Axibase Collector container on each Docker host locally. It will gather statistics from the Docker engine API exposed locally on Unix socket at [/var/run/docker.sock](https://docs.docker.com/engine/reference/api/docker_remote_api/)
 
-- Copy [docker.xml](docker.xml) file to /tmp directory on each Docker host.
 - Replace `atsd_host`, `atsd_user`, and `atsd_password` with ATSD hostname and user credentials below.
 - Start Axibase Collector container:
 
@@ -20,11 +19,10 @@ Run Axibase Collector container on each Docker host locally. It will collect sta
 docker run -d -P \
    --name=axibase-collector \
    --restart=always \
-   -v /var/run/docker.sock:/var/run/docker.sock \
-   -v /tmp/docker.xml:/tmp/docker.xml \
+   -v /var/run/docker.sock:/var/run/docker.sock
   axibase/collector \
    -atsd-url=https://atsd_user:atsd_password@atsd_host:8443 \
-   -job-path=/tmp/docker.xml
+   -job-enable=docker-socket
 ```
 
 #### Remote Collection
@@ -75,10 +73,9 @@ services:
     container_name: axibase-collector
     restart: always
     volumes:
-      - /tmp/docker.xml:/tmp/docker.xml
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - COLLECTOR_ARGS=-atsd-url=https://${USER}:${PASSWORD}@atsd:8443 -atsd-tcp-host=atsd -atsd-tcp-port=8081 -job-path=/tmp/docker.xml
+      - COLLECTOR_ARGS=-atsd-url=https://${USER}:${PASSWORD}@atsd:8443 job-enable=docker-socket
 ```
 
 Launch containers:
@@ -134,10 +131,9 @@ services:
       file: base.yml
       service: base
     volumes:
-      - /tmp/docker.xml:/tmp/docker.xml
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - COLLECTOR_ARGS=-atsd-url=https://${ATSD_USER_NAME}:${ATSD_USER_PASSWORD}@atsd:8443 -atsd-tcp-host=atsd -atsd-tcp-port=8081 -job-path=/tmp/docker.xml
+      - COLLECTOR_ARGS=-atsd-url=https://${ATSD_USER_NAME}:${ATSD_USER_PASSWORD}@atsd:8443 job-enable=docker-socket
 ```
 
 Launch containers:
