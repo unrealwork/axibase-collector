@@ -31,7 +31,7 @@ Use the table below to perform File job configuration.
 | Minimum Line Count | Minimum amount of lines in the target file. If the target file contains fewer lines than indicated, data will not be sent into ATSD. |
 | First Line | Characters or text in the first line. It is used to identify the first line of the target file. First Line field support ${TIME} placeholders, for example: `# Effective Data ${TIME("previous_day", "dd.MM.yyyy")}`. If text or characters are not found in the first line, the data will not be sent to ATSD. |
 | Validate Format | Validates the format of the CSV or JSON file. |
-| Root Objects |  |
+| Root Objects | Specify expressions in the JsonPath format to define a root element. Property/Series will be formed basing on elements from these expressions. |
 | Included Fields | List of JSON fields that are converted into CSV format and sent to ATSD. All other fields except Included will be ignored. The list can include both numeric and string fields, in which case string columns should be processed as series tags or property keys/tags by the server using CSV parser configuration. |
 | Excluded Fields | List of JSON fields that are excluded from CSV converter. Excluded Fields are ignored if Included Fields are specified. Only numeric fields will be sent to ATSD after Excluded Fields filter is applied to JSON object. |
 | Enable Web Driver | Select the check box to enable Web Driver.  |
