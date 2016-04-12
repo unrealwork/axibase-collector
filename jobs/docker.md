@@ -19,7 +19,7 @@ Run Axibase Collector container on each Docker host locally. It will gather stat
 docker run -d -P \
    --name=axibase-collector \
    --restart=always \
-   -v /var/run/docker.sock:/var/run/docker.sock
+   -v /var/run/docker.sock:/var/run/docker.sock \
   axibase/collector \
    -atsd-url=https://atsd_user:atsd_password@atsd_host:8443 \
    -job-enable=docker-socket
