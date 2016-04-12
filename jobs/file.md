@@ -18,8 +18,8 @@ Use the table below to perform File job configuration.
 | Delete File on Upload | Source files will be deleted if ATSD returns 200 code (OK). This setting only applies to configurations where the Path points to files on the local file system (Path starts with `file://`).|
 | Success Directory | If a file is uploades successfully (uploaded into ATSD and Parsed successfully), it will be copied to this directory. <br>I f the Success Directory is specified but does not exist, it will be created. <br> Success Directory field supports `${TIME}` placeholders like: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. <br>To distinguish between files with identical names a time prefix will be added, for example: `20151130_121212_345_{original_file_name}.csv` <br>Success Directory is an independent setting from Delete on Upload. |
 | Error Directory | If a file cannot be uploaded (e.g. server not available OR there is a parsing error), the file will be copied to this directory. <br> If the Error Directory is specified but does not exist, it will be created. <br>Error Directory field supports ${TIME} placeholders. For example: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. | 
-| Collection |    |
-| Time Zone |   |
+| Collection | Name of the collection you want to use.  |
+| Time Zone | Time zone in which the data is collected.  |
 | Encoding | Character encoding of target files. |
 | Wait for Upload | Wait for ATSD server to finish processing of the uploaded file. |
 | Rules | Process incoming data in [ATSD Rule Engine](https://axibase.com/products/axibase-time-series-database/rule-engine/ "Rule Engine"). | 
@@ -34,10 +34,10 @@ Use the table below to perform File job configuration.
 | Root Objects |  |
 | Included Fields | List of JSON fields that are converted into CSV format and sent to ATSD. All other fields except Included will be ignored. The list can include both numeric and string fields, in which case string columns should be processed as series tags or property keys/tags by the server using CSV parser configuration. |
 | Excluded Fields | List of JSON fields that are excluded from CSV converter. Excluded Fields are ignored if Included Fields are specified. Only numeric fields will be sent to ATSD after Excluded Fields filter is applied to JSON object. |
-| Enable Web Driver |   |
-| Driver Script |   |
-| Driver Timeout, seconds |   |
-| Driver File Encoding |   |
+| Enable Web Driver | Select the check box to enable Web Driver.  |
+| Driver Script | Selenium script.  |
+| Driver Timeout, seconds |  Script timeout in seconds. |
+| Driver File Encoding | Encoding of the file that is requested with the script.  |
 
 #### Ingesting Files from the Local File System
 
