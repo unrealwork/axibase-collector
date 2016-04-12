@@ -18,12 +18,14 @@ Run Axibase Collector container on each Docker host locally. It will gather stat
 ```properties
 docker run -d -P \
    --name=axibase-collector \
-   --restart=always \
    -v /var/run/docker.sock:/var/run/docker.sock \
   axibase/collector \
    -atsd-url=https://atsd_user:atsd_password@atsd_host:8443 \
    -job-enable=docker-socket
 ```
+
+- Enable auto-restart for the container if Docker engine supports option `--restart-always=true`.
+- On Docker hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from `/var/run/docker.sock` Unix socket. Fall back to Remote Collection option or disable SELinux in test environments. Other alternatives: https://github.com/dpw/selinux-dockersock
 
 #### Remote Collection
 
