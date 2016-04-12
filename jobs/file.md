@@ -101,4 +101,4 @@ __________________________________________________________
 
 The image below shows an example of the File job configuration. 
 
-![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2015/01/file_job_configuration_example.png)
+![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2016/04/file_job.png)
