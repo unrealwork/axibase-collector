@@ -99,6 +99,6 @@ file:///tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 __________________________________________________________
 #### Configuration Example
 
-The image below shows an example of the File job configuration. 
+The image below shows an example of the File Forwarding configuration. 
 
 ![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2016/04/file_job.png)
