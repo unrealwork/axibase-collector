@@ -1,4 +1,5 @@
 # JMX Job
+---
 
 ## Overview
 
@@ -6,9 +7,9 @@ JMX (Java Management Extensions) is an [industry-standard](http://java.sun.com/p
 
 The JMX job in Axibase Collector provides a way to collect MBean attribute values from remote Java applications and store these values in Axibase Time Series Database. All MBean attributes can be stored as properties and attributes with numeric datatype can be stored as time series.
 
-The JMX job can have one or multiple configurations each describing connection parameters and MBean queries. It is common for configurations in a given job to connect to the same Java application.
+The JMX job can have one or multiple JMX configurations each describing connection parameters and MBean queries. It is common for configurations in a given job to connect to the same Java application.
 
-### JMX Configuration
+## JMX Configuration
 
 #### Connection Parameters
 
@@ -22,17 +23,37 @@ The JMX job can have one or multiple configurations each describing connection p
 | Entity | Entity name under which the data will be stored. |
 | Service Name | 	JMX service username. The default service name is `jmxrmi`. |
 
-Note: By default, entity name is set to Host field. However, you can override entity name in case the DNS hostname is different from the short hostname on which the Java application is running. 
+Connection parameters should correspond to `com.sun.management.jmxremote` settings specified by the target Java application.
 
-In addition, entity name can be retrieved dynamically with a composite MBean expression (`mbean>attribute`), for example:
+```sh
+ACTIVEMQ_SUNJMX_START="-Dcom.sun.management.jmxremote \
+   -Dcom.sun.management.jmxremote.port=1090 \
+   -Dcom.sun.management.jmxremote.rmi.port=1090 \
+   -Dcom.sun.management.jmxremote.ssl=false \
+   -Djava.rmi.server.hostname=NURSWGVML011 \
+   -Dcom.sun.management.jmxremote.password.file=${ACTIVEMQ_BASE}/conf/jmx.password \
+   -Dcom.sun.management.jmxremote.access.file=${ACTIVEMQ_BASE}/conf/jmx.access"
+```
+
+To verify connectivity with the remote host, click Test or Viewer buttons. 
+
+Add hostname to /etc/hosts file on the collector machine in case of UnknownHostException.
+
+```java
+Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: NURSWGVML011; nested exception is:  	java.net.UnknownHostException: NURSWGVML011]
+```
+
+> By default, entity name is set to Host field. However, you can override entity name in case the DNS hostname is different from the short hostname on which the Java application is running. 
+
+> In addition, entity name can be retrieved dynamically with a composite MBean expression (`mbean>attribute`), for example:
 
 ```
 java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 ```
 
-If the composite expression fails to produce a value, for example if bean or attribute is not found, the entity name will be set to Host field. If the composite expression retrieves a value sucessfully, it will be stored in Axibase Collector database and will be re-used in case of connection error.
+> If the composite expression fails to produce a value, for example if bean or attribute is not found, the entity name will be set to Host field. If the composite expression retrieves a value sucessfully, it will be stored in Axibase Collector database and will be re-used in case of connection error.
 
-#### Query Parameters
+## Query Parameters
 
 | Field | Description |
 |:---|:---|
@@ -45,7 +66,7 @@ If the composite expression fails to produce a value, for example if bean or att
 
 #### Queries
 
-Each configuration includes a list of MBean queries consists of two parts:
+Each configuration includes a list of MBean queries consisting of two parts:
 
 * [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
 * Attribute Name pattern or list
@@ -80,15 +101,16 @@ Special processing for PROPERTY command:
 
 ![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 
-##### JMX Configuration Example
+## JMX Configuration Example
 
 ![](https://axibase.com/wp-content/uploads/2014/06/jmx_config.png)
 
 
-#### Viewer
+## Viewer
 
-Click Viewer to open a tree-based JMX viewer displaying available JMX Management Beans and their attributes. <br> 
-Select a check box next to a row to enable collection of the selected attribute.
+Click Viewer to open a tree-based MBean navigator displaying available Management Beans and their attributes.
+
+Select a checkbox next to an attribute name to add to the list of collected attributes. Modify the expression by replacing specific Object Name fields with wildcards, if necessary.
 
 ![JMX Viewer](https://axibase.com/wp-content/uploads/2014/06/jmx_viewer.png)
 
