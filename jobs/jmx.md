@@ -4,9 +4,9 @@
 
 JMX (Java Management Extensions) is an [industry-standard](http://java.sun.com/products/JavaManagement/download.html) technology for monitoring and managing Java applications. Java applications instrumented with JMX expose a set of resources called MBeans (Management Beans) with attributes and methods that can be queried and invoked programmatically.
 
-The JMX job in Axibase Collector provides a way to collect MBean attribute values from remote Java applications and store these values in Axibase Time Series Database. All MBean attributes can be stored as properties and MBean attributes with numeric datatype can be stored as time series.
+The JMX job in Axibase Collector provides a way to collect MBean attribute values from remote Java applications and store these values in Axibase Time Series Database. All MBean attributes can be stored as properties and attributes with numeric datatype can be stored as time series.
 
-The JMX job can have one or multiple configurations each describing connection properties and MBean queries. It is common for configurations in a given job to connect to the same Java application.
+The JMX job can have one or multiple configurations each describing connection parameters and MBean queries. It is common for configurations in a given job to connect to the same Java application.
 
 ### JMX Configuration
 
@@ -24,19 +24,24 @@ The JMX job can have one or multiple configurations each describing connection p
 
 Note: By default, entity name is set to Host field. However, you can override entity name in case the DNS hostname is different from the short hostname on which the Java application is running. 
 
-In addition, you can retrieve entity name dynamically with a composite MBean expression (`mbean>attribute`), for example:
+In addition, entity name can be retrieved dynamically with a composite MBean expression (`mbean>attribute`), for example:
 
 ```
 java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 ```
 
+If the composite expression fails to produce a value, for example if bean or attribute is not found, the entity name will be set to Host field. If the composite expression retrieves a value sucessfully, it will be stored in Axibase Collector database and will be re-used in case of connection error.
+
 #### Query Parameters
 
-| Field       | Description |
-|:-------------|:-------------|
-| Command Type | Insert command type: SERIES, PROPERTY or BOTH. <br>If PROPERTY or BOTH is selected, property type field is set to MBean type. <br>If MBean type is null, MBean name is used for property type field.
-| Property Type Prefix  | Prefix added to metric names used to filter and group metrics. For example: `jmx.`
-| Excluded Attributes | 	List of MBean attribute names excluded from collection. |
+| Field | Description |
+|:---|:---|
+| Command Type | Insert command type: SERIES, PROPERTY or BOTH. <br>If PROPERTY or BOTH is selected, property type field is set to MBean type. <br>If MBean type is null, MBean name is used for property type field. |
+| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.` |
+| Excluded Attributes | 	List of attribute names excluded from property commands, for example `DynamicDestinationProducers_*, QueueProducers_*` |
+| Metric Prefix | Common prefix added to metric names, for example `jmx.activemq.`  |
+| Series Tags | Predefined tags added to series commands |
+| Excluded Metrics | List of attribute names excluded from series commands, supports wildcards. |
 
 #### Queries
 
@@ -56,7 +61,7 @@ You can manually modify the list of collected attributes by replacing specific a
 
 | Expression        | Attribute  |
 |:-------------|:-------------|
-| `java.lang:*,type=GarbageCollector` | `CollectionCount, CollectionTime, LastGcInfo.GcThreadCount`, <br> `LastGcInfo.memoryUsageAfterGc.Code Cache.value.committed,` <br> `LastGcInfo.memoryUsageAfterGc.Code Cache.value.init`, <br> `LastGcInfo.memoryUsageAfterGc.Code Cache.value.max`,<br> `LastGcInfo.memoryUsageAfterGc.Code Cache.value.used `|
+| `java.lang:*,type=GarbageCollector` | `CollectionCount, CollectionTime, LastGcInfo.GcThreadCount`|
 | `java.lang:type=Memory` | `HeapMemoryUsage*` |
 | `java.lang:*,type=MemoryPool` | 	`Usage.*, Name ` |
 | `com.axibase.tsd:name=metrics` | 		`MetricsMap.*` |
