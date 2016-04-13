@@ -19,8 +19,16 @@ The JMX job can have one or multiple configurations each describing connection p
 | Port | JMX service port.  |
 | User Name | 	JMX username. |
 | Password | JMX password. |
-| Entity | Entity name under which the data will be stored, typically the hostname of the remote server. |
+| Entity | Entity name under which the data will be stored. |
 | Service Name | 	JMX service username. The default service name is `jmxrmi`. |
+
+Note: By default, entity name is set to Host field. However, you can override entity name in case the DNS hostname is different from the short hostname on which the Java application is running. 
+
+In addition, you can retrieve entity name dynamically with a composite MBean expression (`mbean>attribute`), for example:
+
+```
+java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
+```
 
 #### Query Parameters
 
@@ -43,7 +51,7 @@ org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCoun
 
 Object Name pattern matches all MBean instances of specified type and name. The Attribute Name pattern locates attributes of those matched MBeans whose values will be retrieved and sent to the database. List of attribute names can be specified as an alternative to Attribute Name pattern.
 
-#### Wildcards
+##### Wildcards
 You can manually modify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean java.lang:*,type=GarbageCollector, specify * in the corresponding attribute selector field.
 
 | Expression        | Attribute  |
@@ -67,7 +75,7 @@ Special processing for PROPERTY command:
 
 ![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 
-#### JMX Configuration Example
+##### JMX Configuration Example
 
 ![](https://axibase.com/wp-content/uploads/2014/06/jmx_config.png)
 
@@ -78,10 +86,6 @@ Click Viewer to open a tree-based JMX viewer displaying available JMX Management
 Select a check box next to a row to enable collection of the selected attribute.
 
 ![JMX Viewer](https://axibase.com/wp-content/uploads/2014/06/jmx_viewer.png)
-
-
-
-##### Specify Property type
 
 
 
