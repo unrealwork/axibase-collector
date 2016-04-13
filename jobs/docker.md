@@ -4,7 +4,7 @@
 
 Install [Axibase Time-Series Database container](../atsd-install.md) on one of the Docker hosts. 
 
-This ATSD instance will serve as a centralized repository for container and image properties, events, and statistics collected from multiple Docker hosts in your environment. 
+This ATSD instance will serve as a central repository for container properties, events, and statistics. 
 
 ## Installation
 
@@ -24,8 +24,8 @@ docker run -d -P \
    -job-enable=docker-socket
 ```
 
-- Enable auto-restart for the container if Docker engine supports option `--restart-always=true`.
-- On Docker hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from `/var/run/docker.sock` Unix socket. Fall back to Remote Collection option or disable SELinux in test environments. Other alternatives: https://github.com/dpw/selinux-dockersock
+- Optionally, set auto-restart policy for the container if the Docker engine version supports this option `--restart-always=true`.
+- On hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from `/var/run/docker.sock`. Switch to Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
 
 #### Remote Collection
 
