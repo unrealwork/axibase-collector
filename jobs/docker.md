@@ -24,6 +24,8 @@ docker run -d -P \
    -job-enable=docker-socket
 ```
 
+The Docker job should start executing immediately, even if collector user has not been created. 
+
 - Optionally, set auto-restart policy for the container if the Docker engine version supports this option `--restart-always=true`.
 - On hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from `/var/run/docker.sock`. Switch to Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
 
@@ -32,6 +34,10 @@ docker run -d -P \
 Launch an Axibase Collector container and configure multiple Docker jobs each using a different HTTP pool with SSL encryption and certificate keys for accessing Docker engine API remotely.  
 
 Docker remote job example: [docker-remote-job.xml](docker-remote-job.xml)
+
+## Validation
+
+Login into ATSD UI and verify that the Docker host is displayed on Entities: Docker Hosts page.
 
 ## Testing
 
@@ -143,3 +149,38 @@ Launch containers:
 ```sh
 docker-compose up
 ```
+
+## Troubleshooting
+
+```sh
+docker exec -it axibase-collector tail -f /opt/axibase-collector/logs/axibase-collector.log
+```
+
+The following message indicates that initial configuration is finished:
+
+> FrameworkServlet 'dispatcher': initialization completed.
+
+## UI
+
+Check https port that is assigned to collector and open it in your browser: https://container-ip:port
+
+```sh
+docker ps | grep axibase-collector
+```
+
+Locate **docker-socket** job on the Jobs list and check that it's enabled and `Items Read` is not 0.
+
+## Known Issues
+
+If Axibase Collector fails to start, verify that your Docker host runs on a supported kernel level.
+
+```sh
+uname -a
+```
+
+* 3.13.0-79.123+
+* 3.19.0-51.57+
+* 4.2.0-30.35+
+
+See “Latest Quick Workarounds” for Docker issue #18180 on https://github.com/docker/docker/issues/18180
+
