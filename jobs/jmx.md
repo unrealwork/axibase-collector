@@ -8,23 +8,7 @@ The JMX job in Axibase Collector provides a way to collect MBean attribute value
 
 The JMX job can have one or multiple configurations each describing connection properties and MBean queries. It is common for configurations in a given job to connect to the same Java application.
 
-The MBean query consists of two parts:
-
-* [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
-* Attribute Name pattern or list
-
-```
-org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
-```
-
-Object Name pattern matches all MBean instances of specified type and name. The Attribute Name pattern locates attributes of those matched MBeans whose values will be retrieved and sent to the database. List of attribute names can be specified as an alternative to Attribute Name pattern.
-
-Note: Attribute Name pattern/list is ignored for property commands. To simplify configuration, property commands apply `*` pattern to include all attributes of the matched beans.
-
-
-###JMX Configuration
-To configure a JMX job, click Create JMX configuration. <br>
-Use the table below to set configuration parameters. 
+### JMX Configuration
 
 #### Connection Parameters
 
@@ -46,20 +30,20 @@ Use the table below to set configuration parameters.
 | Property Type Prefix  | Prefix added to metric names used to filter and group metrics. For example: `jmx.`
 | Excluded Attributes | 	List of MBean attribute names excluded from collection. |
 
-#### JMX Configuration Example
+#### Queries
 
-![](https://axibase.com/wp-content/uploads/2014/06/jmx_config.png)
+Each configuration includes a list of MBean queries consists of two parts:
 
+* [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
+* Attribute Name pattern or list
 
-#### More Options
-##### Choose Attributes
+```
+org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
+```
 
-Click Viewer to open a tree-based JMX viewer displaying available JMX Management Beans and their attributes. <br> 
-Select a check box next to a row to enable collection of the selected attribute.
+Object Name pattern matches all MBean instances of specified type and name. The Attribute Name pattern locates attributes of those matched MBeans whose values will be retrieved and sent to the database. List of attribute names can be specified as an alternative to Attribute Name pattern.
 
-![JMX Viewer](https://axibase.com/wp-content/uploads/2014/06/jmx_viewer.png)
-
-##### Use Wildcards
+#### Wildcards
 You can manually modify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean java.lang:*,type=GarbageCollector, specify * in the corresponding attribute selector field.
 
 | Expression        | Attribute  |
@@ -75,13 +59,31 @@ _* is supported as a wildcard_ <br>
 The right column contains Management Bean attribute names enabled for collection.
 _* is supported as a wildcard_
 
+
+Special processing for PROPERTY command:
+
+- Attribute Name pattern/list is ignored for property commands. Property commands collect all attributes of the matched beans.
+- The default value for property `type` field is set to MBean type, for instanance, to `Broker` in the example above. To override the default type, enter a custom value in Property Type Column.
+
+![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
+
+#### JMX Configuration Example
+
+![](https://axibase.com/wp-content/uploads/2014/06/jmx_config.png)
+
+
+#### Viewer
+
+Click Viewer to open a tree-based JMX viewer displaying available JMX Management Beans and their attributes. <br> 
+Select a check box next to a row to enable collection of the selected attribute.
+
+![JMX Viewer](https://axibase.com/wp-content/uploads/2014/06/jmx_viewer.png)
+
+
+
 ##### Specify Property type
 
-To the left of the property expression there is a culumn with property types. You can enter custom property type to override the default property type. The default property type is equal to MBean type. <br>
-Note that this option is available for the Property command. 
 
-Click Test to validate expressions.
-![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 
 
 
