@@ -2,7 +2,7 @@
 
 ## Installation on Docker host
 
-Replace `myuser` and `mypassword` with valid credentials of the biult-in administrator user. 
+Replace `myuser` and `mypassword` with valid credentials of the built-in administrator user. 
 Minimum password length is 6 characters.
 
 ```sh
