@@ -76,22 +76,24 @@ org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCoun
 
 Object Name pattern matches all MBean instances of specified type and name. The Attribute Name pattern locates attributes of those matched MBeans whose values will be retrieved and sent to the database. List of attribute names can be specified as an alternative to Attribute Name pattern.
 
-##### Wildcards
-You can manually modify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean java.lang:*,type=GarbageCollector, specify * in the corresponding attribute selector field.
+##### Object Name Pattern Examples
 
-| Expression        | Attribute  |
+* *:type=Foo,name=Bar to match names in any domain whose exact set of keys is type=Foo,name=Bar.
+* d:type=Foo,name=Bar,* to match names in the domain d that have the keys type=Foo,name=Bar plus zero or more other keys.
+* *:type=Foo,name=Bar,* to match names in any domain that has the keys type=Foo,name=Bar plus zero or more other keys.
+* d:type=F?o,name=Bar will match e.g. d:type=Foo,name=Bar and d:type=Fro,name=Bar.
+* d:type=F*o,name=Bar will match e.g. d:type=Fo,name=Bar and d:type=Frodo,name=Bar.
+* d:type=Foo,name="B*" will match e.g. d:type=Foo,name="Bling". Wildcards are recognized even inside quotes, and like other special characters can be escaped with \.
+
+##### Attribute Name Pattern Examples
+
+You can specify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean java.lang:*,type=GarbageCollector, specify * in the corresponding attribute selector field.
+
+| Object Name Pattern        | Attribute Name Pattern / List  |
 |:-------------|:-------------|
-| `java.lang:*,type=GarbageCollector` | `CollectionCount, CollectionTime, LastGcInfo.GcThreadCount`|
+| `java.lang:*,type=GarbageCollector` | `CollectionCount, CollectionTime, LastGcInfo.*`|
 | `java.lang:type=Memory` | `HeapMemoryUsage*` |
-| `java.lang:*,type=MemoryPool` | 	`Usage.*, Name ` |
 | `com.axibase.tsd:name=metrics` | 		`MetricsMap.*` |
-
-
-The left column contains expressions to filter Managements Beans by type and name.
-_* is supported as a wildcard_ <br>
-The right column contains Management Bean attribute names enabled for collection.
-_* is supported as a wildcard_
-
 
 Special processing for PROPERTY command:
 
