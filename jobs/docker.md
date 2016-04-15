@@ -31,10 +31,33 @@ The Docker job should start executing immediately, even if collector user has no
 
 #### Remote Collection
 
-Launch an Axibase Collector container and configure multiple Docker jobs each using a different HTTP pool with SSL encryption and certificate keys for accessing Docker engine API remotely.  
+##### Launch an Axibase Collector container. 
 
-Docker remote job example: [docker-remote-job.xml](docker-remote-job.xml)
+```properties
+docker run -d -P \
+   --name=axibase-collector \
+  axibase/collector \
+   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
+```
 
+##### For each remote Docker host:
+
+1. Login into Docker host via SSH and configure Docker engine API for [remote access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl).
+
+2. Copy the following certificate files to your machine: key.pem, cert.pem, ca.pem
+
+3. Open Admin>Certificate Import page. Select Store Type: KEY, attach key.pem and cert.pem files, set Alias to docker-key-$HOST, where $HOST is the DNS name or IP address of the Docker host. Click Upload.
+
+4. Open Admin>Certificate Import page. Select Store Type: TRUST, attach ca.pem file, set Alias to docker-trust-$HOST. Click Upload.
+
+5. Open Data Sources > HTTP Pools page and clone `docker_host`.
+6. Rename the pool, set Server to $HOST.
+7. Click on `Default` Key Store and select docker-key-$HOST key alias.
+8. Click Test to verify connectivity and save the pool.
+8. Clone the built-in `docker-remote` job, rename it, set the target ATSD and change its HTTP pool to previous created pool.
+9. Open Docker configuration specified in the job, and click Test to validate API queries.
+10. Check Enabled box, save the job, and click Run.
+    
 ## Validation
 
 Login into ATSD UI and verify that the Docker host is displayed on Entities: Docker Hosts page.
@@ -183,4 +206,3 @@ uname -a
 * 4.2.0-30.35+
 
 See “Latest Quick Workarounds” for Docker issue #18180 on https://github.com/docker/docker/issues/18180
-
