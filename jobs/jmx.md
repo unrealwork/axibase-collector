@@ -65,10 +65,12 @@ java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 
 #### Queries
 
-Each configuration includes a list of MBean queries consisting of two parts:
+Configuration includes a list of MBean queries consisting of two parts:
 
 * [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
 * Attribute Name list
+
+The list of queries can be entered manually or by opening Viewer, expanding MBean hierarchy and choosing attributes of interest.
 
 ```
 org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
