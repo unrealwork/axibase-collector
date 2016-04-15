@@ -54,7 +54,7 @@ docker run -d -P \
 6. Rename the pool, set Server to $HOST.
 7. Click on `Default` Key Store and select docker-key-$HOST key alias.
 8. Click Test to verify connectivity and save the pool.
-8. Clone the built-in `docker-remote` job, rename it, set the target ATSD and change its HTTP pool to previous created pool.
+8. Clone the built-in `docker-remote-api-keystore` job, rename it, set the target ATSD and change its HTTP pool to previous created pool.
 9. Open Docker configuration specified in the job, and click Test to validate API queries.
 10. Check Enabled box, save the job, and click Run.
     
