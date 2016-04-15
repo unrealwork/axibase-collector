@@ -56,12 +56,12 @@ java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 
 | Field | Description |
 |:---|:---|
-| Command Type | Insert command type: SERIES, PROPERTY or BOTH. <br>If PROPERTY or BOTH is selected, property type field is set to MBean type. <br>If MBean type is null, MBean name is used for property type field. |
-| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.` |
-| Excluded Attributes | 	List of attribute names excluded from property commands, for example `DynamicDestinationProducers_*, QueueProducers_*` |
+| Command Type | Insert command type: SERIES, PROPERTY or BOTH. |
 | Metric Prefix | Common prefix added to metric names, for example `jmx.activemq.`  |
-| Series Tags | Predefined tags added to series commands |
+| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.`<br>Property type is set to MBean `type` attribute by default |
+| Excluded Attributes | 	List of attribute names excluded from property commands, for example `DynamicDestinationProducers_*, QueueProducers_*` |
 | Excluded Metrics | List of attribute names excluded from series commands, supports wildcards. |
+| Series Tags | Predefined tags added to series commands |
 
 #### Queries
 
