@@ -42,8 +42,17 @@ docker run -d -P \
 
 ##### For each remote Docker host:
 
-1. Login into Docker host via SSH and configure Docker engine API for [remote access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl).
+1. Login into Docker host via SSH and configure Docker engine API for [remote access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl),
 
+   provide your client keys, certificates and trusted CA to enable TLS by modifying file /etc/default/docker:
+   ```
+   #Set path to certificates and keys
+   DOCKER_CERT_PATH=/path/to/folder/with/certificates
+   export DOCKER_CERT_PATH
+   
+   # Use DOCKER_OPTS to modify the daemon startup options.
+   DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H tcp://0.0.0.0:2376"
+   ```
 2. Copy the following certificate files to your machine: key.pem, cert.pem, ca.pem
 
 3. Open Admin>Certificate Import page. Select Store Type: KEY, attach key.pem and cert.pem files, set Alias to docker-key-$HOST, where $HOST is the DNS name or IP address of the Docker host. Click Upload.
