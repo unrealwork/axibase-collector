@@ -68,13 +68,20 @@ java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 Each configuration includes a list of MBean queries consisting of two parts:
 
 * [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
-* Attribute Name pattern or list
+* Attribute Name list
 
 ```
 org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
 ```
 
-Object Name pattern matches all MBean instances of specified type and name. The Attribute Name pattern locates attributes of those matched MBeans whose values will be retrieved and sent to the database. List of attribute names can be specified as an alternative to Attribute Name pattern.
+Object Name pattern matches all MBean instances of specified type and name. 
+
+The Attribute Name list selects attributes whose values will be retrieved and sent to the database. Attribute Name list can include specific names as well as name patterns. 
+
+Both part of the query support wildcards:
+
+* Asterisk (*) replaces any number (including zero) of characters
+* Question mark (?) replaces any one character
 
 ##### Object Name Pattern Examples
 
@@ -83,22 +90,22 @@ Object Name pattern matches all MBean instances of specified type and name. The 
 * *:type=Foo,name=Bar,* to match names in any domain that has the keys type=Foo,name=Bar plus zero or more other keys.
 * d:type=F?o,name=Bar will match e.g. d:type=Foo,name=Bar and d:type=Fro,name=Bar.
 * d:type=F*o,name=Bar will match e.g. d:type=Fo,name=Bar and d:type=Frodo,name=Bar.
-* d:type=Foo,name="B*" will match e.g. d:type=Foo,name="Bling". Wildcards are recognized even inside quotes, and like other special characters can be escaped with \.
+* d:type=Foo,name="B*" will match e.g. d:type=Foo,name="Bling". Wildcards are recognized inside quotes and can be escaped with \.
 
 ##### Attribute Name Pattern Examples
 
 You can specify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean java.lang:*,type=GarbageCollector, specify * in the corresponding attribute selector field.
 
-| Object Name Pattern        | Attribute Name Pattern / List  |
+| Object Name Pattern        | Attribute Name List  |
 |:-------------|:-------------|
-| `java.lang:*,type=GarbageCollector` | `CollectionCount, CollectionTime, LastGcInfo.*`|
+| `java.lang:*,type=GarbageCollector` | `CollectionCount, CollectionTime`|
+| `java.lang:*,type=GarbageCollector` | `CollectionCount, LastGcInfo.*`|
 | `java.lang:type=Memory` | `HeapMemoryUsage*` |
-| `com.axibase.tsd:name=metrics` | 		`MetricsMap.*` |
 
 Special processing for PROPERTY command:
 
-- Attribute Name pattern/list is ignored for property commands. Property commands collect all attributes of the matched beans.
-- The default value for property `type` field is set to MBean type, for instanance, to `Broker` in the example above. To override the default type, enter a custom value in Property Type Column.
+- Attribute Name list is ignored for property commands since property commands collect all attributes of the matched beans.
+- The default value for property `type` field is set to MBean type, for instanance, to `Broker` in the example above. To override the default type, enter a custom value in Property Type column.
 
 ![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 
