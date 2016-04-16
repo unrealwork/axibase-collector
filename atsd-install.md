@@ -23,6 +23,13 @@ Minimum password length is 6 characters.
 
 It may take up to 5 minutes to initialize the database.
 
+## Exposed Ports
+
+* 8088 – http
+* 8443 – https
+* 8081 – [TCP network commands](https://axibase.com/atsd/api/#network-commands)
+* 8082 – [UDP network commands](https://axibase.com/atsd/api/#network-commands)
+
 ## Administrator Account
 
 As an alternative to specifying administrator credentials as part of `docker run` command, you can launch the container without `ATSD_USER` variables and configure the built-in administrative account on initial login.
