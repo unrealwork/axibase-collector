@@ -1,9 +1,8 @@
-# UPDATING AXIBASE COLLECTOR
+# Updaing Axibase Collector
 
-Execute the following steps to Axibase Collector to the latest revision:
+Follow these steps to upgrade Axibase Collector to the latest revision:
 
-* Download Axibase Collector from the URL provided by Axibase Support.
-* Copy the archive to the server where Axibase Collector is installed.
+* Download Axibase Collector `.tar.gz` archive to the server where collector is installed.
 
 * Stop collector process:
 ```sh
@@ -11,12 +10,7 @@ Execute the following steps to Axibase Collector to the latest revision:
 ```
 * Replace `./lib/axibase-collector.war` with the version contained in the archive.
 
-* Open `./bin/start-collector.sh` in editor and modify the following parameter:
+* Start collector process:
 ```sh
-COLLECTOR_CLASS="AxibaseCollector"
-```
-
-* `cd` to bin directory and start Collector with:
-```sh
-./start-collector.sh
+./bin/start-collector.sh
 ```
