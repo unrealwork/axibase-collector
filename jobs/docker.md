@@ -42,12 +42,12 @@ docker run -d -P \
 
 ##### Enable Remote API Access on Docker Hosts
 
-1. Login into Docker host via SSH and configure Docker engine API for [remote access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl).
+* Login into Docker host via SSH and configure Docker engine API for [remote access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl).
 
-2. Edit /etc/default/docker file, set `DOCKER_CERT_PATH` variable to the directory containing {ca,cert,key}.pem files and add a TCP socket option on port 2376:
+* Edit /etc/default/docker file, set `DOCKER_CERT_PATH` variable to the directory containing {ca,cert,key}.pem files and add a TCP socket option on port 2376:
 
    ```
-   # Set path to the folder containing {ca,cert,key}.pem files
+   # Set path to the folder containing {ca,server-cert,server-key}.pem files
    DOCKER_CERT_PATH=/home/docker/certificates
    export DOCKER_CERT_PATH
    
@@ -55,25 +55,25 @@ docker run -d -P \
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
-3. Verify connectivity:
+* Verify connectivity:
   
   ```sh 
-   curl https://127.0.0.1:2376/images/json \
+   curl https://127.0.0.1:2376/info \
   --cert /home/docker/certificates/cert.pem \
   --key /home/docker/certificates/key.pem \
   --cacert /home/docker/certificates/ca.pem
   ```
    
-4. Copy {ca,cert,key}.pem files to your machine.
-5. On Admin>Certificate Import page, select Store Type=KEY, attach key.pem and cert.pem files, set Alias to docker-key-$HOST, where $HOST is the DNS name or IP address of the Docker host. Click Upload.
-6. On Admin>Certificate Import page, select Store Type: TRUST, attach ca.pem file, set Alias to docker-trust-$HOST. Click Upload.
-7. Open Data Sources > HTTP Pools page and clone `docker_host`.
-8. Rename the pool, set Server to $HOST.
-9. Click on `Default` Key Store and select docker-key-$HOST key alias.
-10. Click Test to verify connectivity and save the pool.
-11. Clone the built-in `docker-remote-api-keystore` job, rename it, set the target ATSD and change its HTTP pool to previous created pool.
-12. Open Docker configuration specified in the job, and click Test to validate API queries.
-13. Check Enabled box, save the job, and click Run.
+* Copy {ca,cert,key}.pem files to your machine.
+* On Admin>Certificate Import page, select Store Type=KEY, attach key.pem and cert.pem files, set Alias to docker-key-$HOST, where $HOST is the DNS name or IP address of the Docker host. Click Upload.
+* On Admin>Certificate Import page, select Store Type: TRUST, attach ca.pem file, set Alias to docker-trust-$HOST. Click Upload.
+* Open Data Sources > HTTP Pools page and clone `docker_host`.
+* Rename the pool, set Server to $HOST.
+* Click on `Default` Key Store and select docker-key-$HOST key alias.
+* Click Test to verify connectivity and save the pool.
+* Clone the built-in `docker-remote-api-keystore` job, rename it, set the target ATSD and change its HTTP pool to previous created pool.
+* Open Docker configuration specified in the job, and click Test to validate API queries.
+* Check Enabled box, save the job, and click Run.
     
 ## Validation
 
