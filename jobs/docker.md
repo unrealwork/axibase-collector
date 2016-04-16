@@ -46,12 +46,12 @@ docker run -d -P \
 
 * Edit /etc/default/docker file
 
-   ```
+   ```properties
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
    DOCKER_CERT_PATH=/home/docker/certificates
    export DOCKER_CERT_PATH
    
-   # Add TCP socker on port 2376
+   # Add TCP socket on port 2376
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
