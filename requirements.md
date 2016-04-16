@@ -1,10 +1,11 @@
-# AXIBASE COLLECTOR REQUIREMENTS
-### Hardware
+# Axibase Collector Requirements
+
+## Hardware
 
 * Processors – 1 CPU, 2+ GHz
 * Memory – 1GB (512MB for JVM)
 
-### Operating Systems
+## Operating Systems
 
 * Ubuntu 14+
 * RedHat Enterprise Linux 6+
