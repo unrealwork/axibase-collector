@@ -1,4 +1,4 @@
-# Axibase Time Series Database Installation on Docker host
+# ATSD Installation on Docker host
 
 ## Start `axibase/atsd` Container
 
@@ -27,7 +27,7 @@ It may take up to 5 minutes to initialize the database.
 
 As an alternative to specifying administrator credentials as part of `docker run` command, you can launch the container without `ATSD_USER` variables and configure the built-in administrative account on initial login.
 
-We recommend creating a separate [collector](collector-aacount.md) account for integration tasks.
+We recommend creating a separate [collector](collector-account.md) account for integration tasks.
 
 ## Known Issues
 
