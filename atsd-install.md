@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* [Docker Engine](https://docs.docker.com/engine/installation/) 1.6+.
+* [Docker Engine](https://docs.docker.com/engine/installation/) 1.7+.
 
 ## Build References
 
