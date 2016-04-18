@@ -2,9 +2,8 @@
 
 ## Prerequisites
 
-Start [Axibase Time-Series Database container](../atsd-install.md). 
-
-This ATSD instance will serve as a central repository for container properties, events, and statistics.
+* Docker Engine v1.7+ to collect container properties, events, and statistics.
+* [Axibase Time-Series Database container](../atsd-install.md) as a centralized repository for data collected from multiple Docker hosts.
 
 ## Installation
 
