@@ -41,7 +41,7 @@ docker run -d -P \
 
 ##### Enable Remote API Access on Docker Hosts
 
-* Login into each Docker host via SSH and enable Docker Enginefor [remote API access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl).
+* Login into each Docker host via SSH and enable Docker Engine for [remote API access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl).
 
 * Edit /etc/default/docker file
 
