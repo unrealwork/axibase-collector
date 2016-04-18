@@ -30,9 +30,9 @@ It may take up to 5 minutes to initialize the database.
 * 8081 – [TCP network commands](https://axibase.com/atsd/api/#network-commands)
 * 8082 – [UDP network commands](https://axibase.com/atsd/api/#network-commands)
 
-## Administrator Account
+## Built-in User Accounts
 
-As an alternative to specifying collector user credentials as part of `docker run` command, you can launch the container without `ATSD_USER` variables and configure the built-in accounts on initial login.
+As an alternative to specifying collector user credentials as part of `docker run` command, you can launch the container without `ATSD_USER_{NAME, PASSWORD}` variables and configure the built-in accounts on initial login.
 
 We recommend using a separate [collector](collector-account.md) user account for integration tasks.
 
