@@ -13,7 +13,7 @@ For Docker installation steps see [Docker official website](https://docs.docker.
 ## Launch
 
 ```properties
-docker run \ 
+docker run \
  --detach \
  --publish-all \
  --name=axibase-collector \
