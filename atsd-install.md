@@ -4,12 +4,14 @@
 
 * [Docker Engine](https://docs.docker.com/engine/installation/) 1.7+.
 
-## Build References
+## Container References
 
 * [Dockerfile](https://github.com/axibase/dockers/blob/master/atsd/Dockerfile)
 * [Docker Hub](https://hub.docker.com/r/axibase/atsd/)
 
 ## Start `axibase/atsd:latest` Container
+
+Replace `${collector-user}` and `${collector-password}` with new credentials for a built-in [collector account](collector-account.md) that will be created automatically. Minimum password length is 6 characters.
 
 ```properties
 docker run \
@@ -28,8 +30,6 @@ docker run \
   axibase/atsd:latest \
   tail -f /opt/atsd/atsd/logs/start.log
 ```
-
-Replace `${collector-user}` and `${collector-password}` with valid credentials for the built-in [collector user](collector-account.md) with data write permissions.
 
 It may take up to 5 minutes to initialize the database.
 
