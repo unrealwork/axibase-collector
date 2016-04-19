@@ -15,25 +15,40 @@ Run Axibase Collector container on each Docker host locally. It will gather stat
 - Start Axibase Collector container:
 
 ```properties
-docker run -d -P \
+docker run \
+   --detach \
+   --publish-all \
    --name=axibase-collector \
-   -v /var/run/docker.sock:/var/run/docker.sock \
+   --restart=always \
+   --volume /var/run/docker.sock:/var/run/docker.sock \
   axibase/collector \
    -atsd-url=https://atsd_user:atsd_password@atsd_host:8443 \
    -job-enable=docker-socket
 ```
 
+It may take up to 5 minute to initialize the application on first start.
+
 The Docker job should start executing immediately, even if collector user has not been created. 
 
-- Optionally, set auto-restart policy for the container if the Docker engine version supports this option `--restart-always=true`.
-- On hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from `/var/run/docker.sock`. Switch to Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
+> On hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from  `/var/run/docker.sock`. Switch to Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
+
+## Launch Parameters
+
+**Name** | **Required** | **Description**
+----- | ----- | -----
+`--detach` | Yes | Run container in background and print container id.
+`--name` | Yes | Assign a host-unique name to the container.
+`--restart` | No | Auto-restart policy. _Not supported in all Docker Engine versions._
+`--publish-all` | No | Publish all exposed ports to random ports
 
 #### Remote Collection
 
 ##### Launch Axibase Collector container
 
 ```properties
-docker run -d -P \
+docker run \
+   --detach \
+   --publish-all \
    --name=axibase-collector \
   axibase/collector \
    -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
@@ -56,7 +71,7 @@ docker run -d -P \
    
 * Verify connectivity where $HOST is the DNS name or IP address of the Docker host
   
-  ```sh 
+  ```properties 
    curl https://$HOST:2376/info \
   --cert /home/docker/certificates/cert.pem \
   --key /home/docker/certificates/key.pem \
