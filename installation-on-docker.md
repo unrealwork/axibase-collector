@@ -13,28 +13,34 @@ For Docker installation steps see [Docker official website](https://docs.docker.
 ## Launch
 
 ```properties
-docker run -d -P \
---name="axibase-collector" \
-axibase/collector
+docker run 
+ --detach \
+ --publish-all \
+ --name=axibase-collector \
+ axibase/collector
 ```
 
 To automatically configure Axibase Time Series Database connection add `-atsd-url` parameter:
 
 ```properties
-docker run -d -P \
-   --name=axibase-collector \
-  axibase/collector \
-   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
+docker run \
+  --detach \
+  --publish-all \
+  --name=axibase-collector \
+ axibase/collector \
+  -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
 ```
 
 Optionally, add restart policy if the Docker engine version supports option `--restart-always=true`:
 
 ```properties
-docker run -d -P \
-   --name=axibase-collector \
-   --restart-always=true \
-  axibase/collector \
-   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
+docker run \
+  --detach \
+  --publish-all \
+  --name=axibase-collector \
+  --restart-always=true \
+ axibase/collector \
+  -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
 ```
 
 If the collector container is launched to monitor local Docker host, mount Unix socket as described [here](/jobs/docker.md#local-collection).  
