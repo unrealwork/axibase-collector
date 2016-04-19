@@ -37,7 +37,7 @@ It may take up to 5 minutes to initialize the database.
 docker logs -f atsd
 ```
 
-You should see **All steps completed** message at the end of the start.log.
+You should see _ATSD start completed_ message at the end of the start.log.
 
 ## Launch Parameters
 
