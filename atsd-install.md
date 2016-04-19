@@ -1,15 +1,16 @@
 # ATSD Installation on Docker host
 
-## Requirements
+## Host Requirements
 
 * [Docker Engine](https://docs.docker.com/engine/installation/) 1.7+.
 
-## Container References
+## Image Information
 
+* Image name: `axibase/atsd:latest`
 * [Dockerfile](https://github.com/axibase/dockers/blob/master/atsd/Dockerfile)
 * [Docker Hub](https://hub.docker.com/r/axibase/atsd/)
 
-## Start `axibase/atsd:latest` Container
+## Start Container
 
 Replace `${collector-user}` and `${collector-password}` with new credentials for a built-in [collector account](collector-account.md) that will be created automatically. Minimum password length is 6 characters.
 
@@ -31,7 +32,7 @@ docker run \
   tail -f /opt/atsd/atsd/logs/start.log
 ```
 
-It may take up to 5 minutes to initialize the database.
+It may take up to 5 minutes to initialize the database. You should see **All steps completed** message at the end of the start.log.
 
 ## Launch Parameters
 
@@ -55,7 +56,7 @@ If `ATSD_USER_{NAME, PASSWORD}` credentials are specified as part of `docker run
 * 8443 – https
 * 8081 – [TCP network commands](https://axibase.com/atsd/api/#network-commands)
 * 8082 – [UDP network commands](https://axibase.com/atsd/api/#network-commands)
-* 
+
 ## Port Mappings
 
 Depending on your Docker host network configuration, you may need to change port mappings for the container in case some of the exposed ports are already taken.
