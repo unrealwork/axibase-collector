@@ -19,7 +19,6 @@ The JMX job can have one or multiple JMX configurations each describing connecti
 | Port | JMX service port.  |
 | User Name | 	JMX username. |
 | Password | JMX password. |
-| Entity | Entity name under which the data will be stored. |
 | Service Name | 	JMX service username. The default service name is `jmxrmi`. |
 
 Connection parameters should correspond to `com.sun.management.jmxremote` settings specified by the target Java application.
@@ -42,26 +41,31 @@ Add hostname to /etc/hosts file on the collector machine in case of UnknownHostE
 Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: NURSWGVML011; nested exception is:  	java.net.UnknownHostException: NURSWGVML011]
 ```
 
-> By default, entity name is set to Host field. However, you can override entity name in case the DNS hostname is different from the short hostname on which the Java application is running. 
+## Query Parameters
 
-> In addition, entity name can be retrieved dynamically with a composite MBean expression (`mbean>attribute`), for example:
+| Field | Description |
+|:---|:---|
+| Entity | Entity name under which the data will be stored. |
+| Command Type | Insert command type: SERIES, PROPERTY or BOTH. |
+| Metric Prefix | Common prefix added to metric names, for example `jmx.activemq.`  |
+| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.`<br>Property type is set to MBean `type` attribute by default |
+| Excluded Property Attributes | List of attribute names excluded from property commands.  |
+| Excluded Series Attributes | List of attribute names excluded from series commands. |
+| Series Tags | Pre-defined tags added to series commands. |
+
+> Excluded Property and Series Attributes support '*' wildcards, for example: `DynamicDestinationProducers_*, QueueProducers_*`.
+
+#### Entity Name
+
+If not specified, entity name is set to the value of the Host field. You can override it, for example, if Host field contains DNS hostname whereas you need to collect data under a short hostname of the server where Java application is running.
+
+In addition, entity name can be retrieved dynamically by specifying MBean Object Name followed by `>` and attribute name (`mbean>attribute`), for example:
 
 ```
 java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 ```
 
-> If the composite expression fails to produce a value, for example if bean or attribute is not found, the entity name will be set to Host field. If the composite expression retrieves a value sucessfully, it will be stored in Axibase Collector database and will be re-used in case of connection error.
-
-## Query Parameters
-
-| Field | Description |
-|:---|:---|
-| Command Type | Insert command type: SERIES, PROPERTY or BOTH. |
-| Metric Prefix | Common prefix added to metric names, for example `jmx.activemq.`  |
-| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.`<br>Property type is set to MBean `type` attribute by default |
-| Excluded Attributes | 	List of attribute names excluded from property commands, for example `DynamicDestinationProducers_*, QueueProducers_*` |
-| Excluded Metrics | List of attribute names excluded from series commands, supports wildcards. |
-| Series Tags | Predefined tags added to series commands |
+> If the entity name query fails to provide a value, for example, if bean or attribute is not found, the entity name will be set to Host field. If the composite expression retrieves a value successfully, it will be stored in Axibase Collector database and will be re-used in case of subsequent connection errors.
 
 #### Queries
 
