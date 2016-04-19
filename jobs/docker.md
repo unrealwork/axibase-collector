@@ -88,9 +88,46 @@ docker run \
 ## Validation
 
 Login into ATSD and verify that connected Docker hosts are displayed on Entities: Docker Hosts page.
+
 If the Docker host is missing in ATSD, open Jobs page in Collector, check **Result** column and review **Execution Details** page for any errors.
 
-## Testing
+## Container Launch Troubleshooting
+
+```sh
+docker exec -it axibase-collector tail -f /opt/axibase-collector/logs/axibase-collector.log
+```
+
+The following message indicates that initial configuration is finished:
+
+> FrameworkServlet 'dispatcher': initialization completed.
+
+## UI
+
+Check https port that is assigned to collector and open it in your browser: https://container-ip:port
+
+```sh
+docker ps | grep axibase-collector
+```
+
+Locate **docker-socket** job on the Jobs list and check that it's enabled and `Items Read` is not 0.
+
+## Known Issues
+
+If Axibase Collector fails to start, verify that your Docker host runs on a supported kernel level.
+
+```sh
+uname -a
+```
+
+* 3.13.0-79.123+
+* 3.19.0-51.57+
+* 4.2.0-30.35+
+
+See “Latest Quick Workarounds” for Docker issue #18180 on https://github.com/docker/docker/issues/18180
+
+===
+
+## Launching Linked Containers with docker-compose
 
 You can launch linked ATSD and Axibase Collector containers on the same Docker host with docker-compose. 
 There are two alternatives for passing common parameters to both containers:
@@ -200,37 +237,3 @@ Launch containers:
 ```sh
 docker-compose up
 ```
-
-## Container Launch Troubleshooting
-
-```sh
-docker exec -it axibase-collector tail -f /opt/axibase-collector/logs/axibase-collector.log
-```
-
-The following message indicates that initial configuration is finished:
-
-> FrameworkServlet 'dispatcher': initialization completed.
-
-## UI
-
-Check https port that is assigned to collector and open it in your browser: https://container-ip:port
-
-```sh
-docker ps | grep axibase-collector
-```
-
-Locate **docker-socket** job on the Jobs list and check that it's enabled and `Items Read` is not 0.
-
-## Known Issues
-
-If Axibase Collector fails to start, verify that your Docker host runs on a supported kernel level.
-
-```sh
-uname -a
-```
-
-* 3.13.0-79.123+
-* 3.19.0-51.57+
-* 4.2.0-30.35+
-
-See “Latest Quick Workarounds” for Docker issue #18180 on https://github.com/docker/docker/issues/18180
