@@ -46,7 +46,7 @@ docker run \
 If the collector container is launched to monitor local Docker host, mount Unix socket as described [here](/jobs/docker.md#local-collection).  
 
 
-## Check
+## Check Installation
 
 ```sh
 docker exec -it axibase-collector tail -f /opt/axibase-collector/logs/axibase-collector.log
@@ -64,9 +64,14 @@ This message indicates that initial configuration is complete.
 docker ps | grep axibase-collector
 ```
 
-Take note of the public port assigned to axibase-collector container.
+```
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
+ee15099d9f88        axibase/collector   "/bin/bash /opt/axiba"   33 seconds ago      Up 32 seconds       0.0.0.0:32769->9443/tcp   axibase-collector
+```
 
-Enter `https://ip_address:public_port` to access the web interface and to setup administrator account.
+Take note of the public port assigned to axibase-collector container, e.g. 32769 in the example above.
+
+Enter `https://docker_hostname:public_port` to access the web interface and to setup administrator account.
 
 ## Troubleshooting
 
