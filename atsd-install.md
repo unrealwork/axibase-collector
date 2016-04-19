@@ -73,7 +73,7 @@ docker run \
   --detach \
   --hostname=atsd \
   --name=atsd \
-  --restart=always \  
+  --restart=always \
   --publish 9088:8088 \
   --publish 9443:8443 \
   --publish 9081:8081 \
