@@ -32,7 +32,7 @@ The Docker job should start executing immediately, even if collector user has no
 
 > On hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from  `/var/run/docker.sock`. Switch to Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
 
-## Launch Parameters
+##### Launch Parameters
 
 **Name** | **Required** | **Description**
 ----- | ----- | -----
@@ -62,36 +62,33 @@ docker run \
 
    ```properties
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
-   DOCKER_CERT_PATH=/home/docker/certificates
+   DOCKER_CERT_PATH=/home/ubuntu/certs
    export DOCKER_CERT_PATH
    
    # Add TCP socket on port 2376
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
-* Verify connectivity where $HOST is the DNS name or IP address of the Docker host
+* Verify connectivity:
   
   ```properties 
-   curl https://$HOST:2376/info \
+   curl https://127.0.0.1:2376/info \
   --cert /home/docker/certificates/cert.pem \
   --key /home/docker/certificates/key.pem \
   --cacert /home/docker/certificates/ca.pem
   ```
    
 * Copy {ca,cert,key}.pem files to your machine.
-* Login into ATSD. On **Admin>Certificate Import** page, select Store Type=KEY, attach key.pem and cert.pem files, set Alias to docker-key-$HOST. Click Upload.
-* On **Admin>Certificate Import** page, select Store Type: TRUST, attach ca.pem file, set Alias to docker-trust-$HOST. Click Upload.
-* Open **Data Sources>HTTP Pools** page and clone `docker_host`.
-* Rename the pool, set Server to $HOST value.
-* Click on `Default` Key Store and select docker-key-$HOST key alias.
-* Click Test to verify connectivity and save the pool.
-* Clone the built-in `docker-remote-api-keystore` job, rename it, set the target ATSD and change its HTTP pool to previous created pool.
-* Open Docker configuration specified in the job, and click Test to validate API queries.
-* Check Enabled box, save the job, and click Run.
+* Login into Axibase Collector. 
+* Open **Jobs:Docker:Add Job** page and enter job name. Click **Enabled** to enable the job.
+* Modify cron expression, by the default the job will be executed every minute. To execute the job every 15 seconds, enter `0/15 * * * * ?`. Click Save.
+* Click **Use Wizard** button, specify Docker Engine hostname, API port (2376) and attach {cert,key,ca}.pem files.
+* Click Validate and Save the job if the test is successfull.
     
 ## Validation
 
-Login into ATSD and verify that the Docker host is displayed on Entities: Docker Hosts page.
+Login into ATSD and verify that connected Docker hosts are displayed on Entities: Docker Hosts page.
+If the Docker host is missing in ATSD, open Jobs page in Collector, check **Result** column and review **Execution Details** page for any errors.
 
 ## Testing
 
@@ -204,7 +201,7 @@ Launch containers:
 docker-compose up
 ```
 
-## Troubleshooting
+## Container Launch Troubleshooting
 
 ```sh
 docker exec -it axibase-collector tail -f /opt/axibase-collector/logs/axibase-collector.log
