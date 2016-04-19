@@ -31,14 +31,14 @@ docker run \
   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
 ```
 
-Optionally, add restart policy if the Docker engine version supports option `--restart-always=true`:
+Optionally, add restart policy if the Docker engine version supports option `--restart`:
 
 ```properties
 docker run \
   --detach \
   --publish-all \
   --name=axibase-collector \
-  --restart-always=true \
+  --restart=always \
  axibase/collector \
   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
 ```
