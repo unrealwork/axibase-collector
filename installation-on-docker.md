@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Docker version 1.6+.
+Docker version 1.7+.
 For Docker installation steps see [Docker official website](https://docs.docker.com/engine/installation/).
 
 ## Resources
@@ -13,7 +13,7 @@ For Docker installation steps see [Docker official website](https://docs.docker.
 ## Launch
 
 ```properties
-docker run 
+docker run \ 
  --detach \
  --publish-all \
  --name=axibase-collector \
