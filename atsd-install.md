@@ -21,7 +21,7 @@ docker run \
   --tty \
   --hostname=atsd \
   --name=atsd \
-  --restart=always \  
+  --restart=always \
   --publish 8088:8088 \
   --publish 8443:8443 \
   --publish 8081:8081 \
