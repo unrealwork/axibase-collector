@@ -45,7 +45,7 @@ You should see _ATSD start completed_ message at the end of the start.log.
 ----- | ----- | -----
 `--detach` | Yes | Run container in background and print container id.
 `--hostname` | No | Assign hostname to the container.
-`--name` | Yes | Assign a host-unique name to the container.
+`--name` | Yes | Assign a unique name to the container.
 `--restart` | No | Auto-restart policy. _Not supported in all Docker Engine versions._
 `--publish` | No | Publish a container's port to the host
 `--env ATSD_USER_NAME` | No | Username for the built-in collection account
