@@ -39,7 +39,7 @@ The Docker job should start executing immediately, even if collector user has no
 **Name** | **Required** | **Description**
 ----- | ----- | -----
 `--detach` | Yes | Run container in background and print container id.
-`--name` | Yes | Assign a host-unique name to the container.
+`--name` | No | Assign a host-unique name to the container.
 `--restart` | No | Auto-restart policy. _Not supported in all Docker Engine versions._
 `--publish-all` | No | Publish all exposed ports to random ports
 
