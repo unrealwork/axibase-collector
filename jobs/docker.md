@@ -18,8 +18,8 @@ Run Axibase Collector container on each Docker host locally. It will gather stat
 docker run \
    --detach \
    --publish-all \
+   --restart=always \   
    --name=axibase-collector \
-   --restart=always \
    --volume /var/run/docker.sock:/var/run/docker.sock \
   axibase/collector \
    -atsd-url=https://atsd_user:atsd_password@atsd_host:8443 \
@@ -43,17 +43,6 @@ The Docker job should start executing immediately, even if collector user has no
 
 #### Remote Collection
 
-##### Launch Axibase Collector container
-
-```properties
-docker run \
-   --detach \
-   --publish-all \
-   --name=axibase-collector \
-  axibase/collector \
-   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
-```
-
 ##### Enable Remote API Access on Docker Hosts
 
 * Login into each Docker host via SSH and enable Docker Engine for [remote API access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl).
@@ -69,7 +58,7 @@ docker run \
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
-* Verify connectivity:
+* Verify connectivity
   
   ```properties 
    curl https://127.0.0.1:2376/info \
@@ -79,6 +68,18 @@ docker run \
   ```
    
 * Copy {ca,cert,key}.pem files to your machine.
+* 
+* Start Axibase Collector container.
+
+```properties
+docker run \
+   --detach \
+   --publish-all \
+   --name=axibase-collector \
+  axibase/collector \
+   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
+```
+
 * Login into Axibase Collector. 
 * Open **Jobs:Docker:Add Job** page and enter job name. Click **Enabled** to enable the job.
 * Modify cron expression, by the default the job will be executed every minute. To execute the job every 15 seconds, enter `0/15 * * * * ?`. Click Save.
