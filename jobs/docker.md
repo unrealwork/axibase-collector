@@ -141,4 +141,4 @@ See “Latest Quick Workarounds” for Docker issue #18180 on https://github.com
 
 ## Testing and Evaluating
 
-You can launch both **atsd** and **axibase-collector** containers in a test environment using [`docker-compose`](docker-compose.md)
+You can launch both **atsd** and **axibase-collector** containers in a [test environment](docker-compose.md) using  `docker-compose`
