@@ -68,7 +68,7 @@ The Docker job should start executing immediately, even if collector user has no
   ```
    
 * Copy {ca,cert,key}.pem files to your machine.
-* 
+
 * Start Axibase Collector container.
 
 ```properties
