@@ -82,9 +82,9 @@ Open https://hostname:9443 in your browser and [configure](configure-administrat
 
 ## Setup ATSD connection
 
-Configure Axibase Collector to send data into Axibase Time Series Database
+Configure Axibase Collector to send data into an Axibase Time Series Database instance.
 
-*   [Configure ATSD connection](https://axibase.com/products/axibase-time-series-database/writing-data/collector/axibase-collector-connect-to-atsd/)
+*   [ATSD Server connection](atsd-server-connection.md)
 
 ## Stoping Axibase Collector
 
