@@ -59,7 +59,11 @@ The result should be as shown on the image below:
 
 #### Setup JMX user credentials
 
-Change to ./conf directory. Add/edit files as follows:
+Change to ./conf directory. 
+
+Add/edit jmx.access and jmx.password file as follows. 
+
+Make sure the owner of these files is the same as ActiveMQ user.
 
 jmx.access:
 
@@ -80,7 +84,7 @@ monitorRole abc123
 Secure access to jmx.password file by restricting permissions: 
 
 ```sh
-chmod 600 ./conf/jmx.password
+chmod -v 0600 ./conf/jmx.password
 ```
 
 #### Restart ActiveMQ server.
