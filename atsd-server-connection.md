@@ -7,16 +7,16 @@ Axibase Collector needs to have at least one ATSD server connection to function 
 
 ## HTTP Connection Pool
 
-Since Axibase Collector transmits data into ATSD using http/s protocol you need to configure an HTTP connection pool by specifying connection properties as well as timeout and usage settings.
+Since Axibase Collector transmits data into ATSD using http/s protocol you need to configure an HTTP connection pool by specifying connection properties as well as timeout and limit settings.
 
-* Open **Data Sources:HTTP Pools:Add** form
-* Specify pool name
-* Set target ATSD connection parameters: hostname/IP address; port (8443); https protocol
+* Open **Data Sources:HTTP Pools:Add** form.
+* Enter a pool name.
+* Set connection parameters to the target ATSD instance: hostname/IP address; port (8443); https protocol.
 * Check 'Ignore SSL Certificate Errors' to ignore certificate errors if ATSD certificate is self-signed.
-* Apply connection limits using recommended values below
-* Select Authentication Type=BASIC, set Test Path to `/ping`, and enter ATSD user credentials. Make sure that this user has roles API_DATA_WRITE and API_META_WRITE and 'All Access: Write' permission. We recommend usign a dedicated [collector account](collector-account.md).
+* Apply connection limits using [recommended settings](#recommended-pool-settings) below.
+* Select Authentication Type=BASIC, set Test Path to `/ping`, and enter ATSD user credentials. Make sure that this user has roles API_DATA_WRITE and API_META_WRITE as well as 'All Access: Write' permission. We recommend usign a dedicated [collector account](collector-account.md).
 
-### Test HTTP Pool
+#### Test HTTP Pool
 
 Click Test to verify the settings:
 
@@ -24,7 +24,7 @@ Click Test to verify the settings:
 - Response code is 401 if credentials are not valid.
 - Response code is 403 if the specified user is not authorized to access the specified Test Path.
 
-### Recommended Pool Settings
+#### Recommended Pool Settings
 
 **Setting** | **Value**
 ----- | ----- | -----
@@ -38,7 +38,7 @@ Socket Linger | 0
 Socket Reuse | true
 Socket Keep-Alive | true
 
-### ATSD HTTP Pool Configuration Example
+#### ATSD HTTP Pool Configuration Example
 
 ![ATSD HTTP Pool](atsd_pool.png)
 
