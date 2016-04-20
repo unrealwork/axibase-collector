@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-* [Docker Engine v1.7+](https://www.docker.com/products/docker-engine) to collect container properties, events, and statistics.
+* [Docker Engine v1.7+](https://docs.docker.com/engine/installation/) to collect container properties, events, and statistics.
 * [Axibase Time-Series Database](../atsd-install.md) container as a centralized metrics store and rule engine.
 
 ## Installation
