@@ -35,7 +35,7 @@ The Collector supports commonly used data exchange protocols including JDBC, SNM
 * [JMX](jobs/jmx.md)
 * [JSON](jobs/json.md)
 * [OVPM](jobs/ovpm.md)
-* [SNMP](jobs/smnp.md)
+* [SNMP](jobs/snmp.md)
 * [TCP](jobs/tcp.MD)
 
 
