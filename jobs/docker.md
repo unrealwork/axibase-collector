@@ -34,6 +34,8 @@ The Docker job should start executing immediately, even if collector user has no
 
 > On hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from  `/var/run/docker.sock`. Switch to Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
 
+
+
 ##### Launch Parameters
 
 **Name** | **Required** | **Description**
@@ -51,7 +53,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 ##### Enable Remote API Access on Docker Hosts
 
-* Login into each Docker host via SSH and enable Docker Engine for [remote API access](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl).
+* Login into each Docker host via SSH and generate [client and server certificates](docker-certificates.md).
 
 * Edit /etc/default/docker file
 
@@ -86,9 +88,14 @@ docker run \
    -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
 ```
 
-* Login into Axibase Collector. 
-* Open **Jobs:Docker:Add Job** page and enter job name. Click **Enabled** to enable the job.
-* Modify cron expression, by the default the job will be executed every minute. To execute the job every 15 seconds, enter `0/15 * * * * ?`. Click Save.
+* Find https port assigned to `axibase-collector` container. 
+
+```sh
+docker ps -a | grep axibase-collector
+```
+
+* Login into Axibase Collector web interface at https://hostname:port
+* Open **Jobs:Docker:Add Job** page and enter job name. Click **Enabled** to enable the job. Click Save.
 * Click **Use Wizard** button, specify Docker Engine hostname, API port (2376) and attach {cert,key,ca}.pem files.
 * Click Validate and Save the job if the test is successfull.
     
