@@ -73,7 +73,7 @@ ee15099d9f88        axibase/collector   "/bin/bash /opt/axiba"   33 seconds ago 
 
 Take note of the public port assigned to axibase-collector container, e.g. **32769** in the example above.
 
-Enter `https://docker_hostname:public_port` to access the web interface and to setup administrator account.
+Enter `https://docker_hostname:public_port` to access the web interface and to setup an [administrator account](configure-administrator-account.md).
 
 ## Troubleshooting
 
