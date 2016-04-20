@@ -1,29 +1,29 @@
 # Docker Certificates
 
-Protecting the Docker daemon socket
+Protecting the Docker daemon socket with OpenSSL.
+Make sure you replace `$HOST` in the following examples with the DNS name of the target Docker host.
 
 > Credit: https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl
 
-## Create a CA, server and client keys with OpenSSL
-
-Replace `$HOST` in the following example with the DNS name of your Docker daemon's host.
-
-First generate CA private and public keys:
+## Generate private and public keys for a CA (Certificate Authority)
 
 ```sh
 openssl genrsa -aes256 -out ca-key.pem 4096
 ```
 
-> Use the same pass phrase for these tasks.
+Generate a certificate request using the pass phrase for ca-key.pem.
 
 ```sh
 openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
 ```
 
-> Set Common Name to DNS name of the Docker host:$HOST
+Set Common Name to DNS name of the Docker host:$HOST
 
-Now that we have a CA, create a server key and certificate signing request (CSR). 
-Make sure that "Common Name" matches the hostname used to connect to Docker:
+```
+Common Name (e.g. server FQDN or YOUR name) []:$HOST
+```
+
+## Create a server key and certificate signing request (CSR). 
 
 ```sh
 openssl genrsa -out server-key.pem 4096
@@ -33,7 +33,7 @@ openssl genrsa -out server-key.pem 4096
 openssl req -subj "/CN=$HOST" -sha256 -new -key server-key.pem -out server.csr
 ```
 
-Next, sign the public key with our CA:
+## Sign the public key with our CA:
 
 Since TLS connections can be made via IP address as well as DNS name, they need
 to be specified when creating the certificate. For example, to allow connections
@@ -48,7 +48,7 @@ openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem 
       -CAcreateserial -out server-cert.pem -extfile extfile.cnf
 ```
 
-For client authentication, create a client key and certificate signing request:
+## Create a client key and certificate signing request for client authentication
 
 ```
 openssl genrsa -out key.pem 4096
@@ -78,6 +78,8 @@ two certificate signing requests:
 ```
 rm -v client.csr server.csr
 ```
+
+## Set permissions to private keys
 
 With a default `umask` of 022, your secret keys will be *world-readable* and
 writable for you and your group.
