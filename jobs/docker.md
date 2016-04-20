@@ -53,7 +53,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 ##### Enable Remote API Access on Docker Hosts
 
-* Login into each Docker host via SSH and generate [client and server certificates](docker-certificates.md).
+* Login into Docker host via SSH and generate [client and server certificates](docker-certificates.md).
 
 * Edit /etc/default/docker file
 
