@@ -11,6 +11,8 @@
 
 Run Axibase Collector container on each Docker host locally. It will gather statistics from the Docker engine API exposed locally on Unix socket at [/var/run/docker.sock](https://docs.docker.com/engine/reference/api/docker_remote_api/)
 
+![Local Collection](docker-local.png)
+
 - Replace `atsd_host`, `atsd_user`, and `atsd_password` with ATSD hostname and user credentials below.
 - Start Axibase Collector container:
 
@@ -42,6 +44,10 @@ The Docker job should start executing immediately, even if collector user has no
 `--publish-all` | No | Publish all exposed ports to random ports
 
 #### Remote Collection
+
+In remote collection mode Axibase Collector fetches data from multiple remote Docker hosts using https protocol.  
+
+![Local Collection](docker-remote.png)
 
 ##### Enable Remote API Access on Docker Hosts
 
@@ -125,3 +131,7 @@ uname -a
 * 4.2.0-30.35+
 
 See “Latest Quick Workarounds” for Docker issue #18180 on https://github.com/docker/docker/issues/18180
+
+## Testing and Evaluating
+
+You can launch both **atsd** and **axibase-collector** containers in a test environment using [`docker-compose`](docker-compose.md)
