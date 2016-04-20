@@ -24,7 +24,7 @@ Click Test to verify the settings:
 - Response code is 401 if credentials are not valid.
 - Response code is 403 if the specified user is not authorized to access the specified Test Path.
 
-### Recommended Pool Settings for ATSD HTTP Pool
+### Recommended Pool Settings
 
 **Setting** | **Value**
 ----- | ----- | -----
