@@ -55,7 +55,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Login into Docker host via SSH and generate [client and server certificates](docker-certificates.md).
 
-* Edit /etc/default/docker file
+* Configure Docker daemon for secure access by default. Edit /etc/default/docker file
 
    ```properties
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
