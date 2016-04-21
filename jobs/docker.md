@@ -69,7 +69,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 * Restart Docker daemon
 
 ```sh
-service docker restart
+sudo service docker restart
 ```
    
 * Verify connectivity
