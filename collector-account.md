@@ -1,7 +1,10 @@
 # Collector Account
 
-Follow these steps to create a separate user account (`collector` account) with limited permissions.
-We recommend that you use `collector` credentials instead of administrator's for all data collection tasks.
+We recommend creating a separate `collector` user account with limited permissions for data collection tasks. This account can be used in all clients, including Axibase Collector, when sending data into ATSD.
+
+![Collector Account](https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/collector_user.png)
+
+Follow these steps to create `collector` account in ATSD:
 
 * Login into ATSD as administrator
 * Open **Admin>Users>User Groups>Create** page and create `collectors` group with **[All Entities] Write** permission.
