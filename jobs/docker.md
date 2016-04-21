@@ -76,9 +76,9 @@ service docker restart
   
   ```properties 
    curl https://127.0.0.1:2376/info \
-  --cert /home/docker/certificates/cert.pem \
-  --key /home/docker/certificates/key.pem \
-  --cacert /home/docker/certificates/ca.pem
+  --cert /home/ubuntu/certs/cert.pem \
+  --key /home/ubuntu/certs/key.pem \
+  --cacert /home/ubuntu/certs/ca.pem
   ```
    
 * Copy {ca,cert,key}.pem files to your machine.
