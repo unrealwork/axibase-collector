@@ -2,7 +2,7 @@
 
 We recommend creating a separate `collector` user account with limited permissions for data collection tasks. This account can be used in all clients, including Axibase Collector, when sending data into ATSD.
 
-![Collector Account](https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/collector_user.png)
+![Collector Account](collector_user.png)
 
 Follow these steps to create `collector` account in ATSD:
 
