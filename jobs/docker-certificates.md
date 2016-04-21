@@ -26,10 +26,18 @@ Generate a certificate request using the pass phrase for ca-key.pem.
 openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
 ```
 
-Set Common Name to DNS name of the Docker host:$HOST
+Fill out the fields.
 
-```
+Make sure you set Common Name to DNS name of the Docker host:$HOST
+
+```properties
+Country Name (2 letter code) [AU]:US
+State or Province Name (full name) [Some-State]:CA
+Locality Name (eg, city) []:Cupertino
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:MyCompany
+Organizational Unit Name (eg, section) []:
 Common Name (e.g. server FQDN or YOUR name) []:$HOST
+Email Address []:
 ```
 
 ## Create a server key and certificate signing request (CSR). 
