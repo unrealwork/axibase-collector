@@ -1,7 +1,7 @@
 # Docker Certificates
 
 Protecting the Docker daemon socket with OpenSSL.
-Make sure you replace `$HOST` in the following examples with the DNS name of the target Docker host.
+Make sure you replace **`$HOST`** in the following examples with the DNS name of the target Docker host.
 
 > Credit: https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl
 
@@ -28,7 +28,7 @@ openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
 
 Fill out the fields.
 
-Make sure you set Common Name to DNS name of the Docker host:$HOST
+Make sure you set Common Name to DNS name of the Docker host: **`$HOST`**
 
 ```properties
 Country Name (2 letter code) [AU]:US
