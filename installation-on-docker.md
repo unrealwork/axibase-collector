@@ -105,4 +105,4 @@ uname -a
 * 3.19.0-51.57+ 
 * 4.2.0-30.35+ 
 
-See "Latest Quick Workarounds" for Docker issue [#18180](https://github.com/docker/docker/issues/18180).
+See "Latest Quick Workarounds" for Docker issue [#18180](https://github.com/docker/docker/issues/18180#issuecomment-193708192).
