@@ -66,6 +66,12 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
+* Restart Docker daemon
+
+```sh
+service docker restart
+```
+   
 * Verify connectivity
   
   ```properties 
