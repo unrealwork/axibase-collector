@@ -7,6 +7,15 @@ Make sure you replace `$HOST` in the following examples with the DNS name of the
 
 ## Generate private and public keys for a CA (Certificate Authority)
 
+Create a directory for certificate files.
+
+```
+mkdir /home/ubuntu/certs
+cd /home/ubuntu/certs
+```
+
+Generate private key
+
 ```sh
 openssl genrsa -aes256 -out ca-key.pem 4096
 ```
