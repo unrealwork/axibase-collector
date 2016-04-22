@@ -128,11 +128,16 @@ Select a checkbox next to an attribute name to add to the list of collected attr
 
 ![JMX Viewer](https://axibase.com/wp-content/uploads/2014/06/jmx_viewer.png)
 
-## Troubleshooting
+## Ignored MBean Attributes
 
-The JMX job ignores MBean attributes that raise an error when retrieving the value, for instance, if the attribute cannot be serialized or unmarshalled. For such attributes the Viewer displays empty values whereas series and properties commands ignore them from being sent to ATSD.
+The following MBean attributes are ignored from Viewer and commands:
 
-To view MBean attributes ignored due to an error, enable debugging for **MBeansInfoExtractor** class:
+* Attribute value cannot be obtained due to a processing error: <br>- UnsupportedOperationException<br>- UnmarshalException<br>- ReflectionException<br>- RuntimeOperationsException<br>- InstanceNotFoundException
+* Attribute value is NaN (Not a Number) for numeric attributes in case of **series** command. <br>NaN can occur, for example, on division by zero.
+
+### Attrubute Error Debugging
+
+To view attributes ignored due to processing errors, enable debugging for **MBeansInfoExtractor** class:
 
 ```xml
 <logger name="com.axibase.collector.model.jmx.MBeansInfoExtractor" level="DEBUG">
@@ -140,7 +145,7 @@ To view MBean attributes ignored due to an error, enable debugging for **MBeansI
 </logger>
 ```
 
-Restart Axibase Collector process, execute the JMX job or open the Viewer and review the log:
+Restart Axibase Collector process, execute the JMX job or open the Viewer to review the log:
 
 ```
 tail -f ./axibase-collector/logs/axibase-collector.log
