@@ -1,8 +1,30 @@
 # Docker Job
 
+## Overview
+
+Docker Job collects properties, events, and statistics from Docker daemons via [Docker Engine Remote API](https://docs.docker.com/engine/reference/api/docker_remote_api/).
+
+The information is collected for the following object types:
+
+* Host
+* Image
+* Container
+* Volume
+* Network
+
+## Job Settings
+
+**Name** | **Description**
+----- | -----
+`Property Refresh Interval` | Interval for refreshing detailed image and container properties.
+`API Version` | API version used when querying Docker Engine API. Defaults to 'latest'. <br>Can be set to a specific version to ensure compatibility.
+
+
+
+
 ## Prerequisites
 
-* [Docker Engine v1.7+](https://docs.docker.com/engine/installation/) to collect container properties, events, and statistics.
+* [Docker Engine v1.7+](https://docs.docker.com/engine/installation/).
 * [Axibase Time-Series Database](../atsd-install.md) container as a centralized metrics store and rule engine.
 
 ## Installation
