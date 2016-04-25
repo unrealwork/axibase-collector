@@ -1,0 +1,36 @@
+<list>
+  <com.axibase.collector.model.job.file.FileJobConfig>
+    <name>nginx-statistics</name>
+    <cronExpression>0/5 * * * * ?</cronExpression>
+    <enabled>false</enabled>
+    <jobType>FILE</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <name>nginx-status</name>
+        <path>http://${ITEM}/basic_status</path>
+        <encoding>UTF8</encoding>
+        <parserType>CSV</parserType>
+        <wait>false</wait>
+        <rules>true</rules>
+        <defaultEntity>${ITEM}</defaultEntity>
+        <useTime>true</useTime>
+        <ignoreDuplicates>false</ignoreDuplicates>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <validateFormat>false</validateFormat>
+        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+        <included/>
+        <excluded/>
+        <entitySet>
+          <name>nginx-servers</name>
+        </entitySet>
+        <enableWebDriver>false</enableWebDriver>
+        <driverTimeout>0</driverTimeout>
+        <driverFileEncoding>UTF8</driverFileEncoding>
+      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.file.FileJobConfig>
+</list>
