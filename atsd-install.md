@@ -12,6 +12,8 @@
 
 ## Start Container
 
+### Option 1: Configure collector account automatically
+
 Replace `${collector-user}` and `${collector-password}` with new credentials for a built-in [collector account](collector-account.md) that will be created automatically. Minimum password length is **6 characters**.
 
 ```properties
@@ -26,6 +28,25 @@ docker run \
   --publish 8082:8082/udp \
   --env ATSD_USER_NAME=${collector-user} \
   --env ATSD_USER_PASSWORD=${collector-password} \
+  axibase/atsd:latest
+```
+
+### Option 2: Configure collector account manually
+
+If `ATSD_USER_{NAME, PASSWORD}` credentials are not specified as part of `docker run` command, no collector account will be created. 
+
+In this case, you can launch the container without `ATSD_USER_{NAME, PASSWORD}` parameters and configure both administrator and [collector](collector-account.md) accounts on initial login.
+
+```properties
+docker run \
+  --detach \
+  --hostname=atsd \
+  --name=atsd \
+  --restart=always \
+  --publish 8088:8088 \
+  --publish 8443:8443 \
+  --publish 8081:8081 \
+  --publish 8082:8082/udp \
   axibase/atsd:latest
 ```
 
@@ -48,10 +69,8 @@ You should see _ATSD start completed_ message at the end of the start.log.
 `--name` | Yes | Assign a unique name to the container.
 `--restart` | No | Auto-restart policy. _Not supported in all Docker Engine versions._
 `--publish` | No | Publish a container's port to the host
-`--env ATSD_USER_NAME` | No | Username for the built-in collection account
+`--env ATSD_USER_NAME` | No | Username for the built-in collector account
 `--env ATSD_USER_PASSWORD` | No | Password for the built-in collector account. Minimum length is 6 characters.
-
-If `ATSD_USER_{NAME, PASSWORD}` credentials are not specified as part of `docker run` command, no account will be created. In this case, you can launch the container without `ATSD_USER_{NAME, PASSWORD}` parameters and configure both administrator and [collector](collector-account.md) accounts on initial login.
 
 ## Exposed Ports
 
