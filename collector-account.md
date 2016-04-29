@@ -1,6 +1,8 @@
 # Collector Account
 
-We recommend creating a separate `collector` user account with limited permissions for data collection tasks. This account can be used in all clients, including Axibase Collector, when sending data into ATSD over http/https protocol.
+We recommend creating a separate `collector` user account with limited permissions for data collection tasks. 
+
+This account can be used in all clients, including Axibase Collector, when sending data into ATSD over http/https protocol.
 
 ![Collector Account](collector_user.png)
 
