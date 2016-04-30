@@ -112,7 +112,7 @@ docker run \
    --publish-all \
    --name=axibase-collector \
   axibase/collector \
-   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443
+   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port
 ```
 
 * Find https port assigned to `axibase-collector` container. 
