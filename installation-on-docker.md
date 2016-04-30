@@ -40,11 +40,11 @@ If the container is launched to collect data from Docker Engine API on the local
 **Name** | **Required** | **Description**
 ----- | ----- | -----
 `--detach` | Yes | Run container in background and print container id.
-`--publish-all` | No | Publish all exposed ports to random ports
+`--publish-all` | No | Publish exposed https port (9443) to a random port
 `--restart` | No | Auto-restart policy. _Not supported in all Docker Engine versions._
-`--name` | Yes | Assign a unique name to the container.
+`--name` | No | Assign a host-unique name to the container.
 
-To bind the collector to a particular port instead of a random one, replace `--publish-all` with `--publish 10443:8443`, where the first number indicates an available port on Docker host.
+To bind the collector to a particular port instead of a random one, replace `--publish-all` with `--publish 10443:9443`, where the first number indicates an available port on Docker host.
 
 ## Check Installation
 
@@ -71,7 +71,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ee15099d9f88        axibase/collector   "/bin/bash /opt/axiba"   33 seconds ago      Up 32 seconds       0.0.0.0:32769->9443/tcp   axibase-collector
 ```
 
-Take note of the public port assigned to axibase-collector container, e.g. **32769** in the example above.
+Take note of the public https port assigned to axibase-collector container, e.g. **32769** in the example above.
 
 ## Login
 
