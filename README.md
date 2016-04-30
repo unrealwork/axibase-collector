@@ -9,13 +9,14 @@ The Collector supports commonly used data exchange protocols including JDBC, SNM
 ## Installation
 
 * [Requirements](requirements.md)
-* Installation on [host](installation.md)
-* Installation in [Docker container](installation-on-docker.md)
+* Installation:
+  - Installation on [host](installation.md)
+  - Installation in [Docker container](installation-on-docker.md)
 
 ## Configuration
 
 * [Administrator Account](configure-administrator-account.md)
-* [Collector account](collector-account.md) in ATSD
+* [Collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) in ATSD
 * [ATSD Server Connection](atsd-server-connection.md)
 
 ## Jobs
