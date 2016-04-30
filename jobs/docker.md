@@ -25,7 +25,7 @@ The information is collected for the following object types:
 ## Prerequisites
 
 * [Docker Engine v1.7+](https://docs.docker.com/engine/installation/).
-* [Axibase Time-Series Database](../atsd-install.md) container as a centralized metrics store and rule engine.
+* [Axibase Time-Series Database](https://github.com/axibase/atsd-docs/blob/master/installation/docker.md) container as a centralized metrics store and rule engine.
 
 ## Installation
 
@@ -35,7 +35,7 @@ Run Axibase Collector container on each Docker host locally. It will gather stat
 
 ![Local Collection](docker-local.png)
 
-- Replace `atsd_host`, `atsd_user`, and `atsd_password` with ATSD hostname and user credentials below.
+- Replace `atsd_host`, `collector-user`, and `collector-password` with ATSD hostname/port and [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials below.
 - Start Axibase Collector container:
 
 ```properties
@@ -46,7 +46,7 @@ docker run \
    --name=axibase-collector \
    --volume /var/run/docker.sock:/var/run/docker.sock \
   axibase/collector \
-   -atsd-url=https://atsd_user:atsd_password@atsd_host:8443 \
+   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port \
    -job-enable=docker-socket
 ```
 
@@ -55,7 +55,6 @@ It may take up to 5 minute to initialize the application on first start.
 The Docker job should start executing immediately, even if collector user has not been created. 
 
 > On hosts with SELinux enabled the container will run into `permission denied` error when trying to read data from  `/var/run/docker.sock`. Switch to Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
-
 
 
 ##### Launch Parameters
@@ -123,7 +122,7 @@ docker ps -a | grep axibase-collector
 ```
 
 * Login into Axibase Collector web interface at https://hostname:port
-* Open **Jobs:Docker:Add Job** page and enter job name. Click **Enabled** to enable the job. Click Save.
+* Open **Jobs > Docker > Add Job** page and enter job name. Click **Enabled** to enable the job. Click Save.
 * Click **Use Wizard** button, specify Docker Engine hostname, API port (2376) and attach {cert,key,ca}.pem files.
 * Click Validate and Save the job if the test is successfull.
     
@@ -165,7 +164,7 @@ uname -a
 * 3.19.0-51.57+
 * 4.2.0-30.35+
 
-See "Latest Quick Workarounds" in [#18180](https://github.com/docker/docker/issues/18180#issuecomment-193708192)
+See "Workarounds" in [#18180](https://github.com/docker/docker/issues/18180#issuecomment-193708192)
 
 ## Testing and Evaluating
 
