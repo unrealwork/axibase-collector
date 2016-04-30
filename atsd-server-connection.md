@@ -2,19 +2,21 @@
 
 ## Overview
 
-The primary function of Axibase Collector is to gather data from remote sources, to convert this data into a uniform format and to insert it into a target Axibase Time Series Database instance using series, properties and message commands. Axibase Collector serves as a data collection client/daemon and the number of Axibase Collector instances typically depends on the size of the environment and the amount of data collected by each instance.
-Axibase Collector needs to have at least one ATSD server connection to function properly.
+In order for Axibase Collector to function properly, it needs to know where to send data collected from remote data sources. 
 
-## HTTP Connection Pool
+This document describes how to add a storage driver for sending data into ATSD.
 
-Since Axibase Collector transmits data into ATSD using http/s protocol you need to configure an HTTP connection pool by specifying connection properties as well as timeout and limit settings.
+## HTTP Pool
 
-* Open **Data Sources:HTTP Pools:Add** form.
+Since Axibase Collector transmits data to ATSD using http/https protocol you need to configure an HTTP connection pool by specifying connection properties as well as timeouts and limits.
+
+* Open **Data Sources > HTTP Pools > Add** form.
 * Enter a pool name.
 * Set connection parameters to the target ATSD instance: hostname/IP address; port (8443); https protocol.
-* Check 'Ignore SSL Certificate Errors' to ignore certificate errors if ATSD certificate is self-signed.
+* Check 'Ignore SSL Certificate Errors' to ignore certificate errors since ATSD certificate is self-signed by default.
 * Apply connection limits using [recommended settings](#recommended-pool-settings) below.
-* Select Authentication Type=BASIC, set Test Path to `/ping`, and enter ATSD user credentials. Make sure that this user has roles API_DATA_WRITE and API_META_WRITE as well as 'All Access: Write' permission. We recommend usign a dedicated [collector account](collector-account.md).
+* Select Authentication Type=BASIC, set Test Path to `/ping`.
+* Enter [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials. <br>Make sure that the collector user has roles API_DATA_WRITE and API_META_WRITE as well as 'All Access: Write' permission.
 
 #### Test HTTP Pool
 
@@ -42,9 +44,9 @@ Socket Keep-Alive | true
 
 ![ATSD HTTP Pool](atsd_pool.png)
 
-## ATSD Server configuration.
+## Storage Driver Configuration.
 
-* Open **Admin:ATSD Servers:Add** page
+* Open **Admin > Storage Drivers > Add** page
 * Choose ATSD HTTP pool configured previously
 * Set Transport Type to **HTTP_BATCH**
 * Keep API path as `/api/v1`
