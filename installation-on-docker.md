@@ -21,7 +21,7 @@ docker run \
  axibase/collector:latest
 ```
 
-To automatically configure Axibase Time Series Database connection add `-atsd-url` parameter containing [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
+To automatically configure Axibase Time Series Database connection add `-atsd-url` parameter containing ATSD hostname and https port (default 8443) and [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
 
 ```properties
 docker run \
@@ -30,7 +30,7 @@ docker run \
  --restart=always \
  --name=axibase-collector \
  axibase/collector:latest \
-  -atsd-url=https://${collector-user}:${collector-password}@atsd_host:8443
+  -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port
 ```
 
 If the container is launched to collect data from Docker Engine API on the local host, mount Unix socket as described [here](/jobs/docker.md#local-collection).  
