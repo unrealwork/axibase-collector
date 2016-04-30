@@ -56,7 +56,7 @@ docker exec -it axibase-collector tail -f /opt/axibase-collector/logs/axibase-co
 
 Wait until the following message appears:
 
-_FrameworkServlet 'dispatcher': initialization completed._
+> _FrameworkServlet 'dispatcher': initialization completed._
 
 This message indicates that initial configuration is complete.
 
