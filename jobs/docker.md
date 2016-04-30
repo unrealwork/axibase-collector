@@ -31,11 +31,12 @@ The information is collected for the following object types:
 
 #### Local Collection
 
-Run Axibase Collector container on each Docker host locally. It will gather statistics from the Docker engine API exposed locally on Unix socket at [/var/run/docker.sock](https://docs.docker.com/engine/reference/api/docker_remote_api/)
+In local collection mode Axibase Collector containers run on each Docker host and gather statistics locally from the Docker engine API exposed at [/var/run/docker.sock](https://docs.docker.com/engine/reference/api/docker_remote_api/) Unix socket.
 
 ![Local Collection](docker-local.png)
 
-- Replace `atsd_host`, `collector-user`, and `collector-password` with ATSD hostname/port and [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials below.
+- Replace `atsd_host` and `atsd_https_port` with ATSD hostname/IP address and https port (default 8443)
+- Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials below.
 - Start Axibase Collector container:
 
 ```properties
