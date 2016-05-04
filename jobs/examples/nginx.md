@@ -8,7 +8,12 @@ This document describes how to organize a process of monitoring your NGINX serve
 
 # Stage 1: Configuring NGINX
 ## Configuring NGINX to respond with a statistics page
-See a simple [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided by NGINX documentation. Later we will assume that your server's statistics page is located at *<your_server_address>/basic_status*. To make changes take effect reload your NGINX server with the following command:
+See a simple [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided by NGINX documentation. 
+You can verify that ngx_http_stub_status_module is installed using the following command:
+```sh
+nginx -V 2>&1 | grep -o with-http_stub_status_module
+```
+Later we will assume that your server's statistics page is located at *<your_server_address>/basic_status*. To make changes take effect reload your NGINX server with the following command:
 ```sh
 sudo nginx -s reload
 ```
