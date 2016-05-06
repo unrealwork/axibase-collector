@@ -18,7 +18,7 @@ Item Lists may receive data from different providers. Currently the following ty
 
 ### TEXT
 
-The simplest way to create a collection. The data should be provided in Items field. Entities are strings separated by a line break.
+An Item List which stores strings provided in Items field. Strings are separated by a line break.
 
 ![TEXT Type](collection_text_type.png)
 
