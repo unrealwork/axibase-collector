@@ -4,12 +4,13 @@
 
 Item List is a set of strings which can be iterated in different jobs.
 
-## Attributes
+## Required Attributes
 
-Each Item List has a number of required attributes. They are:
-* Name
-* Type
-* formation rules, dependent on Type, e.g. 
+**Attribute** | Description
+----- | -----
+ `Name` | Human-readable identifier of the collection 
+ `Type` | Specifies the method which will be used to retrieve data
+ `Items`, `Path`, `Query`, `Url` | Formation rules which represent source of the data
 
 ## Types
 
