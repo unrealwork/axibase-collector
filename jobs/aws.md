@@ -20,9 +20,9 @@ Each job can include multiple configurations, each collecting data from one of C
 | Collect Status  |  Enable collection of service status metrics, for AWS services that expose such metrics.|
 | Property Refresh Interval, minutes | Interval for refreshing properties about collected resources. |
 
-## IAM Account
+## Installation
 
-* Configure a read-only [IAM account](aws-iam.md) for fetching CloudWatch statistics.
+### Create a read-only [IAM account](aws-iam.md) for fetching CloudWatch statistics.
 
 ## Job Wizard
 
@@ -31,10 +31,3 @@ Each job can include multiple configurations, each collecting data from one of C
 ## AWS Configuration Example
 
 ![](https://axibase.com/wp-content/uploads/2016/03/aws_config.png)
-
-## HTTP Pool Test 
-
-When testing HTTP Pool configuration in https mode, a successful test will return **http protocol is not supported** message.
-This is expected due to AWS CloudWatch endpoint redirect in case of GET request without API request.
-
-![AWS HTTPs Pool Message](aws-https-pool-test.png)
