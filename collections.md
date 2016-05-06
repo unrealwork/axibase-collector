@@ -2,7 +2,14 @@
 
 ## Overview
 
-Item List is a named collection of entities.
+Item List is a set of strings which can be iterated in different jobs.
+
+## Attributes
+
+Each Item List has a number of required attributes. They are:
+* Name
+* Type
+* formation rules, dependent on Type, e.g. 
 
 ## Types
 
@@ -10,12 +17,12 @@ Item Lists may receive data from different providers. Currently the following ty
 
 ### TEXT
 
-The simplest way to create a collection. The data should be provided in Items field, each entity on a separate line.
+The simplest way to create a collection. The data should be provided in Items field. Entities are strings separated by a line break.
 
 ![TEXT Type](collection_text_type.png)
 
 ### FILE
 
-You can retrieve entities from a file in the filesystem available to Collector. File path should be provided in Path field. If the file is not found, an empty collection is returned. Entities are separated by a line break.
+You can retrieve entities from a file in the local filesystem. Absolute path to target file should be provided in Path field. If the file is not found, an empty collection is returned. Entities are separated by a line break.
 
 ![TEXT Type](collection_file_type.png)
