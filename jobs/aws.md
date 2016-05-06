@@ -1,6 +1,10 @@
 # AWS Job
 
-AWS job allows you to collect data from [Amazon Web Services CloudWatch](https://aws.amazon.com/cloudwatch/) service and store metrics in ATSD.
+## Overview
+
+AWS job allows you to collect data from [Amazon Web Services CloudWatch](https://aws.amazon.com/cloudwatch/) service and store CloudWatch metrics in ATSD for long-term retention and alerting.
+
+Each job can include multiple configurations, each collecting data from one of CloudWatch [regional endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region). Configurations are executed sequentially within each job invocation.
 
 ## Configuration Settings
 
@@ -16,11 +20,19 @@ AWS job allows you to collect data from [Amazon Web Services CloudWatch](https:/
 | Collect Status  |  Enable collection of service status metrics, for AWS services that expose such metrics.|
 | Property Refresh Interval, minutes | Interval for refreshing properties about collected resources. |
 
+## IAM Account
+
+* Configure a read-only [IAM account](aws-iam.md) for fetching CloudWatch statistics.
+
+## Job Wizard
+
+
+
 ## AWS Configuration Example
 
 ![](https://axibase.com/wp-content/uploads/2016/03/aws_config.png)
 
-## HTTP(s) Pool Test 
+## HTTP Pool Test 
 
 When testing HTTP Pool configuration in https mode, a successful test will return **http protocol is not supported** message.
 This is expected due to AWS CloudWatch endpoint redirect in case of GET request without API request.
