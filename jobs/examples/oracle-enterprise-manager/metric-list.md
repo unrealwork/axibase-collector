@@ -1,281 +1,253 @@
-# Collected Oracle Enterprise Manager Metrics
-#### Oracle Databases
+#CollectedOracleEnterpriseManager Metrics
+####OracleDatabases
 
 ```css
- oracle_database.archive_area.archive_area_used_%                         
- oracle_database.archive_area.archive_area_used_kb                        
- oracle_database.archive_area.free_archive_area_kb                        
- oracle_database.archive_area.total_archive_area_kb                       
- oracle_database.database_limits.current_logons_count                     
- oracle_database.database_limits.current_open_cursors_count               
- oracle_database.database_limits.process_limit_usage_%                    
- oracle_database.database_limits.session_limit_usage_%                    
- oracle_database.database_limits.user_limit_usage_%                       
- oracle_database.database_size.allocated_space_gb                         
- oracle_database.database_size.used_space_gb                              
- oracle_database.dump_area.dump_area_used_%                               
- oracle_database.dump_area.dump_area_used_kb                              
- oracle_database.dump_area.free_dump_area_kb                              
- oracle_database.dump_area.total_dump_area_kb                             
- oracle_database.efficiency.buffer_cache_hit_%                            
- oracle_database.efficiency.cpu_usage_per_second                          
- oracle_database.efficiency.cpu_usage_per_transaction                     
- oracle_database.efficiency.cursor_cache_hit_%                            
- oracle_database.efficiency.data_dictionary_hit_%                         
- oracle_database.efficiency.database_cpu_time_%                           
- oracle_database.efficiency.library_cache_hit_%                           
- oracle_database.efficiency.library_cache_miss_%                          
- oracle_database.efficiency.parallel_execution_downgraded_25%_or_more_per 
- _second                                                                  
- oracle_database.efficiency.parallel_execution_downgraded_50%_or_more_per 
- _second                                                                  
- oracle_database.efficiency.parallel_execution_downgraded_75%_or_more_per 
- _second                                                                  
- oracle_database.efficiency.parallel_execution_downgraded_per_second      
- oracle_database.efficiency.parallel_execution_downgraded_to_serial_per_s 
- econd                                                                    
- oracle_database.efficiency.parallel_execution_downgraded_to_serial_per_t 
- ransaction                                                               
- oracle_database.efficiency.pga_cache_hit_%                               
- oracle_database.efficiency.redo_log_allocation_hit_%                     
- oracle_database.efficiency.response_time_per_transaction                 
- oracle_database.efficiency.row_cache_miss_ratio_%                        
- oracle_database.efficiency.sorts_in_memory_%                             
- oracle_database.flash_recovery.flash_recovery_area_size                  
- oracle_database.flash_recovery.non-reclaimable_flash_recovery_area_%     
- oracle_database.flash_recovery.reclaimable_flash_recovery_area_%         
- oracle_database.flash_recovery.usable_flash_recovery_area_%              
- oracle_database.memory_usage.total_memory_usage_mb                       
- oracle_database.ocm_instrumentation.instrumentation_present              
- oracle_database.ocm_instrumentation.need_to_instrument_with_ocm          
- oracle_database.ocm_instrumentation.ocm_configured                       
- oracle_database.recovery_area.recovery_area_free_space_%                 
- oracle_database.scn_growth_statistics.current_scn                        
- oracle_database.scn_growth_statistics.max_rate                           
- oracle_database.scn_growth_statistics.scn_health                         
- oracle_database.scn_growth_statistics.scn_total_growth_rate_per_sec      
- oracle_database.scn_instance_statistics.scn_intrinsic_growth_rate_per_se 
- c                                                                        
- oracle_database.scn_max_statistics.max_scn_jump_in_one_second_last_24_ho 
- urs                                                                      
- oracle_database.segment_advisor_recommendations.number_of_recommendation 
- s                                                                        
- oracle_database.sga_pool_wastage.java_pool_free_%                        
- oracle_database.sga_pool_wastage.large_pool_free_%                       
- oracle_database.sga_pool_wastage.shared_pool_free_%                      
- oracle_database.system_response_time_per_call.response_time_centi-second 
- s_per_call                                                               
- oracle_database.tablespace_allocation.tablespace_allocated_space_mb      
- oracle_database.tablespace_allocation.tablespace_used_space_mb           
- oracle_database.tablespaces_full.tablespace_free_space_mb                
- oracle_database.tablespaces_full.tablespace_space_used_%                 
- oracle_database.throughput.average_active_sessions                       
- oracle_database.throughput.average_synchronous_single-block_read_latency 
- _ms                                                                      
- oracle_database.throughput.bg_checkpoints_per_second                     
- oracle_database.throughput.branch_node_splits_per_second                 
- oracle_database.throughput.branch_node_splits_per_transaction            
- oracle_database.throughput.consistent_read_blocks_created_per_second     
- oracle_database.throughput.consistent_read_blocks_created_per_transactio 
- n                                                                        
- oracle_database.throughput.consistent_read_changes_per_second            
- oracle_database.throughput.consistent_read_changes_per_transaction       
- oracle_database.throughput.consistent_read_gets_per_second               
- oracle_database.throughput.consistent_read_gets_per_transaction          
- oracle_database.throughput.consistent_read_undo_records_applied_per_seco 
- nd                                                                       
- oracle_database.throughput.consistent_read_undo_records_applied_per_tran 
- saction                                                                  
- oracle_database.throughput.cumulative_logons_per_second                  
- oracle_database.throughput.cumulative_logons_per_transaction             
- oracle_database.throughput.database_block_changes_per_second             
- oracle_database.throughput.database_block_changes_per_transaction        
- oracle_database.throughput.database_block_gets_per_second                
- oracle_database.throughput.database_block_gets_per_transaction           
- oracle_database.throughput.database_time_centiseconds_per_second         
- oracle_database.throughput.dbwr_checkpoints_per_second                   
- oracle_database.throughput.enqueue_deadlocks_per_second                  
- oracle_database.throughput.enqueue_deadlocks_per_transaction             
- oracle_database.throughput.enqueue_requests_per_second                   
- oracle_database.throughput.enqueue_requests_per_transaction              
- oracle_database.throughput.enqueue_timeout_per_second                    
- oracle_database.throughput.enqueue_timeout_per_transaction               
- oracle_database.throughput.enqueue_waits_per_second                      
- oracle_database.throughput.enqueue_waits_per_transaction                 
- oracle_database.throughput.executes_per_second                           
- oracle_database.throughput.executes_performed_without_parses_%           
- oracle_database.throughput.full_index_scans_per_second                   
- oracle_database.throughput.full_index_scans_per_transaction              
- oracle_database.throughput.hard_parses_per_second                        
- oracle_database.throughput.hard_parses_per_transaction                   
- oracle_database.throughput.i/o_megabytes_per_second                      
- oracle_database.throughput.i/o_requests_per_second                       
- oracle_database.throughput.leaf_node_splits_per_second                   
- oracle_database.throughput.leaf_node_splits_per_transaction              
- oracle_database.throughput.network_bytes_per_second                      
- oracle_database.throughput.number_of_transactions_per_second             
- oracle_database.throughput.open_cursors_per_second                       
- oracle_database.throughput.open_cursors_per_transaction                  
- oracle_database.throughput.parse_failure_count_per_second                
- oracle_database.throughput.parse_failure_count_per_transaction           
- oracle_database.throughput.physical_reads_direct_lobs_per_second         
- oracle_database.throughput.physical_reads_direct_lobs_per_transaction    
- oracle_database.throughput.physical_reads_direct_per_second              
- oracle_database.throughput.physical_reads_direct_per_transaction         
- oracle_database.throughput.physical_reads_per_second                     
- oracle_database.throughput.physical_reads_per_transaction                
- oracle_database.throughput.physical_writes_direct_lobs_per_second        
- oracle_database.throughput.physical_writes_direct_lobs_per_transaction   
- oracle_database.throughput.physical_writes_direct_per_second             
- oracle_database.throughput.physical_writes_direct_per_transaction        
- oracle_database.throughput.physical_writes_per_second                    
- oracle_database.throughput.physical_writes_per_transaction               
- oracle_database.throughput.recursive_calls_per_second                    
- oracle_database.throughput.recursive_calls_per_transaction               
- oracle_database.throughput.redo_generated_per_second                     
- oracle_database.throughput.redo_generated_per_transaction                
- oracle_database.throughput.redo_writes_per_second                        
- oracle_database.throughput.redo_writes_per_transaction                   
- oracle_database.throughput.rows_processed_per_sort                       
- oracle_database.throughput.scans_on_long_tables_per_second               
- oracle_database.throughput.scans_on_long_tables_per_transaction          
- oracle_database.throughput.session_logical_reads_per_second              
- oracle_database.throughput.session_logical_reads_per_transaction         
- oracle_database.throughput.soft_parse_%                                  
- oracle_database.throughput.sorts_to_disk_per_second                      
- oracle_database.throughput.sorts_to_disk_per_transaction                 
- oracle_database.throughput.total_index_scans_per_second                  
- oracle_database.throughput.total_index_scans_per_transaction             
- oracle_database.throughput.total_parses_per_second                       
- oracle_database.throughput.total_parses_per_transaction                  
- oracle_database.throughput.total_table_scans_per_second                  
- oracle_database.throughput.total_table_scans_per_transaction             
- oracle_database.throughput.user_calls_%                                  
- oracle_database.throughput.user_calls_per_second                         
- oracle_database.throughput.user_calls_per_transaction                    
- oracle_database.throughput.user_commits_per_second                       
- oracle_database.throughput.user_commits_per_transaction                  
- oracle_database.throughput.user_rollback_undo_records_applied_per_second 
- oracle_database.throughput.user_rollback_undo_records_applied_per_transa 
- ction                                                                    
- oracle_database.throughput.user_rollbacks_per_second                     
- oracle_database.throughput.user_rollbacks_per_transaction                
- oracle_database.user_audit.audited_user_session_count                    
- oracle_database.wait_bottlenecks.active_sessions_using_cpu               
- oracle_database.wait_bottlenecks.active_sessions_waiting:_i/o            
- oracle_database.wait_bottlenecks.active_sessions_waiting:_other          
- oracle_database.wait_bottlenecks.average_instance_cpu_%                  
- oracle_database.wait_bottlenecks.host_cpu_utilization_%                  
- oracle_database.wait_bottlenecks.wait_time_%                             
- oracle_database.waits_by_wait_class.average_users_waiting_count          
- oracle_database.waits_by_wait_class.database_time_spent_waiting_%        
+oracle_database.archive_area.archive_area_used_%
+oracle_database.archive_area.archive_area_used_kb
+oracle_database.archive_area.free_archive_area_kb
+oracle_database.archive_area.total_archive_area_kb
+oracle_database.database_limits.current_logons_count
+oracle_database.database_limits.current_open_cursors_count
+oracle_database.database_limits.process_limit_usage_%
+oracle_database.database_limits.session_limit_usage_%
+oracle_database.database_limits.user_limit_usage_%
+oracle_database.database_size.allocated_space_gb
+oracle_database.database_size.used_space_gb
+oracle_database.dump_area.dump_area_used_%
+oracle_database.dump_area.dump_area_used_kb
+oracle_database.dump_area.free_dump_area_kb
+oracle_database.dump_area.total_dump_area_kb
+oracle_database.efficiency.buffer_cache_hit_%
+oracle_database.efficiency.cpu_usage_per_second
+oracle_database.efficiency.cpu_usage_per_transaction
+oracle_database.efficiency.cursor_cache_hit_%
+oracle_database.efficiency.data_dictionary_hit_%
+oracle_database.efficiency.database_cpu_time_%
+oracle_database.efficiency.library_cache_hit_%
+oracle_database.efficiency.library_cache_miss_%
+oracle_database.efficiency.parallel_execution_downgraded_25%_or_more_per_second
+oracle_database.efficiency.parallel_execution_downgraded_50%_or_more_per_second
+oracle_database.efficiency.parallel_execution_downgraded_75%_or_more_per_second
+oracle_database.efficiency.parallel_execution_downgraded_per_second
+oracle_database.efficiency.parallel_execution_downgraded_to_serial_per_second
+oracle_database.efficiency.parallel_execution_downgraded_to_serial_per_transaction
+oracle_database.efficiency.pga_cache_hit_%
+oracle_database.efficiency.redo_log_allocation_hit_%
+oracle_database.efficiency.response_time_per_transaction
+oracle_database.efficiency.row_cache_miss_ratio_%
+oracle_database.efficiency.sorts_in_memory_%
+oracle_database.flash_recovery.flash_recovery_area_size
+oracle_database.flash_recovery.non-reclaimable_flash_recovery_area_%
+oracle_database.flash_recovery.reclaimable_flash_recovery_area_%
+oracle_database.flash_recovery.usable_flash_recovery_area_%
+oracle_database.memory_usage.total_memory_usage_mb
+oracle_database.ocm_instrumentation.instrumentation_present
+oracle_database.ocm_instrumentation.need_to_instrument_with_ocm
+oracle_database.ocm_instrumentation.ocm_configured
+oracle_database.recovery_area.recovery_area_free_space_%
+oracle_database.scn_growth_statistics.current_scn
+oracle_database.scn_growth_statistics.max_rate
+oracle_database.scn_growth_statistics.scn_health
+oracle_database.scn_growth_statistics.scn_total_growth_rate_per_sec
+oracle_database.scn_instance_statistics.scn_intrinsic_growth_rate_per_sec
+oracle_database.scn_max_statistics.max_scn_jump_in_one_second_last_24_hours
+oracle_database.segment_advisor_recommendations.number_of_recommendations
+oracle_database.sga_pool_wastage.java_pool_free_%
+oracle_database.sga_pool_wastage.large_pool_free_%
+oracle_database.sga_pool_wastage.shared_pool_free_%
+oracle_database.system_response_time_per_call.response_time_centi-seconds_per_call
+oracle_database.tablespace_allocation.tablespace_allocated_space_mb
+oracle_database.tablespace_allocation.tablespace_used_space_mb
+oracle_database.tablespaces_full.tablespace_free_space_mb
+oracle_database.tablespaces_full.tablespace_space_used_%
+oracle_database.throughput.average_active_sessions
+oracle_database.throughput.average_synchronous_single-block_read_latency_ms
+oracle_database.throughput.bg_checkpoints_per_second
+oracle_database.throughput.branch_node_splits_per_second
+oracle_database.throughput.branch_node_splits_per_transaction
+oracle_database.throughput.consistent_read_blocks_created_per_second
+oracle_database.throughput.consistent_read_blocks_created_per_transaction
+oracle_database.throughput.consistent_read_changes_per_second
+oracle_database.throughput.consistent_read_changes_per_transaction
+oracle_database.throughput.consistent_read_gets_per_second
+oracle_database.throughput.consistent_read_gets_per_transaction
+oracle_database.throughput.consistent_read_undo_records_applied_per_second
+oracle_database.throughput.consistent_read_undo_records_applied_per_transaction
+oracle_database.throughput.cumulative_logons_per_transaction
+oracle_database.throughput.database_block_changes_per_second
+oracle_database.throughput.database_block_changes_per_transaction
+oracle_database.throughput.database_block_gets_per_second
+oracle_database.throughput.database_block_gets_per_transaction
+oracle_database.throughput.database_time_centiseconds_per_second
+oracle_database.throughput.dbwr_checkpoints_per_second
+oracle_database.throughput.enqueue_deadlocks_per_second
+oracle_database.throughput.enqueue_deadlocks_per_transaction
+oracle_database.throughput.enqueue_requests_per_second
+oracle_database.throughput.enqueue_requests_per_transaction
+oracle_database.throughput.enqueue_timeout_per_second
+oracle_database.throughput.enqueue_timeout_per_transaction
+oracle_database.throughput.enqueue_waits_per_second
+oracle_database.throughput.enqueue_waits_per_transaction
+oracle_database.throughput.executes_per_second
+oracle_database.throughput.executes_performed_without_parses_%
+oracle_database.throughput.full_index_scans_per_second
+oracle_database.throughput.full_index_scans_per_transaction
+oracle_database.throughput.hard_parses_per_second
+oracle_database.throughput.hard_parses_per_transaction
+oracle_database.throughput.i/o_megabytes_per_second
+oracle_database.throughput.i/o_requests_per_second
+oracle_database.throughput.leaf_node_splits_per_second
+oracle_database.throughput.leaf_node_splits_per_transaction
+oracle_database.throughput.network_bytes_per_second
+oracle_database.throughput.number_of_transactions_per_second
+oracle_database.throughput.open_cursors_per_second
+oracle_database.throughput.open_cursors_per_transaction
+oracle_database.throughput.parse_failure_count_per_second
+oracle_database.throughput.parse_failure_count_per_transaction
+oracle_database.throughput.physical_reads_direct_lobs_per_second
+oracle_database.throughput.physical_reads_direct_lobs_per_transaction
+oracle_database.throughput.physical_reads_direct_per_second
+oracle_database.throughput.physical_reads_direct_per_transaction
+oracle_database.throughput.physical_reads_per_second
+oracle_database.throughput.physical_reads_per_transaction
+oracle_database.throughput.physical_writes_direct_lobs_per_second
+oracle_database.throughput.physical_writes_direct_lobs_per_transaction
+oracle_database.throughput.physical_writes_direct_per_second
+oracle_database.throughput.physical_writes_direct_per_transaction
+oracle_database.throughput.physical_writes_per_second
+oracle_database.throughput.physical_writes_per_transaction
+oracle_database.throughput.recursive_calls_per_second
+oracle_database.throughput.recursive_calls_per_transaction
+oracle_database.throughput.redo_generated_per_second
+oracle_database.throughput.redo_generated_per_transaction
+oracle_database.throughput.redo_writes_per_second
+oracle_database.throughput.redo_writes_per_transaction
+oracle_database.throughput.rows_processed_per_sort
+oracle_database.throughput.scans_on_long_tables_per_second
+oracle_database.throughput.scans_on_long_tables_per_transaction
+oracle_database.throughput.session_logical_reads_per_second
+oracle_database.throughput.session_logical_reads_per_transaction
+oracle_database.throughput.soft_parse_%
+oracle_database.throughput.sorts_to_disk_per_second
+oracle_database.throughput.sorts_to_disk_per_transaction
+oracle_database.throughput.total_index_scans_per_second
+oracle_database.throughput.total_index_scans_per_transaction
+oracle_database.throughput.total_parses_per_second
+oracle_database.throughput.total_parses_per_transaction
+oracle_database.throughput.total_table_scans_per_second
+oracle_database.throughput.total_table_scans_per_transaction
+oracle_database.throughput.user_calls_%
+oracle_database.throughput.user_calls_per_second
+oracle_database.throughput.user_calls_per_transaction
+oracle_database.throughput.user_commits_per_second
+oracle_database.throughput.user_commits_per_transaction
+oracle_database.throughput.user_rollback_undo_records_applied_per_second
+oracle_database.throughput.user_rollback_undo_records_applied_per_transaction
+oracle_database.throughput.user_rollbacks_per_second
+oracle_database.throughput.user_rollbacks_per_transaction
+oracle_database.user_audit.audited_user_session_count
+oracle_database.wait_bottlenecks.active_sessions_using_cpu
+oracle_database.wait_bottlenecks.active_sessions_waiting:_i/o
+oracle_database.wait_bottlenecks.average_instance_cpu_%
+oracle_database.wait_bottlenecks.host_cpu_utilization_%
+oracle_database.wait_bottlenecks.wait_time_%
+oracle_database.waits_by_wait_class.average_users_waiting_count
+oracle_database.waits_by_wait_class.database_time_spent_waiting_%
 ```
 
-#### Oracle Host
+####Oracle Host
 
 ```css
- host.cpu_usage.cpu_idle_time_%                                           
- host.cpu_usage.cpu_system_time_%                                         
- host.cpu_usage.cpu_user_time_%                                           
- host.cpu_usage.cpu_utilization_%_of_a_cpu                                
- host.disk_activity_summary.max_average_disk_i/o_service_time_ms_amongst_ 
- all_disks                                                                
- host.disk_activity_summary.max_disk_i/o_per_sec_made_by_a_single_disk    
- host.disk_activity_summary.total_disk_i/o_made_across_all_disks_per_seco 
- nd                                                                       
- host.file_and_directory_monitoring.file_or_directory_size_change_rate_kb 
- /minute                                                                  
- host.file_and_directory_monitoring.file_or_directory_size_mb             
- host.filesystems.filesystem_size_mb                                      
- host.filesystems.filesystem_space_available_%                            
- host.filesystems.filesystem_space_available_mb                           
- host.load.active_logical_memory_kilobytes                                
- host.load.active_memory_kilobytes                                        
- host.load.cpu_in_i/o_wait_%                                              
- host.load.cpu_in_system_mode_%                                           
- host.load.cpu_in_user_mode_%                                             
- host.load.cpu_utilization_%                                              
- host.load.free_memory_%                                                  
- host.load.logical_free_memory_%                                          
- host.load.memory_page_scan_rate_per_second                               
- host.load.memory_utilization_%                                           
- host.load.run_queue_length_15_minute_average_per_core                    
- host.load.run_queue_length_1_minute_average_per_core                     
- host.load.run_queue_length_5_minute_average_per_core                     
- host.load.swap_utilization_%                                             
- host.load.total_processes                                                
- host.load.total_users                                                    
- host.load.used_logical_memory_%                                          
- host.network_interfaces.network_interface_collisions_%                   
- host.network_interfaces.network_interface_combined_utilization_%         
- host.network_interfaces.network_interface_input_errors_%                 
- host.network_interfaces.network_interface_output_errors_%                
- host.network_interfaces.network_interface_read_mb/s                      
- host.network_interfaces.network_interface_read_utilization_%             
- host.network_interfaces.network_interface_total_error_rate_%             
- host.network_interfaces.network_interface_total_i/o_rate_mb/sec          
- host.network_interfaces.network_interface_write_mb/s                     
- host.network_interfaces.network_interface_write_utilization_%            
- host.network_interfaces_summary.all_network_interfaces_combined_utilizat 
- ion_%                                                                    
- host.network_interfaces_summary.all_network_interfaces_read_rate_mb/sec  
- host.network_interfaces_summary.all_network_interfaces_read_utilization_ 
- %                                                                        
- host.network_interfaces_summary.all_network_interfaces_total_i/o_rate_mb 
- /sec                                                                     
- host.network_interfaces_summary.all_network_interfaces_write_rate_mb/sec 
- host.network_interfaces_summary.all_network_interfaces_write_utilization 
- _%                                                                       
- host.paging_activity.active_pages                                        
- host.paging_activity.pages_paged-in_per_second                           
- host.paging_activity.pages_paged-out_per_second                          
- host.paging_activity.pages_scanned_by_page_stealing_daemon_per_second    
- host.program_resource_utilization.program_s_max_cpu_time_accumulated_min 
- utes                                                                     
- host.program_resource_utilization.program_s_max_cpu_utilization_%        
- host.program_resource_utilization.program_s_max_process_count            
- host.program_resource_utilization.program_s_max_resident_memory_mb       
- host.program_resource_utilization.program_s_min_process_count            
- host.program_resource_utilization.program_s_total_cpu_time_accumulated_m 
- inutes                                                                   
- host.program_resource_utilization.program_s_total_cpu_utilization_%      
- host.storage_summary.asm_storage_allocated_gb                            
- host.storage_summary.asm_storage_metric_collection_errors                
- host.storage_summary.asm_storage_overhead_gb                             
- host.storage_summary.asm_storage_unallocated_gb                          
- host.storage_summary.databases_storage_free_gb                           
- host.storage_summary.databases_storage_metric_collection_errors          
- host.storage_summary.databases_storage_used_gb                           
- host.storage_summary.disk_storage_allocated_gb                           
- host.storage_summary.disk_storage_unallocated_gb                         
- host.storage_summary.host_storage_metric_collection_errors               
- host.storage_summary.host_summarized                                     
- host.storage_summary.local_file_systems_storage_free_gb                  
- host.storage_summary.local_file_systems_storage_used_gb                  
- host.storage_summary.number_of_asm_instances_summarized                  
- host.storage_summary.number_of_databases_summarized                      
- host.storage_summary.other_mapping_errors                                
- host.storage_summary.total_number_of_asm_instances                       
- host.storage_summary.total_number_of_databases                           
- host.storage_summary.total_storage_allocated_gb                          
- host.storage_summary.total_storage_free_gb                               
- host.storage_summary.total_storage_overhead_gb                           
- host.storage_summary.total_storage_unallocated_gb                        
- host.storage_summary.total_storage_used_gb                               
- host.storage_summary.unmonitored_nfs_server_mapping_errors               
- host.storage_summary.volumes_storage_allocated_gb                        
- host.storage_summary.volumes_storage_overhead_gb                         
- host.storage_summary.volumes_storage_unallocated_gb                      
- host.storage_summary.writeable_nfs_storage_free_gb                       
- host.storage_summary.writeable_nfs_storage_used_gb                       
- host.total_disk_usage.total_disk_available_%__across_all_local_filesyste 
- ms                                                                       
- host.total_disk_usage.total_disk_size_across_all_local_filesystems_in_mb 
- host.total_disk_usage.total_disk_space_available_across_all_local_filesy 
- stems_in_mb                                                              
- host.total_disk_usage.total_disk_space_utilized_across_all_local_filesys 
- tems_in_mb                                                               
- host.total_disk_usage.total_disk_utilized_%__across_all_local_filesystem 
- s                                                                        
- host.zombie_processes.processes_in_zombie_state_%                        
+host.cpu_usage.cpu_idle_time_%
+host.cpu_usage.cpu_system_time_%
+host.cpu_usage.cpu_user_time_%
+host.cpu_usage.cpu_utilization_%_of_a_cpu
+host.disk_activity_summary.max_average_disk_i/o_service_time_ms_amongst_all_disks
+host.disk_activity_summary.max_disk_i/o_per_sec_made_by_a_single_disk
+host.disk_activity_summary.total_disk_i/o_made_across_all_disks_per_second
+host.file_and_directory_monitoring.file_or_directory_size_change_rate_kb/minute
+host.file_and_directory_monitoring.file_or_directory_size_mb
+host.filesystems.filesystem_size_mb
+host.filesystems.filesystem_space_available_%
+host.filesystems.filesystem_space_available_mb
+host.load.active_logical_memory_kilobytes
+host.load.active_memory_kilobytes
+host.load.cpu_in_i/o_wait_%
+host.load.cpu_in_system_mode_%
+host.load.cpu_in_user_mode_%
+host.load.cpu_utilization_%
+host.load.free_memory_%
+host.load.logical_free_memory_%
+host.load.memory_page_scan_rate_per_second
+host.load.memory_utilization_%
+host.load.run_queue_length_15_minute_average_per_core
+host.load.run_queue_length_1_minute_average_per_core
+host.load.run_queue_length_5_minute_average_per_core
+host.load.swap_utilization_%
+host.load.total_processes
+host.load.total_users
+host.load.used_logical_memory_%
+host.network_interfaces.network_interface_collisions_%
+host.network_interfaces.network_interface_combined_utilization_%
+host.network_interfaces.network_interface_input_errors_%
+host.network_interfaces.network_interface_output_errors_%
+host.network_interfaces.network_interface_read_mb/s
+host.network_interfaces.network_interface_read_utilization_%
+host.network_interfaces.network_interface_total_error_rate_%
+host.network_interfaces.network_interface_total_i/o_rate_mb/sec
+host.network_interfaces.network_interface_write_mb/s
+host.network_interfaces.network_interface_write_utilization_%
+host.network_interfaces_summary.all_network_interfaces_combined_utilization_%
+host.network_interfaces_summary.all_network_interfaces_read_rate_mb/sec
+host.network_interfaces_summary.all_network_interfaces_read_utilization_%
+host.network_interfaces_summary.all_network_interfaces_total_i/o_rate_mb/sec
+host.network_interfaces_summary.all_network_interfaces_write_rate_mb/sec
+host.network_interfaces_summary.all_network_interfaces_write_utilization_%
+host.paging_activity.active_pages
+host.paging_activity.pages_paged-in_per_second
+host.paging_activity.pages_paged-out_per_second
+host.paging_activity.pages_scanned_by_page_stealing_daemon_per_second
+host.program_resource_utilization.program_s_max_cpu_time_accumulated_min
+utes
+host.program_resource_utilization.program_s_max_cpu_utilization_%
+host.program_resource_utilization.program_s_max_process_count
+host.program_resource_utilization.program_s_max_resident_memory_mb
+host.program_resource_utilization.program_s_min_process_count
+host.program_resource_utilization.program_s_total_cpu_time_accumulated_minutes
+host.program_resource_utilization.program_s_total_cpu_utilization_%
+host.storage_summary.asm_storage_allocated_gb
+host.storage_summary.asm_storage_metric_collection_errors
+host.storage_summary.asm_storage_overhead_gb
+host.storage_summary.asm_storage_unallocated_gb
+host.storage_summary.databases_storage_free_gb
+host.storage_summary.databases_storage_metric_collection_errors
+host.storage_summary.databases_storage_used_gb
+host.storage_summary.disk_storage_allocated_gb
+host.storage_summary.disk_storage_unallocated_gb
+host.storage_summary.host_storage_metric_collection_errors
+host.storage_summary.host_summarized
+host.storage_summary.local_file_systems_storage_free_gb
+host.storage_summary.local_file_systems_storage_used_gb
+host.storage_summary.number_of_asm_instances_summarized
+host.storage_summary.number_of_databases_summarized
+host.storage_summary.other_mapping_errors
+host.storage_summary.total_number_of_asm_instances
+host.storage_summary.total_number_of_databases
+host.storage_summary.total_storage_allocated_gb
+host.storage_summary.total_storage_free_gb
+host.storage_summary.total_storage_overhead_gb
+host.storage_summary.total_storage_unallocated_gb
+host.storage_summary.total_storage_used_gb
+host.storage_summary.unmonitored_nfs_server_mapping_errors
+host.storage_summary.volumes_storage_allocated_gb
+host.storage_summary.volumes_storage_overhead_gb
+host.storage_summary.volumes_storage_unallocated_gb
+host.storage_summary.writeable_nfs_storage_free_gb
+host.storage_summary.writeable_nfs_storage_used_gb
+host.total_disk_usage.total_disk_available_%__across_all_local_filesystems
+host.total_disk_usage.total_disk_size_across_all_local_filesystems_in_mb
+host.total_disk_usage.total_disk_space_available_across_all_local_filesystems_in_mb
+host.total_disk_usage.total_disk_space_utilized_across_all_local_filesystems_in_mb
+host.total_disk_usage.total_disk_utilized_%__across_all_local_filesystems
+host.zombie_processes.processes_in_zombie_state_%
 ```

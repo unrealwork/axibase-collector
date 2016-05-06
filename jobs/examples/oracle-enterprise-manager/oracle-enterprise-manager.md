@@ -67,10 +67,10 @@ Default Oracle Enterprise Manager portal names:
 
 [Launch](http://axibase.com/chartlab/32a3fe3e)
 
-![](./test_files/oracle_databases_poral3.png "Oracle Databases")
+![](images/oracle_databases_poral3.png "Oracle Databases")
 
 ##### Oracle Host Portal
-![](./test_files/oracle_host_portal.png "Oracle Host")
+![](images/oracle_host_portal.png "Oracle Host")
 
 ##### Launch live Oracle Host Portal in Axibase Chart Lab.
 
