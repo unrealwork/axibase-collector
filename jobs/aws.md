@@ -22,9 +22,8 @@ Each job can include multiple configurations, each collecting data from one of C
 
 ## Installation
 
-### Create a read-only [IAM account](aws-iam.md) for fetching CloudWatch statistics.
-
-## Job Wizard
+* Create a read-only [IAM account](aws-iam.md) for fetching CloudWatch statistics.
+* Job Wizard
 
 
 
