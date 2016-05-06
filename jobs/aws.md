@@ -1,14 +1,14 @@
 # AWS Job
 
-AWS job allows you to collect data from [Amazon Web Services CloudWatch](https://aws.amazon.com/cloudwatch/) service and store it in ATSD.
+AWS job allows you to collect data from [Amazon Web Services CloudWatch](https://aws.amazon.com/cloudwatch/) service and store metrics in ATSD.
 
 ## Configuration Settings
 
-| Field        | Description    |
+| **Field**        | **Description**    |
 |:------------- |:--------------|
 | Name   | Configuration name.    |
-| HTTP Pool |  Pool of http connection used to execute API requests, points at one of CloudWatch [region endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region).    |
-| Endpoint  |  An endpoint is a URL that is the entry point for a web service. Amazon Web Services offer a regional endpoints that are helpful to reduce data latency in applications.   |
+| HTTP Pool |  Pool of http connections used to execute CloudWatch API requests, points at one of CloudWatch [region endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region).    |
+| Endpoint  |  An endpoint is a URL that is the entry point for CloudWatch service. Amazon Web Services offer a regional endpoints that are helpful to reduce data latency in applications.   |
 | Username  |  Username to interact with Amazon Web Services. |
 | Access key id  |   Access key. For more information, see [Getting Your Access Key ID and Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).   |
 | Secret access key  | Secret access key. For more information, see [Getting Your Access Key ID and Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).       |
