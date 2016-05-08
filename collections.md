@@ -10,7 +10,7 @@ List elements can be specified by typing text on the form or it by reading them 
 
 To create a new list, open **Collections:Item Lists** page:
 
-**Attribute** | **Description**
+**Field** | **Description**
 | :---- | ----- |
  `Name` | List name.
  `Type` | Method used to retrieve list elements. See [types](#types).
@@ -55,6 +55,21 @@ Absolute path to the target file should be specified in the `Path` field.
 
 If the file is not found, an empty collection is returned. List elements in the file should be separated with a line break.
 
-![TEXT Type](collection_file_type.png)
+![FILE Type](collection_file_type.png)
 
 ## Replacement Tables
+
+Replacement table is a list of key=value pairs that can be used to rename input string into output string. 
+
+Replacement table can serve a lookup dictionary to convert numeric identifiers into human-readable names, for instance IP addresses into hostnames. It can be also used to remove extra symbols from inputs, for example to replace entity name 'nurswgvml001:LZ' with 'nurswgvml001'.
+
+### Configuration
+
+To create a new replacement table, open **Collections:Replacement Tables** page:
+
+**Field** | **Description**
+| :---- | ----- |
+ `Name` | Table name.
+ `Records` | List of key=value pairs, each pair on a separate line.
+ 
+ ![Replacement Table Example](replacement-table.png)
