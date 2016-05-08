@@ -18,7 +18,7 @@ Use the table below to fill in the fields and configure the query.
 | Query           | Query field must contain the entity name, time and a collection of metric columns. |
 | Default Entity  | Assign a default entity to the collected metrics. |
 | Entity Column   | Assign a column that contains the entity names. | 
-| Replacement Table |Select a replacement table from the list. <br> Replacement table is a list of key=value pairs that can be used to rename inputs. For example, it can serve a lookup dictionary to convert numeric identifiers into human-readable names, for instance IP addresses into hostnames. It can be also used to remove extra symbols from inputs, for example to replace entity name 'nurswgvml001:LZ' into 'nurswgvml001'. |
+| Replacement Table |Select a [replacement table](../collections.md#replacement-tables) to convert entities. |
 | Tag Columns     | Columns that contain tags or meta data defining the series. |
 | Default Tags    | Assign predefined tags to all series. |
 | Put Type        | Type of data. Possible values: SERIES, PROPERTY, BOTH. |
