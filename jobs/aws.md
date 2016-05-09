@@ -92,6 +92,17 @@ The number of metrics within each namespace varies greatly, for AWS/EC2 the list
 
 ![AWS Wizard](aws-wizard-validate.png)
 
+## Validation
+
+* Open AWS job page and set schedule to `R 0/5 * * * ?` to execute it every 5 minutes with random seconds
+* On the AWS Jobs list page, check that Items Read and Commands Sent is greater than 0
+* Login into ATSD, open **Metrics** tab and review available metrics by typing `aws` into the Name Mask.
+* Open Entities tab and locate one of AWS EC2 instances. Click on Portal links to access pre-defined AWS portals.
+
+## Sample EC2 Dashboard
+
+* [View in Chartlab](https://apps.axibase.com/chartlab/0aa34311)
+
 ## Configuration Example
 
 ![](https://axibase.com/wp-content/uploads/2016/03/aws_config.png)
