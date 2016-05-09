@@ -16,7 +16,7 @@ Each configuration can be configured to collect metrics from multiple AWS metric
 
 To minimize the number of API queries, choose to collect data only for AWS services that you're actually using. 
 
-For more information, see [AWS Namespaces](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html)
+For more information, see [AWS Namespaces](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 
 * AWS/AutoScaling 
 * AWS/Billing 
@@ -56,16 +56,17 @@ The underlying metrics in each namespace are stored in ATSD using the following 
 {namespace}.{metric-name}.{statistic-name}
 ```
 
-The name is normalized by replacing forward slash and whitespace symbols with underscore.
+The composite metric name is normalized by replacing slash and whitespace symbols with underscore.
 
-For example, `AWS/Billing Estimated Charges` metric is stored as 4 metrics:
+For example, `AWS/Billing Estimated Charges` metric is stored as 5 metrics:
 
-* aws_billing.estimatedcharges.maximum
 * aws_billing.estimatedcharges.minimum
-* aws_billing.estimatedcharges.samplecount
+* aws_billing.estimatedcharges.maximum
 * aws_billing.estimatedcharges.sum
+* aws_billing.estimatedcharges.average
+* aws_billing.estimatedcharges.samplecount
 
-On the other hand, the list of metrics for AWS/EC2 namespace consists of 15+ [metrics](#aws-ec2-metrics).
+The number of metrics within each namespace varies greatly, for AWS/EC2 the list consists of 15+ [metrics](#aws-ec2-metrics).
 
 ## Configuration Settings
 
@@ -81,12 +82,17 @@ On the other hand, the list of metrics for AWS/EC2 namespace consists of 15+ [me
 | Collect Status  |  Collect service status metrics for resources that expose such metrics, such as EC2 instances.|
 | Property Refresh Interval, minutes | Interval for refreshing resource properties. |
 
-## Installation
+## Configuration Steps
 
 * Create a read-only [IAM account](aws-iam.md) for querying CloudWatch statistics.
-* Job Wizard
+* Open **Jobs:Add Job:Use Wizard** page.
+* Enter IAM account credentials.
+* Select AWS regions from which you want to collect data. <br>The wizard will create a separate AWS configuration for each region within the same job.
+* Validate the credentials and save the job if there are no errors:
 
-## AWS Configuration Example
+![AWS Wizard](aws-wizard-validate.png)
+
+## Configuration Example
 
 ![](https://axibase.com/wp-content/uploads/2016/03/aws_config.png)
 
