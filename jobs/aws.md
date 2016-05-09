@@ -99,9 +99,10 @@ The number of metrics within each namespace varies greatly, for AWS/EC2 the list
 * Login into ATSD, open **Metrics** tab and review available metrics by typing `aws` into the Name Mask.
 * Open Entities tab and locate one of AWS EC2 instances. Click on Portal links to access pre-defined AWS portals.
 
-## Sample EC2 Dashboard
+## Sample Dashboards
 
-* [View in Chartlab](https://apps.axibase.com/chartlab/0aa34311)
+* [EC2](https://apps.axibase.com/chartlab/0aa34311)
+* [EBS](https://apps.axibase.com/chartlab/e8977b4a)
 
 ## Configuration Example
 
