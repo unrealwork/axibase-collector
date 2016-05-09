@@ -50,19 +50,36 @@ For more information, see [AWS Namespaces](http://docs.aws.amazon.com/AmazonClou
 * AWS/WorkSpaces
 * CustomMetrics
 
+The underlying metrics in each namespace are stored in ATSD using the following naming convention:
+
+```css
+{namespace}.{metric-name}.{statistic-name}
+```
+
+The name is normalized by replacing forward slash and whitespace symbols with underscore.
+
+For example, `AWS/Billing Estimated Charges` metric is stored as 4 metrics:
+
+* aws_billing.estimatedcharges.maximum
+* aws_billing.estimatedcharges.minimum
+* aws_billing.estimatedcharges.samplecount
+* aws_billing.estimatedcharges.sum
+
+On the other hand, the list of metrics for AWS/EC2 namespace consists of 15+ [metrics](#aws-ec2-metrics).
+
 ## Configuration Settings
 
-| **Field**        | **Description**    |
-|:------------- |:--------------|
-| Name   | Configuration name.    |
-| HTTP Pool |  Pool of http connections used to execute CloudWatch API requests, points at one of CloudWatch [region endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region).    |
-| Endpoint  |  An endpoint is a URL that is the entry point for CloudWatch service. Amazon Web Services offer a regional endpoints that are helpful to reduce data latency in applications.   |
-| Username  |  Username to query AWS  Cloudwatch service. |
-| Access key id  |   Access key. FSee [Getting Your Access Key ID and Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).   |
-| Secret access key  | Secret access key. See [Getting Your Access Key ID and Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).       |
-| Namespaces  | CloudWatch metric namespaces.   |
-| Collect Status  |  Collect service status metrics for AWS services that expose such metrics.|
-| Property Refresh Interval, minutes | Interval for refreshing properties about collected resources. |
+| **Field** | **Description** |
+|:---|:---|
+| Name | Configuration name. |
+| HTTP Pool | Pool of http(s) connections to execute CloudWatch API requests against the specified CloudWatch endpoint. |
+| Endpoint  | [CloudWatch Endpoint](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region) URL.   |
+| Username  |  Username to query AWS Cloudwatch service. |
+| Access key id  | Access key. See [Getting Your Access Key ID and Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).   |
+| Secret access key  | Secret access key |
+| Namespaces  | CloudWatch metric namespaces enabled for collection.   |
+| Collect Status  |  Collect service status metrics for resources that expose such metrics, such as EC2 instances.|
+| Property Refresh Interval, minutes | Interval for refreshing resource properties. |
 
 ## Installation
 
@@ -72,3 +89,20 @@ For more information, see [AWS Namespaces](http://docs.aws.amazon.com/AmazonClou
 ## AWS Configuration Example
 
 ![](https://axibase.com/wp-content/uploads/2016/03/aws_config.png)
+
+## AWS/EC2 metrics
+
+* aws_ec2.cpucreditbalance
+* aws_ec2.cpucreditusage
+* aws_ec2.cpuutilization
+* aws_ec2.diskreadbytes
+* aws_ec2.diskreadops
+* aws_ec2.diskwritebytes
+* aws_ec2.diskwriteops
+* aws_ec2.networkin
+* aws_ec2.networkout
+* aws_ec2.networkpacketsin
+* aws_ec2.networkpacketsout
+* aws_ec2.statuscheckfailed
+* aws_ec2.statuscheckfailed_instance
+* aws_ec2.statuscheckfailed_system
