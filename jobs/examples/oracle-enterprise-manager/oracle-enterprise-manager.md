@@ -79,7 +79,7 @@ You must see `SYSMAN` schema in returned schema list
 After configuration you need to verify that it works correctly.
 ### Check datasource
 > Go to Jobs->JDBC, find and open imported job.  Check that choosen database is right  or configure.
-![](oracle_job_ds.png)
+![](images/oracle_job_ds.png)
 
 
 
