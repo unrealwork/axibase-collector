@@ -1,5 +1,11 @@
 # AWS IAM Account for CloudWatch
 
+## Overview
+
+The following document describes the process of creating a read-only account used to query statistics from AWS CloudWatch API.
+
+## Configuration Steps
+
 ## 1. Login into AWS console and select Identity and Access Management (IAM)
 
 ![](images/img_554f3a8c1f70a.png)
