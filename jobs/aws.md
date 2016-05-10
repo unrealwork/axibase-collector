@@ -2,9 +2,21 @@
 
 ## Overview
 
-AWS job allows you to collect data from [Amazon Web Services CloudWatch](https://aws.amazon.com/cloudwatch/) service and store CloudWatch metrics in ATSD for long-term retention and alerting.
+AWS job allows you to collect data from [Amazon Web Services CloudWatch](https://aws.amazon.com/cloudwatch/) service and store it in Axibase Time Series Database for long-term retention, reporting and analytics.
+
+Refer to [AWS documentation](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html) for a complete list of available metrics.
 
 The AWS job includes multiple configurations to query metrics from different [regional endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region). The endpoints are queried sequentially within each job invocation.
+
+The job stores markers for each metric so that API requests are incremental and load only the most recent data. These markers allow the job to build optimized queries and to avoid data gaps in case of service outages.
+
+When AWS job is started for the first time, it will load all of the available historical data from the CloudWatch service, currently retained by CloudWatch for 2 weeks which is configurable.
+
+## AWS CloudWatch API Fees
+
+AWS applies [usage charges](https://aws.amazon.com/cloudwatch/pricing/) for CloudWatch API requests with free entitlement available on a monthly basis.  
+
+An extra fee is charged for detailed monitoring as well as for custom metrics. The detailed monitoring provides 1-minute period granularity and a lower delay, typically 1 or 2 minutes whereas basic monitoring can have a delay between 5 and 10 minutes.
 
 ## Supported Namespaces
 
@@ -64,7 +76,11 @@ For example, `AWS/Billing Estimated Charges` metric is stored as 5 metrics:
 * aws_billing.estimatedcharges.average
 * aws_billing.estimatedcharges.samplecount
 
+ATSD treats avg, min, max, sum statistics received from AWS as raw data, which means that ATSD can compute aggregate statistics on top of AWS statistics.
+
 The number of metrics within each namespace varies greatly, for AWS/EC2 the list consists of 15+ [metrics](#aws-ec2-metrics).
+
+You can configure the AWS job to collect metrics for all or a subset of namespaces. For each metric, AWS job retrieves the following period statistics: average, minimum, maximum, sum, sample count. The length of the period is typically 5 minutes, although 1 minute period is available if detailed monitoring is enabled . 
 
 ## Configuration Settings
 
@@ -73,12 +89,12 @@ The number of metrics within each namespace varies greatly, for AWS/EC2 the list
 | Name | Configuration name. |
 | HTTP Pool | Pool of http(s) connections to execute CloudWatch API requests against the specified CloudWatch endpoint. |
 | Endpoint  | [CloudWatch Endpoint](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region) URL.   |
-| Username  |  Username to query AWS Cloudwatch service. |
+| Username  |  Username to query AWS Cloudwatch API. <br>Refer to this [note](aws-iam.md) on how to create a read-only account. |
 | Access key id  | Access key. See [Getting Your Access Key ID and Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).   |
 | Secret access key  | Secret access key |
 | Namespaces  | CloudWatch metric namespaces enabled for collection.   |
 | Collect Status  |  Collect status check metrics such as <br>StatusCheckFailed, StatusCheckFailed_Instance, StatusCheckFailed_System |
-| Property Refresh Interval, minutes | Interval for refreshing resource properties. |
+| Property Refresh <br> Interval, minutes | Interval for refreshing resource properties. |
 
 ## Configuration Steps
 
@@ -94,13 +110,20 @@ The number of metrics within each namespace varies greatly, for AWS/EC2 the list
 
 * Open AWS job page and set schedule to `R 0/5 * * * ?` to execute it every 5 minutes with random seconds
 * On the AWS Jobs list page, check that Items Read and Commands Sent is greater than 0
-* Login into ATSD, open **Metrics** tab and review available metrics by typing `aws` into the Name Mask.
+* Login into ATSD, open **Metrics** tab and review available metrics by typing `aws` into the Name Mask.<br>Note that it may take AWS job a while to load backlogged historical data for all metrics after the job was created.
 * Open Entities tab and locate one of AWS EC2 instances. Click on Portal links to access pre-defined AWS portals.
+
+[metric list screenshot]
 
 ## Sample Dashboards
 
 * [EC2](https://apps.axibase.com/chartlab/0aa34311)
+
+[scr1]
+
 * [EBS](https://apps.axibase.com/chartlab/e8977b4a)
+
+[scr2]
 
 ## Configuration Example
 
