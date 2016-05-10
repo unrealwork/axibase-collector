@@ -87,7 +87,7 @@ Oracle Enterprise Manager entity group names:
 ## Portal List
 Default visualization portals for Oracle Enterprise Manager entities are included in ATSD.
 Default Oracle Enterprise Manager portal names:
-##### Launch live Oracle Databases Portal in Axibase Chart Lab.
+##### Live Oracle Databases Portal in Axibase Chart Lab.
 
 [Launch](http://axibase.com/chartlab/32a3fe3e)
 
@@ -96,7 +96,7 @@ Default Oracle Enterprise Manager portal names:
 ##### Oracle Host Portal
 ![](images/oracle_host_portal.png "Oracle Host")
 
-##### Launch live Oracle Host Portal in Axibase Chart Lab.
+##### Live Oracle Host Portal in Axibase Chart Lab.
 
 [Launch](http://axibase.com/chartlab/32a3fe3e/2/)
 
