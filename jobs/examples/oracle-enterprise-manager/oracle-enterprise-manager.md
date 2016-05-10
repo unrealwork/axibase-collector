@@ -81,6 +81,15 @@ After configuration you need to verify that it works correctly.
 > Go to Jobs->JDBC, find and open imported job.  Check that choosen database is right  or configure.
 ![](images/oracle_job_ds.png)
 
+### Test query
+Select query in job queries' list. Run `Test`  button. If query is correct, you must see something like this:
+![](images/test_result.png)
+
+### Check that job work correctly
+Go to jdbc jobs' page form and click `Run` button on our job. Make sure that job finished work correctly.
+![](images/test_run.png)
+
+
 
 
 ## Metric list
