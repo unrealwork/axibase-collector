@@ -56,7 +56,7 @@ WHERE TARGET_TYPE IN ('host', 'oracle_database')
 ### Setting up database connection
 > Log in Axibase collector interface and go to Datatsources->Databases->Add. Fill form's fields like screenshot above:
 
-~[](images/oracle_database_example.png)
+![](images/oracle_database_example.png)
 
 Now verify that connection is ok by executing following test SQL query:
 ```SQL
