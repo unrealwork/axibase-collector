@@ -64,6 +64,10 @@ WHERE TARGET_TYPE IN ('host', 'oracle_database')
 ```
 
 ## Verifying configurations
+After importing jobs you need to verify that it works
+### Check that job is imported
+> Go to Jobs->JDBC, find and open imported job.  Check that choosen database is right.
+![](oracle_job_ds.png)
 
 
 
