@@ -8,17 +8,17 @@ Manager](http://www.oracle.com/us/products/enterprise-manager/index.html "Oracle
 
 - Oracle Enterprise Manager 11+.
 
+## Installation steps
 
-## Job files
-
+### Imptort job from files
 You can download the oem-jobs.xml file and import it from the Jobs tab in Axibase Collector for a quick setup. Be sure to select your ATSD server and Data Source after you have imported the collector job xml file.
 > [oracle-em-jobs.xml](oracle-em-jobs.xml)
 
-## Queries
+#### Queries
 
 This file contains two jobs with different queries to Oracle database.
 
-### Metric
+##### Metric
 
 
 - Query 1
@@ -42,7 +42,6 @@ NULLIF(KEY_PART_5, '%') AS KEY_5, NULLIF(KEY_PART_6, '%') AS KEY_6, NULLIF(KEY_P
 FROM SYSMAN.gc$metric_values
 WHERE ENTITY_TYPE = 'host' AND COLLECTION_TIME_UTC >= ? ORDER BY COLLECTION_TIME_UTC
 ```
-
 ### Properties
 
 ```SQL
@@ -51,9 +50,6 @@ FROM SYSMAN.GC$TARGET
 WHERE TARGET_TYPE IN ('host', 'oracle_database')
 ```
 
-## Installation steps
-
-After you imported job from exapmle you need configure this job for your Oracle Enterprise Manager instance.
 
 ### Configure imported jobs' fields for you
 
