@@ -4,7 +4,7 @@
 
 Item List is a collection of strings used to execute repetitive actions as part of the same job configuration. Such automation is more efficient than creating a different job configuration for a list of similar elements.
 
-List elements can be specified by typing text on the form or it by reading them from an external source such as file, URL etc.
+List elements can be specified by typing text on the form or by reading them from an external source such as file, URL etc.
 
 ### Configuration
 
@@ -14,7 +14,7 @@ To create a new list, open **Collections:Item Lists** page:
 | :---- | ----- |
  `Name` | List name.
  `Type` | Method used to retrieve list elements. See [types](#types).
- `Items`, `Path`, `Query`, `URL` | Type-specific field to configure the source for reading list elements.
+ `Items`, `Path`, `Script`, `Query`, `URL` | Type-specific field to configure the source for reading list elements.
  
 ### Job Types
 
@@ -56,6 +56,8 @@ Absolute path to the target file should be specified in the `Path` field.
 If the file is not found, an empty collection is returned. List elements in the file should be separated with a line break.
 
 ![FILE Type](collection_file_type.png)
+
+#### SCRIPT
 
 ## Replacement Tables
 
