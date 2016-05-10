@@ -54,12 +54,12 @@ WHERE TARGET_TYPE IN ('host', 'oracle_database')
 
 ## Installation steps
 
-After
+After you imported job from exapmle you need configure this job for your Oracle Enterprise Manager instance.
 
-### Configure imported job's fields for you
+### Configure imported jobs' fields for you
 
 
-#### Setting up datasources
+#### Set up datasources
 > Log in Axibase collector interface and go to Datatsources->Databases->Add. Fill form's fields like screenshot above:
 
 ![](images/oracle_database_example.png)
@@ -72,7 +72,7 @@ SELECT NULL FROM dual
 
 You must see `SYSMAN` schema in returned schema list
 
-### Check storage
+#### Set up storage
 > If your collector instance has a multiple storage, you must choose one of them if `Storage` field.
 
 ## Verifying configurations
