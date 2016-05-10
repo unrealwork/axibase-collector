@@ -6,6 +6,21 @@ Item List is a collection of strings used to execute repetitive actions as part 
 
 List elements can be specified by typing text on the form or by reading them from an external source such as file, URL etc.
 
+Supported list types:
+
+* [TEXT](#text)
+* [FILE](#file)
+* [SCRIPT](#script)
+
+Job types with support for Item List automation:
+
+* JSON
+* FILE
+* TCP
+* ICMP
+* OVPM
+* SNMP
+
 ### Configuration
 
 To create a new list, open **Collections:Item Lists** page:
@@ -14,18 +29,9 @@ To create a new list, open **Collections:Item Lists** page:
 | :---- | ----- |
  `Name` | List name.
  `Type` | Method used to retrieve list elements. See [types](#types).
- `Items`, `Path`, `Command`, `Query`, `URL` | Type-specific field to configure the source for reading list elements.
+ `Items`, `Path`, `Command`... | Type-specific field to configure the source for reading list elements.
  
-### Job Types
 
-The following job types provide support for Item List automation:
-
-* JSON
-* FILE
-* TCP
-* ICMP
-* OVPM
-* SNMP
  
 ### Usage
 
