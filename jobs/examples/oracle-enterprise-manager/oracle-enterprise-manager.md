@@ -1,9 +1,8 @@
 # Oracle Enterprise Manager
+
 ## Overview
 [Oracle Enterprise
-Manager](http://www.oracle.com/us/products/enterprise-manager/index.html "Oracle Enterprise Manager") is
-a set of web-based tools aimed at managing software and hardware
-produced by Oracle Corporation as well as by some non-Oracle entities.
+Manager](http://www.oracle.com/us/products/enterprise-manager/index.html "Oracle Enterprise Manager") is centralized monitoring solution for testing, deploying, operating, monitoring, diagnosing, and resolving issues related to Oracle products.
 
 ## Supported versions
 
