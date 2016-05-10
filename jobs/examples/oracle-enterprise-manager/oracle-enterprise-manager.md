@@ -9,30 +9,17 @@ produced by Oracle Corporation as well as by some non-Oracle entities.
 
 - Oracle Enterprise Manager 11+.
 
-## Installation steps
-### Setting up database connection
-> Log in Axibase collector interface and go to Datatsources->Databases->Add. Fill form's fields like screenshot above:
 
-![](images/oracle_database_example.png)
-
-Now verify that connection is ok by executing following test SQL query:
-```SQL
-SELECT NULL FROM dual
-```
-> Go to `Metadata` page
-
-You must see `SYSMAN` schema in returned schema list
-
-### Job files
+## Job files
 
 You can download the oem-jobs.xml file and import it from the Jobs tab in Axibase Collector for a quick setup. Be sure to select your ATSD server and Data Source after you have imported the collector job xml file.
 > [oracle-em-jobs.xml](oracle-em-jobs.xml)
 
-#### Queries
+## Queries
 
 This file contains two jobs with different queries to Oracle database.
 
-#### Metric
+### Metric
 
 
 - Query 1
@@ -57,7 +44,7 @@ FROM SYSMAN.gc$metric_values
 WHERE ENTITY_TYPE = 'host' AND COLLECTION_TIME_UTC >= ? ORDER BY COLLECTION_TIME_UTC
 ```
 
-#### Properties
+### Properties
 
 ```SQL
 SELECT 'oem.' || TARGET_TYPE AS TTYPE, TARGET_NAME, HOST_NAME, DISPLAY_NAME, TIMEZONE_REGION, TYPE_QUALIFIER1 AS TYPE
@@ -65,11 +52,31 @@ FROM SYSMAN.GC$TARGET
 WHERE TARGET_TYPE IN ('host', 'oracle_database')
 ```
 
-### Configure imported job's fields
+## Installation steps
+
+After
+
+### Configure imported job's fields for you
+
+
+#### Setting up datasources
+> Log in Axibase collector interface and go to Datatsources->Databases->Add. Fill form's fields like screenshot above:
+
+![](images/oracle_database_example.png)
+
+Now verify that connection is ok by executing following test SQL query:
+```SQL
+SELECT NULL FROM dual
+```
+> Go to `Metadata` page
+
+You must see `SYSMAN` schema in returned schema list
+
+### Check storage
 > If your collector instance has a multiple storage, you must choose one of them if `Storage` field.
 
 ## Verifying configurations
-After importing jobs you need to verify that it works
+After configuration you need to verify that it works correctly.
 ### Check datasource
 > Go to Jobs->JDBC, find and open imported job.  Check that choosen database is right  or configure.
 ![](oracle_job_ds.png)
