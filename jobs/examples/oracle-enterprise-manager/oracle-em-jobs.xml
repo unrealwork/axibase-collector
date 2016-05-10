@@ -1,0 +1,146 @@
+<list>
+  <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+    <name>oracle-em-metrics</name>
+    <cronExpression>0 0/15 * * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>JDBC</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <databaseConfiguration>
+      <name>OracleEM</name>
+      <type>ORACLE</type>
+      <server>oracle_database_host</server>
+      <port>1521</port>
+      <database>SYSMAN</database>
+      <dbUser>axibase</dbUser>
+      <dbPasswd>password</dbPasswd>
+      <instance>ORCL</instance>
+      <maxActive>4</maxActive>
+      <maxIdle>4</maxIdle>
+      <minIdle>0</minIdle>
+      <initialSize>0</initialSize>
+      <maxWaitSeconds>60</maxWaitSeconds>
+      <maxAgeMinutes>60</maxAgeMinutes>
+      <loginTimeoutSeconds>60</loginTimeoutSeconds>
+      <idleTimeoutSeconds>60</idleTimeoutSeconds>
+      <socketTimeoutSeconds>0</socketTimeoutSeconds>
+      <active>0</active>
+      <idle>0</idle>
+      <driverClassName>oracle.jdbc.OracleDriver</driverClassName>
+    </databaseConfiguration>
+    <configurations>
+      <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        <query>SELECT ENTITY_NAME, ENTITY_TYPE || &apos;.&apos; || REPLACE(REPLACE(METRIC_GROUP_LABEL, &apos;,&apos;, &apos; &apos;), &apos; &apos;, &apos;_&apos;) || &apos;.&apos; || &#xd;
+REPLACE(REPLACE(REPLACE(TRIM(REPLACE(REPLACE(REPLACE(REPLACE(METRIC_COLUMN_LABEL, &apos; - &apos;, &apos;-&apos;), &apos;,&apos;, &apos; &apos;), &apos;)&apos;, &apos; &apos;), &apos;(&apos;, &apos; &apos;)), &apos; &apos;, &apos;_&apos;), &apos;&apos;&apos;&apos;, &apos;_&apos;), &apos;__&apos;, &apos;_&apos;) AS METRIC, &#xd;
+NULLIF(KEY_PART_1, &apos;%&apos;) AS KEY, NULLIF(KEY_PART_2, &apos;%&apos;) AS KEY_2, NULLIF(KEY_PART_3, &apos;%&apos;) AS KEY_3, NULLIF(KEY_PART_4, &apos;%&apos;) AS KEY_4, &#xd;
+NULLIF(KEY_PART_5, &apos;%&apos;) AS KEY_5, NULLIF(KEY_PART_6, &apos;%&apos;) AS KEY_6, NULLIF(KEY_PART_7, &apos;%&apos;) AS KEY_7, COLLECTION_TIME_UTC, VALUE  &#xd;
+FROM SYSMAN.gc$metric_values &#xd;
+WHERE ENTITY_TYPE = &apos;host&apos; AND COLLECTION_TIME_UTC &gt;= ? ORDER BY COLLECTION_TIME_UTC</query>
+        <tagColumns>
+          <string>KEY_7</string>
+          <string>KEY_6</string>
+          <string>KEY_5</string>
+          <string>KEY_4</string>
+          <string>KEY_3</string>
+          <string>KEY_2</string>
+          <string>KEY</string>
+        </tagColumns>
+        <defaultTags/>
+        <metricColumns/>
+        <ignoredMetricColumns/>
+        <entityColumn>ENTITY_NAME</entityColumn>
+        <metricNameColumn>METRIC</metricNameColumn>
+        <metricValueColumn>VALUE</metricValueColumn>
+        <timeColumn>COLLECTION_TIME_UTC</timeColumn>
+        <timeType>TIMESTAMP</timeType>
+        <metricPrefix>oem.</metricPrefix>
+        <queryWithTime>true</queryWithTime>
+        <checkLastTime>true</checkLastTime>
+        <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+        <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+        <maxRows>-1</maxRows>
+        <timeZone>UTC</timeZone>
+        <putType>SERIES</putType>
+        <propertyKeyColumns/>
+        <propertyValueColumns/>
+        <ignoredPropertyValueColumns/>
+      </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+      <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        <query>SELECT ENTITY_NAME, ENTITY_TYPE || &apos;.&apos; || REPLACE(REPLACE(METRIC_GROUP_LABEL, &apos;,&apos;, &apos; &apos;), &apos; &apos;, &apos;_&apos;) || &apos;.&apos; || &#xd;
+REPLACE(REPLACE(REPLACE(TRIM(REPLACE(REPLACE(REPLACE(REPLACE(METRIC_COLUMN_LABEL, &apos; - &apos;, &apos;-&apos;), &apos;,&apos;, &apos; &apos;), &apos;)&apos;, &apos; &apos;), &apos;(&apos;, &apos; &apos;)), &apos; &apos;, &apos;_&apos;), &apos;&apos;&apos;&apos;, &apos;_&apos;), &apos;__&apos;, &apos;_&apos;) AS METRIC, &#xd;
+NULLIF(KEY_PART_1, &apos;%&apos;) AS KEY, NULLIF(KEY_PART_2, &apos;%&apos;) AS KEY_2, NULLIF(KEY_PART_3, &apos;%&apos;) AS KEY_3, NULLIF(KEY_PART_4, &apos;%&apos;) AS KEY_4, &#xd;
+NULLIF(KEY_PART_5, &apos;%&apos;) AS KEY_5, NULLIF(KEY_PART_6, &apos;%&apos;) AS KEY_6, NULLIF(KEY_PART_7, &apos;%&apos;) AS KEY_7, COLLECTION_TIME_UTC, VALUE &#xd;
+FROM SYSMAN.gc$metric_values &#xd;
+WHERE ENTITY_TYPE = &apos;oracle_database&apos; AND METRIC_GROUP_LABEL_NLSID IS NOT NULL AND COLLECTION_TIME_UTC &gt;= ? ORDER BY COLLECTION_TIME_UTC</query>
+        <tagColumns>
+          <string>KEY_7</string>
+          <string>KEY_6</string>
+          <string>KEY_5</string>
+          <string>KEY_4</string>
+          <string>KEY_3</string>
+          <string>KEY_2</string>
+          <string>KEY</string>
+        </tagColumns>
+        <defaultTags/>
+        <metricColumns/>
+        <ignoredMetricColumns/>
+        <entityColumn>ENTITY_NAME</entityColumn>
+        <metricNameColumn>METRIC</metricNameColumn>
+        <metricValueColumn>VALUE</metricValueColumn>
+        <timeColumn>COLLECTION_TIME_UTC</timeColumn>
+        <timeType>TIMESTAMP</timeType>
+        <metricPrefix>oem.</metricPrefix>
+        <queryWithTime>true</queryWithTime>
+        <checkLastTime>true</checkLastTime>
+        <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+        <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+        <maxRows>-1</maxRows>
+        <putType>SERIES</putType>
+        <propertyKeyColumns/>
+        <propertyValueColumns/>
+        <ignoredPropertyValueColumns/>
+      </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+  <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+    <name>oracle-em-properties</name>
+    <cronExpression>R 0/15 * * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>JDBC</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <databaseConfiguration reference="../../com.axibase.collector.model.job.jdbc.JdbcJobConfig/databaseConfiguration"/>
+    <configurations>
+      <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        <query>SELECT &apos;oem.&apos; || TARGET_TYPE AS TTYPE, TARGET_NAME, HOST_NAME, DISPLAY_NAME, TIMEZONE_REGION, TYPE_QUALIFIER1 AS TYPE&#xd;
+FROM SYSMAN.GC$TARGET&#xd;
+WHERE TARGET_TYPE IN (&apos;host&apos;, &apos;oracle_database&apos;)</query>
+        <tagColumns/>
+        <defaultTags/>
+        <metricColumns/>
+        <ignoredMetricColumns/>
+        <entityColumn>TARGET_NAME</entityColumn>
+        <timeType>TIMESTAMP</timeType>
+        <queryWithTime>false</queryWithTime>
+        <checkLastTime>false</checkLastTime>
+        <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+        <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+        <maxRows>-1</maxRows>
+        <putType>PROPERTY</putType>
+        <propertyTypeColumn>TTYPE</propertyTypeColumn>
+        <propertyKeyColumns/>
+        <propertyValueColumns>
+          <string>DISPLAY_NAME</string>
+          <string>TIMEZONE_REGION</string>
+          <string>HOST_NAME</string>
+          <string>TYPE</string>
+        </propertyValueColumns>
+        <ignoredPropertyValueColumns/>
+      </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+</list>
