@@ -4,15 +4,13 @@
 
 AWS job allows you to collect data from [Amazon Web Services CloudWatch](https://aws.amazon.com/cloudwatch/) service and store CloudWatch metrics in ATSD for long-term retention and alerting.
 
-In addition, AWS job can be configured to collect availability metrics, where applicable. 
-
-The AWS job can include multiple configurations to query metrics from different [regional endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region). The endpoints are queried sequentially within each job invocation.
+The AWS job includes multiple configurations to query metrics from different [regional endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region). The endpoints are queried sequentially within each job invocation.
 
 ## Supported Namespaces
 
-AWS Namespace is a group of metrics exposed by a particular resource type.
+AWS Namespace is a group of metrics exposed for a particular AWS service type.
 
-Each configuration can be configured to collect metrics from multiple AWS metric namespaces available in the region.
+Each configuration can be configured to collect metrics from multiple namespaces available in the region.
 
 To minimize the number of API queries, choose to collect data only for AWS services that you're actually using. 
 
@@ -79,7 +77,7 @@ The number of metrics within each namespace varies greatly, for AWS/EC2 the list
 | Access key id  | Access key. See [Getting Your Access Key ID and Secret Access Key](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).   |
 | Secret access key  | Secret access key |
 | Namespaces  | CloudWatch metric namespaces enabled for collection.   |
-| Collect Status  |  Collect service status metrics for resources that expose such metrics, such as EC2 instances.|
+| Collect Status  |  Collect status check metrics such as <br>StatusCheckFailed, StatusCheckFailed_Instance, StatusCheckFailed_System |
 | Property Refresh Interval, minutes | Interval for refreshing resource properties. |
 
 ## Configuration Steps
