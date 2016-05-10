@@ -26,7 +26,7 @@ You must see `SYSMAN` schema in returned schema list
 ### Job files
 
 You can download the oem-jobs.xml file and import it from the Jobs tab in Axibase Collector for a quick setup. Be sure to select your ATSD server and Data Source after you have imported the collector job xml file.
-> [oracle-em-jobs.xml](oracle-em-job.xml)
+> [oracle-em-jobs.xml](oracle-em-jobs.xml)
 
 #### Queries
 
