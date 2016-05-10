@@ -88,6 +88,7 @@ Select query in job queries' list. Run `Test`  button. If query is correct, you 
 ### Check that job work correctly
 Go to jdbc jobs' page form and click `Run` button on our job. Make sure that job finished work correctly.
 ![](images/test_run.png)
+Now you can enable this job.
 
 
 
