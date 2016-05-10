@@ -19,7 +19,9 @@ Now verify that connection is ok by executing following test SQL query:
 ```SQL
 SELECT NULL FROM dual
 ```
-You can see `SYSMAN` schema in returned schema list
+> Go to `Metadata` page
+
+You must see `SYSMAN` schema in returned schema list
 
 ### Job files
 
@@ -63,10 +65,13 @@ FROM SYSMAN.GC$TARGET
 WHERE TARGET_TYPE IN ('host', 'oracle_database')
 ```
 
+### Configure imported job's fields
+> If your collector instance has a multiple storage, you must choose one of them if `Storage` field.
+
 ## Verifying configurations
 After importing jobs you need to verify that it works
-### Check that job is imported
-> Go to Jobs->JDBC, find and open imported job.  Check that choosen database is right.
+### Check datasource
+> Go to Jobs->JDBC, find and open imported job.  Check that choosen database is right  or configure.
 ![](oracle_job_ds.png)
 
 
