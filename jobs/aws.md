@@ -113,17 +113,17 @@ You can configure the AWS job to collect metrics for all or a subset of namespac
 * Login into ATSD, open **Metrics** tab and review available metrics by typing `aws` into the Name Mask.<br>Note that it may take AWS job a while to load backlogged historical data for all metrics after the job was created.
 * Open Entities tab and locate one of AWS EC2 instances. Click on Portal links to access pre-defined AWS portals.
 
-[metric list screenshot]
+![](images/metric_list.png)
 
 ## Sample Dashboards
 
 * [EC2](https://apps.axibase.com/chartlab/0aa34311)
 
-[scr1]
+![](images/ec2.png)
 
 * [EBS](https://apps.axibase.com/chartlab/e8977b4a)
 
-[scr2]
+![](images/ebs.png)
 
 ## Configuration Example
 
