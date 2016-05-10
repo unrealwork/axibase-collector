@@ -14,7 +14,7 @@ To create a new list, open **Collections:Item Lists** page:
 | :---- | ----- |
  `Name` | List name.
  `Type` | Method used to retrieve list elements. See [types](#types).
- `Items`, `Path`, `Script`, `Query`, `URL` | Type-specific field to configure the source for reading list elements.
+ `Items`, `Path`, `Command`, `Query`, `URL` | Type-specific field to configure the source for reading list elements.
  
 ### Job Types
 
