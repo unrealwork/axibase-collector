@@ -2,22 +2,25 @@
 This document describes how to organize a process of monitoring your NGINX server statistics with Axibase Collector sending data to Axibase Time Series Database.
 
 ## Requirements
-* [NGINX version 0.1.18 or higher](http://nginx.org/en/download.html) compiled with [ngx_http_stub_status_module](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html) support.
+* [NGINX server](http://nginx.org/en/download.html) with [ngx_http_stub_status_module](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html) support.
 * Axibase Time Series Database. For installation instructions, see [Axibase Time Series Database Download Options](http://axibase.com/products/axibase-time-series-database/download-atsd/).
 * Axibase Collector. For installation instructions, see [Axibase Collector Installation](http://axibase.com/products/axibase-time-series-database/writing-data/collector/axibase-collector-installation/).
 
 # Stage 1: Configuring NGINX
-## Configuring NGINX to respond with a statistics page
-See a simple [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided by NGINX documentation. 
-You can verify that ngx_http_stub_status_module is installed using the following command:
+## Verifying NGINX ngx_http_stub_status_module support
+You can verify that ngx_http_stub_status_module is supported by using the following command:
 ```sh
 nginx -V 2>&1 | grep -o with-http_stub_status_module
 ```
-Later we will assume that your server's statistics page is located at *<your_server_address>/basic_status*. To make changes take effect reload your NGINX server with the following command:
+If it is not installed consider recompiling your server with *-with-http_stub_status_module* option or upgrading to an [appropriate version of NGINX](http://nginx.org/en/CHANGES).
+## Configuring NGINX to respond with a statistics page
+See a simple [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided by NGINX documentation. 
+
+Later we will assume that your server's statistics page is located at *<your_server_address>/nginx_status*. To make changes take effect reload your NGINX server with the following command:
 ```sh
 sudo nginx -s reload
 ```
-You can verify that your statistics page is accessible by visiting *<your_server_address>/basic_status* and getting the result similar to the following:
+You can verify that your statistics page is accessible by visiting *<your_server_address>/nginx_status* and getting the result similar to the following:
 
 ![Statistics page example](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx_stat_example.png)
 ## Restricting access to the statistics page
@@ -25,9 +28,9 @@ After your server is able to respond with statistics you should make sure the st
 ```
 allow <collector_ip_address>
 ```
-at the **beginning** of contents of your *location /basic_status* directive. For example, if your collector is located at *1.1.1.1* , the part of nginx.conf that is responsible for statistics page may look like this:
+at the **beginning** of contents of your *location /nginx_status* directive. For example, if your collector is located at *1.1.1.1* , the part of nginx.conf that is responsible for statistics page may look like this:
 ```
-location /basic_status {
+location /nginx_status {
     allow 1.1.1.1;
     deny 2.2.2.2;
     allow 192.168.1.0/24;
@@ -38,7 +41,7 @@ location /basic_status {
 Do not forget to reload your NGINX server.
 
 ## Results
-By now your NGINX server is ready to respond to your collector machine with a page containing basic statistics if collector visits *<your_server_address>/basic_status*.
+By now your NGINX server is ready to respond to your collector machine with a page containing basic statistics if collector visits *<your_server_address>/nginx_status*.
 
 # Stage 2: Configuring Axibase Collector
 Now your collector should be configured to obtain data from NGINX server and send it to Axibase Time Series Database. It can be done by creating a new file job with proper settings. You can do it by importing existing job configuration for NGINX servers to your collector's list of jobs and making necessary changes for your case.
@@ -53,7 +56,7 @@ To import the above configuration do the following steps:
 
 ## Setting list of servers to be monitored
 Now you should see **nginx-statistics** file job in the whole list of your jobs.
-The **nginx-statistics** file job will visit each *<server_name>/basic_status* page, where *<server_name>* is a single name of a server from **nginx-servers** collection. To edit the target list of NGINX servers that will be monitored:
+The **nginx-statistics** file job will visit each *<server_name>/nginx_status* page, where *<server_name>* is a single name of a server from **nginx-servers** item list. To edit the target list of NGINX servers that will be monitored:
 * Go to your Axibase Collector home page
 * Go to **Collections**
 * Click on **nginx-servers** collections
