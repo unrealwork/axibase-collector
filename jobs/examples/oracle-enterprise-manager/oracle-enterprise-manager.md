@@ -50,13 +50,8 @@ FROM SYSMAN.GC$TARGET
 WHERE TARGET_TYPE IN ('host', 'oracle_database')
 ```
 
-
-### Configure imported jobs' fields for you
-
-For each imported job you need to do next steps
-
-####  Datasource configure
-> Log in Axibase collector interface and go to Datatsources->Databases->Add. Fill form's fields like screenshot above:
+###  Datasource configure
+> Log in Axibase collector interface and go to Datatsources->Databases and select `OracleEM` database. Fill form's fields like screenshot above:
 
 ![](images/oracle_database_example.png)
 
@@ -67,6 +62,12 @@ SELECT NULL FROM dual
 > Click on `Metadata` button
 
 You must see `SYSMAN` schema in returned schema list
+
+
+### Configure imported jobs' fields for you
+
+For each imported job you need to do next steps
+
 
 #### Select storage
 > If your collector instance has connected to multiple atsd servers, you must choose one of them if `Storage` field.
