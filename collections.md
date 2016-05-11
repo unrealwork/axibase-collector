@@ -65,15 +65,15 @@ If the file is not found, an empty collection is returned. List elements in the 
 
 #### SCRIPT
 
-Executes a script specified in `Command` field and read lines from standard output. 
+Executes a script located in `${COLLECTOR_HOME}/conf/scripts` directory and specified in `Command` field and reads lines from standard output. Only scripts in `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
 
-The script must be located in `${COLLECTOR_HOME}/conf/scripts` directory.
+The script should return list items separated by line break to stdout.
 
-`Command` field should contain script name (ansolute path is not necessary) and any script parameters.
+`Command` field should contain script name (absolute path is not necessary) and any script arguments.
 
 **Example**
 
-Directory `/tmp/report/csv` contains CSV files. The Item List should return a collection of prefixes before underscore symbol.
+Directory `/tmp/report/csv` contains CSV files. The Item List should contain a collection of file name prefixes before underscore symbol.
 
 ```
 ent-1_file-1.csv
