@@ -75,7 +75,7 @@ sudo nginx -s reload
 
 Repeat the process, if you have multiple NGINX servers.
 
-## Import NGINX CSV parser configuration into Axibase Time Series Database
+## Import NGINX CSV parser configuration into ATSD
 
 * Login into ATSD web interface.
 * Open **Configuration:Parsers CSV** page.
