@@ -65,6 +65,53 @@ If the file is not found, an empty collection is returned. List elements in the 
 
 #### SCRIPT
 
+Executes a script specified in `Command` field and read lines from standard output. 
+
+The script must be located in `${COLLECTOR_HOME}/conf/scripts` directory.
+
+`Command` field should contain script name (ansolute path is not necessary) and any script parameters.
+
+**Example**
+
+Directory `/tmp/report/csv` contains CSV files. The Item List should return a collection of prefixes before underscore symbol.
+
+```
+ent-1_file-1.csv
+ent-1_file-2.csv
+ent-1_file-3.csv
+ent-2_file-1.csv
+ent-2_file-2.csv
+ent-3_file-3.csv
+```
+
+```
+nano prefix.sh
+```
+
+```sh
+#!/usr/bin/env bash
+dir="$1/*"
+for file in $dir; do
+    if [[ -f $file &&  $file == *"_"* ]]; then
+        filename=${file##*/}
+        b=${filename%_*}
+        echo -e "$b"
+    fi
+done
+```
+
+```
+chmod a+x prefix.sh
+prefix.sh /tmp/report/csv
+
+ent-1
+ent-1
+ent-1
+ent-2
+ent-2
+ent-3
+```
+
 ## Replacement Tables
 
 Replacement table is a list of key=value pairs that can be used to rename input string into output string. 
