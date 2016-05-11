@@ -53,8 +53,9 @@ WHERE TARGET_TYPE IN ('host', 'oracle_database')
 
 ### Configure imported jobs' fields for you
 
+For each imported job you need to do next steps
 
-#### Set up datasources
+####  Datasource configure
 > Log in Axibase collector interface and go to Datatsources->Databases->Add. Fill form's fields like screenshot above:
 
 ![](images/oracle_database_example.png)
@@ -63,12 +64,16 @@ Now verify that connection is ok by executing following test SQL query:
 ```SQL
 SELECT NULL FROM dual
 ```
-> Go to `Metadata` page
+> Click on `Metadata` button
 
 You must see `SYSMAN` schema in returned schema list
 
-#### Set up storage
-> If your collector instance has a multiple storage, you must choose one of them if `Storage` field.
+#### Select storage
+> If your collector instance has connected to multiple atsd servers, you must choose one of them if `Storage` field.
+
+#### Save changes
+Click `Save` button on job page.
+
 
 ## Verifying configurations
 After configuration you need to verify that it works correctly.
@@ -81,8 +86,12 @@ Select query in job queries' list. Run `Test`  button. If query is correct, you 
 ![](images/test_result.png)
 
 ### Check that job work correctly
-Go to jdbc jobs' page form and click `Run` button on our job. Make sure that job finished work correctly.
+
+Go to `JDBC Job` page and click `Run` button. Make sure that job's status is `COMPLETED` and values of fields `Items Read` and `Sent commands` greater than 0.
+
 ![](images/test_run.png)
+
+
 Now you can enable this job.
 
 
@@ -103,16 +112,12 @@ Oracle Enterprise Manager entity group names:
 ## Portal List
 Default visualization portals for Oracle Enterprise Manager entities are included in ATSD.
 Default Oracle Enterprise Manager portal names:
-##### Live Oracle Databases Portal in Axibase Chart Lab.
-
+##### Oracle Databases Portal
 [Launch](http://axibase.com/chartlab/32a3fe3e)
-
 ![](images/oracle_databases_poral3.png "Oracle Databases")
 
 ##### Oracle Host Portal
+[Launch](http://axibase.com/chartlab/32a3fe3e/2/)
 ![](images/oracle_host_portal.png "Oracle Host")
 
-##### Live Oracle Host Portal in Axibase Chart Lab.
-
-[Launch](http://axibase.com/chartlab/32a3fe3e/2/)
 
