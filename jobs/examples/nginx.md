@@ -78,12 +78,12 @@ Repeat the process, if you have multiple NGINX servers.
 ## Import NGINX CSV parser configuration into ATSD
 
 * Login into ATSD web interface.
-* Open **Configuration:Parsers CSV** page.
-* Import [CSV parser](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx_atsd_csv_parser.xml) for NGINX status page. <br>The page is not a valid CSV or JSON file and it needs special rules for parsing.  
+* Open **Configuration:Parsers CSV** page. Click Import.
+* Import [CSV parser](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx_atsd_csv_parser.xml) for NGINX status page.  
 
 ## Configuring FILE job in Axibase Collector
 
-Axibase Collector will poll the NGINX status page every 5 seconds and upload the file into Axibase Time Series Database for parsing. 
+Axibase Collector will poll the NGINX status page every 5 seconds and upload the downloaded files into Axibase Time Series Database for parsing. 
 
 ### Create Item List for NGINX servers
 
@@ -119,3 +119,13 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 
 * Open Entities page.
 * Locate an NGINX server and click on Portals icon to view the built-in NGINX portal.
+
+### NGINX Status Page Metrics
+
+* Active connections
+* Server accepts
+* Server handled
+* Server requests
+* Reading
+* Writing
+* Waiting
