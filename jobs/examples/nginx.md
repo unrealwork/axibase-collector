@@ -14,9 +14,7 @@ Collecting [NGINX Plus](https://www.nginx.com/products/) [live activity](https:/
 
 ## Enable Status Page in NGINX
 
-### Check that `ngx_http_stub_status_module` is present
-
-Verify that `ngx_http_stub_status_module` is present:
+### Verify that `ngx_http_stub_status_module` is present
 
 ```sh
 nginx -V 2>&1 | grep -o with-http_stub_status_module
@@ -26,11 +24,33 @@ If the output contains module name, the module is installed.
 
 If the response is empty, upgrade to a [newer version of NGINX](http://nginx.org/en/CHANGES) or recompile your NGINX server with *-with-http_stub_status_module* option.
 
+Sample `nginx -V` output:
+
+```
+$ nginx -V
+nginx version: nginx/1.4.6 (Ubuntu)
+built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04)
+TLS SNI support enabled
+configure arguments: --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2' --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro' --prefix=/usr/share/nginx --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-debug --with-pcre-jit --with-ipv6 --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-http_addition_module --with-http_dav_module --with-http_geoip_module --with-http_gzip_static_module --with-http_image_filter_module --with-http_spdy_module --with-http_sub_module --with-http_xslt_module --with-mail --with-mail_ssl_module
+```
+
+
+
 ### Configure status page
 
 Open in nginx.conf file and review [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided in NGINX documentation. 
 
+```sh
+sudo nano /etc/nginx/nginx.conf
+```
+
 Enable the page on **/nginx_status** URL so that its accessible at *<your_server_address>/nginx_status*. 
+
+```
+location /nginx_status {
+    stub_status;
+}
+```
 
 Reload the server to apply changes:
 
@@ -51,10 +71,11 @@ Reading: 6 Writing: 179 Waiting: 106
 
 Once you verify that status page is enabled, restrict access to this page only to the IP address of the server where Axibase Collector is installed. 
 
-Add the following line at the **beginning** of contents of your *location /nginx_status* directive in nginx.conf file:
+Add the following lines at the **beginning** of *location /nginx_status* directive:
 
 ```
-allow <collector_ip_address>
+   allow <collector_ip_address>;
+   deny all;
 ```
 
  For example, if your collector is located at *10.102.0.6* , the configuration should look as follows:
@@ -73,7 +94,7 @@ Reload the server:
 sudo nginx -s reload
 ```
 
-Repeat the process, if you have multiple NGINX servers.
+Repeat the process for each NGINX server that you would like to monitor.
 
 ## Import NGINX CSV parser configuration into ATSD
 
@@ -83,7 +104,7 @@ Repeat the process, if you have multiple NGINX servers.
 
 ## Configuring FILE job in Axibase Collector
 
-Axibase Collector will poll the NGINX status page every 5 seconds and upload the downloaded files into Axibase Time Series Database for parsing. 
+Axibase Collector will poll the NGINX status page every 5 seconds and upload the downloaded file into ATSD for parsing. 
 
 ### Create Item List for NGINX servers
 
@@ -96,31 +117,28 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 
 ### Import FILE job
 
-* Open **Jobs:Import** page.
-* Import a new job from [nginx_collector_job.xml](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx_collector_job.xml).
-* Open the imported job. 
-* Adjust the schedule if necessary. Set Status to Enabled.
+* Import [nginx_collector_job.xml](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx_collector_job.xml) job on **Jobs:Import** page.
+* Open the nginx-statistics job. 
 * If 'Storage' drop-down is set to `None`, select the target ATSD server.
+* Set Status to Enabled.
 * **Save** the job.
-* Open `nginx-status` configuration.
-* Select **nginx-servers** in the **Items List** drop-down. <br>The job will query each server in the list at the specified URL `http://${ITEM}:80/nginx-status` where `${ITEM}` will be replaced with the current server name.
-* Click Test to validate the configuration.
-* **Save** the configuration.
-
-![NGINX test](nginx-collector-test.png)
 
 ### Validate Data Availability
 
-* Login into ATSD web interface.
-* Open Metrics tab and apply `nginx*` to view a list of nginx metrics.
-* Click on Series link and check that metrics are present for each server in in the **nginx-servers** list.
- 
-### View Portals
+* Open nginx-status configuration.
+* Click Test to verify processing.
 
-* Open Entities page.
-* Locate an NGINX server and click on Portals icon to view the built-in NGINX portal.
+![NGINX test](nginx-collector-test.png)
+
+* Login into ATSD web interface.
+* Open Metrics tab and apply `nginx*` to review the list of nginx metrics received by ATSD.
+* Click on Series link and check that metrics are present for each server in in the **nginx-servers** list.
+
+[NGINX metrics](nginx-metrics-list.png)
 
 ### NGINX Status Page Metrics
+
+Metrics table
 
 * Active connections
 * Server accepts
@@ -129,3 +147,12 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 * Reading
 * Writing
 * Waiting
+ 
+### View Portals
+
+* Open Entities page.
+* Locate an NGINX server and click on Portals icon to view the built-in NGINX portal.
+
+[NGINX portal](nginx-portal-basic.png)
+
+
