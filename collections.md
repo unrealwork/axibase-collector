@@ -66,11 +66,13 @@ If the file is not found, an empty collection is returned. List elements in the 
 
 #### SCRIPT
 
-Executes a script located in `${COLLECTOR_HOME}/conf/scripts` directory and specified in `Command` field and reads lines from standard output. Only scripts in `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
+Executes a script specified in `Command` field and reads lines from standard output as list items.
 
-The script should return list items separated by line break to stdout.
+Only scripts in `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
 
-`Command` field should contain script name (absolute path is not necessary) and any script arguments.
+`Command` field should start with script file name (absolute path not supported) and optional script arguments.
+
+The script should return list of items separated by line break to stdout.
 
 **Example**
 
