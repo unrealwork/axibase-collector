@@ -74,6 +74,8 @@ Only scripts in `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
 
 The script should return list of items separated by line break to stdout.
 
+![SCRIPT Type](collection_script_type.png)
+
 **Example**
 
 Directory `/tmp/report/csv` contains CSV files. The Item List should contain a collection of file name prefixes before underscore symbol.
