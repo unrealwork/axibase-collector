@@ -23,19 +23,20 @@ Job types with support for Item List automation:
 
 ### Configuration
 
-To create a new list, open **Collections:Item Lists** page:
+To create a new list, open **Collections:Item Lists** page, click **Add**:
 
 **Field** | **Description**
 | :---- | ----- |
  `Name` | List name.
  `Type` | Method used to retrieve list elements. See [types](#types).
+ `Discard Duplicates` | Discard elements with the same name. <br>If true, the list discards duplicate elements regardless of the source (TEXT, FILE, SCRIPT, etc). <br>String comparision is case-sensitive.
  `Items`, `Path`, `Command`... | Type-specific field to configure the source for reading list elements.
- 
-
  
 ### Usage
 
-Use `${ITEM}` placeholder to access the value of the current element in the list while iterating.
+Use `${ITEM}` placeholder to access the value of the current element in the list while iterating. 
+
+The elements retain the original order as specified in the editor or returned by an external source.
 
 For example, include `${ITEM}` placeholder into Path field in JSON job to query a different URL for each element in the list. 
 
