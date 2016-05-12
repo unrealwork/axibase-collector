@@ -50,7 +50,7 @@ Item Lists may receive elements from different sources. Currently the following 
 
 An Item List which stores strings entered in the `Items` field on the form. 
 
-List elements should be separated with a line break.
+List elements should be separated by a line break.
 
 ![TEXT Type](collection_text_type.png)
 
