@@ -69,8 +69,8 @@ SELECT NULL FROM dual
 
 ### Entity Groups
 
-- Oracle EM Databases
-- Oracle EM Hosts
+- oracle-databases
+- oracle-hosts
 
 ### Portals
 
