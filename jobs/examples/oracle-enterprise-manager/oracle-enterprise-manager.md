@@ -38,7 +38,7 @@ SELECT NULL FROM dual
 
 * Choose one of target ATSD instances if your Collector instance is connected to multiple ATSD servers.
 * Save the Job
-* Open each configuration, click on `Test` button and review output
+* Open each configuration, click on `Test` button and review output. See [Data Queries](#data-queries) below.
 
 ![](images/test_result.png)
 
@@ -77,7 +77,7 @@ SELECT NULL FROM dual
  
 ![](images/oracle_host_portal.png "Oracle Host")
 
-## Data Queries used in Oracle EM JDBC Job
+## Data Queries
 
 * Metrics Query selects most recent statistics 
 
