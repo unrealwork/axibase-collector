@@ -67,6 +67,9 @@ SELECT NULL FROM dual
 
 * List of collected [Oracle EM metrics](metric-list.md)
 
+### Properties
+* List of collected [Oracle EM properties](properties-list.md)
+
 ### Entity Groups
 
 - Oracle EM Databases

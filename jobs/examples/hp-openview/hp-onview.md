@@ -12,14 +12,22 @@ Using ATSD you can retrieve metrics and properties from HP OpenView.
 ### Import HP OpenView JDBC job
 * Open **Jobs:Import** and upload [collector-jobs-ovpm-jobs.xml](collector-jobs-ovpm-jobs.xml) file
 
+### Configure HP Open View HTTP Pool
+
+* Open **Data Sources:HTTP Pools** page, select `ovpm-1` database.
+* Provide connection parameters to the target Oracle EM database as displayed below:
+
+![](images/oracle_database_example.png)
+
 
 
 ## Metric list
-Collected HP OpenView metrics can view [here](metric-list.md).
+* List of collected [HP OpenView metrics](metric-list.md)
 
 ## Entity group list
 
 ## Portal List
+
 [OVPM Portal](http://axibase.com/chartlab/f9d176ac/2/)
 
 ![](images/ovpm_portal_linux.png "HP OpenView")
