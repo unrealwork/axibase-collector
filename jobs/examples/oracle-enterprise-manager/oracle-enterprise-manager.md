@@ -17,7 +17,7 @@
 ### Configure Oracle EM Database Connection
 
 * Open **Data Sources:Databases** page, select `OracleEM` database. 
-* Provide connection parameters to Oracle EM database as displayed on the screenshot above:
+* Provide connection parameters to the target Oracle EM database as displayed below:
 
 ![](images/oracle_database_example.png)
 
