@@ -4,7 +4,7 @@
 
 [Oracle Enterprise Manager](http://www.oracle.com/us/products/enterprise-manager/index.html "Oracle Enterprise Manager") (Oracle EM) is a distributed application for centralized monitoring, diagnosing, and resolving issues related to Oracle products.
 
-Oracle EM collects and stores statistics from remote databases, applications, and systems in an Oracle database which Axibase Collector queries every 15 minutes to offload recently inserted data into Axibase Time Series Database for the purpose of long-term retention and operations analytics.
+Oracle EM collects and stores statistics from remote databases, applications, and systems in an Oracle database (`SYSMAN.gc$metric_values` table) which Axibase Collector queries every 15 minutes to offload incremental data into Axibase Time Series Database for the purpose of long-term retention and operations analytics.
 
 ## Supported versions
 
@@ -23,7 +23,8 @@ Oracle EM collects and stores statistics from remote databases, applications, an
 
 ![](images/oracle_database_example.png)
 
-* Execute the following test query to verify configuration:
+* Read-only/SELECT privileges to `SYSMAN.GC$TARGET` and `SYSMAN.gc$metric_values` tables are sufficient.
+* Execute the following test query to check the connection:
 
 ```SQL
 SELECT NULL FROM dual
