@@ -4,21 +4,15 @@
 
 Item List is a collection of strings used to execute repetitive actions as part of the same job configuration. Such automation is more efficient than creating a different job configuration for a list of similar elements.
 
-List elements can be specified by typing text on the form or it by reading them from an external source such as file, URL etc.
+List elements can be specified by typing text on the form or by reading them from an external source such as file, URL etc.
 
-### Configuration
+Supported list types:
 
-To create a new list, open **Collections:Item Lists** page:
+* [TEXT](#text)
+* [FILE](#file)
+* [SCRIPT](#script)
 
-**Field** | **Description**
-| :---- | ----- |
- `Name` | List name.
- `Type` | Method used to retrieve list elements. See [types](#types).
- `Items`, `Path`, `Query`, `URL` | Type-specific field to configure the source for reading list elements.
- 
-### Job Types
-
-The following job types provide support for Item List automation:
+Job types with support for Item List automation:
 
 * JSON
 * FILE
@@ -26,10 +20,23 @@ The following job types provide support for Item List automation:
 * ICMP
 * OVPM
 * SNMP
+
+### Configuration
+
+To create a new list, open **Collections:Item Lists** page, click **Add**:
+
+**Field** | **Description**
+| :---- | ----- |
+ `Name` | List name.
+ `Type` | Method used to retrieve list elements. See [types](#types).
+ `Discard Duplicates` | Discard elements with the same name. <br>If true, the list discards duplicate elements regardless of the source (TEXT, FILE, SCRIPT, etc). <br>String comparision is case-sensitive.
+ `Items`, `Path`, `Command`... | Type-specific field to configure the source for reading list elements.
  
 ### Usage
 
-Use `${ITEM}` placeholder to access the value of the current element in the list while iterating.
+Use `${ITEM}` placeholder to access the value of the current element in the list while iterating. 
+
+The elements retain the original order as specified in the editor or returned by an external source.
 
 For example, include `${ITEM}` placeholder into Path field in JSON job to query a different URL for each element in the list. 
 
@@ -43,7 +50,7 @@ Item Lists may receive elements from different sources. Currently the following 
 
 An Item List which stores strings entered in the `Items` field on the form. 
 
-List elements should be separated with a line break.
+List elements should be separated by a line break.
 
 ![TEXT Type](collection_text_type.png)
 
@@ -56,6 +63,59 @@ Absolute path to the target file should be specified in the `Path` field.
 If the file is not found, an empty collection is returned. List elements in the file should be separated with a line break.
 
 ![FILE Type](collection_file_type.png)
+
+#### SCRIPT
+
+Executes a script specified in `Command` field and reads lines from standard output as list items.
+
+Only scripts in `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
+
+`Command` field should start with script file name (absolute path not supported) and optional script arguments.
+
+The script should return list of items separated by line break to stdout.
+
+![SCRIPT Type](collection_script_type.png)
+
+**Example**
+
+Directory `/tmp/report/csv` contains CSV files. The Item List should contain a collection of file name prefixes before underscore symbol.
+
+```
+ent-1_file-1.csv
+ent-1_file-2.csv
+ent-1_file-3.csv
+ent-2_file-1.csv
+ent-2_file-2.csv
+ent-3_file-3.csv
+```
+
+```
+nano prefix.sh
+```
+
+```sh
+#!/usr/bin/env bash
+dir="$1/*"
+for file in $dir; do
+    if [[ -f $file &&  $file == *"_"* ]]; then
+        filename=${file##*/}
+        b=${filename%_*}
+        echo -e "$b"
+    fi
+done
+```
+
+```
+chmod a+x prefix.sh
+prefix.sh /tmp/report/csv
+
+ent-1
+ent-1
+ent-1
+ent-2
+ent-2
+ent-3
+```
 
 ## Replacement Tables
 

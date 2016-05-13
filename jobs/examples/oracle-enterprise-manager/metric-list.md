@@ -1,6 +1,5 @@
-#CollectedOracleEnterpriseManager Metrics
-####OracleDatabases
-
+#Collected Oracle Enterprise Manager Metrics
+####Oracle Databases
 ```css
 oracle_database.archive_area.archive_area_used_%
 oracle_database.archive_area.archive_area_used_kb
