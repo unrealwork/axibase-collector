@@ -2,7 +2,9 @@
 
 ## Overview
 
-[Oracle Enterprise Manager](http://www.oracle.com/us/products/enterprise-manager/index.html "Oracle Enterprise Manager") is centralized solution for monitoring, diagnosing, and resolving issues related to Oracle products.
+[Oracle Enterprise Manager](http://www.oracle.com/us/products/enterprise-manager/index.html "Oracle Enterprise Manager") (Oracle EM) is a distributed application for centralized monitoring, diagnosing, and resolving issues related to Oracle products.
+
+Oracle EM collects and stores statistics from remote databases, applications, and systems in an Oracle database which Axibase Collector queries every 15 minutes to offload recently inserted data into Axibase Time Series Database.
 
 ## Supported versions
 
