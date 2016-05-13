@@ -9,6 +9,11 @@ Using ATSD you can retrieve metrics and properties from HP OpenView.
 
 ## Installation steps
 
+### Import HP OpenView JDBC job
+* Open **Jobs:Import** and upload [collector-jobs-ovpm-jobs.xml](collector-jobs-ovpm-jobs.xml) file
+
+
+
 ## Metric list
 Collected HP OpenView metrics can view [here](metric-list.md).
 
