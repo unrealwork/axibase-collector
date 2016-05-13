@@ -79,7 +79,7 @@ SELECT NULL FROM dual
 
 ## Data Queries
 
-* Metrics Query selects most recent statistics 
+* Metrics Queries selects most recent statistics 
 
 ```SQL
 SELECT ENTITY_NAME, ENTITY_TYPE || '.' || REPLACE(REPLACE(METRIC_GROUP_LABEL, ',', ' '), ' ', '_') || '.' ||
