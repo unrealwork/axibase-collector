@@ -74,7 +74,7 @@ SELECT NULL FROM dual
 ![](images/oracle_databases_poral3.png "Oracle Databases")
 
 * [Oracle Host Portal](https://axibase.com/chartlab/32a3fe3e/2/)
-* 
+ 
 ![](images/oracle_host_portal.png "Oracle Host")
 
 ## Data Queries used in Oracle EM JDBC Job
