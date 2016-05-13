@@ -21,8 +21,9 @@ This file contains two jobs with different queries to Oracle database.
 ##### Metric
 
 
-- Query 1
-
+| Query 1 |
+| --- |
+|
 ```SQL
 SELECT ENTITY_NAME, ENTITY_TYPE || '.' || REPLACE(REPLACE(METRIC_GROUP_LABEL, ',', ' '), ' ', '_') || '.' ||
 REPLACE(REPLACE(TRIM(REPLACE(REPLACE(REPLACE(REPLACE(METRIC_COLUMN_LABEL, ' - ', '-'), ',', ' '), ')', ' '), '(', ' ')), ' ', '_'), '__', '_') AS METRIC,
@@ -31,7 +32,7 @@ NULLIF(KEY_PART_5, '%') AS KEY_5, NULLIF(KEY_PART_6, '%') AS KEY_6, NULLIF(KEY_P
 FROM SYSMAN.gc$metric_values
 WHERE ENTITY_TYPE = 'oracle_database' AND METRIC_GROUP_LABEL_NLSID IS NOT NULL AND COLLECTION_TIME_UTC >= ? ORDER BY COLLECTION_TIME_UTC
 ```
-
+|
 - Query 2
 
 ```SQL
