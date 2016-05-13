@@ -34,7 +34,7 @@ The Collector supports commonly used data exchange protocols including JDBC, SNM
 [AWS](jobs/aws.md) | Collects AWS statistics using CloudWatch API.
 [Docker](jobs/docker.md) | Collects containers statistics using Docker Engine API.
 [JDBC](jobs/jdbc.md) | Executes SQL queries against relational databases.<br>Stores resultset as series and properties.
-[File](jobs/file.md) | Downloads CSV/TSV files from http:// and file:// sources<br> and uploads them into ATSD for parsing.<br>Supports wildcards, placeholders and reliable delivery with pre- and post-upload file actions.
+[File](jobs/file.md) | Downloads CSV/TSV files from http:// and file:// sources and uploads them into ATSD for parsing.<br>Supports wildcards, placeholders and reliable delivery with pre- and post-upload file actions.
 [JMX](jobs/jmx.md) | Collects MBean attribute values from Java applications.
 [HTTP](jobs/http.md) | Executes HTTP requests or Web Driver scripts. <br>Stores transaction status and response code
 [ICMP](jobs/icmp.md) | Pings hostnames/IP addresses and stores response status.
