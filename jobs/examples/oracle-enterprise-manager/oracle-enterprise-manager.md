@@ -87,6 +87,8 @@ Go to `JDBC Job` page and click `Run` button. Make sure that job's status is `CO
 
 ![](images/test_run.png)
 
+### Check ATSD
+> Verify that metrics and properties created in ATSD.
 
 Now you can enable this job.
 
