@@ -4,7 +4,7 @@
 
 Axibase Collector is a Java-based collection daemon that polls data from external sources and uploads it as series, properties, and messages into Axibase Time Series Database. 
 
-The Collector can also download files in a variety of input formats and upload them into ATSD in CSV format.
+The Collector can also download files in a variety of input formats and upload them into ATSD for parsing.
 
 The Collector supports commonly used data exchange protocols including JDBC, SNMP, JMX, JSON, CSV/TSV, ICMP, TCP, HTTP, OVPM as well as specific APIs such as Amazon Web Services and Docker Engine.
 
@@ -25,7 +25,7 @@ The Collector supports commonly used data exchange protocols including JDBC, SNM
 
 * [Overview](job-generic.md)
 * [Scheduling](scheduling.md)
-* [Completion](job-completion-messages.md)
+* [Monitoring](job-completion-messages.md)
 
 ## Job Types
 
@@ -33,7 +33,7 @@ The Collector supports commonly used data exchange protocols including JDBC, SNM
 ----- | -----
 [AWS](jobs/aws.md) | Collects AWS statistics using CloudWatch API 
 [Docker](jobs/docker.md) | Collects containers statistics using Docker Engine API
-[File](jobs/file.md) | Downloads TSV/CSV or JSON files and uploads them into ATSD as CSV files
+[File](jobs/file.md) | Downloads CSV/TSV files from http:// and file:// sources<br> and uploads them into ATSD for parsing.<br>Supports wildcards, placeholders and reliable delivery with pre- and post-upload file actions.
 [HTTP](jobs/http.md) | Executes HTTP requests or Web Driver scripts. <br>Stores transaction status and response code
 [ICMP](jobs/icmp.md) | Pings hostnames/IP addresses and stores response status
 [JDBC](jobs/jdbc.md) | Executes SQL queries against relational databases.<br>Stores resultset as series and properties.
