@@ -5,8 +5,8 @@
 Using ATSD you can retrieve metrics and properties from HP OpenView.
 ## Supported versions
 - HP OpenView `9.+`
-
 ## Installation steps
 ## Metric list
+Collected HP OpenView metrics can view [here](metric-list.md).
 ## Entity group list
 ## Portal List
