@@ -1,6 +1,6 @@
 # VMWare
 ## Overview
-## Supported versions
+## Requirements
 ## Installation steps
 ## Metric list
 ## Entity group list
