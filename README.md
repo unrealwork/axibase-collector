@@ -6,7 +6,25 @@ Axibase Collector is a Java-based collection daemon that polls data from externa
 
 The Collector can also download files in a variety of input formats and upload them into ATSD for parsing.
 
-The Collector supports commonly used data exchange protocols including JDBC, SNMP, JMX, JSON, CSV/TSV, ICMP, TCP, HTTP, OVPM as well as specific APIs such as Amazon Web Services and Docker Engine.
+## Supported Data/Network Protocols
+
+* JDBC
+* SNMP
+* JMX
+* ICMP
+* TCP
+* HTTP
+
+## Supported File Formats
+
+* CSV/TSV
+* JSON
+
+## Supported APIs
+
+* Amazon Web Services CloudWatch
+* Docker Engine
+* HP OVPM (Performance Manager)
 
 ## Installation
 
