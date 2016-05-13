@@ -56,6 +56,8 @@ SELECT NULL FROM dual
 * Login into ATSD
 * Click on Metrics tab and filter metrics by name 'oem.*'
 
+~[](images/metrics_atsd.png)
+
 ## Viewing Data in ATSD
 
 ### Metrics
