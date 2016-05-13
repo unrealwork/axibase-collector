@@ -4,7 +4,8 @@
 
 Using ATSD you can retrieve metrics and properties from HP OpenView.
 
-## Supported versions
+## Requirements
+
 - HP OpenView `9.+`
 
 ## Installation steps
