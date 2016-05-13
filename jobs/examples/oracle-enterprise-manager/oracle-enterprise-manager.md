@@ -6,7 +6,7 @@ Manager](http://www.oracle.com/us/products/enterprise-manager/index.html "Oracle
 
 ## Supported versions
 
-- Oracle Enterprise Manager 11+.
+- Oracle Enterprise Manager `11+`.
 
 ## Installation steps
 
