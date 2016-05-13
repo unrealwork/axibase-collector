@@ -6,7 +6,7 @@
 
 Oracle EM collects and stores statistics from remote databases, applications, and systems in an Oracle database (`SYSMAN.gc$metric_values` table) which Axibase Collector queries every 15 minutes to offload incremental data into Axibase Time Series Database for the purpose of long-term retention and operations analytics.
 
-## Supported versions
+## Requirements
 
 - Oracle Enterprise Manager `11+`
 
