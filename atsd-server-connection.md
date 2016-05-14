@@ -6,9 +6,13 @@ In order for Axibase Collector to function properly, it needs to know where to s
 
 This document describes how to add a storage driver for sending data into ATSD.
 
+## Collector Account
+
+* Create [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) in ATSD to be used for inserting data into ATSD.
+
 ## HTTP Pool
 
-Since Axibase Collector transmits data to ATSD using http/https protocol you need to configure an HTTP connection pool by specifying connection properties as well as timeouts and limits.
+Since Axibase Collector transmits data to ATSD using http/https protocol you need to configure an HTTP connection pool by specifying connection properties as well as various timeouts and limits.
 
 * Open **Data Sources > HTTP Pools > Add** form.
 * Enter a pool name.
@@ -26,7 +30,7 @@ Click Test to verify the settings:
 - Response code is 401 if credentials are not valid.
 - Response code is 403 if the specified user is not authorized to access the specified Test Path.
 
-#### Recommended Pool Settings
+#### Recommended HTTP Pool Settings
 
 **Setting** | **Value**
 ----- | ----- | -----
