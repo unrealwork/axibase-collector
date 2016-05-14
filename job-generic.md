@@ -1,35 +1,59 @@
-# Axibase Collector Jobs
-Axibase Collector jobs gather statistics, properties, events, and files from external data sources and upload them into Axibase Time Series Database.
+# Jobs
 
-The solution supports commonly used data exchange protocols including JDBC, SNMP, JMX, JSON, CSV, ICMP, TCP, HTTP, OVPM, Files as well as AWS and Docker APIs.
+## Overview
 
-Axibase Collector allows you to customize jobs. You can:
+Job is a primary unit of configuration and scheduling in Axibase Collector. 
 
-* Specify job type
-* Specify schedule for running the job
-* Choose a target ATDS where Collector should upload data to
-* Create job configuration
+Each job has the following generic properties: 
 
-Each Axibase Collector job has a set of properties that are common for all jobs. These properties are:
+| **Name** | **Description** |
+|:--- |:---|
+| Type | Job type, such as JDBC, JMX, FILE, etc.|
+| Name | Job name. |
+| Enabled | Job schedule status. The job must be enabled to be executed according to its schedule. |
+| Cron Expression | Cron expression determines how frequently the job is executed. See [scheduling](https://github.com/atsd-collector-docs/scheduling.md).
+| Storage | Target ATSD server for sending collected data. |
 
-| FIELD | DESCRIPTION |
-|:------------- |:-------------|
-| Enabled       |The check box determines if the job is enabled or disabled. By default, new jobs are disabled. <br> To enable a job, select the check box. |
-| Name     | Collector job name. |
-| Cron Expression | Cron expression determining how frequently the collector job runs. For more information on crone expressions, see [Scheduling](https://github.com/atsd-collector-docs/scheduling.md).
-| ATSD | Target ATSD server. If you have recently added a server, click the Refresh icon to update the list. |
+Type-specific properties, such as SQL query in JDBC job or CSV parser in FILE job, are specified in nested configuration objects.
 
-![](https://axibase.com/wp-content/uploads/2015/08/job_example.png)
+```
++ job-1
+  - configuration-1
++ job-2
+  - configuration-2
+  - configuration-3
+...
+```
 
-You can create the exact copy of the job. To do so, click Clone. <br>
-The copied job will have the same name as the original job but with the '-cloned' postfix. By default, cloned jobs are disabled. You can change the necessary settings and enable the job by selecting the Enabled check box. 
+The job may include multiple configurations, for example a JDBC job may be configured to execute multiple SQL queries.
 
-Click Run to manually start the job. 
-To stop the job, click Stop. 
+![](job-properties.png)
 
-To permanently remove the job, click Delete. 
+## Execution
 
-To discard all unsaved changes, click Cancel. 
+Axibase Collector executes enabled jobs based on their schedule.
 
+The number of concurrently executing jobs is set to 32 by default and is controlled with quartz.properties.
 
-**Note** that apart from common settings, some jobs have specific parameters you can configure. 
+Jobs execute concurrently whereas configuration inside the same job are executed sequentially.
+
+Instances of the same job cannot run at the same time. If the job is in STARTED status by the time it's time to execute it again, the new execution will not be triggered until the current job instance finishes its work.  
+
+## Manual Execution
+
+Jobs can be executed manually with `Run` action regardless of its schedule or status. 
+
+Manual execution produces the same results as scheduled execution.
+
+The manual mode is useful for running temporarily disabled jobs, for example when developing new jobs or troubleshooting existing jobs.
+
+## Clonign Jobs
+
+You can create the exact copy of the job by clicking Clone. <br>
+The copied job will have the same name as the original job but with the '-cloned' postfix. 
+
+By default, cloned jobs are disabled. 
+
+You can change the necessary settings and enable the job by selecting the Enabled check box. 
+
+Cloned job has its own primary key and can run concurrently with the original job.
