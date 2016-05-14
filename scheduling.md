@@ -1,28 +1,57 @@
-# SCHEDULING
-### Using Cron Expressions
+# Scheduling
+
+## Scheduled Execution
+
+Axibase Collector executes enabled jobs based on their schedule.
+
+The number of concurrently executing jobs is set to 32 by default and is controlled with quartz.properties.
+
+Jobs execute concurrently whereas configuration inside the same job are executed sequentially.
+
+Instances of the same job cannot run at the same time. If the job is in STARTED status by the time it's time to execute it again, the new execution will not be triggered until the current job instance finishes its work.  
+
+## Manual Execution
+
+Jobs can be executed manually with `Run` action regardless of its schedule or status. 
+
+Manual execution produces the same results as scheduled execution.
+
+The manual mode is useful for running temporarily disabled jobs, for example when developing new jobs or troubleshooting existing jobs.
+
+### Cron Expressions
+
 A cron expression is a string that determines a schedule for executing a job.
 
-Fields in a cron expression have the following order: seconds, minutes, hours, day-of-month, month, day-of-week, year.
-For example, `0 0 12 * * ?`.
+Fields in a cron expression have the following order: 
 
-You can use the ‘R’ symbol in second/minute/hour field to randomize the value.
+- seconds
+- minutes
+- hours
+- day-of-month
+- month
+- day-of-week
+- year (optional)
+
+For example, `0 0 8 * * ? *`, means execution at 08:00:00 every day.
+
+Second, minute, and hour fields support **R** (random) symbol to randomize the exact execution time.
 
 ![Cron Expressions](http://axibase.com/wp-content/uploads/2016/03/cron_expressions.png)
 
-_*Either ‘0’ or ‘7’ can stand for Sunday._
+_*Either '0' or '7' can stand for Sunday in day-of-week field._
 
-#### Examples
+## Examples
 
-For example, if you want to run a command every 15 minutes, cron expression should be as follows: `0 0/15 * * * ?`
+`0 0/15 * * * ?` - Execute job every 15 minutes.
 
-To run a command every 10 seconds, cron expression should be: `0/10 * * * * ?`
+`0/10 * * * * ?` - Execute job every 10 seconds.
 
-To run a command every minute:  `0 0/1 * * * ?`
+`0 0/1 * * * ?` - Execute job every minute.
 
-To run a command every day at 0:00:  `0 0 0 * * ?`
+`0 0 0 * * ?` - Execute job every day at 0:00.  
 
-To run a command every 5 minutes at random second: `R 0/5 * * * ?`
+`R 0/5 * * * ?` - Execute job every 5 minutes at random second.
 
-To run a command every day on 01 hour at random minute and second: `R R 1 * * ?`
+`R R 1 * * ?` - Execute job every day on 01 hour at random minute and second.
 
-To run a command every hour at 5th and 35th minute: `0 5,35 * * * ?`
+`0 5,35 * * * ?` - Execute job every hour at 5th and 35th minute.
