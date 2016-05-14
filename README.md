@@ -47,7 +47,7 @@ It supports [collections](collections.md)-based automation in order to query as 
 
 * [Overview](job-generic.md)
 * [Scheduling](scheduling.md)
-* [Monitoring](job-completion-messages.md)
+* [Monitoring](monitoring.md)
 
 ## Automation
 
