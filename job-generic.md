@@ -9,7 +9,7 @@ Each job has the following generic properties:
 | Type | Job type, such as JDBC, JMX, FILE, etc.|
 | Name | Job name. |
 | Enabled | Job schedule status. The job must be enabled to be executed according to its schedule. |
-| Cron Expression | [Cron Expression](https://github.com/atsd-collector-docs/scheduling.md#cron-expression) determines how frequently the job is executed.
+| Cron Expression | [Cron Expression](scheduling.md#cron-expressions) determines how frequently the job is executed.
 | Storage | Target ATSD server for sending collected data. |
 
 Type-specific properties, such as SQL query in JDBC job or CSV parser in FILE job, are specified in nested configuration objects.
