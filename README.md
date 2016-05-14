@@ -1,4 +1,4 @@
-# Axibase Collector Documentation
+# Axibase Collector
 
 ## Overview
 
@@ -12,6 +12,7 @@ It supports [collections](collections.md)-based automation in order to query as 
 * Query a web service, convert its JSON output into tabular format and upload it into ATSD
 * Historize metrics by querying current values and storing their time-stamped history in ATSD
 * Offload prunable data from relational databases for long-term storage in ATSD
+* Collect real-time performance metrics from Java applications (JMX), network devices (SNMP), etc.
 
 ## Supported Data/Network Protocols
 
