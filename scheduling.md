@@ -40,18 +40,26 @@ Second, minute, and hour fields support **R** (random) symbol to randomize the e
 
 _*Either '0' or '7' can stand for Sunday in day-of-week field._
 
-## Examples
+## Cron Expression Examples
 
-`0 0/15 * * * ?` - Execute job every 15 minutes.
+**Expression** | **Description**
+---|:---
+`0 0/15 * * * ?` | Execute job every 15 minutes.
+`0/10 * * * * ?` | Execute job every 10 seconds.
+`0 0/1 * * * ?` | Execute job every minute.
+`0 0 0 * * ?` | Execute job every day at 0:00.  
+`R 0/5 * * * ?` | Execute job every 5 minutes at random second.
+`R R 1 * * ?` | Execute job every day on 01 hour at random minute and second.
+`0 5,35 * * * ?` | Execute job every hour at 5th and 35th minute.
 
-`0/10 * * * * ?` - Execute job every 10 seconds.
+## Execution State
 
-`0 0/1 * * * ?` - Execute job every minute.
+Jobs can have the following executing states:
 
-`0 0 0 * * ?` - Execute job every day at 0:00.  
-
-`R 0/5 * * * ?` - Execute job every 5 minutes at random second.
-
-`R R 1 * * ?` - Execute job every day on 01 hour at random minute and second.
-
-`0 5,35 * * * ?` - Execute job every hour at 5th and 35th minute.
+* STARTING
+* STARTED
+* STOPPED
+* STOPPING
+* COMPLETED
+* ABANDONED
+* FAILED
