@@ -2,9 +2,16 @@
 
 ## Overview
 
-Axibase Collector is a Java-based collection daemon that retrieves data from external sources and uploads it as series, properties, and messages into Axibase Time Series Database. 
+Axibase Collector is a Java-based ETL application that queries external data sources on schedule and uploads received data as series, properties, messages, and files into Axibase Time Series Database.
 
-The Collector can also download files in a variety of input formats and upload them into ATSD for parsing.
+It supports [collections](collections.md)-based automation in order to query as many data sources as possible with the same configuration.
+
+## Typical Use Cases
+
+* Download CSV/TSV file from a web or FTP server and upload it into ATSD
+* Query a web service, convert its JSON output into tabular format and upload it into ATSD
+* Historize metrics by querying current values and storing their time-stamped history in ATSD
+* Offload prunable data from relational databases for long-term storage in ATSD
 
 ## Supported Data/Network Protocols
 
