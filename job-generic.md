@@ -1,7 +1,5 @@
 # Jobs
 
-## Overview
-
 Job is a primary unit of configuration and scheduling in Axibase Collector. 
 
 Each job has the following generic properties: 
@@ -29,7 +27,7 @@ The job may include multiple configurations, for example a JDBC job may be confi
 
 ![](job-properties.png)
 
-## Execution
+## Scheduled Execution
 
 Axibase Collector executes enabled jobs based on their schedule.
 
