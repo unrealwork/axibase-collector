@@ -2,7 +2,7 @@
 
 ## Overview
 
-Axibase Collector is a Java-based collection daemon that polls data from external sources and uploads it as series, properties, and messages into Axibase Time Series Database. 
+Axibase Collector is a Java-based collection daemon that retrieves data from external sources and uploads it as series, properties, and messages into Axibase Time Series Database. 
 
 The Collector can also download files in a variety of input formats and upload them into ATSD for parsing.
 
@@ -32,9 +32,6 @@ The Collector can also download files in a variety of input formats and upload t
 * Installation:
   - Installation on [host](installation.md)
   - Installation in [Docker container](installation-on-docker.md)
-
-## Configuration
-
 * [Administrator Account](configure-administrator-account.md)
 * [Collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) in ATSD
 * [ATSD Server Connection](atsd-server-connection.md)
@@ -44,6 +41,10 @@ The Collector can also download files in a variety of input formats and upload t
 * [Overview](job-generic.md)
 * [Scheduling](scheduling.md)
 * [Monitoring](job-completion-messages.md)
+
+## Automation
+
+* [Item Lists](collections.md)
 
 ## Job Types
 
