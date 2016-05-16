@@ -1,0 +1,412 @@
+<list>
+    <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+        <name>vmware-metrics</name>
+        <cronExpression>0 0/20 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>JDBC</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags/>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <configs>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT st.SAMPLE_TIME, pe.NAME AS ENTITY_NAME, (sd.GROUP_NAME + &apos;.&apos; + sd.NAME) AS
+                    METRIC, &#xd;
+                    COUNT(hs.STAT_VAL) AS &quot;cnt&quot;,&#xd;
+                    AVG(CASE sd.UNIT WHEN &apos;percent&apos; THEN hs.STAT_VAL/100.0 ELSE hs.STAT_VAL END) AS &quot;avg&quot;,
+                    &#xd;
+                    SUM(CASE sd.UNIT WHEN &apos;percent&apos; THEN hs.STAT_VAL/100.0 ELSE hs.STAT_VAL END) AS &quot;sum&quot;,
+                    &#xd;
+                    MAX(CASE sd.UNIT WHEN &apos;percent&apos; THEN hs.STAT_VAL/100.0 ELSE hs.STAT_VAL END) AS &quot;max&quot;,
+                    &#xd;
+                    MIN(CASE sd.UNIT WHEN &apos;percent&apos; THEN hs.STAT_VAL/100.0 ELSE hs.STAT_VAL END) AS &quot;min&quot;&#xd;
+                    FROM dbo.VPX_SAMPLE_TIME1 AS st (NOLOCK) &#xd;
+                    INNER JOIN dbo.VPX_HIST_STAT1 AS hs (NOLOCK) &#xd;
+                    INNER JOIN dbo.VPX_STAT_COUNTER AS sc (NOLOCK) ON hs.COUNTER_ID = sc.COUNTER_ID &#xd;
+                    INNER JOIN dbo.VPX_STAT_DEF AS sd (NOLOCK) ON sc.STAT_ID = sd.ID &#xd;
+                    INNER JOIN dbo.VPX_DEVICE AS d (NOLOCK) &#xd;
+                    LEFT OUTER JOIN dbo.VPX_STAT_DEV_TYPE AS sdt (NOLOCK) ON d.DEVICE_ID = sdt.DEVICE_ID &#xd;
+                    LEFT OUTER JOIN dbo.VPX_STAT_DEV_TYPE_DEF AS sdtd (NOLOCK) &#xd;
+                    ON sdt.DEVICE_TYPE_ID = sdtd.DEVICE_TYPE_ID ON sc.DEVICE_ID = ISNULL(d.DEVICE_ID, 1) &#xd;
+                    ON st.TIME_ID = hs.TIME_ID &#xd;
+                    INNER JOIN dbo.VPX_STAT_ID AS si (NOLOCK) ON sc.ENTITY_ID = si.ID&#xd;
+                    INNER JOIN VPXV_ENTITY_MOID em (NOLOCK) on si.MOID = em.MOID&#xd;
+                    INNER JOIN VPXV_ENTITY e (NOLOCK) on em.ENTITYID = e.id&#xd;
+                    INNER JOIN VPXV_ENTITY pe (NOLOCK) on e.parent_id = pe.id&#xd;
+                    WHERE sd.GROUP_NAME NOT IN (&apos;sys&apos;, &apos;rescpu&apos;) AND st.SAMPLE_TIME &gt;
+                    DATEADD(MINUTE, -10, ?)&#xd;
+                    AND ISNULL(d.DEVICE_ID, 1) = 1 AND e.PARENT_ENTITY_TYPE = &apos;CLUSTER_COMPUTE_RESOURCE&apos;&#xd;
+                    AND sd.UNIT != &apos;millisecond&apos;&#xd;
+                    GROUP BY pe.NAME, st.SAMPLE_TIME, sd.GROUP_NAME, sd.NAME, sd.UNIT&#xd;
+                    HAVING COUNT(hs.STAT_VAL) &gt; 1&#xd;
+                    ORDER BY SAMPLE_TIME
+                </query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>ENTITY_NAME</entityColumn>
+                <metricNameColumn>METRIC</metricNameColumn>
+                <metricValueColumn>cnt, avg, max, min, sum</metricValueColumn>
+                <timeColumn>SAMPLE_TIME</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>vmware.cluster.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT st.SAMPLE_TIME, e.NAME AS ENTITY_NAME, LOWER(e.ENTITY_TYPE) AS ENTITY_TYPE,&#xd;
+                    (sd.GROUP_NAME + &apos;.&apos; + sd.NAME) AS METRIC, d.DEVICE_NAME,&#xd;
+                    CASE sd.UNIT WHEN &apos;percent&apos; THEN hs.STAT_VAL/100.0 ELSE hs.STAT_VAL END AS STAT_VALUE&#xd;
+                    FROM dbo.VPX_SAMPLE_TIME1 AS st (NOLOCK) &#xd;
+                    INNER JOIN dbo.VPX_HIST_STAT1 AS hs (NOLOCK) &#xd;
+                    INNER JOIN dbo.VPX_STAT_COUNTER AS sc (NOLOCK) ON hs.COUNTER_ID = sc.COUNTER_ID &#xd;
+                    INNER JOIN dbo.VPX_STAT_DEF AS sd (NOLOCK) ON sc.STAT_ID = sd.ID &#xd;
+                    INNER JOIN dbo.VPX_DEVICE AS d (NOLOCK) &#xd;
+                    LEFT OUTER JOIN dbo.VPX_STAT_DEV_TYPE AS sdt (NOLOCK) ON d.DEVICE_ID = sdt.DEVICE_ID &#xd;
+                    LEFT OUTER JOIN dbo.VPX_STAT_DEV_TYPE_DEF AS sdtd (NOLOCK) &#xd;
+                    ON sdt.DEVICE_TYPE_ID = sdtd.DEVICE_TYPE_ID ON sc.DEVICE_ID = ISNULL(d.DEVICE_ID, 1) &#xd;
+                    ON st.TIME_ID = hs.TIME_ID &#xd;
+                    INNER JOIN dbo.VPX_STAT_ID AS si (NOLOCK) ON sc.ENTITY_ID = si.ID&#xd;
+                    INNER JOIN VPXV_ENTITY_MOID em (NOLOCK) on si.MOID = em.MOID&#xd;
+                    INNER JOIN VPXV_ENTITY e (NOLOCK) on em.ENTITYID = e.id&#xd;
+                    WHERE sd.GROUP_NAME != &apos;sys&apos; AND e.PARENT_ID IS NOT NULL AND e.ENTITY_TYPE != &apos;VM&apos;
+                    AND st.SAMPLE_TIME &gt; DATEADD(MINUTE, -10, ?)&#xd;
+                    ORDER BY st.SAMPLE_TIME
+                </query>
+                <tagColumns>
+                    <string>DEVICE_NAME</string>
+                </tagColumns>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>ENTITY_NAME</entityColumn>
+                <metricNameColumn>METRIC</metricNameColumn>
+                <metricValueColumn>STAT_VALUE</metricValueColumn>
+                <timeColumn>SAMPLE_TIME</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>vmware.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT st.SAMPLE_TIME, e.NAME AS ENTITY_NAME, LOWER(e.ENTITY_TYPE) AS ENTITY_TYPE,&#xd;
+                    (sd.GROUP_NAME + &apos;.&apos; + sd.NAME) AS METRIC, d.DEVICE_NAME,&#xd;
+                    CASE sd.UNIT WHEN &apos;percent&apos; THEN hs.STAT_VAL/100.0 ELSE hs.STAT_VAL END AS STAT_VALUE&#xd;
+                    FROM dbo.VPX_SAMPLE_TIME1 AS st (NOLOCK) &#xd;
+                    INNER JOIN dbo.VPX_HIST_STAT1 AS hs (NOLOCK) &#xd;
+                    INNER JOIN dbo.VPX_STAT_COUNTER AS sc (NOLOCK) ON hs.COUNTER_ID = sc.COUNTER_ID &#xd;
+                    INNER JOIN dbo.VPX_STAT_DEF AS sd (NOLOCK) ON sc.STAT_ID = sd.ID &#xd;
+                    INNER JOIN dbo.VPX_DEVICE AS d (NOLOCK) &#xd;
+                    LEFT OUTER JOIN dbo.VPX_STAT_DEV_TYPE AS sdt (NOLOCK) ON d.DEVICE_ID = sdt.DEVICE_ID &#xd;
+                    LEFT OUTER JOIN dbo.VPX_STAT_DEV_TYPE_DEF AS sdtd (NOLOCK) &#xd;
+                    ON sdt.DEVICE_TYPE_ID = sdtd.DEVICE_TYPE_ID ON sc.DEVICE_ID = ISNULL(d.DEVICE_ID, 1) &#xd;
+                    ON st.TIME_ID = hs.TIME_ID &#xd;
+                    INNER JOIN dbo.VPX_STAT_ID AS si (NOLOCK) ON sc.ENTITY_ID = si.ID&#xd;
+                    INNER JOIN VPXV_ENTITY_MOID em (NOLOCK) on si.MOID = em.MOID&#xd;
+                    INNER JOIN VPXV_ENTITY e (NOLOCK) on em.ENTITYID = e.id&#xd;
+                    WHERE sd.GROUP_NAME != &apos;sys&apos; AND e.PARENT_ID IS NOT NULL AND e.ENTITY_TYPE = &apos;VM&apos;
+                    AND st.SAMPLE_TIME &gt; DATEADD(MINUTE, -10, ?)&#xd;
+                    ORDER BY st.SAMPLE_TIME
+                </query>
+                <tagColumns>
+                    <string>DEVICE_NAME</string>
+                </tagColumns>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>ENTITY_NAME</entityColumn>
+                <metricNameColumn>METRIC</metricNameColumn>
+                <metricValueColumn>STAT_VALUE</metricValueColumn>
+                <timeColumn>SAMPLE_TIME</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>vmware.vm.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+    <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+        <name>vmware-properties</name>
+        <cronExpression>0 0/15 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>JDBC</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags>
+            <entry>
+                <string>table</string>
+                <string>VPXV_COMPUTE_RESOURCE</string>
+            </entry>
+        </defaultTags>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <configs>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT pe.NAME AS CLUSTER, vms.NAME as VM, e.NAME AS HOST, vms.POWER_STATE, vms.MEM_SIZE_MB,
+                    vms.NUM_VCPU, vms.DESCRIPTION&#xd;
+                    FROM VPXV_ENTITY e (NOLOCK)&#xd;
+                    INNER JOIN VPXV_ENTITY pe (NOLOCK) on e.parent_id = pe.id&#xd;
+                    INNER JOIN VPXV_VMS vms (NOLOCK) on vms.hostid = e.id&#xd;
+                    WHERE e.PARENT_ENTITY_TYPE = &apos;CLUSTER_COMPUTE_RESOURCE&apos; AND e.ENTITY_TYPE = &apos;HOST&apos;&#xd;
+                    AND VMS.POWER_STATE = &apos;On&apos;</query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>HOST</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>vmware.host.vms</propertyDefaultType>
+                <propertyKeyColumns>
+                    <string>VM</string>
+                </propertyKeyColumns>
+                <propertyValueColumns>
+                    <string>CLUSTER</string>
+                    <string>NUM_VCPU</string>
+                    <string>MEM_SIZE_MB</string>
+                    <string>DESCRIPTION</string>
+                    <string>VM</string>
+                    <string>POWER_STATE</string>
+                </propertyValueColumns>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT pe.NAME AS CLUSTER, vms.NAME as VM, e.NAME AS HOST, vms.POWER_STATE, vms.MEM_SIZE_MB,
+                    vms.NUM_VCPU, vms.DESCRIPTION&#xd;
+                    FROM VPXV_ENTITY e (NOLOCK)&#xd;
+                    INNER JOIN VPXV_ENTITY pe (NOLOCK) on e.parent_id = pe.id&#xd;
+                    INNER JOIN VPXV_VMS vms (NOLOCK) on vms.hostid = e.id&#xd;
+                    WHERE e.PARENT_ENTITY_TYPE = &apos;CLUSTER_COMPUTE_RESOURCE&apos; AND e.ENTITY_TYPE = &apos;HOST&apos;&#xd;
+                    AND VMS.POWER_STATE = &apos;On&apos;</query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>CLUSTER</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>vmware.cluster.vms</propertyDefaultType>
+                <propertyKeyColumns>
+                    <string>VM</string>
+                </propertyKeyColumns>
+                <propertyValueColumns>
+                    <string>HOST</string>
+                    <string>NUM_VCPU</string>
+                    <string>MEM_SIZE_MB</string>
+                    <string>DESCRIPTION</string>
+                    <string>VM</string>
+                    <string>POWER_STATE</string>
+                </propertyValueColumns>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT pe.NAME AS CLUSTER, hosts.NAME as HOST, hosts.CPU_COUNT, hosts.CPU_CORE_COUNT,
+                    hosts.CPU_THREAD_COUNT, &#xd;
+                    hosts.CPU_HZ, CAST(hosts.CPU_HZ AS BIGINT) * hosts.CPU_CORE_COUNT / 1000000 AS TOTAL_CPU_MHZ,
+                    hosts.MEM_SIZE FROM VPXV_ENTITY e (NOLOCK)&#xd;
+                    INNER JOIN VPXV_ENTITY pe (NOLOCK) on e.parent_id = pe.id&#xd;
+                    INNER JOIN VPXV_HOSTS hosts (NOLOCK) on hosts.hostid = e.id&#xd;
+                    WHERE e.PARENT_ENTITY_TYPE = &apos;CLUSTER_COMPUTE_RESOURCE&apos; AND e.ENTITY_TYPE = &apos;HOST&apos;</query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>CLUSTER</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>vmware.cluster.hosts</propertyDefaultType>
+                <propertyKeyColumns>
+                    <string>HOST</string>
+                </propertyKeyColumns>
+                <propertyValueColumns>
+                    <string>HOST</string>
+                    <string>MEM_SIZE</string>
+                    <string>CPU_HZ</string>
+                    <string>CPU_CORE_COUNT</string>
+                    <string>TOTAL_CPU_MHZ</string>
+                    <string>CPU_THREAD_COUNT</string>
+                    <string>CPU_COUNT</string>
+                </propertyValueColumns>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT C.NAME, R.ALLOCATED_CPU, ALLOCATED_VM_CPU, AVAILABLE_POOL_CPU, AVAILABLE_VM_CPU,
+                    ALLOCATED_MEM, ALLOCATED_VM_MEM, AVAILABLE_POOL_MEM,&#xd;
+                    AVAILABLE_VM_MEM, CURRENT_CPU, CURRENT_MEM, OVERALL_STATUS&#xd;
+                    FROM VPXV_RESOURCE_POOL R (NOLOCK) INNER JOIN VPXV_COMPUTE_RESOURCE C (NOLOCK) ON R.PARENT_ID =
+                    C.RESOURCEPOOLID
+                </query>
+                <tagColumns/>
+                <defaultTags>
+                    <entry>
+                        <string>table</string>
+                        <string>VPXV_COMPUTE_RESOURCE</string>
+                    </entry>
+                </defaultTags>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>NAME</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>vmware.cluster</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT NAME AS ESXHOSTNAME, * FROM VPXV_HOSTS</query>
+                <tagColumns/>
+                <defaultTags>
+                    <entry>
+                        <string>table</string>
+                        <string>VPXV_HOSTS</string>
+                    </entry>
+                </defaultTags>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>ESXHOSTNAME</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>vmware.host</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns>
+                    <string>DATACENTER_ID</string>
+                    <string>HOSTID</string>
+                    <string>PASSWORD</string>
+                    <string>FARMID</string>
+                </ignoredPropertyValueColumns>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT REPLACE(NAME, &apos; &apos;, &apos;_&apos;) AS VMNAME, * FROM VPXV_VMS</query>
+                <tagColumns/>
+                <defaultTags>
+                    <entry>
+                        <string>table</string>
+                        <string>VPXV_VMS</string>
+                    </entry>
+                </defaultTags>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>VMNAME</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>vmware.vm</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns>
+                    <string>RESOURCE_GROUP_ID</string>
+                    <string>VMGROUPID</string>
+                    <string>VMUNIQUEID</string>
+                    <string>HOSTID</string>
+                    <string>VMID</string>
+                    <string>CONFIGFILENAME</string>
+                </ignoredPropertyValueColumns>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+</list>

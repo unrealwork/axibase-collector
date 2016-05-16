@@ -58,7 +58,7 @@ Using ATSD you can retrieve metrics and properties from HP OpenView.
 * List of collected [HP OpenView metrics](metric-list.md)
 
 ### Properties
-* List of collected [Oracle EM properties](properties-list.md)
+* List of collected [HP OpenView properties](properties-list.md)
 
 
 

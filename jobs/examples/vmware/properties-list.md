@@ -1,0 +1,29 @@
+# Collected VMware Properties
+
+## VMware cluster
+
+```json
+[
+  {
+    "type": "vmware.cluster",
+    "entity": "nurcls01",
+    "key": {},
+    "tags": {
+      "allocated_cpu": "0",
+      "allocated_mem": "0",
+      "allocated_vm_cpu": "0",
+      "allocated_vm_mem": "0",
+      "available_pool_cpu": "17143",
+      "available_pool_mem": "22304260096",
+      "available_vm_cpu": "17143",
+      "available_vm_mem": "22304260096",
+      "current_cpu": "0",
+      "current_mem": "0",
+      "overall_status": "green"
+    },
+    "timestamp": 1451138406320
+  }
+]
+```
+
+## VMware
