@@ -11,7 +11,7 @@ Using ATSD you can retrieve metrics and properties from VMware.
 
 ## Requirements
 
-- VMware `2005+`
+- Microsoft System Center Operations Manager `2005+`
 
 ## Installation steps
 
