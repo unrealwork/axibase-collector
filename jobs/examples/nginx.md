@@ -134,19 +134,19 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 * Open Metrics tab and apply `nginx*` to review the list of nginx metrics received by ATSD.
 * Click on Series link and check that metrics are present for each server in in the **nginx-servers** list.
 
-[NGINX metrics](nginx-metrics-list.png)
+![NGINX metrics](nginx-metrics-list.png)
 
 ### NGINX Status Page Metrics
 
-Metrics table
-
-* Active connections
-* Server accepts
-* Server handled
-* Server requests
-* Reading
-* Writing
-* Waiting
+| Metric                  |                                      Description                                        |
+|:-----------------------:|:----------------------------------------------------------------------------------------|
+| Active connection       |The current number of active client connections including Waiting connections.           |
+| Server accepts          |The total number of accepted client connections.                                         |
+| Server handled          |The total number of handled connections.<br> Generally, the parameter value is the same as accepts unless some resource limits have been reached (for example, the worker_connections limit).                          |
+| Server requests         |The total number of client requests.                                                     |
+| Reading                 |The current number of connections where nginx is reading the request header.             |
+| Writing                 |The current number of connections where nginx is writing the response back to the client.|
+| Waiting                 |The current number of idle client connections waiting for a request.                     |
  
 ### View Portals
 
