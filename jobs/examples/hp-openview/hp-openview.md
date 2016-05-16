@@ -15,17 +15,57 @@ Using ATSD you can retrieve metrics and properties from HP OpenView.
 
 ### Configure HP Open View HTTP Pool
 
-* Open **Data Sources:HTTP Pools** page, select `ovpm-1` database.
-* Provide connection parameters to the target Oracle EM database as displayed below:
+* Open **Data Sources:HTTP Pools** page, select `ovpm-10.102.0.6` database.
+* Provide connection parameters to the target HP OpenView pool as displayed below:
 
-![](images/oracle_database_example.png)
+![](images/http_pool_conf.png)
 
+### Verify Job Configuration
 
+* Open `ovpm-global` job
+* Set HTTP Pool to `ovpm-10.102.0.6`
 
-## Metric list
+![](images/ovmp_configuration.png)
+
+* Choose one of target ATSD instances if your Collector instance is connected to multiple ATSD servers.
+* Save the Job
+
+* Open each configuration, click on `Test` button and review output. See [Data Queries](#data-queries) below.
+
+<!---
+![](images/ovmp.png)
+-->
+
+### Schedule the Job
+
+* Open `JDBC Job` page and click `Run` button for the `ovpm-global` job.
+* Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
+
+![](images/ovmp-global.png)
+
+* If there are no errors, set job status to Enabled and save the job
+
+### Verify Metrics in ATSD
+
+* Login into ATSD
+* Click on Metrics tab and filter metrics by name 'gbl_.*'
+
+![](images/metrics.png)
+
+## Viewing Data in ATSD
+
+### Metrics
 * List of collected [HP OpenView metrics](metric-list.md)
 
+### Properties
+* List of collected [Oracle EM properties](properties-list.md)
+
+
+
 ## Entity group list
+- OVPM Linux
+- OVPM Unix
+- OVPM Windows
 
 ## Portal List
 
