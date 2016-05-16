@@ -1,21 +1,15 @@
 [
   {
-    "type": "vmware.cluster",
-    "entity": "nurcls01",
+    "type": "vmware.vm",
+    "entity": "atsd1",
     "key": {},
     "tags": {
-      "allocated_cpu": "0",
-      "allocated_mem": "0",
-      "allocated_vm_cpu": "0",
-      "allocated_vm_mem": "0",
-      "available_pool_cpu": "17143",
-      "available_pool_mem": "22304260096",
-      "available_vm_cpu": "17143",
-      "available_vm_mem": "22304260096",
-      "current_cpu": "0",
-      "current_mem": "0",
-      "overall_status": "green"
+      "guest_state": "unknown",
+      "is_template": "0",
+      "memory_overhead": "0",
+      "name": "ATSD1",
+      "power_state": "Off"
     },
-    "timestamp": 1451138406320
+    "timestamp": 1446733800850
   }
 ]
