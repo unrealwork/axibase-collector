@@ -1,562 +1,607 @@
 #### Collected VMware Metrics
 
-#### VMware Cluster
-
-```SQL
- cpu.coreutilization.avg                                                  
- cpu.coreutilization.cnt                                                  
- cpu.coreutilization.max                                                  
- cpu.coreutilization.min                                                  
- cpu.coreutilization.sum                                                  
- cpu.demand.avg                                                           
- cpu.demand.cnt                                                           
- cpu.demand.max                                                           
- cpu.demand.min                                                           
- cpu.demand.sum                                                           
- cpu.latency.avg                                                          
- cpu.latency.cnt                                                          
- cpu.latency.max                                                          
- cpu.latency.min                                                          
- cpu.latency.sum                                                          
- cpu.reservedcapacity.avg                                                 
- cpu.reservedcapacity.cnt                                                 
- cpu.reservedcapacity.max                                                 
- cpu.reservedcapacity.min                                                 
- cpu.reservedcapacity.sum                                                 
- cpu.totalcapacity.avg                                                    
- cpu.totalcapacity.cnt                                                    
- cpu.totalcapacity.max                                                    
- cpu.totalcapacity.min                                                    
- cpu.totalcapacity.sum                                                    
- cpu.usage.avg                                                            
- cpu.usage.cnt                                                            
- cpu.usage.max                                                            
- cpu.usage.min                                                            
- cpu.usage.sum                                                            
- cpu.usagemhz.avg                                                         
- cpu.usagemhz.cnt                                                         
- cpu.usagemhz.max                                                         
- cpu.usagemhz.min                                                         
- cpu.usagemhz.sum                                                         
- cpu.utilization.avg                                                      
- cpu.utilization.cnt                                                      
- cpu.utilization.max                                                      
- cpu.utilization.min                                                      
- cpu.utilization.sum                                                      
- disk.read.avg                                                            
- disk.read.cnt                                                            
- disk.read.max                                                            
- disk.read.min                                                            
- disk.read.sum                                                            
- disk.usage.avg                                                           
- disk.usage.cnt                                                           
- disk.usage.max                                                           
- disk.usage.min                                                           
- disk.usage.sum                                                           
- disk.write.avg                                                           
- disk.write.cnt                                                           
- disk.write.max                                                           
- disk.write.min                                                           
- disk.write.sum                                                           
- mem.active.avg                                                           
- mem.active.cnt                                                           
- mem.active.max                                                           
- mem.active.min                                                           
- mem.active.sum                                                           
- mem.activewrite.avg                                                      
- mem.activewrite.cnt                                                      
- mem.activewrite.max                                                      
- mem.activewrite.min                                                      
- mem.activewrite.sum                                                      
- mem.compressed.avg                                                       
- mem.compressed.cnt                                                       
- mem.compressed.max                                                       
- mem.compressed.min                                                       
- mem.compressed.sum                                                       
- mem.compressionrate.avg                                                  
- mem.compressionrate.cnt                                                  
- mem.compressionrate.max                                                  
- mem.compressionrate.min                                                  
- mem.compressionrate.sum                                                  
- mem.consumed.avg                                                         
- mem.consumed.cnt                                                         
- mem.consumed.max                                                         
- mem.consumed.min                                                         
- mem.consumed.sum                                                         
- mem.decompressionrate.avg                                                
- mem.decompressionrate.cnt                                                
- mem.decompressionrate.max                                                
- mem.decompressionrate.min                                                
- mem.decompressionrate.sum                                                
- mem.granted.avg                                                          
- mem.granted.cnt                                                          
- mem.granted.max                                                          
- mem.granted.min                                                          
- mem.granted.sum                                                          
- mem.latency.avg                                                          
- mem.latency.cnt                                                          
- mem.latency.max                                                          
- mem.latency.min                                                          
- mem.latency.sum                                                          
- mem.llswapinrate.avg                                                     
- mem.llswapinrate.cnt                                                     
- mem.llswapinrate.max                                                     
- mem.llswapinrate.min                                                     
- mem.llswapinrate.sum                                                     
- mem.llswapoutrate.avg                                                    
- mem.llswapoutrate.cnt                                                    
- mem.llswapoutrate.max                                                    
- mem.llswapoutrate.min                                                    
- mem.llswapoutrate.sum                                                    
- mem.lowfreethreshold.avg                                                 
- mem.lowfreethreshold.cnt                                                 
- mem.lowfreethreshold.max                                                 
- mem.lowfreethreshold.min                                                 
- mem.lowfreethreshold.sum                                                 
- mem.overhead.avg                                                         
- mem.overhead.cnt                                                         
- mem.overhead.max                                                         
- mem.overhead.min                                                         
- mem.overhead.sum                                                         
- mem.reservedcapacity.avg                                                 
- mem.reservedcapacity.cnt                                                 
- mem.reservedcapacity.max                                                 
- mem.reservedcapacity.min                                                 
- mem.reservedcapacity.sum                                                 
- mem.shared.avg                                                           
- mem.shared.cnt                                                           
- mem.shared.max                                                           
- mem.shared.min                                                           
- mem.shared.sum                                                           
- mem.sharedcommon.avg                                                     
- mem.sharedcommon.cnt                                                     
- mem.sharedcommon.max                                                     
- mem.sharedcommon.min                                                     
- mem.sharedcommon.sum                                                     
- mem.state.avg                                                            
- mem.state.cnt                                                            
- mem.state.max                                                            
- mem.state.min                                                            
- mem.state.sum                                                            
- mem.swapin.avg                                                           
- mem.swapin.cnt                                                           
- mem.swapin.max                                                           
- mem.swapin.min                                                           
- mem.swapin.sum                                                           
- mem.swapinrate.avg                                                       
- mem.swapinrate.cnt                                                       
- mem.swapinrate.max                                                       
- mem.swapinrate.min                                                       
- mem.swapinrate.sum                                                       
- mem.swapout.avg                                                          
- mem.swapout.cnt                                                          
- mem.swapout.max                                                          
- mem.swapout.min                                                          
- mem.swapout.sum                                                          
- mem.swapoutrate.avg                                                      
- mem.swapoutrate.cnt                                                      
- mem.swapoutrate.max                                                      
- mem.swapoutrate.min                                                      
- mem.swapoutrate.sum                                                      
- mem.swapused.avg                                                         
- mem.swapused.cnt                                                         
- mem.swapused.max                                                         
- mem.swapused.min                                                         
- mem.swapused.sum                                                         
- mem.sysusage.avg                                                         
- mem.sysusage.cnt                                                         
- mem.sysusage.max                                                         
- mem.sysusage.min                                                         
- mem.sysusage.sum                                                         
- mem.totalcapacity.avg                                                    
- mem.totalcapacity.cnt                                                    
- mem.totalcapacity.max                                                    
- mem.totalcapacity.min                                                    
- mem.totalcapacity.sum                                                    
- mem.unreserved.avg                                                       
- mem.unreserved.cnt                                                       
- mem.unreserved.max                                                       
- mem.unreserved.min                                                       
- mem.unreserved.sum                                                       
- mem.usage.avg                                                            
- mem.usage.cnt                                                            
- mem.usage.max                                                            
- mem.usage.min                                                            
- mem.usage.sum                                                            
- mem.vmmemctl.avg                                                         
- mem.vmmemctl.cnt                                                         
- mem.vmmemctl.max                                                         
- mem.vmmemctl.min                                                         
- mem.vmmemctl.sum                                                         
- mem.zero.avg                                                             
- mem.zero.cnt                                                             
- mem.zero.max                                                             
- mem.zero.min                                                             
- mem.zero.sum                                                             
- net.broadcastrx.avg                                                      
- net.broadcastrx.cnt                                                      
- net.broadcastrx.max                                                      
- net.broadcastrx.min                                                      
- net.broadcastrx.sum                                                      
- net.broadcasttx.avg                                                      
- net.broadcasttx.cnt                                                      
- net.broadcasttx.max                                                      
- net.broadcasttx.min                                                      
- net.broadcasttx.sum                                                      
- net.bytesrx.avg                                                          
- net.bytesrx.cnt                                                          
- net.bytesrx.max                                                          
- net.bytesrx.min                                                          
- net.bytesrx.sum                                                          
- net.bytestx.avg                                                          
- net.bytestx.cnt                                                          
- net.bytestx.max                                                          
- net.bytestx.min                                                          
- net.bytestx.sum                                                          
- net.droppedrx.avg                                                        
- net.droppedrx.cnt                                                        
- net.droppedrx.max                                                        
- net.droppedrx.min                                                        
- net.droppedrx.sum                                                        
- net.droppedtx.avg                                                        
- net.droppedtx.cnt                                                        
- net.droppedtx.max                                                        
- net.droppedtx.min                                                        
- net.droppedtx.sum                                                        
- net.errorsrx.avg                                                         
- net.errorsrx.cnt                                                         
- net.errorsrx.max                                                         
- net.errorsrx.min                                                         
- net.errorsrx.sum                                                         
- net.errorstx.avg                                                         
- net.errorstx.cnt                                                         
- net.errorstx.max                                                         
- net.errorstx.min                                                         
- net.errorstx.sum                                                         
- net.multicastrx.avg                                                      
- net.multicastrx.cnt                                                      
- net.multicastrx.max                                                      
- net.multicastrx.min                                                      
- net.multicastrx.sum                                                      
- net.multicasttx.avg                                                      
- net.multicasttx.cnt                                                      
- net.multicasttx.max                                                      
- net.multicasttx.min                                                      
- net.multicasttx.sum                                                      
- net.packetsrx.avg                                                        
- net.packetsrx.cnt                                                        
- net.packetsrx.max                                                        
- net.packetsrx.min                                                        
- net.packetsrx.sum                                                        
- net.packetstx.avg                                                        
- net.packetstx.cnt                                                        
- net.packetstx.max                                                        
- net.packetstx.min                                                        
- net.packetstx.sum                                                        
- net.received.avg                                                         
- net.received.cnt                                                         
- net.received.max                                                         
- net.received.min                                                         
- net.received.sum                                                         
- net.transmitted.avg                                                      
- net.transmitted.cnt                                                      
- net.transmitted.max                                                      
- net.transmitted.min                                                      
- net.transmitted.sum                                                      
- net.unknownprotos.avg                                                    
- net.unknownprotos.cnt                                                    
- net.unknownprotos.max                                                    
- net.unknownprotos.min                                                    
- net.unknownprotos.sum                                                    
- net.usage.avg                                                            
- net.usage.cnt                                                            
- net.usage.max                                                            
- net.usage.min                                                            
- net.usage.sum                                                            
- power.energy.avg                                                         
- power.energy.cnt                                                         
- power.energy.max                                                         
- power.energy.min                                                         
- power.energy.sum                                                         
- power.power.avg                                                          
- power.power.cnt                                                          
- power.power.max                                                          
- power.power.min                                                          
- power.power.sum                                                          
- power.powercap.avg                                                       
- power.powercap.cnt                                                       
- power.powercap.max                                                       
- power.powercap.min                                                       
- power.powercap.sum                                                       
- vmware.clusterservices.effectivecpu                                      
- vmware.clusterservices.effectivemem                                      
-```
-
-#### VMware Host
-
-```SQL
- ~~~~ {.javascript style="font-family:monospace;"}                        
- cpu.coreutilization                                                      
- cpu.costop                                                               
- cpu.demand                                                               
- cpu.idle                                                                 
- cpu.latency                                                              
- cpu.ready                                                                
- cpu.reservedcapacity                                                     
- cpu.swapwait                                                             
- cpu.totalcapacity                                                        
- cpu.usage                                                                
- cpu.usagemhz                                                             
- cpu.used                                                                 
- cpu.utilization                                                          
- cpu.wait                                                                 
- datastore.datastoreiops                                                  
- datastore.datastoremaxqueuedepth                                         
- datastore.datastorenormalreadlatency                                     
- datastore.datastorenormalwritelatency                                    
- datastore.datastorereadbytes                                             
- datastore.datastorereadiops                                              
- datastore.datastorereadoio                                               
- datastore.datastorevmobservedlatency                                     
- datastore.datastorewritebytes                                            
- datastore.datastorewriteiops                                             
- datastore.datastorewriteoio                                              
- datastore.maxtotallatency                                                
- datastore.numberreadaveraged                                             
- datastore.numberwriteaveraged                                            
- datastore.read                                                           
- datastore.siocactivetimepercentage                                       
- datastore.sizenormalizeddatastorelatency                                 
- datastore.totalreadlatency                                               
- datastore.totalwritelatency                                              
- datastore.write                                                          
- disk.busresets                                                           
- disk.commands                                                            
- disk.commandsaborted                                                     
- disk.commandsaveraged                                                    
- disk.devicelatency                                                       
- disk.devicereadlatency                                                   
- disk.devicewritelatency                                                  
- disk.kernellatency                                                       
- disk.kernelreadlatency                                                   
- disk.kernelwritelatency                                                  
- disk.maxqueuedepth                                                       
- disk.maxtotallatency                                                     
- disk.numberread                                                          
- disk.numberreadaveraged                                                  
- disk.numberwrite                                                         
- disk.numberwriteaveraged                                                 
- disk.queuelatency                                                        
- disk.queuereadlatency                                                    
- disk.queuewritelatency                                                   
- disk.read                                                                
- disk.totallatency                                                        
- disk.totalreadlatency                                                    
- disk.totalwritelatency                                                   
- disk.usage                                                               
- disk.write                                                               
- mem.active                                                               
- mem.activewrite                                                          
- mem.compressed                                                           
- mem.compressionrate                                                      
- mem.consumed                                                             
- mem.decompressionrate                                                    
- mem.granted                                                              
- mem.latency                                                              
- mem.llswapinrate                                                         
- mem.llswapoutrate                                                        
- mem.lowfreethreshold                                                     
- mem.overhead                                                             
- mem.reservedcapacity                                                     
- mem.shared                                                               
- mem.sharedcommon                                                         
- mem.state                                                                
- mem.swapin                                                               
- mem.swapinrate                                                           
- mem.swapout                                                              
- mem.swapoutrate                                                          
- mem.swapused                                                             
- mem.sysusage                                                             
- mem.totalcapacity                                                        
- mem.unreserved                                                           
- mem.usage                                                                
- mem.vmmemctl                                                             
- mem.zero                                                                 
- net.broadcastrx                                                          
- net.broadcasttx                                                          
- net.bytesrx                                                              
- net.bytestx                                                              
- net.droppedrx                                                            
- net.droppedtx                                                            
- net.errorsrx                                                             
- net.errorstx                                                             
- net.multicastrx                                                          
- net.multicasttx                                                          
- net.packetsrx                                                            
- net.packetstx                                                            
- net.received                                                             
- net.transmitted                                                          
- net.unknownprotos                                                        
- net.usage                                                                
- power.energy                                                             
- power.power                                                              
- power.powercap                                                           
- rescpu.actav1                                                            
- rescpu.actav15                                                           
- rescpu.actav5                                                            
- rescpu.actpk1                                                            
- rescpu.actpk15                                                           
- rescpu.actpk5                                                            
- rescpu.maxlimited1                                                       
- rescpu.maxlimited15                                                      
- rescpu.maxlimited5                                                       
- rescpu.runav1                                                            
- rescpu.runav15                                                           
- rescpu.runav5                                                            
- rescpu.runpk1                                                            
- rescpu.runpk15                                                           
- rescpu.runpk5                                                            
- rescpu.samplecount                                                       
- rescpu.sampleperiod                                                      
- storageadapter.commandsaveraged                                          
- storageadapter.maxtotallatency                                           
- storageadapter.numberreadaveraged                                        
- storageadapter.numberwriteaveraged                                       
- storageadapter.read                                                      
- storageadapter.totalreadlatency                                          
- storageadapter.totalwritelatency                                         
- storageadapter.write                                                     
- storagepath.commandsaveraged                                             
- storagepath.maxtotallatency                                              
- storagepath.numberreadaveraged                                           
- storagepath.numberwriteaveraged                                          
- storagepath.read                                                         
- storagepath.totalreadlatency                                             
- storagepath.totalwritelatency                                            
- storagepath.write                                                        
- disk.scsireservationconflicts                                            
- mem.consumed.userworlds                                                  
- mem.consumed.vms                                                         
- net.throughput.usage.ft                                                  
- net.throughput.usage.hbr                                                 
- net.throughput.usage.iscsi                                               
- net.throughput.usage.nfs                                                 
- net.throughput.usage.vm                                                  
- net.throughput.usage.vmotion                                             
- storageadapter.outstandingios                                            
- storageadapter.queued                                                    
- storageadapter.queuedepth                                                
- storageadapter.queuelatency                                              
- storagepath.busresets                                                    
- storagepath.commandsaborted                                              
-```
-
-#### VMware VM
-
-```SQL
- cpu.costop                                                               
- cpu.demand                                                               
- cpu.entitlement                                                          
- cpu.idle                                                                 
- cpu.latency                                                              
- cpu.maxlimited                                                           
- cpu.overlap                                                              
- cpu.ready                                                                
- cpu.run                                                                  
- cpu.swapwait                                                             
- cpu.system                                                               
- cpu.usage                                                                
- cpu.usagemhz                                                             
- cpu.used                                                                 
- cpu.wait                                                                 
- datastore.maxtotallatency                                                
- datastore.numberreadaveraged                                             
- datastore.numberwriteaveraged                                            
- datastore.read                                                           
- datastore.totalreadlatency                                               
- datastore.totalwritelatency                                              
- datastore.write                                                          
- disk.busresets                                                           
- disk.commands                                                            
- disk.commandsaborted                                                     
- disk.commandsaveraged                                                    
- disk.maxtotallatency                                                     
- disk.numberread                                                          
- disk.numberreadaveraged                                                  
- disk.numberwrite                                                         
- disk.numberwriteaveraged                                                 
- disk.provisioned                                                         
- disk.read                                                                
- disk.unshared                                                            
- disk.usage                                                               
- disk.used                                                                
- disk.write                                                               
- mem.active                                                               
- mem.activewrite                                                          
- mem.compressed                                                           
- mem.compressionrate                                                      
- mem.consumed                                                             
- mem.decompressionrate                                                    
- mem.entitlement                                                          
- mem.granted                                                              
- mem.latency                                                              
- mem.llswapinrate                                                         
- mem.llswapoutrate                                                        
- mem.overhead                                                             
- mem.overheadmax                                                          
- mem.shared                                                               
- mem.swapin                                                               
- mem.swapinrate                                                           
- mem.swapout                                                              
- mem.swapoutrate                                                          
- mem.swapped                                                              
- mem.swaptarget                                                           
- mem.usage                                                                
- mem.vmmemctl                                                             
- mem.vmmemctltarget                                                       
- mem.zero                                                                 
- mem.zipped                                                               
- mem.zipsaved                                                             
- net.broadcastrx                                                          
- net.broadcasttx                                                          
- net.bytesrx                                                              
- net.bytestx                                                              
- net.droppedrx                                                            
- net.droppedtx                                                            
- net.multicastrx                                                          
- net.multicasttx                                                          
- net.packetsrx                                                            
- net.packetstx                                                            
- net.received                                                             
- net.transmitted                                                          
- net.usage                                                                
- power.energy                                                             
- power.power                                                              
- rescpu.actav1                                                            
- rescpu.actav15                                                           
- rescpu.actav5                                                            
- rescpu.actpk1                                                            
- rescpu.actpk15                                                           
- rescpu.actpk5                                                            
- rescpu.maxlimited1                                                       
- rescpu.maxlimited15                                                      
- rescpu.maxlimited5                                                       
- rescpu.runav1                                                            
- rescpu.runav15                                                           
- rescpu.runav5                                                            
- rescpu.runpk1                                                            
- rescpu.runpk15                                                           
- rescpu.runpk5                                                            
- rescpu.samplecount                                                       
- rescpu.sampleperiod                                                      
- virtualdisk.numberreadaveraged                                           
- virtualdisk.numberwriteaveraged                                          
- virtualdisk.read                                                         
- virtualdisk.readloadmetric                                               
- virtualdisk.readoio                                                      
- virtualdisk.totalreadlatency                                             
- virtualdisk.totalwritelatency                                            
- virtualdisk.write                                                        
- virtualdisk.writeloadmetric                                              
- virtualdisk.writeoio                                                     
+```css
+vmware.cluster.cpu.coreutilization.avg
+vmware.cluster.cpu.coreutilization.cnt
+vmware.cluster.cpu.coreutilization.max
+vmware.cluster.cpu.coreutilization.min
+vmware.cluster.cpu.coreutilization.sum
+vmware.cluster.cpu.demand.avg
+vmware.cluster.cpu.demand.cnt
+vmware.cluster.cpu.demand.max
+vmware.cluster.cpu.demand.min
+vmware.cluster.cpu.demand.sum
+vmware.cluster.cpu.latency.avg
+vmware.cluster.cpu.latency.cnt
+vmware.cluster.cpu.latency.max
+vmware.cluster.cpu.latency.min
+vmware.cluster.cpu.latency.sum
+vmware.cluster.cpu.reservedcapacity.avg
+vmware.cluster.cpu.reservedcapacity.cnt
+vmware.cluster.cpu.reservedcapacity.max
+vmware.cluster.cpu.reservedcapacity.min
+vmware.cluster.cpu.reservedcapacity.sum
+vmware.cluster.cpu.totalcapacity.avg
+vmware.cluster.cpu.totalcapacity.cnt
+vmware.cluster.cpu.totalcapacity.max
+vmware.cluster.cpu.totalcapacity.min
+vmware.cluster.cpu.totalcapacity.sum
+vmware.cluster.cpu.usage.avg
+vmware.cluster.cpu.usage.cnt
+vmware.cluster.cpu.usage.max
+vmware.cluster.cpu.usage.min
+vmware.cluster.cpu.usage.sum
+vmware.cluster.cpu.usagemhz.avg
+vmware.cluster.cpu.usagemhz.cnt
+vmware.cluster.cpu.usagemhz.max
+vmware.cluster.cpu.usagemhz.min
+vmware.cluster.cpu.usagemhz.sum
+vmware.cluster.cpu.utilization.avg
+vmware.cluster.cpu.utilization.cnt
+vmware.cluster.cpu.utilization.max
+vmware.cluster.cpu.utilization.min
+vmware.cluster.cpu.utilization.sum
+vmware.cluster.disk.read.avg
+vmware.cluster.disk.read.cnt
+vmware.cluster.disk.read.max
+vmware.cluster.disk.read.min
+vmware.cluster.disk.read.sum
+vmware.cluster.disk.usage.avg
+vmware.cluster.disk.usage.cnt
+vmware.cluster.disk.usage.max
+vmware.cluster.disk.usage.min
+vmware.cluster.disk.usage.sum
+vmware.cluster.disk.write.avg
+vmware.cluster.disk.write.cnt
+vmware.cluster.disk.write.max
+vmware.cluster.disk.write.min
+vmware.cluster.disk.write.sum
+vmware.cluster.mem.active.avg
+vmware.cluster.mem.active.cnt
+vmware.cluster.mem.active.max
+vmware.cluster.mem.active.min
+vmware.cluster.mem.active.sum
+vmware.cluster.mem.activewrite.avg
+vmware.cluster.mem.activewrite.cnt
+vmware.cluster.mem.activewrite.max
+vmware.cluster.mem.activewrite.min
+vmware.cluster.mem.activewrite.sum
+vmware.cluster.mem.compressed.avg
+vmware.cluster.mem.compressed.cnt
+vmware.cluster.mem.compressed.max
+vmware.cluster.mem.compressed.min
+vmware.cluster.mem.compressed.sum
+vmware.cluster.mem.compressionrate.avg
+vmware.cluster.mem.compressionrate.cnt
+vmware.cluster.mem.compressionrate.max
+vmware.cluster.mem.compressionrate.min
+vmware.cluster.mem.compressionrate.sum
+vmware.cluster.mem.consumed.avg
+vmware.cluster.mem.consumed.cnt
+vmware.cluster.mem.consumed.max
+vmware.cluster.mem.consumed.min
+vmware.cluster.mem.consumed.sum
+vmware.cluster.mem.consumed.userworlds.avg
+vmware.cluster.mem.consumed.userworlds.cnt
+vmware.cluster.mem.consumed.userworlds.max
+vmware.cluster.mem.consumed.userworlds.min
+vmware.cluster.mem.consumed.userworlds.sum
+vmware.cluster.mem.consumed.vms.avg
+vmware.cluster.mem.consumed.vms.cnt
+vmware.cluster.mem.consumed.vms.max
+vmware.cluster.mem.consumed.vms.min
+vmware.cluster.mem.consumed.vms.sum
+vmware.cluster.mem.decompressionrate.avg
+vmware.cluster.mem.decompressionrate.cnt
+vmware.cluster.mem.decompressionrate.max
+vmware.cluster.mem.decompressionrate.min
+vmware.cluster.mem.decompressionrate.sum
+vmware.cluster.mem.granted.avg
+vmware.cluster.mem.granted.cnt
+vmware.cluster.mem.granted.max
+vmware.cluster.mem.granted.min
+vmware.cluster.mem.granted.sum
+vmware.cluster.mem.latency.avg
+vmware.cluster.mem.latency.cnt
+vmware.cluster.mem.latency.max
+vmware.cluster.mem.latency.min
+vmware.cluster.mem.latency.sum
+vmware.cluster.mem.llswapinrate.avg
+vmware.cluster.mem.llswapinrate.cnt
+vmware.cluster.mem.llswapinrate.max
+vmware.cluster.mem.llswapinrate.min
+vmware.cluster.mem.llswapinrate.sum
+vmware.cluster.mem.llswapoutrate.avg
+vmware.cluster.mem.llswapoutrate.cnt
+vmware.cluster.mem.llswapoutrate.max
+vmware.cluster.mem.llswapoutrate.min
+vmware.cluster.mem.llswapoutrate.sum
+vmware.cluster.mem.lowfreethreshold.avg
+vmware.cluster.mem.lowfreethreshold.cnt
+vmware.cluster.mem.lowfreethreshold.max
+vmware.cluster.mem.lowfreethreshold.min
+vmware.cluster.mem.lowfreethreshold.sum
+vmware.cluster.mem.overhead.avg
+vmware.cluster.mem.overhead.cnt
+vmware.cluster.mem.overhead.max
+vmware.cluster.mem.overhead.min
+vmware.cluster.mem.overhead.sum
+vmware.cluster.mem.reservedcapacity.avg
+vmware.cluster.mem.reservedcapacity.cnt
+vmware.cluster.mem.reservedcapacity.max
+vmware.cluster.mem.reservedcapacity.min
+vmware.cluster.mem.reservedcapacity.sum
+vmware.cluster.mem.shared.avg
+vmware.cluster.mem.shared.cnt
+vmware.cluster.mem.shared.max
+vmware.cluster.mem.shared.min
+vmware.cluster.mem.shared.sum
+vmware.cluster.mem.sharedcommon.avg
+vmware.cluster.mem.sharedcommon.cnt
+vmware.cluster.mem.sharedcommon.max
+vmware.cluster.mem.sharedcommon.min
+vmware.cluster.mem.sharedcommon.sum
+vmware.cluster.mem.state.avg
+vmware.cluster.mem.state.cnt
+vmware.cluster.mem.state.max
+vmware.cluster.mem.state.min
+vmware.cluster.mem.state.sum
+vmware.cluster.mem.swapin.avg
+vmware.cluster.mem.swapin.cnt
+vmware.cluster.mem.swapin.max
+vmware.cluster.mem.swapin.min
+vmware.cluster.mem.swapin.sum
+vmware.cluster.mem.swapinrate.avg
+vmware.cluster.mem.swapinrate.cnt
+vmware.cluster.mem.swapinrate.max
+vmware.cluster.mem.swapinrate.min
+vmware.cluster.mem.swapinrate.sum
+vmware.cluster.mem.swapout.avg
+vmware.cluster.mem.swapout.cnt
+vmware.cluster.mem.swapout.max
+vmware.cluster.mem.swapout.min
+vmware.cluster.mem.swapout.sum
+vmware.cluster.mem.swapoutrate.avg
+vmware.cluster.mem.swapoutrate.cnt
+vmware.cluster.mem.swapoutrate.max
+vmware.cluster.mem.swapoutrate.min
+vmware.cluster.mem.swapoutrate.sum
+vmware.cluster.mem.swapused.avg
+vmware.cluster.mem.swapused.cnt
+vmware.cluster.mem.swapused.max
+vmware.cluster.mem.swapused.min
+vmware.cluster.mem.swapused.sum
+vmware.cluster.mem.sysusage.avg
+vmware.cluster.mem.sysusage.cnt
+vmware.cluster.mem.sysusage.max
+vmware.cluster.mem.sysusage.min
+vmware.cluster.mem.sysusage.sum
+vmware.cluster.mem.totalcapacity.avg
+vmware.cluster.mem.totalcapacity.cnt
+vmware.cluster.mem.totalcapacity.max
+vmware.cluster.mem.totalcapacity.min
+vmware.cluster.mem.totalcapacity.sum
+vmware.cluster.mem.unreserved.avg
+vmware.cluster.mem.unreserved.cnt
+vmware.cluster.mem.unreserved.max
+vmware.cluster.mem.unreserved.min
+vmware.cluster.mem.unreserved.sum
+vmware.cluster.mem.usage.avg
+vmware.cluster.mem.usage.cnt
+vmware.cluster.mem.usage.max
+vmware.cluster.mem.usage.min
+vmware.cluster.mem.usage.sum
+vmware.cluster.mem.vmmemctl.avg
+vmware.cluster.mem.vmmemctl.cnt
+vmware.cluster.mem.vmmemctl.max
+vmware.cluster.mem.vmmemctl.min
+vmware.cluster.mem.vmmemctl.sum
+vmware.cluster.mem.zero.avg
+vmware.cluster.mem.zero.cnt
+vmware.cluster.mem.zero.max
+vmware.cluster.mem.zero.min
+vmware.cluster.mem.zero.sum
+vmware.cluster.net.broadcastrx.avg
+vmware.cluster.net.broadcastrx.cnt
+vmware.cluster.net.broadcastrx.max
+vmware.cluster.net.broadcastrx.min
+vmware.cluster.net.broadcastrx.sum
+vmware.cluster.net.broadcasttx.avg
+vmware.cluster.net.broadcasttx.cnt
+vmware.cluster.net.broadcasttx.max
+vmware.cluster.net.broadcasttx.min
+vmware.cluster.net.broadcasttx.sum
+vmware.cluster.net.bytesrx.avg
+vmware.cluster.net.bytesrx.cnt
+vmware.cluster.net.bytesrx.max
+vmware.cluster.net.bytesrx.min
+vmware.cluster.net.bytesrx.sum
+vmware.cluster.net.bytestx.avg
+vmware.cluster.net.bytestx.cnt
+vmware.cluster.net.bytestx.max
+vmware.cluster.net.bytestx.min
+vmware.cluster.net.bytestx.sum
+vmware.cluster.net.droppedrx.avg
+vmware.cluster.net.droppedrx.cnt
+vmware.cluster.net.droppedrx.max
+vmware.cluster.net.droppedrx.min
+vmware.cluster.net.droppedrx.sum
+vmware.cluster.net.droppedtx.avg
+vmware.cluster.net.droppedtx.cnt
+vmware.cluster.net.droppedtx.max
+vmware.cluster.net.droppedtx.min
+vmware.cluster.net.droppedtx.sum
+vmware.cluster.net.errorsrx.avg
+vmware.cluster.net.errorsrx.cnt
+vmware.cluster.net.errorsrx.max
+vmware.cluster.net.errorsrx.min
+vmware.cluster.net.errorsrx.sum
+vmware.cluster.net.errorstx.avg
+vmware.cluster.net.errorstx.cnt
+vmware.cluster.net.errorstx.max
+vmware.cluster.net.errorstx.min
+vmware.cluster.net.errorstx.sum
+vmware.cluster.net.multicastrx.avg
+vmware.cluster.net.multicastrx.cnt
+vmware.cluster.net.multicastrx.max
+vmware.cluster.net.multicastrx.min
+vmware.cluster.net.multicastrx.sum
+vmware.cluster.net.multicasttx.avg
+vmware.cluster.net.multicasttx.cnt
+vmware.cluster.net.multicasttx.max
+vmware.cluster.net.multicasttx.min
+vmware.cluster.net.multicasttx.sum
+vmware.cluster.net.packetsrx.avg
+vmware.cluster.net.packetsrx.cnt
+vmware.cluster.net.packetsrx.max
+vmware.cluster.net.packetsrx.min
+vmware.cluster.net.packetsrx.sum
+vmware.cluster.net.packetstx.avg
+vmware.cluster.net.packetstx.cnt
+vmware.cluster.net.packetstx.max
+vmware.cluster.net.packetstx.min
+vmware.cluster.net.packetstx.sum
+vmware.cluster.net.received.avg
+vmware.cluster.net.received.cnt
+vmware.cluster.net.received.max
+vmware.cluster.net.received.min
+vmware.cluster.net.received.sum
+vmware.cluster.net.transmitted.avg
+vmware.cluster.net.transmitted.cnt
+vmware.cluster.net.transmitted.max
+vmware.cluster.net.transmitted.min
+vmware.cluster.net.transmitted.sum
+vmware.cluster.net.unknownprotos.avg
+vmware.cluster.net.unknownprotos.cnt
+vmware.cluster.net.unknownprotos.max
+vmware.cluster.net.unknownprotos.min
+vmware.cluster.net.unknownprotos.sum
+vmware.cluster.net.usage.avg
+vmware.cluster.net.usage.cnt
+vmware.cluster.net.usage.max
+vmware.cluster.net.usage.min
+vmware.cluster.net.usage.sum
+vmware.cluster.power.energy.avg
+vmware.cluster.power.energy.cnt
+vmware.cluster.power.energy.max
+vmware.cluster.power.energy.min
+vmware.cluster.power.energy.sum
+vmware.cluster.power.power.avg
+vmware.cluster.power.power.cnt
+vmware.cluster.power.power.max
+vmware.cluster.power.power.min
+vmware.cluster.power.power.sum
+vmware.cluster.power.powercap.avg
+vmware.cluster.power.powercap.cnt
+vmware.cluster.power.powercap.max
+vmware.cluster.power.powercap.min
+vmware.cluster.power.powercap.sum
+vmware.clusterservices.effectivecpu
+vmware.clusterservices.effectivemem
+vmware.cpu.coreutilization
+vmware.cpu.costop
+vmware.cpu.demand
+vmware.cpu.entitlement
+vmware.cpu.idle
+vmware.cpu.latency
+vmware.cpu.maxlimited
+vmware.cpu.overlap
+vmware.cpu.ready
+vmware.cpu.reservedcapacity
+vmware.cpu.run
+vmware.cpu.swapwait
+vmware.cpu.system
+vmware.cpu.totalcapacity
+vmware.cpu.totalmhz
+vmware.cpu.usage
+vmware.cpu.usagemhz
+vmware.cpu.used
+vmware.cpu.utilization
+vmware.cpu.wait
+vmware.datastore.datastoreiops
+vmware.datastore.datastoremaxqueuedepth
+vmware.datastore.datastorenormalreadlatency
+vmware.datastore.datastorenormalwritelatency
+vmware.datastore.datastorereadbytes
+vmware.datastore.datastorereadiops
+vmware.datastore.datastorereadoio
+vmware.datastore.datastorevmobservedlatency
+vmware.datastore.datastorewritebytes
+vmware.datastore.datastorewriteiops
+vmware.datastore.datastorewriteoio
+vmware.datastore.maxtotallatency
+vmware.datastore.numberreadaveraged
+vmware.datastore.numberwriteaveraged
+vmware.datastore.read
+vmware.datastore.siocactivetimepercentage
+vmware.datastore.sizenormalizeddatastorelatency
+vmware.datastore.totalreadlatency
+vmware.datastore.totalwritelatency
+vmware.datastore.write
+vmware.disk.busresets
+vmware.disk.capacity
+vmware.disk.commands
+vmware.disk.commandsaborted
+vmware.disk.commandsaveraged
+vmware.disk.devicelatency
+vmware.disk.devicereadlatency
+vmware.disk.devicewritelatency
+vmware.disk.kernellatency
+vmware.disk.kernelreadlatency
+vmware.disk.kernelwritelatency
+vmware.disk.maxqueuedepth
+vmware.disk.maxtotallatency
+vmware.disk.numberread
+vmware.disk.numberreadaveraged
+vmware.disk.numberwrite
+vmware.disk.numberwriteaveraged
+vmware.disk.provisioned
+vmware.disk.queuelatency
+vmware.disk.queuereadlatency
+vmware.disk.queuewritelatency
+vmware.disk.read
+vmware.disk.scsireservationconflicts
+vmware.disk.totallatency
+vmware.disk.totalreadlatency
+vmware.disk.totalwritelatency
+vmware.disk.unshared
+vmware.disk.usage
+vmware.disk.used
+vmware.disk.write
+vmware.mem.active
+vmware.mem.activewrite
+vmware.mem.compressed
+vmware.mem.compressionrate
+vmware.mem.consumed
+vmware.mem.consumed.userworlds
+vmware.mem.consumed.vms
+vmware.mem.decompressionrate
+vmware.mem.entitlement
+vmware.mem.granted
+vmware.mem.latency
+vmware.mem.llswapinrate
+vmware.mem.llswapoutrate
+vmware.mem.lowfreethreshold
+vmware.mem.overhead
+vmware.mem.overheadmax
+vmware.mem.reservedcapacity
+vmware.mem.shared
+vmware.mem.sharedcommon
+vmware.mem.state
+vmware.mem.swapin
+vmware.mem.swapinrate
+vmware.mem.swapout
+vmware.mem.swapoutrate
+vmware.mem.swapped
+vmware.mem.swaptarget
+vmware.mem.swapused
+vmware.mem.sysusage
+vmware.mem.totalcapacity
+vmware.mem.totalmb
+vmware.mem.unreserved
+vmware.mem.usage
+vmware.mem.vmmemctl
+vmware.mem.vmmemctltarget
+vmware.mem.zero
+vmware.mem.zipped
+vmware.mem.zipsaved
+vmware.net.broadcastrx
+vmware.net.broadcasttx
+vmware.net.bytesrx
+vmware.net.bytestx
+vmware.net.droppedrx
+vmware.net.droppedtx
+vmware.net.errorsrx
+vmware.net.errorstx
+vmware.net.multicastrx
+vmware.net.multicasttx
+vmware.net.packetsrx
+vmware.net.packetstx
+vmware.net.received
+vmware.net.throughput.usage.ft
+vmware.net.throughput.usage.hbr
+vmware.net.throughput.usage.iscsi
+vmware.net.throughput.usage.nfs
+vmware.net.throughput.usage.vm
+vmware.net.throughput.usage.vmotion
+vmware.net.transmitted
+vmware.net.unknownprotos
+vmware.net.usage
+vmware.power.energy
+vmware.power.power
+vmware.power.powercap
+vmware.rescpu.actav1
+vmware.rescpu.actav15
+vmware.rescpu.actav5
+vmware.rescpu.actpk1
+vmware.rescpu.actpk15
+vmware.rescpu.actpk5
+vmware.rescpu.maxlimited1
+vmware.rescpu.maxlimited15
+vmware.rescpu.maxlimited5
+vmware.rescpu.runav1
+vmware.rescpu.runav15
+vmware.rescpu.runav5
+vmware.rescpu.runpk1
+vmware.rescpu.runpk15
+vmware.rescpu.runpk5
+vmware.rescpu.samplecount
+vmware.rescpu.sampleperiod
+vmware.storageadapter.commandsaveraged
+vmware.storageadapter.maxtotallatency
+vmware.storageadapter.numberreadaveraged
+vmware.storageadapter.numberwriteaveraged
+vmware.storageadapter.outstandingios
+vmware.storageadapter.queued
+vmware.storageadapter.queuedepth
+vmware.storageadapter.queuelatency
+vmware.storageadapter.read
+vmware.storageadapter.totalreadlatency
+vmware.storageadapter.totalwritelatency
+vmware.storageadapter.write
+vmware.storagepath.busresets
+vmware.storagepath.commandsaborted
+vmware.storagepath.commandsaveraged
+vmware.storagepath.maxtotallatency
+vmware.storagepath.numberreadaveraged
+vmware.storagepath.numberwriteaveraged
+vmware.storagepath.read
+vmware.storagepath.totalreadlatency
+vmware.storagepath.totalwritelatency
+vmware.storagepath.write
+vmware.virtualdisk.numberreadaveraged
+vmware.virtualdisk.numberwriteaveraged
+vmware.virtualdisk.read
+vmware.virtualdisk.readloadmetric
+vmware.virtualdisk.readoio
+vmware.virtualdisk.totalreadlatency
+vmware.virtualdisk.totalwritelatency
+vmware.virtualdisk.write
+vmware.virtualdisk.writeloadmetric
+vmware.virtualdisk.writeoio
+vmware.vm.cpu.costop
+vmware.vm.cpu.demand
+vmware.vm.cpu.entitlement
+vmware.vm.cpu.idle
+vmware.vm.cpu.latency
+vmware.vm.cpu.maxlimited
+vmware.vm.cpu.overlap
+vmware.vm.cpu.ready
+vmware.vm.cpu.run
+vmware.vm.cpu.swapwait
+vmware.vm.cpu.system
+vmware.vm.cpu.usage
+vmware.vm.cpu.usagemhz
+vmware.vm.cpu.used
+vmware.vm.cpu.wait
+vmware.vm.datastore.maxtotallatency
+vmware.vm.datastore.numberreadaveraged
+vmware.vm.datastore.numberwriteaveraged
+vmware.vm.datastore.read
+vmware.vm.datastore.totalreadlatency
+vmware.vm.datastore.totalwritelatency
+vmware.vm.datastore.write
+vmware.vm.disk.busresets
+vmware.vm.disk.commands
+vmware.vm.disk.commandsaborted
+vmware.vm.disk.commandsaveraged
+vmware.vm.disk.maxtotallatency
+vmware.vm.disk.numberread
+vmware.vm.disk.numberreadaveraged
+vmware.vm.disk.numberwrite
+vmware.vm.disk.numberwriteaveraged
+vmware.vm.disk.provisioned
+vmware.vm.disk.read
+vmware.vm.disk.scsireservationconflicts
+vmware.vm.disk.unshared
+vmware.vm.disk.usage
+vmware.vm.disk.used
+vmware.vm.disk.write
+vmware.vm.mem.active
+vmware.vm.mem.activewrite
+vmware.vm.mem.compressed
+vmware.vm.mem.compressionrate
+vmware.vm.mem.consumed
+vmware.vm.mem.decompressionrate
+vmware.vm.mem.entitlement
+vmware.vm.mem.granted
+vmware.vm.mem.latency
+vmware.vm.mem.llswapinrate
+vmware.vm.mem.llswapoutrate
+vmware.vm.mem.overhead
+vmware.vm.mem.overheadmax
+vmware.vm.mem.shared
+vmware.vm.mem.swapin
+vmware.vm.mem.swapinrate
+vmware.vm.mem.swapout
+vmware.vm.mem.swapoutrate
+vmware.vm.mem.swapped
+vmware.vm.mem.swaptarget
+vmware.vm.mem.usage
+vmware.vm.mem.vmmemctl
+vmware.vm.mem.vmmemctltarget
+vmware.vm.mem.zero
+vmware.vm.mem.zipped
+vmware.vm.mem.zipsaved
+vmware.vm.net.broadcastrx
+vmware.vm.net.broadcasttx
+vmware.vm.net.bytesrx
+vmware.vm.net.bytestx
+vmware.vm.net.droppedrx
+vmware.vm.net.droppedtx
+vmware.vm.net.multicastrx
+vmware.vm.net.multicasttx
+vmware.vm.net.packetsrx
+vmware.vm.net.packetstx
+vmware.vm.net.received
+vmware.vm.net.transmitted
+vmware.vm.net.usage
+vmware.vm.power.energy
+vmware.vm.power.power
+vmware.vm.rescpu.actav1
+vmware.vm.rescpu.actav15
+vmware.vm.rescpu.actav5
+vmware.vm.rescpu.actpk1
+vmware.vm.rescpu.actpk15
+vmware.vm.rescpu.actpk5
+vmware.vm.rescpu.maxlimited1
+vmware.vm.rescpu.maxlimited15
+vmware.vm.rescpu.maxlimited5
+vmware.vm.rescpu.runav1
+vmware.vm.rescpu.runav15
+vmware.vm.rescpu.runav5
+vmware.vm.rescpu.runpk1
+vmware.vm.rescpu.runpk15
+vmware.vm.rescpu.runpk5
+vmware.vm.rescpu.samplecount
+vmware.vm.rescpu.sampleperiod
+vmware.vm.virtualdisk.numberreadaveraged
+vmware.vm.virtualdisk.numberwriteaveraged
+vmware.vm.virtualdisk.read
+vmware.vm.virtualdisk.readloadmetric
+vmware.vm.virtualdisk.readoio
+vmware.vm.virtualdisk.totalreadlatency
+vmware.vm.virtualdisk.totalwritelatency
+vmware.vm.virtualdisk.write
+vmware.vm.virtualdisk.writeloadmetric
+vmware.vm.virtualdisk.writeoio
+vmware.vmop.numchangeds
+vmware.vmop.numchangehost
+vmware.vmop.numchangehostds
+vmware.vmop.numclone
+vmware.vmop.numcreate
+vmware.vmop.numdeploy
+vmware.vmop.numdestroy
+vmware.vmop.numpoweroff
+vmware.vmop.numpoweron
+vmware.vmop.numrebootguest
+vmware.vmop.numreconfigure
+vmware.vmop.numregister
+vmware.vmop.numreset
+vmware.vmop.numshutdownguest
+vmware.vmop.numstandbyguest
+vmware.vmop.numsuspend
+vmware.vmop.numsvmotion
+vmware.vmop.numunregister
+vmware.vmop.numvmotion
 ```
