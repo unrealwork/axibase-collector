@@ -21,10 +21,10 @@ Using ATSD you can retrieve metrics and properties from VMware.
 
 ### Configure Oracle EM Database Connection
 
-* Open **Data Sources:Databases** page, select `sql-vmware` database.
-* Provide connection parameters to the target VMware database as displayed below:
+* Open **Data Sources:Databases** page, select `scom` database.
+* Provide connection parameters to the target Microsoft SCOM database as displayed below:
 
-![](images/vmware-datasource.png)
+![](images/scom-datasource.png)
 
 * Execute the following test query to check the connection:
 
@@ -38,9 +38,9 @@ SELECT 1
 ### Verify Job Configuration
 
 * Open Oracle EM JDBC job
-* Set Data Source to sql-vmware.
+* Set Data Source to `scom`.
 
-![](images/vmware-job.png)
+![](images/scom-job.png)
 
 * Choose one of target ATSD instances if your Collector instance is connected to multiple ATSD servers.
 * Save the Job
