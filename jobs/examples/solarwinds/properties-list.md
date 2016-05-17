@@ -109,6 +109,26 @@
 }
 ```
 
+## sm.vmware.cluster.vms
+
+```json
+{
+  "type": "sm.vmware.cluster.vms",
+  "entity": "nurcls02",
+  "key": {
+    "vm": "nurswgvml006"
+  },
+  "tags": {
+    "description": "10.102.0.5 Hadoop/HBASE",
+    "host": "nuresx002",
+    "mem_size_mb": "2048",
+    "num_vcpu": "1",
+    "power_state": "On",
+    "vm": "NURSWGVML006"
+  },
+  "timestamp": 1451899080193
+}
+```
 
 
 ## sw.vmw.vm
