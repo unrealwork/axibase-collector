@@ -1,17 +1,18 @@
 # Microsoft System Center Operations Manager
+
 ## Overview
 
 [Microsoft System Center Operations Manager
 (SCOM)](http://www.microsoft.com/en-us/server-cloud/products/system-center-2012-r2/ "Microsoft SCOM")
-is a cross-platform data center management system for operating systems
-and hypervisors. It works with Microsoft Windows Server and Unix-based
-hosts.
+is a agent-based monitoring system for Microsoft Windows operating system and applications that run on it.
 
-Using ATSD you can retrieve metrics and properties from VMware.
+SCOM collects and stores statistics from Windows servers in Operations and DataWarehouse  databases: `vperf_raw`, `vperf_hourly`, `vperfdaily` views. i
+
+Axibase Collector queries `vperf_raw` in SCOM DWH view every 15 minutes to offload incremental data into Axibase Time Series Database for long-term retention and operations analytics.
 
 ## Requirements
 
-- Microsoft System Center Operations Manager `2005+`
+- Microsoft System Center Operations Manager 2012+.
 
 ## Installation steps
 
@@ -32,7 +33,7 @@ Using ATSD you can retrieve metrics and properties from VMware.
 SELECT 1
 ```
 
-* Query result must be is `Query OK`.
+* Query result must be `Query OK`.
 
 
 ### Verify Job Configuration
@@ -55,7 +56,7 @@ SELECT 1
 
 ![](images/test_run.png)
 
-* If there are no errors, set job status to Enabled and save the job
+* If there are no errors, set job status to Enabled and save the job.
 
 ### Verify Metrics in ATSD
 
@@ -71,6 +72,7 @@ SELECT 1
 * List of collected [Microsoft SCOM metrics](metric-list.md)
 
 ### Properties
+
 * List of collected [Microsoft SCOM properties](properties-list.md)
 
 ### Entity Groups
