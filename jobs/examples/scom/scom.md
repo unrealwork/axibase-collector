@@ -37,7 +37,7 @@ SELECT 1
 
 ### Verify Job Configuration
 
-* Open Oracle EM JDBC job
+* Open SCOM job
 * Set Data Source to `scom`.
 
 ![](images/scom-job.png)

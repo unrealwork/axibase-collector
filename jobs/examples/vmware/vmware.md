@@ -35,7 +35,7 @@ SELECT 1
 
 ### Verify Job Configuration
 
-* Open Oracle EM JDBC job
+* Open VMware job
 * Set Data Source to sql-vmware.
 
 ![](images/vmware-job.png)
@@ -73,9 +73,10 @@ SELECT 1
 
 ### Entity Groups
 
-- VMware VMs
-- VMware Hosts
-- VMware Clusters
+- `solarwinds-base`
+- `solarwind-vmware-vm`
+- `solarwind-vmware-host`
+- `solarwind-vmware-cluster`
 
 ### Portals
 
