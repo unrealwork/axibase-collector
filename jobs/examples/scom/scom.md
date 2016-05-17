@@ -6,9 +6,9 @@
 (SCOM)](http://www.microsoft.com/en-us/server-cloud/products/system-center-2012-r2/ "Microsoft SCOM")
 is a agent-based monitoring system for Microsoft Windows operating system and applications that run on it.
 
-SCOM collects and stores statistics from Windows servers in Operations and DataWarehouse  databases: `vperf_raw`, `vperf_hourly`, `vperfdaily` views. i
+SCOM collects and stores statistics from Windows servers in Operations (`PerformanceDataAllView`) and DataWareHouse (`vperf_raw`, `vperf_hourly`, `vperf_daily`) database views.
 
-Axibase Collector queries `vperf_raw` in SCOM DWH view every 15 minutes to offload incremental data into Axibase Time Series Database for long-term retention and operations analytics.
+Axibase Collector queries `PerformanceDataAllView`in SCOM Operations database view every 30 minutes to offload incremental data into Axibase Time Series Database for long-term retention and operations analytics.
 
 ## Requirements
 
