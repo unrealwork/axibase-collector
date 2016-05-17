@@ -12,11 +12,11 @@ resolve network performance issues and outages.
 
 ## Installation steps
 
-### Import Oracle EM JDBC job
+### Import SolarWinds JDBC job
 
 * Open **Jobs:Import** and upload [collector-jobs-solarwinds-base-jobs.xml](collector-jobs-solarwinds-base-jobs.xml) file
 
-### Configure Oracle EM Database Connection
+### Configure SolarWinds Database Connection
 
 * Open **Data Sources:Databases** page, select `` database.
 * Provide connection parameters to the target Microsoft SCOM database as displayed below:
@@ -47,7 +47,7 @@ SELECT 1
 
 ### Schedule the Job
 
-* Open `JDBC Job` page and click `Run` button for the Oracle EM JDBC job.
+* Open `JDBC Job` page and click `Run` button for the SolarWinds job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)

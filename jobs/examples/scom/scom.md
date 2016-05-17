@@ -1,4 +1,4 @@
-# Microsoft SCOM
+# Microsoft System Center Operations Manager
 ## Overview
 
 [Microsoft System Center Operations Manager
@@ -15,11 +15,11 @@ Using ATSD you can retrieve metrics and properties from VMware.
 
 ## Installation steps
 
-### Import Oracle EM JDBC job
+### Import Microsoft SCOM JDBC job
 
 * Open **Jobs:Import** and upload [collector-jobs-scom-jobs.xml](collector-jobs-scom-jobs.xml) file
 
-### Configure Oracle EM Database Connection
+### Configure Microsoft SCOM Database Connection
 
 * Open **Data Sources:Databases** page, select `scom` database.
 * Provide connection parameters to the target Microsoft SCOM database as displayed below:
@@ -50,7 +50,7 @@ SELECT 1
 
 ### Schedule the Job
 
-* Open `JDBC Job` page and click `Run` button for the Oracle EM JDBC job.
+* Open `JDBC Job` page and click `Run` button for the Microsoft SCOM JDBC job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)

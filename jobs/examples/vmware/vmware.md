@@ -13,11 +13,11 @@ Using ATSD you can retrieve metrics and properties from VMware.
 
 ## Installation steps
 
-### Import Oracle EM JDBC job
+### Import VMware JDBC job
 
 * Open **Jobs:Import** and upload [collector-jobs-vmware-jobs.xml](collector-jobs-vmware-jobs.xml) file
 
-### Configure Oracle EM Database Connection
+### Configure VMware Database Connection
 
 * Open **Data Sources:Databases** page, select `sql-vmware` database.
 * Provide connection parameters to the target VMware database as displayed below:
