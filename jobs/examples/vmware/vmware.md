@@ -48,7 +48,7 @@ SELECT 1
 
 ### Schedule the Job
 
-* Open `JDBC Job` page and click `Run` button for the Oracle EM JDBC job.
+* Open `JDBC Job` page and click `Run` button for the VMware job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)

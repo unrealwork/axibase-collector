@@ -60,7 +60,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by name 'vmware.*'
+* Click on Metrics tab and filter metrics by name 'scom.*'
 
 ![](images/atsd_metrics.png)
 
@@ -68,34 +68,26 @@ SELECT 1
 
 ### Metrics
 
-* List of collected [VMware metrics](metric-list.md)
+* List of collected [Microsoft SCOM metrics](metric-list.md)
 
 ### Properties
-* List of collected [VMware properties](properties-list.md)
+* List of collected [Microsoft SCOM properties](properties-list.md)
 
 ### Entity Groups
 
-- VMware VMs
-- VMware Hosts
-- VMware Clusters
+-   `scom-servers`
+-   `scom-databases`
 
 ### Portals
 
-* [VMware Cluster Portal](http://axibase.com/chartlab/36ae5c9e/3/)
+* [SCOM Server Portal](http://axibase.com/chartlab/693b4f8d)
 
-![](images/vmware_cluster_portal.png)
+![](images/scom_server_portal.png)
 
-* [VMware Host Portal](http://axibase.com/chartlab/36ae5c9e)
+* [SCOM SQL Server](http://axibase.com/chartlab/693b4f8d/2/)
 
-![](images/vmware_host_portal.png)
+![](images/scom_sql_server_portal.png)
 
-* [VMware Host VMs](http://axibase.com/chartlab/36ae5c9e/2/)
-
-![](images/vmware_hostvm_breakdown_portal.png)
-
-* [ VMware VM Portal](http://axibase.com/chartlab/36ae5c9e/4/)
-
-![](images/vmware_vm_portal.png)
 
 ## Data Queries
 [Data queries](data-queries.md) that collect most popular metrics and properties.
