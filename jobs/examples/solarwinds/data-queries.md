@@ -1,4 +1,4 @@
-# VMware data queries
+# SolarWinds data queries
 ## SolarWinds Base Queries
 * Metrics Queries select most recent statistics
 ```SQL
