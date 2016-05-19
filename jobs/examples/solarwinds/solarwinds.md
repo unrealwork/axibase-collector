@@ -2,24 +2,25 @@
 
 ## Overview
 
-[SolarWinds](http://www.solarwinds.com/ "SolarWinds") provides network
-monitoring software that allows you to quickly detect, diagnose and
-resolve network performance issues and outages.
+[SolarWinds](http://www.solarwinds.com/) provides multi-vendor network, server, and application monitoring software for small and medium-size environments.
+
+SolarWinds Monitor products collect and store statistics from target devices in a Microsoft SQL Server database (`SolarWindsOrion`) which Axibase Collector queries every 5 minutes to offload incremental data into Axibase Time Series Database for long-term retention and operations analytics.
+
 
 ## Requirements
 
-- SolarWinds ToolSet `11+`
+- SolarWinds Server & Application Monitor `6+`
 
 ## Installation steps
 
 ### Import SolarWinds JDBC job
 
-* Open **Jobs:Import** and upload [collector-jobs-solarwinds-base-jobs.xml](collector-jobs-solarwinds-base-jobs.xml) file
+* Open **Jobs:Import** page and upload [collector-jobs-solarwinds-base-jobs.xml](collector-jobs-solarwinds-base-jobs.xml) file
 
 ### Configure SolarWinds Database Connection
 
-* Open **Data Sources:Databases** page, select `` database.
-* Provide connection parameters to the target Microsoft SCOM database as displayed below:
+* Open **Data Sources:Databases** page, select `solarwinds` database.
+* Provide connection parameters to the target `SolarWindsOrion` database as displayed below:
 
 ![](images/solarwinds-datasource.png)
 
@@ -29,7 +30,7 @@ resolve network performance issues and outages.
 SELECT 1
 ```
 
-* Query result must be is `Query OK`.
+* Query result must be `Query OK`.
 
 
 ### Verify Job Configuration
@@ -57,8 +58,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by name 'sw.*'
-
+* Click on Metrics tab and filter metrics by prefix 'sw.*'
 
 ## Viewing Data in ATSD
 
@@ -67,6 +67,7 @@ SELECT 1
 * List of collected [SolarWinds metrics](metric-list.md)
 
 ### Properties
+
 * List of collected [SolarWinds properties](properties-list.md)
 
 ### Entity Groups
@@ -81,7 +82,6 @@ SELECT 1
 * [SolarWinds Base Portal](http://axibase.com/chartlab/a28a45a2/2/)
 ![](images/solarwinds_base_portal_31.png)
 
-
-
 ## Data Queries
-[Data queries](data-queries.md) that collect most popular metrics and properties.
+
+[Data queries](data-queries.md) that offload recent metrics and properties.
