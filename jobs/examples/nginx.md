@@ -100,7 +100,7 @@ Repeat the process for each NGINX server that you would like to monitor.
 
 * Login into ATSD web interface.
 * Open **Configuration:Parsers CSV** page. Click Import.
-* Import [CSV parser](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx_atsd_csv_parser.xml) for NGINX status page.  
+* Import [CSV parser](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx-atsd-csv-parser.xml) for NGINX status page.  
 
 ## Configuring FILE job in Axibase Collector
 
@@ -113,11 +113,11 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 * Add a new TEXT Item List named **nginx-servers** containing hostnames or IP addresses of the monitored NGINX servers, one server per line.
 * **Save** the list. See more information about Item Lists [here](/collections.md).
  
-![Server list example](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx_server-list.png)
+![Server list example](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx-server-list.png)
 
 ### Import FILE job
 
-* Import [nginx_collector_job.xml](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx_collector_job.xml) job on **Jobs:Import** page.
+* Import [nginx-collector-job.xml](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx-collector-job.xml) job on **Jobs:Import** page.
 * Open the nginx-statistics job. 
 * If 'Storage' drop-down is set to `None`, select the target ATSD server.
 * Set Status to Enabled.
@@ -128,13 +128,13 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 * Open nginx-status configuration.
 * Click Test to verify processing.
 
-![NGINX test](nginx-collector-test.png)
+![NGINX test](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx-collector-test.png)
 
 * Login into ATSD web interface.
 * Open Metrics tab and apply `nginx*` to review the list of nginx metrics received by ATSD.
 * Click on Series link and check that metrics are present for each server in in the **nginx-servers** list.
 
-![NGINX metrics](nginx-metrics-list.png)
+![NGINX metrics](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx-metrics-list.png)
 
 ### NGINX Status Page Metrics
 
@@ -153,6 +153,6 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 * Open Entities page.
 * Locate an NGINX server and click on Portals icon to view the built-in NGINX portal.
 
-[NGINX portal](nginx-portal-basic.png)
+![Basic NGINX portal](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx-portal-basic.png)
 
 
