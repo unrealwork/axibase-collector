@@ -68,11 +68,10 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 | Writing                 |The current number of connections where nginx is writing the response back to the client.|
 | Waiting                 |The current number of idle client connections waiting for a request.                     |
  
-### View Portals
-
-* Open Entities page.
-* Locate an NGINX server and click on Portals icon to view the built-in NGINX portal.
-
+# Viewing Data in ATSD 
+## Metrics
+List of collected [NGINX server metrics]()
+## Portals
 ![Basic NGINX portal](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/examples/nginx-portal-basic.png)
 
 
