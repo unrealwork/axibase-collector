@@ -14,7 +14,7 @@ long-term detailed data retention capabilities.
 - Read and upload CSV files into ATSD continuously using scripts.
 - To minimize latency, watch for new CSV files using inotify or similar utility.
 
-**`hd.ini` setting to enable private history streaming in ITM:**
+#### `hd.ini` setting to enable private history streaming in ITM
 
 ```ini
 KHD_CSV_OUTPUT_ACTIVATE=Y
@@ -59,7 +59,7 @@ KHD_CSV_EVAL_INTERVAL=60
     <HISTORY Interval="1" Export="1" RETAIN="1" USE="A" Table="Linux_Host_Availability"></HISTORY>
 </PRIVATECONFIGURATION>
 ```
-**Sender Script**
+#### Sender Script
 
 Sender script that checks the specified directory for new CSV files and
 uploads them into ATSD.\
@@ -137,7 +137,7 @@ done
 
 ![](images/Warehouse-Proxy-Agent-diagram1.jpg "Warehouse Proxy Agent diagram")
 
-### Verify Metrics in ATSD
+## Verifying  in ATSD
 
 * Login into ATSD
 * Click on Metrics tab and filter metrics by prefix `klz` and `lnx`
