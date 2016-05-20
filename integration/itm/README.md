@@ -62,8 +62,9 @@ KHD_CSV_EVAL_INTERVAL=60
 #### Sender Script
 
 Sender script that checks the specified directory for new CSV files and
-uploads them into ATSD.\
- You can check the script’s logs in `/tmp/itm/logs` directory.
+uploads them into ATSD. 
+
+You can check the script’s logs in `/tmp/itm/logs` directory.
 
 ```sh
 #!/bin/bash

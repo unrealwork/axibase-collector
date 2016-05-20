@@ -1,4 +1,4 @@
-# NGINX basic server metrics
+# NGINX server metrics
 
 ## Status page metrics
 * nginx.active_connections

@@ -70,7 +70,7 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
  
 # Viewing Data in ATSD 
 ## Metrics
-List of collected [NGINX server metrics](./nginx-server-metrics.md)
+List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 ## Portals
 ![Basic NGINX portal](./images/nginx-portal-basic.png)
 
