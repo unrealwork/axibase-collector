@@ -1,4 +1,4 @@
-#### Collected VMware Metrics
+#### Collected SCOM Metrics
 
 ```css
 scom.ad.directoryservices.dra_inbound_bytes_compressed_between_sites_after_compression_sec
