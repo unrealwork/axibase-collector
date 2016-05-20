@@ -1,7 +1,6 @@
 # IBM Tivoli Monitoring
 
 ## Overview
-
 ATSD extends IBM Tivoli Monitoring with streaming analytics and
 long-term detailed data retention capabilities.
 
@@ -10,7 +9,7 @@ long-term detailed data retention capabilities.
 ### Enabling ITM to stream data into the ATSD is done through the Warehouse Proxy Agent
 
 - Import CSV parser definitions into ATSD for particular agent codes: UX, PA, LZ, NT, VM, T3, UD, etc.
--   Configure [Warehouse Proxy Agent](http://www-01.ibm.com/support/knowledgecenter/SSATHD_7.7.0/com.ibm.itm.doc_6.3fp2/adminuse/history_analytics_scenarios.htm "WPA") to store analytical data into CSV files on the local file system.
+- Configure [Warehouse Proxy Agent](http://www-01.ibm.com/support/knowledgecenter/SSATHD_7.7.0/com.ibm.itm.doc_6.3fp2/adminuse/history_analytics_scenarios.htm "WPA") to store analytical data into CSV files on the local file system.
 - Enable private history collection on the agent.
 - Read and upload CSV files into ATSD continuously using scripts.
 - To minimize latency, watch for new CSV files using inotify or similar utility.
@@ -38,7 +37,7 @@ uploads them into ATSD.\
 ## Viewing Data in ATSD
 
 ### Metrics
-* List of collected [SolarWinds metrics](metric-list.md)
+* List of collected [ITM metrics](metric-list.md)
 
 ### Entity Groups
 
