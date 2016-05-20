@@ -1,10 +1,34 @@
 # JDBC Job
 
-JDBC (Java Database Connectivity Technology) is an API for java programming language which provides methods for querying and updating a primarily relational database.  <br> To learn more, read our detailed example of [JDBC Jobs for SolarWinds.](https://axibase.com/products/axibase-time-series-database/writing-data/collector/solarwinds/ "SolarWinds")<br> 
+## Overview
 
-#### Job Settings
-Apart from job settings that are common for all Axibase Collector jobs specified on the [Axibase Collector Jobs](https://github.com/axibase/axibase-collector-docs/blob/master/job-generic.md ) page, JDBC job has an additional field. <br>
-**Data Source** list allows you to select a database where you want to gather data from. The list contains all databases connected as data sources. 
+JDBC (Java Database Connectivity Technology) is an API for Java which provides methods for querying and updating a database. 
+
+Axibase Collector can be configured to query a remote database to either obtain current statistics for the purpose of accumulating their history in Axibase Time Series Database or to offload incremental statistics into ATSD for long-term retention and analytics.
+
+## Supported Databases
+
+* ORACLE
+* Microsoft SQL Server
+* IBM DB2
+* MYSQL
+* POSTGRESQL
+* SYBASE
+* Apache DERBY
+* SAP HANA
+* CUSTOM
+
+## Examples
+
+* [Oracle EM](examples/oracle-enterprise-manager)
+* [Microsoft SCOM](examples/scom)
+* [SolarWinds](examples/solarwinds)
+* [VMware](examples/vmware)
+
+## Job Settings
+
+Apart from [common](https://github.com/axibase/axibase-collector-docs/blob/master/job-generic.md), JDBC job has an additional field. <br>
+**Data Source** list allows you to select a database that will be queried. The list contains all databases connected as data sources. 
 
 ![JDBC job settings](https://axibase.com/wp-content/uploads/2014/06/jdbc_job_settings2.png)
 
