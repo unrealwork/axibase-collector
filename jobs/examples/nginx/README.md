@@ -16,6 +16,22 @@ The process involves enabling NGINX status page and configuring Axibase Collecto
 
 Follow the steps outlined in [NGINX server configuration guide](./nginx-configure.md) to enable metrics on its status page.
 
+The status page returns connection statistics in an unstructured/malformed format, which is parsed by ATSD with [RFC 7111](https://axibase.com/products/axibase-time-series-database/writing-data/csv/csv-schema/) selectors using whitespace as a separator.
+
+```ls
+Active connections: 291
+server accepts handled requests
+ 16630948 16630948 31070465
+Reading: 6 Writing: 179 Waiting: 106
+```
+
+```javascript
+select("#row=1").select("#col=3").
+addSeries().
+metric(cell(row, 1) + '_' + (cell(row,col-1)+'').substring(0,(cell(row,col-1)+'').length-1));
+...
+```
+
 ## Import NGINX CSV parser configuration into ATSD
 
 * Login into ATSD web interface.
