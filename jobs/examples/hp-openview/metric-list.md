@@ -3,9 +3,6 @@
 ## OVPM Linux
 
 ```css
- fs_max_size
- fs_space_used
- fs_space_util
  gbl_cpu_idle_util                                                        
  gbl_cpu_sys_mode_util                                                    
  gbl_cpu_total_util                                                       
