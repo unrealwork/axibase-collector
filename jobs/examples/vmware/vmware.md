@@ -2,14 +2,13 @@
 
 ## Overview
 
-[VMware](http://www.vmware.com/ "VMware") provides cloud and
-virtualization software and services.
+[VMware vCenter](https://www.vmware.com/products/vcenter-server) provides a centralized platform for managing VMware vSphere environments.
 
-Using ATSD you can retrieve metrics and properties from VMware.
+VMware vCenter collects and stores statistics from ESX servers in an Microsoft SQL Server database (`VIM_VCDB`) which Axibase Collector queries every 20 minutes to offload incremental statistics from `VPX_HIST_STAT1` table into Axibase Time Series Database for long-term retention and operations analytics.
 
 ## Requirements
 
-- VMware `6+`
+- VMware vCenter `5.x+`
 
 ## Installation steps
 
@@ -20,7 +19,7 @@ Using ATSD you can retrieve metrics and properties from VMware.
 ### Configure VMware Database Connection
 
 * Open **Data Sources:Databases** page, select `sql-vmware` database.
-* Provide connection parameters to the target VMware database as displayed below:
+* Provide connection parameters to the target `VIM_VCDB` database as displayed below:
 
 ![](images/vmware-datasource.png)
 
@@ -30,8 +29,6 @@ Using ATSD you can retrieve metrics and properties from VMware.
 SELECT 1
 ```
 
-* Query result must be is `Query OK`.
-
 
 ### Verify Job Configuration
 
@@ -40,7 +37,7 @@ SELECT 1
 
 ![](images/vmware-job.png)
 
-* Choose one of target ATSD instances if your Collector instance is connected to multiple ATSD servers.
+* Choose a target ATSD server if your Collector instance is connected to multiple ATSD servers.
 * Save the Job
 * Open each configuration, click on `Test` button and review output. See [Data Queries](#data-queries) below.
 
