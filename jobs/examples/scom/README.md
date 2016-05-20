@@ -18,12 +18,12 @@ Axibase Collector queries `PerformanceDataAllView`in SCOM Operations database vi
 
 ### Import Microsoft SCOM JDBC job
 
-* Open **Jobs:Import** and upload [collector-jobs-scom-jobs.xml](collector-jobs-scom-jobs.xml) file
+* Open **Jobs:Import** page and upload [collector-jobs-scom-jobs.xml](collector-jobs-scom-jobs.xml) file
 
 ### Configure Microsoft SCOM Database Connection
 
 * Open **Data Sources:Databases** page, select `scom` database.
-* Provide connection parameters to the target Microsoft SCOM database as displayed below:
+* Provide connection parameters to the target `scom-2012` database as displayed below:
 
 ![](images/scom-datasource.png)
 
@@ -61,7 +61,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by name 'scom.*'
+* Click on Metrics tab and filter metrics by prefix 'scom.*'
 
 ![](images/atsd_metrics.png)
 
@@ -92,4 +92,4 @@ SELECT 1
 
 
 ## Data Queries
-[Data queries](data-queries.md) that collect most popular metrics and properties.
+[Data queries](data-queries.md) that offload recent metrics and properties.

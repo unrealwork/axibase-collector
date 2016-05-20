@@ -14,12 +14,12 @@ Axibase Collector queries OVPM server for particular GLOBAL classes every 15 min
 
 ### Import HP OpenView JDBC job
 
-* Open **Jobs:Import** and upload [collector-jobs-ovpm-jobs.xml](collector-jobs-ovpm-jobs.xml) file
+* Open **Jobs:Import** page and upload [collector-jobs-ovpm-jobs.xml](collector-jobs-ovpm-jobs.xml) file
 
 ### Configure HP Open View HTTP Pool
 
 * Open **Data Sources:HTTP Pools** page, select `ovpm-10.102.0.6` database.
-* Provide connection parameters to the target HP OpenView pool as displayed below:
+* Provide connection parameters to the target `	ovpm-10.102.0.6` pool as displayed below:
 
 ![](images/http_pool_conf.png)
 
@@ -53,7 +53,7 @@ Axibase Collector queries OVPM server for particular GLOBAL classes every 15 min
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by name 'gbl_.*'
+* Click on Metrics tab and filter metrics by prefix 'gbl_.*'
 
 ![](images/metrics.png)
 

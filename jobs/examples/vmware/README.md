@@ -14,7 +14,7 @@ VMware vCenter collects and stores statistics from ESX servers in an Microsoft S
 
 ### Import VMware JDBC job
 
-* Open **Jobs:Import** and upload [collector-jobs-vmware-jobs.xml](collector-jobs-vmware-jobs.xml) file
+* Open **Jobs:Import** page and upload [collector-jobs-vmware-jobs.xml](collector-jobs-vmware-jobs.xml) file
 
 ### Configure VMware Database Connection
 
@@ -29,6 +29,7 @@ VMware vCenter collects and stores statistics from ESX servers in an Microsoft S
 SELECT 1
 ```
 
+Query result must be `Query OK`.
 
 ### Verify Job Configuration
 
@@ -55,7 +56,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by name 'vmware.*'
+* Click on Metrics tab and filter metrics by prefix 'vmware.*'
 
 ![](images/atsd_metrics.png)
 
@@ -93,7 +94,7 @@ SELECT 1
 ![](images/vmware_vm_portal.png)
 
 ## Data Queries
-[Data queries](data-queries.md) that collect most popular metrics and properties.
+[Data queries](data-queries.md) that offload recent metrics and properties.
 
 
 
