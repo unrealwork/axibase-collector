@@ -1,16 +1,19 @@
 # HP OpenView
 ## Overview
-[HP OpenView](https://h20392.www2.hp.com/portal/swdepot/displayProductInfo.do?productNumber=PERFMINFO "HP OpenView") software provides large-scale system and network management of an organization’s IT infrastructure.
+[HP OpenView Performance Manager](https://h20392.www2.hp.com/portal/swdepot/displayProductInfo.do?productNumber=PERFMINFO "HP OpenView") provides an agent-based centralized data collection solution.
 
-Using ATSD you can retrieve metrics and properties from HP OpenView.
+OVPM stores collected statistics in files on the local file system for a period of several months.
+
+Axibase Collector queries OVPM server for particular GLOBAL classes every 15 minutes to offload incremental data into Axibase Time Series Database for long-term retention and operations analytics.
 
 ## Requirements
 
-- HP OpenView `9.+`
+- HP OpenView Performance Manager `9.+`
 
 ## Installation steps
 
 ### Import HP OpenView JDBC job
+
 * Open **Jobs:Import** and upload [collector-jobs-ovpm-jobs.xml](collector-jobs-ovpm-jobs.xml) file
 
 ### Configure HP Open View HTTP Pool
@@ -27,10 +30,12 @@ Using ATSD you can retrieve metrics and properties from HP OpenView.
 
 ![](images/ovmp_configuration.png)
 
-* Choose one of target ATSD instances if your Collector instance is connected to multiple ATSD servers.
+* Choose an ATSD server if your Collector instance is connected to multiple ATSD servers.
 * Save the Job
 
-* Open each configuration, click on `Test` button and review output. See [Data Queries](#data-queries) below.
+* Open each configuration
+* Open `ovpm` Item List and populate it with servers that you would like to collect statistics from 
+* Click on `Test` button and review output.
 
 <!---
 ![](images/ovmp.png)
@@ -38,7 +43,7 @@ Using ATSD you can retrieve metrics and properties from HP OpenView.
 
 ### Schedule the Job
 
-* Open `JDBC Job` page and click `Run` button for the `ovpm-global` job.
+* Open `OVPM Job` page and click `Run` button for the `ovpm-global` job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/ovmp-global.png)
@@ -63,6 +68,7 @@ Using ATSD you can retrieve metrics and properties from HP OpenView.
 
 
 ## Entity group list
+
 - OVPM Linux
 - OVPM Unix
 - OVPM Windows
