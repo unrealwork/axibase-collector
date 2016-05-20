@@ -72,6 +72,7 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 ## Metrics
 List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 ## Portals
+[Basic NGINX portal](http://apps.axibase.com/chartlab/34d82015)
 ![Basic NGINX portal](./images/nginx-portal-basic.png)
 
 
