@@ -14,7 +14,7 @@ Collecting [NGINX Plus](https://www.nginx.com/products/) [live activity](https:/
 
 ## Server configuration
 
-See [NGINX basic server configuration guide](./nginx-basic-configure.md) to make sure your server is configured correctly.
+See [NGINX server configuration guide](./nginx-configure.md) to make sure your server is configured correctly.
 
 ## Import NGINX CSV parser configuration into ATSD
 
