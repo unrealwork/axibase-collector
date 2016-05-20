@@ -1,5 +1,7 @@
 #### Collected SolarWinds Metrics
 
+## SolarWinds Base
+
 ```css
 sw.volume_usage.avgdiskused
 sw.volume_usage.disksize
@@ -43,6 +45,10 @@ sw.cpu.usage
 sw.cpu.usagemhz
 sw.cpu.used
 sw.cpu.wait
+```
+
+SolarWinds VMware Cluster
+```css
 sw.avgcpuload
 sw.avgcpuusagemhz
 sw.avgmemoryusage
@@ -82,6 +88,11 @@ sw.numsuspend
 sw.numsvmotion
 sw.numunregister
 sw.numvmotion
+```
+
+## SolarWinds VMware VM
+
+```css
 sw.avgconsumedmemoryload
 sw.avgconsumedpercentmemoryload
 sw.avgcpuload
@@ -227,6 +238,11 @@ sw.virtualdisk.totalwritelatency
 sw.virtualdisk.write
 sw.virtualdisk.writeloadmetric
 sw.virtualdisk.writeoio
+```
+
+
+## SolarWinds VMware Host
+```css
 sw.cpuload
 sw.cpuusagemhz
 sw.memusage
