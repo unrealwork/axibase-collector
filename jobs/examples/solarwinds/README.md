@@ -82,6 +82,10 @@ SELECT 1
 * [SolarWinds Base Portal](http://axibase.com/chartlab/a28a45a2/2/)
 ![](images/solarwinds_base_portal_31.png)
 
+- SolarWinds - VMware VM
+- SolarWinds - VMware Host
+- SolarWinds - VMware Cluster
+
 ## Data Queries
 
 [Data queries](data-queries.md) that offload recent metrics and properties.
