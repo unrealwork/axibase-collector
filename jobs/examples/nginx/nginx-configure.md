@@ -1,4 +1,4 @@
-# NGINX basic server configuration
+# NGINX server configuration
 
 ## Verify that `ngx_http_stub_status_module` is present
 
