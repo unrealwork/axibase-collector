@@ -70,10 +70,9 @@ SELECT 1
 
 ### Entity Groups
 
-- `solarwinds-base`
-- `solarwind-vmware-vm`
-- `solarwind-vmware-host`
-- `solarwind-vmware-cluster`
+- `VMware VMs`
+- `VMware Hosts`
+- `VMware Clusters`
 
 ### Portals
 
