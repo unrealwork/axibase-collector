@@ -140,7 +140,7 @@ done
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by prefix `klz`
+* Click on Metrics tab and filter metrics by prefix `klz` and `lnx`
 
 
 ## Viewing Data in ATSD
