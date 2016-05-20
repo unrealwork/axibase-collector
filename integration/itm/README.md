@@ -14,7 +14,7 @@ long-term detailed data retention capabilities.
 - Read and upload CSV files into ATSD continuously using scripts.
 - To minimize latency, watch for new CSV files using inotify or similar utility.
 
-**hd.ini setting to enable private history streaming in ITM:**
+**`hd.ini` setting to enable private history streaming in ITM:**
 
 ```ini
 KHD_CSV_OUTPUT_ACTIVATE=Y
@@ -155,7 +155,7 @@ done
 ### Portals
 - [ITM – Linux OS Portal](http://apps.axibase.com/chartlab/43f054ee)
 
-![](test_files/itm_linux_portal.png "itm_linux_portal")
+![](images/itm_linux_portal.png "itm_linux_portal")
 
 
 
