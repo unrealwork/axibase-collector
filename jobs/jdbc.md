@@ -30,7 +30,7 @@ Axibase Collector can be configured to query a remote database to either obtain 
 Apart from [common](https://github.com/axibase/axibase-collector-docs/blob/master/job-generic.md), JDBC job has an additional field. <br>
 **Data Source** list allows you to select a database that will be queried. The list contains all databases connected as data sources. 
 
-![JDBC job settings](https://axibase.com/wp-content/uploads/2014/06/jdbc_job_settings2.png)
+![JDBC job settings](examples/oracle-enterprise-manager/images/oracle_job_ds.png)
 
 #### Job Configuration
 
