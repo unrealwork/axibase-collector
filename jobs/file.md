@@ -96,7 +96,19 @@ file:///tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 | Set to `count` | Empty | Send `count` field to server since the items level contains the highest count of numeric fields (1). |
 | Set to `count`, `name` | Empty | Send `count` numeric field and `name` string field to server since the items level contains the highest count of numeric fields (1). |
 
-__________________________________________________________
+#### Job Completion Messages
+
+| **Error Type** | **Description** |
+|---|:---|
+`FILE_NOT_FOUND` | No target file present in the specified directory.
+`FILE_EMPTY` | Target file was found but was completely empty (no annotation, header or data).
+`NO_DATA` | Target file was found but did not contain any data (contained an annotation and header, but no timestamps and values).
+`UPLOAD_ERROR` | ATSD was not available during the scheduled job execution.
+`PARSE_ERROR` | File could not be parsed by ATSD, for example: the timestamp was in a different format.
+`NETWORK_ERROR` | Collector could not establish a network connection.
+`LINE_COUNT_ERROR` | Target file contained less lines than specified in the “Minimum Line Count” setting.
+`FIRST_LINE_ERROR` | First line of the target file does not match the “First Line” setting.
+
 #### Configuration Example
 
 The image below shows an example of the File Forwarding configuration. 
