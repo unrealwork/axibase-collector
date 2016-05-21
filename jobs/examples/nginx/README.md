@@ -9,8 +9,8 @@ The process involves enabling NGINX status page and configuring Axibase Collecto
 ## Requirements
 
 * [NGINX server](http://nginx.org/en/download.html) with [ngx_http_stub_status_module](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html).
-* [Axibase Collector](http://axibase.com/products/axibase-time-series-database/writing-data/collector/axibase-collector-installation/) for scheduled polling of the NGINX status page.
-* [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/download-atsd/) as a centralized data repository.
+* [Axibase Collector](/axibase-collector-docs) for scheduled polling of the NGINX status page.
+* [Axibase Time Series Database](https://github.com/axibase/atsd-docs/blob/master/installation/README.md) as a centralized data repository.
 
 ## NGINX Server Configuration
 
