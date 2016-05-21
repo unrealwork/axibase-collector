@@ -12,7 +12,7 @@ If the response is empty, upgrade to a [newer version of NGINX](http://nginx.org
 
 Sample `nginx -V` output:
 
-```
+```sh
 $ nginx -V
 nginx version: nginx/1.4.6 (Ubuntu)
 built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04)
@@ -32,7 +32,7 @@ sudo nano /etc/nginx/nginx.conf
 
 Enable the page on **/nginx_status** URL so that its accessible at *<your_server_address>/nginx_status*. 
 
-```
+```ls
 location /nginx_status {
     stub_status;
 }
@@ -46,7 +46,7 @@ sudo nginx -s reload
 
 Verify that status page is accessible by opening *<your_server_address>/nginx_status*:
 
-```
+```ls
 Active connections: 291
 server accepts handled requests
  16630948 16630948 31070465
@@ -59,14 +59,14 @@ Once you verify that status page is enabled, restrict access to this page only t
 
 Add the following lines at the **beginning** of *location /nginx_status* directive:
 
-```
+```java
    allow <collector_ip_address>;
    deny all;
 ```
 
  For example, if your collector is located at *10.102.0.6* , the configuration should look as follows:
  
-```
+```ls
 location /nginx_status {
     allow 10.102.0.6;
     deny all;
