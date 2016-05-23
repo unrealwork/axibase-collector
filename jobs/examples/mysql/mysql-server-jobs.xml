@@ -9,9 +9,9 @@
         <commitInterval>10</commitInterval>
         <errorThreshold>0</errorThreshold>
         <databaseConfiguration>
-            <name>mysql-www-axibase</name>
+            <name>10.102.0.7</name>
             <type>MYSQL</type>
-            <server>www.axibase.com</server>
+            <server>10.102.0.7</server>
             <port>3306</port>
             <database>performance_schema</database>
             <dbUser>axibase</dbUser>

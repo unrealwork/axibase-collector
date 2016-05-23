@@ -16,7 +16,7 @@
 
 ### Configure MySQL Server Database Connection
 
-* Open **Data Sources:Databases** page, select `mysql-www-axibase` database.
+* Open **Data Sources:Databases** page, select `10.102.0.7` database.
 * Provide connection parameters to the target MySQL Server database as displayed below:
 
 ![](images/mysql-datasource.png)
@@ -53,7 +53,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by name 'oem.*'
+* Click on Metrics tab and filter metrics by name 'mysql.*'
 
 ![](images/mysql-metrics.png)
 
