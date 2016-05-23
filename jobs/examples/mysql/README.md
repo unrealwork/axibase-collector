@@ -53,7 +53,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by name 'mysql.*'
+* Click on Metrics tab and filter metrics by name `mysql.*`
 
 ![](images/mysql-metrics.png)
 
