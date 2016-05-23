@@ -2,7 +2,6 @@
 
 ## Overview
 
-
 [MySQL](http://www.mysql.com/) is a free, open-source database engine available for all major platforms. (Technically, MySQL is a relational database management system (RDBMS).) MySQL represents an excellent introduction to modern database technology, as well as being a reliable mainstream database resource for high-volume applications.
 
 ## Requirements
@@ -15,10 +14,10 @@
 
 * Open **Jobs:Import** and upload [mysql-server-jobs.xml](mysql-server-jobs.xml) file
 
-### Configure Oracle EM Database Connection
+### Configure MySQL Server Database Connection
 
 * Open **Data Sources:Databases** page, select `mysql-www-axibase` database.
-* Provide connection parameters to the target Oracle EM database as displayed below:
+* Provide connection parameters to the target MySQL Server database as displayed below:
 
 ![](images/mysql-datasource.png)
 
