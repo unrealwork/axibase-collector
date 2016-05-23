@@ -16,7 +16,7 @@ Use the table below to perform File job configuration.
 | HTTP Pool | Relative path to the file if HTTP Pool is selected or full URL in case HTTP Pool is set to NONE. |
 | Path | Path to CSV or JSON target files located on remote or local file system from which they will be read. <br> Path to files on remote systems can be set using a relative path if HTTP Pool is selected or full URL in case HTTP Pool is set to NONE. <br>Path to files on the local file system should start with `file://` and contain the absolute path. <br> File path can include `${TIME}` placeholders: `file:///opt/app/data-${TIME("previous_day", "yyyy-MM-dd")}.csv` <br> File path supports collections (multiple files): `file:///opt/app/data-${ITEM}.csv` <br> File path can match multiple files, all of which would need to be uploaded. <br> The wildcard characters `?` and `*` can be used to represent a single or multiple wildcard characters. <br>See examples below this table. |
 | Delete File on Upload | Source files will be deleted if ATSD returns 200 code (OK). This setting only applies to configurations where the Path points to files on the local file system (Path starts with `file://`).|
-| Success Directory | If a file is uploaded successfully (uploaded into ATSD and Parsed successfully), it will be copied to this directory. <br>I f the Success Directory is specified but does not exist, it will be created. <br> Success Directory field supports `${TIME}` placeholders like: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. <br>To distinguish between files with identical names a time prefix will be added, for example: `20151130_121212_345_{original_file_name}.csv` <br>Success Directory is an independent setting from Delete on Upload. |
+| Success Directory | If a file is uploaded successfully (uploaded into ATSD and Parsed successfully), it will be copied to this directory. <br>If the Success Directory is specified but does not exist, it will be created. <br> Success Directory field supports `${TIME}` placeholders like: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. <br>To distinguish between files with identical names a time prefix will be added, for example: `20151130_121212_345_{original_file_name}.csv` <br>Success Directory is an independent setting from Delete on Upload. |
 | Error Directory | If a file cannot be uploaded (e.g. server not available OR there is a parsing error), the file will be copied to this directory. <br> If the Error Directory is specified but does not exist, it will be created. <br>Error Directory field supports ${TIME} placeholders. For example: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. | 
 | Collection | Name of the collection you want to use.  |
 | Time Zone | Time zone in which the data is collected.  |
@@ -68,6 +68,18 @@ file:///home/axibase/.npm/*/*/packag?/package.json
 file:///home/axibase/.npm/*/*/packag?/${ITEM}.json
 file:///tmp/collector/errors/*.json
 file:///tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
+```
+
+##### Example `Path` Settings to Files retrieving by FTP, SFTP or SCP:
+
+*   You can specify either login and password or private key location to authenticate on SSH server.
+*   Wildcards are allowed in filenames only
+
+```javascript
+ftp://axibase:password@remotehost:21/opt/collector/backup/*.xml
+sftp://axibase:password@remotehost:22/opt/collector/backup/pools_????-??-??.xml
+sftp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/opt/collector/backup/*.xml
+scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 ```
 ##### Included Fields and Excluded Fields:
 

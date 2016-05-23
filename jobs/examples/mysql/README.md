@@ -6,7 +6,7 @@
 
 ## Requirements
 
-- MySQL Server `5+`
+- MySQL Server `5.7+`
 
 ## Installation steps
 
@@ -31,7 +31,7 @@ SELECT 1
 ### Verify Job Configuration
 
 * Open MySQL Server job
-* Set Data Source to `mysql-www-axibase`
+* Set Data Source to `10.102.0.7`
 
 ![](images/mysql-jdbc-job.png)
 
@@ -53,7 +53,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD
-* Click on Metrics tab and filter metrics by name 'mysql.*'
+* Click on Metrics tab and filter metrics by name `mysql.*`
 
 ![](images/mysql-metrics.png)
 
