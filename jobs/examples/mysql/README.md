@@ -31,7 +31,7 @@ SELECT 1
 ### Verify Job Configuration
 
 * Open MySQL Server job
-* Set Data Source to `mysql-www-axibase`
+* Set Data Source to `10.102.0.7`
 
 ![](images/mysql-jdbc-job.png)
 
