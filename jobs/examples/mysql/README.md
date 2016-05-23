@@ -6,7 +6,7 @@
 
 ## Requirements
 
-- MySQL Server `5+`
+- MySQL Server `5.7+`
 
 ## Installation steps
 
