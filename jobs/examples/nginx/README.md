@@ -95,4 +95,22 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 * [Basic NGINX portal](http://apps.axibase.com/chartlab/34d82015)
 ![Basic NGINX portal](./images/nginx-portal-basic.png)
 
+## Rules Configuration
+You can set different rules at your ATSD to have notifications when some logical expression about metrics collected from your NGINX server evaluates to true. For example, you can receive email notification if your NGINX server has too low *Active Connections* value durnig last 15 minutes.
+# Setting up an Email Client
+If you want too enable email notifications, please, use this [document](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md) to configure your ATSD email client correctly.
+# Creating rules
+Use main [rule engine](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md) documentation to build your own rules or customize those provided below.
 
+| Rule                                     |                                      Description                        |
+|:----------------------------------------:|:------------------------------------------------------------------------|
+| [nginx_active_connections_heartbeat](./nginx_active_connections_heartbeat.xml) | Rule which raises an alert when insufficient amount of data about nginx server active connections is received during last 3 minutes. <br> If so, your server is likely to be unreachable in general. The following reasons are possible: <br> Your nginx server is not reachable <br> Collector cannot deliver collected information to ATSD. |
+| [nginx_active_connections_low](./nginx_active_connections_low.xml) | Rule which raises an alert when nginx server active connections count is low. <br> If so, your server is likely to be serving too many clients. The following reasons are possible:<br>  Your nginx server has problems with Internet access <br> Your nginx server is configured with small serving bandwidth.|
+|[nginx_tcp_heartbeat](./nginx_tcp_heartbeat.xml)| Rule which raises an alert when it is problematic for your nginx  server to respond to tcp connections. The following reasons are possible: <br> Your nginx server is not reachable <br> Collector cannot deliver collected information to ATSD.|
+
+To import a rule provided above:
+* Download an xml file of a rule from the table above
+* Login to your ATSD web interface
+* Go to **Configuration: Rules**
+* Click *Import* and choose the downloaded xml file
+After import make sure you change email settings at the *Email Notifications* tab, so that *Recepients* field will be filled with existing email addresses.
