@@ -97,9 +97,9 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 
 ## Rules Configuration
 You can set different rules at your ATSD to have notifications when some logical expression about metrics collected from your NGINX server evaluates to true. For example, you can receive email notification if your NGINX server has too low *Active Connections* value durnig last 15 minutes.
-# Setting up an Email Client
+### Setting up an Email Client
 If you want too enable email notifications, please, use this [document](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md) to configure your ATSD email client correctly.
-# Creating rules
+### Creating rules
 Use main [rule engine](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md) documentation to build your own rules or customize those provided below.
 
 | Rule                                     |                                      Description                        |
