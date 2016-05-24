@@ -110,8 +110,8 @@ Use main [rule engine documentation](https://github.com/axibase/atsd-docs/blob/m
 |nginx_tcp_heartbeat| Raises an alert when it is problematic for your NGINX server to respond to tcp connections. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.|
 
 To import rules provided above:
-* Download an xml file containing rules
-* Login to your ATSD web interface
-* Go to **Configuration: Rules**
-* Click *Import* and choose the downloaded xml file
+* Download an xml file containing rules.
+* Login to your ATSD web interface.
+* Go to **Configuration: Rules**.
+* Click *Import* and choose the downloaded xml file.
 After importing make sure you change email settings at the *Email Notifications* tab, so that *Recepients* field will be filled with existing email addresses.
