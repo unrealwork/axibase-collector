@@ -2,7 +2,7 @@
 <rule>
 <name>nginx_active_connection_heartbeat</name>
 <metric>nginx.active_connections</metric>
-<expression><![CDATA[count() < (time_last() - time_first() + 1) / 5]]></expression>
+<expression><![CDATA[count() < window_length_time()  / 5]]></expression>
 <window>time(3 minute)</window>
 <severity>WARNING</severity>
 <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
@@ -13,7 +13,7 @@
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464089587908</lastUpdated>
+<lastUpdated>1464093440702</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
@@ -24,7 +24,6 @@ If so, your server is likely to be unreachable. Check that your server is reacha
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </actionStrategy>
-<groupFilter>nginx-servers</groupFilter>
 <emailNotification>
 <rule-name>nginx_active_connection_heartbeat</rule-name>
 <repeat-interval>
@@ -60,7 +59,7 @@ If so, your server is likely to be unreachable. Check that your server is reacha
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464089587931</lastUpdated>
+<lastUpdated>1464093151303</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
@@ -96,7 +95,7 @@ If so, your server is likely to have probelms with accessibility. Check that you
 <rule>
 <name>nginx_tcp_heartbeat</name>
 <metric>tcp-connect</metric>
-<expression><![CDATA[(time_last() - time_first()) / 180  < 0.5]]></expression>
+<expression><![CDATA[(time_last() - time_first() / window_length_time() )  < 0.5]]></expression>
 <window>time(3 minute)</window>
 <filter>value = 0</filter>
 <severity>WARNING</severity>
@@ -108,7 +107,7 @@ If so, your server is likely to have probelms with accessibility. Check that you
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464089587952</lastUpdated>
+<lastUpdated>1464093381474</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
@@ -118,7 +117,6 @@ If so, your server is likely to have probelms with accessibility. Check that you
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </actionStrategy>
-<groupFilter>nginx-servers</groupFilter>
 <emailNotification>
 <rule-name>nginx_tcp_heartbeat</rule-name>
 <repeat-interval>
