@@ -73,8 +73,7 @@ SELECT 1
 * Metrics Queries select most recent statistics 
 
 ```SQL
-SELECT * FROM global_status WHERE variable_name NOT LIKE 'Innodb_%_status'
-AND variable_name NOT IN ('Max_used_connections_time', 'Ssl_server_not_after', 'Ssl_server_not_before', 'Ssl_session_cache_mode')
+SELECT * FROM global_status
 ```
 
 
