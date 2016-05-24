@@ -105,9 +105,9 @@ Use main [rule engine](https://github.com/axibase/atsd-docs/blob/master/rule-eng
 
 | Rule                                     |                                      Description                        |
 |:----------------------------------------:|:------------------------------------------------------------------------|
-| nginx_active_connections_heartbeat| Rule which raises an alert when insufficient amount of data about nginx server active connections is received during last 3 minutes. <br> If so, your server is likely to be unreachable in general. The following reasons are possible: <br> Your nginx server is not reachable <br> Collector cannot deliver collected information to ATSD. |
-| nginx_active_connections_low | Rule which raises an alert when nginx server active connections count is low. <br> If so, your server is likely to be serving too many clients. The following reasons are possible:<br>  Your nginx server has problems with Internet access <br> Your nginx server is configured with small serving bandwidth.|
-|nginx_tcp_heartbeat| Rule which raises an alert when it is problematic for your nginx  server to respond to tcp connections. The following reasons are possible: <br> Your nginx server is not reachable <br> Collector cannot deliver collected information to ATSD.|
+| nginx_active_connections_heartbeat| Rule which raises an alert when insufficient amount of data about nginx server active connections is received during last 3 minutes. <br> If so, your server is likely to be unreachable in general. Check that your nginx server is reachable and Collector is able to deliver collected information to ATSD. |
+| nginx_active_connections_low | Rule which raises an alert when nginx server active connections count is low. <br> If so, your server is likely to be serving too many clients. Check that your nginx server has Internet access and  is not configured with small serving bandwidth.|
+|nginx_tcp_heartbeat| Rule which raises an alert when it is problematic for your nginx  server to respond to tcp connections. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.|
 
 To import rules provided above:
 * Download an xml file containing rules above
