@@ -102,6 +102,7 @@ You can set different rules at your ATSD to have notifications when some logical
 If you want to enable email notifications, please, use this [document](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md) to configure your ATSD email client correctly.
 ### Creating rules
 Use main [rule engine](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md) documentation to build your own rules or customize [provided rules](./nginx_rules.xml).
+
 | Rule                                     |                                      Description                        |
 |:----------------------------------------:|:------------------------------------------------------------------------|
 | nginx_active_connections_heartbeat| Rule which raises an alert when insufficient amount of data about nginx server active connections is received during last 3 minutes. <br> If so, your server is likely to be unreachable in general. The following reasons are possible: <br> Your nginx server is not reachable <br> Collector cannot deliver collected information to ATSD. |
