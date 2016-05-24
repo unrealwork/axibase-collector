@@ -99,19 +99,19 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 You can set different rules at your ATSD to have notifications when some logical expression about metrics collected from your NGINX server evaluates to true. For example, you can receive email notification if your NGINX server has too low *Active Connections* value durnig last 15 minutes.
 
 ### Setting up an Email Client
-If you want to enable email notifications, please, use this [document](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md) to configure your ATSD email client correctly.
+If you want to enable email notifications, please, use [this document](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md) to configure your ATSD email client correctly.
 ### Creating rules
-Use main [rule engine](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md) documentation to build your own rules or customize [provided rules](./nginx_rules.xml).
+Use main [rule engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md) to build your own rules or customize [provided ones](./nginx_rules.xml), which are described below. 
 
 | Rule                                     |                                      Description                        |
 |:----------------------------------------:|:------------------------------------------------------------------------|
-| nginx_active_connections_heartbeat| Rule which raises an alert when insufficient amount of data about nginx server active connections is received during last 3 minutes. <br> If so, your server is likely to be unreachable in general. Check that your nginx server is reachable and Collector is able to deliver collected information to ATSD. |
-| nginx_active_connections_low | Rule which raises an alert when nginx server active connections count is low. <br> If so, your server is likely to be serving too many clients. Check that your nginx server has Internet access and  is not configured with small serving bandwidth.|
-|nginx_tcp_heartbeat| Rule which raises an alert when it is problematic for your nginx  server to respond to tcp connections. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.|
+| nginx_active_connections_heartbeat| Raises an alert when insufficient amount of data about NGINX server's *Active connections* is received during last 3 minutes. <br> If so, your server is likely to be unreachable. Check that your server is reachable and Collector is able to deliver collected information to ATSD. |
+| nginx_active_connections_low | Raises an alert when NGINX server active connections count is low. <br> If so, your server is likely to have probelms with accessibility. Check that your server has Internet access and is not configured with too small serving bandwidth.|
+|nginx_tcp_heartbeat| Raises an alert when it is problematic for your NGINX server to respond to tcp connections. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.|
 
 To import rules provided above:
-* Download an xml file containing rules above
+* Download an xml file containing rules
 * Login to your ATSD web interface
 * Go to **Configuration: Rules**
 * Click *Import* and choose the downloaded xml file
-After import make sure you change email settings at the *Email Notifications* tab, so that *Recepients* field will be filled with existing email addresses.
+After importing make sure you change email settings at the *Email Notifications* tab, so that *Recepients* field will be filled with existing email addresses.
