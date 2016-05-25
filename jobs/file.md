@@ -126,3 +126,42 @@ scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/error
 The image below shows an example of the File Forwarding configuration. 
 
 ![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2016/04/file_job.png)
+
+#### Placeholders
+
+| Placeholder | Description | Supported Protocols |
+|:---|:---|:---|
+| FILE | name of the file | file |
+| PATH | absolute path of the file | file, http/(s) |
+
+##### Placeholder formatting functions
+
+| Function | Description | 
+|:---|:---|
+| keepAfter | Removes part of the string before first occurrence of the given substring |
+| keepAfterLast | Removes part of the string before last occurrence of the given substring |
+| keepBefore | Removes part of the string that starts with the first occurrence of the given substring. |
+| keepBeforeLast | Removes part of the string that starts with the last occurrence of the given substring. |
+| replace | Replace all occurrences of the given string in in the original string with another string |
+| capFirst | Capitalize first word |
+| capitalize | Capitalize all words |
+| lowerCase | Convert to lower case |
+| upperCase | Convert to upper case |
+| removeBeginning | Removes the given substring from the beginning of the string. |
+| removeEnding | Removes the given substring from the end of the string. |
+
+##### Using examples
+
+| Function | Path | Function with arguments | Output | 
+|:---|:---|:---|:---|
+| keepAfter | file:///opt/files/cpu_busy.nurswgvml.106 | ${PATH?keepAfter('.')} | nurswgvml.106 | 
+| keepAfterLast | https://api.stackexchange.com:443/2.2/tags/docker/info?key=wyPmAal5b3QQktRmMpfTRg((&site=stackoverflow | ${PATH?keepAfterLast("=")} | stackoverflow | 
+| keepBefore | file:///opt/files/nurswgvml106_cpu_busy.csv | ${FILE?keepBefore('_')} | nurswgvml106 | 
+| keepBeforeLast | file:///opt/files/nurswgvml106_cpu_busy.csv | ${FILE?keepBeforeLast('_')} | nurswgvml106_cpu | 
+| replace | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?replace(' ','.')} | nurswgvml106.cpu_busy | 
+| capFirst | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?capFirst} | Nurswgvml106 cpu_busy | 
+| capitalize | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?capitalize} | Nurswgvml106 Cpu_busy | 
+| lowerCase | file:///opt/files/Nurswgvml106 | ${FILE?lowerCase} | nurswgvml106 | 
+| upperCase | file:///opt/files/nurswgvml106 | ${FILE?upperCase} | NURSWGVML106 | 
+| removeBeginning | file:///opt/files/nurswgvml106 | ${PATH?removeBeginning('/opt/files/')} | nurswgvml106 | 
+| removeEnding | file:///opt/files/nurswgvml106.cpu_busy.csv | ${FILE?removeEnding('.cpu_busy.csv')} | nurswgvml106 |
