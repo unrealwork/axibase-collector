@@ -151,14 +151,16 @@ The image below shows an example of the File Forwarding configuration.
 | removeBeginning | Removes the given substring from the beginning of the string. |
 | removeEnding | Removes the given substring from the end of the string. |
 
-##### Using examples
+##### Placeholder Usage Examples
 
 Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
 
+
+
+
 | Function | Path | Function with arguments | Output | 
 |:---|:---|:---|:---|
-| keepAfter | file:///opt/files/cpu_busy.nurswgvml.106 | ${PATH?keepAfter('.')} | nurswgvml.106 | 
-| keepAfterLast | https://api.stackexchange.com:443/2.2/tags/docker/info?key=wyPmAal5b3QQktRmMpfTRg((&site=stackoverflow | ${PATH?keepAfterLast("=")} | stackoverflow | 
+| keepAfter | file:///opt/files/cpu_busy.*<br>Matching paths:<br>/opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | ${PATH?keepAfter('.')} | nurswgvml.106<br>nurswgvml.107 | 
 | keepBefore | 	ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_temperature.csv | ${FILE?keepBefore('_')} | nurswgvml106 | 
 | keepBeforeLast | file:///opt/files/nurswgvml106_cpu_busy.csv | ${FILE?keepBeforeLast('_')} | nurswgvml106_cpu | 
 | replace | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?replace(' ','.')} | nurswgvml106.cpu_busy | 
