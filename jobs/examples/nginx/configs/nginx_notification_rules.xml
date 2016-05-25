@@ -13,7 +13,7 @@
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464166703131</lastUpdated>
+<lastUpdated>1464184308081</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
@@ -64,11 +64,11 @@ Now your server is likely to be reachable.</body-cancel>
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464166869334</lastUpdated>
+<lastUpdated>1464184435639</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>false</leavingEvents>
-<description><![CDATA[Raises an alert when NGINX server active connections count is low. 
+<description><![CDATA[Raises an alert when NGINX server active connections count is low during last 3 minutes. 
 If so, your server is likely to have probelms with accessibility. Check that your server has Internet access and is not configured with too small serving bandwidth.]]></description>
 <actionStrategy>
 <type>NONE</type>
@@ -89,7 +89,7 @@ Your server is likely to have problems with accessibility. Check that your serve
 Your server is likely to solve problems with accessibility.</body-cancel>
 <name>Email Notification id=3</name>
 <use-in-threshold-only>false</use-in-threshold-only>
-<recipients>address@domain</recipients>
+<recipients>vlad.pavlov24@yandex.ru</recipients>
 <first-subject>Rule ${rule}. Status ${status}. Entity: for ${entity}. Metric: ${metric}. Tags: ${tags}</first-subject>
 <repeat-subject>Rule ${rule}. Status ${status}. Entity: for ${entity}. Metric: ${metric}. Tags: ${tags}. Duration: ${alert_duration_interval}</repeat-subject>
 <cancel-subject>Rule ${rule}. Status ${status}. Entity: for ${entity}. Metric: ${metric}. Tags: ${tags}. Duration: ${alert_duration_interval}</cancel-subject>
@@ -116,15 +116,11 @@ Your server is likely to solve problems with accessibility.</body-cancel>
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464167026130</lastUpdated>
+<lastUpdated>1464184354185</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
-<description><![CDATA[Raises an alert when it is problematic for your NGINX server to respond to tcp connections. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.]]></description>
-<minimumInterval>
-<intervalCount>2</intervalCount>
-<intervalUnit>MINUTE</intervalUnit>
-</minimumInterval>
+<description><![CDATA[Raises an alert when it is problematic for your NGINX server to respond to tcp connections during 3 last minutes. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.]]></description>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>
@@ -139,6 +135,55 @@ Your server is likely to solve problems with accessibility.</body-cancel>
 </repeat-interval>
 <body-first>An alert indicating that it is problematic for your NGINX server to respond to tcp connections has been raised. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.</body-first>
 <body-cancel>Now NGINX server is responding to tcp connections as expected.</body-cancel>
+<name>Email Notification id=1</name>
+<use-in-threshold-only>false</use-in-threshold-only>
+<recipients>address@domain</recipients>
+<first-subject>Rule ${rule}. Status ${status}. Entity: for ${entity}. Metric: ${metric}. Tags: ${tags}</first-subject>
+<repeat-subject>Rule ${rule}. Status ${status}. Entity: for ${entity}. Metric: ${metric}. Tags: ${tags}. Duration: ${alert_duration_interval}</repeat-subject>
+<cancel-subject>Rule ${rule}. Status ${status}. Entity: for ${entity}. Metric: ${metric}. Tags: ${tags}. Duration: ${alert_duration_interval}</cancel-subject>
+<merge>false</merge>
+<first-details>true</first-details>
+<repeat-details>true</repeat-details>
+<cancel-details>true</cancel-details>
+<priority>0</priority>
+</emailNotification>
+<ruleTable/>
+</rule>
+<rule>
+<name>nginx_unhandled_percent_high</name>
+<metric>nginx.unhandled_percent</metric>
+<expression><![CDATA[value >= 2]]></expression>
+<window>length(1)</window>
+<severity>WARNING</severity>
+<alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+<alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+<alertCancellationMessage><![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+<alertStrategy>
+<type>NONE</type>
+<intervalCount>5</intervalCount>
+<intervalUnit>MINUTE</intervalUnit>
+</alertStrategy>
+<lastUpdated>1464184396499</lastUpdated>
+<enabled>false</enabled>
+<disableEntityGrouping>false</disableEntityGrouping>
+<leavingEvents>false</leavingEvents>
+<description><![CDATA[Raises an alert when your NGINX server has too high unhandled percent value.
+Check that your server is not overloaded.]]></description>
+<actionStrategy>
+<type>NONE</type>
+<intervalCount>5</intervalCount>
+<intervalUnit>MINUTE</intervalUnit>
+</actionStrategy>
+<groupFilter>nginx-servers</groupFilter>
+<emailNotification>
+<rule-name>nginx_unhandled_percent_high</rule-name>
+<repeat-interval>
+<type>INTERVAL</type>
+<intervalCount>3</intervalCount>
+<intervalUnit>HOUR</intervalUnit>
+</repeat-interval>
+<body-first>An alert indicating that unhandled percent of your NGINX has reached high value. Check that your nginx server is not overloaded.</body-first>
+<body-cancel>Now your server's unhandled percent is low.</body-cancel>
 <name>Email Notification id=1</name>
 <use-in-threshold-only>false</use-in-threshold-only>
 <recipients>address@domain</recipients>
