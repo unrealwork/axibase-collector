@@ -84,7 +84,7 @@ hasMetric('mysql.global_status.uptime')
 
 ![](images/mysql-portal-icon.png) 
 
-[MySQL Server Perfomance Portal](http://apps.axibase.com/chartlab/214febe2)
+[MySQL Server Perfomance Portal](http://apps.axibase.com/chartlab/9a720f9e)
 ![](images/mysql-portal.png)
 
 
