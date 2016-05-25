@@ -108,8 +108,7 @@ Use main [rule engine documentation](https://github.com/axibase/atsd-docs/blob/m
 | nginx_active_connections_heartbeat| Raises an alert when insufficient amount of data about NGINX server's *Active connections* is received during last 3 minutes. <br> If so, your server is likely to be unreachable. Check that your server is reachable and Collector is able to deliver collected information to ATSD. |
 | nginx_active_connections_low | Raises an alert when NGINX server active connections count is low. <br> If so, your server is likely to have probelms with accessibility. Check that your server has Internet access and is not configured with too small serving bandwidth.|
 |nginx_tcp_heartbeat| Raises an alert when it is problematic for your NGINX server to respond to tcp connections. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.|
-|nginx_unhandled_percent_high| Raises an alert when your NGINX server has too high unhandled percent value.
-Check that your server is not overloaded.|
+|nginx_unhandled_percent_high| Raises an alert when your NGINX server has too high unhandled percent value. Check that your server is not overloaded.|
 
 To import rules provided above:
 * Download an xml file containing rules.
