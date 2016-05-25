@@ -132,6 +132,7 @@ The image below shows an example of the File Forwarding configuration.
 | Placeholder | Description | Supported Protocols |
 |:---|:---|:---|
 | FILE | name of the file | file |
+| DIRECTORY | name of parent directory | file |
 | PATH | absolute path of the file | file, http/(s) |
 
 ##### Placeholder formatting functions
