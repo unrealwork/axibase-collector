@@ -2,7 +2,9 @@
 
 ## Overview
 
-[MySQL](http://www.mysql.com/) is a free, open-source database engine available for all major platforms. (Technically, MySQL is a relational database management system (RDBMS).) MySQL represents an excellent introduction to modern database technology, as well as being a reliable mainstream database resource for high-volume applications.
+This document describes how to collect global status metrics from `performance_schema` introduced in [MySQL](http://www.mysql.com/) 5.7+ for long-term retention and monitoring in Axibase Time Series Database.
+
+The process involves enabling a JDBC job in Axibase Collector to poll `global_status` table and and uploading the counters into ATSD for processing.
 
 ## Requirements
 
