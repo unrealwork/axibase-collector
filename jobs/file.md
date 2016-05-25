@@ -129,11 +129,13 @@ The image below shows an example of the File Forwarding configuration.
 
 #### Placeholders
 
+Placeholders can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
+
 | Placeholder | Description | Supported Protocols |
 |:---|:---|:---|
-| FILE | name of the file | file, ftp |
+| FILE | name of the file | file, ftp, sftp, scp |
 | DIRECTORY | name of parent directory | file |
-| PATH | absolute path of the file | file, http/(s), ftp |
+| PATH | absolute path of the file | file, http/(s), ftp, sftp, scp |
 
 ##### Placeholder formatting functions
 
@@ -153,6 +155,8 @@ The image below shows an example of the File Forwarding configuration.
 
 ##### Using examples
 
+Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
+
 | Function | Path | Function with arguments | Output | 
 |:---|:---|:---|:---|
 | keepAfter | file:///opt/files/cpu_busy.nurswgvml.106 | ${PATH?keepAfter('.')} | nurswgvml.106 | 
@@ -161,10 +165,10 @@ The image below shows an example of the File Forwarding configuration.
 | keepBeforeLast | file:///opt/files/nurswgvml106_cpu_busy.csv | ${FILE?keepBeforeLast('_')} | nurswgvml106_cpu | 
 | replace | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?replace(' ','.')} | nurswgvml106.cpu_busy | 
 | capFirst | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?capFirst} | Nurswgvml106 cpu_busy | 
-| capitalize | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?capitalize} | Nurswgvml106 Cpu_busy | 
+| capitalize | scp://user:password@10.10.0.10:22/opt/files/nurswgvml106 cpu_busy | ${FILE?capitalize} | Nurswgvml106 Cpu_busy | 
 | lowerCase | file:///opt/files/NURSWGVML106/temperature.csv | ${DIRECTORY?lowerCase} | nurswgvml106 | 
 | lowerCase | file:///opt/files/Nurswgvml106 | ${FILE?lowerCase} | nurswgvml106 | 
-| upperCase | file:///opt/files/nurswgvml106 | ${FILE?upperCase} | NURSWGVML106 | 
+| upperCase | sftp://user:password@10.10.0.10:21/opt/files/nurswgvml106 | ${FILE?upperCase} | NURSWGVML106 | 
 | removeBeginning | file:///opt/files/nurswgvml106 | ${PATH?removeBeginning('/opt/files/')} | nurswgvml106 | 
 | removeEnding | file:///opt/files/nurswgvml106.cpu_busy.csv | ${FILE?removeEnding('.cpu_busy.csv')} | nurswgvml106 |
 
