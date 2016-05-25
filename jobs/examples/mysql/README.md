@@ -12,7 +12,15 @@ The process involves enabling a JDBC job in Axibase Collector to poll `global_st
 
 ## Installation steps
 
-### Import MySQL Server job
+### Create a read-only account in the target MySQL server
+
+```sql
+CREATE USER 'axibase-ro'@'collector_host' IDENTIFIED BY '********';
+GRANT SELECT ON performance_schema.* TO 'axibase-ro'@'collector_host';
+FLUSH PRIVILEGES;
+```
+
+### Import MySQL Server job into Axibase Collector
 
 * Open **Jobs:Import** and upload [mysql-server-jobs.xml](mysql-server-jobs.xml) file
 
