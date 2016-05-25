@@ -66,7 +66,9 @@ SELECT 1
 ### Entity Groups
 
 ### Portals
-[MySQL Server Perfomance Portal](http://apps.axibase.com/chartlab/1939aedc)
+[MySQL Server Perfomance Portal](http://apps.axibase.com/chartlab/c19d5ee7)
+![](images/mysql-portal.png)
+
 
 ## Data Queries
 
