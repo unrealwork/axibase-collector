@@ -68,7 +68,7 @@ SELECT 1
 * Open **Admin: Entity Groups** page
 * Create a new Entity Group, click on Expression 'Edit mode' and enter the following expression:
 
-```
+```javascript
 hasMetric('mysql.global_status.uptime')
 ```
 
