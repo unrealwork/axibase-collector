@@ -101,7 +101,7 @@ You can set different rules at your ATSD to have notifications when some logical
 ### Setting up an Email Client
 If you want to enable email notifications, please, use [this document](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md) to configure your ATSD email client correctly.
 ### Creating rules
-Use main [rule engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md) to build your own rules or customize [provided ones](./nginx_rules.xml), which are described below. 
+Use main [rule engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md) to build your own rules or customize [provided ones](./configs/nginx_notification_rules.xml), which are described below. 
 
 | Rule                                     |                                      Description                        |
 |:----------------------------------------:|:------------------------------------------------------------------------|
