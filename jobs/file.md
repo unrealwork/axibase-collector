@@ -157,11 +157,12 @@ The image below shows an example of the File Forwarding configuration.
 |:---|:---|:---|:---|
 | keepAfter | file:///opt/files/cpu_busy.nurswgvml.106 | ${PATH?keepAfter('.')} | nurswgvml.106 | 
 | keepAfterLast | https://api.stackexchange.com:443/2.2/tags/docker/info?key=wyPmAal5b3QQktRmMpfTRg((&site=stackoverflow | ${PATH?keepAfterLast("=")} | stackoverflow | 
-| keepBefore | file:///opt/files/nurswgvml106_cpu_busy.csv | ${FILE?keepBefore('_')} | nurswgvml106 | 
+| keepBefore | 	ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_temperature.csv | ${FILE?keepBefore('_')} | nurswgvml106 | 
 | keepBeforeLast | file:///opt/files/nurswgvml106_cpu_busy.csv | ${FILE?keepBeforeLast('_')} | nurswgvml106_cpu | 
 | replace | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?replace(' ','.')} | nurswgvml106.cpu_busy | 
 | capFirst | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?capFirst} | Nurswgvml106 cpu_busy | 
 | capitalize | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?capitalize} | Nurswgvml106 Cpu_busy | 
+| lowerCase | file:///opt/files/NURSWGVML106/temperature.csv | ${DIRECTORY?lowerCase} | nurswgvml106 | 
 | lowerCase | file:///opt/files/Nurswgvml106 | ${FILE?lowerCase} | nurswgvml106 | 
 | upperCase | file:///opt/files/nurswgvml106 | ${FILE?upperCase} | NURSWGVML106 | 
 | removeBeginning | file:///opt/files/nurswgvml106 | ${PATH?removeBeginning('/opt/files/')} | nurswgvml106 | 
