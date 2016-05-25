@@ -129,8 +129,6 @@ The image below shows an example of the File Forwarding configuration.
 
 #### Placeholders
 
-Placeholders can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
-
 | Placeholder | Description | Supported Protocols |
 |:---|:---|:---|
 | FILE | name of the file | file, ftp, sftp, scp |
