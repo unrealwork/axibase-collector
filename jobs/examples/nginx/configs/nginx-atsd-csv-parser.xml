@@ -5,10 +5,11 @@
     <delimiter> </delimiter>
     <recordDelimiter>
 </recordDelimiter>
-    <padding>?</padding>
+    <padding>�</padding>
     <comment></comment>
     <textQualifier>&quot;</textQualifier>
     <entityColumn/>
+    <defaultEntity>192.168.1.40</defaultEntity>
     <timestampFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timestampFormat>
     <metricPrefix>nginx.</metricPrefix>
     <timestampType>PATTERN</timestampType>
@@ -25,10 +26,10 @@
     <renamedColumns class="linked-hash-map"/>
     <header/>
     <decimalSeparator>.</decimalSeparator>
-    <groupingSeparator>?</groupingSeparator>
+    <groupingSeparator>�</groupingSeparator>
     <schema>select(&quot;#row=1&quot;).select(&quot;#col=3&quot;).&#xd;
 addSeries().&#xd;
-metric(cell(row, col-2) + &apos;_&apos; + (cell(row,col-1)+&apos;&apos;).substring(0,(cell(row,col-1)+&apos;&apos;).length-1));&#xd;
+metric(cell(row, 1) + &apos;_&apos; + (cell(row,col-1)+&apos;&apos;).substring(0,(cell(row,col-1)+&apos;&apos;).length-1));&#xd;
 select(&quot;#row=4&quot;).select(&quot;#col=2-*!2&quot;).&#xd;
 addSeries().&#xd;
 metric((cell(row,col-1)+&apos;&apos;).substring(0,(cell(row,col-1)+&apos;&apos;).length-1));&#xd;
