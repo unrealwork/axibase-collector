@@ -65,7 +65,25 @@ SELECT 1
 
 ### Entity Groups
 
+* Open **Admin: Entity Groups** page
+* Create a new Entity Group, click on Expression 'Edit mode' and enter the following expression:
+
+```
+hasMetric('mysql.global_status.uptime')
+```
+
+* Save and verify that the group contains your MySQL database hosts
+
+![](images/mysql-entity-group.png) 
+
 ### Portals
+
+* Open **Configuration: Portals** page and import a MySQL portal from [portal-mysql.xml](portal-mysql.xml).
+* Click Assign link and associate the portal with the entity group you created earlier
+* Open Entity tabs, find mysql database by name, and click on its portal icon
+
+![](images/mysql-portal-icon.png) 
+
 [MySQL Server Perfomance Portal](http://apps.axibase.com/chartlab/214febe2)
 ![](images/mysql-portal.png)
 
@@ -75,7 +93,7 @@ SELECT 1
 * Metrics Queries select most recent statistics 
 
 ```SQL
-SELECT * FROM global_status
+SELECT * FROM performance_schema.global_status
 ```
 
 
