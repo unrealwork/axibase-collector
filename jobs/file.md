@@ -166,3 +166,5 @@ The image below shows an example of the File Forwarding configuration.
 | upperCase | file:///opt/files/nurswgvml106 | ${FILE?upperCase} | NURSWGVML106 | 
 | removeBeginning | file:///opt/files/nurswgvml106 | ${PATH?removeBeginning('/opt/files/')} | nurswgvml106 | 
 | removeEnding | file:///opt/files/nurswgvml106.cpu_busy.csv | ${FILE?removeEnding('.cpu_busy.csv')} | nurswgvml106 |
+
+###### More functions at [Freemarker Built-ins for strings](http://freemarker.org/docs/ref_builtins_string.html)
