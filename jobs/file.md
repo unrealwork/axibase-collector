@@ -131,9 +131,9 @@ The image below shows an example of the File Forwarding configuration.
 
 | Placeholder | Description | Supported Protocols |
 |:---|:---|:---|
-| FILE | name of the file | file |
+| FILE | name of the file | file, ftp |
 | DIRECTORY | name of parent directory | file |
-| PATH | absolute path of the file | file, http/(s) |
+| PATH | absolute path of the file | file, http/(s), ftp |
 
 ##### Placeholder formatting functions
 
