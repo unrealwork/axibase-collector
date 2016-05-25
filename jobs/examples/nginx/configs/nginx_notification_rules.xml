@@ -2,7 +2,7 @@
 <rule>
 <name>nginx_active_connection_heartbeat</name>
 <metric>nginx.active_connections</metric>
-<expression><![CDATA[count() < window_length_time()  / 5]]></expression>
+<expression><![CDATA[(timestamp - windowStartTime() >= window_length_time()) AND (time_last() - time_first() < 0.5 * window_length_time())]]></expression>
 <window>time(3 minute)</window>
 <severity>WARNING</severity>
 <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
@@ -13,8 +13,8 @@
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464094124678</lastUpdated>
-<enabled>true</enabled>
+<lastUpdated>1464166703131</lastUpdated>
+<enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
 <description><![CDATA[Raises an alert when insufficient amount of data about NGINX server's Active connections is received during last 3 minutes. 
@@ -24,6 +24,7 @@ If so, your server is likely to be unreachable. Check that your server is reacha
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </actionStrategy>
+<groupFilter>nginx-servers</groupFilter>
 <emailNotification>
 <rule-name>nginx_active_connection_heartbeat</rule-name>
 <repeat-interval>
@@ -31,6 +32,10 @@ If so, your server is likely to be unreachable. Check that your server is reacha
 <intervalCount>3</intervalCount>
 <intervalUnit>HOUR</intervalUnit>
 </repeat-interval>
+<body-first>An alert when insufficient amount of data about NGINX server's Active connections is received during last 3 minutes was raised.&#13;
+Your server is likely to be unreachable. Check that your server is reachable and Collector is able to deliver collected information to ATSD.</body-first>
+<body-cancel>Sufficient amount of data about NGINX server's Active connections has been received during last 3 minutes.&#13;
+Now your server is likely to be reachable.</body-cancel>
 <name>Email Notification id=1</name>
 <use-in-threshold-only>false</use-in-threshold-only>
 <recipients>address@domain</recipients>
@@ -48,7 +53,7 @@ If so, your server is likely to be unreachable. Check that your server is reacha
 <rule>
 <name>nginx_active_connection_low</name>
 <metric>nginx.active_connections</metric>
-<expression><![CDATA[avg() < 10]]></expression>
+<expression><![CDATA[(avg() < 10) AND (count() >= 0.6 * window_length_time() / 5)]]></expression>
 <window>time(15 minute)</window>
 <severity>WARNING</severity>
 <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
@@ -59,10 +64,10 @@ If so, your server is likely to be unreachable. Check that your server is reacha
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464094124728</lastUpdated>
-<enabled>true</enabled>
+<lastUpdated>1464166869334</lastUpdated>
+<enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
-<leavingEvents>true</leavingEvents>
+<leavingEvents>false</leavingEvents>
 <description><![CDATA[Raises an alert when NGINX server active connections count is low. 
 If so, your server is likely to have probelms with accessibility. Check that your server has Internet access and is not configured with too small serving bandwidth.]]></description>
 <actionStrategy>
@@ -78,6 +83,10 @@ If so, your server is likely to have probelms with accessibility. Check that you
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </repeat-interval>
+<body-first>An alert that indicates that your NGINX server active connections count is low has been raised. &#13;
+Your server is likely to have problems with accessibility. Check that your server has Internet access and is not configured with too small serving bandwidth.</body-first>
+<body-cancel>Your NGINX server active connections count is NOT low now.&#13;
+Your server is likely to solve problems with accessibility.</body-cancel>
 <name>Email Notification id=3</name>
 <use-in-threshold-only>false</use-in-threshold-only>
 <recipients>address@domain</recipients>
@@ -95,7 +104,7 @@ If so, your server is likely to have probelms with accessibility. Check that you
 <rule>
 <name>nginx_tcp_heartbeat</name>
 <metric>tcp-connect</metric>
-<expression><![CDATA[(time_last() - time_first()) / window_length_time()  < 0.5]]></expression>
+<expression><![CDATA[(timestamp - windowStartTime() >= window_length_time()) AND (time_last() - time_first() < 0.5 * window_length_time())]]></expression>
 <window>time(3 minute)</window>
 <filter>value = 0</filter>
 <severity>WARNING</severity>
@@ -107,11 +116,15 @@ If so, your server is likely to have probelms with accessibility. Check that you
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464094262567</lastUpdated>
-<enabled>true</enabled>
+<lastUpdated>1464167026130</lastUpdated>
+<enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
 <description><![CDATA[Raises an alert when it is problematic for your NGINX server to respond to tcp connections. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.]]></description>
+<minimumInterval>
+<intervalCount>2</intervalCount>
+<intervalUnit>MINUTE</intervalUnit>
+</minimumInterval>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>
@@ -124,6 +137,8 @@ If so, your server is likely to have probelms with accessibility. Check that you
 <intervalCount>3</intervalCount>
 <intervalUnit>HOUR</intervalUnit>
 </repeat-interval>
+<body-first>An alert indicating that it is problematic for your NGINX server to respond to tcp connections has been raised. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.</body-first>
+<body-cancel>Now NGINX server is responding to tcp connections as expected.</body-cancel>
 <name>Email Notification id=1</name>
 <use-in-threshold-only>false</use-in-threshold-only>
 <recipients>address@domain</recipients>
