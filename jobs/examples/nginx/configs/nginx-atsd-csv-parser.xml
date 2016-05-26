@@ -36,16 +36,16 @@
 }&#xd;
 select(&quot;#row=1&quot;).select(&quot;#col=3&quot;).&#xd;
 addSeries().&#xd;
-metric(cell(row, 1) + &apos;_&apos; + (cell(row,col-1)+&apos;&apos;).substring(0,(cell(row,col-1)+&apos;&apos;).length-1));&#xd;
+metric(cell(row, 1) + &apos;_&apos; + (cell(row, col - 1)+&apos;&apos;).substring(0, (cell(row, col - 1) + &apos;&apos;).length - 1));&#xd;
 select(&quot;#row=4&quot;).select(&quot;#col=2-*!2&quot;).&#xd;
 addSeries().&#xd;
-metric((cell(row,col-1)+&apos;&apos;).substring(0,(cell(row,col-1)+&apos;&apos;).length-1));&#xd;
+metric((cell(row, col - 1) + &apos;&apos;).substring(0, (cell(row, col - 1)+&apos;&apos;).length - 1));&#xd;
 select(&quot;#row=3&quot;).select(&quot;#col=2-*&quot;).&#xd;
 addSeries().&#xd;
-metric(&quot;server_&quot; + notEmptyUp(row-1, col));&#xd;
+metric(&quot;server_&quot; + notEmptyUp(row - 1, col));&#xd;
 select(&quot;#row=3&quot;).select(&quot;#col=3&quot;).&#xd;
 addSeries().&#xd;
-value(calculate_unhandled_percent(cell(row,col), cell(row,col-1))).&#xd;
+value(calculate_unhandled_percent(cell(row, col), cell(row, col - 1))).&#xd;
 metric(&quot;unhandled_percent&quot;);</schema>
   </com.axibase.tsd.model.csv.CsvConfiguration>
 </list>
