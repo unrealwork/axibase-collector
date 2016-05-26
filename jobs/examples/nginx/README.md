@@ -37,16 +37,18 @@ metric(cell(row, 1) + '_' + (cell(row,col-1)+'').substring(0,(cell(row,col-1)+''
 * Login into ATSD web interface.
 * Open **Configuration:Parsers CSV** page. Click Import.
 * Import [CSV parser](./configs/nginx-atsd-csv-parser.xml) for NGINX status page.  
+* The parser splits status page content into cells and assembles series commands from extracted cell values.<br>In addition, it creates a derived metric `unhandled_percent` equal to `100*(1-handled/accepted)`.
 
 ## Configure FILE job in Axibase Collector
 
 Axibase Collector will poll the NGINX status page every 5 seconds and upload the downloaded file into ATSD for parsing. 
 
+* Login into Axibase Collector web interface
+
 ### Create Item List for NGINX servers
 
-* Login into Axibase Collector web interface
 * Open **Collections:Item Lists** page
-* Add a new TEXT [Item List](/collections.md) named **nginx-servers** containing DNS names or IP addresses of the monitored NGINX servers, one server per line. Make sure that each server on the list is accessible on the specified protocol and port and exposes the status page on the same path `/nginx_status`. If the protocols and ports are different, move the entire url to the list and retain only `${ITEM}` placeholder in the Path field.
+* Add a new TEXT [Item List](/collections.md) named **nginx-servers** containing DNS names or IP addresses of the monitored NGINX servers, one server per line. <br>Make sure that each server on the list is accessible on the specified protocol and port and exposes the status page on the same path `/nginx_status`. <br>If the protocols and ports are different, move the entire url to the list and set Path field to equal `${ITEM}` placeholder.
 * **Save** the list.
  
 ![Server list example](./images/nginx-server-list.png)
@@ -96,24 +98,31 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 ![Basic NGINX portal](./images/nginx-portal-basic.png)
 
 ## Notifications
-You can set different rules at your ATSD to have notifications when some logical expression about metrics collected from your NGINX server evaluates to true. For example, you can receive email notification if your NGINX server has too low *Active Connections* value durnig last 15 minutes.
 
-### Setting up an Email Client
-If you want to enable email notifications, please, use [this document](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md) to configure your ATSD email client correctly.
-### Creating rules
-Use main [rule engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md) to build your own rules or customize [provided ones](./configs/nginx_notification_rules.xml), which are described below. 
+You can monitor key NGINX statistics by creating a rule in ATSD rule engine to send an email notification in case of abnormal conditions. 
 
-| Rule                                     |                                      Description                        |
+For example, you can send an email if average *Active Connections* count over the last 15 minutes on a target NGINX server drops below the specified threshold.
+
+### Setting up Mail Client
+
+* Configure [Mail Client](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md).
+
+### Import rules
+
+* Download an [xml file](./configs/nginx_notification_rules.xml) containing the rules.
+* Open **Configuration: Rules** page.
+* Click *Import* and attach nginx_notification_rules.xml file.
+* Open created rules in the Rule Editor and change recipient address on the *Email Notifications* tab.
+* These rules will automatically apply to all NGINX servers monitored by Axibase Collector
+
+The following rules are provided in the nginx_notification_rules.xml file:
+
+| **Rule**                                     |                                      **Description**                        |
 |:----------------------------------------:|:------------------------------------------------------------------------|
-| nginx_active_connections_heartbeat| Raises an alert when insufficient amount of data about NGINX server's *Active connections* is received during last 3 minutes. <br> If so, your server is likely to be unreachable. Check that your server is reachable and Collector is able to deliver collected information to ATSD. |
-| nginx_active_connections_low | Raises an alert when NGINX server active connections count is low. <br> If so, your server is likely to have probelms with accessibility. Check that your server has Internet access and is not configured with too small serving bandwidth.|
-|nginx_tcp_heartbeat| Raises an alert when it is problematic for your NGINX server to respond to tcp connections. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.|
-|nginx_unhandled_percent_high| Raises an alert when your NGINX server has too high unhandled percent value. Check that your server is not overloaded.|
+|nginx_unhandled_percent_high| Raise an alert when an NGINX server unhandled connection percentage is above 2%.|
+| nginx_active_connections_low | Raise an alert when an NGINX server average Active Connection count is below 10 over the last 15 minutes.|
+| nginx_active_connections_heartbeat| Raise an alert when status page statistics are no longer being received by ATSD.<br> Check that the server is reachable and Axibase Collector job is running. |
+|nginx_tcp_heartbeat| Raise an alert when TCP connect metric is no longer being received by ATSD or if tcp connect metric contains error codes.<br>Check that the server is reachable and Axibase Collector job is running.|
 
-To import rules provided above:
-* Download an [xml file](./configs/nginx_notification_rules.xml) containing rules.
-* Login to your ATSD web interface.
-* Go to **Configuration: Rules**.
-* Click *Import* and choose the downloaded xml file.
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md). 
 
-**Note**: After importing make sure you change email settings at the *Email Notifications* tab, so that *Recepients* field will be filled with existing email addresses.
