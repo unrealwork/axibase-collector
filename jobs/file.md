@@ -44,19 +44,6 @@ Use the table below to perform File job configuration.
 When ingesting files from the local file system you can combine the Error Directory and Delete File on Upload settings to implement a particular upload workflow. Files are first copied to a /tmp directory from which they are sent into ATSD, if the upload and parsing is successful, the file is deleted. If there is an upload or parsing error, then the file is moved into the specified Error Directory, where the admin can inspect the file or resolve the upload issue. This approach prevents data loss and creates an efficient workflow.
 
 
-#### <code>${TIME}</code> placeholder
-
-The File job supports the `${TIME}` placeholder.<br>Time placeholder is used to determine the Start time and/or End time for data retrieval from target file. <br> You can use the placeholder in the Path field. 
-
-TIME placeholder format: `${TIME("end_time_syntax", "time_format")}` 
-
-TIME placeholder example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}` 
-
-Time format can be specified using any combination of: `y`, `M`, `d`, `H`, `m`, `s` <br>
-You can learn more about [End Time syntax here.](https://axibase.com/products/axibase-time-series-database/visualization/end-time/ "Chart Lab")
-
-_NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated in Axibase Collector version 11164._
-
 ## FTP, SCP, SFTP File Downloads
 
 To download files from a remote server via FTP, SCP, SFTP protocols, specify Path starting with protocol and include user information as follows:
@@ -135,131 +122,8 @@ scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/error
 | Set to `count` | Empty | Send `count` field to server since the items level contains the highest count of numeric fields (1). |
 | Set to `count`, `name` | Empty | Send `count` numeric field and `name` string field to server since the items level contains the highest count of numeric fields (1). |
 
-#### Job Completion Messages
-
-| **Error Type** | **Description** |
-|---|:---|
-`FILE_NOT_FOUND` | No target file present in the specified directory.
-`FILE_EMPTY` | Target file was found but was completely empty (no annotation, header or data).
-`NO_DATA` | Target file was found but did not contain any data (contained an annotation and header, but no timestamps and values).
-`UPLOAD_ERROR` | ATSD was not available during the scheduled job execution.
-`PARSE_ERROR` | File could not be parsed by ATSD, for example: the timestamp was in a different format.
-`NETWORK_ERROR` | Collector could not establish a network connection.
-`LINE_COUNT_ERROR` | Target file contained less lines than specified in the “Minimum Line Count” setting.
-`FIRST_LINE_ERROR` | First line of the target file does not match the “First Line” setting.
-
 #### Configuration Example
 
 The image below shows an example of the File Forwarding configuration. 
 
 ![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2016/04/file_job.png)
-
-## Placeholders
-
-The following placeholders are supported to automate processing of item lists and path patterns.
-
-| **Name** | **Description** |
-|:---|:---|:---|
-| ITEM | Current element in selected [`Item List`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) |
-| PATH | URL path or file absolute path | 
-| FILE | File name | 
-| DIRECTORY | Parent directory name | 
-
-### Syntax
-
-```ls
-${PLACEHOLDER}
-```
-
-Example: `${ITEM}`
-
-```ls
-${PLACEHOLDER?formatFunction(arguments)}
-```
-
-Example: `${FILE?keep_before("_")}`
-
-### Usage 
-
-| **Name** | **Supported Fields** | **Supported Protocols** |
-|:---|:---|:---|
-| ITEM | Default Entity, Path | http/s, file, ftp, scp |
-| PATH | Default Entity | http/s, file, ftp, sftp, scp |
-| FILE | Default Entity| file, ftp, sftp, scp |
-| DIRECTORY | Default Entity | file |
-
-### Format Functions
-
-Format functions provide a mechanism for extracting entity name from matched file names and paths.
-
-| **Function** | **Description** | 
-|:---|:---|
-| [`keep_after`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after) | Removes part of the string before first occurrence of the given substring |
-| [`keep_after_last`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after_last) | Removes part of the string before last occurrence of the given substring |
-| [`keep_before`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before) | Removes part of the string that starts with the first occurrence of the given substring. |
-| [`keep_before_last`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before_last) | Removes part of the string that starts with the last occurrence of the given substring. |
-| [`replace`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#replace) | Replace all occurrences of the given string in in the original string with another string |
-| [`remove_beginning`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_beginning) | Removes the given substring from the beginning of the string. |
-| [`remove_ending`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_ending) | Removes the given substring from the end of the string. |
-
-### Usage Examples
-
-Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
-
-#### keep_after 
-* [file:///opt/files/cpu_busy.*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after) 
-* ${PATH?keep_after('.')} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 | 
-
-#### keep_after_last 
-* [/2.2/tags/docker/info?key=privateKey((&site=${ITEM}](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after_last)
-* ${ITEM?keep_after_last("-")} 
-
-| ITEM value | Output |
-|:---|:---|
-| so-stackoverflow | stackoverflow | 
-
-#### keep_before 
-* [ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before) 
-* ${FILE?keep_before('_')} 
-
-| Matching paths | Output |
-|:---|:---|
-| /home/user/nurswgvml106_temperature.csv | nurswgvml106 | 
-
-#### keep_before_last 
-* [file:///opt/files/*_busy.csv](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before_last) 
-* ${FILE?keep_before_last('_')} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu | 
-
-#### replace
-* [file:///opt/files/*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#replace)
-* ${FILE?replace(' ','.')} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy | 
-
-#### remove_beginning
-* [file:///opt/files/*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_beginning)
-* ${PATH?remove_beginning('/opt/files/')} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
-
-#### remove_ending
-* `file:///opt/files/*.cpu_busy.csv`
-* ${FILE?remove_ending('.cpu_busy.csv')}
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/nurswgvml106.cpu_busy.csv<br>/opt/files/nurswgvml107.cpu_busy.csv | nurswgvml106<br>nurswgvml107 |
-
-##### More functions at [Freemarker Built-ins for strings](http://freemarker.org/docs/ref_builtins_string.html)
