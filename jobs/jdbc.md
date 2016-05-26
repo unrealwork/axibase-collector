@@ -24,6 +24,7 @@ Axibase Collector can be configured to query a remote database to either obtain 
 * [Microsoft SCOM](examples/scom)
 * [SolarWinds](examples/solarwinds)
 * [VMware](examples/vmware)
+* [MySQL Database](examples/mysql)
 
 ## Job Settings
 

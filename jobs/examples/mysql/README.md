@@ -2,7 +2,9 @@
 
 ## Overview
 
-[MySQL](http://www.mysql.com/) is a free, open-source database engine available for all major platforms. (Technically, MySQL is a relational database management system (RDBMS).) MySQL represents an excellent introduction to modern database technology, as well as being a reliable mainstream database resource for high-volume applications.
+This document describes how to collect global status metrics from `performance_schema` introduced in [MySQL](http://www.mysql.com/) 5.7+ for long-term retention and monitoring in Axibase Time Series Database.
+
+The process involves enabling a JDBC job in Axibase Collector to poll `global_status` table and and uploading the counters into ATSD for processing.
 
 ## Requirements
 
@@ -10,7 +12,15 @@
 
 ## Installation steps
 
-### Import MySQL Server job
+### Create a read-only account in the target MySQL server
+
+```sql
+CREATE USER 'axibase-ro'@'collector_host' IDENTIFIED BY '********';
+GRANT SELECT ON performance_schema.* TO 'axibase-ro'@'collector_host';
+FLUSH PRIVILEGES;
+```
+
+### Import MySQL Server job into Axibase Collector
 
 * Open **Jobs:Import** and upload [mysql-server-jobs.xml](mysql-server-jobs.xml) file
 
@@ -65,8 +75,26 @@ SELECT 1
 
 ### Entity Groups
 
+* Open **Admin: Entity Groups** page
+* Create a new Entity Group, click on Expression 'Edit mode' and enter the following expression:
+
+```javascript
+hasMetric('mysql.global_status.uptime')
+```
+
+* Save and verify that the group contains your MySQL database hosts
+
+![](images/mysql-entity-group.png) 
+
 ### Portals
-[MySQL Server Perfomance Portal](http://apps.axibase.com/chartlab/214febe2)
+
+* Open **Configuration: Portals** page and import a MySQL portal from [portal-mysql.xml](portal-mysql.xml).
+* Click Assign link and associate the portal with the entity group you created earlier
+* Open Entity tabs, find mysql database by name, and click on its portal icon
+
+![](images/mysql-portal-icon.png) 
+
+[MySQL Server Perfomance Portal](http://apps.axibase.com/chartlab/9a720f9e)
 ![](images/mysql-portal.png)
 
 
@@ -75,7 +103,7 @@ SELECT 1
 * Metrics Queries select most recent statistics 
 
 ```SQL
-SELECT * FROM global_status
+SELECT * FROM performance_schema.global_status
 ```
 
 
