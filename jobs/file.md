@@ -156,10 +156,6 @@ The image below shows an example of the File Forwarding configuration.
 
 Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
 
-| keepAfterLast | https://api.stackexchange.com:443/2.2/tags/docker/info?key=wyPmAal5b3QQktRmMpfTRg((&site=stackoverflow | ${PATH?keepAfterLast("=")} | stackoverflow | 
-
-
-
 ###### keepAfter 
 * file:///opt/files/cpu_busy.* 
 * ${PATH?keepAfter('.')} 
