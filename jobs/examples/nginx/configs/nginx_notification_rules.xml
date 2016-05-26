@@ -13,12 +13,12 @@
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464184308081</lastUpdated>
+<lastUpdated>1464255853191</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
-<description><![CDATA[Raises an alert when insufficient amount of data about NGINX server's Active connections is received during last 3 minutes. 
-If so, your server is likely to be unreachable. Check that your server is reachable and Collector is able to deliver collected information to ATSD.]]></description>
+<description><![CDATA[Raise an alert when status page statistics are no longer being received by ATSD.
+Check that the server is reachable and Axibase Collector job is running.]]></description>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>
@@ -32,10 +32,9 @@ If so, your server is likely to be unreachable. Check that your server is reacha
 <intervalCount>3</intervalCount>
 <intervalUnit>HOUR</intervalUnit>
 </repeat-interval>
-<body-first>An alert when insufficient amount of data about NGINX server's Active connections is received during last 3 minutes was raised.&#13;
-Your server is likely to be unreachable. Check that your server is reachable and Collector is able to deliver collected information to ATSD.</body-first>
-<body-cancel>Sufficient amount of data about NGINX server's Active connections has been received during last 3 minutes.&#13;
-Now your server is likely to be reachable.</body-cancel>
+<body-first>An alert when status page statistics are no longer being received by ATSD has been raised.&#13;
+Check that the server is reachable and Axibase Collector job is running.</body-first>
+<body-cancel>Sufficient amount of  statistics data about NGINX server has been received during last 3 minutes.</body-cancel>
 <name>Email Notification id=1</name>
 <use-in-threshold-only>false</use-in-threshold-only>
 <recipients>address@domain</recipients>
@@ -64,12 +63,11 @@ Now your server is likely to be reachable.</body-cancel>
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464184435639</lastUpdated>
+<lastUpdated>1464255979636</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>false</leavingEvents>
-<description><![CDATA[Raises an alert when NGINX server active connections count is low during last 3 minutes. 
-If so, your server is likely to have probelms with accessibility. Check that your server has Internet access and is not configured with too small serving bandwidth.]]></description>
+<description><![CDATA[Raise an alert when an NGINX server average Active Connection count is below 10 over the last 15 minutes.]]></description>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>
@@ -83,10 +81,9 @@ If so, your server is likely to have probelms with accessibility. Check that you
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </repeat-interval>
-<body-first>An alert that indicates that your NGINX server active connections count is low has been raised. &#13;
-Your server is likely to have problems with accessibility. Check that your server has Internet access and is not configured with too small serving bandwidth.</body-first>
-<body-cancel>Your NGINX server active connections count is NOT low now.&#13;
-Your server is likely to solve problems with accessibility.</body-cancel>
+<body-first>An alert when an NGINX server average Active Connection count is below 10 over the last 15 minutes has been raised.</body-first>
+<body-cancel>Your NGINX server Active Connection count is above 10 over the last 15 minutes.&#13;
+Your server is likely to have no problems with accessibility.</body-cancel>
 <name>Email Notification id=3</name>
 <use-in-threshold-only>false</use-in-threshold-only>
 <recipients>vlad.pavlov24@yandex.ru</recipients>
@@ -116,11 +113,12 @@ Your server is likely to solve problems with accessibility.</body-cancel>
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464184354185</lastUpdated>
+<lastUpdated>1464256089057</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>true</leavingEvents>
-<description><![CDATA[Raises an alert when it is problematic for your NGINX server to respond to tcp connections during 3 last minutes. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.]]></description>
+<description><![CDATA[Raise an alert when TCP connect metric is no longer being received by ATSD or if tcp connect metric contains error codes.
+Check that the server is reachable and Axibase Collector job is running.]]></description>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>
@@ -133,7 +131,8 @@ Your server is likely to solve problems with accessibility.</body-cancel>
 <intervalCount>3</intervalCount>
 <intervalUnit>HOUR</intervalUnit>
 </repeat-interval>
-<body-first>An alert indicating that it is problematic for your NGINX server to respond to tcp connections has been raised. Check that your nginx server is reachable and Collector can deliver collected information to ATSD.</body-first>
+<body-first>An alert when TCP connect metric is no longer being received by ATSD or if tcp connect metric contains error codes has been raised.&#13;
+Check that the server is reachable and Axibase Collector job is running.</body-first>
 <body-cancel>Now NGINX server is responding to tcp connections as expected.</body-cancel>
 <name>Email Notification id=1</name>
 <use-in-threshold-only>false</use-in-threshold-only>
@@ -163,12 +162,11 @@ Your server is likely to solve problems with accessibility.</body-cancel>
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1464184396499</lastUpdated>
+<lastUpdated>1464256186377</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>false</leavingEvents>
-<description><![CDATA[Raises an alert when your NGINX server has too high unhandled percent value.
-Check that your server is not overloaded.]]></description>
+<description><![CDATA[Raise an alert when an NGINX server unhandled connection percentage is above 2%.]]></description>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>
@@ -182,8 +180,8 @@ Check that your server is not overloaded.]]></description>
 <intervalCount>3</intervalCount>
 <intervalUnit>HOUR</intervalUnit>
 </repeat-interval>
-<body-first>An alert indicating that unhandled percent of your NGINX has reached high value. Check that your nginx server is not overloaded.</body-first>
-<body-cancel>Now your server's unhandled percent is low.</body-cancel>
+<body-first>An alert when an NGINX server unhandled connection percentage is above 2% has been raised.</body-first>
+<body-cancel>Now your server's unhandled connection percentage is below 2%.</body-cancel>
 <name>Email Notification id=1</name>
 <use-in-threshold-only>false</use-in-threshold-only>
 <recipients>address@domain</recipients>
