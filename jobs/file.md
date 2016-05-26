@@ -140,17 +140,17 @@ The image below shows an example of the File Forwarding configuration.
 
 | Function | Description | 
 |:---|:---|
-| [`keepAfter`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepAfter) | Removes part of the string before first occurrence of the given substring |
-| [`keepAfterLast`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepAfterLast) | Removes part of the string before last occurrence of the given substring |
-| [`keepBefore`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepBefore) | Removes part of the string that starts with the first occurrence of the given substring. |
-| [`keepBeforeLast`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepBeforeLast) | Removes part of the string that starts with the last occurrence of the given substring. |
+| [`keepAfter`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepafter) | Removes part of the string before first occurrence of the given substring |
+| [`keepAfterLast`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepafterlast) | Removes part of the string before last occurrence of the given substring |
+| [`keepBefore`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepbefore) | Removes part of the string that starts with the first occurrence of the given substring. |
+| [`keepBeforeLast`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepbeforelast) | Removes part of the string that starts with the last occurrence of the given substring. |
 | [`replace`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#replace) | Replace all occurrences of the given string in in the original string with another string |
-| [`capFirst`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#capFirst) | Capitalize first word |
+| [`capFirst`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#capfirst) | Capitalize first word |
 | [`capitalize`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#capitalize) | Capitalize all words |
-| [`lowerCase`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#lowerCase) | Convert to lower case |
-| [`upperCase`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#upperCase) | Convert to upper case |
-| [`removeBeginning`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#removeBeginning) | Removes the given substring from the beginning of the string. |
-| [`removeEnding`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#removeEnding) | Removes the given substring from the end of the string. |
+| [`lowerCase`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#lowercase) | Convert to lower case |
+| [`upperCase`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#uppercase) | Convert to upper case |
+| [`removeBeginning`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#removebeginning) | Removes the given substring from the beginning of the string. |
+| [`removeEnding`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#removeending) | Removes the given substring from the end of the string. |
 
 ##### Placeholder Usage Examples
 
