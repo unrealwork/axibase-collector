@@ -9,7 +9,7 @@ Use the job to retrieve data stored in CSV or JSON formats.<br> To learn about f
 ### File Job Configuration
 Use the table below to perform File job configuration.
 
-| Field	          | Description |
+| **Field**	          | **Description** |
 |:---------------|:------------|
 | Parser Name | Configuration name. For more information, see [Parser Configuration Guide](https://axibase.com/products/axibase-time-series-database/writing-data/csv/#parser "Parser Configuration"). |
 | Parser Type | Downloaded file format: CSV, JSON or XML. |
@@ -101,7 +101,7 @@ scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/error
 
 ##### `Included Fields` and `Excluded Fields` Interaction Logic Examples for the Above JSON:
 
-| Field          | Description | Result |
+| **Field**          | **Description** | **Result** |
 |:---------------|:------------|:--------|
 | Empty | Empty | Send `quota_max` and `quota_min` fields from the root level to server since the root level contains the highest count of numeric fields (2). |
 | Empty | Set to `quota_max`, `quota_min` | Send `count` field to server since the items level contains the highest count of numeric fields (1). |
@@ -127,133 +127,112 @@ The image below shows an example of the File Forwarding configuration.
 
 ![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2016/04/file_job.png)
 
-#### Placeholders
+## Placeholders
 
-| Placeholder | Description | Supported Protocols |
+The following placeholders are supported to automate processing of item lists and path patterns.
+
+| **Name** | **Description** |
 |:---|:---|:---|
-| FILE | name of the file | file, ftp, sftp, scp |
-| DIRECTORY | name of parent directory | file |
-| PATH | absolute path of the file | file, http/(s), ftp, sftp, scp |
-| ITEM | current element in selected [`Item List`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) | file, http/(s), ftp, scp |
+| ITEM | Current element in selected [`Item List`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) |
+| PATH | URL path or file absolute path | 
+| FILE | File name | 
+| DIRECTORY | Parent directory name | 
 
-Usage scheme: `${PLACEHOLDER?function(arguments)}`
+### Syntax
 
-Some of the formatting functions presented below.
+```ls
+${PLACEHOLDER}
+```
 
-##### Placeholder formatting functions
+Example: `${ITEM}`
 
-| Function | Description | 
+```ls
+${PLACEHOLDER?formatFunction(arguments)}
+```
+
+Example: `${FILE?keep_before("_")}`
+
+### Usage 
+
+| **Name** | **Supported Fields** | **Supported Protocols** |
+|:---|:---|:---|
+| ITEM | Default Entity, Path | http/s, file, ftp, scp |
+| PATH | Default Entity | http/s, file, ftp, sftp, scp |
+| FILE | Default Entity| file, ftp, sftp, scp |
+| DIRECTORY | Default Entity | file |
+
+### Format Functions
+
+Format functions provide a mechanism for extracting entity name from matched file names and paths.
+
+| **Function** | **Description** | 
 |:---|:---|
-| [`keepAfter`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepafter) | Removes part of the string before first occurrence of the given substring |
-| [`keepAfterLast`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepafterlast) | Removes part of the string before last occurrence of the given substring |
-| [`keepBefore`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepbefore) | Removes part of the string that starts with the first occurrence of the given substring. |
-| [`keepBeforeLast`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keepbeforelast) | Removes part of the string that starts with the last occurrence of the given substring. |
+| [`keep_after`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after) | Removes part of the string before first occurrence of the given substring |
+| [`keep_after_last`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after_last) | Removes part of the string before last occurrence of the given substring |
+| [`keep_before`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before) | Removes part of the string that starts with the first occurrence of the given substring. |
+| [`keep_before_last`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before_last) | Removes part of the string that starts with the last occurrence of the given substring. |
 | [`replace`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#replace) | Replace all occurrences of the given string in in the original string with another string |
-| [`capFirst`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#capfirst) | Capitalize first word |
-| [`capitalize`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#capitalize) | Capitalize all words |
-| [`lowerCase`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#lowercase) | Convert to lower case |
-| [`upperCase`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#uppercase) | Convert to upper case |
-| [`removeBeginning`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#removebeginning) | Removes the given substring from the beginning of the string. |
-| [`removeEnding`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#removeending) | Removes the given substring from the end of the string. |
+| [`remove_beginning`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_beginning) | Removes the given substring from the beginning of the string. |
+| [`remove_ending`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_ending) | Removes the given substring from the end of the string. |
 
-##### Placeholder Usage Examples
+### Usage Examples
 
 Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
 
-###### keepAfter 
-* file:///opt/files/cpu_busy.* 
-* ${PATH?keepAfter('.')} 
+#### keep_after 
+* [file:///opt/files/cpu_busy.*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after) 
+* ${PATH?keep_after('.')} 
 
 | Matching paths | Output |
 |:---|:---|
 | /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 | 
 
-###### keepAfterLast 
-* https://api.stackexchange.com:443/2.2/tags/docker/info?key=privateKey((&site=nurswgvml107 
-* ${PATH?keepAfterLast("=")} 
+#### keep_after_last 
+* [/2.2/tags/docker/info?key=privateKey((&site=${ITEM}](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after_last)
+* ${ITEM?keep_after_last("-")} 
 
-| Matching paths | Output |
+| ITEM value | Output |
 |:---|:---|
-| /2.2/tags/docker/info?key=privateKey((&site=nurswgvml107 | nurswgvml107 | 
+| so-stackoverflow | stackoverflow | 
 
-###### keepBefore 
-* ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_temperature.csv 
-* ${FILE?keepBefore('_')} 
+#### keep_before 
+* [ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before) 
+* ${FILE?keep_before('_')} 
 
 | Matching paths | Output |
 |:---|:---|
 | /home/user/nurswgvml106_temperature.csv | nurswgvml106 | 
 
-###### keepBeforeLast 
-* file:///opt/files/*_busy.csv 
-* ${FILE?keepBeforeLast('_')} 
+#### keep_before_last 
+* [file:///opt/files/*_busy.csv](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before_last) 
+* ${FILE?keep_before_last('_')} 
 
 | Matching paths | Output |
 |:---|:---|
 | /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu | 
 
-###### replace
-* file:///opt/files/nurswgvml106 cpu_busy
+#### replace
+* [file:///opt/files/*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#replace)
 * ${FILE?replace(' ','.')} 
 
 | Matching paths | Output |
 |:---|:---|
 | /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy | 
 
-###### capFirst
-* file:///opt/files/nurswgvml106 cpu_busy
-* ${FILE?capFirst} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/nurswgvml106 cpu_busy | Nurswgvml106 cpu_busy | 
-
-###### capitalize
-* scp://user:password@10.10.0.10:22/opt/files/nurswgvml106 cpu_busy
-* ${FILE?capitalize} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/nurswgvml106 cpu_busy | Nurswgvml106 Cpu_busy | 
-
-###### lowerCase
-* file:///opt/files/NURSWGVML106/temperature.csv
-* ${DIRECTORY?lowerCase} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/NURSWGVML106/temperature.csv | nurswgvml106 | 
-
-###### lowerCase
-* file:///opt/files/*
-* ${FILE?lowerCase} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/Nurswgvml106<br>/opt/files/Nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
-
-###### upperCase
-* sftp://user:password@10.10.0.10:21/opt/files/nurswgvml106
-* ${FILE?upperCase} 
-
-| Matching paths | Output |
-|:---|:---|
-| /opt/files/nurswgvml106 | NURSWGVML106 | 
-
-###### removeBeginning
-* file:///opt/files/*
-* ${PATH?removeBeginning('/opt/files/')} 
+#### remove_beginning
+* [file:///opt/files/*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_beginning)
+* ${PATH?remove_beginning('/opt/files/')} 
 
 | Matching paths | Output |
 |:---|:---|
 | /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
 
-###### removeEnding
-* file:///opt/files/*.cpu_busy.csv
-* ${FILE?removeEnding('.cpu_busy.csv')}
+#### remove_ending
+* [file:///opt/files/*.cpu_busy.csv](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_ending)
+* ${FILE?remove_ending('.cpu_busy.csv')}
 
 | Matching paths | Output |
 |:---|:---|
 | /opt/files/nurswgvml106.cpu_busy.csv<br>/opt/files/nurswgvml107.cpu_busy.csv | nurswgvml106<br>nurswgvml107 |
 
-###### More functions at [Freemarker Built-ins for strings](http://freemarker.org/docs/ref_builtins_string.html)
+##### More functions at [Freemarker Built-ins for strings](http://freemarker.org/docs/ref_builtins_string.html)
