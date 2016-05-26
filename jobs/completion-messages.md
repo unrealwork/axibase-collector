@@ -1,4 +1,4 @@
-#### Job Completion Messages
+# Job Completion Messages
 
 | **Error Type** | **Description** |
 |---|:---|

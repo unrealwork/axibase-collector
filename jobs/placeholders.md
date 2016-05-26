@@ -1,4 +1,4 @@
-## Placeholders
+# Placeholders
 
 The following placeholders are supported to automate processing of item lists and path patterns.
 
@@ -16,7 +16,7 @@ You can learn more about [End Time syntax here.](https://axibase.com/products/ax
 _NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated in Axibase Collector version 11164._
 
 
-### Syntax
+## Syntax
 
 ```ls
 ${PLACEHOLDER}
@@ -38,7 +38,7 @@ file:///opt/files/inbound/${TIME("previous_day", "yyyy-MM-dd")}/daily.csv
 
 Example: `${FILE?keep_before("_")}`
 
-### Usage 
+## Usage 
 
 | **Name** | **Supported Fields** | **Supported Protocols** |
 |:---|:---|:---|
@@ -48,7 +48,7 @@ Example: `${FILE?keep_before("_")}`
 | DIRECTORY | Default Entity | file |
 | TIME | Success Directory, Error Directory, Path | http/s, file |
 
-### Format Functions
+## Format Functions
 
 Format functions provide a mechanism for extracting entity name from matched file names and paths.
 
@@ -62,11 +62,11 @@ Format functions provide a mechanism for extracting entity name from matched fil
 | [`remove_beginning`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#remove_beginning) | Removes the given substring from the beginning of the string. |
 | [`remove_ending`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#remove_ending) | Removes the given substring from the end of the string. |
 
-### Format Examples
+## Format Examples
 
 Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
 
-#### keep_after 
+### keep_after 
 * `file:///opt/files/cpu_busy.*` 
 * ${PATH?keep_after('.')} 
 
@@ -74,7 +74,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 |:---|:---|
 | /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 | 
 
-#### keep_after_last 
+### keep_after_last 
 * `/2.2/tags/docker/info?key=privateKey((&site=${ITEM}`
 * ${ITEM?keep_after_last("-")} 
 
@@ -82,7 +82,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 |:---|:---|
 | so-stackoverflow | stackoverflow | 
 
-#### keep_before 
+### keep_before 
 * `ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*` 
 * ${FILE?keep_before('_')} 
 
@@ -90,7 +90,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 |:---|:---|
 | /home/user/nurswgvml106_temperature.csv | nurswgvml106 | 
 
-#### keep_before_last 
+### keep_before_last 
 * `file:///opt/files/*_busy.csv` 
 * ${FILE?keep_before_last('_')} 
 
@@ -98,7 +98,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 |:---|:---|
 | /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu | 
 
-#### replace
+### replace
 * `file:///opt/files/*`
 * ${FILE?replace(' ','.')} 
 
@@ -106,7 +106,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 |:---|:---|
 | /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy | 
 
-#### remove_beginning
+### remove_beginning
 * `file:///opt/files/*`
 * ${PATH?remove_beginning('/opt/files/')} 
 
@@ -114,7 +114,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 |:---|:---|
 | /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
 
-#### remove_ending
+### remove_ending
 * `file:///opt/files/*.cpu_busy.csv`
 * ${FILE?remove_ending('.cpu_busy.csv')}
 
@@ -122,4 +122,4 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 |:---|:---|
 | /opt/files/nurswgvml106.cpu_busy.csv<br>/opt/files/nurswgvml107.cpu_busy.csv | nurswgvml106<br>nurswgvml107 |
 
-##### More functions at [Freemarker Built-ins for strings](http://freemarker.org/docs/ref_builtins_string.html)
+#### More functions at [Freemarker Built-ins for strings](http://freemarker.org/docs/ref_builtins_string.html)
