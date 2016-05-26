@@ -1,6 +1,7 @@
-# NGINX server metrics
+# NGINX Server Metrics
 
-## Status page metrics
+## Status Page Metrics
+
 * nginx.active_connections
 * nginx.reading
 * nginx.server_accepts
@@ -9,5 +10,10 @@
 * nginx.waiting
 * nginx.writing
 
-## TCP metrics
+## Computed Metrics
+
+* nginx.unhandled_percent
+
+## TCP Metrics
+
 * tcp-connect
