@@ -18,7 +18,7 @@ Use the table below to perform File job configuration.
 | Delete File on Upload | Source files will be deleted if ATSD returns 200 code (OK). This setting only applies to configurations where the Path points to files on the local file system (Path starts with `file://`).|
 | Success Directory | If a file is uploaded successfully (uploaded into ATSD and Parsed successfully), it will be copied to this directory. <br>If the Success Directory is specified but does not exist, it will be created. <br> Success Directory field supports `${TIME}` placeholders like: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. <br>To distinguish between files with identical names a time prefix will be added, for example: `20151130_121212_345_{original_file_name}.csv` <br>Success Directory is an independent setting from Delete on Upload. |
 | Error Directory | If a file cannot be uploaded (e.g. server not available OR there is a parsing error), the file will be copied to this directory. <br> If the Error Directory is specified but does not exist, it will be created. <br>Error Directory field supports ${TIME} placeholders. For example: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. | 
-| Collection | Name of the collection you want to use.  |
+| Item List | Name of the collection you want to use.  |
 | Time Zone | Time zone in which the data is collected.  |
 | Encoding | Character encoding of target files. |
 | Wait for Upload | Wait for ATSD server to finish processing of the uploaded file. |
@@ -134,6 +134,7 @@ The image below shows an example of the File Forwarding configuration.
 | FILE | name of the file | file, ftp, sftp, scp |
 | DIRECTORY | name of parent directory | file |
 | PATH | absolute path of the file | file, http/(s), ftp, sftp, scp |
+| ITEM | current element in selected [`Item List`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) | file |
 
 ##### Placeholder formatting functions
 
@@ -155,21 +156,104 @@ The image below shows an example of the File Forwarding configuration.
 
 Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
 
+| keepAfterLast | https://api.stackexchange.com:443/2.2/tags/docker/info?key=wyPmAal5b3QQktRmMpfTRg((&site=stackoverflow | ${PATH?keepAfterLast("=")} | stackoverflow | 
 
 
 
-| Function | Path | Function with arguments | Output | 
-|:---|:---|:---|:---|
-| keepAfter | file:///opt/files/cpu_busy.*<br>Matching paths:<br>/opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | ${PATH?keepAfter('.')} | nurswgvml.106<br>nurswgvml.107 | 
-| keepBefore | 	ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_temperature.csv | ${FILE?keepBefore('_')} | nurswgvml106 | 
-| keepBeforeLast | file:///opt/files/nurswgvml106_cpu_busy.csv | ${FILE?keepBeforeLast('_')} | nurswgvml106_cpu | 
-| replace | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?replace(' ','.')} | nurswgvml106.cpu_busy | 
-| capFirst | file:///opt/files/nurswgvml106 cpu_busy | ${FILE?capFirst} | Nurswgvml106 cpu_busy | 
-| capitalize | scp://user:password@10.10.0.10:22/opt/files/nurswgvml106 cpu_busy | ${FILE?capitalize} | Nurswgvml106 Cpu_busy | 
-| lowerCase | file:///opt/files/NURSWGVML106/temperature.csv | ${DIRECTORY?lowerCase} | nurswgvml106 | 
-| lowerCase | file:///opt/files/Nurswgvml106 | ${FILE?lowerCase} | nurswgvml106 | 
-| upperCase | sftp://user:password@10.10.0.10:21/opt/files/nurswgvml106 | ${FILE?upperCase} | NURSWGVML106 | 
-| removeBeginning | file:///opt/files/nurswgvml106 | ${PATH?removeBeginning('/opt/files/')} | nurswgvml106 | 
-| removeEnding | file:///opt/files/nurswgvml106.cpu_busy.csv | ${FILE?removeEnding('.cpu_busy.csv')} | nurswgvml106 |
+###### keepAfter 
+* file:///opt/files/cpu_busy.* 
+* ${PATH?keepAfter('.')} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 | 
+
+###### keepAfterLast 
+* https://api.stackexchange.com:443/2.2/tags/docker/info?key=privateKey((&site=nurswgvml107 
+* ${PATH?keepAfterLast("=")} 
+
+| Matching paths | Output |
+|:---|:---|
+| /2.2/tags/docker/info?key=privateKey((&site=nurswgvml107 | nurswgvml107 | 
+
+###### keepBefore 
+* ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_temperature.csv 
+* ${FILE?keepBefore('_')} 
+
+| Matching paths | Output |
+|:---|:---|
+| /home/user/nurswgvml106_temperature.csv | nurswgvml106 | 
+
+###### keepBeforeLast 
+* file:///opt/files/*_busy.csv 
+* ${FILE?keepBeforeLast('_')} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu | 
+
+###### replace
+* file:///opt/files/nurswgvml106 cpu_busy
+* ${FILE?replace(' ','.')} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy | 
+
+###### capFirst
+* file:///opt/files/nurswgvml106 cpu_busy
+* ${FILE?capFirst} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/nurswgvml106 cpu_busy | Nurswgvml106 cpu_busy | 
+
+###### capitalize
+* scp://user:password@10.10.0.10:22/opt/files/nurswgvml106 cpu_busy
+* ${FILE?capitalize} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/nurswgvml106 cpu_busy | Nurswgvml106 Cpu_busy | 
+
+###### lowerCase
+* file:///opt/files/NURSWGVML106/temperature.csv
+* ${DIRECTORY?lowerCase} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/NURSWGVML106/temperature.csv | nurswgvml106 | 
+
+###### lowerCase
+* file:///opt/files/*
+* ${FILE?lowerCase} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/Nurswgvml106<br>/opt/files/Nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
+
+###### upperCase
+* sftp://user:password@10.10.0.10:21/opt/files/nurswgvml106
+* ${FILE?upperCase} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/nurswgvml106 | NURSWGVML106 | 
+
+###### removeBeginning
+* file:///opt/files/*
+* ${PATH?removeBeginning('/opt/files/')} 
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
+
+###### removeEnding
+* file:///opt/files/*.cpu_busy.csv
+* ${FILE?removeEnding('.cpu_busy.csv')}
+
+| Matching paths | Output |
+|:---|:---|
+| /opt/files/nurswgvml106.cpu_busy.csv<br>/opt/files/nurswgvml107.cpu_busy.csv | nurswgvml106<br>nurswgvml107 |
 
 ###### More functions at [Freemarker Built-ins for strings](http://freemarker.org/docs/ref_builtins_string.html)
