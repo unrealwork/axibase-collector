@@ -111,8 +111,8 @@ Use main [rule engine documentation](https://github.com/axibase/atsd-docs/blob/m
 |nginx_unhandled_percent_high| Raises an alert when your NGINX server has too high unhandled percent value. Check that your server is not overloaded.|
 
 To import rules provided above:
-* Download an xml file containing rules.
+* Download an [xml file](./configs/nginx_notification_rules.xml) containing rules.
 * Login to your ATSD web interface.
 * Go to **Configuration: Rules**.
 * Click *Import* and choose the downloaded xml file.
-After importing make sure you change email settings at the *Email Notifications* tab, so that *Recepients* field will be filled with existing email addresses.
+**Note**: After importing make sure you change email settings at the *Email Notifications* tab, so that *Recepients* field will be filled with existing email addresses.
