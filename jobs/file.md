@@ -57,12 +57,37 @@ You can learn more about [End Time syntax here.](https://axibase.com/products/ax
 
 _NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated in Axibase Collector version 11164._
 
+## FTP, SCP, SFTP File Downloads
 
+To download files from a remote server via FTP, SCP, SFTP protocols, specify Path starting with protocol and include user information as follows:
 
+### FTP
 
-##### Example `Path` Settings to Files on the Local File System:
+```sh
+ftp://axibase:password@remotehost:21/opt/report/export.csv
+```
 
-```javascript
+### SCP and SFTP using password
+
+```elm
+sftp://axibase:password@remotehost:21/opt/report/export.csv
+```
+
+### SCP and SFTP using private key
+
+```elm
+scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:21/opt/report/export.csv
+```
+
+## Wildcards
+
+For file downloads from FTP, SFTP or SCP, and file:// protocols, the FILE job provides support for wildcards. 
+
+If a wildcard such as `*` or `?` is specified in Path, the collector will download/read all files that match the expression.
+
+### Examples for local files
+
+```elm
 file:///home/axibase/.npm/*/*/package/package.json
 file:///home/axibase/.npm/*/*/packag?/package.json
 file:///home/axibase/.npm/*/*/packag?/${ITEM}.json
@@ -70,18 +95,20 @@ file:///tmp/collector/errors/*.json
 file:///tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 ```
 
-##### Example `Path` Settings to Files retrieving by FTP, SFTP or SCP:
+### Examples for FTP, SFTP or SCP
 
-*   You can specify either login and password or private key location to authenticate on SSH server.
 *   Wildcards are allowed in filenames only
 
-```javascript
+```elm
 ftp://axibase:password@remotehost:21/opt/collector/backup/*.xml
 sftp://axibase:password@remotehost:22/opt/collector/backup/pools_????-??-??.xml
 sftp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/opt/collector/backup/*.xml
 scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded1*
 ```
-##### Included Fields and Excluded Fields:
+
+## JSON Files
+
+### Included Fields and Excluded Fields:
 
 *   If you need to send both numeric and string fields, enumerate them explicitly with Included Fields.
 *   If you need to send all numeric fields except specified, enumerate exceptions with Excluded Fields.
@@ -99,7 +126,7 @@ scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/error
 }
 ```
 
-##### `Included Fields` and `Excluded Fields` Interaction Logic Examples for the Above JSON:
+### `Included Fields` and `Excluded Fields` processing
 
 | **Field**          | **Description** | **Result** |
 |:---------------|:------------|:--------|
@@ -228,7 +255,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 | /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
 
 #### remove_ending
-* [file:///opt/files/*.cpu_busy.csv](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_ending)
+* `file:///opt/files/*.cpu_busy.csv`
 * ${FILE?remove_ending('.cpu_busy.csv')}
 
 | Matching paths | Output |
