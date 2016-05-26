@@ -68,7 +68,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 
 ### keep_after 
 * `file:///opt/files/cpu_busy.*` 
-* ${PATH?keep_after('.')} 
+* `${PATH?keep_after('.')}` 
 
 | Matching paths | Output |
 |:---|:---|
@@ -76,7 +76,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 
 ### keep_after_last 
 * `/2.2/tags/docker/info?key=privateKey((&site=${ITEM}`
-* ${ITEM?keep_after_last("-")} 
+* `${ITEM?keep_after_last("-")}`
 
 | ITEM value | Output |
 |:---|:---|
@@ -84,7 +84,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 
 ### keep_before 
 * `ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*` 
-* ${FILE?keep_before('_')} 
+* `${FILE?keep_before('_')}` 
 
 | Matching paths | Output |
 |:---|:---|
@@ -92,7 +92,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 
 ### keep_before_last 
 * `file:///opt/files/*_busy.csv` 
-* ${FILE?keep_before_last('_')} 
+* `${FILE?keep_before_last('_')}` 
 
 | Matching paths | Output |
 |:---|:---|
@@ -100,7 +100,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 
 ### replace
 * `file:///opt/files/*`
-* ${FILE?replace(' ','.')} 
+* `${FILE?replace(' ','.')}` 
 
 | Matching paths | Output |
 |:---|:---|
@@ -108,7 +108,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 
 ### remove_beginning
 * `file:///opt/files/*`
-* ${PATH?remove_beginning('/opt/files/')} 
+* `${PATH?remove_beginning('/opt/files/')}` 
 
 | Matching paths | Output |
 |:---|:---|
@@ -116,7 +116,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 
 ### remove_ending
 * `file:///opt/files/*.cpu_busy.csv`
-* ${FILE?remove_ending('.cpu_busy.csv')}
+* `${FILE?remove_ending('.cpu_busy.csv')}`
 
 | Matching paths | Output |
 |:---|:---|
