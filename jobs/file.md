@@ -136,6 +136,10 @@ The image below shows an example of the File Forwarding configuration.
 | PATH | absolute path of the file | file, http/(s), ftp, sftp, scp |
 | ITEM | current element in selected [`Item List`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) | file, http/(s) |
 
+Usage scheme: `${PLACEHOLDER?function(arguments)}`
+
+Some of the formatting functions presented below.
+
 ##### Placeholder formatting functions
 
 | Function | Description | 
