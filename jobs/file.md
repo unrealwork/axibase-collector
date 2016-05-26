@@ -134,7 +134,7 @@ The image below shows an example of the File Forwarding configuration.
 | FILE | name of the file | file, ftp, sftp, scp |
 | DIRECTORY | name of parent directory | file |
 | PATH | absolute path of the file | file, http/(s), ftp, sftp, scp |
-| ITEM | current element in selected [`Item List`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) | file, http/(s) |
+| ITEM | current element in selected [`Item List`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) | file, http/(s), ftp, scp |
 
 Usage scheme: `${PLACEHOLDER?function(arguments)}`
 
