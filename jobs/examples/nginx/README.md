@@ -39,9 +39,9 @@ metric(cell(row, 1) + '_' + (cell(row,col-1)+'').substring(0,(cell(row,col-1)+''
 * Import [CSV parser](./configs/nginx-atsd-csv-parser.xml) for NGINX status page.  
 * The parser splits status page content into cells and assembles series commands from extracted cell values.<br>In addition, it creates a derived metric `unhandled_percent` equal to `100*(1-handled/accepted)`.
 
-## Configure FILE job in Axibase Collector
+## Configure jobs in Axibase Collector
 
-Axibase Collector will poll the NGINX status page every 5 seconds and upload the downloaded file into ATSD for parsing. 
+Axibase Collector will poll the NGINX status page every 5 seconds and upload the downloaded file into ATSD for parsing. Moreover, Axibase Collector will try to establish a TCP connection with the same period to check availability of the server. 
 
 * Login into Axibase Collector web interface
 
@@ -53,10 +53,14 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
  
 ![Server list example](./images/nginx-server-list.png)
 
-### Import FILE job
+### Import jobs
 
-* Import [nginx-collector-job.xml](./configs/nginx-collector-job.xml) job on **Jobs:Import** page.
-* Open the `nginx-statistics` job. 
+* Import [nginx-collector-jobs.xml](./configs/nginx-collector-jobs.xml) job on **Jobs:Import** page.
+* Open the `nginx-statistics` FILE job. 
+* If 'Storage' drop-down is set to `None`, select the target ATSD server.
+* Set Status to Enabled.
+* **Save** the job.
+* Open the `nginx-connect-check` TCP job. 
 * If 'Storage' drop-down is set to `None`, select the target ATSD server.
 * Set Status to Enabled.
 * **Save** the job.
@@ -66,7 +70,12 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 * Open `nginx-status` configuration in `nginx-statistics` job.
 * Click Test to verify processing.
 
-![NGINX test](./images/nginx-collector-test.png)
+![NGINX test](./images/nginx-collector-test-stat.png)
+
+* Open `nginx-connect` configuration in `nginx-connect-check` job.
+* Click Test to verify processing.
+
+![NGINX test](./images/nginx-collector-test-TCP.png)
 
 * Login into ATSD web interface.
 * Open Metrics tab and apply `nginx*` name mask to view nginx metrics received by ATSD.
