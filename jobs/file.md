@@ -180,7 +180,7 @@ Format functions provide a mechanism for extracting entity name from matched fil
 Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
 
 #### keep_after 
-* [file:///opt/files/cpu_busy.*]() 
+* [file:///opt/files/cpu_busy.*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after) 
 * ${PATH?keep_after('.')} 
 
 | Matching paths | Output |
@@ -188,7 +188,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 | /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 | 
 
 #### keep_after_last 
-* [/2.2/tags/docker/info?key=privateKey((&site=${ITEM}]()
+* [/2.2/tags/docker/info?key=privateKey((&site=${ITEM}](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_after_last)
 * ${ITEM?keep_after_last("-")} 
 
 | ITEM value | Output |
@@ -196,7 +196,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 | so-stackoverflow | stackoverflow | 
 
 #### keep_before 
-* [ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*]() 
+* [ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before) 
 * ${FILE?keep_before('_')} 
 
 | Matching paths | Output |
@@ -204,7 +204,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 | /home/user/nurswgvml106_temperature.csv | nurswgvml106 | 
 
 #### keep_before_last 
-* [file:///opt/files/*_busy.csv]() 
+* [file:///opt/files/*_busy.csv](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#keep_before_last) 
 * ${FILE?keep_before_last('_')} 
 
 | Matching paths | Output |
@@ -212,7 +212,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 | /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu | 
 
 #### replace
-* [file:///opt/files/*]()
+* [file:///opt/files/*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#replace)
 * ${FILE?replace(' ','.')} 
 
 | Matching paths | Output |
@@ -220,7 +220,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 | /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy | 
 
 #### remove_beginning
-* [file:///opt/files/*]()
+* [file:///opt/files/*](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_beginning)
 * ${PATH?remove_beginning('/opt/files/')} 
 
 | Matching paths | Output |
@@ -228,7 +228,7 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 | /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
 
 #### remove_ending
-* [file:///opt/files/*.cpu_busy.csv]()
+* [file:///opt/files/*.cpu_busy.csv](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#remove_ending)
 * ${FILE?remove_ending('.cpu_busy.csv')}
 
 | Matching paths | Output |
