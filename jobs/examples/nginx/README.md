@@ -115,4 +115,5 @@ To import rules provided above:
 * Login to your ATSD web interface.
 * Go to **Configuration: Rules**.
 * Click *Import* and choose the downloaded xml file.
+
 **Note**: After importing make sure you change email settings at the *Email Notifications* tab, so that *Recepients* field will be filled with existing email addresses.
