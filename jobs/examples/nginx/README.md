@@ -73,7 +73,7 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 ![NGINX test](./images/nginx-collector-test-stat.png)
 
 * Open `nginx-connect` configuration in `nginx-connect-check` job.
-* Click Test to verify processing.
+* Click Test to verify connectivity to the target server. <br>If TCP connection is successful, `tcp-connect` metric returns 0 exit code. 
 
 ![NGINX test](./images/nginx-collector-test-TCP.png)
 
