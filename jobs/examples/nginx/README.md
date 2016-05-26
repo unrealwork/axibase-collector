@@ -103,8 +103,8 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 
 ## Portals
 
-* [Basic NGINX portal](http://apps.axibase.com/chartlab/f09f853a)
-![Basic NGINX portal](./images/nginx-portal-basic.png)
+* [Basic NGINX Status portal](http://apps.axibase.com/chartlab/2434fdec)
+![Basic NGINX Status portal](./images/nginx-portal-basic.png)
 
 ## Notifications
 
