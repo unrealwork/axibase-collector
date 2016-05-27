@@ -90,7 +90,7 @@ hasMetric('postgres.global_status.uptime')
 
 ![](images/postgres-portal-icon.png)
 
-[PostgreSQL Portal](http://apps.axibase.com/chartlab/bde2b058)
+[PostgreSQL Portal](http://apps.axibase.com/chartlab/eef6e85b)
 ![](images/postgres-portal.png)
 
 
