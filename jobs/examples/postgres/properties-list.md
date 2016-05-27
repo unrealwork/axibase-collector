@@ -1,39 +1,54 @@
-# Collected Oracle Enterprise Manager Properties
+# Collected PostgreSQL Properties
 
-* oem.oracle_database
+* postgres.activity
 
 ```json
 [
   {
-    "type": "oem.oracle_database",
-    "entity": "orcl",
-    "key": {},
-    "tags": {
-      "display_name": "orcl",
-      "host_name": "NURSWGVML009",
-      "timezone_region": "GMT",
-      "type": "11gR2"
-    },
-    "timestamp": 1463156137112
-  }
-]
+    "type": "postgres.activity",
+    "entity": "10.102.0.9",
+    "key": {
+      "datname": "redmine",
+      "procpid": "10193",
+      "usename": "readonly",
+      "usesysid": "101610"
+    }
+    ]
 ```
 
-* oem.host
+* postgres.info
 
 ```json
-[
-  {
-    "type": "oem.host",
-    "entity": "nurswgvml009",
+[{
+    "type": "postgres.info",
+    "entity": "10.102.0.9",
     "key": {},
     "tags": {
-      "display_name": "NURSWGVML009",
-      "host_name": "NURSWGVML009",
-      "timezone_region": "GMT",
-      "type": "Linux"
+      "current_database": "redmine",
+      "current_user": "readonly",
+      "port": "5432",
+      "server_address": "10.102.0.9",
+      "start_time": "2016-05-26 10:03:07.871886+00",
+      "version": "PostgreSQL 9.1.14 on x86_64-unknown-linux-gnu, compiled by gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3, 64-bit"
     },
-    "timestamp": 1463156137112
+    "date": "2016-05-27T12:35:57Z"
   }
-]
+  ]
+```
+
+* postgres.pg_class
+```json
+[{
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "attachments"
+    },
+    "tags": {
+      "relpages": "78",
+      "reltuples": "3084"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  }
+  ]
 ```

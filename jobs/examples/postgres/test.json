@@ -1,0 +1,122 @@
+[
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "attachments"
+    },
+    "tags": {
+      "relpages": "78",
+      "reltuples": "3084"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "changes"
+    },
+    "tags": {
+      "relpages": "803",
+      "reltuples": "50289"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "changesets"
+    },
+    "tags": {
+      "relpages": "56",
+      "reltuples": "3444"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "issues"
+    },
+    "tags": {
+      "relpages": "222",
+      "reltuples": "2568"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "journal_details"
+    },
+    "tags": {
+      "relpages": "148",
+      "reltuples": "12319"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "journals"
+    },
+    "tags": {
+      "relpages": "530",
+      "reltuples": "15815"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "sql_features"
+    },
+    "tags": {
+      "relpages": "7",
+      "reltuples": "650"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "watchers"
+    },
+    "tags": {
+      "relpages": "8",
+      "reltuples": "819"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "wiki_content_versions"
+    },
+    "tags": {
+      "relpages": "414",
+      "reltuples": "2338"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  },
+  {
+    "type": "postgres.pg_class",
+    "entity": "10.102.0.9",
+    "key": {
+      "relname": "wiki_contents"
+    },
+    "tags": {
+      "relpages": "40",
+      "reltuples": "251"
+    },
+    "date": "2016-05-27T12:35:57Z"
+  }
+]
