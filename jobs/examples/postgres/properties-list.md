@@ -1,7 +1,6 @@
 # Collected PostgreSQL Properties
 
 * postgres.activity
-
 ```json
 [
   {
