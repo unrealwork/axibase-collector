@@ -56,7 +56,7 @@ listen_addresses = 'localhost,10.102.0.9'		# what IP address(es) to listen on;
 
 ### Configure PostgreSQL Database Connection
 
-* Open **Data Sources:Databases** page, select `10.102.0.9` database.
+* Open **Data Sources:Databases** page, select `postgresql` database.
 * Provide connection parameters to the target PostgreSQL database as displayed below:
 
 ![](images/postgres-datasource.png)
@@ -71,7 +71,7 @@ SELECT 1
 ### Verify Job Configuration
 
 * Open PostgreSQL job
-* Set Data Source to `10.102.0.7`
+* Set Data Source to `postgresql`
 
 ![](images/postgres-jdbc-job.png)
 
