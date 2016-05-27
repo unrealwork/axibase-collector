@@ -14,7 +14,7 @@ The process involves enabling a JDBC job in Axibase Collector to poll statistics
 
 ### Import PostgreSQL job into Axibase Collector
 
-* Open **Jobs:Import** and upload [postgres-job.xml](postgres-server-job.xml) file
+* Open **Jobs:Import** and upload [postgres-jobs.xml](postgres-jobs.xml) file
 
 ### Configure PostgreSQL Database Connection
 

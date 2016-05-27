@@ -204,7 +204,7 @@
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
-        <query>SELECT * FROM pg_stat_activity</query>
+        <query>SELECT  inet_server_addr() AS server_address, version() AS version, current_user, inet_server_port() AS port, current_database() AS current_database, pg_postmaster_start_time() as start_time</query>
         <defaultEntity>10.102.0.9</defaultEntity>
         <tagColumns>
           <string>datname</string>
@@ -222,17 +222,10 @@
         <queryTimeoutSeconds>-1</queryTimeoutSeconds>
         <maxRows>-1</maxRows>
         <putType>PROPERTY</putType>
-        <propertyDefaultType>postgres.activity</propertyDefaultType>
-        <propertyKeyColumns>
-          <string>usename</string>
-          <string>usesysid</string>
-          <string>procpid</string>
-          <string>datname</string>
-        </propertyKeyColumns>
+        <propertyDefaultType>postgres.info</propertyDefaultType>
+        <propertyKeyColumns/>
         <propertyValueColumns/>
-        <ignoredPropertyValueColumns>
-          <string>datid</string>
-        </ignoredPropertyValueColumns>
+        <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
@@ -258,6 +251,58 @@
         <propertyKeyColumns>
           <string>relname</string>
         </propertyKeyColumns>
+        <propertyValueColumns/>
+        <ignoredPropertyValueColumns/>
+        <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+      </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+      <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        <query>SELECT datname,pg_database_size(datname) AS disk_usage FROM pg_database WHERE datistemplate = false;</query>
+        <defaultEntity>10.102.0.9</defaultEntity>
+        <tagColumns>
+          <string>datname</string>
+        </tagColumns>
+        <defaultTags/>
+        <metricColumns/>
+        <ignoredMetricColumns/>
+        <timeType>NONE</timeType>
+        <metricPrefix>postgres.database.</metricPrefix>
+        <queryWithTime>false</queryWithTime>
+        <checkLastTime>false</checkLastTime>
+        <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+        <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+        <maxRows>-1</maxRows>
+        <putType>SERIES</putType>
+        <propertyDefaultType>postgres.activity</propertyDefaultType>
+        <propertyKeyColumns>
+          <string>usename</string>
+          <string>usesysid</string>
+          <string>procpid</string>
+          <string>datname</string>
+        </propertyKeyColumns>
+        <propertyValueColumns/>
+        <ignoredPropertyValueColumns>
+          <string>datid</string>
+        </ignoredPropertyValueColumns>
+        <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+      </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+      <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        <query>SELECT COUNT(*) AS active FROM pg_stat_activity</query>
+        <defaultEntity>10.102.0.9</defaultEntity>
+        <tagColumns/>
+        <defaultTags/>
+        <metricColumns/>
+        <ignoredMetricColumns>
+          <string>dataid</string>
+        </ignoredMetricColumns>
+        <timeType>NONE</timeType>
+        <metricPrefix>postgres.queries.</metricPrefix>
+        <queryWithTime>false</queryWithTime>
+        <checkLastTime>false</checkLastTime>
+        <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+        <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+        <maxRows>-1</maxRows>
+        <putType>SERIES</putType>
+        <propertyKeyColumns/>
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
