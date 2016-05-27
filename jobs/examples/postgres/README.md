@@ -1,15 +1,57 @@
 # PostgreSQL
 
 ## Overview
-This document describes how to collect statistics' metrics introduced in [PostgreSQL](http://www.mysql.com/) 8.1+ for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect statistics' metrics introduced in [PostgreSQL](http://www.mysql.com/) 9.1+ for long-term retention and monitoring in Axibase Time Series Database.
 
 The process involves enabling a JDBC job in Axibase Collector to poll statistics' tables and and uploading the counters into ATSD for processing.
 
 ## Requirements
 
-- PostgreSQL `8.1+`
+- PostgreSQL `9.1+`
 
 ## Installation steps
+
+## Create readonly user
+
+* Create user
+```sh
+adduser readonly
+```
+* Login as `postgres` user
+```sh
+sudo su postgres
+```
+
+* Go to psql console
+
+```
+psql
+```
+
+* Run following commands **in psql console:**
+
+```
+postgres=# CREATE ROLE readonly;
+postgres=# GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly;
+postgres=# ALTER USER readonly WITH PASSWORD 'readonly';
+postgres=# ALTER USER readonly VALID UNTIL 'infinity';
+postgres=# ALTER ROLE readonly login;
+```
+
+
+* Configure file **/etc/postgresql/${POSTGRES_VERSION}/main/pg_hba.conf**
+> add the following row (modify allowed ip to your network):
+
+```
+host    all             readonly        10.102.0.0/24           trust
+```
+
+* Configure **/etc/postgresql/${POSTGRES_VERSION}/main/postgresql.conf**
+> edit the following row (set your external ip address):
+
+```
+listen_addresses = 'localhost,10.102.0.9'		# what IP address(es) to listen on;
+```
 
 
 ### Import PostgreSQL job into Axibase Collector
