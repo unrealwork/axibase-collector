@@ -28,7 +28,7 @@ psql
 
 * Run the following commands in `psql` console
 
-```
+```sql
 CREATE ROLE readonly;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly;
 ALTER USER readonly WITH PASSWORD 'readonly';
