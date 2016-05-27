@@ -1,6 +1,6 @@
 # PostgreSQL
 
-## Overview
+## Overview 
 This document describes how to collect statistics' metrics introduced in [PostgreSQL](http://www.mysql.com/) 8.1+ for long-term retention and monitoring in Axibase Time Series Database.
 
 The process involves enabling a JDBC job in Axibase Collector to poll statistics' tables and and uploading the counters into ATSD for processing.
