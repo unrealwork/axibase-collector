@@ -67,7 +67,7 @@ SELECT 1
 
 ### Properties
 
-* List of collected [PostgreSQL metrics](properties-list.md)
+* List of collected [PostgreSQL properties](properties-list.md)
 
 ### Entity Groups
 
