@@ -65,6 +65,10 @@ SELECT 1
 
 * List of collected [PostgreSQL metrics](metric-list.md)
 
+### Properties
+
+* List of collected [PostgreSQL metrics](properties-list.md)
+
 ### Entity Groups
 
 * Open **Admin: Entity Groups** page
