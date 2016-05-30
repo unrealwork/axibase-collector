@@ -2,11 +2,11 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics introduced in [Jetty (Web server)](http://www.eclipse.org/jetty/) 7+ based applications for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect JMX metrics introduced in [Jetty (Web server)](http://www.eclipse.org/jetty/) 10.10+ based applications for long-term retention and monitoring in Axibase Time Series Database.
 
 ## Requirements
 
-Jetty web server`7+`
+Jetty web server`10.10+`
 
 ## Installation steps
 
@@ -53,7 +53,7 @@ Jetty web server`7+`
 ### Entity group
 
 * Open **Admin:Entity Groups**, click `Import` button and upload  [jetty_entity_group.xml](configs/jetty_entity_group.xml)
-* Select imported `java-virtual-machine` group
+* Select imported `jetty-web-server` group
 * Verify that the group contains your Jetty hosts
 
 
