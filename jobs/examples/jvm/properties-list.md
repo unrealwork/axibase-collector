@@ -1,4 +1,4 @@
-# Collected Oracle Enterprise Manager Properties
+# Collected JVM Properties
 
 
 

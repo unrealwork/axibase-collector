@@ -1,4 +1,4 @@
-# Collected MySQL Server Metrics
+# Collected JVM Metrics
 
 ```json
 jmx.jvm.collectiontime
