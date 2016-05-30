@@ -1,0 +1,16 @@
+<list>
+  <com.axibase.tsd.model.EntityGroup>
+    <name>jetty-web-server</name>
+    <lastModified>1464555002058</lastModified>
+    <expression>properties(&apos;jmx.jetty.hashsessionmanager&apos;).size() &gt; 0</expression>
+    <entities class="sorted-set">
+      <comparator class="java.lang.String$CaseInsensitiveComparator"/>
+      <string>nurswgvml007</string>
+      <string>nurswgvml201</string>
+    </entities>
+    <portals>
+      <long>81</long>
+    </portals>
+    <tags class="linked-hash-map"/>
+  </com.axibase.tsd.model.EntityGroup>
+</list>

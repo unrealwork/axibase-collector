@@ -1,0 +1,56 @@
+<linked-list>
+  <com.axibase.tsd.model.EntityView>
+    <name>Jetty Web Servers</name>
+    <entityGroup>jetty-web-server</entityGroup>
+    <columns>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PORTALS_COLUMN</type>
+        <header>Portals</header>
+        <value>Jetty</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTIES_COLUMN</type>
+        <header>Properties</header>
+        <value>jmx.jetty.server</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>NAME_COLUMN</type>
+        <header>Name</header>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Version</header>
+        <value>jmx.jetty.server::version</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Server</header>
+        <value>jmx.jetty.server::server</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>SERIES_VALUE</type>
+        <header>Sessions</header>
+        <value>jmx.jetty.sessions</value>
+        <link>CHART</link>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>SERIES_VALUE</type>
+        <header>Mean Session Time</header>
+        <value>jmx.jetty.sessiontimemean</value>
+        <link>CHART</link>
+        <formatting>Math.round(value)</formatting>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>METRICS_COLUMN</type>
+        <header>Metrics</header>
+      </com.axibase.tsd.model.EntityViewColumn>
+    </columns>
+    <pageSize>100</pageSize>
+    <enabled>true</enabled>
+    <menu>false</menu>
+    <filters class="java.util.Arrays$ArrayList">
+      <a class="com.axibase.tsd.model.EntityView$EntityViewFilter-array"/>
+    </filters>
+    <displayIndex>0</displayIndex>
+  </com.axibase.tsd.model.EntityView>
+</linked-list>

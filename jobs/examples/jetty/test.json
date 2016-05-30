@@ -1,0 +1,24 @@
+[
+  {
+    "type": "jmx.jetty.server",
+    "entity": "nurswgvml007",
+    "key": {
+      "id": "0"
+    },
+    "tags": {
+      "dumpafterstart": "false",
+      "dumpbeforestop": "true",
+      "failed": "false",
+      "running": "true",
+      "sendserverversion": "true",
+      "server": "org.eclipse.jetty.server:id=0,type=server",
+      "started": "true",
+      "starting": "false",
+      "startuptime": "1464605976163",
+      "stopped": "false",
+      "stopping": "false",
+      "version": "8.y.z-SNAPSHOT"
+    },
+    "date": "2016-05-30T12:35:46Z"
+  }
+]
