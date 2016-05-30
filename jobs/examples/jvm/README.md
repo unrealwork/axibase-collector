@@ -12,7 +12,7 @@ Java Virtual Machine `6+`
 
 ### Import JVM job into Axibase Collector
 
- * Open **Jobs:Import** and upload [jmx-jvm-job.xml](configs/mysql-server-jobs.xml) file
+ * Open **Jobs:Import** and upload [jmx-jvm-job.xml](configs/jvm_job.xml) file
 
 ### Configure JMV JMX Connection
 
