@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+    <rule>
+        <name>jvm_application_restart</name>
+        <metric>property</metric>
+        <expression><![CDATA[properties.uptime < 60000*15]]></expression>
+        <window>length(1)</window>
+        <filter>type == 'jvm.runtime' &amp;&amp; properties.uptime != null</filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <value1>properties['systemproperties.user.name.value'] as user</value1>
+        <lastUpdated>1463629675312</lastUpdated>
+        <enabled>true</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description>
+            <![CDATA[Notifies when Java application uptime is less than 15 minutes to alert of recent restart.]]></description>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>jvm_application_restart</rule-name>
+            <repeat-interval>
+                <type>NONE</type>
+                <intervalCount>5</intervalCount>
+                <intervalUnit>MINUTE</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>noreply@axibase.com</recipients>
+            <first-subject>[${status}] JVM on ${entity}: Application restarted ${properties.classpath}
+                ${round(properties.uptime/60000)} minutes ago.
+            </first-subject>
+            <repeat-subject>[${status}] JVM on ${entity}: Application restarted ${properties.classpath}
+                ${round(properties.uptime/60000)} minutes ago. ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] JVM on ${entity}: Application restarted ${properties.classpath}
+                ${round(properties.uptime/60000)} minutes ago. ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>jvm_cpu_load</name>
+        <metric>jmx.jvm.systemcpuload</metric>
+        <expression><![CDATA[avg() > 0.75]]></expression>
+        <window>time(15 minute)</window>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <lastUpdated>1464429406739</lastUpdated>
+        <enabled>false</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description>
+            <![CDATA[Notifies when average CPU load of the machine is greater than 50%. The underlying metric has a scale between 0 and 1.]]></description>
+        <minimumInterval>
+            <intervalCount>10</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </minimumInterval>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>jvm_cpu_load</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>noreply@axibase.com</recipients>
+            <first-subject>[${status}] JVM on ${entity}: Average system CPU usage ${round(avg()*100,1)} exceeds
+                threshold.
+            </first-subject>
+            <repeat-subject>[${status}] JVM on ${entity}: Average system CPU usage ${round(avg()*100,1)} exceeds
+                threshold. ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] JVM on ${entity}: Average system CPU usage ${round(avg()*100,1)} exceeds
+                threshold. ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>5</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>jvm_garbage_collection_rate</name>
+        <metric>jmx.jvm.collectioncount</metric>
+        <tags>name</tags>
+        <expression><![CDATA[rate_per_minute() > 10]]></expression>
+        <window>time(15 minute)</window>
+        <filter>tags.name LIKE '*Sweep*'</filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <lastUpdated>1463629726633</lastUpdated>
+        <enabled>true</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description>
+            <![CDATA[Notifies when Java memory garbage collector (Sweep) is invoked too frequently]]></description>
+        <minimumInterval>
+            <intervalCount>1</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </minimumInterval>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>jvm_garbage_collection_rate</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>noreply@axibase.com</recipients>
+            <first-subject>[${status}] JVM on ${entity}: Garbage Collector invoked at
+                ${round(rate_per_minute(),2)}/minute.
+            </first-subject>
+            <repeat-subject>[${status}] JVM on ${entity}: Garbage Collector invoked at
+                ${round(rate_per_minute(),2)}/minute. ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] JVM on ${entity}: Garbage Collector invoked at
+                ${round(rate_per_minute(),2)}/minute. ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>jvm_garbage_collection_time</name>
+        <metric>jmx.jvm.collectiontime</metric>
+        <tags>name</tags>
+        <expression><![CDATA[rate_per_minute()/60000 > 0.1]]></expression>
+        <window>time(5 minute)</window>
+        <filter>tags.name LIKE '*Sweep*'</filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <lastUpdated>1462890280931</lastUpdated>
+        <enabled>true</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <minimumInterval>
+            <intervalCount>4</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </minimumInterval>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>jvm_garbage_collection_time</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>unrealwork@gmail.com; noreply@axibase.com</recipients>
+            <first-subject>[${status}] JVM on ${entity}: Garbage Collector time
+                ${round(rate_per_minute()/60000*100, 2)}%
+            </first-subject>
+            <repeat-subject>[${status}] JVM on ${entity}: Garbage Collector time
+                ${round(rate_per_minute()/60000*100, 2)}% . ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] JVM on ${entity}: Garbage Collector time
+                ${round(rate_per_minute()/60000*100, 2)}% . ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>jvm_heap_memory_usage</name>
+        <metric>property</metric>
+        <expression><![CDATA[properties['heapmemoryusage.used']/properties['heapmemoryusage.max']]]>
+            <![CDATA[ > 0.8]]></expression>
+        <window>length(1)</window>
+        <filter>type == 'jvm.memory' &amp;&amp; properties.heapmemoryusage != null</filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <value1>properties['heapmemoryusage.used']/properties['heapmemoryusage.max'] * 100 as percent_heap_usage
+        </value1>
+        <lastUpdated>1463629773329</lastUpdated>
+        <enabled>true</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description><![CDATA[Notifies when JVM heap memory usage exceeds 80% of maximum heap size.]]></description>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>jvm_heap_memory_usage</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>noreply@axibase.com</recipients>
+            <first-subject>[${status}] JVM on ${entity}: Heap usage ${round(percent_heap_usage,2)}% exceeds threshold.
+            </first-subject>
+            <repeat-subject>[${status}] JVM on ${entity}: Heap usage ${round(percent_heap_usage,2)}% exceeds threshold.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] JVM on ${entity}: Heap usage ${round(percent_heap_usage,2)}% exceeds threshold.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>jvm_heap_memory_usage_test</name>
+        <metric>property</metric>
+        <expression><![CDATA[properties['heapmemoryusage.used']/properties['heapmemoryusage.max']]]>
+            <![CDATA[ > 0.8]]></expression>
+        <window>length(1)</window>
+        <filter>type == 'jvm.memory' &amp;&amp; properties.heapmemoryusage != null &amp;&amp; entity = 'e-1'</filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <value1>properties['heapmemoryusage.used']/properties['heapmemoryusage.max'] * 100 as percent_heap_usage
+        </value1>
+        <lastUpdated>1464545850268</lastUpdated>
+        <enabled>true</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description><![CDATA[Notifies when JVM heap memory usage exceeds 80% of maximum heap size.]]></description>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>jvm_heap_memory_usage_test</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>noreply@axibase.com</recipients>
+            <first-subject>[${status}] JVM on ${entity}: Heap usage ${round(percent_heap_usage,2)}% exceeds threshold.
+            </first-subject>
+            <repeat-subject>[${status}] JVM on ${entity}: Heap usage ${round(percent_heap_usage,2)}% exceeds threshold.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] JVM on ${entity}: Heap usage ${round(percent_heap_usage,2)}% exceeds threshold.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>jvm_runtime_property_changed</name>
+        <metric>property</metric>
+        <expression>
+            <![CDATA[NOT property_compare_except(['name', '*starttime', 'uptime', 'systemproperties.user.dir.value', 'systemproperties.com.sun.management.jmxremote.authenticate*'], ['*Xloggc*']]]>
+            <![CDATA[).isEmpty()]]></expression>
+        <window>length(1)</window>
+        <filter>type == 'jvm.runtime'</filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <value1>property_compare_except(['name', '*starttime', 'uptime', 'systemproperties.user.dir.value',
+            'systemproperties.com.sun.management.jmxremote.authenticate*'], ['*Xloggc*']) as pdiff
+        </value1>
+        <lastUpdated>1463629833367</lastUpdated>
+        <enabled>true</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description>
+            <![CDATA[Notifies when Java Runtime properties are changed, except for dynamically updated properties.]]></description>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>jvm_runtime_property_changed</rule-name>
+            <repeat-interval>
+                <type>ALL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>MINUTE</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>noreply@axibase.com</recipients>
+            <first-subject>[${status}] JVM on ${entity}: Runtime property changed: ${pdiff}</first-subject>
+            <repeat-subject>[${status}] JVM on ${entity}: Runtime property changed: ${pdiff}.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] JVM on ${entity}: Runtime property changed: ${pdiff}.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>jvm_system_load</name>
+        <metric>jmx.jvm.systemloadaverage</metric>
+        <expression><![CDATA[avg() > 5]]></expression>
+        <window>time(15 minute)</window>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <lastUpdated>1464429448802</lastUpdated>
+        <enabled>false</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description><![CDATA[Notifies when system load average exceeds 5 processes.]]></description>
+        <minimumInterval>
+            <intervalCount>10</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </minimumInterval>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>jvm_system_load</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>noreply@axibase.com</recipients>
+            <first-subject>[${status}] JVM on ${entity}: System load average ${round(avg(), 2)} exceeds threshold.
+            </first-subject>
+            <repeat-subject>[${status}] JVM on ${entity}: System load average ${round(avg(), 2)} exceeds threshold.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] JVM on ${entity}: System load average ${round(avg(), 2)} exceeds threshold.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>5</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+</rules>

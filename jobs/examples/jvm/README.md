@@ -2,11 +2,11 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics introduced in [Java Virtual Machine (JVM)](http://www.mysql.com/) 7+ based applications for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect JMX metrics introduced in [Java Virtual Machine (JVM)](http://www.mysql.com/) 6+ based applications for long-term retention and monitoring in Axibase Time Series Database.
 
 ## Requirements
 
-Java Virtual Machine `7+`
+Java Virtual Machine `6+`
 
 ## Installation steps
 
@@ -58,7 +58,7 @@ Java Virtual Machine `7+`
 
 
 ### Portal
-* Open **Configuration: Portals** page and import a JVM portal from [jvm_portal.xml](jvm_portal.xml).
+* Open **Configuration: Portals** click `Import` button and upload [jvm_portal.xml](jvm_portal.xml).
 * Click Assign link and associate the portal with the entity group you created earlier
 * Open Entity tabs, find java application by name, and click on its portal icon
 
@@ -67,5 +67,7 @@ Java Virtual Machine `7+`
 **JVM Portal**
 ![](images/jvm_portal.png)
 
-
 ### Rules
+
+* Open **Configuration: Rules** page, click `Import` button and upload [jvm_rules.xml](jvm_rules.xml).
+* For each created rules: open it  in the Rule Editor and change recipient address on the *Email Notifications* tab.
