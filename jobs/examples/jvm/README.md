@@ -43,11 +43,11 @@ Java Virtual Machine `6+`
 
 ### Metrics
 
-* List of collected [JVM metrics](configs/metric-list.md)
+* List of collected [JVM metrics](metric-list.md)
 
 ### Properties
 
-* List of collected [JVM properties](configs/properties-list.md)
+* List of collected [JVM properties](properties-list.md)
 
 
 ### Entity group
