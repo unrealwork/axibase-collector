@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics introduced in [Java Virtual Machine (JVM)](http://www.mysql.com/) 6+ based applications for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect JMX metrics introduced in [Java Virtual Machine (JVM)](https://docs.oracle.com/javase/specs/jvms/se7/html/) 6+ based applications for long-term retention and monitoring in Axibase Time Series Database.
 
 ## Requirements
 
