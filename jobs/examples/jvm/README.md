@@ -41,6 +41,15 @@ Java Virtual Machine `6+`
 
 ## Viewing Data in ATSD
 
+### Metrics
+
+* List of collected [PostgreSQL metrics](metric-list.md)
+
+### Properties
+
+* List of collected [PostgreSQL properties](properties-list.md)
+
+
 ### Entity group
 
 * Open **Admin:Entity Groups**, click `Import` button and upload  [jvm_entity_group.xml](jvm_entity_group.xml)
