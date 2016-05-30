@@ -12,7 +12,7 @@ Java Virtual Machine `6+`
 
 ### Import JVM job into Axibase Collector
 
- * Open **Jobs:Import** and upload [jmx-jvm-job.xml](mysql-server-jobs.xml) file
+ * Open **Jobs:Import** and upload [jmx-jvm-job.xml](configs/mysql-server-jobs.xml) file
 
 ### Configure JMV JMX Connection
 
@@ -43,23 +43,23 @@ Java Virtual Machine `6+`
 
 ### Metrics
 
-* List of collected [JVM metrics](metric-list.md)
+* List of collected [JVM metrics](configs/metric-list.md)
 
 ### Properties
 
-* List of collected [JVM properties](properties-list.md)
+* List of collected [JVM properties](configs/properties-list.md)
 
 
 ### Entity group
 
-* Open **Admin:Entity Groups**, click `Import` button and upload  [jvm_entity_group.xml](jvm_entity_group.xml)
+* Open **Admin:Entity Groups**, click `Import` button and upload  [jvm_entity_group.xml](configs/jvm_entity_group.xml)
 * Select imported `java-virtual-machine` group
 * Verify that the group contains your JVM hosts
 
 
 ### Entity Views
 
-* Open **Configuration:Entity Views**, click `Import` button and upload  [jvm_entity_view.xml](jvm_entity_view.xml)
+* Open **Configuration:Entity Views**, click `Import` button and upload  [jvm_entity_view.xml](configs/jvm_entity_view.xml)
 * Select imported `Java Applications` view
 * Select Entity Group that you created earlier.
 * Click on `View` button and browse information about your entities
@@ -67,7 +67,7 @@ Java Virtual Machine `6+`
 
 
 ### Portal
-* Open **Configuration: Portals** click `Import` button and upload [jvm_portal.xml](jvm_portal.xml).
+* Open **Configuration: Portals** click `Import` button and upload [jvm_portal.xml](configs/jvm_portal.xml).
 * Click Assign link and associate the portal with the entity group you created earlier
 * Open Entity tabs, find java application by name, and click on its portal icon
 
@@ -78,5 +78,5 @@ Java Virtual Machine `6+`
 
 ### Rules
 
-* Open **Configuration: Rules** page, click `Import` button and upload [jvm_rules.xml](jvm_rules.xml).
+* Open **Configuration: Rules** page, click `Import` button and upload [jvm_rules.xml](configs/jvm_rules.xml).
 * For each created rules: open it  in the Rule Editor and change recipient address on the *Email Notifications* tab.
