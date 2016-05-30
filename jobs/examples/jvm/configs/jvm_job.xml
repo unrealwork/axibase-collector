@@ -1,6 +1,6 @@
 <list>
     <com.axibase.collector.model.job.jmx.JmxJobConfig>
-        <name>jmx-jvm-nurswgvml007</name>
+        <name>jmx-jvm</name>
         <cronExpression>0 * * * * ?</cronExpression>
         <enabled>true</enabled>
         <jobType>JMX</jobType>
@@ -11,10 +11,10 @@
         <configurations>
             <com.axibase.collector.model.job.jmx.JmxConfiguration>
                 <name>jvm-properties</name>
-                <host>nurswgvml007</host>
+                <host>jvm_app_host</host>
                 <port>1099</port>
                 <userName>axibase</userName>
-                <password>Mk4XFbb0ZU9Dja7oLDj/4w==</password>
+                <password>passowrd</password>
                 <trackingMBeans>
                     <com.axibase.collector.model.job.jmx.TrackingMBean>
                         <objectName>java.nio:name=*,type=BufferPool</objectName>
