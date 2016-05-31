@@ -6,9 +6,6 @@
     <entities class="sorted-set">
       <comparator class="java.lang.String$CaseInsensitiveComparator"/>
     </entities>
-    <portals>
-      <long>86</long>
-    </portals>
     <tags class="linked-hash-map"/>
   </com.axibase.tsd.model.EntityGroup>
 </list>
