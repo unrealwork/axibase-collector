@@ -1,7 +1,7 @@
 <list>
   <com.axibase.collector.model.job.file.FileJobConfig>
     <name>nginx-statistics</name>
-    <cronExpression>0/5 * * * * ?</cronExpression>
+    <cronExpression>0 * * * * ?</cronExpression>
     <enabled>true</enabled>
     <jobType>FILE</jobType>
     <defaultTags/>
@@ -11,13 +11,13 @@
     <configurations>
       <com.axibase.collector.model.job.file.FileRoutingConfiguration>
         <name>nginx-status</name>
-        <path>http://${ITEM}/nginx_status</path>
+        <path>https://${ITEM}/nginx_status</path>
         <encoding>UTF8</encoding>
         <parserType>CSV</parserType>
         <wait>false</wait>
         <rules>true</rules>
         <defaultEntity>${ITEM}</defaultEntity>
-        <useTime>true</useTime>
+        <useTime>false</useTime>
         <ignoreDuplicates>false</ignoreDuplicates>
         <deleteFileOnUpload>false</deleteFileOnUpload>
         <validateFormat>false</validateFormat>
@@ -27,7 +27,10 @@
         <entitySet>
           <name>nginx-servers</name>
           <type>TEXT</type>
+          <discardDuplicates>false</discardDuplicates>
           <entities>
+            <string>www.axibase.com</string>
+            <string>apps.axibase.com</string>
           </entities>
         </entitySet>
         <enableWebDriver>false</enableWebDriver>
@@ -53,6 +56,7 @@
         <timeout>3</timeout>
         <failureRetestNumber>1</failureRetestNumber>
         <failureRetestDelay>3</failureRetestDelay>
+        <defaultTags/>
         <entitySet reference="../../../../com.axibase.collector.model.job.file.FileJobConfig/configurations/com.axibase.collector.model.job.file.FileRoutingConfiguration/entitySet"/>
       </com.axibase.collector.model.job.tcp.TcpConfiguration>
     </configurations>
