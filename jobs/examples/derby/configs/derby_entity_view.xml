@@ -1,17 +1,16 @@
 <linked-list>
   <com.axibase.tsd.model.EntityView>
-    <name>Jetty Web Servers</name>
-    <entityGroup>jetty-web-server</entityGroup>
+    <name>Apache Derby Databases</name>
+    <entityGroup>apache-derby-databases</entityGroup>
     <columns>
       <com.axibase.tsd.model.EntityViewColumn>
         <type>PORTALS_COLUMN</type>
         <header>Portals</header>
-        <value>Jetty</value>
       </com.axibase.tsd.model.EntityViewColumn>
       <com.axibase.tsd.model.EntityViewColumn>
         <type>PROPERTIES_COLUMN</type>
         <header>Properties</header>
-        <value>jmx.jetty.server</value>
+        <value>jmx.derby.version</value>
       </com.axibase.tsd.model.EntityViewColumn>
       <com.axibase.tsd.model.EntityViewColumn>
         <type>NAME_COLUMN</type>
@@ -19,33 +18,52 @@
       </com.axibase.tsd.model.EntityViewColumn>
       <com.axibase.tsd.model.EntityViewColumn>
         <type>PROPERTY_TAG</type>
-        <header>Version</header>
-        <value>jmx.jetty.server::version</value>
+        <header>Jar</header>
+        <value>jmx.derby.version::jar</value>
       </com.axibase.tsd.model.EntityViewColumn>
       <com.axibase.tsd.model.EntityViewColumn>
         <type>PROPERTY_TAG</type>
-        <header>Server</header>
-        <value>jmx.jetty.server::server</value>
+        <header>Major Version</header>
+        <value>jmx.derby.version::majorversion</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Minor Version</header>
+        <value>jmx.derby.version::minorversion</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Full Version</header>
+        <value>jmx.derby.version::versionstring</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Product Name</header>
+        <value>jmx.derby.version::producttechnologyname</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Page Cache</header>
+        <value>jmx.derby.cachemanager:name=StatementCache:db</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Network Port</header>
+        <value>jmx.derby.networkserver::drdaportnumber</value>
+        <link>PROPERTY</link>
       </com.axibase.tsd.model.EntityViewColumn>
       <com.axibase.tsd.model.EntityViewColumn>
         <type>SERIES_VALUE</type>
-        <header>Sessions</header>
-        <value>jmx.jetty.sessions</value>
+        <header>Network Active Connections</header>
+        <value>jmx.derby.ActiveConnectionCount</value>
         <link>CHART</link>
-      </com.axibase.tsd.model.EntityViewColumn>
-      <com.axibase.tsd.model.EntityViewColumn>
-        <type>SERIES_VALUE</type>
-        <header>Mean Session Time</header>
-        <value>jmx.jetty.sessiontimemean</value>
-        <link>CHART</link>
-        <formatting>Math.round(value)</formatting>
       </com.axibase.tsd.model.EntityViewColumn>
       <com.axibase.tsd.model.EntityViewColumn>
         <type>METRICS_COLUMN</type>
         <header>Metrics</header>
       </com.axibase.tsd.model.EntityViewColumn>
     </columns>
-    <pageSize>100</pageSize>
+    <pageSize>25</pageSize>
     <enabled>true</enabled>
     <menu>false</menu>
     <filters class="java.util.Arrays$ArrayList">

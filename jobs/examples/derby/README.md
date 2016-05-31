@@ -1,4 +1,4 @@
-# Derby Web Server
+# Derby Database
 
 ## Overview
 
@@ -30,12 +30,12 @@ Derby database `7+`
 
 ![](images/test_run.png)
 
-* If there are no errors, set job status to Enabled and save the job
+* If there are no errors, set job status to Enabled and save the job.
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD
-* Click on Metrics tab and filter metrics by name `jmx.derby*`
+* Login into ATSD.
+* Click on Metrics tab and filter metrics by name `jmx.derby*`.
 
 ![](images/derby_metrics.png)
 
@@ -53,20 +53,21 @@ Derby database `7+`
 ### Entity group
 
 * Open **Admin:Entity Groups**, click `Import` button and upload  [derby_entity_group.xml](configs/derby_entity_group.xml)
-* Select imported `java-virtual-machine` group
+* Select imported `apache-derby-databases` group
 * Verify that the group contains your Derby hosts
 
 
 ### Entity Views
 
 * Open **Configuration:Entity Views**, click `Import` button and upload  [derby_entity_view.xml](configs/derby_entity_view.xml)
-* Select imported `Java Applications` view
+* Select imported `	Apache Derby Databases` view
 * Select Entity Group that you created earlier.
 * Click on `View` button and browse information about your entities
 ![](images/derby_entity_view.png)
 
 
 ### Portal
+
 * Open **Configuration: Portals** click `Import` button and upload [derby_portal.xml](configs/derby_portal.xml).
 * Click Assign link and associate the portal with the entity group you created earlier
 * Open Entity tabs, find java application by name, and click on its portal icon
