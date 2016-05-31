@@ -82,5 +82,26 @@ Configure your JVM based application for jmx connection. Configuration procedure
 
 ### Rules
 
+### Setting up Mail Client
+
+* Configure [Mail Client](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md).
+
+#### Import Rules
+
 * Open **Configuration: Rules** page, click `Import` button and upload [jvm_rules.xml](configs/jvm_rules.xml).
 * For each created rules: open it  in the Rule Editor and change recipient address on the *Email Notifications* tab.
+* These rules will automatically apply to all JVM based applications monitored by Axibase Collector.
+
+Imported rules:
+
+| **Rule** |  **Description** |
+| --- | --- |
+| jvm_application_restart | Raise an alert when an application has been restarted less than 5 minutes ago  |
+| jvm_cpu_load | Raise an alert when an application cpu load exceeds the set threshold |
+| jvm_garbage_collection_rate |  Raise an alert when an application Garbage Collector rate exceeds the set threshold |
+| jvm_garbage_collection_time |   Raise an alert when an application Garbage Collector time exceeds the set threshold |
+| jvm_heap_memory_usage | Raise an alert when an application heap memory usage exceeds the set threshold |
+| jvm_runtime_property_changed | Raise an alert when an application property changed |
+| jvm_system_load | Raise an alert when an application system load exceeds the set threshold |
+
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md).
