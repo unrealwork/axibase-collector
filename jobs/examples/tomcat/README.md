@@ -10,6 +10,10 @@ Tomcat containers `6+`
 
 ## Installation steps
 
+### Enable JMX in Tomcat based application
+
+Configure your Tomcat based application for jmx connection. Configuration procedure is described [here](../../jmx.md).
+
 ### Import Tomcat job into Axibase Collector
 
  * Open **Jobs:Import** and upload [tomcat-job.xml](configs/tomcat_job.xml) file

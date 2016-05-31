@@ -10,6 +10,10 @@ Derby database `7+`
 
 ## Installation steps
 
+### Enable JMX in Derby based application
+
+Configure your Derby based application for jmx connection. Configuration procedure is described [here](../../jmx.md).
+
 ### Import Derby job into Axibase Collector
 
  * Open **Jobs:Import** and upload [derby-job.xml](configs/derby_job.xml) file

@@ -10,6 +10,10 @@ Jetty web server`10.10+`
 
 ## Installation steps
 
+### Enable JMX in Jetty based application
+
+Configure your Jetty based application for jmx connection. Configuration procedure is described [here](../../jmx.md).
+
 ### Import Jetty job into Axibase Collector
 
  * Open **Jobs:Import** and upload [jetty-job.xml](configs/jetty_job.xml) file
