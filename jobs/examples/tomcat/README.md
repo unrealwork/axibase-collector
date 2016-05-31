@@ -16,7 +16,9 @@ Configure your Tomcat based application for jmx connection. Configuration proced
 
 ### Import Tomcat job into Axibase Collector
 
- * Open **Jobs:Import** and upload [tomcat-job.xml](configs/tomcat_job.xml) file
+ * Open **Jobs:Import** and upload job file depending on the version of your engine
+    * [Catalina]()
+    * [Standalone]()
 
 ### Configure Tomcat JMX Connection
 
