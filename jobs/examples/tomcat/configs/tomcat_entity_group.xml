@@ -1,0 +1,14 @@
+<list>
+  <com.axibase.tsd.model.EntityGroup>
+    <name>apache-tomcat</name>
+    <lastModified>1464555002051</lastModified>
+    <expression>properties(&apos;jmx.tomcat.server&apos;).size() &gt; 0</expression>
+    <entities class="sorted-set">
+      <comparator class="java.lang.String$CaseInsensitiveComparator"/>
+    </entities>
+    <portals>
+      <long>86</long>
+    </portals>
+    <tags class="linked-hash-map"/>
+  </com.axibase.tsd.model.EntityGroup>
+</list>

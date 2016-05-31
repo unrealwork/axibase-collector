@@ -1,0 +1,71 @@
+<linked-list>
+  <com.axibase.tsd.model.EntityView>
+    <name>Apache Tomcat Containers</name>
+    <entityGroup>apache-tomcat</entityGroup>
+    <columns>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PORTALS_COLUMN</type>
+        <header>Portals</header>
+        <value>Tomcat</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTIES_COLUMN</type>
+        <header>Properties</header>
+        <value>jmx.tomcat.server</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>NAME_COLUMN</type>
+        <header>Name</header>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Engine</header>
+        <value>jmx.tomcat.engine::name</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Server</header>
+        <value>jmx.tomcat.server::serverinfo</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Base Dir</header>
+        <value>jmx.tomcat.engine::basedir</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Ports</header>
+        <value>jmx.tomcat.connector::port</value>
+        <link>PROPERTY</link>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Protocols</header>
+        <value>jmx.tomcat.connector::protocol</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Start Time</header>
+        <value>jmx.tomcat.webmodule::starttime</value>
+        <formatting>new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(1L*value)</formatting>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>SERIES_VALUE</type>
+        <header>Active Sessions</header>
+        <value>jmx.tomcat.activesessions</value>
+        <link>CHART</link>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>METRICS_COLUMN</type>
+        <header>Metrics</header>
+      </com.axibase.tsd.model.EntityViewColumn>
+    </columns>
+    <pageSize>25</pageSize>
+    <enabled>true</enabled>
+    <menu>false</menu>
+    <filters class="java.util.Arrays$ArrayList">
+      <a class="com.axibase.tsd.model.EntityView$EntityViewFilter-array"/>
+    </filters>
+    <displayIndex>0</displayIndex>
+  </com.axibase.tsd.model.EntityView>
+</linked-list>
