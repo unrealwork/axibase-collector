@@ -1,8 +1,8 @@
-# Tomcat Containers
+# Tomcat Servlet Container
 
 ## Overview
 
-This document describes how to collect JMX metrics introduced in [Tomcat (Containers)](http://tomcat.apache.org/) 6+ based applications for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect JMX metrics introduced in [Tomcat (Servlet Container)](http://tomcat.apache.org/) 6+ based applications for long-term retention and monitoring in Axibase Time Series Database.
 
 ## Requirements
 
@@ -16,8 +16,8 @@ Configure your Tomcat based application for jmx connection. Configuration proced
 
 ### Import Tomcat job into Axibase Collector
 
- * Open **Jobs:Import** and upload job file depending on the version of your engine
-    * [Catalina]()
+ * Open **Jobs:Import** and upload job file depending on the version of your servlet engine
+    * [Catalina](configs/tomcat_catalina_job.xmls)
     * [Standalone]()
 
 ### Configure Tomcat JMX Connection
