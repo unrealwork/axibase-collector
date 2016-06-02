@@ -2,17 +2,19 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics introduced in [Java Virtual Machine (JVM)](https://docs.oracle.com/javase/specs/jvms/se7/html/) 6+ based applications for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect JMX metrics exposed by Java applications for long-term retention and monitoring in Axibase Time Series Database.
+
+The integration enables both performance monitoring (garbage collection, load, threads, heap/offheap memory), availability monitoring (system uptime counter), as as well as configuration tracking by notifying on changes in system properties.  
 
 ## Requirements
 
-Java Virtual Machine `6+`
+* JRE/JDK 6+
 
 ## Installation steps
 
-### Enable JMX in JVM based application
+### Enable JMX in Java application
 
-Configure your JVM based application for jmx connection. Configuration procedure is described [here](../../jmx.md).
+Configure your Java application for JMX data collection as described [here](../../jmx.md).
 
 ### Import JVM job into Axibase Collector
 
@@ -53,13 +55,11 @@ Configure your JVM based application for jmx connection. Configuration procedure
 
 * List of collected [JVM properties](properties-list.md)
 
-
 ### Entity group
 
 * Open **Admin:Entity Groups**, click `Import` button and upload  [jvm_entity_group.xml](configs/jvm_entity_group.xml)
 * Select imported `java-virtual-machine` group
 * Verify that the group contains your JVM hosts
-
 
 ### Entity Views
 
@@ -69,8 +69,8 @@ Configure your JVM based application for jmx connection. Configuration procedure
 * Click on `View` button and browse information about your entities
 ![](images/jvm_entity_view.png)
 
-
 ### Portal
+
 * Open **Configuration: Portals** click `Import` button and upload [jvm_portal.xml](configs/jvm_portal.xml).
 * Click Assign link and associate the portal with the entity group you created earlier
 * Open Entity tabs, find java application by name, and click on its portal icon
@@ -89,13 +89,13 @@ Configure your JVM based application for jmx connection. Configuration procedure
 #### Import Rules
 
 * Open **Configuration: Rules** page, click `Import` button and upload [jvm_rules.xml](configs/jvm_rules.xml).
-* For each created rules: open it  in the Rule Editor and change recipient address on the *Email Notifications* tab.
+* For each created rule: open it in the Rule Editor and change recipient address on the *Email Notifications* tab.
 * These rules will automatically apply to all JVM based applications monitored by Axibase Collector.
 
 Imported rules:
 
 | **Rule** |  **Description** |
-| --- | --- |
+| :--- | :--- |
 | jvm_application_restart | Raise an alert when an application has been restarted less than 5 minutes ago  |
 | jvm_cpu_load | Raise an alert when an application cpu load exceeds the set threshold |
 | jvm_garbage_collection_rate |  Raise an alert when an application Garbage Collector rate exceeds the set threshold |
