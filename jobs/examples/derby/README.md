@@ -2,17 +2,17 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics introduced in [Derby (Databse)](https://db.apache.org/derby/) 7+ based applications for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect JMX metrics exposed by [Apache Derby Database](https://db.apache.org/derby/)  for long-term retention and monitoring in Axibase Time Series Database.
 
 ## Requirements
 
-Derby database `7+`
+* Derby database `9+`
 
 ## Installation steps
 
-### Enable JMX in Derby based application
+### Enable JMX in Java application
 
-Configure your Derby based application for jmx connection. Configuration procedure is described [here](../../jmx.md).
+Configure your Java applications for JMX monitoring as described [here](../../jmx.md).
 
 ### Import Derby job into Axibase Collector
 
