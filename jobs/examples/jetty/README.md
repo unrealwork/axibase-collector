@@ -2,17 +2,17 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics introduced in [Jetty (Web server)](http://www.eclipse.org/jetty/) 10.10+ based applications for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect JMX metrics exposed by [Jetty (Web server)](http://www.eclipse.org/jetty/) for long-term retention and monitoring in Axibase Time Series Database.
 
 ## Requirements
 
-Jetty web server`10.10+`
+* Jetty 6.+
 
 ## Installation steps
 
-### Enable JMX in Jetty based application
+### Enable JMX in Java application
 
-Configure your Jetty based application for jmx connection. Configuration procedure is described [here](../../jmx.md).
+Configure your Java application for JMX monitoring as described [here](../../jmx.md).
 
 ### Import Jetty job into Axibase Collector
 
