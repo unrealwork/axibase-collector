@@ -79,7 +79,7 @@ SELECT 1
 
 ### Portals
 
-* [SolarWinds Base Portal](http://apps.axibase.com/chartlab/c19d5ee7)
+* SolarWinds Base Portal
 ![](images/solarwinds_base_portal_31.png)
 
 - SolarWinds - VMware VM

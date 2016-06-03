@@ -77,11 +77,11 @@ SELECT NULL FROM dual
 
 ### Portals
 
-* [Oracle Databases Portal](https://axibase.com/chartlab/32a3fe3e)
+* [Oracle Databases Live Portal](https://apps.axibase.com/chartlab/8c86c962)
 
 ![](images/oracle_databases_poral3.png "Oracle Databases")
 
-* [Oracle Host Portal](https://axibase.com/chartlab/32a3fe3e/2/)
+* [Oracle Host Live Portal](https://apps.axibase.com/chartlab/81259b97)
  
 ![](images/oracle_host_portal.png "Oracle Host")
 

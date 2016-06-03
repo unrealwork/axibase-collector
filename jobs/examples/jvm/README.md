@@ -77,7 +77,7 @@ Configure your Java application for JMX data collection as described [here](../.
 
 ![](images/jvm_portal_icon.png)
 
-**JVM Portal**
+[**JVM Live Portal**](http://apps.axibase.com/chartlab/d3af83ab)
 ![](images/jvm_portal.png)
 
 ### Rules
