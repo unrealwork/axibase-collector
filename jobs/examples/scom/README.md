@@ -82,11 +82,11 @@ SELECT 1
 
 ### Portals
 
-* [SCOM Server Portal](http://apps.axibase.com/chartlab/c09dc1cd)
+* [SCOM Server Live Portal](http://apps.axibase.com/chartlab/c09dc1cd)
 
 ![](images/scom_server_portal.png)
 
-* [SCOM SQL Server](http://axibase.com/chartlab/693b4f8d/2/)
+* [SCOM SQL Live Server](http://axibase.com/chartlab/693b4f8d/2/)
 
 ![](images/scom_sql_server_portal.png)
 
