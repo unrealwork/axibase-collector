@@ -1,0 +1,155 @@
+<list>
+  <com.axibase.tsd.model.portal.PortalConfig>
+    <name>nginx-basic</name>
+    <enabled>true</enabled>
+    <showInMenu>false</showInMenu>
+    <displayIndex>0</displayIndex>
+    <content>[configuration]
+  title = NGINX Status
+  step-line = false
+  markers = false
+  height-units = 3
+  width-units = 4
+  timespan = 1 day
+  entity = ${entity}
+
+[group]
+  width-units = 2
+  [widget]
+    type = chart
+    title = Active Connections : ${entity}
+    statistics = counter
+    tooltip = Connection count history: current, day ago, week ago
+    metric = nginx.active_connections
+    label-format = label
+    [series]
+      label  = -1 week
+      color = silver
+      time-offset = 1 week
+    [series]
+      label  = -1 day
+      time-offset = 1 day
+    [series]
+      label  = Current
+      color = magenta
+      style = stroke: 4px
+  [widget]
+    type = chart
+    title = Requests
+    statistics = counter
+    tooltip = Total amount of requests
+    metric = nginx.server_requests
+    label-format = label
+    [series]
+      label  = -1 week
+      color = silver
+      time-offset = 1 week
+    [series]
+      label  = -1 day
+      time-offset = 1 day
+    [series]
+      label  = Current
+      color = magenta
+      style = stroke:4px
+[group]	
+  widgets-per-row = 4
+  var gaugeEndTimes = [[&apos;current_day&apos;, &apos;yesterday&apos;], [&apos;next_day&apos;, &apos;today&apos;]]
+  for ge in gaugeEndTimes
+  [widget]
+    title = Successfully Handled Connections @{ge[1]}, %
+    type = gauge
+    mode = half
+    tooltip = Percentage of handled connections @{ge[1]} (100 * handled / accepted)
+    end-time =  @{ge[0]}
+    statistic = counter
+    period = 1 day
+    style= padding-left: 40px; padding-right: 40px;
+	gradient-count = 5, 3, 2
+	gradient-intensity = 0 / .65
+    ticks = 10
+    format = decimal(3)
+    display-tip = false
+	thresholds = 95, 97.5, 99, 100
+	colors = red  yellow, green
+    [series]
+      metric = nginx.server_handled
+      alias = handled
+      display = false
+    [series]
+      metric = nginx.server_accepts
+      alias = accepted
+      display = false
+    [series]
+      color = orange
+      label = Percentage of handled connections, %
+      value = (value(&apos;accepted&apos;) == 0) ? 0 : 100 * value(&apos;handled&apos;) / value(&apos;accepted&apos;)  
+  endfor
+
+  [widget]
+    title = Unhandled Connections, %
+    type = chart
+    tooltip = Current percentage of unhandled connections (100 * unhandled / accepted)
+    end-time = next_day
+    statistic = counter
+    max-range = 100
+    [series]
+      metric = nginx.unhandled_percent
+      label = Unhandled %
+      color = green
+      alert-expression = value &gt; 0
+      alert-style = stroke: red
+  [widget]
+    title = Average request per connection
+    type = chart
+    tooltip = Average amount of requests per one connection
+    period = 1 hour
+    statistics = counter
+    [series]
+      metric = nginx.server_requests
+      alias = requests
+      display = false
+    [series]
+      metric = nginx.server_accepts
+      alias = connections
+      display = false
+    [series]
+      value = (value(&apos;connections&apos;) == 0) ? 0 : value(&apos;requests&apos;) / value(&apos;connections&apos;)
+      color = magenta
+      label = Requests/Conn
+[group]
+  width-units = 2
+  [widget]
+    type = box
+    title = Connection Count Daily Distribution by Status
+    percentile-markers = all
+    label-format = javascript:keepAfterLast(metric, &apos;.&apos;)
+    format = numeric
+    tooltip = Reading = number of connections where nginx is reading the request header
+    tooltip = Writing = number of connections where nginx is writing the response back to the client
+    tooltip = Waiting = number of idle client connections waiting for a request
+    [series]
+      metric = nginx.reading
+    [series]
+      metric = nginx.writing
+    [series]
+      metric = nginx.waiting
+  [widget]
+    type = chart
+    title =  Hourly Availability, TCP Ping
+    tooltip = Percentage of time within each period when the server responded to TCP connection checks
+    moving-average = true
+    mode = column
+    centralize columns = true
+    label-format = label
+    [series]
+      metric = tcp-connect
+      label = TCP connect exit code (0 - OK)
+      statistic = threshold_percent
+      max-threshold = 0.1
+      period = 1 hour
+      color = green
+      alert-expression = value &lt; 96
+      alert-style = fill: red; stroke: red</content>
+    <lastModified>2016-05-26 12:46:41.670 UTC</lastModified>
+  </com.axibase.tsd.model.portal.PortalConfig>
+</list>
