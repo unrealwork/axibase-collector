@@ -75,7 +75,7 @@ Query result must be `Query OK`.
 - `VMware Hosts`
 - `VMware Clusters`
 
-### Portals
+### Live Portals
 
 * [VMware Cluster Portal](http://axibase.com/chartlab/36ae5c9e/3/)
 
