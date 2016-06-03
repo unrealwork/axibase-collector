@@ -111,7 +111,7 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 * Click **Assign** link and associate the portal with the entity group you created earlier
 * Open *Entity* tabs, find the NGINX servers you would like to see information about, and click on its portal icon
 ![](./images/nginx-portal-selection.png)
-[Basic NGINX Status portal example](http://apps.axibase.com/chartlab/2434fdec)
+[Basic NGINX Status portal example](http://apps.axibase.com/chartlab/966f33e4)
 ![Basic NGINX Status portal](./images/nginx-portal-basic.png)
 
 ## Notifications
