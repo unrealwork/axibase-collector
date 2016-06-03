@@ -102,8 +102,8 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 
 ## Entity Group
-* Open Admin:Entity Groups, click Import button and upload [nginx_basic_entity_group.xml](./configs/nginx_entity_group.xml)
-* Select imported nginx_basic_entity_group
+* Open **Admin:Entity Groups**, click Import button and upload [nginx_basic_entity_group.xml](./configs/nginx_entity_group.xml)
+* Select imported nginx-servers group
 * Verify that the group contains your NGINX servers
 
 ## Portal
@@ -111,6 +111,7 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 * Click Assign link and associate the portal with the entity group you created earlier
 * Open Entity tabs, find the NGINX servers you would like to see information about, and click on its portal icon
 ![](./images/nginx-portal-selection.png)
+[Basic NGINX Status portal example](http://apps.axibase.com/chartlab/2434fdec)
 ![Basic NGINX Status portal](./images/nginx-portal-basic.png)
 [Basic NGINX Status portal example](http://apps.axibase.com/chartlab/2434fdec)
 
