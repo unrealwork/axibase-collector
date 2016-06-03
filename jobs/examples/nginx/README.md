@@ -107,13 +107,12 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 * Verify that the group contains your NGINX servers
 
 ## Portal
-* Open Configuration: Portals click Import button and upload [nginx_portal.xml](./configs/nginx_portal.xml).
-* Click Assign link and associate the portal with the entity group you created earlier
-* Open Entity tabs, find the NGINX servers you would like to see information about, and click on its portal icon
+* Open **Configuration: Portals** click Import button and upload [nginx_portal.xml](./configs/nginx_portal.xml).
+* Click **Assign** link and associate the portal with the entity group you created earlier
+* Open *Entity* tabs, find the NGINX servers you would like to see information about, and click on its portal icon
 ![](./images/nginx-portal-selection.png)
 [Basic NGINX Status portal example](http://apps.axibase.com/chartlab/2434fdec)
 ![Basic NGINX Status portal](./images/nginx-portal-basic.png)
-[Basic NGINX Status portal example](http://apps.axibase.com/chartlab/2434fdec)
 
 ## Notifications
 
