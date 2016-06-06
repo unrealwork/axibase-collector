@@ -128,4 +128,4 @@ scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/error
 
 The image below shows an example of the File Forwarding configuration. 
 
-![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2016/04/file_job.png)
+![File Forwarding Configuration](file_job_configuration.png)
