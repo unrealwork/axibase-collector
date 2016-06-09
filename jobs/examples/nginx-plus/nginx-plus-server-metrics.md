@@ -1,0 +1,53 @@
+# NGINX Plus Server Metrics
+
+## Available Metrics
+
+* 1xx
+* 2xx
+* 3xx
+* 4xx
+* 5xx
+* accepted
+* active
+* backup
+* bytes
+* bytes_written
+* checks
+* cold
+* connections
+* connect_time
+* current
+* discarded
+* downstart
+* downtime
+* dropped
+* fails
+* first_byte_time
+* generation
+* handshakes
+* handshakes_failed
+* id
+* idle
+* keepalive
+* last_passed
+* load_timestamp
+* max_conns
+* max_size
+* pid
+* processing
+* received
+* requests
+* respawned
+* responses
+* responses_written
+* response_time
+* selected
+* sent
+* session_reuses
+* size
+* timestamp
+* total
+* unavail
+* unhealthy
+* version
+* weight
