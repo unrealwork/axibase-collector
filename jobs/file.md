@@ -9,7 +9,9 @@ Use the job to retrieve data stored in CSV or JSON formats.<br> To learn about f
 ### File Job Configuration
 Use the table below to perform File job configuration.
 
-| **Field**	          | **Description** |
+#### Download
+
+| **Field**	     | **Description** |
 |:---------------|:------------|
 | Protocol | Protocol used to get files. May be one of: FILE, FTP, SFTP, SCP, HTTP, or predefined HTTP Pool.
 | HTTP Pool | Name of one of the configured HTTP pools that you want to use. |
@@ -19,13 +21,29 @@ Use the table below to perform File job configuration.
 | Driver File Encoding | Encoding of the file that is requested with the script.  |
 | Driver Script | Selenium script.  |
 | Driver Timeout, seconds |  Script timeout in seconds. |
+
+#### Validate
+
+| **Field**	     | **Description** |
+|:---------------|:------------|
 | File Format | Downloaded file format: CSV, JSON, or XML. |
 | Minimum Line Count | Minimum amount of lines in the target file. If the target file contains fewer lines than indicated, data will not be sent into ATSD. |
 | First Line | Characters or text in the first line. It is used to identify the first line of the target file. First Line field support ${TIME} placeholders, for example: `# Effective Data ${TIME("previous_day", "dd.MM.yyyy")}`. If text or characters are not found in the first line, the data will not be sent to ATSD. |
 | Validate Format | Validates the format of the JSON file. |
+
+
+#### Convert
+
+| **Field**	     | **Description** |
+|:---------------|:------------|
 | Root Objects | Specify expressions in the JsonPath format to define a root element. Property/Series will be formed basing on elements from these expressions. |
 | Included Fields | List of JSON fields that are converted into CSV format and sent to ATSD. All other fields except Included will be ignored. The list can include both numeric and string fields, in which case string columns should be processed as series tags or property keys/tags by the server using CSV parser configuration. |
 | Excluded Fields | List of JSON fields that are excluded from CSV converter. Excluded Fields are ignored if Included Fields are specified. Only numeric fields will be sent to ATSD after Excluded Fields filter is applied to JSON object. |
+
+#### Upload
+
+| **Field**	     | **Description** |
+|:---------------|:------------|
 | Parser Name | Configuration name. For more information, see [Parser Configuration Guide](https://axibase.com/products/axibase-time-series-database/writing-data/csv/#parser "Parser Configuration"). |
 | Auto Detect Encoding | If enabled, Collector will try to guess file encoding based on its contents |
 | Encoding | Character encoding of target files. |
@@ -35,6 +53,11 @@ Use the table below to perform File job configuration.
 | Wait for Upload | Wait for ATSD server to finish processing of the uploaded file. |
 | Process in Rule Engine | Process incoming data in [ATSD Rule Engine](https://axibase.com/products/axibase-time-series-database/rule-engine/ "Rule Engine"). | 
 | Ignore Unchanged File | Do not copy files if they have not changed since the last upload. |
+
+#### Process
+
+| **Field**	     | **Description** |
+|:---------------|:------------|
 | Delete File on Upload | Source files will be deleted if ATSD returns 200 code (OK). This setting only applies to configurations where the Path points to files on the local file system (Path starts with `file://`).|
 | Copy Files | Flag to determine if source files should be put into given directory after successful upload to ATSD |
 | Success Directory | If a file is uploaded successfully (uploaded into ATSD and Parsed successfully), it will be copied to this directory. <br>If the Success Directory is specified but does not exist, it will be created. <br> If Copy Files is enabled and Success Directory field is empty, the following path will be used: `$AXIBASE_COLLECTOR_HOME/files/$JOB_ID/$TASK_ID/success`.<br> Success Directory field supports `${TIME}` placeholders like: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. <br>To distinguish between files with identical names a time prefix will be added, for example: `20151130_121212_345_{original_file_name}.csv` <br>Success Directory is an independent setting from Delete on Upload. |
@@ -128,3 +151,7 @@ scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/error
 The image below shows an example of the File Forwarding configuration. 
 
 ![File Forwarding Configuration](file_job_configuration.png)
+
+
+
+
