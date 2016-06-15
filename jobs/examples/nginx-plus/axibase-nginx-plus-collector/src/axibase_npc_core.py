@@ -18,7 +18,7 @@ class Collector():
         for address in self.config.get_addresses():
             try:
                 self.config.get_logger().log("Processing" + str(address))
-                fetched_data = urllib2.urlopen(address)
+                fetched_data = urllib2.urlopen(str(address) + "/status")
                 self.config.get_logger().log("All data loaded.")
                 nginx_stats = json.load(fetched_data)
                 self.config.get_logger().log("The following json was obtained: " + str(nginx_stats))
