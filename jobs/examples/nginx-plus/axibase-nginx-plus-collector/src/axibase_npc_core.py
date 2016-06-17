@@ -18,7 +18,7 @@ class Collector():
         for address in self.config.get_addresses():
             try:
                 self.config.get_logger().log("Processing" + str(address))
-                fetched_data = urllib2.urlopen(str(address) + "/status")
+                fetched_data = urllib2.urlopen(address)
                 self.config.get_logger().log("All data loaded.")
                 nginx_stats = json.load(fetched_data)
                 self.config.get_logger().log("The following json was obtained: " + str(nginx_stats))
@@ -36,7 +36,7 @@ class Collector():
 ############################################################################################################
 class Configuration:
     ''' Program configuration '''
-    def __init__(self, addresses=["http://demo.nginx.com/status"], metric_prefix="ngp.", atsd_url="tcp://localhost:8081", quiet=False):
+    def __init__(self, addresses=["http://demo.nginx.com/status"], metric_prefix="nginx-plus.", atsd_url="tcp://localhost:8081", quiet=False):
         '''
         Args:
             addresses (list)       : Item list of all NGINX-plus servers to collect data from.
@@ -310,7 +310,7 @@ class _NginxJsonProcessor:
         
     def _is_metric(self, value):
         try: 
-            int(value)
+            float(value)
             return True
         except:
             return False
@@ -369,7 +369,7 @@ class _CommandSeries(_Command):
         self.atsd_format_inconsistent = True
         
     def add_metric(self, metric_name, metric):
-        self.metrics[metric_name] = metric
+        self.metrics[metric_name] = float(metric)
         self.atsd_format_inconsistent = True
     
     def validate(self):
