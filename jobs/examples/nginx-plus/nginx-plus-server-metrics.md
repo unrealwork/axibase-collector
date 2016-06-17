@@ -61,7 +61,7 @@
 * nginx-plus.stream.server_zone.processing
 * nginx-plus.stream.server_zone.sent
 
-### Stream.upstream.peer metrics
+### Stream.upstream's peer metrics
 * nginx-plus.received
 * nginx-plus.fails
 * nginx-plus.selected
