@@ -127,7 +127,7 @@ class _NginxJsonProcessor:
         nginx_properties_command = _CommandProperty(entity, self.config.get_nginx_pc_type(), self.config.get_metric_prefix())
         nginx_series_command = _CommandSeries(entity, self.config.get_metric_prefix())
         self._process_properties(entity, json_object, self.config.get_nginx_keys(), self.config.get_nginx_props(), nginx_properties_command)
-        self._process_unknown_block_recursively(entity, json_object, [], nginx_series_command, self.config.get_nginx_keys() + self.config.get_nginx_props() + self.config.get_nginx_specials())
+        self._process_unknown_block_recursively(entity, json_object, [], nginx_series_command, self.config.get_nginx_keys() + self.config.get_nginx_props() + self.config.get_nginx_specials() + ["timestamp"])
         for special in self.config.get_nginx_specials():
             self._process_special_block_by_name(special, entity, json_object[special], commands)
         commands.append(nginx_properties_command)
