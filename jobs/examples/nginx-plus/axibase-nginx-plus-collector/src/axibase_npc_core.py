@@ -269,21 +269,22 @@ class _NginxJsonProcessor:
         self.config.get_logger().log("---------Processing STREAM.UPSTREAMS")
         upstreams_block = stream_block["upstreams"]
         for upstream, upstream_description in upstreams_block.items():
-            self.config.get_logger().log("------Processing stream.upstream " + str(upstream))
+            self.config.get_logger().log("------Processing STREAM.UPSTREAM " + str(upstream))
             upstream_command = _CommandSeries(entity, self.config.get_metric_prefix())
             upstream_command.add_tag("type", "stream.upstream")
             upstream_command.add_tag("name", upstream)
             for peer in upstream_description["peers"]:
-                    peer_property_command = _CommandProperty(entity, self.config.get_stream_ups_peer_pc_type(), self.config.get_metric_prefix())
-                    peer_property_command.add_property("type", "stream.upstream.peer")
-                    peer_property_command.add_property("stream.upstream", upstream)
-                    self._process_properties(entity, peer, self.config.get_stream_ups_peer_keys(), self.config.get_stream_ups_peer_props(), peer_property_command)
-                    peer_series_command = _CommandSeries(entity, self.config.get_metric_prefix())
-                    peer_series_command.add_tag("type", "stream.upstream.peer" )
-                    peer_series_command.add_tag("stream.upstream", upstream)
-                    self._process_unknown_block_recursively(entity, peer, [], peer_series_command, ignored_keys=self.config.get_stream_ups_peer_keys()+self.config.get_stream_ups_peer_props())
-                    commands.append(peer_property_command)
-                    commands.append(peer_series_command)
+                self.config.get_logger().log("---Processing STREAM.UPSTREAM.PEER " + str(peer["server"]))
+                peer_property_command = _CommandProperty(entity, self.config.get_stream_ups_peer_pc_type(), self.config.get_metric_prefix())
+                peer_property_command.add_property("type", "stream.upstream.peer")
+                peer_property_command.add_property("stream.upstream", upstream)
+                self._process_properties(entity, peer, self.config.get_stream_ups_peer_keys(), self.config.get_stream_ups_peer_props(), peer_property_command)
+                peer_series_command = _CommandSeries(entity, self.config.get_metric_prefix())
+                peer_series_command.add_tag("type", "stream.upstream.peer" )
+                peer_series_command.add_tag("stream.upstream", upstream)
+                self._process_unknown_block_recursively(entity, peer, [], peer_series_command, ignored_keys=self.config.get_stream_ups_peer_keys()+self.config.get_stream_ups_peer_props())
+                commands.append(peer_property_command)
+                commands.append(peer_series_command)
         self.config.get_logger().log("---------Processing STREAM.SERVER_ZONES finished")
     ###
     def _process_properties(self, entity, json_object, key_names, properties_names, built_command):
