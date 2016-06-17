@@ -5,8 +5,6 @@
 # for more information.
 #===============================================================================
 from axibase_npc_core import Collector, Configuration, CollectorArgParser
-parser = CollectorArgParser()
-options, args = parser.parse_arguments()
+options, args = CollectorArgParser().parse_arguments()
 user_config = Configuration(addresses=options.items, atsd_url=options.atsd_url, quiet=options.quiet)
-collector = Collector(user_config)
-collector.collect()
+Collector(user_config).collect()

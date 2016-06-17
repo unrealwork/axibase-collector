@@ -18,7 +18,7 @@ class Collector():
         for address in self.config.get_addresses():
             try:
                 self.config.get_logger().log("Processing" + str(address))
-                fetched_data = urllib2.urlopen(address)
+                fetched_data = urllib2.urlopen(str(address) + "/status")
                 self.config.get_logger().log("All data loaded.")
                 nginx_stats = json.load(fetched_data)
                 self.config.get_logger().log("The following json was obtained: " + str(nginx_stats))
@@ -36,7 +36,7 @@ class Collector():
 ############################################################################################################
 class Configuration:
     ''' Program configuration '''
-    def __init__(self, addresses=["http://demo.nginx.com/status"], metric_prefix="nginx-plus.", atsd_url="tcp://localhost:8081", quiet=False):
+    def __init__(self, addresses=["http://demo.nginx.com"], metric_prefix="nginx-plus.", atsd_url="tcp://localhost:8081", quiet=False):
         '''
         Args:
             addresses (list)       : Item list of all NGINX-plus servers to collect data from.
@@ -98,12 +98,13 @@ class Configuration:
     def get_cache_pc_type(self):
         return self.cache_pc_type
 
+############################################################################################################    
 class CollectorArgParser():
     def __init__(self):
         self.parser =  optparse.OptionParser()
         self.parser.add_option("-a", "--atsd-url", default="tcp://localhost:8081", help="URL of ATSD (default: %default)")
         self.parser.add_option('-q', '--quiet', dest="quiet", default=False, action="store_true")
-        self.parser.add_option("-i", "--items", nargs='+', default=["http://demo.nginx.com/status"], help="List of items (default: %default)")
+        self.parser.add_option("-i", "--items", nargs='+', default=["http://demo.nginx.com"], help="List of items (default: %default)")
         
     def parse_arguments(self):
         return self.parser.parse_args()
