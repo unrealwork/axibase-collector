@@ -137,7 +137,7 @@ class _NginxJsonProcessor:
         return commands
     
     def _process_special_block_by_name(self, name, entity, block, commands):
-        getattr(self, "_process_"+name+"_block")(entity, block, commands)
+        getattr(self, "_process_" + name + "_block")(entity, block, commands)
         
     def _process_server_zones_block(self, entity, server_zones_block, commands):
         '''
