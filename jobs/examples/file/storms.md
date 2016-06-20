@@ -15,10 +15,12 @@ BEGIN_YEARMONTH,BEGIN_DAY,BEGIN_TIME,END_YEARMONTH,END_DAY,END_TIME,EPISODE_ID,E
 
 ## Configuration
 
-We should choose FTP Type. Path contains of credentials, server, and path on the server. Login `anonymous` with any password will allow to connect without credentials. The needed data are kept in the directory ftp.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/. We may use symbol `?` to fetch any symbol. Full Path can be: anonymous:a@ftp.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/StormEvents_details-ftp_v1.0_d198?_*.csv.gz.
+We should choose FTP Type. Path contains of credentials, server, and path on the server. Login `anonymous` with any password will allow to connect without credentials. The needed data are kept in the directory `ftp.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/`. We may use symbol `?` to fetch any symbol. Full Path can be: anonymous:a@ftp.ncdc.noaa.gov/pub/data/swdi/stormevents/csvfiles/StormEvents_details-ftp_v1.0_d198?_*.csv.gz.
 We check Ignore Unchanged Files, so we won't upload historical data that are already in ATSD.
 You may import [this parser configuration](./configs/storms_parser.xml) in ATSD to get things working.
+
 ![](./images/storms_config.png)
+
 You may import [job configuration](./configs/storms.xml) for this example.
 
 ## Additional Examples
