@@ -1,0 +1,33 @@
+<list>
+  <com.axibase.collector.model.job.file.FileJobConfig>
+    <name>DuckDuckGo direct</name>
+    <cronExpression>R R 0/3 * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>FILE</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <name>DuckDuckGo direct</name>
+        <path>https://duckduckgo.com/traffic_data/direct.csv</path>
+        <encoding></encoding>
+        <detectEncoding>true</detectEncoding>
+        <parserType>CSV</parserType>
+        <wait>true</wait>
+        <rules>false</rules>
+        <useTime>false</useTime>
+        <ignoreDuplicates>true</ignoreDuplicates>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <validateFormat>false</validateFormat>
+        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+        <protocol>HTTP</protocol>
+        <copyFiles>false</copyFiles>
+        <included/>
+        <excluded/>
+        <enableWebDriver>false</enableWebDriver>
+      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.file.FileJobConfig>
+</list>

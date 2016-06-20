@@ -13,7 +13,7 @@ Use the table below to perform File job configuration.
 
 | **Field**	     | **Description** |
 |:---------------|:------------|
-| Protocol | Protocol used to get files. May be one of: FILE, FTP, SFTP, SCP, HTTP, or predefined HTTP Pool.
+| Protocol | Protocol used to get files. May be one of: FILE, FTP, SFTP, SCP, HTTP, or predefined HTTP Pool. |
 | HTTP Pool | Name of one of the configured HTTP pools that you want to use. |
 | Path | Path to CSV or JSON target files located on remote or local file system from which they will be read. <br> Path to files on remote systems can be set using relative path if HTTP Pool is selected as Protocol, or full URL in case HTTP Protocol is chosen. <br>Path may represent a location that can be accessed via FTP, SFTP or SCP and be set using URI containing credentials, hostname, and absolute path to files on the remote host. Protocol FTP, SFTP or SCP should be chosen respectfully. <br>Path to files on the local filesystem should contain the absolute path, FILE protocol should be chosen. <br> File path can include `${TIME}` placeholders: `file:///opt/app/data-${TIME("previous_day", "yyyy-MM-dd")}.csv` <br> File path supports collections (multiple files): `file:///opt/app/data-${ITEM}.csv` <br> File path can match multiple files, all of which would need to be uploaded. <br> The wildcard characters `?` and `*` can be used to represent a single or multiple wildcard characters. <br>See examples below this table. |
 | Item List | Name of the collection you want to use.  |
@@ -152,6 +152,8 @@ The image below shows an example of the File Forwarding configuration.
 
 ![File Forwarding Configuration](file_job_configuration.png)
 
+## Additional Examples
 
-
-
+* [Duckduckgo statistics](./examples/file/duckduckgo.md)
+* [Nginx statistics](./examples/file/nginx-statistics.md)
+* [Storms statistics](./examples/file/storms.md)
