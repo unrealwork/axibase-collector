@@ -17,11 +17,10 @@ class Collector():
         self.config.get_logger().log("Starting collection...")
         for address in self.config.get_addresses():
             try:
-                self.config.get_logger().log("Processing" + str(address))
+                self.config.get_logger().log("Processing " + str(address))
                 fetched_data = urllib2.urlopen(str(address) + "/status")
                 self.config.get_logger().log("All data loaded.")
                 nginx_stats = json.load(fetched_data)
-                self.config.get_logger().log("The following json was obtained: " + str(nginx_stats))
                 jsoner = _NginxJsonProcessor(self.config)
                 self.config.get_logger().log("Traversing obtained json ... \n")
                 commands = jsoner.process_nginx_stats(entity=address, json_object=nginx_stats)
@@ -58,10 +57,10 @@ class Configuration:
         self.upstream_peer_properties = ["backup", "weight", "id", "state"]
         self.stream_ups_peer_keys = ["server"]
         self.stream_ups_peer_properties = ["backup", "weight", "id"]
-        self.upstream_peer_pc_type = "upstream_peer_info"
+        self.upstream_peer_pc_type = "upstream.peer"
         self.nginx_pc_type = "nginx_info"
-        self.cache_pc_type = "cache_info"
-        self.stream_ups_peer_pc_type = "stream_upstream_peer_info"
+        self.cache_pc_type = "cache"
+        self.stream_ups_peer_pc_type = "stream.upstream.peer"
             
     def get_internal_separator(self):
         return ".";
@@ -124,14 +123,17 @@ class _NginxJsonProcessor:
                 keys:            address
         '''
         commands = []
-        nginx_properties_command = _CommandProperty(entity, self.config.get_nginx_pc_type(), self.config.get_metric_prefix())
-        nginx_series_command = _CommandSeries(entity, self.config.get_metric_prefix())
-        self._process_properties(entity, json_object, self.config.get_nginx_keys(), self.config.get_nginx_props(), nginx_properties_command)
-        self._process_unknown_block_recursively(entity, json_object, [], nginx_series_command, self.config.get_nginx_keys() + self.config.get_nginx_props() + self.config.get_nginx_specials() + ["timestamp"])
+        nginx_property = _CommandProperty(entity, self.config.get_nginx_pc_type(), self.config.get_metric_prefix())
+        nginx_series = _CommandSeries(entity, self.config.get_metric_prefix())
+        self._process_properties(entity, json_object, self.config.get_nginx_keys(), self.config.get_nginx_props(), nginx_property)
+        self._process_unknown_block_recursively(entity, json_object, [], nginx_series, self.config.get_nginx_keys() + self.config.get_nginx_props() + self.config.get_nginx_specials() + ["timestamp"])
+        commands.append(nginx_property)
+        commands.append(nginx_series)
         for special in self.config.get_nginx_specials():
             self._process_special_block_by_name(special, entity, json_object[special], commands)
-        commands.append(nginx_properties_command)
-        commands.append(nginx_series_command)
+        for command in commands:
+            if isinstance(command, _CommandSeries):
+                command.set_timestamp(json_object["timestamp"]) 
         return commands
     
     def _process_special_block_by_name(self, name, entity, block, commands):
@@ -151,11 +153,11 @@ class _NginxJsonProcessor:
             return
         for server_zone, server_zone_desc in server_zones_block.items():
             self.config.get_logger().log("------Processing SERVER ZONE " + str(server_zone))
-            server_zone_series_command = _CommandSeries(entity, self.config.get_metric_prefix())
-            server_zone_series_command.add_tag("type", "server_zone")
-            server_zone_series_command.add_tag("name", server_zone)
-            self._process_unknown_block_recursively(entity=entity, block=server_zone_desc, path_stack=[], built_command=server_zone_series_command)
-            commands.append(server_zone_series_command)
+            server_zone_series = _CommandSeries(entity, self.config.get_metric_prefix())
+            server_zone_series.add_tag("type", "server_zone")
+            server_zone_series.add_tag("name", server_zone)
+            self._process_unknown_block_recursively(entity=entity, block=server_zone_desc, path_stack=[], built_command=server_zone_series)
+            commands.append(server_zone_series)
         self.config.get_logger().log("---------Processing SERVER ZONES finished")
     
     def _process_upstreams_block(self, entity, upstreams_block, commands):
@@ -181,22 +183,21 @@ class _NginxJsonProcessor:
             return
         for upstream, upstream_description in upstreams_block.items():
             self.config.get_logger().log("------Processing UPSTREAM " + str(upstream))
-            upstream_command = _CommandSeries(entity, self.config.get_metric_prefix())
-            upstream_command.add_tag("type", "upstream")
-            upstream_command.add_tag("name", upstream)
-            upstream_command.add_metric("keepalive", upstream_description["keepalive"])
-            commands.append(upstream_command)
+            upstream_series = _CommandSeries(entity, self.config.get_metric_prefix())
+            upstream_series.add_tag("type", "upstream")
+            upstream_series.add_tag("name", upstream)
+            upstream_series.add_metric("keepalive", upstream_description["keepalive"])
+            commands.append(upstream_series)
             for peer in upstream_description["peers"]:
                 self.config.get_logger().log("---Processing UPSTREAM.PEER " + str(peer["server"]))
-                peer_property_command = _CommandProperty(entity, self.config.get_upstream_peer_pc_type(), self.config.get_metric_prefix())
-                peer_property_command.add_property("type", "upstream.peer")
-                peer_property_command.add_property("upstream", upstream)
-                self._process_properties(entity, peer, self.config.get_upstream_peer_keys(), self.config.get_upstream_peer_props(), peer_property_command)
+                peer_property = _CommandProperty(entity, self.config.get_upstream_peer_pc_type(), self.config.get_metric_prefix())
+                peer_property.add_property("upstream", upstream)
+                self._process_properties(entity, peer, self.config.get_upstream_peer_keys(), self.config.get_upstream_peer_props(), peer_property)
                 peer_series_command = _CommandSeries(entity, self.config.get_metric_prefix())
                 peer_series_command.add_tag("type", "upstream.peer" )
                 peer_series_command.add_tag("upstream", upstream)
                 self._process_unknown_block_recursively(entity=entity, block=peer, path_stack=[], built_command=peer_series_command, ignored_keys=self.config.get_upstream_peer_keys()+self.config.get_upstream_peer_props())
-                commands.append(peer_property_command)
+                commands.append(peer_property)
                 commands.append(peer_series_command)
         self.config.get_logger().log("---------Processing UPSTREAMS finished")
                 
@@ -216,25 +217,24 @@ class _NginxJsonProcessor:
             self.config.get_logger().log("---------No block detected")
             return
         for cache, cache_description in caches_block.items():
-            cache_property_command = _CommandProperty(entity, self.config.get_cache_pc_type(), self.config.get_metric_prefix())
-            cache_property_command.add_property("type", "cache")
-            cache_property_command.add_property("name", cache)
+            cache_property = _CommandProperty(entity, self.config.get_cache_pc_type(), self.config.get_metric_prefix())
+            cache_property.add_property("name", cache)
             self.config.get_logger().log("---Processing CACHE " + str(cache))
             for cache_key, cache_value in cache_description.items():
                 if isinstance(cache_value, dict):
-                    cache_series_command = _CommandSeries(entity, self.config.get_metric_prefix())
-                    cache_series_command.add_tag("type", "cache")
-                    cache_series_command.add_tag("name", cache)
-                    cache_series_command.add_tag("cache_status", cache_key)
-                    cache_series_command.add_metric("responses", cache_value["responses"])
-                    cache_series_command.add_metric("bytes", cache_value["bytes"])
+                    cache_series = _CommandSeries(entity, self.config.get_metric_prefix())
+                    cache_series.add_tag("type", "cache")
+                    cache_series.add_tag("name", cache)
+                    cache_series.add_tag("cache_status", cache_key)
+                    cache_series.add_metric("responses", cache_value["responses"])
+                    cache_series.add_metric("bytes", cache_value["bytes"])
                     if "responses_written" in cache_value and "bytes_written" in cache_value:
-                        cache_series_command.add_metric("responses_written", cache_value["responses_written"])
-                        cache_series_command.add_metric("bytes_written", cache_value["bytes_written"])
-                    commands.append(cache_series_command)
+                        cache_series.add_metric("responses_written", cache_value["responses_written"])
+                        cache_series.add_metric("bytes_written", cache_value["bytes_written"])
+                    commands.append(cache_series)
                 else:
-                    cache_property_command.add_property(cache_key, cache_value)
-            commands.append(cache_property_command)
+                    cache_property.add_property(cache_key, cache_value)
+            commands.append(cache_property)
         self.config.get_logger().log("---------Processing CACHES finished")
     
     def _process_stream_block(self, entity, stream_block, commands):
@@ -261,30 +261,29 @@ class _NginxJsonProcessor:
         server_zones_block = stream_block["server_zones"]
         for server_zone, server_zone_desc in server_zones_block.items():
             self.config.get_logger().log("------Processing SERVER_ZONE " + str(server_zone))
-            server_zone_command = _CommandSeries(entity, self.config.get_metric_prefix())
-            server_zone_command.add_tag("type", "stream.server_zone")
-            server_zone_command.add_tag("name", server_zone)
-            self._process_unknown_block_recursively(entity, server_zone_desc, ["stream","server_zone"], server_zone_command)
-            commands.append(server_zone_command)
+            server_zone_series = _CommandSeries(entity, self.config.get_metric_prefix())
+            server_zone_series.add_tag("type", "stream.server_zone")
+            server_zone_series.add_tag("name", server_zone)
+            self._process_unknown_block_recursively(entity, server_zone_desc, ["stream","server_zone"], server_zone_series)
+            commands.append(server_zone_series)
         self.config.get_logger().log("---------Processing STREAM.UPSTREAMS")
         upstreams_block = stream_block["upstreams"]
         for upstream, upstream_description in upstreams_block.items():
             self.config.get_logger().log("------Processing STREAM.UPSTREAM " + str(upstream))
-            upstream_command = _CommandSeries(entity, self.config.get_metric_prefix())
-            upstream_command.add_tag("type", "stream.upstream")
-            upstream_command.add_tag("name", upstream)
+            upstream_series = _CommandSeries(entity, self.config.get_metric_prefix())
+            upstream_series.add_tag("type", "stream.upstream")
+            upstream_series.add_tag("name", upstream)
             for peer in upstream_description["peers"]:
                 self.config.get_logger().log("---Processing STREAM.UPSTREAM.PEER " + str(peer["server"]))
-                peer_property_command = _CommandProperty(entity, self.config.get_stream_ups_peer_pc_type(), self.config.get_metric_prefix())
-                peer_property_command.add_property("type", "stream.upstream.peer")
-                peer_property_command.add_property("stream.upstream", upstream)
-                self._process_properties(entity, peer, self.config.get_stream_ups_peer_keys(), self.config.get_stream_ups_peer_props(), peer_property_command)
-                peer_series_command = _CommandSeries(entity, self.config.get_metric_prefix())
-                peer_series_command.add_tag("type", "stream.upstream.peer" )
-                peer_series_command.add_tag("stream.upstream", upstream)
-                self._process_unknown_block_recursively(entity, peer, [], peer_series_command, ignored_keys=self.config.get_stream_ups_peer_keys()+self.config.get_stream_ups_peer_props())
-                commands.append(peer_property_command)
-                commands.append(peer_series_command)
+                peer_property = _CommandProperty(entity, self.config.get_stream_ups_peer_pc_type(), self.config.get_metric_prefix())
+                peer_property.add_property("stream.upstream", upstream)
+                self._process_properties(entity, peer, self.config.get_stream_ups_peer_keys(), self.config.get_stream_ups_peer_props(), peer_property)
+                peer_series = _CommandSeries(entity, self.config.get_metric_prefix())
+                peer_series.add_tag("type", "stream.upstream.peer" )
+                peer_series.add_tag("stream.upstream", upstream)
+                self._process_unknown_block_recursively(entity, peer, [], peer_series, ignored_keys=self.config.get_stream_ups_peer_keys()+self.config.get_stream_ups_peer_props())
+                commands.append(peer_property)
+                commands.append(peer_series)
         self.config.get_logger().log("---------Processing STREAM.SERVER_ZONES finished")
     ###
     def _process_properties(self, entity, json_object, key_names, properties_names, built_command):
@@ -357,7 +356,7 @@ class _CommandSeries(_Command):
         _Command.__init__(self, entity, prefix)
         self.metrics = dict()
         self.tags = dict()
-        self.date = ""
+        self.timestamp = ""
         self.atsd_format_inconsistent = False
         
     def get_tags(self):
@@ -369,9 +368,13 @@ class _CommandSeries(_Command):
     def add_tag(self, tag_name, tag):
         self.tags[tag_name] = tag
         self.atsd_format_inconsistent = True
-        
+            
     def add_metric(self, metric_name, metric):
         self.metrics[metric_name] = float(metric)
+        self.atsd_format_inconsistent = True
+        
+    def set_timestamp(self, timestamp):
+        self.timestamp = timestamp
         self.atsd_format_inconsistent = True
     
     def validate(self):
@@ -387,8 +390,8 @@ class _CommandSeries(_Command):
             atsd_format += "t:" + str(tag_name) + "=" + str(tag) + " "
         for metric_name, metric in self.metrics.iteritems():
             atsd_format += "m:" + str(self.prefix) + str(metric_name) + "=" + str(metric) + " "
-        if self.date:
-            atsd_format += "d:" + self.date
+        if self.timestamp:
+            atsd_format += "ms:" + str(self.timestamp)
         return atsd_format
 
 class _CommandProperty(_Command):
@@ -454,4 +457,3 @@ class _ATSDManager():
         sock.send(command_batch)
         sock.close()
         self.config.get_logger().log("Sent.")
-        
