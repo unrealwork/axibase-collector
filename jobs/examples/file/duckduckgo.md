@@ -17,6 +17,7 @@ Date,Queries 2010-04-01,33209 2010-04-02,35873 2010-04-03,34230
 We should choose HTTP Type, specify location of needed file in Path field, choose CSV File Format and provide the name of predefined CSV Parser in ATSD.
 You may import [this parser configuration](./configs/duckduckgo_parser.xml)  in ATSD to get things working. 
 ![](./images/duckduckgo_config.png)
+
 You may import [job configuration](./configs/duckduckgo.xml) for this example.
 
 ## Additional Examples
