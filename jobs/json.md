@@ -30,7 +30,7 @@ Name  | Configuration name.
 | Entity Prefix  | Specify entity prefix for Series/Property commands. |
 | JSON Path      | Specify expression in the JsonPath format to define a root element. Property/Series will be formed basing on elements from this expression. |
 | Depth | Depth of element nesting. |
-| Custom Tags    | Specify custom tags that should be included into Series/Property commands ([example](.#custom-tags)). You can also use keys ${PARENT} (synonym for ${PARENT(1)}), ${PARENT(n)}, ${field_name}. <br> Keys ${PARENT}, ${PARENT(n)} are also supported by the fields Default Entity, Time Value. |
+| Custom Tags    | Specify custom tags that should be included into Series/Property commands ([example](#custom-tags)). You can also use keys ${PARENT} (synonym for ${PARENT(1)}), ${PARENT(n)}, ${field_name}. <br> Keys ${PARENT}, ${PARENT(n)} are also supported by the fields Default Entity, Time Value. |
 
 #### Metric Fields
 
@@ -110,6 +110,7 @@ JSON:
   ```
   
 - Default Entity contains placeholder:
+
   Field Name         | Field Value
   :----------------- | :----------
   Path               | http://test.ru
