@@ -8,7 +8,6 @@ This document describes the process of configuring ActiveMQ for availability and
 
 * [ActiveMQ version 5.x.+](http://activemq.apache.org)
 
-
 ## Installation steps
 
 ### Configure ActiveMQ Server
@@ -17,7 +16,7 @@ This document describes the process of configuring ActiveMQ for availability and
 
 * Login into ActiveMQ server via SSH.
 * Change to ActiveMQ installation directory.
-* 
+
 ```sh
 cd /opt/apache-activemq-5.13.1
 ```
@@ -43,10 +42,10 @@ EOF
 See [Aggregation Log Filter](https://github.com/axibase/aggregation-log-filter) for additional configuration options.
 
 * Modify JMX settings in ActiveMQ JVM launch options.
-Search for ACTIVEMQ_SUNJMX_START setting and change it as specified below.
-Replace activemq_hostname with full hostname or IP address of the ActiveMQ server.
-This should be the same hostname that Axibase Collector will be using when connecting to ActiveMQ server.
-For more information on configuring JMX in ActiveMQ, see [activemq.apache.org/jmx.html](http://activemq.apache.org/jmx.html)
+  * Search for `ACTIVEMQ_SUNJMX_START` setting and change it as specified below.
+  * Replace `activemq_hostname` with full hostname or IP address of the ActiveMQ server.
+  * This should be the same hostname that Axibase Collector will be using when connecting to ActiveMQ server.
+  * For more information on configuring JMX in ActiveMQ, see [activemq.apache.org/jmx.html](http://activemq.apache.org/jmx.html)
 
 ActiveMQ 5.11.x and later:
 
@@ -98,13 +97,13 @@ monitorRole abc123
 ```
 
 * Secure access to jmx.password file by restricting permissions: 
-* 
+ 
 ```sh
 chmod 600 ./conf/jmx.password
 ```
 
 * Restart ActiveMQ server.
-* 
+
 ```sh
 ./bin/activemq stop
 ./bin/activemq start
@@ -116,7 +115,8 @@ chmod 600 ./conf/jmx.password
 1. Click Jobs tab in the top menu.
 1. Locate jmx-activemq job.
 1. On the JMX Job page, enable its status by checking on Enabled check box.
-1. Adjust cron expression if required. By default, the job will be executed every 10 seconds. For more information on cron expressions, see [Scheduling](http://axibase.com/products/axibase-time-series-database/writing-data/collector/set_schedule/).
+1. Adjust cron expression if required. By default, the job will be executed every 10 seconds. 
+  - For more information on cron expressions, see [Scheduling](http://axibase.com/products/axibase-time-series-database/writing-data/collector/set_schedule/).
 ![JMX_JOB](https://axibase.com/wp-content/uploads/2016/03/jmx_job_to_configuration.png)
 
 ##### Configuring activemq-series
@@ -124,11 +124,11 @@ chmod 600 ./conf/jmx.password
 1. Select activemq-series configuration.
 1. On the JMX Configuration page, enter JMX connection parameters as specified in Step 1.6 above:
 
-   **Host** — ActiveMQ hostname. Must be the same as activemq_hostname.
-   **Port** — JMX port.
-   **User Name** — JMX user name such as monitorRole. Read-only permissions are sufficient.
-   **Password** — Password for JMX user.
-   **Entity** — Optionally, specify output of the hostname command on the ActiveMQ server if it’s different from activemq_hostname, for example if activemq_hostname represents a fully qualified name.
+  - **Host** — ActiveMQ hostname. Must be the same as activemq_hostname.
+  - **Port** — JMX port.
+  - **User Name** — JMX user name such as monitorRole. Read-only permissions are sufficient.
+  - **Password** — Password for JMX user.
+  - **Entity** — Optionally, specify output of the hostname command on the ActiveMQ server if it's different from activemq_hostname, for example if activemq_hostname represents a fully qualified name.
 Other parameters are optional. For more information on JMX configuration, see JMX. 
 
 1. Click Test to validate the configuration.
@@ -200,11 +200,11 @@ Imported rules:
 
 | **Rule** |  **Description** |
 | :--- | :--- |
-| *activemq_broker_configuration_change* | Raise an alert when an configuration change |
-| *activemq_connection_count* | Raise an alert when an connection count exceeds the set threshold |
-| *activemq_enqueue_stopped* |  Raise an alert when queue size doesn't change for some time |
-| *activemq_health_status* |   Raise an alert when an Activemq health status different from working state |
-| *activemq_unauthorized_connection* | Raise an alert when an unauthorized connection are discovered |
+| *activemq_broker_configuration_change* | Send a notification on configuration change. |
+| *activemq_connection_count* | Raise an alert when connection count exceeds the specified threshold. |
+| *activemq_enqueue_stopped* |  Raise an alert when enqueueing stops (no new messages are received). |
+| *activemq_health_status* |   Raise an alert when Activemq health status is abnormal. |
+| *activemq_unauthorized_connection* | Raise an alert when connection from unauthorized IP adddress is detected. |
 
 
 To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md).
