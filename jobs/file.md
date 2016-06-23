@@ -9,35 +9,59 @@ Use the job to retrieve data stored in CSV or JSON formats.<br> To learn about f
 ### File Job Configuration
 Use the table below to perform File job configuration.
 
-| **Field**	          | **Description** |
+#### Download
+
+| **Field**	     | **Description** |
 |:---------------|:------------|
-| Parser Name | Configuration name. For more information, see [Parser Configuration Guide](https://axibase.com/products/axibase-time-series-database/writing-data/csv/#parser "Parser Configuration"). |
-| Parser Type | Downloaded file format: CSV, JSON or XML. |
-| HTTP Pool | Relative path to the file if HTTP Pool is selected or full URL in case HTTP Pool is set to NONE. |
-| Path | Path to CSV or JSON target files located on remote or local file system from which they will be read. <br> Path to files on remote systems can be set using a relative path if HTTP Pool is selected or full URL in case HTTP Pool is set to NONE. <br>Path may represent a location that can be accesed via FTP or SSH and be set using URI starting with `ftp://`, `sftp://`, or `scp://`, then it should provide credentials, hostname, and absolute path to files on the remote host.  <br>Path to files on the local file system should start with `file://` and contain the absolute path. <br> File path can include `${TIME}` placeholders: `file:///opt/app/data-${TIME("previous_day", "yyyy-MM-dd")}.csv` <br> File path supports collections (multiple files): `file:///opt/app/data-${ITEM}.csv` <br> File path can match multiple files, all of which would need to be uploaded. <br> The wildcard characters `?` and `*` can be used to represent a single or multiple wildcard characters. <br>See examples below this table. |
-| Delete File on Upload | Source files will be deleted if ATSD returns 200 code (OK). This setting only applies to configurations where the Path points to files on the local file system (Path starts with `file://`).|
-| Success Directory | If a file is uploaded successfully (uploaded into ATSD and Parsed successfully), it will be copied to this directory. <br>If the Success Directory is specified but does not exist, it will be created. <br> Success Directory field supports `${TIME}` placeholders like: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. <br>To distinguish between files with identical names a time prefix will be added, for example: `20151130_121212_345_{original_file_name}.csv` <br>Success Directory is an independent setting from Delete on Upload. |
-| Error Directory | If a file cannot be uploaded (e.g. server not available OR there is a parsing error), the file will be copied to this directory. <br> If the Error Directory is specified but does not exist, it will be created. <br>Error Directory field supports ${TIME} placeholders. For example: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. | 
+| Protocol | Protocol used to get files. May be one of: FILE, FTP, SFTP, SCP, HTTP, or predefined HTTP Pool. |
+| HTTP Pool | Name of one of the configured HTTP pools that you want to use. |
+| Path | Path to CSV or JSON target files located on remote or local file system from which they will be read. <br> Path to files on remote systems can be set using relative path if HTTP Pool is selected as Protocol, or full URL in case HTTP Protocol is chosen. <br>Path may represent a location that can be accessed via FTP, SFTP or SCP and be set using URI containing credentials, hostname, and absolute path to files on the remote host. Protocol FTP, SFTP or SCP should be chosen respectfully. <br>Path to files on the local filesystem should contain the absolute path, FILE protocol should be chosen. <br> File path can include `${TIME}` placeholders: `file:///opt/app/data-${TIME("previous_day", "yyyy-MM-dd")}.csv` <br> File path supports collections (multiple files): `file:///opt/app/data-${ITEM}.csv` <br> File path can match multiple files, all of which would need to be uploaded. <br> The wildcard characters `?` and `*` can be used to represent a single or multiple wildcard characters. <br>See examples below this table. |
 | Item List | Name of the collection you want to use.  |
-| Time Zone | Time zone in which the data is collected.  |
-| Encoding | Character encoding of target files. |
-| Wait for Upload | Wait for ATSD server to finish processing of the uploaded file. |
-| Rules | Process incoming data in [ATSD Rule Engine](https://axibase.com/products/axibase-time-series-database/rule-engine/ "Rule Engine"). | 
-| Metric Prefix | Prefix added to metric names. It is normally used to identify and group the metrics. |
-| Default Entity | Default entity under which the metrics and data will be stored in ATSD. |
-| Default Tags | Assign predefined tags to all series. |
-| Add Timestamp | When set to true, uses current time (time at the moment the data is sent to ATSD) as timestamp for the metrics. If set to false, then timestamp is taken from the target files, as set in the ATSD Parser Configuration. |
-| Ignore Unchaged File | Do not copy files if they have not changed since the last upload. |
+| Enable Web Driver | Select the checkbox to enable Web Driver.  |
+| Driver File Encoding | Encoding of the file that is requested with the script.  |
+| Driver Script | Selenium script.  |
+| Driver Timeout, seconds |  Script timeout in seconds. |
+
+#### Validate
+
+| **Field**	     | **Description** |
+|:---------------|:------------|
+| File Format | Downloaded file format: CSV, JSON, or XML. |
 | Minimum Line Count | Minimum amount of lines in the target file. If the target file contains fewer lines than indicated, data will not be sent into ATSD. |
 | First Line | Characters or text in the first line. It is used to identify the first line of the target file. First Line field support ${TIME} placeholders, for example: `# Effective Data ${TIME("previous_day", "dd.MM.yyyy")}`. If text or characters are not found in the first line, the data will not be sent to ATSD. |
-| Validate Format | Validates the format of the CSV or JSON file. |
+| Validate Format | Validates the format of the JSON file. |
+
+
+#### Convert
+
+| **Field**	     | **Description** |
+|:---------------|:------------|
 | Root Objects | Specify expressions in the JsonPath format to define a root element. Property/Series will be formed basing on elements from these expressions. |
 | Included Fields | List of JSON fields that are converted into CSV format and sent to ATSD. All other fields except Included will be ignored. The list can include both numeric and string fields, in which case string columns should be processed as series tags or property keys/tags by the server using CSV parser configuration. |
 | Excluded Fields | List of JSON fields that are excluded from CSV converter. Excluded Fields are ignored if Included Fields are specified. Only numeric fields will be sent to ATSD after Excluded Fields filter is applied to JSON object. |
-| Enable Web Driver | Select the check box to enable Web Driver.  |
-| Driver Script | Selenium script.  |
-| Driver Timeout, seconds |  Script timeout in seconds. |
-| Driver File Encoding | Encoding of the file that is requested with the script.  |
+
+#### Upload
+
+| **Field**	     | **Description** |
+|:---------------|:------------|
+| Parser Name | Configuration name. For more information, see [Parser Configuration Guide](https://axibase.com/products/axibase-time-series-database/writing-data/csv/#parser "Parser Configuration"). |
+| Auto Detect Encoding | If enabled, Collector will try to guess file encoding based on its contents |
+| Encoding | Character encoding of target files. |
+| Metric Prefix | Prefix added to metric names. It is normally used to identify and group the metrics. |
+| Default Entity | Default entity under which the metrics and data will be stored in ATSD. |
+| Default Tags | Assign predefined tags to all series. |
+| Wait for Upload | Wait for ATSD server to finish processing of the uploaded file. |
+| Process in Rule Engine | Process incoming data in [ATSD Rule Engine](https://axibase.com/products/axibase-time-series-database/rule-engine/ "Rule Engine"). | 
+| Ignore Unchanged File | Do not copy files if they have not changed since the last upload. |
+
+#### Process
+
+| **Field**	     | **Description** |
+|:---------------|:------------|
+| Delete File on Upload | Source files will be deleted if ATSD returns 200 code (OK). This setting only applies to configurations where the Path points to files on the local file system (Path starts with `file://`).|
+| Copy Files | Flag to determine if source files should be put into given directory after successful upload to ATSD |
+| Success Directory | If a file is uploaded successfully (uploaded into ATSD and Parsed successfully), it will be copied to this directory. <br>If the Success Directory is specified but does not exist, it will be created. <br> If Copy Files is enabled and Success Directory field is empty, the following path will be used: `$AXIBASE_COLLECTOR_HOME/files/$JOB_ID/$TASK_ID/success`.<br> Success Directory field supports `${TIME}` placeholders like: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. <br>To distinguish between files with identical names a time prefix will be added, for example: `20151130_121212_345_{original_file_name}.csv` <br>Success Directory is an independent setting from Delete on Upload. |
+| Error Directory | If a file cannot be uploaded (e.g. server not available OR there is a parsing error), the file will be copied to this directory.<br>If Copy Files is enabled and Success Directory field is empty, the following path will be used: `$AXIBASE_COLLECTOR_HOME/files/$JOB_ID/$TASK_ID/error`. <br> If the Error Directory is specified but does not exist, it will be created. <br>Error Directory field supports ${TIME} placeholders. For example: `/opt/collector/file/errors/${TIME("now", "yyyy-MM-dd/HH:mm:ss")}/`. | 
 
 #### Ingesting Files from the Local File System
 
@@ -126,4 +150,10 @@ scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:22/tmp/collector/error
 
 The image below shows an example of the File Forwarding configuration. 
 
-![File Forwarding Configuration](https://axibase.com/wp-content/uploads/2016/04/file_job.png)
+![File Forwarding Configuration](file_job_configuration.png)
+
+## Additional Examples
+
+* [Duckduckgo statistics](./examples/file/duckduckgo.md)
+* [Nginx statistics](./examples/file/nginx-statistics.md)
+* [Storms statistics](./examples/file/storms.md)
