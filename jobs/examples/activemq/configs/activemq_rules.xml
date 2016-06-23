@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+    <rule>
+        <name>activemq_broker_configuration_change</name>
+        <metric>property</metric>
+        <expression>
+            <![CDATA[NOT property_compare_except(['brokerid', '*count', '*usage', 'uptime*', 'averagemessagesize']).isEmpty()]]></expression>
+        <window>length(1)</window>
+        <filter>type == 'activemq_broker'</filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Changed (QF): ${pdiff}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Changed (QR): ${pdiff}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <value1>property_compare_except(['brokerid', '*count', '*usage', 'uptime*', 'averagemessagesize']) as pdiff
+        </value1>
+        <lastUpdated>1464904193867</lastUpdated>
+        <enabled>false</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description>
+            <![CDATA[Notify on change in broker configuration except for dynamic fields such as uptime or connection time.]]></description>
+        <alertLogFile>/tmp/activemq_change.log</alertLogFile>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>activemq_broker_configuration_change</rule-name>
+            <repeat-interval>
+                <type>ALL</type>
+                <intervalCount>5</intervalCount>
+                <intervalUnit>MINUTE</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>sergei.rodionov@axibase.com</recipients>
+            <first-subject>[${status}]. ActiveMQ on ${entity}: Configuration changed: ${pdiff}.</first-subject>
+            <repeat-subject>[${status}]. ActiveMQ on ${entity}: Configuration changed: ${pdiff}.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}]. ActiveMQ on ${entity}: Configuration changed: ${pdiff}.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>false</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>activemq_connection_count</name>
+        <metric>jmx.activemq.currentconnectionscount</metric>
+        <expression><![CDATA[max() < 2]]></expression>
+        <window>time(15 minute)</window>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <lastUpdated>1462917977326</lastUpdated>
+        <enabled>false</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description>
+            <![CDATA[Notify when less than 2 client applications are connected concurrently during the interval. This condition of too few clients may indicate that either clients cannot connect to the broker or clients have stopped working. This rule is evaluated only between 08:00 and 19:00 on working days.]]></description>
+        <schedule>* 8-18 * * MON-FRI</schedule>
+        <minimumInterval>
+            <intervalCount>10</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </minimumInterval>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>activemq_connection_count</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>unrealwork@gmail.com, sergei.rodionov@axibase.com</recipients>
+            <first-subject>[${status}] ActiveMQ on ${entity}: connection count is low ${value}.</first-subject>
+            <repeat-subject>[${status}] ActiveMQ on ${entity}: connection count is low ${value}.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] ActiveMQ on ${entity}: connection count is low ${value}.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>true</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>5</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>activemq_enqueue_stopped</name>
+        <metric>jmx.activemq.totalenqueuecount</metric>
+        <expression><![CDATA[diff() == 0]]></expression>
+        <window>time(15 minute)</window>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <lastUpdated>1462917958880</lastUpdated>
+        <enabled>false</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description>
+            <![CDATA[Notifies if no messages were received (enqueued) by the broker during the specified interval.]]></description>
+        <minimumInterval>
+            <intervalCount>10</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </minimumInterval>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>activemq_enqueue_stopped</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>unrealwork@gmail.com, sergei.rodionov@axibase.com</recipients>
+            <first-subject>[${status}] ActiveMQ on ${entity}: No messages enqueued for 5 minutes.</first-subject>
+            <repeat-subject>[${status}] ActiveMQ on ${entity}: No messages enqueued for 5 minutes.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] ActiveMQ on ${entity}: No messages enqueued for 5 minutes.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>true</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>activemq_health_status</name>
+        <metric>property</metric>
+        <expression><![CDATA[properties.currentstatus != 'Good']]></expression>
+        <window>length(1)</window>
+        <filter>type == 'activemq_service' and keys.service == 'health'</filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <lastUpdated>1464904194085</lastUpdated>
+        <enabled>false</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>false</leavingEvents>
+        <description><![CDATA[Notifies if broker status is not Good.]]></description>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>activemq_health_status</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>1</intervalCount>
+                <intervalUnit>HOUR</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>unrealwork@gmail.com, sergei.rodionov@axibase.com</recipients>
+            <first-subject>[${status}] ActiveMQ on ${entity}: Broker status is ${properties.currentstatus}.
+            </first-subject>
+            <repeat-subject>[${status}] ActiveMQ on ${entity}: Broker status is ${properties.currentstatus}.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] ActiveMQ on ${entity}: Broker status is ${properties.currentstatus}.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>false</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>true</cancel-details>
+            <priority>1</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+    <rule>
+        <name>activemq_unauthorized_connection</name>
+        <metric>property</metric>
+        <tags>connectionname</tags>
+        <expression><![CDATA[true]]></expression>
+        <window>length(1)</window>
+        <filter>type == 'activemq_connection' &amp;&amp; tags.connectionviewtype = 'remoteaddress' &amp;&amp;
+            properties.remoteaddress != '' &amp;&amp; properties.remoteaddress NOT LIKE '*127.0.0.1*' &amp;&amp;
+            !likeAny(properties.remoteaddress, collection('amq_whitelist'))
+        </filter>
+        <severity>WARNING</severity>
+        <alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+        <alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+        <alertCancellationMessage>
+            <![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+        <alertStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </alertStrategy>
+        <lastUpdated>1464904194192</lastUpdated>
+        <enabled>false</enabled>
+        <disableEntityGrouping>false</disableEntityGrouping>
+        <leavingEvents>true</leavingEvents>
+        <description>
+            <![CDATA[Notifies when a client from remote address not whitelisted in 'amq_whitelist' collection is connected to the broker. The list can include either specific addresses or expressions containing *? wildcards.]]></description>
+        <actionStrategy>
+            <type>NONE</type>
+            <intervalCount>5</intervalCount>
+            <intervalUnit>MINUTE</intervalUnit>
+        </actionStrategy>
+        <emailNotification>
+            <rule-name>activemq_unauthorized_connection</rule-name>
+            <repeat-interval>
+                <type>INTERVAL</type>
+                <intervalCount>15</intervalCount>
+                <intervalUnit>MINUTE</intervalUnit>
+            </repeat-interval>
+            <name>email</name>
+            <use-in-threshold-only>false</use-in-threshold-only>
+            <recipients>sergei.rodionov@axibase.com</recipients>
+            <first-subject>[${status}] ActiveMQ on ${entity}: Unauthorized connection from
+                ${properties.remoteaddress}.
+            </first-subject>
+            <repeat-subject>[${status}] ActiveMQ on ${entity}: Unauthorized connection from ${properties.remoteaddress}.
+                ${alert_duration_interval}
+            </repeat-subject>
+            <cancel-subject>[${status}] ActiveMQ on ${entity}: Unauthorized connection from ${properties.remoteaddress}.
+                ${alert_duration_interval}
+            </cancel-subject>
+            <merge>true</merge>
+            <first-details>true</first-details>
+            <repeat-details>true</repeat-details>
+            <cancel-details>false</cancel-details>
+            <priority>0</priority>
+        </emailNotification>
+        <ruleTable/>
+    </rule>
+</rules>

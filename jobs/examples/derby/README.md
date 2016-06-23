@@ -80,3 +80,5 @@ Configure your Java applications for JMX monitoring as described [here](../../jm
 
 [**Derby Live Portal**](http://apps.axibase.com/chartlab/824dd915)
 ![](images/derby_portal.png)
+
+

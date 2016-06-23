@@ -183,4 +183,28 @@ If the specified configuration is correct, there must be no errors or empty fiel
 
 [**Active MQ Live Portal**](http://apps.axibase.com/chartlab/824dd915)
 ![](https://axibase.com/wp-content/uploads/2016/03/log_portal_example.png)
-        
+
+### Rules
+
+### Setting up Mail Client
+
+* Configure [Mail Client](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md).
+
+#### Import Rules
+
+* Open **Configuration: Rules** page, click `Import` button and upload [jvm_rules.xml](configs/activemq_rules.xml).
+* For each created rule: open it in the Rule Editor and change recipient address on the *Email Notifications* tab.
+* These rules will automatically apply to all JVM based applications monitored by Axibase Collector.
+
+Imported rules:
+
+| **Rule** |  **Description** |
+| :--- | :--- |
+| activemq_broker_configuration_change | Raise an alert when an configuration change |
+| activemq_connection_count | Raise an alert when an connection count exceeds the set threshold |
+| activemq_enqueue_stopped |  Raise an alert when queue size doesn't change for some time |
+| activemq_health_status |   Raise an alert when an Activemq health status different from working state |
+| activemq_unauthorized_connection | Raise an alert when an unauthorized connection are discovered |
+
+
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md).
