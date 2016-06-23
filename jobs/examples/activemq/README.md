@@ -181,7 +181,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 
 ![](images/activemq_portal_icon.png)
 
-[**Active MQ Live Portal**](http://apps.axibase.com/chartlab/824dd915)
+[**Active MQ Live Portal**](http://apps.axibase.com/chartlab/b4eb91fd)
 ![](https://axibase.com/wp-content/uploads/2016/03/log_portal_example.png)
 
 ### Rules
@@ -200,11 +200,11 @@ Imported rules:
 
 | **Rule** |  **Description** |
 | :--- | :--- |
-| activemq_broker_configuration_change | Raise an alert when an configuration change |
-| activemq_connection_count | Raise an alert when an connection count exceeds the set threshold |
-| activemq_enqueue_stopped |  Raise an alert when queue size doesn't change for some time |
-| activemq_health_status |   Raise an alert when an Activemq health status different from working state |
-| activemq_unauthorized_connection | Raise an alert when an unauthorized connection are discovered |
+| *activemq_broker_configuration_change* | Raise an alert when an configuration change |
+| *activemq_connection_count* | Raise an alert when an connection count exceeds the set threshold |
+| *activemq_enqueue_stopped* |  Raise an alert when queue size doesn't change for some time |
+| *activemq_health_status* |   Raise an alert when an Activemq health status different from working state |
+| *activemq_unauthorized_connection* | Raise an alert when an unauthorized connection are discovered |
 
 
 To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md).
