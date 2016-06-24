@@ -77,7 +77,11 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Login into Docker host via SSH and generate [client and server certificates](docker-certificates.md).
 
-* Configure Docker daemon for secure access by default. Edit /etc/default/docker file
+* Configure Docker daemon for secure access by default. 
+
+    ######    Ubuntu. 
+    
+    Edit /etc/default/docker file
 
    ```properties
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
@@ -88,12 +92,40 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
+    ######   CentOS. 
+    
+    Edit  /usr/lib/systemd/system/docker.service file, section 'Service'
+   
+   ```properties
+   EnvironmentFile=-/etc/sysconfig/docker
+   #Type=notify
+   ExecStart=/usr/bin/docker daemon $DOCKER_OPTS
+   ```
+   
+   Create file /etc/sysconfig/docker
+   
+   ```properties
+   DOCKER_OPTS="--tlsverify --tlscacert=/root/certs/ca.pem --tlscert=/root/certs/server-cert.pem --tlskey=/root/certs/server-key.pem -H tcp://0.0.0.0:2376 -H unix:///var/run/docker.sock"
+   ```
+      
 * Restart Docker daemon
 
 ```sh
 sudo service docker restart
 ```
    
+* Check docker status via
+  
+    ```sh
+    sudo service docker status
+    ```
+   
+* If you get `Warning: docker.service changed on disk. Run 'systemctl daemon-reload' to reload units`, try to reload units
+  
+  ```sh 
+  systemctl daemon-reload
+  ```
+
 * Verify connectivity
   
   ```properties 
@@ -102,7 +134,6 @@ sudo service docker restart
   --key /home/ubuntu/certs/key.pem \
   --cacert /home/ubuntu/certs/ca.pem
   ```
-   
 * Copy {ca,cert,key}.pem files to your machine.
 
 * Start Axibase Collector container.
