@@ -79,7 +79,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Configure Docker daemon for secure access by default. 
 
-    * Edit /etc/default/docker file for Ubuntu or creat /etc/sysconfig/docker file for CentOS
+    * Edit /etc/default/docker file for Ubuntu or create /etc/sysconfig/docker file for CentOS
 
    ```properties
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
@@ -104,17 +104,19 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 sudo service docker restart
 ```
    
-* Check docker status via
+* Ensure that Docker status is Active and there are no warnings
   
 ```sh
 sudo service docker status
 ```
    
-    * If you get `Warning: docker.service changed on disk. Run 'systemctl daemon-reload' to reload units`, try to reload units
+   
+* If you get `Warning: docker.service changed on disk. Run 'systemctl daemon-reload' to reload units` on CentOS, try to reload units
+    
   
-    ```sh 
-    systemctl daemon-reload
-    ```
+```sh 
+systemctl daemon-reload
+```
 
 * Verify connectivity
   
