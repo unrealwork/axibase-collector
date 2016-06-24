@@ -79,22 +79,18 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Configure Docker daemon for secure access by default. 
 
-    ######    Ubuntu. 
-    
-    Edit /etc/default/docker file
+    * Edit /etc/default/docker file for Ubuntu or creat /etc/sysconfig/docker file for CentOS
 
    ```properties
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
-   DOCKER_CERT_PATH=/home/ubuntu/certs
+   DOCKER_CERT_PATH=/home/docker/certs
    export DOCKER_CERT_PATH
    
    # Add TCP socket on port 2376
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
-    ######   CentOS. 
-    
-    Edit  /usr/lib/systemd/system/docker.service file, section 'Service'
+    * For CentOS in addition edit /usr/lib/systemd/system/docker.service file, section 'Service'
    
    ```properties
    EnvironmentFile=-/etc/sysconfig/docker
@@ -102,12 +98,6 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
    ExecStart=/usr/bin/docker daemon $DOCKER_OPTS
    ```
    
-   Create file /etc/sysconfig/docker
-   
-   ```properties
-   DOCKER_OPTS="--tlsverify --tlscacert=/root/certs/ca.pem --tlscert=/root/certs/server-cert.pem --tlskey=/root/certs/server-key.pem -H tcp://0.0.0.0:2376 -H unix:///var/run/docker.sock"
-   ```
-      
 * Restart Docker daemon
 
 ```sh
@@ -116,15 +106,15 @@ sudo service docker restart
    
 * Check docker status via
   
-    ```sh
-    sudo service docker status
-    ```
+```sh
+sudo service docker status
+```
    
-* If you get `Warning: docker.service changed on disk. Run 'systemctl daemon-reload' to reload units`, try to reload units
+    * If you get `Warning: docker.service changed on disk. Run 'systemctl daemon-reload' to reload units`, try to reload units
   
-  ```sh 
-  systemctl daemon-reload
-  ```
+    ```sh 
+    systemctl daemon-reload
+    ```
 
 * Verify connectivity
   
