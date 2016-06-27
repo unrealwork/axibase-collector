@@ -90,11 +90,12 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
-    * For CentOS in addition edit /usr/lib/systemd/system/docker.service file, section 'Service'
+    * For CentOS in addition create file /etc/systemd/system/docker.service.d/docker.conf
    
    ```properties
+   [Service]
    EnvironmentFile=-/etc/sysconfig/docker
-   #Type=notify
+   ExecStart=
    ExecStart=/usr/bin/docker daemon $DOCKER_OPTS
    ```
    
@@ -111,13 +112,6 @@ sudo service docker status
 ```
    
    
-* If you get `Warning: docker.service changed on disk. Run 'systemctl daemon-reload' to reload units` on CentOS, try to reload units
-    
-  
-```sh 
-systemctl daemon-reload
-```
-
 * Verify connectivity
   
   ```properties 
