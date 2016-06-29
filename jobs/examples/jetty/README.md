@@ -77,5 +77,5 @@ Configure your Java application for JMX monitoring as described [here](../../jmx
 
 ![](images/jetty_portal_icon.png)
 
-[**Jetty Live Portal**](http://apps.axibase.com/chartlab/b47c5501)
+[**Jetty Live Portal**](http://apps.axibase.com/chartlab/4bcd2299)
 ![](images/jetty_portal.png)

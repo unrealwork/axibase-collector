@@ -80,5 +80,5 @@ Configure your Java for JMX monitoring as described [here](../../jmx.md).
 
 ![](images/tomcat_portal_icon.png)
 
-[**Tomcat Portal**](http://apps.axibase.com/chartlab/38b91336)
+[**Tomcat Portal**](http://apps.axibase.com/chartlab/106bddba)
 ![](images/tomcat_portal.png)
