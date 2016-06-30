@@ -42,11 +42,11 @@ Example: `${FILE?keep_before("_")}`
 
 | **Name** | **Supported Fields** | **Supported Protocols** |
 |:---|:---|:---|
-| ITEM | Default Entity, Path | http/s, file, ftp, scp |
-| PATH | Default Entity | http/s, file, ftp, sftp, scp |
+| ITEM | Default Entity, Path, Default Tags, Success Directory, Error Directory | http/s, HTTP Pool, file, ftp, sftp, scp |
+| PATH | Default Entity | http/s, HTTP Pool, file, ftp, sftp, scp |
 | FILE | Default Entity| file, ftp, sftp, scp |
-| DIRECTORY | Default Entity | file |
-| TIME | Success Directory, Error Directory, Path | http/s, file |
+| DIRECTORY | Default Entity | file, ftp, sftp, scp |
+| TIME | Success Directory, Error Directory, Path | HTTP Pool, http/s, file, ftp, sftp, scp |
 
 ## Format Functions
 
