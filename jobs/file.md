@@ -90,6 +90,10 @@ sftp://axibase:password@remotehost:21/opt/report/export.csv
 scp://axibase:file:///home/example/.ssh/id_rsa@remotehost:21/opt/report/export.csv
 ```
 
+## Placeholder
+
+Supported placeholders are described [here](placeholders.md).
+
 ## Wildcards
 
 For file downloads from FTP, SFTP or SCP, and file:// protocols, the FILE job provides support for wildcards. 
