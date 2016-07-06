@@ -37,7 +37,7 @@ https://api.stackexchange.com/2.2/tags/docker/info?key=****&site=stackoverflow
 }
 ```
 
-### CSV Format when sent to ATSD
+### CSV File sent into ATSD
 
 ```ls
 count,name

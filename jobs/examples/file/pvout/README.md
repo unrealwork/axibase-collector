@@ -16,7 +16,7 @@ http://pvoutput.org/service/r2/getstatus.jsp?sid=38878&key=****&sid1=507&d=20160
 
 ### Local Copy
 
-[get_status.txt](get_status.txt)
+[getstatus.txt](getstatus.txt)
 
 ### First Lines
 

@@ -32,7 +32,7 @@
           <headers/>
           <keyStore>NONE</keyStore>
         </connectionPoolConfig>
-        <path>/2.2/tags/${ITEM}/info?key=wyPmAal5b3QQktRmMpfTRg((&amp;site=stackoverflow</path>
+        <path>/2.2/tags/${ITEM}/info?key=****&amp;site=stackoverflow</path>
         <encoding>UTF-8</encoding>
         <detectEncoding>false</detectEncoding>
         <parserType>JSON</parserType>
