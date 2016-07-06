@@ -66,9 +66,9 @@ Name  | Configuration name.
 
 | Field        | Description |
 |:------------ |:------------|
-| Time Default | Used to take value by keys ${PARENT}, ${PARENT(n)} from json that specify time metrics for Series command ([example](#time-value)). |
-| Time Field   | Field with values that specify time for commands.<br> This field supports the following options:<br> - ${TIME()} text output of the TIME function<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
-| Time Format  | Date format applied when parsing time value. |
+| Time Default | Specify time value for all commands ([example](#time-value)).<br> This field supports the following options:<br> - ${TIME()} text output of the TIME function<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Time Field   | Field with values that specify time for all commands ([example](#metric-name-and-value-fields)).<br> This field supports the following options:<br> - Name of the field containing date in the matched object<br> - JSON Path |
+| Time Format  | Date format applied when parsing time value ([example](#metric-name-and-value-fields)). |
 | Time Zone    | Time zone can be optionally applied if the extracted date is in local time, otherwise local Collector time zone is in effect. |
 
 #### Message Fields
@@ -89,6 +89,8 @@ Name  | Configuration name.
   - [Custom Tags](#custom-tags)
 - [Entity Fields](#entity-fields)
   - [Default Entity](#default-entity)
+- [Metric Fields](#metric-fields)
+  - [Metric Name and Value Fields](#metric-name-and-value-fields)
 - [Time Fields](#time-fields)
   - [Time Field](#time-field)
   - [Time Value](#time-value)
@@ -189,6 +191,33 @@ JSON:
   ```
 
 ### Metric Fields
+
+#### Metric Name and Value Fields
+
+JSON Lines:
+
+```json
+[{"data":[{"pitagname":"metric1","pitagvalue":350.0,"timestamp":"2016-07-01T15:59:07.6382972+05:30"}]}]
+[{"data":[{"pitagname":"metric2","pitagvalue":250.0,"timestamp":"2016-07-01T15:58:07.6382972+05:30"}]}]
+```
+
+Field Name             | Field Value
+:--------------------- | :----------
+Default Entity         | tst
+JSON Path              | $..data.*
+Depth                  | 1
+Time Field             | timestamp
+Time Format            | yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ
+Excluded Fields        | pitagvalue
+**Metric Name Field**  | **pitagname**
+**Metric Value Field** | **pitagvalue**
+
+Result:
+
+```
+series e:tst d:2016-07-01T10:29:07.638Z m:metric1=350
+series e:tst d:2016-07-01T10:28:07.638Z m:metric2=250
+```
 
 ### Property Fields
 
