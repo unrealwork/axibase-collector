@@ -133,5 +133,5 @@ Refer to [placeholder examples](placeholders.md).
 * [Australian Bureau of Meteorology: JSON](examples/file/australia-bom/README.md#overview)
 * [Energinet DK Market Data](examples/file/energinet-ftp/README.md#overview)
 * [pvoutput.org Solar System Statistics](examples/file/pvout/README.md#overview)
-
+* [Stackoverflow Tags: JSON](examples/file/stackoverflow/README.md#overview)
 
