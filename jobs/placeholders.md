@@ -92,6 +92,18 @@ ${PLACEHOLDER?functionA(arguments)?functionB(arguments)}
 
 Example: `${FILE?keep_before("_")?replace(".csv", "")}`
 
+Input: **ftp.example.com/data/95014_Cupertino_20160625_DAILY.csv**
+
+| **Expression** | **Result** |
+|:---|:---|
+| `${FILE}` | 95014_Cupertino_20160625_DAILY.csv |
+| `${FILE?keep_before('_')}` | 95014 |
+| `${FILE?keep_after('_')?keep_before('_')}` | Cupertino |
+| `${FILE?split('_')[0]}` | 95014 |
+| `${FILE?split('_')[1]}` | Cupertino |
+| `${FILE?split('_')[n]}` | Nth token after split by underscore |
+| `${FILE?keep_after_last('_')?keep_before('.')}` | DAILY |
+
 ### String Function Examples
 
 The following examples based on [`Path `](file.md#download) field value and can be used to define [`Default Entity`](file.md#upload)
