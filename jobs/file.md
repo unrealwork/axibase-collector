@@ -22,6 +22,8 @@ The files are parsed by ATSD using a [CSV Parser](https://axibase.com/products/a
 6. Repeat steps 1-to-5 if Path is configured to download multiple files with an `ITEM` from item list, the `DATE_ITEM` function, or a wildcard expression in case of file://, ftp://, and sftp:// protocols.
 7. Send job status message into ATSD for monitoring.
 
+![File Job Workflow](images/file_job_steps.png)
+
 ## Supported Protocols
 
 | **Protocol** | **Wildcards** | **Description** |
@@ -69,8 +71,8 @@ To download multiple files with the same configuration, utilize one of the optio
 | **Name** | **Format** | **Description** |
 |:---|:---|:---|
 | Minimum Line Count | CSV | Minimum line count for the CSV file to contain. <br>An error will be raised if the threshold is greater than 0 and the number of lines in the file is less than the threshold. |
-| First Line Contains | CSV | Checks if the first non-empty line in the file contains the specified text. The check is case-sensitive.<br>If the specified text is not found within the first non-empty line, the data will not be sent to ATSD.<br>Supports `${TIME}` placeholder, for example: `# Effective Data ${TIME("previous_day", "dd.MM.yyyy")}`. |
-| File Contains | JSON | Checks if the file contains the specified text, on any line. The check is case-sensitive.<br>If the specified text is not found within the file text, the data will not be sent to ATSD.<br>Supports `${TIME}` placeholder, for example: `"report_date": "${TIME("current_day", "yy/MM/dd")}"`.| 
+| First Line Contains | CSV | Checks if the first non-empty line in the file contains the specified text. The check is case-sensitive.<br>If the specified text is not found within the first non-empty line, the data will not be sent to ATSD.<br>Supported placeholder: `${TIME}`, for example: `# Effective Data ${TIME("previous_day", "dd.MM.yyyy")}`. |
+| File Contains | JSON | Checks if the file contains the specified text, on any line. The check is case-sensitive.<br>If the specified text is not found within the file text, the data will not be sent to ATSD.<br>Supported placeholders: `${TIME}`, for example: `"report_date": "${TIME("current_day", "yy/MM/dd")}"`.| 
 | Parse | JSON | JSON files are automatically validated by parsing the file as a JSON document. |
 
 ### Convert to CSV
@@ -98,7 +100,7 @@ To download multiple files with the same configuration, utilize one of the optio
 | Time Zone | Time Zone which should be used by ATSD when parsing datetime column in the CSV file, if the datetime format does not contain information about the time zone.|
 | Wait for Upload | Wait for ATSD to finish validating and parsing the uploaded file. If disabled, the server responds 200 immediately after the file is transferred to ATSD. If Wait for Upload is disabled, the collector job may not know if the upload file is valid and if contains any errors. |
 | Process in Rule Engine | Process parsed commands in the [ATSD Rule Engine](https://axibase.com/products/axibase-time-series-database/rule-engine/ "Rule Engine"). If enabled, allows the data in CSV file to be checked by rules. |
-| Ignore Unchanged Files | Prevents unchanged files from being repeatedly uploaded into the database. When enabled, the collector compares the downloaded file's last modified time (FILE, FTP, SFTP) or MD5 hashcode (HTTP, HTTP_POOL, SCP) with the previously stored information and ignores the upload if the file hasn't changed. For FTP and SFTP protocols, the remote files with unchanged last modified times are not downloaded to collector.|
+| Ignore Unchanged Files | Prevents unchanged files from being repeatedly uploaded into the database. When enabled, the collector compares the downloaded file's last modified time (FILE, FTP, SFTP) or MD5 hashcode (HTTP, HTTP_POOL, SCP) with the previously stored information and ignores the upload if the file hasn't changed. For FTP and SFTP protocols, the remote files with unchanged last modified times are not downloaded to the collector host.|
 
 ### Post-Processing
 
