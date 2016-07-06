@@ -1,80 +1,110 @@
 # Placeholders
 
-The following placeholders are supported to automate processing of item lists and path patterns.
+## Overview
+
+The following placeholders are supported to format strings, calculate dates, and download multiple files.
 
 | **Name** | **Description** |
-|:---|:---|:---|
-| ITEM | Current element in selected [`Item List`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) |
-| PATH | URL path or file absolute path | 
-| FILE | File name | 
-| DIRECTORY | Parent directory name | 
-| TIME | Start time and/or End time for data retrieval from target file | 
-
-Time format can be specified using any combination of: `y`, `M`, `d`, `H`, `m`, `s` <br>
-You can learn more about [End Time syntax here.](https://axibase.com/products/axibase-time-series-database/visualization/end-time/ "Chart Lab")
-
-_NOTE: `Start Time`, `End Time`, and `Time Format` fields have been deprecated in Axibase Collector version 11164._
-
-
-## Syntax
-
-```ls
-${PLACEHOLDER}
-```
-
-```ls
-${TIME("end_time_syntax", "time_format")} 
-```
-
-Example: `${ITEM}`
-
-```ls
-${PLACEHOLDER?formatFunction(arguments)}
-```
-
-```ls
-file:///opt/files/inbound/${TIME("previous_day", "yyyy-MM-dd")}/daily.csv
-```
-
-Example: `${FILE?keep_before("_")}`
+|:---|:---|
+| `${ITEM}` | Current element in the Item List.|
+| `${PATH}` | URL path or the file's absolute path. |
+| `${FILE}` | File's name. |
+| `${DIRECTORY}` | File's parent directory. |
+| `${TIME()}` | Text output of the `TIME` function. |
+| `${DATE_ITEM()}` | Current element in the Date Item List.|
 
 ## Usage 
 
 | **Name** | **Supported Fields** | **Supported Protocols** |
 |:---|:---|:---|
-| ITEM | Default Entity, Path, Default Tags, Success Directory, Error Directory | http/s, HTTP Pool, file, ftp, sftp, scp |
-| PATH | Default Entity | http/s, HTTP Pool, file, ftp, sftp, scp |
-| FILE | Default Entity| file, ftp, sftp, scp |
-| DIRECTORY | Default Entity | file, ftp, sftp, scp |
-| TIME | Success Directory, Error Directory, Path | HTTP Pool, http/s, file, ftp, sftp, scp |
+| `${ITEM}` | Default Entity, Path, Custom Tags, Success Directory, Error Directory | All |
+| `${PATH}` | Default Entity | All |
+| `${FILE}` | Default Entity | FILE, FTP, SFTP, SCP |
+| `${DIRECTORY}` | Default Entity | FILE, FTP, SFTP, SCP |
+| `${TIME()}` | Path, Success Directory, Error Directory | All |
+| `${DATE_TIME()}` | Path | All |
 
-## Format Functions
+## Syntax
 
-Format functions provide a mechanism for extracting entity name from matched file names and paths.
+The placeholder is prefix with `$` and enclosed in curly brackets `{}`.
+
+```ls
+${PLACEHOLDER}
+```
+
+Examples: 
+
+`${ITEM}`
+
+```ls
+file:///opt/files/inbound/${TIME("previous_day", "yyyy-MM-dd")}/daily.csv
+```
+
+## Functions
+
+### TIME Function
+
+TIME function calculates the time based on [endtime](https://github.com/axibase/atsd-docs/blob/master/end-time-syntax.md) syntax outputs its value in the specified `time_format`.
+
+Syntax: `${TIME("end_time_syntax", "time_format")}` 
+
+Example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}` 
+
+Time format can be specified using a of: `y`, `M`, `d`, `H`, `m`, `s`. See [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for reference.
+
+### DATE_ITEM Function
+
+DATE_ITEM function returns an array of strings.
+
+It creates an array of dates between start and end time arguments, and formats these dates into strings with the specified date format.
+
+If the path contains `${DATE_ITEM()}` placeholder, it should execute a separate file request for each string in the array.
+
+Syntax: `${DATE_ITEM(startDate, endDate, periodCount, periodUnit, timeFormat)}` 
+
+Example: `${DATE_ITEM("current_day - 7 day", "now", 1, "HOUR", "yyyy/MM/dd/HH")}` 
+
+### String Functions
+
+Placeholder values can be further modified with built-in [string functions](#string-functions).
+
+```ls
+${PLACEHOLDER?function(arguments)}
+```
+
+Example: `${FILE?keep_before("_")}`
 
 | **Function** | **Description** | 
 |:---|:---|
-| [`keep_after`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#keep_after) | Removes part of the string before first occurrence of the given substring |
-| [`keep_after_last`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#keep_after_last) | Removes part of the string before last occurrence of the given substring |
-| [`keep_before`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#keep_before) | Removes part of the string that starts with the first occurrence of the given substring. |
-| [`keep_before_last`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#keep_before_last) | Removes part of the string that starts with the last occurrence of the given substring. |
-| [`replace`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#replace) | Replace all occurrences of the given string in in the original string with another string |
-| [`remove_beginning`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#remove_beginning) | Removes the given substring from the beginning of the string. |
-| [`remove_ending`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/placeholders.md#remove_ending) | Removes the given substring from the end of the string. |
+| [`keep_after`](#keep_after) | Removes part of the string before first occurrence of the given substring |
+| [`keep_after_last`](#keep_after_last) | Removes part of the string before last occurrence of the given substring |
+| [`keep_before`](#keep_before) | Removes part of the string that starts with the first occurrence of the given substring. |
+| [`keep_before_last`](#keep_before_last) | Removes part of the string that starts with the last occurrence of the given substring. |
+| [`replace`](#replace) | Replace all occurrences of the given string in in the original string with another string |
+| [`remove_beginning`](#remove_beginning) | Removes the given substring from the beginning of the string. |
+| [`remove_ending`](#remove_ending) | Removes the given substring from the end of the string. |
 
-## Format Examples
+Multiple functions can be chained (executed from left to right):
 
-Following examples based on [`Path `](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration) field value and can be used to setup [`Default Entity`](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/file.md#file-job-configuration)
+```ls
+${PLACEHOLDER?functionA(arguments)?functionB(arguments)}
+```
 
-### keep_after 
+Example: `${FILE?keep_before("_")?replace(".csv", "")}`
+
+### String Function Examples
+
+The following examples based on [`Path `](file.md#download) field value and can be used to define [`Default Entity`](file.md#upload)
+
+#### keep_after 
 * `file:///opt/files/cpu_busy.*` 
 * `${PATH?keep_after('.')}` 
 
-| Matching paths | Output |
+| Matching Paths | Output |
 |:---|:---|
 | /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 | 
 
-### keep_after_last 
+#### keep_after_last 
 * `/2.2/tags/docker/info?key=privateKey((&site=${ITEM}`
 * `${ITEM?keep_after_last("-")}`
 
@@ -82,44 +112,42 @@ Following examples based on [`Path `](https://github.com/axibase/axibase-collect
 |:---|:---|
 | so-stackoverflow | stackoverflow | 
 
-### keep_before 
+#### keep_before 
 * `ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*` 
 * `${FILE?keep_before('_')}` 
 
-| Matching paths | Output |
+| Matching Paths | Output |
 |:---|:---|
 | /home/user/nurswgvml106_temperature.csv | nurswgvml106 | 
 
-### keep_before_last 
+#### keep_before_last 
 * `file:///opt/files/*_busy.csv` 
 * `${FILE?keep_before_last('_')}` 
 
-| Matching paths | Output |
+| Matching Paths | Output |
 |:---|:---|
 | /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu | 
 
-### replace
+#### replace
 * `file:///opt/files/*`
 * `${FILE?replace(' ','.')}` 
 
-| Matching paths | Output |
+| Matching Paths | Output |
 |:---|:---|
 | /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy | 
 
-### remove_beginning
+#### remove_beginning
 * `file:///opt/files/*`
 * `${PATH?remove_beginning('/opt/files/')}` 
 
-| Matching paths | Output |
+| Matching Paths | Output |
 |:---|:---|
 | /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
 
-### remove_ending
+#### remove_ending
 * `file:///opt/files/*.cpu_busy.csv`
 * `${FILE?remove_ending('.cpu_busy.csv')}`
 
-| Matching paths | Output |
+| Matching Paths | Output |
 |:---|:---|
 | /opt/files/nurswgvml106.cpu_busy.csv<br>/opt/files/nurswgvml107.cpu_busy.csv | nurswgvml106<br>nurswgvml107 |
-
-#### More functions at [Freemarker Built-ins for strings](http://freemarker.org/docs/ref_builtins_string.html)

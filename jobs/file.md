@@ -119,7 +119,7 @@ To download multiple files with the same configuration, utilize one of the optio
 | `${ITEM}` | Current element in the Item List.|
 | `${TIME()}` | Text output of the `TIME` function. |
 | `${DATE_ITEM()}` | Current element in the Date Item List.|
-| `${PATH}` | Full path to downloaded file. |
+| `${PATH}` | URL path or the file's absolute path. |
 | `${FILE}` | Name of the downloaded file. |
 | `${DIRECTORY}` | Parent directory of the downloaded file. |
 
