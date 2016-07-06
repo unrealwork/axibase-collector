@@ -19,20 +19,21 @@ The files are parsed by ATSD using a [CSV Parser](https://axibase.com/products/a
 3. In case of JSON, convert JSON document to tabular CSV format.
 4. Upload the CSV file to ATSD for parsing.
 5. Copy the file to a `success` or `error` directory based on ATSD response status.
-6. Repeat steps 1-to-5 if Path is configured to download multiple files with an `ITEM` from item list, the `DATE_ITEM` function, or a wildcard expression in case of file://, ftp://, and sftp:// protocols.
+6. Repeat steps 1-to-5 if Path is configured to download multiple files with an `ITEM` from item list, the `DATE_ITEM` function, or a wildcard expression in case of FILE, FTP, and SFTP protocols.
 7. Send job status message into ATSD for monitoring.
 
 ![File Job Workflow](images/file_job_steps.png)
 
 ## Supported Protocols
 
-| **Protocol** | **Wildcards** | **Description** |
+| **Protocol** | **Scheme** | **Wildcards** | **Description** |
 |:---|:---|:---|:---|
-| `file://` | yes | Read file(s) from the local file system.<br>`file:///tmp/report/daily*.csv` |
-| `http://` | no | Download a file from a web server.<br>`https://example.com/traffic/direct.csv` |
-| `ftp://` | yes | Download file(s) from an FTP server.<br>`ftp://example.com/data/CCE2_121W_*.csv` |
-| `sftp://` | yes | Download file(s) from a UNIX server over sftp protocol.<br>`sftp://ftp-reader:my-pwd@10.52.0.10:22/home/ftp-reader/*.csv` |
-| `scp://` | no | Download a file from a UNIX server over scp protocol.<br>`scp://user-1:my-pwd@example.com:4022/home/user-1/r20160617.csv` |
+| FILE | `file://` | yes | Read file(s) from the local file system.<br>`file:///tmp/report/daily*.csv` |
+| HTTP | `http(s)://` | no | Download a file from a web server.<br>`https://example.com/traffic/direct.csv` |
+| HTTP_POOL | `http(s)://` | no | Download a file from a web server using pre-configured HTTP pool.<br>`/traffic/direct.csv` |
+| FTP | `ftp://` | yes | Download file(s) from an FTP server.<br>`ftp://example.com/data/CCE2_121W_*.csv` |
+| SFTP | `sftp://` | yes | Download file(s) from a UNIX server over sftp protocol.<br>`sftp://ftp-reader:my-pwd@10.52.0.10:22/home/ftp-reader/*.csv` |
+| SCP | `scp://` | no | Download a file from a UNIX server over scp protocol.<br>`scp://user-1:my-pwd@example.com:4022/home/user-1/r20160617.csv` |
 
 ## Downloading Multiple Files
 
@@ -50,7 +51,7 @@ To download multiple files with the same configuration, utilize one of the optio
 |:---|:---|
 | File Format | CSV or JSON. JSON files are converted into CSV files prior to uploading.|
 | Protocol | Network or file protocol to download the file from a remote server or read it from the local file system.|
-| Path | URI to the data file in RFC 3986 form: `scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]`.<br>If HTTP Pool is selected, the URI should be relative: `[/]path[?query][#fragment]`.<br>In case of FILE protocol, the Path to files on the local file system should be absolute and should start with `file://`.<br>Supported placeholders: `${ITEM}`, `${TIME()}`, `${DATE_ITEM()}`.|
+| Path | URI to the data file in RFC 3986 form: `[user:password@]host[:port][/]path[?query][#fragment]`.<br>Example: `https://example.com/traffic/direct.csv`.<br>If HTTP_POOL is selected, the URI should be relative: `/path[?query][#fragment]`.<br>If FILE protocol, the Path to files on the local file system should be absolute.<br>Supported placeholders: `${ITEM}`, `${TIME()}`, `${DATE_ITEM()}`.|
 | Item List | A collection of elements to execute multiple file requests in a loop.<br>The current element in the loop can be accessed with `${ITEM}` placeholder which can be embedded into Path and Default Entity fields.<br>When Item List is selected and `${ITEM}` is present in Path, the job will execute as many queries as there are elements in the list, substituting `${ITEM}` with element value for each request. |
 
 ### HTTP-specific Download Settings
@@ -130,4 +131,7 @@ Refer to [placeholder examples](placeholders.md).
 * [Sunspot Daily Count](examples/file/ssn/README.md#overview)
 * [nginx Web Server Basic Statistics](examples/file/nginx/README.md#overview)
 * [Australian Bureau of Meteorology: JSON](examples/file/australia-bom/README.md#overview)
+* [Energinet DK Market Data](examples/file/energinet-ftp/README.md#overview)
+
+
 

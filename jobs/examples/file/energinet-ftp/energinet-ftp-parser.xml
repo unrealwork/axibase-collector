@@ -1,0 +1,39 @@
+<list>
+  <com.axibase.tsd.model.csv.CsvConfiguration>
+    <name>energinet-dk-ftp</name>
+    <putType>METRIC</putType>
+    <delimiter>;</delimiter>
+    <recordDelimiter>
+</recordDelimiter>
+    <padding>�</padding>
+    <comment></comment>
+    <textQualifier>&quot;</textQualifier>
+    <entityColumn/>
+    <defaultEntity>energinet-ftp</defaultEntity>
+    <timestampFormat>yyyy-MM-dd HH:mm</timestampFormat>
+    <metricPrefix>en.</metricPrefix>
+    <timestampType>PATTERN</timestampType>
+    <processEvents>false</processEvents>
+    <writeProperty>false</writeProperty>
+    <enabled>true</enabled>
+    <discardNan>false</discardNan>
+    <ignoreParseErrors>false</ignoreParseErrors>
+    <timeZone>Europe/Copenhagen</timeZone>
+    <tagColumns class="linked-hash-set"/>
+    <excludedColumns class="linked-hash-set"/>
+    <propertyColumns class="linked-hash-set"/>
+    <propertyKeyColumns class="linked-hash-set"/>
+    <defaultTags class="linked-hash-map"/>
+    <renamedColumns class="linked-hash-map"/>
+    <header/>
+    <decimalSeparator>.</decimalSeparator>
+    <groupingSeparator>�</groupingSeparator>
+    <schema>select(&quot;#row=1-*&quot;).select(&quot;#col=2-*&quot;).&#xd;
+filter(!rowText.contains(&apos;Dato&apos;)).&#xd;
+filter(!rowText.contains(&apos; 24:00&apos;)).&#xd;
+filter(!rowText.matches( &apos;.*-[0-9]{2} [0-9]{2}N[0-9]{2}.*&apos;)).&#xd;
+addSeries().&#xd;
+metric((cell(Math.max(2,col)-1, 1)+&quot;&quot;).replace(/\d+/, &quot;&quot;)).&#xd;
+timestamp(cell(row, 1));</schema>
+  </com.axibase.tsd.model.csv.CsvConfiguration>
+</list>
