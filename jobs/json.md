@@ -75,35 +75,38 @@ Name  | Configuration name.
 
 | Field                | Description |
 |:-------------------- |:------------|
-| Message Default Type | Message type that will be used as a default type for all messages.<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
-| Message Type Field   | Field with value that will be used as message type.<br> This field supports the following options:<br> - Name of the field containing message type in the matched object<br> - JSON Path |
-| Message Default Type | Message source that will be used as a default source for all messages.<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
-| Message Type Field   | Field with value that will be used as message source.<br> This field supports the following options:<br> - Name of the field containing message source in the matched object<br> - JSON Path |
-| Message Tag Fields   | Message tags, included as tags into message command. |
-| Message Default | Message value that will be used as a default text for all messages.<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
-| Message Field   | Field with value that will be used as message text.<br> This field supports the following options:<br> - Name of the field containing message source in the matched object<br> - JSON Path |
+| Message Default Type | Message type that will be used as a default type for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Message Type Field   | Field with value that will be used as message type ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message type in the matched object<br> - JSON Path |
+| Message Default Type | Message source that will be used as a default source for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Message Type Field   | Field with value that will be used as message source ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message source in the matched object<br> - JSON Path |
+| Message Tag Fields   | Message tags, included as tags into message command ([example](#message-fields)). |
+| Message Default | Message value that will be used as a default text for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Message Field   | Field with value that will be used as message text ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message source in the matched object<br> - JSON Path |
 
 ## Examples
 
-- [Json Fields](#json-fields)
+- [Json Fields](#json-fields-examples)
   - [Custom Tags](#custom-tags)
-- [Entity Fields](#entity-fields)
+- [Entity Fields](#entity-fields-examples)
   - [Default Entity](#default-entity)
   - [Entity Field](#entity-field)
-- [Series Fields](#series-fields)
+- [Series Fields](#series-fields-examples)
   - [Metric Prefix](#metric-prefix)
   - [Included Fields](#included-fields)
   - [Excluded Fields](#excluded-fields)
   - [Metric Name and Value Fields](#metric-name-and-value-fields)
-- [Property Fields](#property-fields)
+- [Property Fields](#property-fields-examples)
   - [Property Default Type](#property-default-type)
   - [Property Type Field](#property-type-field)
   - [Property Key and Value Fields](#property-key-and-value-fields)
-- [Time Fields](#time-fields)
+- [Time Fields](#time-fields-examples)
   - [Time Default](#time-default)
   - [Time Field](#time-field)
+- [Message Fields](#message-fields-examples)
+  - [Message Defaults](#message-defaults)
+  - [Message Fields](#message-fields)
 
-### Json Fields
+### Json Fields Examples
 
 #### Custom tags
 
@@ -142,7 +145,7 @@ Result:
 series e:tst ms:1466517795129 t:name=demo-backend t:server=1.2.3.4:1234 t:type=upstreams.peers m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
 ```
 
-### Entity Fields
+### Entity Fields Examples
 
 #### Default Entity
 
@@ -197,6 +200,21 @@ JSON:
   ```
   series e:demo-backend ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
+  
+- Default Entity contains text:
+
+  Field Name         | Field Value
+  :----------------- | :----------
+  Path               | http://test.ru
+  **Default Entity** | **tst**
+  JSON Path          | $.upstreams.demo-backend.peers.*
+  Depth              | 2
+
+  Result:
+
+  ```
+  series e:tst ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
+  ```
 
 #### Entity Field
 
@@ -237,7 +255,7 @@ Result:
 series e:tst.peer d:2016-07-06T08:14:42.540Z m:id=1 m:active=0
 ```
 
-### Series Fields
+### Series Fields Examples
 
 #### Metric Prefix
 
@@ -359,7 +377,7 @@ series e:tst d:2016-07-01T10:29:07.638Z m:metric1=350
 series e:tst d:2016-07-01T10:28:07.638Z m:metric2=250
 ```
 
-### Property Fields
+### Property Fields Examples
 
 #### Property Default Type
 
@@ -464,7 +482,7 @@ Result:
 property t:type1 e:tst d:2016-07-06T07:46:58.874Z k:name=java v:quota_max=100000 v:has_more=false
 ```
 
-### Time Fields
+### Time Fields Examples
 
 #### Time Field
 
@@ -532,7 +550,131 @@ Result:
 ```
 series e:tst ms:1451606400000 m:fail=2 m:ok=10
 series e:tst ms:1451692800000 m:fail=2 m:ok=15
-``` 
+```
+
+### Message Fields Examples
+
+#### Message Defaults
+
+- Defaults contain placeholders:
+
+  JSON:
+
+  ```json
+  {
+    "upstreams": {
+      "demo-backend": {
+        "peers": [
+          {
+            "active": 0,
+            "responses": {
+              "1xx": 0,
+              "total": 0
+            },
+            "id": 1,
+            "server": "1.2.3.4:1234"
+          }
+        ]
+      }
+    }
+  }
+  ```
+
+  Field Name                  | Field Value
+  :-------------------------- | :----------
+  Default Entity              | tst
+  JSON Path                   | $.upstreams.*.peers.*
+  Depth                       | 1
+  **Message Default Type**    | **${PARENT(3)}.${PARENT}**
+  **Message Default Source**  | **${PARENT(2)}**
+  **Message Default**         | **${PARENT(1)}**
+
+  Result:
+
+  ```
+  message e:tst d:2016-07-06T08:19:30.563Z t:source=demo-backend t:type=upstreams.peers m:peers
+  ```
+
+- Defaults contain text:
+
+  JSON:
+
+  ```json
+  {
+    "upstreams": {
+      "demo-backend": {
+        "peers": [
+          {
+            "active": 0,
+            "responses": {
+              "1xx": 0,
+              "total": 0
+            },
+            "id": 1,
+            "server": "1.2.3.4:1234"
+          }
+        ]
+      }
+    }
+  }
+  ```
+
+  Field Name                  | Field Value
+  :-------------------------- | :----------
+  Default Entity              | tst
+  JSON Path                   | $.upstreams.*.peers.*
+  Depth                       | 1
+  **Message Default Type**    | **upstream**
+  **Message Default Source**  | **demo**
+  **Message Default**         | **test**
+
+  Result:
+
+  ```
+  message e:tst d:2016-07-06T08:19:30.563Z t:source=demo t:type=upstream m:test
+  ```
+
+#### Message Fields
+
+JSON:
+
+```json
+{
+  "upstreams": {
+    "demo-backend": {
+      "peers": [
+        {
+          "active": 0,
+          "responses": {
+            "1xx": 0,
+            "total": 0
+          },
+          "id": 1,
+          "server": "1.2.3.4:1234",
+          "type": "peer"
+        }
+      ]
+    }
+  }
+}
+```
+
+Field Nam                | Field Value
+:----------------------- | :----------
+Default Entity           | tst
+JSON Path                | $.upstreams.*.peers.*
+Depth                    | 1
+**Message Type Field**   | **type**
+**Message Source Field** | **server**
+**Message Field**        |
+Message Default          |
+**Message Tag Fields**   | **id**
+
+Result:
+
+```
+message e:tst d:2016-07-06T08:19:30.563Z t:id=1 t:source=1.2.3.4:1234 t:type=peer m:""
+```
 
 ## Configuration Example
 
