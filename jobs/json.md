@@ -39,37 +39,37 @@ Name  | Configuration name.
 
 | Field          | Description |
 |:-------------- |:------------|
-| Default Entity | Entity that will be used in all commands.<br> This field  supports the following options:<br> - Text value<br> - ${HOST} placeholder - Hostname from which the JSON document was loaded.<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}.|
-| Entity Field   | Value that will be used as entity in all commands.<br> This field supports the following options:<br> - Name of the field containing entity in the matched object<br> - JSON Path | 
-| Entity Prefix  | Text added to entity name extracted retrieved from the specified field.<br> For example, if Entity Prefix is set to 'custom.', and the field value is 'my-host', the resulting entity name will be 'custom.my-host'. |
+| Default Entity | Entity that will be used in all commands ([example](#default-entity)).<br> This field  supports the following options:<br> - Text value<br> - ${HOST} placeholder - Hostname from which the JSON document was loaded.<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}.|
+| Entity Field   | Value that will be used as entity in all commands ([example](#entity-field)).<br> This field supports the following options:<br> - Name of the field containing entity in the matched object<br> - JSON Path | 
+| Entity Prefix  | Text added to entity name extracted retrieved from the specified field ([example](#entity-field)).<br> For example, if Entity Prefix is set to 'custom.', and the field value is 'my-host', the resulting entity name will be 'custom.my-host'. |
 
-#### Metric Fields
+#### Series Fields
 
 | Field              | Description |
 |:------------------ |:------------|
 | Metric Prefix      | Text added to metric name.<br> For example, if Metric Prefix is set to 'custom.', and the metric name is 'cpu_busy', the resulting metric name will be 'custom.cpu_busy'. |
-| Included Fields    | Specify fields that should be included into the Series command. If you leave the field empty, all values will be included into the command. You can use the '.' symbol for nested fields. Wildcard '*' is supported. |
-| Excluded Fields    | Specify fields that should be excluded from the Series command. You can use the '.' symbol for nested fields. Wildcard '*' is supported. |
-| Metric Name Field  | Metric name extracted from the given field in the matched object. |
-| Metric Value Field | Metric value extracted from the given field in the matched object. |
+| Included Fields    | Specify fields that should be included into the Series command ([example](#included-fields)). If you leave the field empty, all values will be included into the command. You can use the '.' symbol for nested fields. Wildcard '*' is supported. |
+| Excluded Fields    | Specify fields that should be excluded from the Series command ([example](#excluded-fields)). You can use the '.' symbol for nested fields. Wildcard '*' is supported. |
+| Metric Name Field  | Metric name extracted from the given field in the matched object([example](#metric-name-and-value-fields)). |
+| Metric Value Field | Metric value extracted from the given field in the matched object([example](#metric-name-and-value-fields)). |
 
 #### Property Fields
 
 | Field                 | Description |
 |:--------------------- |:------------|
-| Property Default Type | Property type that will be used as a default type for all properties.<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
-| Property Type Field   | Field with value that will be used as property type.<br> This field supports the following options:<br> - Name of the field containing property type in the matched object<br> - JSON Path |
-| Property Key Fields   | Fields that should be included into the Property command value collection. |
-| Property Value Fields | Fields that should be loaded to a collection as properties. |
+| Property Default Type | Property type that will be used as a default type for all properties ([example](#property-default-type)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Property Type Field   | Field with value that will be used as property type ([example](#property-type-field)).<br> This field supports the following options:<br> - Name of the field containing property type in the matched object<br> - JSON Path |
+| Property Key Fields   | Fields that should be included into the Property command value collection ([example](#property-key-and-value-fields)). |
+| Property Value Fields | Fields that should be loaded to a collection as properties ([example](#property-key-and-value-fields)). |
 
 #### Time Fields
 
 | Field        | Description |
 |:------------ |:------------|
-| Time Default | Specify time value for all commands ([example](#time-value)).<br> This field supports the following options:<br> - ${TIME()} text output of the TIME function<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
-| Time Field   | Field with values that specify time for all commands ([example](#metric-name-and-value-fields)).<br> This field supports the following options:<br> - Name of the field containing date in the matched object<br> - JSON Path |
+| Time Default | Specify time value for all commands ([example](#time-default)).<br> This field supports the following options:<br> - ${TIME()} text output of the TIME function<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Time Field   | Field with values that specify time for all commands ([example](#time-field)).<br> This field supports the following options:<br> - Name of the field containing date in the matched object<br> - JSON Path |
 | Time Format  | Date format applied when parsing time value ([example](#metric-name-and-value-fields)). |
-| Time Zone    | Time zone can be optionally applied if the extracted date is in local time, otherwise local Collector time zone is in effect. |
+| Time Zone    | Time zone can be optionally applied if the extracted date is in local time, otherwise local Collector time zone is in effect ([example](#time-field)). |
 
 #### Message Fields
 
@@ -89,11 +89,19 @@ Name  | Configuration name.
   - [Custom Tags](#custom-tags)
 - [Entity Fields](#entity-fields)
   - [Default Entity](#default-entity)
-- [Metric Fields](#metric-fields)
+  - [Entity Field](#entity-field)
+- [Series Fields](#series-fields)
+  - [Metric Prefix](#metric-prefix)
+  - [Included Fields](#included-fields)
+  - [Excluded Fields](#excluded-fields)
   - [Metric Name and Value Fields](#metric-name-and-value-fields)
+- [Property Fields](#property-fields)
+  - [Property Default Type](#property-default-type)
+  - [Property Type Field](#property-type-field)
+  - [Property Key and Value Fields](#property-key-and-value-fields)
 - [Time Fields](#time-fields)
+  - [Time Default](#time-default)
   - [Time Field](#time-field)
-  - [Time Value](#time-value)
 
 ### Json Fields
 
@@ -160,12 +168,12 @@ JSON:
 }
 ```
 
-- Default Entity is EMPTY:
+- Default Entity contains placeholder ${HOST)}:
 
   Field Name         | Field Value
   :----------------- | :----------
   Path               | http://test.ru
-  **Default Entity** |
+  **Default Entity** | **${HOST}**
   JSON Path          | $.upstreams.demo-backend.peers.*
   Depth              | 2
 
@@ -175,7 +183,7 @@ JSON:
   series e:test.ru ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
   
-- Default Entity contains placeholder:
+- Default Entity contains placeholder ${PARENT(n)}:
 
   Field Name         | Field Value
   :----------------- | :----------
@@ -190,7 +198,139 @@ JSON:
   series e:demo-backend ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
 
-### Metric Fields
+#### Entity Field
+
+JSON:
+
+```json
+{
+  "upstreams": {
+    "demo-backend": {
+      "peers": [
+        {
+          "active": 0,
+          "responses": {
+            "1xx": 0,
+            "total": 0
+          },
+          "id": 1,
+          "server": "1.2.3.4:1234",
+          "type": "peer"
+        }
+      ]
+    }
+  }
+}
+```
+
+Field Name       | Field Value
+:--------------- | :----------
+Path             | http://test.ru
+**Entity Field** | **type**
+Entity Prefix    | tst.
+JSON Path        | $.upstreams.demo-backend.peers.*
+Depth            | 1
+
+Result:
+
+```
+series e:tst.peer d:2016-07-06T08:14:42.540Z m:id=1 m:active=0
+```
+
+### Series Fields
+
+#### Metric Prefix
+
+JSON:
+
+```json
+{
+  "has_more": false, 
+  "items": [
+    {
+      "count": 878240,
+      "name": "java"
+    }
+  ], 
+  "quota_max": 10000, 
+  "quota_remaining": 9923
+}
+```
+
+Field Name        | Field Value
+:---------------- | :----------
+Default Entity    | tst
+JSON Path         | $
+Depth             | 0
+**Metric Prefix** | **mp.**
+
+Result:
+
+```
+series e:tst d:2016-07-06T07:27:48.184Z m:mp.quota_max=10000 m:mp.items.0.count=878240 m:mp.quota_remaining=9923 
+```
+
+#### Included Fields
+
+JSON:
+
+```json
+{
+  "has_more": false, 
+  "items": [
+    {
+      "count": 878240,
+      "name": "java"
+    }
+  ], 
+  "quota_max": 10000, 
+  "quota_remaining": 9923
+}
+```
+
+Field Name          | Field Value
+:------------------ | :----------
+Default Entity      | tst
+JSON Path           | $
+Depth               | 1
+**Included Fields** | **quota_remaining,has_more**
+
+Result:
+
+```
+series e:tst d:2016-07-06T07:14:42.540Z t:has_more=false m:quota_remaining=9923
+```
+
+#### Excluded Fields
+
+JSON:
+
+```json
+{
+  "has_more": false, 
+  "items": [
+    {
+      "count": 878240,
+      "name": "java"
+    }
+  ], 
+  "quota_max": 10000, 
+  "quota_remaining": 9923
+}
+```
+
+Field Name          | Field Value
+:------------------ | :----------
+Default Entity      | tst
+JSON Path           | $
+Depth               | 0
+**Excluded Fields** | **quota_remaining**
+
+Result:
+
+```
+series e:tst d:2016-07-06T07:27:48.184Z m:quota_max=10000 m:items.0.count=878240
+```
 
 #### Metric Name and Value Fields
 
@@ -220,6 +360,109 @@ series e:tst d:2016-07-01T10:28:07.638Z m:metric2=250
 ```
 
 ### Property Fields
+
+#### Property Default Type
+
+JSON:
+
+```json
+{
+  "upstreams": {
+    "demo-backend": {
+      "peers": [
+        {
+          "active": 0,
+          "responses": {
+            "1xx": 0,
+            "total": 0
+          },
+          "id": 1,
+          "server": "1.2.3.4:1234"
+        }
+      ]
+    }
+  }
+}
+```
+
+Field Name                | Field Value
+:------------------------ | :----------
+Default Entity            | tst
+JSON Path                 | $.upstreams.*.peers.*
+Depth                     | 1
+**Property Default Type** | **${PARENT(3)}.${PARENT}**
+
+Result:
+
+```
+property t:upstreams.peers e:tst d:2016-07-06T07:42:46.824Z v:state=up v:server=10.0.0.2:15431 v:backup=false
+```
+
+#### Property Type Field
+
+JSON:
+
+```json
+{
+  "has_more": false, 
+  "items": [
+    {
+      "count": 878240,
+      "name": "java"
+    }
+  ], 
+  "quota_max": 10000, 
+  "quota_remaining": 9923,
+  "type": "type1"
+}
+```
+
+Field Name                | Field Value
+:------------------------ | :----------
+Default Entity            | tst
+JSON Path                 | $
+Depth                     | 0
+**Property Type Field**   | **type**
+
+Result:
+
+```
+property t:type1 e:tst d:2016-07-06T07:46:58.874Z v:type=type1 v:items.0.name=java v:has_more=false
+```
+
+#### Property Key and Value Fields
+
+JSON:
+
+```json
+{
+  "has_more": false, 
+  "items": [
+    {
+      "count": 878240,
+      "name": "java"
+    }
+  ], 
+  "quota_max": 10000, 
+  "quota_remaining": 9923,
+  "type": "type1"
+}
+```
+
+Field Name                | Field Value
+:------------------------ | :----------
+Default Entity            | tst
+JSON Path                 | $
+Depth                     | 0
+Property Type Field       | type
+**Property Key Fields**   | **name**
+**Property Value Fields** | **quota_max,has_more**
+
+Result:
+
+```
+property t:type1 e:tst d:2016-07-06T07:46:58.874Z k:name=java v:quota_max=100000 v:has_more=false
+```
 
 ### Time Fields
 
@@ -259,7 +502,7 @@ series e:tst ms:1451606400000 m:fail=2 m:ok=10
 series e:tst ms:1451692800000 m:fail=2 m:ok=15
 ```
 
-#### Time Value
+#### Time Default
 
 JSON:
 
@@ -276,13 +519,13 @@ JSON:
 }
 ```
 
-Field Name     | Field Value
-:------------- | :----------
-Default Entity | tst
-JSON Path      | $.*
-**Time Value** | **${PARENT}**
-Time Format    | yyyy-MM-dd
-Time Zone      | UTC
+Field Name       | Field Value
+:--------------- | :----------
+Default Entity   | tst
+JSON Path        | $.*
+**Time Default** | **${PARENT}**
+Time Format      | yyyy-MM-dd
+Time Zone        | UTC
 
 Result:
 
