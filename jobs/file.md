@@ -129,5 +129,5 @@ Refer to [placeholder examples](placeholders.md).
 * [duckduckgo.com Search Statistics](examples/file/duckduckgo/README.md#overview)
 * [Sunspot Daily Count](examples/file/ssn/README.md#overview)
 * [nginx Web Server Basic Statistics](examples/file/nginx/README.md#overview)
-
+* [Australian Bureau of Meteorology: JSON](examples/file/australia-bom/README.md#overview)
 
