@@ -32,8 +32,8 @@
           <type>TEXT</type>
           <discardDuplicates>false</discardDuplicates>
           <entities>
-            <string>www.axibase.com</string>
-            <string>apps.axibase.com</string>
+            <string>example.com</string>
+            <string>example.org</string>
           </entities>
         </entitySet>
         <enableWebDriver>false</enableWebDriver>

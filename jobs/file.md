@@ -122,4 +122,12 @@ To download multiple files with the same configuration, utilize one of the optio
 | `${FILE}` | Name of the downloaded file. |
 | `${DIRECTORY}` | Parent directory of the downloaded file. |
 
-Refer to placeholder [examples](placeholders.md).
+Refer to [placeholder examples](placeholders.md).
+
+## Examples
+
+* [duckduckgo.com Search Statistics](examples/file/duckduckgo/README.md#overview)
+* [Sunspot Daily Count](examples/file/ssn/README.md#overview)
+* [nginx Web Server Basic Statistics](examples/file/nginx/README.md#overview)
+
+

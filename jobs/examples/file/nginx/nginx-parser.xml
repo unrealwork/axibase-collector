@@ -9,7 +9,7 @@
     <comment></comment>
     <textQualifier>&quot;</textQualifier>
     <entityColumn/>
-    <defaultEntity>192.168.1.40</defaultEntity>
+    <defaultEntity>example.com</defaultEntity>
     <timestampFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timestampFormat>
     <metricPrefix>nginx.</metricPrefix>
     <timestampType>PATTERN</timestampType>
