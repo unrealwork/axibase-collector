@@ -141,7 +141,7 @@ Depth           | 2
 
 Result:
 
-```
+```ls
 series e:tst ms:1466517795129 t:name=demo-backend t:server=1.2.3.4:1234 t:type=upstreams.peers m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
 ```
 
@@ -175,29 +175,29 @@ JSON:
 
   Field Name         | Field Value
   :----------------- | :----------
-  Path               | http://test.ru
+  Path               | http://example.com
   **Default Entity** | **${HOST}**
   JSON Path          | $.upstreams.demo-backend.peers.*
   Depth              | 2
 
   Result:
 
-  ```
-  series e:test.ru ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
+  ```ls
+  series e:example.com ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
   
 - Default Entity contains placeholder ${PARENT(n)}:
 
   Field Name         | Field Value
   :----------------- | :----------
-  Path               | http://test.ru
+  Path               | http://example.com
   **Default Entity** | **${PARENT(2)}**
   JSON Path          | $.upstreams.demo-backend.peers.*
   Depth              | 2
 
   Result:
 
-  ```
+  ```ls
   series e:demo-backend ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
   
@@ -205,14 +205,14 @@ JSON:
 
   Field Name         | Field Value
   :----------------- | :----------
-  Path               | http://test.ru
+  Path               | http://example.com
   **Default Entity** | **tst**
   JSON Path          | $.upstreams.demo-backend.peers.*
   Depth              | 2
 
   Result:
 
-  ```
+  ```ls
   series e:tst ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
 
@@ -243,7 +243,7 @@ JSON:
 
 Field Name       | Field Value
 :--------------- | :----------
-Path             | http://test.ru
+Path             | http://example.com
 **Entity Field** | **type**
 Entity Prefix    | tst.
 JSON Path        | $.upstreams.demo-backend.peers.*
@@ -251,7 +251,7 @@ Depth            | 1
 
 Result:
 
-```
+```ls
 series e:tst.peer d:2016-07-06T08:14:42.540Z m:id=1 m:active=0
 ```
 
@@ -284,7 +284,7 @@ Depth             | 0
 
 Result:
 
-```
+```ls
 series e:tst d:2016-07-06T07:27:48.184Z m:mp.quota_max=10000 m:mp.items.0.count=878240 m:mp.quota_remaining=9923 
 ```
 
@@ -315,7 +315,7 @@ Depth               | 1
 
 Result:
 
-```
+```ls
 series e:tst d:2016-07-06T07:14:42.540Z t:has_more=false m:quota_remaining=9923
 ```
 
@@ -346,7 +346,7 @@ Depth               | 0
 
 Result:
 
-```
+```ls
 series e:tst d:2016-07-06T07:27:48.184Z m:quota_max=10000 m:items.0.count=878240
 ```
 
@@ -372,7 +372,7 @@ Excluded Fields        | pitagvalue
 
 Result:
 
-```
+```ls
 series e:tst d:2016-07-01T10:29:07.638Z m:metric1=350
 series e:tst d:2016-07-01T10:28:07.638Z m:metric2=250
 ```
@@ -412,7 +412,7 @@ Depth                     | 1
 
 Result:
 
-```
+```ls
 property t:upstreams.peers e:tst d:2016-07-06T07:42:46.824Z v:state=up v:server=10.0.0.2:15431 v:backup=false
 ```
 
@@ -444,7 +444,7 @@ Depth                     | 0
 
 Result:
 
-```
+```ls
 property t:type1 e:tst d:2016-07-06T07:46:58.874Z v:type=type1 v:items.0.name=java v:has_more=false
 ```
 
@@ -478,7 +478,7 @@ Property Type Field       | type
 
 Result:
 
-```
+```ls
 property t:type1 e:tst d:2016-07-06T07:46:58.874Z k:name=java v:quota_max=100000 v:has_more=false
 ```
 
@@ -515,7 +515,7 @@ Time Zone      | UTC
 
 Result:
 
-```
+```ls
 series e:tst ms:1451606400000 m:fail=2 m:ok=10
 series e:tst ms:1451692800000 m:fail=2 m:ok=15
 ```
@@ -547,7 +547,7 @@ Time Zone        | UTC
 
 Result:
 
-```
+```ls
 series e:tst ms:1451606400000 m:fail=2 m:ok=10
 series e:tst ms:1451692800000 m:fail=2 m:ok=15
 ```
@@ -591,7 +591,7 @@ series e:tst ms:1451692800000 m:fail=2 m:ok=15
 
   Result:
 
-  ```
+  ```ls
   message e:tst d:2016-07-06T08:19:30.563Z t:source=demo-backend t:type=upstreams.peers m:peers
   ```
 
@@ -630,7 +630,7 @@ series e:tst ms:1451692800000 m:fail=2 m:ok=15
 
   Result:
 
-  ```
+  ```ls
   message e:tst d:2016-07-06T08:19:30.563Z t:source=demo t:type=upstream m:test
   ```
 
@@ -672,7 +672,7 @@ Message Default          |
 
 Result:
 
-```
+```ls
 message e:tst d:2016-07-06T08:19:30.563Z t:id=1 t:source=1.2.3.4:1234 t:type=peer m:""
 ```
 
