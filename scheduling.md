@@ -38,19 +38,24 @@ Second, minute, and hour fields support **R** (random) symbol to randomize the e
 
 ![Cron Expressions](http://axibase.com/wp-content/uploads/2016/03/cron_expressions.png)
 
-_*Either '0' or '7' can stand for Sunday in day-of-week field._
+* `day-of-week` keywords: SUN, MON, TUE, WED, THU, FRI, SAT or numbers from 0 to 7.
+* Either '0' or '7' can stand for Sunday in `day-of-week` field.
+* If `day-of-week` is specified, day-of-month should be set to `?`, e.g. `0 0 6 ? * MON *`.
+
+Day of 
 
 ## Cron Expression Examples
 
 **Expression** | **Description**
 ---|:---
-`0 0/15 * * * ?` | Execute job every 15 minutes.
-`0/10 * * * * ?` | Execute job every 10 seconds.
-`0 0/1 * * * ?` | Execute job every minute.
-`0 0 0 * * ?` | Execute job every day at 0:00.  
-`R 0/5 * * * ?` | Execute job every 5 minutes at random second.
-`R R 1 * * ?` | Execute job every day on 01 hour at random minute and second.
-`0 5,35 * * * ?` | Execute job every hour at 5th and 35th minute.
+`0 0/15 * * * ?` | Every 15 minutes.
+`0/10 * * * * ?` | Every 10 seconds.
+`0 0/1 * * * ?` | Every minute.
+`0 0 0 * * ?` | Every day at 0:00.  
+`R 0/5 * * * ?` | Every 5 minutes at random second.
+`R R 1 * * ?` | Every day on 01 hour at random minute and second.
+`0 5,35 * * * ?` | Every hour at 5th and 35th minute.
+`0 0 6 ? * MON *` | Every Monday at 06:00.
 
 ## Execution State
 

@@ -52,7 +52,7 @@ To download multiple files with the same configuration, utilize one of the optio
 | File Format | CSV or JSON. JSON files are converted into CSV files prior to uploading.|
 | Protocol | Network or file protocol to download the file from a remote server or read it from the local file system.|
 | Path | URI to the data file in RFC 3986 form: `[user:password@]host[:port][/]path[?query][#fragment]`.<br>Example: `https://example.com/traffic/direct.csv`.<br>If HTTP_POOL is selected, the URI should be relative: `/path[?query][#fragment]`.<br>If FILE protocol, the Path to files on the local file system should be absolute.<br>Supported placeholders: `${ITEM}`, `${TIME()}`, `${DATE_ITEM()}`.|
-| Item List | A collection of elements to execute multiple file requests in a loop.<br>The current element in the loop can be accessed with `${ITEM}` placeholder which can be embedded into Path and Default Entity fields.<br>When Item List is selected and `${ITEM}` is present in Path, the job will execute as many queries as there are elements in the list, substituting `${ITEM}` with element value for each request. |
+| Item List | A collection of elements to execute multiple file requests in a loop.<br>The current element in the loop can be accessed with `${ITEM}` placeholder which can be embedded into Path and Default Entity fields.<br>When Item List is selected and `${ITEM}` is present in Path, the job will execute as many queries as there are elements in the list, substituting `${ITEM}` with element value for each request.<br>`${ITEM}` value can be url-encoded as follows: `${ITEM?url}`|
 
 ### HTTP-specific Download Settings
 
@@ -134,4 +134,6 @@ Refer to [placeholder examples](placeholders.md).
 * [Energinet DK Market Data](examples/file/energinet-ftp/README.md#overview)
 * [pvoutput.org Solar System Statistics](examples/file/pvout/README.md#overview)
 * [Stackoverflow Tags: JSON](examples/file/stackoverflow/README.md#overview)
+* [UK Civil Aviation Authority](examples/file/uk-caa/README.md#overview)
+* [airnow.gov](examples/file/airnow/README.md#overview)
 

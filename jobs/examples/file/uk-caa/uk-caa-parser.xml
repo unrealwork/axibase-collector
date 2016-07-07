@@ -1,0 +1,70 @@
+<list>
+  <com.axibase.tsd.model.csv.CsvConfiguration>
+    <name>uk-caa</name>
+    <putType>METRIC</putType>
+    <delimiter>,</delimiter>
+    <recordDelimiter>
+</recordDelimiter>
+    <padding> </padding>
+    <comment></comment>
+    <textQualifier>&quot;</textQualifier>
+    <entityColumn/>
+    <defaultEntity>uk-caa</defaultEntity>
+    <timestampColumn class="java.util.Arrays$ArrayList">
+      <a class="string-array">
+        <string>this_period</string>
+      </a>
+    </timestampColumn>
+    <timestampFormat>yyyyMM</timestampFormat>
+    <metricPrefix>uk-caa.</metricPrefix>
+    <timestampType>PATTERN</timestampType>
+    <processEvents>false</processEvents>
+    <writeProperty>false</writeProperty>
+    <enabled>true</enabled>
+    <discardNan>true</discardNan>
+    <ignoreParseErrors>false</ignoreParseErrors>
+    <timeZone>GMT</timeZone>
+    <tagColumns class="linked-hash-set">
+      <string>airport_name</string>
+      <string>group_name</string>
+      <string>airport_1_name</string>
+      <string>airport_2_name</string>
+      <string>intended_airport</string>
+      <string>actual_airport</string>
+      <string>foreign_region</string>
+      <string>foreign_country</string>
+      <string>UK_airport</string>
+      <string>foreign_airport</string>
+    </tagColumns>
+    <excludedColumns class="linked-hash-set">
+      <string>rundate</string>
+      <string>last_period</string>
+      <string>charters_tm_only_small_acf</string>
+      <string>charters_lm_only_small_acf</string>
+    </excludedColumns>
+    <propertyColumns class="linked-hash-set"/>
+    <propertyKeyColumns class="linked-hash-set"/>
+    <defaultTags class="linked-hash-map"/>
+    <renamedColumns class="linked-hash-map">
+      <entry>
+        <string>UK_airport</string>
+        <string>airport_name</string>
+      </entry>
+      <entry>
+        <string>reporting_airport_group_name</string>
+        <string>group_name</string>
+      </entry>
+      <entry>
+        <string>reporting_airport_name</string>
+        <string>airport_name</string>
+      </entry>
+      <entry>
+        <string>reporting_period</string>
+        <string>this_period</string>
+      </entry>
+    </renamedColumns>
+    <header/>
+    <decimalSeparator>.</decimalSeparator>
+    <groupingSeparator>�</groupingSeparator>
+  </com.axibase.tsd.model.csv.CsvConfiguration>
+</list>

@@ -11,18 +11,22 @@ The following placeholders are supported to format strings, calculate dates, and
 | `${FILE}` | File's name. |
 | `${DIRECTORY}` | File's parent directory. |
 | `${TIME()}` | Text output of the `TIME` function. |
-| `${DATE_ITEM()}` | Current element in the Date Item List.|
+| `${DATE_ITEM()}` | Current element in the Date Item list.|
+
+* In case of HTTP protocol, placeholder `${FILE}` returns part of the URL after the last slash and before query string, for example, `http://examples.com/data/stats.csv?city=Denver` -> `${FILE}` = `stats.csv`
 
 ## Usage 
 
 | **Name** | **Supported Fields** | **Supported Protocols** |
 |:---|:---|:---|
-| `${ITEM}` | Default Entity, Path, Custom Tags, Success Directory, Error Directory | All |
+| `${ITEM}` | Path, Default Entity, Metric Prefix, Custom Tags, Success Directory, Error Directory | All |
 | `${PATH}` | Default Entity | All |
-| `${FILE}` | Default Entity | FILE, FTP, SFTP, SCP |
+| `${FILE}` | Default Entity | All |
 | `${DIRECTORY}` | Default Entity | FILE, FTP, SFTP, SCP |
 | `${TIME()}` | Path, Success Directory, Error Directory | All |
 | `${DATE_TIME()}` | Path | All |
+
+* To URL-encode placeholder value, for example, if it may contain special characters and is included in Path, apply `url` function as follows: `${ITEM?url}`.
 
 ## Syntax
 
@@ -62,7 +66,9 @@ If the path contains `${DATE_ITEM()}` placeholder, it should execute a separate 
 
 Syntax: `${DATE_ITEM(startDate, endDate, periodCount, periodUnit, timeFormat)}` 
 
-Example: `${DATE_ITEM("current_day - 7 day", "now", 1, "HOUR", "yyyy/MM/dd/HH")}` 
+`startDate` and `endDate` support [endtime](https://github.com/axibase/atsd-docs/blob/master/end-time-syntax.md) syntax.
+
+Example: `${DATE_ITEM("current_day - 7 * DAY", "now", 1, "HOUR", "yyyy/MM/dd/HH")}`
 
 ### String Functions
 
