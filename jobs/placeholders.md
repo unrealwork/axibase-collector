@@ -20,9 +20,9 @@ The following placeholders are supported to format strings, calculate dates, and
 | **Name** | **Supported Fields** | **Supported Protocols** |
 |:---|:---|:---|
 | `${ITEM}` | Path, Default Entity, Metric Prefix, Custom Tags, Success Directory, Error Directory | All |
-| `${PATH}` | Default Entity | All |
-| `${FILE}` | Default Entity | All |
-| `${DIRECTORY}` | Default Entity | FILE, FTP, SFTP, SCP |
+| `${PATH}` | Default Entity, Metric Prefix | All |
+| `${FILE}` | Default Entity, Metric Prefix | All |
+| `${DIRECTORY}` | Default Entity, Metric Prefix | FILE, FTP, SFTP, SCP |
 | `${TIME()}` | Path, Success Directory, Error Directory | All |
 | `${DATE_TIME()}` | Path | All |
 
