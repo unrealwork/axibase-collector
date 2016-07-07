@@ -1,6 +1,6 @@
 # FILE Job Example: AirNow Climate and Pollution Statistics
 
-## Description
+## Overview
 
 Download pollution statistics from [airnow.gov](https://www.airnow.gov/) for a collection of city areas in the U.S.
 

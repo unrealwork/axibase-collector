@@ -1,6 +1,6 @@
 # FILE Job Example: National Oceanic and Atmospheric Administration (NOAA) Mooring Data
 
-## Description
+## Overview
 
 Download high-resolution ocean and atmosphere pCO2 time-series measurements for a particular
 mooring **CCE2_121W_34N** from a [NOAA FTP server](ftp://ftp.nodc.noaa.gov/nodc/archive/arc0047/0084099/3.3/data/0-data/).

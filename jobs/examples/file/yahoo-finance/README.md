@@ -1,6 +1,6 @@
 # FILE Job Example: History Daily OHLC Prices from Yahoo! Finance
 
-## Description
+## Overview
 
 Download daily historical pricing information (OHLC) from [Yahoo! Finance](http://finance.yahoo.com/) for a collection of tickers: 
 

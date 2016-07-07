@@ -1,6 +1,6 @@
 # FILE Job Example: Stackoverflow Tags
 
-## Description
+## Overview
 
 Download Q&A activity statistics for a set of stackoverflow tags in JSON format.
 
