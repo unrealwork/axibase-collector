@@ -142,7 +142,7 @@ Depth           | 2
 Result:
 
 ```ls
-series e:tst ms:1466517795129 t:name=demo-backend t:server=1.2.3.4:1234 t:type=upstreams.peers m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
+series e:tst d:2016-07-07T15:22:59.593Z t:name=demo-backend t:server=1.2.3.4:1234 t:type=upstreams.peers m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
 ```
 
 ### Entity Fields Examples
@@ -183,7 +183,7 @@ JSON:
   Result:
 
   ```ls
-  series e:example.com ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
+  series e:example.com d:2016-07-07T15:19:01.365Z m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
   
 - Default Entity contains placeholder ${PARENT(n)}:
@@ -198,7 +198,7 @@ JSON:
   Result:
 
   ```ls
-  series e:demo-backend ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
+  series e:demo-backend d:2016-07-07T15:19:34.924Z m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
   
 - Default Entity contains text:
@@ -213,7 +213,7 @@ JSON:
   Result:
 
   ```ls
-  series e:tst ms:1466517795129 m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
+  series e:tst d:2016-07-07T15:19:34.924Z m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
 
 #### Entity Field
@@ -516,8 +516,8 @@ Time Zone      | UTC
 Result:
 
 ```ls
-series e:tst ms:1451606400000 m:fail=2 m:ok=10
-series e:tst ms:1451692800000 m:fail=2 m:ok=15
+series e:tst d:2016-01-01T00:00:00.000Z m:fail=2 m:ok=10
+series e:tst d:2016-01-02T00:00:00.000Z m:fail=2 m:ok=15
 ```
 
 #### Time Default
@@ -548,8 +548,8 @@ Time Zone        | UTC
 Result:
 
 ```ls
-series e:tst ms:1451606400000 m:fail=2 m:ok=10
-series e:tst ms:1451692800000 m:fail=2 m:ok=15
+series e:tst d:2016-01-01T00:00:00.000Z m:fail=2 m:ok=10
+series e:tst d:2016-01-02T00:00:00.000Z m:fail=2 m:ok=15
 ```
 
 ### Message Fields Examples
