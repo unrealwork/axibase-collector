@@ -8,12 +8,12 @@ The following placeholders are supported to format strings, calculate dates, and
 |:---|:---|
 | `${ITEM}` | Current element in the Item List.|
 | `${PATH}` | URL path or the file's absolute path. |
-| `${FILE}` | File's name. |
+| `${FILE}` | File's name (1). |
 | `${DIRECTORY}` | File's parent directory. |
 | `${TIME()}` | Text output of the `TIME` function. |
 | `${DATE_ITEM()}` | Current element in the Date Item list.|
 
-* In case of HTTP protocol, placeholder `${FILE}` returns part of the URL after the last slash and before query string, for example, `http://examples.com/data/stats.csv?city=Denver` -> `${FILE}` = `stats.csv`
+* (1) In case of HTTP protocol, placeholder `${FILE}` returns part of the URL after the last slash and before query string, for example, `http://examples.com/data/stats.csv?city=Denver` -> `${FILE}` = `stats.csv`
 
 ## Usage 
 

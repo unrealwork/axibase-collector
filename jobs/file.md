@@ -135,5 +135,5 @@ Refer to [placeholder examples](placeholders.md).
 * [pvoutput.org Solar System Statistics](examples/file/pvout/README.md#overview)
 * [Stackoverflow Tags: JSON](examples/file/stackoverflow/README.md#overview)
 * [UK Civil Aviation Authority](examples/file/uk-caa/README.md#overview)
-* [airnow.gov](examples/file/airnow/README.md#overview)
-
+* [airnow.gov Climate and Pollution Statistics](examples/file/airnow/README.md#overview)
+* [National Oceanic and Atmospheric Administration (NOAA) Mooring Data](examples/file/noaa-mooring/README.md#overview)
