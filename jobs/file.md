@@ -43,6 +43,17 @@ To download multiple files with the same configuration, utilize one of the optio
 * Create a collection of items, referred to as `item list`, and include `${ITEM}` placeholder in the Path. <br>The configuration will be repeated for all elements in the list.<br>The item list can be defined manually or can be retrieved from an external source such as a script.<br>The item list can include parts of Path or the entire Path.
 * Include `${DATE_ITEM()}` function in the Path. The `${DATE_ITEM()}` function produces an array of dates between start and end time, formatted with the specified pattern.<br>The configuration will be repeated for all dates returned by the functions.
 
+Wildcard examples for FILE protocol:
+
+```javascript
+/home/axibase/daily/*/*/packag?/report*.csv
+/home/axibase/daily/*/*/packag?/${ITEM}.json
+/tmp/collector/errors/*.json
+/tmp/collector/errors/${TIME("previous_day", "yyyy-MM-dd")}/downloaded*.csv
+```
+
+FILE protocol supports directory traversal.
+
 ## Configuration
 
 ### Download

@@ -683,3 +683,7 @@ message e:tst d:2016-07-06T08:19:30.563Z t:id=1 t:source=1.2.3.4:1234 t:type=pee
 ## JSON viewer Example
 
 ![](images/json_job_viewer.png)
+
+## Additional Examples
+
+* [Australia Bureau of Meteorology Weather](examples/file/australia-weather/README.md#overview)
