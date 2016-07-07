@@ -137,3 +137,4 @@ Refer to [placeholder examples](placeholders.md).
 * [UK Civil Aviation Authority](examples/file/uk-caa/README.md#overview)
 * [airnow.gov Climate and Pollution Statistics](examples/file/airnow/README.md#overview)
 * [National Oceanic and Atmospheric Administration (NOAA) Mooring Data](examples/file/noaa-mooring/README.md#overview)
+* [Yahoo! Finance Daily Quotes](examples/file/yahoo-finance/README.md#overview)
