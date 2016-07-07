@@ -112,7 +112,7 @@ $['observations']['data']
 ## Commands
 
 ```ls
-ilcannia_Airport d:2016-07-07T19:30:00.000Z m:au-weather-nsw.air_temp=8.8 m:au-weather-nsw.apparent_t=8.2
+series e:Wilcannia_Airport d:2016-07-07T19:30:00.000Z m:au-weather-nsw.air_temp=8.8 m:au-weather-nsw.apparent_t=8.2
 series e:Wilcannia_Airport d:2016-07-07T19:00:00.000Z m:au-weather-nsw.air_temp=8.9 m:au-weather-nsw.apparent_t=7.1
 series e:Wilcannia_Airport d:2016-07-07T18:30:00.000Z m:au-weather-nsw.air_temp=9 m:au-weather-nsw.apparent_t=6.7
 ... 	
