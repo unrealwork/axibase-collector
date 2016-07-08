@@ -63,7 +63,28 @@ Metric Value Field | pitagvalue
 
 [JSON Job Configuration](json_job_configuration.xml) file. Import xml into Collector.
 
-## Test Results
+## Matched Objects
+
+```javascript
+$..data.*
+```
+
+```json
+[
+   {
+      "pitagname": "metric1",
+      "pitagvalue": 350,
+      "timestamp": "2016-07-01T15:59:07.6382972+05:30"
+   },
+   {
+      "pitagname": "metric2",
+      "pitagvalue": 250,
+      "timestamp": "2016-07-01T15:58:07.6382972+05:30"
+   }
+]
+```
+
+## Commands
 
 ```ls
 series e:json_lines d:2016-07-01T10:29:07.638Z m:metric1=350
