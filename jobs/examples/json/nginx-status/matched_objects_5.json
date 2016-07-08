@@ -1,0 +1,39 @@
+[
+   536838144,
+   536870912,
+   false,
+   {
+      "responses": 1233531,
+      "bytes": 16090273077
+   },
+   {
+      "responses": 0,
+      "bytes": 0
+   },
+   {
+      "responses": 0,
+      "bytes": 0
+   },
+   {
+      "responses": 0,
+      "bytes": 0
+   },
+   {
+      "responses": 1872931,
+      "bytes": 77000388079,
+      "responses_written": 612094,
+      "bytes_written": 23642451487
+   },
+   {
+      "responses": 198350,
+      "bytes": 6709984777,
+      "responses_written": 177369,
+      "bytes_written": 6537974501
+   },
+   {
+      "responses": 340141,
+      "bytes": 13010815042,
+      "responses_written": 340113,
+      "bytes_written": 13010806733
+   }
+]

@@ -1,0 +1,315 @@
+[
+   {
+      "size": 536838144,
+      "max_size": 536870912,
+      "cold": false,
+      "hit": {
+         "responses": 1233531,
+         "bytes": 16090273077
+      },
+      "stale": {
+         "responses": 0,
+         "bytes": 0
+      },
+      "updating": {
+         "responses": 0,
+         "bytes": 0
+      },
+      "revalidated": {
+         "responses": 0,
+         "bytes": 0
+      },
+      "miss": {
+         "responses": 1872931,
+         "bytes": 77000388079,
+         "responses_written": 612094,
+         "bytes_written": 23642451487
+      },
+      "expired": {
+         "responses": 198350,
+         "bytes": 6709984777,
+         "responses_written": 177369,
+         "bytes_written": 6537974501
+      },
+      "bypass": {
+         "responses": 340141,
+         "bytes": 13010815042,
+         "responses_written": 340113,
+         "bytes_written": 13010806733
+      }
+   },
+   {
+      "processing": 1,
+      "requests": 64805,
+      "responses": {
+         "1xx": 0,
+         "2xx": 60361,
+         "3xx": 1440,
+         "4xx": 1640,
+         "5xx": 1227,
+         "total": 64668
+      },
+      "discarded": 136,
+      "received": 34286911,
+      "sent": 1054502861
+   },
+   {
+      "processing": 1,
+      "requests": 142075,
+      "responses": {
+         "1xx": 0,
+         "2xx": 103393,
+         "3xx": 11006,
+         "4xx": 15632,
+         "5xx": 9762,
+         "total": 139793
+      },
+      "discarded": 2281,
+      "received": 79989134,
+      "sent": 2025993239
+   },
+   {
+      "processing": 0,
+      "requests": 2169,
+      "responses": {
+         "1xx": 0,
+         "2xx": 1655,
+         "3xx": 95,
+         "4xx": 354,
+         "5xx": 48,
+         "total": 2152
+      },
+      "discarded": 17,
+      "received": 809690,
+      "sent": 71774049
+   },
+   {
+      "peers": [
+         {
+            "id": 0,
+            "server": "10.0.0.1:8080",
+            "backup": false,
+            "weight": 1,
+            "state": "up",
+            "active": 0,
+            "requests": 74535,
+            "responses": {
+               "1xx": 0,
+               "2xx": 49890,
+               "3xx": 988,
+               "4xx": 14548,
+               "5xx": 9109,
+               "total": 74535
+            },
+            "sent": 45523551,
+            "received": 1362661342,
+            "fails": 18,
+            "unavail": 18,
+            "health_checks": {
+               "checks": 7459,
+               "fails": 0,
+               "unhealthy": 0,
+               "last_passed": true
+            },
+            "downtime": 14907,
+            "downstart": 0,
+            "selected": 1467986488000
+         },
+         {
+            "id": 1,
+            "server": "10.0.0.1:8081",
+            "backup": true,
+            "weight": 1,
+            "state": "unhealthy",
+            "active": 0,
+            "requests": 0,
+            "responses": {
+               "1xx": 0,
+               "2xx": 0,
+               "3xx": 0,
+               "4xx": 0,
+               "5xx": 0,
+               "total": 0
+            },
+            "sent": 0,
+            "received": 0,
+            "fails": 0,
+            "unavail": 0,
+            "health_checks": {
+               "checks": 7468,
+               "fails": 7468,
+               "unhealthy": 1,
+               "last_passed": false
+            },
+            "downtime": 74711578,
+            "downstart": 1467911779938,
+            "selected": 0
+         }
+      ],
+      "keepalive": 0
+   },
+   {
+      "peers": [
+         {
+            "id": 0,
+            "server": "10.0.0.1:8088",
+            "backup": false,
+            "weight": 5,
+            "state": "up",
+            "active": 0,
+            "requests": 38471,
+            "responses": {
+               "1xx": 0,
+               "2xx": 36092,
+               "3xx": 0,
+               "4xx": 1639,
+               "5xx": 739,
+               "total": 38470
+            },
+            "sent": 20778471,
+            "received": 777412537,
+            "fails": 0,
+            "unavail": 0,
+            "health_checks": {
+               "checks": 7421,
+               "fails": 0,
+               "unhealthy": 0,
+               "last_passed": true
+            },
+            "downtime": 0,
+            "downstart": 0,
+            "selected": 1467986490000
+         },
+         {
+            "id": 1,
+            "server": "10.0.0.1:8089",
+            "backup": true,
+            "weight": 1,
+            "state": "unhealthy",
+            "active": 0,
+            "requests": 0,
+            "responses": {
+               "1xx": 0,
+               "2xx": 0,
+               "3xx": 0,
+               "4xx": 0,
+               "5xx": 0,
+               "total": 0
+            },
+            "sent": 0,
+            "received": 0,
+            "fails": 0,
+            "unavail": 0,
+            "health_checks": {
+               "checks": 7468,
+               "fails": 7468,
+               "unhealthy": 1,
+               "last_passed": false
+            },
+            "downtime": 74711578,
+            "downstart": 1467911779938,
+            "selected": 0
+         }
+      ],
+      "keepalive": 0
+   },
+   {
+      "peers": [
+         {
+            "id": 0,
+            "server": "unix:/tmp/cgi.sock",
+            "backup": false,
+            "weight": 1,
+            "state": "up",
+            "active": 0,
+            "requests": 1042,
+            "responses": {
+               "1xx": 0,
+               "2xx": 1042,
+               "3xx": 0,
+               "4xx": 0,
+               "5xx": 0,
+               "total": 1042
+            },
+            "sent": 965152,
+            "received": 72650808,
+            "fails": 0,
+            "unavail": 0,
+            "health_checks": {
+               "checks": 0,
+               "fails": 0,
+               "unhealthy": 0
+            },
+            "downtime": 0,
+            "downstart": 0,
+            "selected": 1467985911000
+         },
+         {
+            "id": 1,
+            "server": "unix:/tmp/cgib.sock",
+            "backup": true,
+            "weight": 1,
+            "state": "up",
+            "active": 0,
+            "max_conns": 42,
+            "requests": 0,
+            "responses": {
+               "1xx": 0,
+               "2xx": 0,
+               "3xx": 0,
+               "4xx": 0,
+               "5xx": 0,
+               "total": 0
+            },
+            "sent": 0,
+            "received": 0,
+            "fails": 0,
+            "unavail": 0,
+            "health_checks": {
+               "checks": 0,
+               "fails": 0,
+               "unhealthy": 0
+            },
+            "downtime": 0,
+            "downstart": 0,
+            "selected": 0
+         }
+      ],
+      "keepalive": 0
+   },
+   {
+      "peers": [
+         {
+            "id": 0,
+            "server": "10.0.0.2:15431",
+            "backup": false,
+            "weight": 1,
+            "state": "up",
+            "active": 0,
+            "requests": 0,
+            "responses": {
+               "1xx": 0,
+               "2xx": 0,
+               "3xx": 0,
+               "4xx": 0,
+               "5xx": 0,
+               "total": 0
+            },
+            "sent": 0,
+            "received": 0,
+            "fails": 0,
+            "unavail": 0,
+            "health_checks": {
+               "checks": 74458,
+               "fails": 0,
+               "unhealthy": 0,
+               "last_passed": true
+            },
+            "downtime": 0,
+            "downstart": 0,
+            "selected": 0
+         }
+      ],
+      "keepalive": 0
+   }
+]
