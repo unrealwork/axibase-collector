@@ -1,6 +1,6 @@
 # JSON Job Example: JSON Lines
 
-## Description
+## Overview
 
 JSON Lines is a text format, also called [newline-delimited JSON](http://jsonlines.org/).
 

@@ -128,6 +128,8 @@ The expression will select all elements of the `book` array in the root's child 
 ## Examples
 
 * [Australia Bureau of Meteorology Weather](examples/json/australia-weather/README.md#overview)
+* [JSON Lines](examples/json/json_lines/README.md#overview)
+* [GitHub Daily Summary](examples/json/github-daily-summary/README.md#overview)
 
 ## Additional Examples
 
