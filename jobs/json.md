@@ -1,16 +1,58 @@
 # JSON Job
-JSON (Javascript Object Notation) is an open standard protocol that is used primarily to transmit data between the server and application. It is often used as an alternative to XML.
 
-## JSON Configuration
+## Overview
 
-Field | Description
-:---- | :----------
-Name  | Configuration name.
+The JSON job provides a way to download JSON files from remote systems and to convert them into series, properties, and messages to be stored in Axibase Time Series Database.
 
-#### Request Fields
+## Workflow
 
-| Field                    | Description |
-|:-------------------------|:------------|
+1. Download the target JSON file from a remote server.
+2. Parse the file into memory as a JSON document.
+3. Select a subset of objects from the JSON document with specified JSON Path expression.
+4. Build a series, property, or message command from the object's fields.
+5. Each matched object is translated into a separate set of commands.
+6. Repeat Steps 3-5 for each configuration setting/JSON expression.
+7. Send commands into Axibase Time Series Database.
+
+## JSON Path
+
+The [JSON path](https://github.com/jayway/JsonPath#operators) is an expression evaluated against the JSON document to select its objects or specific fields.
+
+* The expression starts with `$` representing the root object followed by dot-separated path to matched objects. 
+* `.{cname}` denotes a selector of the given object's child object with name `cname`.
+* `{arr-name}[*]` stands for all elements of the specified array `arr-name`.
+
+
+Example:
+
+```json
+$.store.book[*]
+```
+
+The expression will select all elements of the `book` array in the root's child named `store`. 
+
+```json
+{
+	"store": {
+		"book": [{
+			"category": "reference",
+			"author": "Nigel Rees",
+			"title": "Sayings of the Century",
+			"price": 8.95
+		}, {
+			"category": "fiction",
+			"author": "Evelyn Waugh",
+			"title": "Sword of Honour",
+			"price": 12.99
+		}]
+	}
+}
+```
+
+## Download Settings
+
+| **Name** | **Description** |
+|:---|:---|
 | HTTP Pool                | Pre-defined HTTP connection parameters to limit the number of open connections, to customize timeout settings, and to re-use connections across multiple requests.<br> When HTTP Pool is selected, the Path field should contain relative URI: [/]path[?query][#fragment] |
 | Path                     | URI Path to JSON file, for example https://example.com/api/daily-summary.json.<br> If HTTP Pool is enabled, the path should be relative, for example /api/daily-summary.json. Otherwise the Path should be a full URI including protocol, host, port, and the path.<br> The Path supports the following placeholders:<br> - ${ITEM} current element in the Item List<br> - ${TIME()} text output of the TIME function<br> - ${DATE_ITEM()} text output of the DATE_ITEM function.<br><br> If ${DATE_ITEM()} is present in Path, the job will execute as many queries as there are elements returned by ${DATE_ITEM()} function, substituting ${DATE_ITEM()} placeholder with the element value for each request.<br> The Path can include either ${DATE_ITEM()} or ${ITEM} function, but not both. |
 | Format                   | JSON or JSON Lines. If JSON Lines format is selected, the input lines will be added to an array object and parsed as a JSON document. |
@@ -24,57 +66,57 @@ Name  | Configuration name.
 | Driver Timeout, seconds* | Maximum time allowed for the Driver Script to run before it will be aborted. |
 | Driver File Encoding*    | File Encoding to use when saving a file downloaded with Driver Script. |
 
-## JSON Configuration Settings
+## Conversion Settings
 
-#### Json Fields
+### JSON Fields
 
-| Field           | Description |
-|:--------------- |:------------|
+| **Name** | **Description** |
+|:---|:---|
 | JSON Path       | JSON Path expression to match an object or a list of objects in the JSON document. Default path is $ which stands the root object.<br> JSON Path supports the following placeholders:<br> - ${ITEM} current element in the Item List<br> - ${TIME()} text output of the TIME function<br> - ${DATE_ITEM()} text output of the DATE_ITEM function.<br><br> If ${DATE_ITEM()} is present in JSON Path, the JSON Path expression will return a combined list of objects that matched any of the elements returned by ${DATE_ITEM()} function. |
 | Traversal Depth | Maximum traversal limit measured as the difference between the matched object and nested objects. When Depth is set to 1, the collector will include only direct fields of the matched object. If Depth is set to 0 or negative number, all nested objects will be traversed and included into commands. |
-| Custom Tags     | Additional series, property, and message tags. Supported placeholders:<br> - ${HOST} - Hostname from which the JSON document was loaded.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}<br> - ${field_name} - Value of the specified filed in the matched object. |
 | Renamed Fields  | Pairs of oldname=newname mappings, one per line, to rename fields in the matched object. |
+| Custom Tags     | Additional series, property, and message tags. Supported placeholders:<br> - ${HOST} - Hostname from which the JSON document was loaded.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}<br> - ${field_name} - Value of the specified filed in the matched object. |
 
-#### Entity Fields
+### Entity Fields
 
-| Field          | Description |
-|:-------------- |:------------|
+| **Name** | **Description** |
+|:---|:---|
 | Default Entity | Entity that will be used in all commands ([example](#default-entity)).<br> This field  supports the following options:<br> - Text value<br> - ${HOST} placeholder - Hostname from which the JSON document was loaded.<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}.|
 | Entity Field   | Value that will be used as entity in all commands ([example](#entity-field)).<br> This field supports the following options:<br> - Name of the field containing entity in the matched object<br> - JSON Path | 
 | Entity Prefix  | Text added to entity name extracted retrieved from the specified field ([example](#entity-field)).<br> For example, if Entity Prefix is set to 'custom.', and the field value is 'my-host', the resulting entity name will be 'custom.my-host'. |
 
-#### Series Fields
+### Series Fields
 
-| Field              | Description |
-|:------------------ |:------------|
+| **Name** | **Description** |
+|:---|:---|
 | Metric Prefix      | Text added to metric name.<br> For example, if Metric Prefix is set to 'custom.', and the metric name is 'cpu_busy', the resulting metric name will be 'custom.cpu_busy'. |
 | Included Fields    | Specify fields that should be included into the Series command ([example](#included-fields)). If you leave the field empty, all values will be included into the command. You can use the '.' symbol for nested fields. Wildcard '*' is supported. |
 | Excluded Fields    | Specify fields that should be excluded from the Series command ([example](#excluded-fields)). You can use the '.' symbol for nested fields. Wildcard '*' is supported. |
 | Metric Name Field  | Metric name extracted from the given field in the matched object([example](#metric-name-and-value-fields)). |
 | Metric Value Field | Metric value extracted from the given field in the matched object([example](#metric-name-and-value-fields)). |
 
-#### Property Fields
+### Property Fields
 
-| Field                 | Description |
-|:--------------------- |:------------|
+| **Name** | **Description** |
+|:---|:---|
 | Property Default Type | Property type that will be used as a default type for all properties ([example](#property-default-type)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
 | Property Type Field   | Field with value that will be used as property type ([example](#property-type-field)).<br> This field supports the following options:<br> - Name of the field containing property type in the matched object<br> - JSON Path |
 | Property Key Fields   | Fields that should be included into the Property command value collection ([example](#property-key-and-value-fields)). |
 | Property Value Fields | Fields that should be loaded to a collection as properties ([example](#property-key-and-value-fields)). |
 
-#### Time Fields
+### Time Fields
 
-| Field        | Description |
-|:------------ |:------------|
+| **Name** | **Description** |
+|:---|:---|
 | Time Default | Specify time value for all commands ([example](#time-default)).<br> This field supports the following options:<br> - ${TIME()} text output of the TIME function<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
 | Time Field   | Field with values that specify time for all commands ([example](#time-field)).<br> This field supports the following options:<br> - Name of the field containing date in the matched object<br> - JSON Path |
 | Time Format  | Date format applied when parsing time value ([example](#metric-name-and-value-fields)). |
 | Time Zone    | Time zone can be optionally applied if the extracted date is in local time, otherwise local Collector time zone is in effect ([example](#time-field)). |
 
-#### Message Fields
+### Message Fields
 
-| Field                | Description |
-|:-------------------- |:------------|
+| **Name** | **Description** |
+|:---|:---|
 | Message Default Type | Message type that will be used as a default type for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
 | Message Type Field   | Field with value that will be used as message type ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message type in the matched object<br> - JSON Path |
 | Message Default Type | Message source that will be used as a default source for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
@@ -84,6 +126,10 @@ Name  | Configuration name.
 | Message Field   | Field with value that will be used as message text ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message source in the matched object<br> - JSON Path |
 
 ## Examples
+
+* [Australia Bureau of Meteorology Weather](examples/json/australia-weather/README.md#overview)
+
+## Additional Examples
 
 - [Json Fields](#json-fields-examples)
   - [Custom Tags](#custom-tags)
@@ -683,7 +729,3 @@ message e:tst d:2016-07-06T08:19:30.563Z t:id=1 t:source=1.2.3.4:1234 t:type=pee
 ## JSON viewer Example
 
 ![](images/json_job_viewer.png)
-
-## Additional Examples
-
-* [Australia Bureau of Meteorology Weather](examples/json/australia-weather/README.md#overview)
