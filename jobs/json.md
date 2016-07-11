@@ -22,7 +22,6 @@ The [JSON path](https://github.com/jayway/JsonPath#operators) is an expression e
 * `.{cname}` denotes a selector of the given object's child object with name `cname`.
 * `{arr-name}[*]` stands for all elements of the specified array `arr-name`.
 
-
 Example:
 
 ```json
@@ -125,9 +124,23 @@ The expression will select all elements of the `book` array in the root's child 
 | Message Default | Message value that will be used as a default text for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
 | Message Field   | Field with value that will be used as message text ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message source in the matched object<br> - JSON Path |
 
+## Placeholders
+
+| **Name** | **Description** |
+|:---|:---|
+| `${ITEM}` | Current element in the Item List.|
+| `${TIME()}` | Text output of the `TIME` function. |
+| `${DATE_ITEM()}` | Current element in the Date Item List.|
+| `${HOST}` | Host name |
+| `${PARENT}` | Shortcut for ${PARENT(1)} |
+| `${PARENT(n)}` | Parent name from Json Path of matched object. |
+
 ## Examples
 
 * [Australia Bureau of Meteorology Weather](examples/json/australia-weather/README.md#overview)
+* [JSON Lines](examples/json/json_lines/README.md#overview)
+* [GitHub Daily Summary](examples/json/github-daily-summary/README.md#overview)
+* [Nginx Status](examples/json/nginx-status/README.md#overview)
 
 ## Additional Examples
 
