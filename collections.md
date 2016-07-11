@@ -2,9 +2,13 @@
 
 ## Item Lists
 
-Item List is a collection of strings used to execute repetitive actions as part of the same job configuration. Such automation is more efficient than creating a different job configuration for a list of similar elements.
+Item List is a collection of strings used to execute repetitive actions as part of the same job configuration. 
 
-List elements can be specified by typing text on the form or by reading them from an external source such as file, URL etc.
+Such automation provides a way to create re-usable configurations as opposed to creating different job configurations for a list of similar items.
+
+List items can be specified by entering items as text, one element per line, on the form or by reading them from an external source such as file or script output.
+
+Items (lines) starting with hash `#` symbol are treated as comments and are ignored.
 
 Supported list types:
 
@@ -14,8 +18,8 @@ Supported list types:
 
 Job types with support for Item List automation:
 
-* JSON
 * FILE
+* JSON
 * TCP
 * ICMP
 * OVPM
@@ -25,32 +29,51 @@ Job types with support for Item List automation:
 
 To create a new list, open **Collections:Item Lists** page, click **Add**:
 
-**Field** | **Description**
-| :---- | ----- |
- `Name` | List name.
- `Type` | Method used to retrieve list elements. See [types](#types).
- `Discard Duplicates` | Discard elements with the same name. <br>If true, the list discards duplicate elements regardless of the source (TEXT, FILE, SCRIPT, etc). <br>String comparision is case-sensitive.
- `Items`, `Path`, `Command`... | Type-specific field to configure the source for reading list elements.
+| **Field** | **Description**|
+|:----|:---|
+|`Name` | Item List name.|
+|`Description` | Item List description.|
+| `Type` | Method used to retrieve list items. See [types](#types).|
+|`Discard Duplicates` | Discard items with the same name.<br>If true, the list discards duplicate items regardless of type (TEXT, FILE, SCRIPT).<br>String comparison for duplicate checks is case-sensitive.|
+|`Items`, `Path`, `Command`... | Type-specific fields to configure the source for reading list items.|
  
 ### Usage
 
-Use `${ITEM}` placeholder to access the value of the current element in the list while iterating. 
+Use `${ITEM}` placeholder to access the value of the current item in the list while iterating. 
 
-The elements retain the original order as specified in the editor or returned by an external source.
+The items retain the original order as specified in the editor or returned by an external source.
 
 For example, include `${ITEM}` placeholder into Path field in JSON job to query a different URL for each element in the list. 
 
 ![Item List Example](item-list.png)
 
+### Functions
+
+Item values can be further modified with built-in [string functions](jobs/placeholder.md#string-functions).
+
+```ls
+${ITEM?function(arguments)}
+```
+
+Example: `${ITEM?keep_before("_")}`
+
+Multiple functions can be chained (executed from left to right):
+
+```ls
+${ITEM?functionA(arguments)?functionB(arguments)}
+```
+
+Example: `${ITEM?keep_before("_")?replace(".csv", "")}`
+
 ### Types
 
-Item Lists may receive elements from different sources. Currently the following types are implemented:
+Item Lists may receive items from different sources. Currently the following types are implemented:
 
 #### TEXT
 
 An Item List which stores strings entered in the `Items` field on the form. 
 
-List elements should be separated by a line break.
+List items should be separated by a line break.
 
 ![TEXT Type](collection_text_type.png)
 
@@ -60,7 +83,7 @@ Reads lines from a file on the local filesystem.
 
 Absolute path to the target file should be specified in the `Path` field. 
 
-If the file is not found, an empty collection is returned. List elements in the file should be separated with a line break.
+If the file is not found, an empty collection is returned. List items in the file should be separated with a line break.
 
 ![FILE Type](collection_file_type.png)
 
@@ -119,7 +142,7 @@ ent-3
 
 ## Replacement Tables
 
-Replacement table is a list of key=value pairs that can be used to rename input string into output string. 
+Replacement table is a list of `key=value` pairs that can be used to rename input string into output string. 
 
 Replacement table can serve a lookup dictionary to convert numeric identifiers into human-readable names, for instance IP addresses into hostnames. It can be also used to remove extra symbols from inputs, for example to replace entity name 'nurswgvml001:LZ' with 'nurswgvml001'.
 
