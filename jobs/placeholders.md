@@ -56,6 +56,10 @@ Example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}`
 
 Time format can be specified using a of: `y`, `M`, `d`, `H`, `m`, `s`. See [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for reference.
 
+If the TIME function returns a number, it can be used in addition or subtraction expressions:
+
+Example: `${TIME("2016-01-01","M") - 1}` -- subtract 1 from month
+
 ### DATE_ITEM Function
 
 DATE_ITEM function returns an array of strings.

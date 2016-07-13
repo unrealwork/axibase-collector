@@ -11,7 +11,7 @@
     <configurations>
       <com.axibase.collector.model.job.file.FileRoutingConfiguration>
         <name>yahoo-finance-history-daily</name>
-        <path>http://real-chart.finance.yahoo.com/table.csv?s=${ITEM}&amp;a=07&amp;b=9&amp;c=2015&amp;d=00&amp;e=1&amp;f=2099&amp;g=d&amp;ignore=.csv</path>
+        <path>http://real-chart.finance.yahoo.com/table.csv?s=${ITEM}&amp;a=${TIME(&quot;previous_day&quot;,&quot;M&quot;)-1}&amp;b=${TIME(&quot;previous_day&quot;,&quot;d&quot;)}&amp;c=${TIME(&quot;previous_day&quot;,&quot;yyy&quot;)}&amp;d=00&amp;e=1&amp;f=2099&amp;g=d&amp;ignore=.csv</path>
         <encoding>UTF-8</encoding>
         <detectEncoding>true</detectEncoding>
         <parserType>CSV</parserType>
