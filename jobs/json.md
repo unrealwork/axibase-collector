@@ -2,17 +2,31 @@
 
 ## Overview
 
-The JSON job provides a way to download JSON files from remote systems and to convert them into series, properties, and messages to be stored in Axibase Time Series Database.
+The JSON job provides a way to download JSON files from remote systems or read files from the local file system, to convert the files into series, properties, and message commands sent into the the Axibase Time Series Database.
 
 ## Workflow
 
+### File downloaded via HTTP
+
 1. Download the target JSON file from a remote server.
 2. Parse the file into memory as a JSON document.
-3. Select a subset of objects from the JSON document with specified JSON Path expression.
+3. Select objects from the JSON document with the specified JSON Path expression.
 4. Build a series, property, or message command from the object's fields.
 5. Each matched object is translated into a separate set of commands.
 6. Repeat Steps 3-5 for each configuration setting/JSON expression.
 7. Send commands into Axibase Time Series Database.
+
+### File on Local File System
+
+1. Locate one or multiple files at the specified path on the local file system.
+2. Parse the file into memory as a JSON document.
+3. Select objects from the JSON document with the specified JSON Path expression.
+4. Build a series, property, or message command from the object's fields.
+5. Each matched object is translated into a separate set of commands.
+6. Repeat Steps 3-5 for each configuration setting/JSON expression.
+7. Send commands into Axibase Time Series Database.
+8. If `Delete on Upload` setting is enabled and commands were accepted by ATSD, **delete** the source file.
+9. Repeat Steps 2-8 for each matched file.
 
 ## JSON Path
 
@@ -52,9 +66,10 @@ The expression will select all elements of the `book` array in the root's child 
 
 | **Name** | **Description** |
 |:---|:---|
+| Protocol | HTTP or File protocol to download JSON files from a remote server or read them from the local file system. File protocol supports wildcards in Path. |
 | HTTP Pool                | Pre-defined HTTP connection parameters to limit the number of open connections, to customize timeout settings, and to re-use connections across multiple requests.<br> When HTTP Pool is selected, the Path field should contain relative URI: [/]path[?query][#fragment] |
-| Path                     | URI Path to JSON file, for example https://example.com/api/daily-summary.json.<br> If HTTP Pool is enabled, the path should be relative, for example /api/daily-summary.json. Otherwise the Path should be a full URI including protocol, host, port, and the path.<br> The Path supports the following placeholders:<br> - ${ITEM} current element in the Item List<br> - ${TIME()} text output of the TIME function<br> - ${DATE_ITEM()} text output of the DATE_ITEM function.<br><br> If ${DATE_ITEM()} is present in Path, the job will execute as many queries as there are elements returned by ${DATE_ITEM()} function, substituting ${DATE_ITEM()} placeholder with the element value for each request.<br> The Path can include either ${DATE_ITEM()} or ${ITEM} function, but not both. |
-| Format                   | JSON or JSON Lines. If JSON Lines format is selected, the input lines will be added to an array object and parsed as a JSON document. |
+| Path                     | URI Path to JSON file, for example https://example.com/api/daily-summary.json, or absolute path to the file(s) on the local file system.<br> If HTTP Pool is enabled, the path should be relative, for example /api/daily-summary.json. Otherwise the Path should be a full URI including protocol, host, port, and the path.<br> The Path supports the following placeholders:<br> - ${ITEM} current element in the Item List<br> - ${TIME()} text output of the TIME function<br> - ${DATE_ITEM()} text output of the DATE_ITEM function.<br><br> If ${DATE_ITEM()} is present in Path, the job will execute as many queries as there are elements returned by ${DATE_ITEM()} function, substituting ${DATE_ITEM()} placeholder with the element value for each request.<br> The Path can include either ${DATE_ITEM()} or ${ITEM} function, but not both. |
+| Format                   | JSON or JSON Lines. If `JSON Lines` format is selected, the input lines contained in the file will be added to a parent array object and processed as a single JSON document. |
 | Item List                | A collection of elements to execute multiple requests for different JSON files in a loop.<br> The current element in the loop can be accessed with ${ITEM} placeholder which can be embedded into Path and Default Entity fields.<br> When Item List is selected and ${ITEM} is present in Path, the job will execute as many queries as there are elements in the list, substituting ${ITEM} with element value for each request. |
 | Replacement Table        | A set of mappings for converting entity names retrieved from the JSON document into entity names to be stored in the database. |
 | HTTP Method              | HTTP Method executed: GET or POST. POST method provides a way to specify request parameters in payload. |
@@ -64,6 +79,7 @@ The expression will select all elements of the `book` array in the root's child 
 | Driver Script*           | Downloads the file by executing a set of pre-recorded browser actions such as opening a page and clicking on button to export a file.<br> The script is recorded in Selenium IDE and exported into Java format. |
 | Driver Timeout, seconds* | Maximum time allowed for the Driver Script to run before it will be aborted. |
 | Driver File Encoding*    | File Encoding to use when saving a file downloaded with Driver Script. |
+| Delete Files on Upload   | _Applies to FILE protocol._ Delete source file(s) that were parsed into at least 1 command which was successfully sent to the database. |
 
 ## Conversion Settings
 
