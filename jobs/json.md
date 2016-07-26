@@ -69,7 +69,7 @@ The expression will select all elements of the `book` array in the root's child 
 | Protocol | HTTP or File protocol to download JSON files from a remote server or read them from the local file system. File protocol supports wildcards in Path. |
 | HTTP Pool                | Pre-defined HTTP connection parameters to limit the number of open connections, to customize timeout settings, and to re-use connections across multiple requests.<br> When HTTP Pool is selected, the Path field should contain relative URI: [/]path[?query][#fragment] |
 | Path                     | URI Path to JSON file, for example https://example.com/api/daily-summary.json, or absolute path to the file(s) on the local file system.<br> If HTTP Pool is enabled, the path should be relative, for example /api/daily-summary.json. Otherwise the Path should be a full URI including protocol, host, port, and the path.<br> The Path supports the following placeholders:<br> - ${ITEM} current element in the Item List<br> - ${TIME()} text output of the TIME function<br> - ${DATE_ITEM()} text output of the DATE_ITEM function.<br><br> If ${DATE_ITEM()} is present in Path, the job will execute as many queries as there are elements returned by ${DATE_ITEM()} function, substituting ${DATE_ITEM()} placeholder with the element value for each request.<br> The Path can include either ${DATE_ITEM()} or ${ITEM} function, but not both. |
-| Format                   | JSON or JSON Lines. If `JSON Lines` format is selected, the input lines contained in the file will be added to a parent array object and processed as a single JSON document. |
+| Format                   | JSON, JSON Lines or SODA Rows. If `JSON Lines` format is selected, the input lines contained in the file will be added to a parent array object and processed as a single JSON document. |
 | Item List                | A collection of elements to execute multiple requests for different JSON files in a loop.<br> The current element in the loop can be accessed with ${ITEM} placeholder which can be embedded into Path and Default Entity fields.<br> When Item List is selected and ${ITEM} is present in Path, the job will execute as many queries as there are elements in the list, substituting ${ITEM} with element value for each request. |
 | Replacement Table        | A set of mappings for converting entity names retrieved from the JSON document into entity names to be stored in the database. |
 | HTTP Method              | HTTP Method executed: GET or POST. POST method provides a way to specify request parameters in payload. |
@@ -123,7 +123,7 @@ The expression will select all elements of the `book` array in the root's child 
 
 | **Name** | **Description** |
 |:---|:---|
-| Time Default | Specify time value for all commands ([example](#time-default)).<br> This field supports the following options:<br> - ${TIME()} text output of the TIME function<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Time Default | Specify time value for all commands ([example](#time-default)).<br> This field supports the following options:<br> - ${TIME()} text output of the TIME function<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}.<br> Field supports additional placeholders, if `FILE` protocol is selected:<br>- ${FILE} - Name of the file<br>- ${DIRECTORY} - Parent directory of file<br>- ${PATH} - Full path to file<br> |
 | Time Field   | Field with values that specify time for all commands ([example](#time-field)).<br> This field supports the following options:<br> - Name of the field containing date in the matched object<br> - JSON Path |
 | Time Format  | Date format applied when parsing time value ([example](#metric-name-and-value-fields)). |
 | Time Zone    | Time zone can be optionally applied if the extracted date is in local time, otherwise local Collector time zone is in effect ([example](#time-field)). |
@@ -132,12 +132,12 @@ The expression will select all elements of the `book` array in the root's child 
 
 | **Name** | **Description** |
 |:---|:---|
-| Message Default Type | Message type that will be used as a default type for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Message Default Type | Message type that will be used as a default type for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}.<br> Field supports additional placeholders, if `FILE` protocol is selected:<br>- ${FILE} - Name of the file<br>- ${DIRECTORY} - Parent directory of file<br>- ${PATH} - Full path to file<br> |
 | Message Type Field   | Field with value that will be used as message type ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message type in the matched object<br> - JSON Path |
-| Message Default Type | Message source that will be used as a default source for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Message Default Type | Message source that will be used as a default source for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}.<br> Field supports additional placeholders, if `FILE` protocol is selected:<br>- ${FILE} - Name of the file<br>- ${DIRECTORY} - Parent directory of file<br>- ${PATH} - Full path to file<br> |
 | Message Type Field   | Field with value that will be used as message source ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message source in the matched object<br> - JSON Path |
 | Message Tag Fields   | Message tags, included as tags into message command ([example](#message-fields)). |
-| Message Default | Message value that will be used as a default text for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}. |
+| Message Default | Message value that will be used as a default text for all messages ([example](#message-defaults)).<br> This field supports the following options:<br> - Text value<br> - ${ITEM} placeholder - Current element in the Item List.<br> - ${PARENT(n)} placeholder - Name of the Nth parent of the matched object. {PARENT} is a shortcut for ${PARENT(1)}.<br> Field supports additional placeholders, if `FILE` protocol is selected:<br>- ${FILE} - Name of the file<br>- ${DIRECTORY} - Parent directory of file<br>- ${PATH} - Full path to file<br> |
 | Message Field   | Field with value that will be used as message text ([example](#message-fields)).<br> This field supports the following options:<br> - Name of the field containing message source in the matched object<br> - JSON Path |
 
 ## Placeholders
@@ -150,6 +150,9 @@ The expression will select all elements of the `book` array in the root's child 
 | `${HOST}` | Host name |
 | `${PARENT}` | Shortcut for ${PARENT(1)} |
 | `${PARENT(n)}` | Parent name from Json Path of matched object. |
+| `${PATH}` | File's absolute path. |
+| `${FILE}` | File's name. |
+| `${DIRECTORY}` | File's parent directory. |
 
 ## Examples
 
