@@ -28,12 +28,18 @@ The files are parsed by ATSD using a [CSV Parser](https://axibase.com/products/a
 
 | **Protocol** | **Scheme** | **Wildcards** | **Description** |
 |:---|:---|:---|:---|
-| FILE | `file://` | yes | Read file(s) from the local file system.<br>`file:///tmp/report/daily*.csv` |
+| FILE | `file://` | yes | Read file(s) from the local file system.<br>`/tmp/report/daily*.csv` |
 | HTTP | `http(s)://` | no | Download a file from a web server.<br>`https://example.com/traffic/direct.csv` |
 | HTTP_POOL | `http(s)://` | no | Download a file from a web server using pre-configured HTTP pool.<br>`/traffic/direct.csv` |
 | FTP | `ftp://` | yes | Download file(s) from an FTP server.<br>`ftp://example.com/data/CCE2_121W_*.csv` |
 | SFTP | `sftp://` | yes | Download file(s) from a UNIX server over sftp protocol.<br>`sftp://ftp-reader:my-pwd@10.52.0.10:22/home/ftp-reader/*.csv` |
 | SCP | `scp://` | no | Download a file from a UNIX server over scp protocol.<br>`scp://user-1:my-pwd@example.com:4022/home/user-1/r20160617.csv` |
+
+## File Watch
+
+In addition to scheduled checks, the FILE protocol exposes a setting to continuously watch the target path(s) for file creation and modification events. 
+
+When the file in the watched directory is created or changed, it is processed with the same workflow as files identified with scheduled execution, except that the job continues running and watching for subsequent changes until the next job start time or until the watch interval expires. 
 
 ## Downloading Multiple Files
 
@@ -77,7 +83,16 @@ FILE protocol supports directory traversal.
 | Driver Script | Downloads the file by executing pre-recorded browser actions such as opening a page and clicking on button to export a file.<br>The script can be recorded in Selenium IDE and exported into Java format. |
 | Driver File Encoding | File Encoding to use when saving the file downloaded with script.|
 | Driver Timeout | Maximum time, in seconds, allowed for the script to run before timeout. |
- 
+
+### FILE-specific Download Settings
+
+| **Name** | **Description** |
+|:---|:---|
+| Watch Enabled | Watch the target directories for file creations and modification and process the file on change event, without a delay. |
+| Watch Interval | If set, the target directories will be watched for changes for the specified number of seconds.<br>If omitted or set to 0, the target paths will be watched for changes until the next job start time.|
+
+> Watched directories must exist at the time the job is executed. Changes in the directory that was deleted and re-created during the job execution will not be visible to the job until it is restarted.
+
 ### Validate
 
 | **Name** | **Format** | **Description** |

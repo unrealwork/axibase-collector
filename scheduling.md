@@ -18,44 +18,65 @@ Manual execution produces the same results as scheduled execution.
 
 The manual mode is useful for running temporarily disabled jobs, for example when developing new jobs or troubleshooting existing jobs.
 
-### Cron Expressions
+## Cron Expressions
 
 A cron expression is a string that determines a schedule for executing a job.
 
 Fields in a cron expression have the following order: 
 
-- seconds
-- minutes
-- hours
-- day-of-month
-- month
-- day-of-week
-- year (optional)
-
-For example, `0 0 8 * * ? *`, means execution at 08:00:00 every day.
-
-Second, minute, and hour fields support **R** (random) symbol to randomize the exact execution time.
+```ls
+[seconds] [minutes] [hours] [day-of-month] [month] [day-of-week]
+```
 
 ![Cron Expressions](http://axibase.com/wp-content/uploads/2016/03/cron_expressions.png)
 
-* `day-of-week` keywords: SUN, MON, TUE, WED, THU, FRI, SAT or numbers from 0 to 7.
-* Either '0' or '7' can stand for Sunday in `day-of-week` field.
-* If `day-of-week` is specified, day-of-month should be set to `?`, e.g. `0 0 6 ? * MON *`.
+Field Control Symbols:
 
-Day of 
+| **Name** | **Description** |
+|---|---|
+| *	| Any value |
+| ?	| No specific value |
+| R	| Random value within allows value range |
+| ,	| Value list separator | 
+| -	| Range of values | 
+| /	| Step values |
 
-## Cron Expression Examples
+For example, `0 0 8 * * ?`, means execution at 08:00:00 every day.
 
-**Expression** | **Description**
----|:---
-`0 0/15 * * * ?` | Every 15 minutes.
-`0/10 * * * * ?` | Every 10 seconds.
-`0 0/1 * * * ?` | Every minute.
-`0 0 0 * * ?` | Every day at 0:00.  
-`R 0/5 * * * ?` | Every 5 minutes at random second.
-`R R 1 * * ?` | Every day on 01 hour at random minute and second.
-`0 5,35 * * * ?` | Every hour at 5th and 35th minute.
-`0 0 6 ? * MON *` | Every Monday at 06:00.
+Field Constraints:
+
+| **Name** | **Allowed Values** |
+|:---|:---|
+| second | 0-59, R |
+| minute | 0-59, R |
+| hour | 0-23, R |
+| day-of-month | 1-31, ? |
+| month | 1-12 or JAN-DEC |
+| day-of-week | 1-7 or MON-SUN, ?  |
+
+* If specific value is set in `day-of-week`, `day-of-month` should be set to `?`, e.g. `0 0 6 ? * MON`.
+* If specific value is set in `day-of-month`, `day-of-week` should be set to `?`, e.g. `0 0 6 */2 * ?`.
+
+Second, minute, and hour fields support **R** (random) symbol to randomize execution time.
+
+### Cron Expression Examples
+
+| **Expression** | **Second** | **Minute** | **Hour** | **Day of Month** | **Month** | **Day of Week** | **Description** |
+|:---|---:|---:|---:|---:|---:|---:|:---|
+| `0 0/15 * * * ?` | 0 | 0/15 | * | * | * | ? | Every 15 minutes. |
+| `0 5 4 * * ?`    | 0 | 5 | 4 | * | * | ? | At 04:05 every day. |
+| `0/10 * * * * ?` | 0 | 0/10 | * | * | * | ? | Every 10 seconds. |
+| `0 0/1 * * * ?`  | 0 | 0/1 | * | * | * | ? | Every minute. |
+| `0 0 0 * * ?`    | 0 | 0 | 0 | * | * | ? | Every day at 00:00. |  
+| `R 0/5 * * * ?`  | R | 0/5 | * | * | * | ? | Every 5 minutes at random second. |
+| `R R 2 * * ?`    | R | R | 1 | * | * | ? | At random minute and second past 2nd hour. |
+| `0 5,35 * * * ?` | 0 | 5,35 | * | * | * | ? | Every hour at 5th and 35th minute. |
+| `0 0 6 ? * MON`  | 0 | 0 | 6 | ? | * | MON | Every Monday at 06:00. |
+| `0 5 0 * 8 ?`    | 0 | 5 | 0 | * | 8 | ? | At 00:05 every day in August. |
+| `30 15 14 1 * ?` | 30| 15| 14| 1 | * | ? | At 14:15:30 on the 1st of every month. |
+| `0 0 22 ? * 1-5` | 0 | 0 | 22| ? | * | 1-5 | At 22:00 on Mon, Tue, Wed, Thu and Fri. |
+| `0 5 0-10/2 * * ?` | 0 | 5 | 0-10/2 | * | * | ? | At every 9th minute past the 0, 2, 4, 6, 8, and 10th hour. |
+| `0 0 0,12 1 */2 ?` | 0 | 0 | 0,12| 1 | */2 | ? | At 00:00 and 12:00 on the 1st in <br>January, Mar, May, July, September and November. |
 
 ## Execution State
 
