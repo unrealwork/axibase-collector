@@ -1,7 +1,7 @@
 #===============================================================================
 # Axibase NGINX plus Collector main script.
 # Run: 
-#        python axibase_nginx_plus_collector.py -h 
+#     python axibase_nginx_plus_collector.py -h 
 # for more information.
 #===============================================================================
 from axibase_npc_core import Collector, Configuration, CollectorArgParser
