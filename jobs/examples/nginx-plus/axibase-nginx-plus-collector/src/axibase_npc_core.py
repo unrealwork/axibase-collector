@@ -57,6 +57,7 @@ class Configuration:
         self.upstream_peer_properties = ["backup", "weight", "id", "state"]
         self.stream_ups_peer_keys = ["server"]
         self.stream_ups_peer_properties = ["backup", "weight", "id", "state"]
+        self.upstream_prop_type = "upstreams"
         self.upstream_peer_pc_type = "upstreams.peers"
         self.nginx_pc_type = "nginx_info"
         self.cache_pc_type = "caches"
@@ -95,6 +96,8 @@ class Configuration:
         return self.stream_ups_peer_properties
     def get_stream_ups_peer_keys(self):
         return self.stream_ups_peer_keys
+    def get_upstream_prop_type(self):
+        return self.upstream_prop_type
     def get_upstream_peer_prop_type(self):
         return self.upstream_peer_pc_type
     def get_nginx_prop_type(self):
@@ -206,7 +209,14 @@ class _NginxJsonProcessor:
             upstream_series = _CommandSeries(entity, self.config.get_metric_prefix())
             upstream_series.add_tag("type", self.config.get_upstream_series_type())
             upstream_series.add_tag("name", upstream)
-            upstream_series.add_metric("keepalive", upstream_description["keepalive"])
+            upstream_series.add_metric("keepalive", upstream_description.get("keepalive"))
+            optional_block = upstream_description.get("queue")
+            if optional_block is not None:
+                upstream_properties = _CommandProperty(entity, self.config.get_upstream_prop_type() ,self.config.get_metric_prefix())
+                upstream_properties.add_property("queue.max_size", optional_block.get("max_size"))
+                commands.append(upstream_properties)
+                upstream_series.add_metric("queue.size", optional_block.get("max_size"))
+                upstream_series.add_metric("queue.overflows", optional_block.get("overflows"))
             commands.append(upstream_series)
             for peer in upstream_description["peers"]:
                 self.config.get_logger().log("---Processing UPSTREAM.PEER " + str(peer["server"]))
@@ -217,6 +227,7 @@ class _NginxJsonProcessor:
                 self._process_multiple_properties(entity, peer, self.config.get_upstream_peer_keys(), self.config.get_upstream_peer_props(), peer_property)
                 peer_series = _CommandSeries(entity, self.config.get_metric_prefix())
                 peer_series.add_tag("type", self.config.get_upstream_peer_series_type() )
+                peer_series.add_tag("server", str(peer["server"]))
                 peer_series.add_tag("upstream", upstream)
                 self._process_unknown_block_recursively(entity=entity, block=peer, path_stack=[], built_command=peer_series, ignored_keys=self.config.get_upstream_peer_keys()+self.config.get_upstream_peer_props() + ["last_passed"])
                 commands.append(peer_property)
@@ -304,6 +315,7 @@ class _NginxJsonProcessor:
                 self._process_multiple_properties(entity, peer, self.config.get_stream_ups_peer_keys(), self.config.get_stream_ups_peer_props(), peer_property)
                 peer_series = _CommandSeries(entity, self.config.get_metric_prefix())
                 peer_series.add_tag("type", self.config.get_stream_ups_peer_series_type())
+                peer_series.add_tag("server",  str(peer.get("server")))
                 peer_series.add_tag("upstream", upstream)
                 self._process_unknown_block_recursively(entity, peer, [], peer_series, ignored_keys=self.config.get_stream_ups_peer_keys()+self.config.get_stream_ups_peer_props()+["last_passed"])
                 commands.append(peer_property)
@@ -404,12 +416,12 @@ class _CommandSeries(_Command):
         if tag_name and tag:
             self.tags[tag_name] = self.normalize_value(tag)
             self.atsd_format_inconsistent = True
-            
+                        
     def add_metric(self, metric_name, metric):
         if metric_name is not None and metric is not None:
             self.metrics[metric_name] = int(metric) #All metrics are ints
             self.atsd_format_inconsistent = True
-        
+                    
     def set_timestamp(self, timestamp):
         if timestamp is not None:
             self.timestamp = timestamp
@@ -445,16 +457,17 @@ class _CommandProperty(_Command):
         if key_name is not None and key_value is not None: 
             self.keys[key_name] = self.normalize_value(key_value)
             self.atsd_format_inconsistent = True
-            
+                  
     def add_type(self, command_type): 
         self.type = str(command_type)
         self.atsd_format_inconsistent = True
+        
         
     def add_property(self, property_name, property_value):
         if property_name is not None and property_value is not None:
             self.props[property_name] = self.normalize_value(property_value)
             self.atsd_format_inconsistent = True
-        
+                    
     def set_timestamp(self, timestamp):
         if timestamp is not None:
             self.timestamp = timestamp
@@ -495,7 +508,7 @@ class _ATSDManager():
         
     def send_commands(self, commands):
         self.config.get_logger().log("Preparing data...")
-        command_batch =  "\n".join(map(lambda x: x.get_atsd_format(), commands))
+        command_batch =  "\n".join(sorted(map(lambda x: x.get_atsd_format(), commands)))
         self.config.get_logger().log("Data prepared: \n\n" + str(command_batch) + "\n")
         atsd_url_info = urlparse(self.config.get_atsd_url())
         sock = socket.socket()
