@@ -284,7 +284,7 @@
           	&lt;#assign upstreams = getTags(&quot;nginx-plus.requests&quot;, &quot;${entity}&quot;, &quot;upstream&quot;) &gt;     
     		options = ${upstreams?join(&quot;, &quot;)}
     	[dropdown]
-    		change-field = series.tags.name
+    		change-field = series.tags.server
           	&lt;#assign peers = getTags(&quot;nginx-plus.requests&quot;, &quot;${entity}&quot;, &quot;server&quot;) &gt;     
     		options = ${peers?join(&quot;, &quot;)}
       	[series]
@@ -292,8 +292,8 @@
  			color = green
       		[tags]
 	      		type = upstreams.peers
-      			upstream=${upstreams[0]}
-	      		name = ${peers[0]}
+      			upstream = ${upstreams[0]}
+	      		server = ${peers[0]}
 ###########
    [widget]
       type = property
@@ -356,7 +356,7 @@
           	&lt;#assign upstreams = getTags(&quot;nginx-plus.connections&quot;, &quot;${entity}&quot;, &quot;upstream&quot;) &gt;     
     		options = ${upstreams?join(&quot;, &quot;)}
     	[dropdown]
-    		change-field = series.tags.name
+    		change-field = series.tags.server
           	&lt;#assign peers = getTags(&quot;nginx-plus.health_checks.fails&quot;, &quot;${entity}&quot;, &quot;server&quot;) &gt;     
     		options = ${peers?join(&quot;, &quot;)}
       	[series]
@@ -365,7 +365,7 @@
       		[tags]
 	      		type = stream.upstreams.peers
       			upstream=${upstreams[0]}
-	      		name = ${peers[0]}
+	      		server = ${peers[0]}
 ###########    
    [widget]
       type = property
@@ -395,6 +395,6 @@
           label=last passed
       [property]
         type = stream.upstreams.peers</content>
-    <lastModified>2016-08-02 13:35:14.374 UTC</lastModified>
+    <lastModified>2016-08-02 14:33:32.646 UTC</lastModified>
   </com.axibase.tsd.model.portal.PortalConfig>
 </list>
