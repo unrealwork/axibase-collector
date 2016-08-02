@@ -1,0 +1,13 @@
+<list>
+  <com.axibase.tsd.model.EntityGroup>
+    <name>nginx-plus-servers</name>
+    <lastModified>1470136534957</lastModified>
+    <expression>hasMetric(&apos;nginx-plus.processes.respawned&apos;)</expression>
+    <entities class="sorted-set">
+      <comparator class="java.lang.String$CaseInsensitiveComparator"/>
+    </entities>
+    <portals>
+    </portals>
+    <tags class="linked-hash-map"/>
+  </com.axibase.tsd.model.EntityGroup>
+</list>
