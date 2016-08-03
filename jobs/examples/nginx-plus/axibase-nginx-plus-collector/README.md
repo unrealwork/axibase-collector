@@ -10,5 +10,5 @@ Currently supported options:
 |Option|Extended option|    Description                                         |                 Default         |
 |:----:|:-------------:|:------------------------------------------------------:|:-------------------------------:|
 |-a    | --atsd-url    | URL of target ATSD                                     | tcp://localhost:8081            |
-|-i    | --items       | NGINX Plus servers item list                           | [http://demo.nginx.com]  |
+|-i    | --items       | NGINX Plus servers item list                           | http://demo.nginx.com           |
 |-q    | --quiet       | Flag indicating the script will not generate output    | False                           |
