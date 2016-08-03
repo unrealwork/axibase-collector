@@ -7,8 +7,8 @@ python axibase_nginx_plus_collector.py --help
 ```
 Currently supported options:
 
-|Option|Extended option|    Description                                         |                 Default         |
-|:----:|:-------------:|:------------------------------------------------------:|:-------------------------------:|
-|-a    | --atsd-url    | URL of target ATSD                                     | tcp://localhost:8081            |
-|-i    | --items       | NGINX Plus servers item list                           | http://demo.nginx.com           |
-|-q    | --quiet       | Flag indicating the script will not generate output    | False                           |
+|Option|Extended option|    Description                                         |                 Default               |
+|:----:|:-------------:|:------------------------------------------------------:|:-------------------------------------:|
+|-a    | --atsd-url    | URL of target ATSD                                     | tcp://localhost:8081                  |
+|-i    | --items       | Space separated NGINX Plus servers item list           | http://demo.nginx.com                 |
+|-q    | --quiet       | Flag indicating the script will not generate output    | False                                 |
