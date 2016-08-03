@@ -1,4 +1,4 @@
-import json, urllib2, socket, optparse
+import json, urllib2, socket, argparse
 from urlparse import urlparse
 from datetime import datetime, timedelta
 
@@ -22,7 +22,7 @@ class Collector():
                 nginx_stats = json.load(fetched_data)
                 jsoner = _NginxJsonProcessor(self.config)
                 self.config.get_logger().log("Traversing obtained json ... \n")
-                entity = address.replace('https//:', '').replace('http://', '')
+                entity = address.replace('https://', '').replace('http://', '')
                 commands = jsoner.process_nginx_stats(entity, nginx_stats)
                 self.config.get_logger().log("Commands built.("+str(len(commands))+")")
                 atsd = _ATSDManager(self.config)
@@ -124,10 +124,10 @@ class Configuration:
 ############################################################################################################    
 class CollectorArgParser():
     def __init__(self):
-        self.parser =  optparse.OptionParser()
-        self.parser.add_option("-a", "--atsd-url", default="tcp://localhost:8081", help="URL of ATSD (default: %default)")
-        self.parser.add_option('-q', '--quiet', dest="quiet", default=False, action="store_true")
-        self.parser.add_option("-i", "--items", nargs='+', default=["http://demo.nginx.com"], help="List of items (default: %default)")
+        self.parser = argparse.ArgumentParser()
+        self.parser.add_argument("-a", "--atsd-url", default="tcp://localhost:8081", help="URL of ATSD (default: %default)")
+        self.parser.add_argument('-q', '--quiet', dest="quiet", default=False, action="store_true")
+        self.parser.add_argument("-i", "--items", nargs='+', type=str, default=["http://demo.nginx.com"], help="List of items (default: %default)")
         
     def parse_arguments(self):
         return self.parser.parse_args()
