@@ -12,11 +12,12 @@ This list contains references to datasets released by State Governments on [data
 
 | **Name** | **Value** |
 |:---|:---|
+| Id | f7nd-jj28 |
 | Name | Abortion Demographics, 1995-2012 |
 | Description | The number of induced pregnancy terminations reported in Illinois by county (if in excess of 50), by age and marital status.<br>Note: Marital status and age are only for Illinois residents. |
-| Id | f7nd-jj28 |
 | Attribution | Illinois Department of Public Health, Office of Finance and Administration, Division of Vital Records |
 | Category | Health |
+| Date Range | 1995-2012 |
 | Links | [catalog](http://catalog.data.gov/dataset/abortion-demographics-1995-2012-8f496) , [metadata](https://data.illinois.gov/api/views/f7nd-jj28) , [data](https://data.illinois.gov/api/views/f7nd-jj28/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
 
 ### Command
