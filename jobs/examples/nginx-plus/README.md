@@ -1,4 +1,4 @@
-# NGINX Plus Web Server Monitoring
+# NGINX PLUS Web Server Monitoring
 ## Overview
 
 This document describes how to collect various metrics from an NGINX PLUS web server for long-term retention and monitoring in Axibase Time Series Database.
@@ -73,7 +73,7 @@ List of collected [NGINX PLUS server metrics](./nginx-plus-server-metrics.md)
 * Click **Assign** link and associate the portal with the entity group you created earlier
 * Open *Entity* tabs, find the NGINX PLUS servers you would like to see information about, and click on its portal icon
 ![](./images/ngp_portal_selection.png)
-[NGINX PLUS Status portal example](http://apps.axibase.com/chartlab/f9637acd/2/)
+[NGINX PLUS Status portal example](http://apps.axibase.com/chartlab/f9637acd/5/)
 
 ## Notifications
 
