@@ -30,6 +30,7 @@ Login into Axibase Collector web interface
 * If 'Storage' drop-down is set to `None`, select the target ATSD server.
 * Set Status to Enabled.
 * **Save** the job.
+
 The job consists of several settings blocks, each of which is responsible for processing specific data from nginx plus status page. Each block forms special `series` and `property` commands for ATSD depending on what is being processed by the block. For example, the first settings block is responsible for processing general information about an NGINX PLUS Server. This block will fetch different metrics about *connection*, *ssl handshakes*, *requests*, *respawned processses* of the server and get its general properties such as *address*, *nginx_version*, *load_timestamp*, etc.
 ![First settings block](./images/ngp_first_settings_block.png)
 The result `series` and `property`commands formed by the block will look like the following ones:
@@ -38,6 +39,12 @@ The result `series` and `property`commands formed by the block will look like th
 series e:demo.nginx.com d:2016-08-02T10:35:46.608Z m:nginx-plus.connections.accepted=40750818 m:nginx-plus.connections.dropped=0 m:nginx-plus.requests.current=11 m:nginx-plus.ssl.handshakes=45602 m:nginx-plus.connections.idle=34 m:nginx-plus.requests.total=85010375 m:nginx-plus.processes.respawned=0 m:nginx-plus.ssl.session_reuses=7504 m:nginx-plus.connections.active=11 m:nginx-plus.ssl.handshakes_failed=6641
 property t:nginx_info e:demo.nginx.com d:2016-08-02T10:35:46.608Z k:address=206.251.255.64 v:nginx_version=1.9.13 v:pid=12121 v:load_timestamp=1469872800422 v:generation=17 v:version=6
 ```
+Other settings blocks in provided [collector job configuration file](./configs/nginx-plus-collector-job.xml) can be briefly described by the following statements:
+* *Second* settings block collects information about all peers of upstreams and stream.upstreams.
+* *Third* settings block collects all information about server zones and upstreams along with genral properties of all caches of the server.
+* *Fourth* settings block is responsible for getting all information about stream.server_zones.
+* *Fifth* settings block collects more detailed data about all cahces of the server. 
+
 ### Validate Data Availability
 
 * Open `nginx-plus-status` configuration in `nginx-plus-statistics` job.
