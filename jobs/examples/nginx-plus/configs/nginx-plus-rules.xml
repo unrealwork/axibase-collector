@@ -63,11 +63,11 @@ Check that the server is reachable and Axibase Collector job is running.</body-f
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1470384554670</lastUpdated>
+<lastUpdated>1470393190829</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>false</leavingEvents>
-<description><![CDATA[Raise an alert when an NGINX PLUS server average Active Connection count is below 10 over the last 15 minutes.]]></description>
+<description><![CDATA[Raise an alert when an NGINX PLUS server average active connection count is below 10 over the last 15 minutes.]]></description>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>
@@ -161,11 +161,11 @@ Your server is likely to have no problems with accessibility.</body-cancel>
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1470388945353</lastUpdated>
+<lastUpdated>1470393313352</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>false</leavingEvents>
-<description><![CDATA[Raise an alert when an NGINX PLUS server dropped sufficent amount of connections uring last 10 minutes.]]></description>
+<description><![CDATA[Raise an alert when an NGINX PLUS server dropped sufficient amount of connections during last 10 minutes.]]></description>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>
@@ -210,7 +210,7 @@ Your server is likely to have no problems with accessibility.</body-cancel>
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1470386761868</lastUpdated>
+<lastUpdated>1470392706487</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>false</leavingEvents>
@@ -258,11 +258,11 @@ Your server is likely to have no problems with accessibility.</body-cancel>
 <intervalCount>5</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </alertStrategy>
-<lastUpdated>1470389627819</lastUpdated>
+<lastUpdated>1470392651249</lastUpdated>
 <enabled>false</enabled>
 <disableEntityGrouping>false</disableEntityGrouping>
 <leavingEvents>false</leavingEvents>
-<description><![CDATA[Raise an alert when an NGINX PLUS server's  total number of abnormally terminated and respawned child processes increases.]]></description>
+<description><![CDATA[Raise an alert when an NGINX PLUS server's total number of abnormally terminated and respawned child processes increases.]]></description>
 <actionStrategy>
 <type>NONE</type>
 <intervalCount>5</intervalCount>

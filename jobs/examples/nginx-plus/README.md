@@ -74,3 +74,35 @@ List of collected [NGINX PLUS server metrics](./nginx-plus-server-metrics.md)
 * Open *Entity* tabs, find the NGINX PLUS servers you would like to see information about, and click on its portal icon
 ![](./images/ngp_portal_selection.png)
 [NGINX PLUS Status portal example](http://apps.axibase.com/chartlab/f9637acd/2/)
+
+## Notifications
+
+You can monitor key NGINX PLUS statistics by creating a rule in ATSD rule engine to send an email notification in case of abnormal conditions. 
+
+For example, you can send an email if average active connections* count over the last 15 minutes on a target NGINX PLUS server drops below the specified threshold.
+
+### Setting up Mail Client
+
+* Configure [Mail Client](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md).
+
+### Import rules
+
+* Download an [xml file](./configs/nginx-plus-rules.xml) containing the rules.
+* Open **Configuration: Rules** page.
+* Click *Import* and attach nginx-plus-rules.xml file.
+* Open created rules in the Rule Editor and change recipient address on the *Email Notifications* tab.
+* These rules will automatically apply to all NGINX PLUS servers monitored by Axibase Collector
+
+The following rules are provided in the nginx_plus_rules.xml file:
+
+| **Rule**                                     |                                      **Description**                        |
+|:----------------------------------------:|:------------------------------------------------------------------------|
+|nginx_plus_respawned_proc_increase        | Raise an alert when an NGINX PLUS server's total number of abnormally terminated and respawned child processes increases.|
+| nginx_plus_fails_high                    | Raise an alert when an NGINX PLUS server's total number of unsuccessful attempts to communicate with some peer server is high.|
+| nginx_plus_droppped_high                 | Raise an alert when an NGINX PLUS server dropped sufficient amount of connections. |
+| nginx_plus_downtime_long                 | Raise an alert indicating NGINX PLUS server's peer is in the “unavail” and “unhealthy” states during specified period of time (default: 15 minutes). |
+|nginx_plus_active_connection_low          | Raise an alert when an NGINX PLUS server average active connection count is below specified threshold (default: 10) over the last 15 minutes.|
+| nginx_plus_active_connection_heartbeat   | Raise an alert when status page statistics are no longer being received by ATSD. <br> Check that the server is reachable and Axibase Collector job is running. |
+
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md). 
+
