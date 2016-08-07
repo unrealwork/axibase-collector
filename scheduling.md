@@ -36,7 +36,7 @@ Field Control Symbols:
 |---|---|
 | *	| Any value |
 | ?	| No specific value |
-| R	| Random value within allows value range |
+| R	| Random value within allowed value range |
 | ,	| Value list separator | 
 | -	| Range of values | 
 | /	| Step values |
