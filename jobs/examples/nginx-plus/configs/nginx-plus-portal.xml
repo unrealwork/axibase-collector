@@ -107,8 +107,9 @@
       	statistic = counter
       	[dropdown]
     		change-field = series.tags.cache_status
-    		options = hit, miss, bypass, expired, revalidated, stale, updating
-		[dropdown]
+            &lt;#assign states = getTags(&quot;nginx-plus.bytes&quot;, &quot;${entity}&quot;, &quot;cache_status&quot;) &gt;     
+    		options = ${states?join(&quot;, &quot;)}
+    	[dropdown]
     		change-field = series.tags.name
           	&lt;#assign names = getTags(&quot;nginx-plus.bytes&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
     		options = ${names?join(&quot;, &quot;)}
@@ -123,7 +124,7 @@
     [widget]
       	title = Cache hit rate today, %
     	type = gauge
-	    tooltip = Percentage of cache hits @{ge[1]} (100 * hit / (hit + miss))
+	    tooltip = Percentage of cache hits today(100 * hit / (hit + miss))
 	    end-time = next_day
 	    statistic = counter
 	    period = 1 day
@@ -137,7 +138,7 @@
 	    colors = red, yellow, green
       	[dropdown]
       		change-field = series.tags.name
-      		&lt;#assign names = getTags(&quot;nginx-plus.responses&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
+      		&lt;#assign names = getTags(&quot;nginx-plus.bytes&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
       		options = ${names?join(&quot;, &quot;)}
       	[series]
         	metric = nginx-plus.responses
@@ -385,6 +386,6 @@
           key=last_passed
       [property]
        	  type = stream.upstreams.peers</content>
-    <lastModified>2016-08-05 15:11:20.378 UTC</lastModified>
+    <lastModified>2016-08-08 10:23:02.148 UTC</lastModified>
   </com.axibase.tsd.model.portal.PortalConfig>
 </list>
