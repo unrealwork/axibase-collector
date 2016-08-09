@@ -4,19 +4,19 @@ This list contains references to datasets released by State Governments on [data
 
 ## Datasets
 
-| **Name** | **Attribution** |
-|:---|:---|
-| [Abortion Demographics, 1995-2012](#abortion-demographics-1995-2012) | Illinois Department of Public Health, Office of Finance and Administration, Division of Vital Records | 
-| [Anne Arundel County Crime Rate By Type](#anne-arundel-county-crime-rate-by-type) | MSAC |
-| [Attorney General Consumer Complaints](#attorney-general-consumer-complaints) | Washington State Attorney General's Office Consumer Protection Division |
-| [Insurance Company Complaints, Resolutions, Status, and Recoveries](#insurance-company-complaints-resolutions-status-and-recoveries) | Department of Insurance |
-| [Automobiles Annual Imports and Exports Through Port Authority of NY NJ Maritime Terminals: Beginning 2000](#automobiles-annual-imports-and-exports-through-port-authority-of-ny-nj-maritime-terminals-beginning-2000) | The Port Authority of New York & New Jersey |
-| [Employment Figures](#employment-figures) | Bureau of Labor Statistics |
-| [Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor: Beginning 2010](#solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginning-2010) | New York State Energy Research and Development Authority |
-| [Table 17: Solid Waste Recycled (in tons)](#table-17-solid-waste-recycled-in-tons) | Iowa Department of Education, Adequate Yearly Progress |
-| [Math And Reading Proficiency by School Year, Public School District and Grade Level](#math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level) | Iowa Department of Education, Adequate Yearly Progress |
-| [AAA Fuel Prices](#aaa-fuel-prices) | Department of Economic Development and Tourism |
-| [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
+| **State** | **Name** | **Attribution** |
+|:---|:---|:---|
+| Illinois | [Abortion Demographics, 1995-2012](#abortion-demographics-1995-2012) | Illinois Department of Public Health, Office of Finance and Administration, Division of Vital Records | 
+| Maryland | [Anne Arundel County Crime Rate By Type](#anne-arundel-county-crime-rate-by-type) | MSAC |
+| Washington | [Attorney General Consumer Complaints](#attorney-general-consumer-complaints) | Washington State Attorney General's Office Consumer Protection Division |
+| Connecticut | [Insurance Company Complaints, Resolutions, Status, and Recoveries](#insurance-company-complaints-resolutions-status-and-recoveries) | Department of Insurance |
+| New York | [Automobiles Annual Imports and Exports Through Port Authority of NY NJ Maritime Terminals: Beginning 2000](#automobiles-annual-imports-and-exports-through-port-authority-of-ny-nj-maritime-terminals-beginning-2000) | The Port Authority of New York & New Jersey |
+| Maryland | [Employment Figures](#employment-figures) | Bureau of Labor Statistics |
+| New York | [Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor: Beginning 2010](#solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginning-2010) | New York State Energy Research and Development Authority |
+| Hawaii | [Table 17: Solid Waste Recycled (in tons)](#table-17-solid-waste-recycled-in-tons) | Iowa Department of Education, Adequate Yearly Progress |
+| Iowa | [Math And Reading Proficiency by School Year, Public School District and Grade Level](#math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level) | Iowa Department of Education, Adequate Yearly Progress |
+| Hawaii | [AAA Fuel Prices](#aaa-fuel-prices) | Department of Economic Development and Tourism |
+| Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
 
 ## Abortion Demographics, 1995-2012
 
@@ -34,7 +34,7 @@ This list contains references to datasets released by State Governments on [data
 ### Command
 
 ```ls
-series e:f7nd-jj28
+series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=52300
 ```
 <!--
 ### Fields
