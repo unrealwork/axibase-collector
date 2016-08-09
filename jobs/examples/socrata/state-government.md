@@ -99,7 +99,7 @@ t:business_id=257432 t:business="Highline Athletic Club" t:businesscity=Burien m
 | Description | Listing of consumer complaints filed against Insurance companies licensed in Connecticut.<br>This dataset includes the Company, Line of Business, nature of complaint, outcome or resolution, and recovery. |
 | Attribution | Department of Insurance |
 | Category | Business |
-| Date Range | 2011-2016 |
+| Date Range | 2007-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
 
 ### Command
@@ -139,7 +139,7 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 | Description | Figures come from the Bureau of Labor Statistics, and are subject to revision. |
 | Attribution | Bureau of Labor Statistics |
 | Category | Business and Economy |
-| Date Range | 2003-2008 |
+| Date Range | 2003-2014 |
 | Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/) |
 
 ### Command
@@ -161,7 +161,7 @@ m:maryland_civilian_labor_force=2877486 m:maryland_unemployment=126413 m:marylan
 | Description | The Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor Dataset provides market insight into the volume of work and photovoltaic (PV) capacity installed in New York State annually, by city and contractor, beginning August 2010 under the New York State Energy Research and Development Authority (NYSERDA)’s NY-Sun Solar Electric Incentive Program Opportunity Notice (PON) 2112.The dataset includes the following data points: Project Install Year, Contractor, County, City, Project Count by City, Project Cost, NYSERDA Incentives, Kilowatt Capacity, Expected Annual Kilowatt Hour Production, and NYSERDA Solicitation. |
 | Attribution | New York State Energy Research and Development Authority |
 | Category | Energy & Environment |
-| Date Range | 2010-2012 |
+| Date Range | 2010-2015 |
 | Links | [catalog](http://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin), [metadata](https://data.ny.gov/api/views/3pzs-2zsk),  [data](https://data.ny.gov/api/views/3pzs-2zsk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
 
 ### Command
@@ -202,7 +202,7 @@ m:diverted_statewide=688820 m:produced_statewide=2116724
 | Description | Dataset contains information on public school districts academic progress of their students in reading and math annually starting with school year ending in 2003.  All public schools and districts report annually to the Iowa Department of Education through Adequate Yearly Progress (AYP)<br>All AYP determinations are made annually using reading and math student assessment data.  Proficiency is based on a standard score scale.  More information can be found at: http://itp.education.uiowa.edu/ia/AYPInformation.aspx |
 | Attribution | Iowa Department of Education, Adequate Yearly Progress |
 | Category | Education |
-| Date Range | 2003-2014 |
+| Date Range | 2003-2015 |
 | Links | [catalog](http://catalog.data.gov/dataset/math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level), [attribution](http://itp.education.uiowa.edu/ia/AYPInformation.aspx), [metadata](https://data.iowa.gov/api/views/f3h8-mnxi),  [data](https://data.iowa.gov/api/views/f3h8-mnxi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/) |
 
 ### Command
