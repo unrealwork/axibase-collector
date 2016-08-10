@@ -29,7 +29,7 @@ This list contains references to datasets released by State Governments on [data
 | Attribution | Illinois Department of Public Health, Office of Finance and Administration, Division of Vital Records |
 | Category | Health |
 | Date Range | 1995-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/abortion-demographics-1995-2012-8f496),  [metadata](https://data.illinois.gov/api/views/f7nd-jj28),  [data](https://data.illinois.gov/api/views/f7nd-jj28/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/abortion-demographics-1995-2012-8f496),  [metadata](https://data.illinois.gov/api/views/f7nd-jj28),  [data](https://data.illinois.gov/api/views/f7nd-jj28/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/8f514d6d/10/) |
 
 ### Command
 
@@ -59,7 +59,7 @@ series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=523
 | Attribution | MSAC |
 | Category | Public Safety |
 | Date Range | 1975-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/anne-arundel-county-crime-rate-by-type-e5923), [attribution](http://www.goccp.maryland.gov/msac/crime-statistics-county.php?id=18), [metadata](https://data.maryland.gov/api/views/3fys-ggpk),  [data](https://data.maryland.gov/api/views/3fys-ggpk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/anne-arundel-county-crime-rate-by-type-e5923), [attribution](http://www.goccp.maryland.gov/msac/crime-statistics-county.php?id=18), [metadata](https://data.maryland.gov/api/views/3fys-ggpk),  [data](https://data.maryland.gov/api/views/3fys-ggpk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8f514d6d/11/) |
 
 ### Command
 
@@ -79,7 +79,7 @@ m:m_v_theft=599.3 m:violent_crime_rate=608.6 m:rape=22.3 m:population=331390
 | Description | Complaint data from consumer complaints filed with the Consumer Protection Division. <br>The existence of a complaint is not evidence of wrongdoing. |
 | Attribution | Washington State Attorney General's Office Consumer Protection Division |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](#) |
 
 ### Command
 
@@ -100,7 +100,7 @@ t:business_id=257432 t:business="Highline Athletic Club" t:businesscity=Burien m
 | Attribution | Department of Insurance |
 | Category | Business |
 | Date Range | 2007-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8f514d6d/12/) |
 
 ### Command
 
@@ -121,7 +121,7 @@ t:conclusion=Unjustified t:disposition="Claim Settled" m:file_no=302165 m:recove
 | Attribution | The Port Authority of New York & New Jersey |
 | Category | Transportation |
 | Date Range | 2000-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/automobiles-annual-imports-and-exports-through-port-authority-of-ny-nj-maritime-terminals-), [attribution](http://www.panynj.gov/port/pdf/port-trade-statistics-summary-2001-2011.pdf), [metadata](https://data.ny.gov/api/views/u49g-d7hw), [data](https://data.ny.gov/api/views/u49g-d7hw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/automobiles-annual-imports-and-exports-through-port-authority-of-ny-nj-maritime-terminals-), [attribution](http://www.panynj.gov/port/pdf/port-trade-statistics-summary-2001-2011.pdf), [metadata](https://data.ny.gov/api/views/u49g-d7hw), [data](https://data.ny.gov/api/views/u49g-d7hw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8f514d6d/13/) |
 
 ### Command
 
@@ -140,7 +140,7 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 | Attribution | Bureau of Labor Statistics |
 | Category | Business and Economy |
 | Date Range | 2003-2014 |
-| Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/8f514d6d/14/) |
 
 ### Command
 
@@ -162,7 +162,7 @@ m:maryland_civilian_labor_force=2877486 m:maryland_unemployment=126413 m:marylan
 | Attribution | New York State Energy Research and Development Authority |
 | Category | Energy & Environment |
 | Date Range | 2010-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin), [metadata](https://data.ny.gov/api/views/3pzs-2zsk),  [data](https://data.ny.gov/api/views/3pzs-2zsk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin), [metadata](https://data.ny.gov/api/views/3pzs-2zsk),  [data](https://data.ny.gov/api/views/3pzs-2zsk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8f514d6d/15/) |
 
 ### Command
 
@@ -183,7 +183,7 @@ m:total_nameplate_kw=4.6 m:expected_kwh_annual_production=5399.66 m:incentive_do
 | Attribution | DOH |
 | Category | Health |
 | Date Range | 2004-2008 |
-| Links | [catalog](http://catalog.data.gov/dataset/table-17-solid-waste-recycled-in-tons-851c9),  [metadata](https://data.hawaii.gov/api/views/v48g-wbhi),  [data](https://data.hawaii.gov/api/views/v48g-wbhi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/table-17-solid-waste-recycled-in-tons-851c9),  [metadata](https://data.hawaii.gov/api/views/v48g-wbhi),  [data](https://data.hawaii.gov/api/views/v48g-wbhi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/8f514d6d/16/) |
 
 ### Command
 
@@ -203,7 +203,7 @@ m:diverted_statewide=688820 m:produced_statewide=2116724
 | Attribution | Iowa Department of Education, Adequate Yearly Progress |
 | Category | Education |
 | Date Range | 2003-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level), [attribution](http://itp.education.uiowa.edu/ia/AYPInformation.aspx), [metadata](https://data.iowa.gov/api/views/f3h8-mnxi),  [data](https://data.iowa.gov/api/views/f3h8-mnxi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level), [attribution](http://itp.education.uiowa.edu/ia/AYPInformation.aspx), [metadata](https://data.iowa.gov/api/views/f3h8-mnxi),  [data](https://data.iowa.gov/api/views/f3h8-mnxi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/8f514d6d/17/) |
 
 ### Command
 
@@ -224,7 +224,7 @@ m:district=1080 m:proficient_1=40
 | Attribution | Department of Economic Development and Tourism |
 | Category | Economic Development |
 | Date Range | 2006-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/aaa-fuel-prices-52bf0), [attribution](http://hawaii.gov/dbedt),  [metadata](https://data.hawaii.gov/api/views/dqp6-3idi),  [data](https://data.hawaii.gov/api/views/dqp6-3idi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/aaa-fuel-prices-52bf0), [attribution](http://hawaii.gov/dbedt),  [metadata](https://data.hawaii.gov/api/views/dqp6-3idi),  [data](https://data.hawaii.gov/api/views/dqp6-3idi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/8f514d6d/18/) |
 
 ### Command
 
@@ -244,7 +244,7 @@ t:physicalunit=Dollars m:price=2.314
 | Attribution | Department of Revenue Services |
 | Category | Government |
 | Date Range | 2013-2014 |
-| Links | [catalog](http://catalog.data.gov/dataset/sales-and-use-tax-per-town-by-naics-2013-and-2014), [attribution](http://www.ct.gov/drs/cwp/view.asp?a=4128&q=483506), [metadata](https://data.ct.gov/api/views/rkm7-uwkb),  [data](https://data.ct.gov/api/views/rkm7-uwkb/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/) |
+| Links | [catalog](http://catalog.data.gov/dataset/sales-and-use-tax-per-town-by-naics-2013-and-2014), [attribution](http://www.ct.gov/drs/cwp/view.asp?a=4128&q=483506), [metadata](https://data.ct.gov/api/views/rkm7-uwkb),  [data](https://data.ct.gov/api/views/rkm7-uwkb/rows.json?accessType=DOWNLOAD), [portal](#) |
 
 ### Command
 
