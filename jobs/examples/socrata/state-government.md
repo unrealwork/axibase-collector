@@ -245,5 +245,7 @@ t:physicalunit=Dollars m:price=2.314
 ### Command
 
 ```ls
-series e:rkm7-uwkb d:2014-01-01T00:00:00.000Z t:naics_industry_code="230 Construction" t:municipality="OUT OF COUNTRY" m:taxpayer_count=16 m:total_tax_due_at_7=0 m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
+series e:rkm7-uwkb d:2014-01-01T00:00:00.000Z t:naics_industry_code="230 Construction" 
+t:municipality="OUT OF COUNTRY" m:taxpayer_count=16 m:total_tax_due_at_7=0 
+m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 ```
