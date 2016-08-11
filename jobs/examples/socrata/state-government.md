@@ -84,7 +84,11 @@ m:m_v_theft=599.3 m:violent_crime_rate=608.6 m:rape=22.3 m:population=331390
 ### Command
 
 ```ls
-message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1220 t:openedyear=2016.0 t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA t:source="Washington State Attorney General's Office Consumer Protection Division" t:status=Open t:business_id=257432 t:type="Attorney General Consumer Complaints" t:business="Highline Athletic Club" t:businesscity=Burien m:""
+message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1220 t:openedyear=2016.0
+t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA 
+t:source="Washington State Attorney General's Office Consumer Protection Division" 
+t:status=Open t:business_id=257432 t:type="Attorney General Consumer Complaints" 
+t:business="Highline Athletic Club" t:businesscity=Burien m:""
 ```
 
 ## Insurance Company Complaints, Resolutions, Status, and Recoveries
@@ -103,7 +107,10 @@ message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1
 ### Command
 
 ```ls
-message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" t:coverage="Auto Medical Payment" t:reason="Unfair Claims Practice" t:status=Closed t:company="21st Century Assurance Company" t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recovery=2586.0 m:""
+message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" 
+t:coverage="Auto Medical Payment" t:reason="Unfair Claims Practice" t:status=Closed 
+t:company="21st Century Assurance Company" t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 
+t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recovery=2586.0 m:""
 ```
 
 ## Automobiles Annual Imports and Exports Through Port Authority of NY NJ Maritime Terminals: Beginning 2000
