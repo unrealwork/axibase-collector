@@ -238,7 +238,7 @@ m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 | Description | Complaint data from consumer complaints filed with the Consumer Protection Division. <br>The existence of a complaint is not evidence of wrongdoing. |
 | Attribution | Washington State Attorney General's Office Consumer Protection Division |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/10/) |
+| Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/8/) |
 
 ### Command
 
@@ -261,7 +261,7 @@ t:business="Highline Athletic Club" t:businesscity=Burien m:""
 | Attribution | Department of Insurance |
 | Category | Business |
 | Date Range | 2007-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/9/) |
+| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/9/) |
 
 ### Command
 
@@ -283,7 +283,7 @@ t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recover
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2010-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/8/) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/10/) |
 
 ### Command
 
@@ -303,7 +303,7 @@ t:source="New York State Gaming Commission" t:type="Government & Finance" t:mult
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2002-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/7/) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/11/) |
 
 ### Command
 
@@ -322,7 +322,7 @@ t:source="New York State Gaming Commission" t:type="Government & Finance" t:mega
 | Description | Businesses registered with the Secretary of State Corporation Division during the month of June. |
 | Category | Business |
 | Date Range | June 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/6/) |
+| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/12/) |
 
 ### Command
 
@@ -343,7 +343,7 @@ t:city=ATLANTA t:registry_number=122151194 m:""
 | Description | Updated 8/1/2016 List of New UCC filings entered during the previous month.  This list will be updated by the 9th of every month. |
 | Category | Business |
 | Date Range | July 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/11/) |
+| Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/13/) |
 
 ### Command
 
@@ -365,7 +365,7 @@ t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:origin
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2014-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/12/) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/14/) |
 
 ### Command
 ```ls
@@ -384,7 +384,7 @@ t:source="New York State Gaming Commission" t:type="Government & Finance" t:cash
 | Attribution | Office of the Chief Medical Examiner |
 | Category | Health and Human Services |
 | Date Range | 2012-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/13/) |
+| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/15/) |
 
 ### Command
 ```ls
@@ -405,7 +405,7 @@ t:fentanyl=Y m:""
 | Attribution | Oregon Department of Justice |
 | Category | Public Safety |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](http://apps.axibase.com/chartlab/c6ee7c4c/15/) |
+| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/16/) |
 
 ### Command
 ```ls
