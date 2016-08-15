@@ -16,6 +16,7 @@ This list contains references to datasets released by State Governments on [data
 | Iowa | [Math And Reading Proficiency by School Year, Public School District and Grade Level](#math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level) | Iowa Department of Education, Adequate Yearly Progress |
 | Hawaii | [AAA Fuel Prices](#aaa-fuel-prices) | Department of Economic Development and Tourism |
 | Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
+| Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
 
 ## Abortion Demographics, 1995-2012
 
@@ -210,6 +211,31 @@ t:physicalunit=Dollars m:price=2.314
 series e:rkm7-uwkb d:2014-01-01T00:00:00.000Z t:naics_industry_code="230 Construction" 
 t:municipality="OUT OF COUNTRY" m:taxpayer_count=16 m:total_tax_due_at_7=0 
 m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
+```
+
+## Per Capita Electricity Consumption
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | 64jf-g2fe |
+| Name | Per Capita Electricity Consumption |
+| State | [Maryland](https://data.maryland.gov) |
+| Description | Data are provided by the Maryland Energy Administration (MEA). Data show per capita electricity usage overall and usage demand during times of peak electricity use (peak demand). |
+| Attribution | MEA |
+| Category | Energy and Environment |
+| Date Range | 2007-2015 |
+| Links | [catalog](http://catalog.data.gov/dataset/per-capita-electricity-consumption-7b888), [attribution](http://energy.maryland.gov/), [metadata](https://data.maryland.gov/api/views/64jf-g2fe),  [data](https://data.maryland.gov/api/views/64jf-g2fe/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8f514d6d/31/) |
+
+### Command
+
+```ls
+series e:64jf-g2fe d:2007-01-01T00:00:00.000Z m:per_capita_consumption_2015_goal=10.521
+m:actual_per_capita_consumption=12.38 m:empower_per_capita_consumption_annual_goal=12.38 
+m:peak_demand_2015_goal=2.173 m:per_capita_consumption_2015_goal_percent_below_baseline=-15
+m:peak_demand_percent_below_2007_baseline_goal_15=0 m:empower_peak_demand_annual_goals=2.56
+m:per_capita_consumption_percent_below_2007_baseline=0 
+m:peak_demand_2015_goal_percent_below_baseline=-15 m:peak_demand_annual_goals_percent_below_baseline=0
+m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 ```
 
 #Messages
