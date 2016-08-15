@@ -17,6 +17,7 @@ This list contains references to datasets released by State Governments on [data
 | Hawaii | [AAA Fuel Prices](#aaa-fuel-prices) | Department of Economic Development and Tourism |
 | Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
+| Maryland | [MVA Vehicle Sales Counts by Month for CY 2002 - 2015](#mva-vehicle-sales-counts-by-month-for-cy-2002-2015) | Motor Vehicle Administration |
 
 ## Abortion Demographics, 1995-2012
 
@@ -236,6 +237,26 @@ m:peak_demand_percent_below_2007_baseline_goal_15=0 m:empower_peak_demand_annual
 m:per_capita_consumption_percent_below_2007_baseline=0 
 m:peak_demand_2015_goal_percent_below_baseline=-15 m:peak_demand_annual_goals_percent_below_baseline=0
 m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
+```
+
+## MVA Vehicle Sales Counts by Month for CY 2002 - 2015
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | un65-7ipd |
+| Name | MVA Vehicle Sales Counts by Month for CY 2002 - 2015 |
+| State | [Maryland](https://data.maryland.gov) |
+| Description | The number of new and used vehicles and the sales dollars respectively sold by month.Data as of October 2015 |
+| Attribution | Motor Vehicle Administration |
+| Category | Transportation |
+| Date Range | 2007-2015 |
+| Links | [catalog](http://catalog.data.gov/dataset/mva-vehicle-sales-counts-by-month-for-cy-2002-2015), [attribution](http://www.mva.maryland.gov/), [metadata](https://data.maryland.gov/api/views/un65-7ipd),  [data](https://data.maryland.gov/api/views/un65-7ipd/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8f514d6d/32/) |
+
+### Command
+
+```ls
+series e:un65-7ipd d:2002-01-01T00:00:00.000Z t:month=JAN m:new=31106 m:total_sales_used=386481929 
+m:used=49927 m:total_sales_new=755015820
 ```
 
 #Messages
