@@ -18,6 +18,7 @@ This list contains references to datasets released by State Governments on [data
 | Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
 | Maryland | [MVA Vehicle Sales Counts by Month for CY 2002 - 2015](#mva-vehicle-sales-counts-by-month-for-cy-2002-2015) | Motor Vehicle Administration |
+| Hawaii | [OAHU Food Establishments](#oahu-food-establishments) | Department of Health |
 
 ## Abortion Demographics, 1995-2012
 
@@ -257,6 +258,32 @@ m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 ```ls
 series e:un65-7ipd d:2002-01-01T00:00:00.000Z t:month=JAN m:new=31106 m:total_sales_used=386481929 
 m:used=49927 m:total_sales_new=755015820
+```
+
+## OAHU Food Establishments
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | qkvm-skze |
+| Name | OAHU Food Establishments |
+| State | [Hawaii](https://data.hawaii.gov) |
+| Description | Lists represent all of the permitted Food Establishments.  These include everything from Restaurants, take out, Fast-food, Convenience stores, Mom and Pop Markets, shave ice stands, supermarkets, Mega markets like Costco-Sam’s-Walmart, lunch wagons, food manufacturers, etc |
+| Attribution | Department of Health |
+| Category | Health |
+| Date Range | 2005-2012 |
+| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8f514d6d/44/) |
+
+### Command
+
+```ls
+series e:qkvm-skze d:2011-07-25T00:00:00.000Z t:establishment="MATSUMOTO'S OKAZUYA RESTAURANT, LLC" 
+t:facility_type="137 New and Renewal 1" t:mailing_address_zip_code=96817 t:permit_holder="TODD MATSUMOTO"
+t:establishment_address_zip_code=96817 t:risk_category="Category 1" 
+t:mailing_address_street_name="GULICK AVENUE" t:business_status=Open 
+t:establishment_address_state=HAWAII t:establishment_address_city=HONOLULU 
+t:mailing_address_state=HAWAII t:telephone=(808)721-7464 
+t:establishment_address_street_name="GULICK AVENUE" t:mailing_address_city=HONOLULU 
+m:tmkzone=1 m:facility_permit=8807 m:tmkparcel=24 m:tmkplat=7 m:establishment_permit=8807 m:tmksection=3
 ```
 
 #Messages
