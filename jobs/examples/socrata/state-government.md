@@ -291,7 +291,11 @@ m:used=49927 m:total_sales_new=755015820
 ### Command
 
 ```ls
-message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1220 t:openedyear=2016.0 t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA t:source="Washington State Attorney General's Office Consumer Protection Division" t:status=Open t:business_id=257432 t:type="Attorney General Consumer Complaints" t:business="Highline Athletic Club" t:businesscity=Burien
+message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1220 t:openedyear=2016.0
+t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA 
+t:source="Washington State Attorney General's Office Consumer Protection Division" t:status=Open 
+t:business_id=257432 t:type="Attorney General Consumer Complaints" t:business="Highline Athletic Club"
+t:businesscity=Burien
 ```
 
 ## Insurance Company Complaints, Resolutions, Status, and Recoveries
@@ -305,15 +309,12 @@ message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1
 | Attribution | Department of Insurance |
 | Category | Business |
 | Date Range | 2007-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/18/) |
+| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/b2be2e0b) |
 
 ### Command
 
 ```ls
-message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" 
-t:coverage="Auto Medical Payment" t:reason="Unfair Claims Practice" t:status=Closed 
-t:company="21st Century Assurance Company" t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 
-t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recovery=2586.0 m:""
+message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" t:coverage="Auto Medical Payment" t:status=Closed t:company="21st Century Assurance Company" t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recovery=2586.0 m:"Unfair Claims Practice"
 ```
 
 ## Lottery Powerball Winning Numbers: Beginning 2010
@@ -327,13 +328,12 @@ t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recover
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2010-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/19/) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/07122cec) |
 
 ### Command
 
 ```ls
-message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:winning_numbers="17 22 36 37 52 24" 
-t:source="New York State Gaming Commission" t:type="Government & Finance" t:multiplier=2.0 m:""
+message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:source="New York State Gaming Commission" t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
 ```
 
 ## Lottery Mega Millions Winning Numbers: Beginning 2002
@@ -347,13 +347,12 @@ t:source="New York State Gaming Commission" t:type="Government & Finance" t:mult
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2002-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/20/) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/35a32cac) |
 
 ### Command
 
 ```ls
-message e:5xaw-6ayf d:2002-05-17T00:00:00.000Z t:winning_numbers="15 18 25 33 47" 
-t:source="New York State Gaming Commission" t:type="Government & Finance" t:mega_ball=30 m:""
+message e:5xaw-6ayf d:2002-05-17T00:00:00.000Z t:source="New York State Gaming Commission" t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
 ```
 
 ## New Business List - June
@@ -366,7 +365,7 @@ t:source="New York State Gaming Commission" t:type="Government & Finance" t:mega
 | Description | Businesses registered with the Secretary of State Corporation Division during the month of June. |
 | Category | Business |
 | Date Range | June 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/98bba94e) |
+| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f79a8502) |
 
 ### Command
 
@@ -409,12 +408,11 @@ t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:origin
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2014-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/23/) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/174d26e1) |
 
 ### Command
 ```ls
-message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:winning_numbers="09 36 44 53 59" 
-t:source="New York State Gaming Commission" t:type="Government & Finance" t:cash_ball=03 m:""
+message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:source="New York State Gaming Commission" t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 ```
 
 ## Accidental Drug Related Deaths 2012-2015
@@ -428,14 +426,11 @@ t:source="New York State Gaming Commission" t:type="Government & Finance" t:cash
 | Attribution | Office of the Chief Medical Examiner |
 | Category | Health and Human Services |
 | Date Range | 2012-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/24/) |
+| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/5ff309eb) |
 
 ### Command
 ```ls
-message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y 
-t:source="Office of the Chief Medical Examiner" t:mannerofdeath=Accident t:benzo_s=Y 
-t:immediatecausea="Acute fent, hydrocod, benzodiazepine" t:type="Health and Human Services" 
-t:fentanyl=Y m:""
+message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y t:source="Office of the Chief Medical Examiner" t:mannerofdeath=Accident t:benzo_s=Y t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodiazepine"
 ```
 
 ## Oregon Consumer Complaints
@@ -449,16 +444,12 @@ t:fentanyl=Y m:""
 | Attribution | Oregon Department of Justice |
 | Category | Public Safety |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/25/) |
+| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/edb4d4ac) |
 
 ### Command
+
 ```ls
-message e:2ix7-8hwk d:2014-03-05T00:00:00.000Z t:complaint_description=
-"Provided goods or services different than the ones complainant ordered; unauthorized work" 
-t:respondent="7-ELEVEN, INC*" t:zip=752210711 t:status=Closed t:closing_description="Voluntarily Resolved" 
-t:state=TX t:address_1="CUSTOMER RELATIONS" t:reference_no_=FF1411-14 t:address_2="PO BOX 711" 
-t:type="Public Safety" t:city=DALLAS t:source="Oregon Department of Justice" 
-t:date_closed=2014-06-27T00:00:00 t:business_type="Fuel: Gasoline Stations" m:""
+message e:2ix7-8hwk d:2014-03-05T00:00:00.000Z t:respondent="7-ELEVEN, INC*" t:zip=752210711 t:status=Closed t:closing_description="Voluntarily Resolved" t:state=TX t:address_1="CUSTOMER RELATIONS" t:reference_no_=FF1411-14 t:address_2="PO BOX 711" t:type="Public Safety" t:city=DALLAS t:source="Oregon Department of Justice" t:date_closed=2014-06-27T00:00:00 t:business_type="Fuel: Gasoline Stations" m:"Provided goods or services different than the ones complainant ordered; unauthorized work"
 ```
 
 ## OAHU Food Establishments
@@ -472,7 +463,7 @@ t:date_closed=2014-06-27T00:00:00 t:business_type="Fuel: Gasoline Stations" m:""
 | Attribution | Department of Health |
 | Category | Health |
 | Date Range | 2005-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8f514d6d/44/) |
+| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/112f73a4) |
 
 ### Command
 
