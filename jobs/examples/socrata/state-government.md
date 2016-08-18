@@ -3,8 +3,8 @@
 This list contains references to datasets released by State Governments on [data.gov](http://catalog.data.gov/dataset?q=&sort=views_recent+desc&organization_type=State+Government&res_format=JSON) in [Socrata](https://github.com/socrata) format (JSON).
 
 #Data set types:
-##[Series](#series)
-##[Messages](#messages)
+##[Series](#series-1)
+##[Messages](#messages-1)
 ___
 
 ##Series
@@ -66,7 +66,7 @@ series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=523
       "_2011": 41324,
       "_2002": 46945,
       "year": "TOTAL"
-   }
+}
 ```
 
 <!--
@@ -121,7 +121,7 @@ m:m_v_theft=599.3 m:violent_crime_rate=608.6 m:rape=22.3 m:population=331390
       "year": 1975,
       "rape": 22.3,
       "population": 331390
-   }
+}
 ```
 
 ### Automobiles Annual Imports and Exports Through Port Authority of NY NJ Maritime Terminals: Beginning 2000
@@ -150,7 +150,7 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
       "volume": 433822,
       "year": 2015,
       "type": "Imports"
-   }
+}
 ```
 
 ### Employment Figures
@@ -193,7 +193,7 @@ m:maryland_civilian_labor_force=2877486 m:maryland_unemployment=126413 m:marylan
       "maryland_civilian_labor_force": 2877486,
       "maryland_employment": 2751073,
       "maryland_unemployment": 126413
-   }
+}
 ```
 
 ### Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor: Beginning 2010
@@ -231,7 +231,7 @@ m:total_nameplate_kw=4.6 m:expected_kwh_annual_production=5399.66 m:incentive_do
       "project_install_year": 2010,
       "solicitation": "PON 2112",
       "city": "Other"
-   }
+}
 ```
 
 ### Table 17: Solid Waste Recycled (in tons)
@@ -264,7 +264,7 @@ m:diverted_statewide=688820 m:produced_statewide=2116724
       "disposed_statewide": 1427904,
       "diverted_statewide": 688820,
       "produced_statewide": 2116724
-   }
+}
 ```
 
 ### Math And Reading Proficiency by School Year, Public School District and Grade Level
@@ -301,7 +301,7 @@ m:district=1080 m:proficient_1=40
       "school_year": 2003,
       "proficient_category": "60.1 - 70%",
       "proficient_1": 40
-   }
+}
 ```
 
 ### AAA Fuel Prices
@@ -333,7 +333,7 @@ t:physicalunit=Dollars m:price=2.314
       "month_of_price": "2006-01-01T00:00:00",
       "fuel": "Gasoline - Regular",
       "physicalunit": "Dollars"
-   }
+}
 ```
 
 ### Sales and Use Tax per Town by NAICS (2013 and 2014)
@@ -369,7 +369,7 @@ m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
       "municipality": "OUT OF COUNTRY ",
       "calendar_year": 2014,
       "total_tax_due_at_6_35": 0
-   }
+}
 ```
 
 ### Per Capita Electricity Consumption
@@ -418,7 +418,7 @@ m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
       "consumption_annual_goals_percent_below_baseline": null,
       "projected_per_capita_peak_demand": null,
       "projected_per_capita_consumption": null
-   }
+}
 ```
 
 ### MVA Vehicle Sales Counts by Month for CY 2002 - 2015
@@ -451,7 +451,7 @@ m:used=49927 m:total_sales_new=755015820
       "total_sales_used": 386481929,
       "used": 49927,
       "total_sales_new": 755015820
-   }
+}
 ```
 
 ##Messages
