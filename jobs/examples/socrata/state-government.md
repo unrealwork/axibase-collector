@@ -401,21 +401,21 @@ m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 
 ```JSON
 {
-      "peak_demand_2015_goal": null,
-      "peak_demand_percent_below_2007_baseline_goal_15": null,
-      "peak_demand_annual_goals_percent_below_baseline": null,
-      "actual_peak_demand": null,
-      "per_capita_consumption_2015_goal": null,
-      "empower_per_capita_consumption_annual_goal": null,
-      "actual_per_capita_consumption": null,
-      "per_capita_consumption_2015_goal_percent_below_baseline": null,
-      "empower_peak_demand_annual_goals": null,
-      "per_capita_consumption_percent_below_2007_baseline": null,
-      "year": null,
+      "peak_demand_2015_goal": 2.173,
+      "peak_demand_percent_below_2007_baseline_goal_15": 0,
+      "peak_demand_annual_goals_percent_below_baseline": 0,
+      "actual_peak_demand": 2.56,
+      "per_capita_consumption_2015_goal": 10.521,
+      "empower_per_capita_consumption_annual_goal": 12.38,
+      "actual_per_capita_consumption": 12.38,
+      "per_capita_consumption_2015_goal_percent_below_baseline": -15,
+      "empower_peak_demand_annual_goals": 2.56,
+      "per_capita_consumption_percent_below_2007_baseline": 0,
+      "year": 2007,
       "projected_per_capita_peak_demand_percent_below_baseline": null,
-      "peak_demand_2015_goal_percent_below_baseline": null,
+      "peak_demand_2015_goal_percent_below_baseline": -15,
       "projected_per_capita_consumption_percent_below_baseline": null,
-      "consumption_annual_goals_percent_below_baseline": null,
+      "consumption_annual_goals_percent_below_baseline": 0,
       "projected_per_capita_peak_demand": null,
       "projected_per_capita_consumption": null
 }
@@ -481,7 +481,7 @@ m:used=49927 m:total_sales_new=755015820
 | Description | Complaint data from consumer complaints filed with the Consumer Protection Division. <br>The existence of a complaint is not evidence of wrongdoing. |
 | Attribution | Washington State Attorney General's Office Consumer Protection Division |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/aed010e9) |
+| Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/a184639d) |
 
 #### Command
 
@@ -491,6 +491,29 @@ t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA
 t:source="Washington State Attorney General's Office Consumer Protection Division" t:status=Open 
 t:business_id=257432 t:type="Attorney General Consumer Complaints" t:business="Highline Athletic Club"
 t:businesscity=Burien
+```
+
+#### JSON
+
+```JSON
+{
+      "actualsavings": null,
+      "businesszip": "98148-1220",
+      "openedyear": 2016,
+      "businessstate": "WA",
+      "naicsname": null,
+      "openeddate": "2016-04-12T00:00:00",
+      "status": "Open",
+      "business": "Highline Athletic Club",
+      "businessstreetline2": null,
+      "businessstreetline1": null,
+      "id": "483906",
+      "estimatedsavings": null,
+      "naics": "713940-Fitness &amp; Recreational Industries",
+      "businesscategory": null,
+      "business_id": "257432",
+      "businesscity": "Burien"
+}
 ```
 
 ### Insurance Company Complaints, Resolutions, Status, and Recoveries
@@ -504,15 +527,33 @@ t:businesscity=Burien
 | Attribution | Department of Insurance |
 | Category | Business |
 | Date Range | 2007-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/b2be2e0b) |
+| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/cafef9cd) |
 
 #### Command
 
 ```ls
 message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" 
-t:coverage="Auto Medical Payment" t:status=Closed t:company="21st Century Assurance Company" 
-t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 t:conclusion=Unjustified t:type=Business 
-t:disposition="Claim Settled" t:recovery=2586.0 m:"Unfair Claims Practice"
+t:coverage="Auto Medical Payment" t:reason="Unfair Claims Practice" t:status=Closed 
+t:company="21st Century Assurance Company" t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 
+t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recovery=2586.0
+```
+
+#### JSON
+
+```JSON
+{
+     "file_no": 302165,
+      "status": "Closed",
+      "reason": "Unfair Claims Practice",
+      "coverage": "Auto Medical Payment",
+      "subreason": "Claim Delays",
+      "company": "21st Century Assurance Company",
+      "conclusion": "Unjustified",
+      "closed": "2013-08-13T00:00:00",
+      "recovery": 2586,
+      "disposition": "Claim Settled",
+      "opened": "2013-05-15T00:00:00"
+}
 ```
 
 ### Lottery Powerball Winning Numbers: Beginning 2010
@@ -526,13 +567,23 @@ t:disposition="Claim Settled" t:recovery=2586.0 m:"Unfair Claims Practice"
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2010-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/07122cec) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/ff2c6ddc) |
 
 #### Command
 
 ```ls
 message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:source="New York State Gaming Commission" 
 t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
+```
+
+#### JSON
+
+```JSON
+{
+      "draw_date": "2010-02-03T00:00:00",
+      "winning_numbers": "17 22 36 37 52 24",
+      "multiplier": 2
+}
 ```
 
 ### Lottery Mega Millions Winning Numbers: Beginning 2002
@@ -546,13 +597,24 @@ t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2002-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/35a32cac) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/738471a3) |
 
 #### Command
 
 ```ls
 message e:5xaw-6ayf d:2002-05-17T00:00:00.000Z t:source="New York State Gaming Commission" 
 t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
+```
+
+#### JSON
+
+```JSON
+{
+      "draw_date": "2002-05-17T00:00:00",
+      "winning_numbers": "15 18 25 33 47",
+      "multiplier": null,
+      "mega_ball": "30"
+}
 ```
 
 ### New Business List - June
@@ -565,7 +627,7 @@ t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
 | Description | Businesses registered with the Secretary of State Corporation Division during the month of June. |
 | Category | Business |
 | Date Range | June 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f79a8502) |
+| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/eb3f708b) |
 
 #### Command
 
@@ -574,6 +636,30 @@ message e:i8h7-mn6v d:2016-06-01T00:00:00.000Z t:business_name="12 STONE CONTRAC
 t:associated_name_type="MAILING ADDRESS" t:source=i8h7-mn6v t:zip_code=31106 t:address="PO BOX 8958" 
 t:state=GA t:type=Business t:entity_type="FOREIGN BUSINESS CORPORATION" 
 t:city=ATLANTA t:registry_number=122151194
+```
+
+#### JSON
+
+```JSON
+{
+      "zip_code": "31106",
+      "middle_name": null,
+      "state": "GA",
+      "address_continued": null,
+      "suffix": null,
+      "city": "ATLANTA",
+      "registry_number": "122151194",
+      "business_name": "12 STONE CONTRACTING GROUP, INC.",
+      "associated_name_type": "MAILING ADDRESS",
+      "first_name": null,
+      "entity_of_record_name": null,
+      "address": "PO BOX 8958",
+      "not_of_record_entity": null,
+      "registry_date": "2016-06-01T00:00:00",
+      "last_name": null,
+      "entity_type": "FOREIGN BUSINESS CORPORATION",
+      "entity_of_record_reg_number": null
+}
 ```
 
 ### UCC List of Filings Entered Last Month
@@ -586,7 +672,7 @@ t:city=ATLANTA t:registry_number=122151194
 | Description | Updated 8/1/2016 List of New UCC filings entered during the previous month.  This list will be updated by the 9th of every month. |
 | Category | Business |
 | Date Range | July 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c7b458b0) |
+| Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/bd7fec87) |
 
 #### Command
 
@@ -595,6 +681,28 @@ message e:snfi-f79b d:2016-07-28T00:00:00.000Z t:lapse_date=2022-01-27T00:00:00 
 t:entity="KEYBANK NATIONAL ASSOCIATION" t:st_cd_txt=OH t:zip_code_txt=44144 t:type=Business 
 t:file_type=AMENDMENT t:lien_type=UCC t:source=snfi-f79b t:city_descr=BROOKLYN t:party_type=SP 
 t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:original_file_number=1866 
+```
+
+#### JSON
+
+```JSON
+{
+      "lapse_date": "2022-01-27T00:00:00",
+      "lien_type": "UCC",
+      "city_descr": "BROOKLYN",
+      "file_number": "1866-23",
+      "party_type": "SP",
+      "entity": "KEYBANK NATIONAL ASSOCIATION",
+      "st_cd_txt": "OH",
+      "zip_code_txt": "44144",
+      "mail_addr_2": null,
+      "mail_addr_1": "4910 TIEDEMAN ROAD",
+      "entity_type": "ORG",
+      "cntry_cd_txt": "USA",
+      "filing_date": "2016-07-28T00:00:00",
+      "original_file_number": "1866",
+      "file_type": "AMENDMENT"
+}
 ```
 
 ### Lottery Cash 4 Life Winning Numbers: Beginning 2014
@@ -608,12 +716,22 @@ t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:origin
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2014-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/174d26e1) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/40bb2eb8) |
 
 #### Command
 ```ls
 message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:source="New York State Gaming Commission" 
 t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
+```
+
+#### JSON
+
+```JSON
+{
+      "draw_date": "2014-06-16T00:00:00",
+      "winning_numbers": "09 36 44 53 59",
+      "cash_ball": "03"
+}
 ```
 
 ### Accidental Drug Related Deaths 2012-2015
@@ -627,13 +745,51 @@ t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 | Attribution | Office of the Chief Medical Examiner |
 | Category | Health and Human Services |
 | Date Range | 2012-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/e2f8ef5a) |
+| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f3ef25c7) |
 
 #### Command
+
 ```ls
 message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y 
 t:source="Office of the Chief Medical Examiner" t:mannerofdeath=Accident t:benzo_s=Y 
 t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodiazepine"
+```
+
+#### JSON
+
+```JSON
+{
+      "residence_county": null,
+      "residence_state": null,
+      "sex": null,
+      "other": null,
+      "amendedmannerofdeath": null,
+      "location": null,
+      "date": "2014-06-28T00:00:00",
+      "race": null,
+      "injuryplace": null,
+      "death_state": null,
+      "hydr_cod": "Y",
+      "mannerofdeath": "Accident",
+      "age": null,
+      "benzo_s": "Y",
+      "methadone": null,
+      "any_opioid": null,
+      "oxyc": null,
+      "etoh": null,
+      "tramad": null,
+      "immediatecausea": "Acute fent, hydrocod, benzodiazepine",
+      "death_city": null,
+      "fentanyl": "Y",
+      "morphine_not_heroin": null,
+      "oxym": null,
+      "casenumber": "14-9876",
+      "residence_city": null,
+      "amphet": null,
+      "death_county": null,
+      "coc": null,
+      "heroin": null
+}
 ```
 
 ### Oregon Consumer Complaints
@@ -647,7 +803,7 @@ t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodi
 | Attribution | Oregon Department of Justice |
 | Category | Public Safety |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/0389df62) |
+| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/21de4e8f) |
 
 #### Command
 
@@ -658,6 +814,26 @@ t:reference_no_=FF1411-14 t:address_2="PO BOX 711" t:type="Public Safety" t:city
 t:source="Oregon Department of Justice" t:date_closed=2014-06-27T00:00:00 
 t:business_type="Fuel: Gasoline Stations"
 m:"Provided goods or services different than the ones complainant ordered; unauthorized work"
+```
+
+#### JSON
+
+```JSON
+{
+      "complaint_description": "Provided goods or services different than the ones complainant ordered; unauthorized work",
+      "respondent": "7-ELEVEN, INC*",
+      "zip": "752210711",
+      "status": "Closed ",
+      "closing_description": "Voluntarily Resolved",
+      "state": "TX",
+      "date_open": "2014-03-05T00:00:00",
+      "date_closed": "2014-06-27T00:00:00",
+      "address_1": "CUSTOMER RELATIONS",
+      "reference_no_": "FF1411-14",
+      "address_2": "PO BOX 711",
+      "business_type": "Fuel: Gasoline Stations",
+      "city": "DALLAS"
+}
 ```
 
 ### OAHU Food Establishments
@@ -671,17 +847,51 @@ m:"Provided goods or services different than the ones complainant ordered; unaut
 | Attribution | Department of Health |
 | Category | Health |
 | Date Range | 2005-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/77e864e6) |
+| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f0258cb0) |
 
 #### Command
 
 ```ls
 message e:qkvm-skze d:2011-07-25T00:00:00.000Z t:tmkzone=1.0 t:facility_permit=8807.0 
-t:facility_type="137 New and Renewal 1" t:tmkparcel=24.0 t:permit_expire_date=2013-08-02T00:00:00
-t:mailing_address_zip_code=96817 t:tmkplat=7.0 t:permit_holder="TODD MATSUMOTO" t:type=Health 
-t:source="Department of Health" t:establishment_address_zip_code=96817 t:risk_category="Category 1"
+t:establishment="MATSUMOTO'S OKAZUYA RESTAURANT, LLC" t:facility_type="137 New and Renewal 1" 
+t:tmkparcel=24.0 t:permit_expire_date=2013-08-02T00:00:00 t:mailing_address_zip_code=96817 t:tmkplat=7.0
+t:permit_holder="TODD MATSUMOTO" t:type=Health t:source="Department of Health" 
+t:establishment_address_zip_code=96817 t:risk_category="Category 1" 
 t:mailing_address_street_name="GULICK AVENUE" t:business_status=Open t:establishment_address_state=HAWAII
 t:establishment_address_city=HONOLULU t:mailing_address_state=HAWAII t:telephone=(808)721-7464
 t:establishment_address_street_name="GULICK AVENUE" t:establishment_permit=8807.0 t:tmksection=3.0
-t:mailing_address_city=HONOLULU m:"MATSUMOTO'S OKAZUYA RESTAURANT, LLC"
+t:mailing_address_city=HONOLULU
+```
+
+#### JSON
+
+```JSON
+{
+      "establishment_address_unit": "   ",
+      "tmkzone": 1,
+      "facility_permit": 8807,
+      "tmkparcel": 24,
+      "permit_holder": "TODD MATSUMOTO",
+      "po_box": null,
+      "st_inspection": "2011-07-25T00:00:00",
+      "mailing_address_street_name": "GULICK AVENUE ",
+      "business_status": "Open",
+      "establishment_address_city": "HONOLULU",
+      "mailing_address_state": "HAWAII",
+      "establishment_permit": 8807,
+      "mailing_address_city": "HONOLULU",
+      "tmksection": 3,
+      "mailing_address_unit": "   ",
+      "establishment": "MATSUMOTO'S OKAZUYA RESTAURANT, LLC",
+      "facility_type": "137 New and Renewal 1",
+      "permit_expire_date": "2013-08-02T00:00:00",
+      "mailing_address_zip_code": "96817",
+      "tmkplat": 7,
+      "mailing_care_of": null,
+      "establishment_address_zip_code": "96817",
+      "risk_category": "Category 1",
+      "establishment_address_state": "HAWAII",
+      "telephone": "(808)721-7464",
+      "establishment_address_street_name": "GULICK AVENUE "
+}
 ```
