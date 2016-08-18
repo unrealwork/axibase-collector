@@ -148,7 +148,8 @@ m:total_nameplate_kw=4.6 m:expected_kwh_annual_production=5399.66 m:incentive_do
 ### Command
 
 ```ls
-series e:v48g-wbhi d:2004-01-01T00:00:00.000Z m:percent_diverted=32.5 m:disposed_statewide=1427904 m:diverted_statewide=688820 m:produced_statewide=2116724
+series e:v48g-wbhi d:2004-01-01T00:00:00.000Z m:percent_diverted=32.5 m:disposed_statewide=1427904
+m:diverted_statewide=688820 m:produced_statewide=2116724
 ```
 
 ## Math And Reading Proficiency by School Year, Public School District and Grade Level
