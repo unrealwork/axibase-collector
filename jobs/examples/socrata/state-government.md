@@ -286,16 +286,12 @@ m:used=49927 m:total_sales_new=755015820
 | Description | Complaint data from consumer complaints filed with the Consumer Protection Division. <br>The existence of a complaint is not evidence of wrongdoing. |
 | Attribution | Washington State Attorney General's Office Consumer Protection Division |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/17/) |
+| Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/aed010e9) |
 
 ### Command
 
 ```ls
-message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1220 t:openedyear=2016.0
-t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA 
-t:source="Washington State Attorney General's Office Consumer Protection Division" 
-t:status=Open t:business_id=257432 t:type="Attorney General Consumer Complaints" 
-t:business="Highline Athletic Club" t:businesscity=Burien m:""
+message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1220 t:openedyear=2016.0 t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA t:source="Washington State Attorney General's Office Consumer Protection Division" t:status=Open t:business_id=257432 t:type="Attorney General Consumer Complaints" t:business="Highline Athletic Club" t:businesscity=Burien
 ```
 
 ## Insurance Company Complaints, Resolutions, Status, and Recoveries
@@ -370,7 +366,7 @@ t:source="New York State Gaming Commission" t:type="Government & Finance" t:mega
 | Description | Businesses registered with the Secretary of State Corporation Division during the month of June. |
 | Category | Business |
 | Date Range | June 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/21/) |
+| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/98bba94e) |
 
 ### Command
 
@@ -378,7 +374,7 @@ t:source="New York State Gaming Commission" t:type="Government & Finance" t:mega
 message e:i8h7-mn6v d:2016-06-01T00:00:00.000Z t:business_name="12 STONE CONTRACTING GROUP, INC."
 t:associated_name_type="MAILING ADDRESS" t:source=i8h7-mn6v t:zip_code=31106 t:address="PO BOX 8958" 
 t:state=GA t:type=Business t:entity_type="FOREIGN BUSINESS CORPORATION" 
-t:city=ATLANTA t:registry_number=122151194 m:""
+t:city=ATLANTA t:registry_number=122151194
 ```
 
 ## UCC List of Filings Entered Last Month
@@ -391,7 +387,7 @@ t:city=ATLANTA t:registry_number=122151194 m:""
 | Description | Updated 8/1/2016 List of New UCC filings entered during the previous month.  This list will be updated by the 9th of every month. |
 | Category | Business |
 | Date Range | July 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c6ee7c4c/22/) |
+| Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c7b458b0) |
 
 ### Command
 
@@ -399,7 +395,7 @@ t:city=ATLANTA t:registry_number=122151194 m:""
 message e:snfi-f79b d:2016-07-28T00:00:00.000Z t:lapse_date=2022-01-27T00:00:00 t:file_number=1866-23 
 t:entity="KEYBANK NATIONAL ASSOCIATION" t:st_cd_txt=OH t:zip_code_txt=44144 t:type=Business 
 t:file_type=AMENDMENT t:lien_type=UCC t:source=snfi-f79b t:city_descr=BROOKLYN t:party_type=SP 
-t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:original_file_number=1866 m:""
+t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:original_file_number=1866 
 ```
 
 ## Lottery Cash 4 Life Winning Numbers: Beginning 2014
@@ -481,12 +477,5 @@ t:date_closed=2014-06-27T00:00:00 t:business_type="Fuel: Gasoline Stations" m:""
 ### Command
 
 ```ls
-series e:qkvm-skze d:2011-07-25T00:00:00.000Z t:establishment="MATSUMOTO'S OKAZUYA RESTAURANT, LLC" 
-t:facility_type="137 New and Renewal 1" t:mailing_address_zip_code=96817 t:permit_holder="TODD MATSUMOTO"
-t:establishment_address_zip_code=96817 t:risk_category="Category 1" 
-t:mailing_address_street_name="GULICK AVENUE" t:business_status=Open 
-t:establishment_address_state=HAWAII t:establishment_address_city=HONOLULU 
-t:mailing_address_state=HAWAII t:telephone=(808)721-7464 
-t:establishment_address_street_name="GULICK AVENUE" t:mailing_address_city=HONOLULU 
-m:tmkzone=1 m:facility_permit=8807 m:tmkparcel=24 m:tmkplat=7 m:establishment_permit=8807 m:tmksection=3
+message e:qkvm-skze d:2011-07-25T00:00:00.000Z t:tmkzone=1.0 t:facility_permit=8807.0 t:facility_type="137 New and Renewal 1" t:tmkparcel=24.0 t:permit_expire_date=2013-08-02T00:00:00 t:mailing_address_zip_code=96817 t:tmkplat=7.0 t:permit_holder="TODD MATSUMOTO" t:type=Health t:source="Department of Health" t:establishment_address_zip_code=96817 t:risk_category="Category 1" t:mailing_address_street_name="GULICK AVENUE" t:business_status=Open t:establishment_address_state=HAWAII t:establishment_address_city=HONOLULU t:mailing_address_state=HAWAII t:telephone=(808)721-7464 t:establishment_address_street_name="GULICK AVENUE" t:establishment_permit=8807.0 t:tmksection=3.0 t:mailing_address_city=HONOLULU m:"MATSUMOTO'S OKAZUYA RESTAURANT, LLC"
 ```
