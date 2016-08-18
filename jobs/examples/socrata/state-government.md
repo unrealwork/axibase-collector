@@ -314,7 +314,10 @@ t:businesscity=Burien
 ### Command
 
 ```ls
-message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" t:coverage="Auto Medical Payment" t:status=Closed t:company="21st Century Assurance Company" t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recovery=2586.0 m:"Unfair Claims Practice"
+message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" 
+t:coverage="Auto Medical Payment" t:status=Closed t:company="21st Century Assurance Company" 
+t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 t:conclusion=Unjustified t:type=Business 
+t:disposition="Claim Settled" t:recovery=2586.0 m:"Unfair Claims Practice"
 ```
 
 ## Lottery Powerball Winning Numbers: Beginning 2010
@@ -333,7 +336,8 @@ message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Depa
 ### Command
 
 ```ls
-message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:source="New York State Gaming Commission" t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
+message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:source="New York State Gaming Commission" 
+t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
 ```
 
 ## Lottery Mega Millions Winning Numbers: Beginning 2002
@@ -352,7 +356,8 @@ message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:source="New York State Gaming C
 ### Command
 
 ```ls
-message e:5xaw-6ayf d:2002-05-17T00:00:00.000Z t:source="New York State Gaming Commission" t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
+message e:5xaw-6ayf d:2002-05-17T00:00:00.000Z t:source="New York State Gaming Commission" 
+t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
 ```
 
 ## New Business List - June
@@ -412,7 +417,8 @@ t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:origin
 
 ### Command
 ```ls
-message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:source="New York State Gaming Commission" t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
+message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:source="New York State Gaming Commission" 
+t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 ```
 
 ## Accidental Drug Related Deaths 2012-2015
@@ -426,11 +432,13 @@ message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:source="New York State Gaming C
 | Attribution | Office of the Chief Medical Examiner |
 | Category | Health and Human Services |
 | Date Range | 2012-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/5ff309eb) |
+| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/e2f8ef5a) |
 
 ### Command
 ```ls
-message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y t:source="Office of the Chief Medical Examiner" t:mannerofdeath=Accident t:benzo_s=Y t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodiazepine"
+message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y 
+t:source="Office of the Chief Medical Examiner" t:mannerofdeath=Accident t:benzo_s=Y 
+t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodiazepine"
 ```
 
 ## Oregon Consumer Complaints
@@ -444,12 +452,17 @@ message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y
 | Attribution | Oregon Department of Justice |
 | Category | Public Safety |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/edb4d4ac) |
+| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/0389df62) |
 
 ### Command
 
 ```ls
-message e:2ix7-8hwk d:2014-03-05T00:00:00.000Z t:respondent="7-ELEVEN, INC*" t:zip=752210711 t:status=Closed t:closing_description="Voluntarily Resolved" t:state=TX t:address_1="CUSTOMER RELATIONS" t:reference_no_=FF1411-14 t:address_2="PO BOX 711" t:type="Public Safety" t:city=DALLAS t:source="Oregon Department of Justice" t:date_closed=2014-06-27T00:00:00 t:business_type="Fuel: Gasoline Stations" m:"Provided goods or services different than the ones complainant ordered; unauthorized work"
+message e:2ix7-8hwk d:2014-03-05T00:00:00.000Z t:respondent="7-ELEVEN, INC*" t:zip=752210711 
+t:status=Closed t:closing_description="Voluntarily Resolved" t:state=TX t:address_1="CUSTOMER RELATIONS"
+t:reference_no_=FF1411-14 t:address_2="PO BOX 711" t:type="Public Safety" t:city=DALLAS 
+t:source="Oregon Department of Justice" t:date_closed=2014-06-27T00:00:00 
+t:business_type="Fuel: Gasoline Stations"
+m:"Provided goods or services different than the ones complainant ordered; unauthorized work"
 ```
 
 ## OAHU Food Establishments
@@ -463,10 +476,17 @@ message e:2ix7-8hwk d:2014-03-05T00:00:00.000Z t:respondent="7-ELEVEN, INC*" t:z
 | Attribution | Department of Health |
 | Category | Health |
 | Date Range | 2005-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/112f73a4) |
+| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/77e864e6) |
 
 ### Command
 
 ```ls
-message e:qkvm-skze d:2011-07-25T00:00:00.000Z t:tmkzone=1.0 t:facility_permit=8807.0 t:facility_type="137 New and Renewal 1" t:tmkparcel=24.0 t:permit_expire_date=2013-08-02T00:00:00 t:mailing_address_zip_code=96817 t:tmkplat=7.0 t:permit_holder="TODD MATSUMOTO" t:type=Health t:source="Department of Health" t:establishment_address_zip_code=96817 t:risk_category="Category 1" t:mailing_address_street_name="GULICK AVENUE" t:business_status=Open t:establishment_address_state=HAWAII t:establishment_address_city=HONOLULU t:mailing_address_state=HAWAII t:telephone=(808)721-7464 t:establishment_address_street_name="GULICK AVENUE" t:establishment_permit=8807.0 t:tmksection=3.0 t:mailing_address_city=HONOLULU m:"MATSUMOTO'S OKAZUYA RESTAURANT, LLC"
+message e:qkvm-skze d:2011-07-25T00:00:00.000Z t:tmkzone=1.0 t:facility_permit=8807.0 
+t:facility_type="137 New and Renewal 1" t:tmkparcel=24.0 t:permit_expire_date=2013-08-02T00:00:00
+t:mailing_address_zip_code=96817 t:tmkplat=7.0 t:permit_holder="TODD MATSUMOTO" t:type=Health 
+t:source="Department of Health" t:establishment_address_zip_code=96817 t:risk_category="Category 1"
+t:mailing_address_street_name="GULICK AVENUE" t:business_status=Open t:establishment_address_state=HAWAII
+t:establishment_address_city=HONOLULU t:mailing_address_state=HAWAII t:telephone=(808)721-7464
+t:establishment_address_street_name="GULICK AVENUE" t:establishment_permit=8807.0 t:tmksection=3.0
+t:mailing_address_city=HONOLULU m:"MATSUMOTO'S OKAZUYA RESTAURANT, LLC"
 ```
