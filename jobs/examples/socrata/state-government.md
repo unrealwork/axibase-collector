@@ -17,7 +17,7 @@ This list contains references to datasets released by State Governments on [data
 | Hawaii | [AAA Fuel Prices](#aaa-fuel-prices) | Department of Economic Development and Tourism |
 | Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
-| Maryland | [MVA Vehicle Sales Counts by Month for CY 2002-2015](#mva-vehicle-sales-counts-by-month-for-cy-2002-2015) | Motor Vehicle Administration |
+| Maryland | [MVA Vehicle Sales Counts by Month for CY 2002-2015](#MVA Vehicle Sales Counts by Month for CY 2002-2015) | Motor Vehicle Administration |
 
 ## Abortion Demographics, 1995-2012
 
