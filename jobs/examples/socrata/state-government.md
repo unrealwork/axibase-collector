@@ -268,7 +268,7 @@ m:used=49927 m:total_sales_new=755015820
 | Connecticut | [Insurance Company Complaints, Resolutions, Status, and Recoveries](#insurance-company-complaints-resolutions-status-and-recoveries) | Department of Insurance |
 | New York | [Lottery Powerball Winning Numbers: Beginning 2010](#lottery-powerball-winning-numbers-beginning-2010) | New York State Gaming Commission |
 | New York | [Lottery Mega Millions Winning Numbers: Beginning 2002](#lottery-mega-millions-winning-numbers-beginning-2002) | New York State Gaming Commission |
-| Oregon | [New Business List - June](#new-business-list-june) |  |
+| Oregon | [New Business List - June](#new-business-list---june) |  |
 | Oregon | [UCC List of Filings Entered Last Month](#ucc-list-of-filings-entered-last-month) |  |
 | New York | [Lottery Cash 4 Life Winning Numbers: Beginning 2014](#lottery-cash-4-life-winning-numbers-beginning-2014) | New York State Gaming Commission |
 | Connecticut | [Accidental Drug Related Deaths 2012-2015](#accidental-drug-related-deaths-2012-2015) | Office of the Chief Medical Examiner |
