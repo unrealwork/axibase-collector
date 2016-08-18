@@ -820,7 +820,8 @@ m:"Provided goods or services different than the ones complainant ordered; unaut
 
 ```JSON
 {
-      "complaint_description": "Provided goods or services different than the ones complainant ordered; unauthorized work",
+      "complaint_description": "Provided goods or services different than the ones complainant ordered; 
+            unauthorized work",
       "respondent": "7-ELEVEN, INC*",
       "zip": "752210711",
       "status": "Closed ",
