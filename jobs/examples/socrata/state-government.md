@@ -2,8 +2,13 @@
 
 This list contains references to datasets released by State Governments on [data.gov](http://catalog.data.gov/dataset?q=&sort=views_recent+desc&organization_type=State+Government&res_format=JSON) in [Socrata](https://github.com/socrata) format (JSON).
 
-#Series
-## Datasets
+#Data set types:
+##[Series](#series)
+##[Messages](#messages)
+___
+
+##Series
+### Datasets
 
 | **State** | **Name** | **Attribution** |
 |:---|:---|:---|
@@ -19,7 +24,7 @@ This list contains references to datasets released by State Governments on [data
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
 | Maryland | [MVA Vehicle Sales Counts by Month for CY 2002-2015](#mva-vehicle-sales-counts-by-month-for-cy-2002---2015) | Motor Vehicle Administration |
 
-## Abortion Demographics, 1995-2012
+### Abortion Demographics, 1995-2012
 
 | **Name** | **Value** |
 |:---|:---|
@@ -32,11 +37,38 @@ This list contains references to datasets released by State Governments on [data
 | Date Range | 1995-2012 |
 | Links | [catalog](http://catalog.data.gov/dataset/abortion-demographics-1995-2012-8f496),  [metadata](https://data.illinois.gov/api/views/f7nd-jj28),  [data](https://data.illinois.gov/api/views/f7nd-jj28/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/d8f02042) |
 
-### Command
+#### Command
 
 ```ls
 series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=52300
 ```
+
+#### JSON
+
+```JSON
+{
+      "_2006": 46467,
+      "_1996": 53613,
+      "_1997": 50147,
+      "_2005": 43409,
+      "_1998": 49403,
+      "_2004": 43537,
+      "_1999": 45924,
+      "_2003": 42228,
+      "_2009": 46077,
+      "_2008": 47717,
+      "_2007": 45298,
+      "_1995": 52300,
+      "_2012": 43203,
+      "_2000": 45884,
+      "_2010": 41859,
+      "_2001": 46546,
+      "_2011": 41324,
+      "_2002": 46945,
+      "year": "TOTAL"
+   }
+```
+
 <!--
 ### Fields
 
@@ -49,7 +81,7 @@ series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=523
 -->
 
 <!-- Insert Data set by nikitachrs-->
-## Anne Arundel County Crime Rate By Type
+### Anne Arundel County Crime Rate By Type
 
 | **Name** | **Value** |
 |:---|:---|
@@ -62,7 +94,7 @@ series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=523
 | Date Range | 1975-2012 |
 | Links | [catalog](http://catalog.data.gov/dataset/anne-arundel-county-crime-rate-by-type-e5923), [attribution](http://www.goccp.maryland.gov/msac/crime-statistics-county.php?id=18), [metadata](https://data.maryland.gov/api/views/3fys-ggpk),  [data](https://data.maryland.gov/api/views/3fys-ggpk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/dff95666) |
 
-### Command
+#### Command
 
 ```ls
 series e:3fys-ggpk d:1975-01-01T00:00:00.000Z m:property_crime_rate=6151.1 m:larceny_theft=3843.2
@@ -70,7 +102,29 @@ m:murder=4.8 m:robbery=124.6 m:total_crime_rate=6759.7 m:b_e=1708.6 m:agg_assaul
 m:m_v_theft=599.3 m:violent_crime_rate=608.6 m:rape=22.3 m:population=331390
 ```
 
-## Automobiles Annual Imports and Exports Through Port Authority of NY NJ Maritime Terminals: Beginning 2000
+#### JSON
+
+```JSON
+{
+      "murder": 4.8,
+      "larceny_theft": 3843.2,
+      "total_crime_rate": 6759.7,
+      "total_crime_ratae_percent_change": null,
+      "violent_crime_rate": 608.6,
+      "property_crime_rate": 6151.1,
+      "robbery": 124.6,
+      "property_crime_rate_percent_change": null,
+      "agg_assault": 456.9,
+      "violent_crime_rate_percent_change": null,
+      "b_e": 1708.6,
+      "m_v_theft": 599.3,
+      "year": 1975,
+      "rape": 22.3,
+      "population": 331390
+   }
+```
+
+### Automobiles Annual Imports and Exports Through Port Authority of NY NJ Maritime Terminals: Beginning 2000
 
 | **Name** | **Value** |
 |:---|:---|
@@ -83,13 +137,23 @@ m:m_v_theft=599.3 m:violent_crime_rate=608.6 m:rape=22.3 m:population=331390
 | Date Range | 2000-2015 |
 | Links | [catalog](http://catalog.data.gov/dataset/automobiles-annual-imports-and-exports-through-port-authority-of-ny-nj-maritime-terminals-), [attribution](http://www.panynj.gov/port/pdf/port-trade-statistics-summary-2001-2011.pdf), [metadata](https://data.ny.gov/api/views/u49g-d7hw), [data](https://data.ny.gov/api/views/u49g-d7hw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/7a10852c) |
 
-### Command
+#### Command
 
 ```ls
 series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 ```
 
-## Employment Figures
+#### JSON
+
+```JSON
+{
+      "volume": 433822,
+      "year": 2015,
+      "type": "Imports"
+   }
+```
+
+### Employment Figures
 
 | **Name** | **Value** |
 |:---|:---|
@@ -102,7 +166,7 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 | Date Range | 2003-2014 |
 | Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/c19dde8d) |
 
-### Command
+#### Command
 
 ```ls
 series e:je5z-53wn d:2003-01-01T00:00:00.000Z t:month=Jan-03 m:maryland_jobs=2481200 
@@ -111,7 +175,28 @@ m:national_unemployment_rate=5.8 m:maryland_unemployment_rate=4.4
 m:maryland_civilian_labor_force=2877486 m:maryland_unemployment=126413 m:maryland_employment=2751073
 ```
 
-## Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor: Beginning 2010
+#### JSON
+
+```JSON
+{
+      "maryland_jobs": 2481200,
+      "jobs_recovered_goal_to_reach_pre_recession_peak": null,
+      "national_unemployment_rate": 5.8,
+      "maryland_unemployment_rate": 4.4,
+      "jobs_recovered_maryland": null,
+      "national_jobs_created_lost": 89000,
+      "maryland_jobs_created_lost": 3800,
+      "national_jobs": 130380000,
+      "month": "Jan-03",
+      "year": 2003,
+      "maryland_job_growth_since_post_recession_bottom": null,
+      "maryland_civilian_labor_force": 2877486,
+      "maryland_employment": 2751073,
+      "maryland_unemployment": 126413
+   }
+```
+
+### Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor: Beginning 2010
 
 | **Name** | **Value** |
 |:---|:---|
@@ -124,7 +209,7 @@ m:maryland_civilian_labor_force=2877486 m:maryland_unemployment=126413 m:marylan
 | Date Range | 2010-2015 |
 | Links | [catalog](http://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin), [metadata](https://data.ny.gov/api/views/3pzs-2zsk),  [data](https://data.ny.gov/api/views/3pzs-2zsk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/d64255f2) |
 
-### Command
+#### Command
 
 ```ls
 series e:3pzs-2zsk d:2010-01-01T00:00:00.000Z t:county=Allegany t:contractor=Other 
@@ -132,7 +217,24 @@ t:solicitation="PON 2112" t:city=Other m:project_count_by_city=1 m:project_cost=
 m:total_nameplate_kw=4.6 m:expected_kwh_annual_production=5399.66 m:incentive_dollars=8050
 ```
 
-## Table 17: Solid Waste Recycled (in tons)
+#### JSON
+
+```JSON
+{
+      "total_nameplate_kw": 4.6,
+      "project_cost": 34440,
+      "project_count_by_city": 1,
+      "expected_kwh_annual_production": 5399.66,
+      "incentive_dollars": 8050,
+      "county": "Allegany",
+      "contractor": "Other",
+      "project_install_year": 2010,
+      "solicitation": "PON 2112",
+      "city": "Other"
+   }
+```
+
+### Table 17: Solid Waste Recycled (in tons)
 
 | **Name** | **Value** |
 |:---|:---|
@@ -145,14 +247,27 @@ m:total_nameplate_kw=4.6 m:expected_kwh_annual_production=5399.66 m:incentive_do
 | Date Range | 2004-2008 |
 | Links | [catalog](http://catalog.data.gov/dataset/table-17-solid-waste-recycled-in-tons-851c9), [attribution](http://hawaii.gov/doh), [metadata](https://data.hawaii.gov/api/views/v48g-wbhi),  [data](https://data.hawaii.gov/api/views/v48g-wbhi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/1a2cb1fa) |
 
-### Command
+#### Command
 
 ```ls
 series e:v48g-wbhi d:2004-01-01T00:00:00.000Z m:percent_diverted=32.5 m:disposed_statewide=1427904
 m:diverted_statewide=688820 m:produced_statewide=2116724
 ```
 
-## Math And Reading Proficiency by School Year, Public School District and Grade Level
+#### JSON
+
+```JSON
+{
+      "percent_diverted": 32.5,
+      "calendar_year": 2004,
+      "_": 1,
+      "disposed_statewide": 1427904,
+      "diverted_statewide": 688820,
+      "produced_statewide": 2116724
+   }
+```
+
+### Math And Reading Proficiency by School Year, Public School District and Grade Level
 
 | **Name** | **Value** |
 |:---|:---|
@@ -165,7 +280,7 @@ m:diverted_statewide=688820 m:produced_statewide=2116724
 | Date Range | 2003-2015 |
 | Links | [catalog](http://catalog.data.gov/dataset/math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level), [attribution](http://itp.education.uiowa.edu/ia/AYPInformation.aspx), [metadata](https://data.iowa.gov/api/views/f3h8-mnxi),  [data](https://data.iowa.gov/api/views/f3h8-mnxi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/ceb3a473) |
 
-### Command
+#### Command
 
 ```ls
 series e:f3h8-mnxi d:2003-01-01T00:00:00.000Z t:topic=Reading t:district_name=Central 
@@ -173,7 +288,23 @@ t:proficient_category="60.1 - 70%" m:total=59 m:proficient_2=67.8 m:grade=11
 m:district=1080 m:proficient_1=40
 ```
 
-## AAA Fuel Prices
+#### JSON
+
+```JSON
+{
+      "total": 59,
+      "topic": "Reading",
+      "proficient_2": 67.8,
+      "district_name": "Central",
+      "grade": 11,
+      "district": "1080",
+      "school_year": 2003,
+      "proficient_category": "60.1 - 70%",
+      "proficient_1": 40
+   }
+```
+
+### AAA Fuel Prices
 
 | **Name** | **Value** |
 |:---|:---|
@@ -186,14 +317,26 @@ m:district=1080 m:proficient_1=40
 | Date Range | 2006-2012 |
 | Links | [catalog](http://catalog.data.gov/dataset/aaa-fuel-prices-52bf0), [attribution](http://hawaii.gov/dbedt),  [metadata](https://data.hawaii.gov/api/views/dqp6-3idi),  [data](https://data.hawaii.gov/api/views/dqp6-3idi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/8237979f) |
 
-### Command
+#### Command
 
 ```ls
 series e:dqp6-3idi d:2006-01-01T00:00:00.000Z t:county=US t:fuel="Gasoline - Regular" 
 t:physicalunit=Dollars m:price=2.314
 ```
 
-## Sales and Use Tax per Town by NAICS (2013 and 2014)
+#### JSON
+
+```JSON
+{
+      "price": 2.314,
+      "county": "US",
+      "month_of_price": "2006-01-01T00:00:00",
+      "fuel": "Gasoline - Regular",
+      "physicalunit": "Dollars"
+   }
+```
+
+### Sales and Use Tax per Town by NAICS (2013 and 2014)
 
 | **Name** | **Value** |
 |:---|:---|
@@ -206,7 +349,7 @@ t:physicalunit=Dollars m:price=2.314
 | Date Range | 2013-2014 |
 | Links | [catalog](http://catalog.data.gov/dataset/sales-and-use-tax-per-town-by-naics-2013-and-2014), [attribution](http://www.ct.gov/drs/cwp/view.asp?a=4128&q=483506), [metadata](https://data.ct.gov/api/views/rkm7-uwkb),  [data](https://data.ct.gov/api/views/rkm7-uwkb/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/57346bd6) |
 
-### Command
+#### Command
 
 ```ls
 series e:rkm7-uwkb d:2014-01-01T00:00:00.000Z t:naics_industry_code="230 Construction" 
@@ -214,7 +357,22 @@ t:municipality="OUT OF COUNTRY" m:taxpayer_count=16 m:total_tax_due_at_7=0
 m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 ```
 
-## Per Capita Electricity Consumption
+#### JSON
+
+```JSON
+{
+      "naics_industry_code": "230 Construction",
+      "taxpayer_count": 16,
+      "total_tax_due_at_7": 0,
+      "retail_sales_of_goods": 0,
+      "periods_ending": "Quarter 1 - JAN to MAR",
+      "municipality": "OUT OF COUNTRY ",
+      "calendar_year": 2014,
+      "total_tax_due_at_6_35": 0
+   }
+```
+
+### Per Capita Electricity Consumption
 
 | **Name** | **Value** |
 |:---|:---|
@@ -227,7 +385,7 @@ m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 | Date Range | 2007-2015 |
 | Links | [catalog](http://catalog.data.gov/dataset/per-capita-electricity-consumption-7b888), [attribution](http://energy.maryland.gov/), [metadata](https://data.maryland.gov/api/views/64jf-g2fe),  [data](https://data.maryland.gov/api/views/64jf-g2fe/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/0be1b92f) |
 
-### Command
+#### Command
 
 ```ls
 series e:64jf-g2fe d:2007-01-01T00:00:00.000Z m:per_capita_consumption_2015_goal=10.521
@@ -239,7 +397,31 @@ m:peak_demand_2015_goal_percent_below_baseline=-15 m:peak_demand_annual_goals_pe
 m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 ```
 
-## MVA Vehicle Sales Counts by Month for CY 2002 - 2015
+#### JSON
+
+```JSON
+{
+      "peak_demand_2015_goal": null,
+      "peak_demand_percent_below_2007_baseline_goal_15": null,
+      "peak_demand_annual_goals_percent_below_baseline": null,
+      "actual_peak_demand": null,
+      "per_capita_consumption_2015_goal": null,
+      "empower_per_capita_consumption_annual_goal": null,
+      "actual_per_capita_consumption": null,
+      "per_capita_consumption_2015_goal_percent_below_baseline": null,
+      "empower_peak_demand_annual_goals": null,
+      "per_capita_consumption_percent_below_2007_baseline": null,
+      "year": null,
+      "projected_per_capita_peak_demand_percent_below_baseline": null,
+      "peak_demand_2015_goal_percent_below_baseline": null,
+      "projected_per_capita_consumption_percent_below_baseline": null,
+      "consumption_annual_goals_percent_below_baseline": null,
+      "projected_per_capita_peak_demand": null,
+      "projected_per_capita_consumption": null
+   }
+```
+
+### MVA Vehicle Sales Counts by Month for CY 2002 - 2015
 
 | **Name** | **Value** |
 |:---|:---|
@@ -252,15 +434,28 @@ m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 | Date Range | 2007-2015 |
 | Links | [catalog](http://catalog.data.gov/dataset/mva-vehicle-sales-counts-by-month-for-cy-2002-2015), [attribution](http://www.mva.maryland.gov/), [metadata](https://data.maryland.gov/api/views/un65-7ipd),  [data](https://data.maryland.gov/api/views/un65-7ipd/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3e545364) |
 
-### Command
+#### Command
 
 ```ls
 series e:un65-7ipd d:2002-01-01T00:00:00.000Z t:month=JAN m:new=31106 m:total_sales_used=386481929 
 m:used=49927 m:total_sales_new=755015820
 ```
 
-#Messages
-## Datasets
+#### JSON
+
+```JSON
+{
+      "new": 31106,
+      "month": "JAN",
+      "year": 2002,
+      "total_sales_used": 386481929,
+      "used": 49927,
+      "total_sales_new": 755015820
+   }
+```
+
+##Messages
+### Datasets
 
 | **State** | **Name** | **Attribution** |
 |:---|:---|:---|
@@ -276,7 +471,7 @@ m:used=49927 m:total_sales_new=755015820
 | Hawaii | [OAHU Food Establishments](#oahu-food-establishments) | Department of Health |
 
 
-## Attorney General Consumer Complaints
+### Attorney General Consumer Complaints
 
 | **Name** | **Value** |
 |:---|:---|
@@ -288,7 +483,7 @@ m:used=49927 m:total_sales_new=755015820
 | Date Range | 2013-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/attorney-general-consumer-complaints),    [metadata](https://data.wa.gov/api/views/gpri-47xz),  [data](https://data.wa.gov/api/views/gpri-47xz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/aed010e9) |
 
-### Command
+#### Command
 
 ```ls
 message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1220 t:openedyear=2016.0
@@ -298,7 +493,7 @@ t:business_id=257432 t:type="Attorney General Consumer Complaints" t:business="H
 t:businesscity=Burien
 ```
 
-## Insurance Company Complaints, Resolutions, Status, and Recoveries
+### Insurance Company Complaints, Resolutions, Status, and Recoveries
 
 | **Name** | **Value** |
 |:---|:---|
@@ -311,7 +506,7 @@ t:businesscity=Burien
 | Date Range | 2007-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/b2be2e0b) |
 
-### Command
+#### Command
 
 ```ls
 message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" 
@@ -320,7 +515,7 @@ t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 t:conclusion=Unjustified
 t:disposition="Claim Settled" t:recovery=2586.0 m:"Unfair Claims Practice"
 ```
 
-## Lottery Powerball Winning Numbers: Beginning 2010
+### Lottery Powerball Winning Numbers: Beginning 2010
 
 | **Name** | **Value** |
 |:---|:---|
@@ -333,14 +528,14 @@ t:disposition="Claim Settled" t:recovery=2586.0 m:"Unfair Claims Practice"
 | Date Range | 2010-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/07122cec) |
 
-### Command
+#### Command
 
 ```ls
 message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:source="New York State Gaming Commission" 
 t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
 ```
 
-## Lottery Mega Millions Winning Numbers: Beginning 2002
+### Lottery Mega Millions Winning Numbers: Beginning 2002
 
 | **Name** | **Value** |
 |:---|:---|
@@ -353,14 +548,14 @@ t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
 | Date Range | 2002-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/35a32cac) |
 
-### Command
+#### Command
 
 ```ls
 message e:5xaw-6ayf d:2002-05-17T00:00:00.000Z t:source="New York State Gaming Commission" 
 t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
 ```
 
-## New Business List - June
+### New Business List - June
 
 | **Name** | **Value** |
 |:---|:---|
@@ -372,7 +567,7 @@ t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
 | Date Range | June 2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f79a8502) |
 
-### Command
+#### Command
 
 ```ls
 message e:i8h7-mn6v d:2016-06-01T00:00:00.000Z t:business_name="12 STONE CONTRACTING GROUP, INC."
@@ -381,7 +576,7 @@ t:state=GA t:type=Business t:entity_type="FOREIGN BUSINESS CORPORATION"
 t:city=ATLANTA t:registry_number=122151194
 ```
 
-## UCC List of Filings Entered Last Month
+### UCC List of Filings Entered Last Month
 
 | **Name** | **Value** |
 |:---|:---|
@@ -393,7 +588,7 @@ t:city=ATLANTA t:registry_number=122151194
 | Date Range | July 2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/c7b458b0) |
 
-### Command
+#### Command
 
 ```ls
 message e:snfi-f79b d:2016-07-28T00:00:00.000Z t:lapse_date=2022-01-27T00:00:00 t:file_number=1866-23 
@@ -402,7 +597,7 @@ t:file_type=AMENDMENT t:lien_type=UCC t:source=snfi-f79b t:city_descr=BROOKLYN t
 t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:original_file_number=1866 
 ```
 
-## Lottery Cash 4 Life Winning Numbers: Beginning 2014
+### Lottery Cash 4 Life Winning Numbers: Beginning 2014
 
 | **Name** | **Value** |
 |:---|:---|
@@ -415,13 +610,13 @@ t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:origin
 | Date Range | 2014-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/174d26e1) |
 
-### Command
+#### Command
 ```ls
 message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:source="New York State Gaming Commission" 
 t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 ```
 
-## Accidental Drug Related Deaths 2012-2015
+### Accidental Drug Related Deaths 2012-2015
 
 | **Name** | **Value** |
 |:---|:---|
@@ -434,14 +629,14 @@ t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 | Date Range | 2012-2015 |
 | Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/e2f8ef5a) |
 
-### Command
+#### Command
 ```ls
 message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y 
 t:source="Office of the Chief Medical Examiner" t:mannerofdeath=Accident t:benzo_s=Y 
 t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodiazepine"
 ```
 
-## Oregon Consumer Complaints
+### Oregon Consumer Complaints
 
 | **Name** | **Value** |
 |:---|:---|
@@ -454,7 +649,7 @@ t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodi
 | Date Range | 2013-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/0389df62) |
 
-### Command
+#### Command
 
 ```ls
 message e:2ix7-8hwk d:2014-03-05T00:00:00.000Z t:respondent="7-ELEVEN, INC*" t:zip=752210711 
@@ -465,7 +660,7 @@ t:business_type="Fuel: Gasoline Stations"
 m:"Provided goods or services different than the ones complainant ordered; unauthorized work"
 ```
 
-## OAHU Food Establishments
+### OAHU Food Establishments
 
 | **Name** | **Value** |
 |:---|:---|
@@ -478,7 +673,7 @@ m:"Provided goods or services different than the ones complainant ordered; unaut
 | Date Range | 2005-2012 |
 | Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/77e864e6) |
 
-### Command
+#### Command
 
 ```ls
 message e:qkvm-skze d:2011-07-25T00:00:00.000Z t:tmkzone=1.0 t:facility_permit=8807.0 
