@@ -73,7 +73,7 @@ List of collected [NGINX PLUS server metrics](./nginx-plus-server-metrics.md)
 * Click **Assign** link and associate the portal with the entity group you created earlier
 * Open *Entity* tabs, find the NGINX PLUS servers you would like to see information about, and click on its portal icon
 ![](./images/ngp_portal_selection.png)
-[NGINX PLUS Status portal example](http://apps.axibase.com/chartlab/bc029c39)
+[NGINX PLUS Status portal example](http://apps.axibase.com/chartlab/fa5aeb33)
 
 ## Notifications
 
