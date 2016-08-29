@@ -24,6 +24,7 @@ ___
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
 | Maryland | [MVA Vehicle Sales Counts by Month for CY 2002-2015](#mva-vehicle-sales-counts-by-month-for-cy-2002---2015) | Motor Vehicle Administration |
 | Maryland | [MEA SmartEnergy: Energy Efficiency](#mea-smartenergy-energy-efficiency) | Maryland Energy Administration |
+| Connecticut | [DAS HR Almanac - Executive Branch Employment By Race](#das-hr-almanac---executive-branch-employment-by-race) | DAS Human Resources |
 | Iowa | [State of Iowa Budget Expenditures](#state-of-iowa-budget-expenditures) | Iowa Department of Management, I3 Budget System |
 | New York | [Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013](#public-assistance-and-snap-fraud-prevention-performance-measures-beginning-2013) | New York State Office of Temporary and Disability Assistance (OTDA) |
 | Maryland | [Maryland Veterans Unemployment Rate](#maryland-veterans-unemployment-rate) | Bureau of Labor Statistics
@@ -470,8 +471,8 @@ m:used=49927 m:total_sales_new=755015820
 | Description | This data is reflective of the State of Connecticut Executive Branch workforce only.  The data does not reflect employees of the University of Connecticut Health Center, University of Connecticut and Board of Regents which includes the state university system and community colleges.  Judicial Branch and Legislative Branch employees are also not reflected in this data. |
 | Attribution | DAS Human Resources |
 | Category | Government |
-| Date Range | 200?-201? |
-| Links | [catalog](http://catalog.data.gov/dataset/das-hr-almanac-executive-branch-employment-by-race),  [metadata](https://data.ct.gov/api/views/qm34-pq7e),  [data](https://data.ct.gov/api/views/qm34-pq7e/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/e6a33318) |
+| Date Range | 2003-2015 |
+| Links | [catalog](http://catalog.data.gov/dataset/das-hr-almanac-executive-branch-employment-by-race),  [metadata](https://data.ct.gov/api/views/qm34-pq7e),  [data](https://data.ct.gov/api/views/qm34-pq7e/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/36b39d67) |
 
 #### Command
 
@@ -499,7 +500,7 @@ m:amer_indian=117 m:hispanic=2956 m:black=6559 m:asian=568
 
 | **Name** | **Value** |
 |:---|:---|
-| Id | 26ni-9b4w |
+| Id | hqz2-xt9r |
 | Name | State of Iowa Budget Expenditures |
 | State | [Iowa](https://data.iowa.gov) |
 | Description | This dataset provides information on budgeted expenditures, and balance carry forwards for both funds and appropriations by fiscal year starting in FY 2010. The data provides granular detail down to the budget organizational unit and and object class/job class for the department request, the Governor's recommendation, the enacted budget, and the adopted budget.\r\n\r\nThe state fiscal year runs from July 1 to the following June 30 and is numbered for the calendar year in which it ends. The State of Iowa operates on a modified accrual basis which provides that encumbrances on June 30 must be paid within 60 days after year end. The Legislature may enact exceptions to this statute and usually do so for capital items which may run for several years.\r\n\r\nDepartment names and budget units for FY 2010 - 2015 are based on names used in FY 2016. |
@@ -546,21 +547,21 @@ m:gov_recommendation=436250 m:dept_request=436250 m:adopted_budget=396208
 
 | **Name** | **Value** |
 |:---|:---|
-| Id | 26ni-9b4w |
+| Id | uubd-eei2 |
 | Name | Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013 |
 | State | [New York](https://data.ny.gov) |
 | Description | This dataset from the New York State Office of Temporary and Disability Assistance contains the results of several local district investigations initiated by flagged cases of the State’s cash public assistance programs and the Supplemental Nutrition Assistance Program (SNAP).  It includes information from the Front End Detection System (FEDS), from Intentional Program Violations (IPVs), from Prison matches and from the Public Assistance Reporting Information System (PARIS). |
 | Attribution | New York State Office of Temporary and Disability Assistance (OTDA) |
 | Category | Human Services |
-| Date Range | 2013-201? |
-| Links | [catalog](http://catalog.data.gov/dataset/public-assistance-and-snap-fraud-prevention-performance-measures-beginning-2013), [attribution](https://otda.ny.gov/resources/welfare-fraud/), [metadata](https://data.ny.gov/api/views/uubd-eei2),  [data](https://data.ny.gov/api/views/uubd-eei2/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+| Date Range | 2013-2016 |
+| Links | [catalog](http://catalog.data.gov/dataset/public-assistance-and-snap-fraud-prevention-performance-measures-beginning-2013), [attribution](https://otda.ny.gov/resources/welfare-fraud/), [metadata](https://data.ny.gov/api/views/uubd-eei2),  [data](https://data.ny.gov/api/views/uubd-eei2/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/da64a2fc) |
 
 #### Command
 
 ```ls
 series e:uubd-eei2 d:2013-01-01T00:00:00.000Z t:district=Albany m:prison_unresolved=0 
 m:prison_closed_resolved=75 m:feds_total_investigated=33 m:prison_exonerated_resolved=25 
-m:district_cd=1 m:total_ipvs=24 m:paris_closed_resolved=30 m:feds_cases_no_impact=0 
+m:total_ipvs=24 m:paris_closed_resolved=30 m:feds_cases_no_impact=0 
 m:paris_total_matches=215 m:ipv_positive_investigations=17 m:paris_unresolved=0 
 m:paris_exonerated_resolved=60 m:feds_cases_no_errors=39 m:prison_total_matches=65 
 m:prison_closed_prior_resolved=0 m:feds_cases_referred=1 m:feds_cases_denied_grant_reduced=61
@@ -599,7 +600,7 @@ m:paris_closed_prior_resolved=9
 
 | **Name** | **Value** |
 |:---|:---|
-| Id | 26ni-9b4w |
+| Id | prxf-ppu5 |
 | Name | Maryland Veterans Unemployment Rate |
 | State | [Maryland](https://data.maryland.gov) |
 | Description | This data set contains the veterans unemployment rate in Maryland. Figures come from the Bureau of Labor Statistics, and are subject to revision. |
