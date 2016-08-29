@@ -23,8 +23,12 @@ ___
 | Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
 | Maryland | [MVA Vehicle Sales Counts by Month for CY 2002-2015](#mva-vehicle-sales-counts-by-month-for-cy-2002---2015) | Motor Vehicle Administration |
-| Maryland | [MEA SmartEnergy: Energy Efficiency](#) | Maryland Energy Administration |
-| New York | [Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013](#) | New York State Office of Temporary and Disability Assistance (OTDA) |
+| Maryland | [MEA SmartEnergy: Energy Efficiency](#mea-smartenergy-energy-efficiency) | Maryland Energy Administration |
+| Iowa | [State of Iowa Budget Expenditures](#state-of-iowa-budget-expenditures) | Iowa Department of Management, I3 Budget System |
+| New York | [Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013](#public-assistance-and-snap-fraud-prevention-performance-measures-beginning-2013) | New York State Office of Temporary and Disability Assistance (OTDA) |
+| Maryland | [Maryland Veterans Unemployment Rate](#maryland-veterans-unemployment-rate) | Bureau of Labor Statistics
+| Maryland | [Trips Taken on Public Transit by Transit Type - Monthly Total Trips](#trips-taken-on-public-transit-by-transit-type---monthly-total-trips) | Maryland Transit Authority
+ |
 
 ### Abortion Demographics, 1995-2012
 
@@ -693,9 +697,10 @@ m:commuter_bus_total=249082 m:taxi_access_trips=29592
 | Connecticut | [Accidental Drug Related Deaths 2012-2015](#accidental-drug-related-deaths-2012-2015) | Office of the Chief Medical Examiner |
 | Oregon | [Oregon Consumer Complaints](#oregon-consumer-complaints) | Oregon Department of Justice |
 | Hawaii | [OAHU Food Establishments](#oahu-food-establishments) | Department of Health |
-| New York | [Parolees Under Community Supervision: Beginning 2008](#) | NYS Department of Corrections and Community Supervision |
-| New York | [State Liquor Authority (SLA) Brand Label and Wholesaler Information for Alcoholic Beverage Products Registered in New York State](#) | NYSLA Wholesale Bureau / NYSITS |
-| Oregon | [OMD Employees](#) | Oregon Military Department |
+| New York | [Parolees Under Community Supervision: Beginning 2008](#parolees-under-community-supervision-beginning-2008) | NYS Department of Corrections and Community Supervision |
+| New York | [State Liquor Authority (SLA) Brand Label and Wholesaler Information for Alcoholic Beverage Products Registered in New York State](#state-liquor-authority-sla-brand-label-and-wholesaler-information-for-alcoholic-beverage-products-registered-in-new-york-state) | NYSLA Wholesale Bureau / NYSITS |
+| Oregon | [OMD Employees](#omd-employees) | Oregon Military Department |
+| Oregon | [UCC Secured Parties List](#ucc-secured-parties-list) |  |
 
 
 ### Attorney General Consumer Complaints
