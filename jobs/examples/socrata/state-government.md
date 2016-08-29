@@ -685,6 +685,7 @@ m:commuter_bus_total=249082 m:taxi_access_trips=29592
 | New York | [Parolees Under Community Supervision: Beginning 2008](#parolees-under-community-supervision-beginning-2008) | NYS Department of Corrections and Community Supervision |
 | New York | [State Liquor Authority (SLA) Brand Label and Wholesaler Information for Alcoholic Beverage Products Registered in New York State](#state-liquor-authority-sla-brand-label-and-wholesaler-information-for-alcoholic-beverage-products-registered-in-new-york-state) | NYSLA Wholesale Bureau / NYSITS |
 | Oregon | [OMD Employees](#omd-employees) | Oregon Military Department |
+| Connecticut | [Information Technology Project Portfolio](#information-technology-project-portfolio) | Oregon Military Department |
 | Oregon | [UCC Secured Parties List](#ucc-secured-parties-list) |  |
 
 
