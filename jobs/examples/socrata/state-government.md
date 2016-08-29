@@ -23,6 +23,7 @@ ___
 | Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
 | Maryland | [MVA Vehicle Sales Counts by Month for CY 2002-2015](#mva-vehicle-sales-counts-by-month-for-cy-2002---2015) | Motor Vehicle Administration |
+| Maryland | [MEA SmartEnergy: Energy Efficiency](#mea-smartenergy-energy-efficiency) | Maryland Energy Administration |
 | Connecticut | [DAS HR Almanac - Executive Branch Employment By Race](#das-hr-almanac---executive-branch-employment-by-race) | DAS Human Resources |
 | Iowa | [State of Iowa Budget Expenditures](#state-of-iowa-budget-expenditures) | Iowa Department of Management, I3 Budget System |
 | New York | [Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013](#public-assistance-and-snap-fraud-prevention-performance-measures-beginning-2013) | New York State Office of Temporary and Disability Assistance (OTDA) |
@@ -1158,8 +1159,8 @@ t:crime="DRUG OFFENSES" t:age=29.0 t:gender=MALE t:type="Public Safety"
 | Description | Brand Label and Wholesale Information for Alcohol Products Registered in NYS.The New York State Alcohol Beverage Control Law specifies that no manufacturer or wholesaler shall sell to any retailer nor shall any retailer purchase any alcoholic beverages unless these beverages are labeled in accordance with the Authority's Rules and Federal Regulations and unless such label shall be registered with and approved by the State Liquor Authority. Effective January 1, 1994, wine does not need to be brand label registered if the wine has received label approval from the Bureau of Alcohol, Tobacco and Firearms (BATF). |
 | Attribution | NYSLA Wholesale Bureau / NYSITS |
 | Category | Economic Development |
-| Date Range | 200?-2017 |
-| Links | [catalog](http://catalog.data.gov/dataset/state-liquor-authority-sla-brand-label-and-wholesaler-information-for-alcoholic-beverage-p), [metadata](https://data.ny.gov/api/views/n2dz-pwuk),  [data](https://data.ny.gov/api/views/n2dz-pwuk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+| Date Range | 2016-2018 |
+| Links | [catalog](http://catalog.data.gov/dataset/state-liquor-authority-sla-brand-label-and-wholesaler-information-for-alcoholic-beverage-p), [metadata](https://data.ny.gov/api/views/n2dz-pwuk),  [data](https://data.ny.gov/api/views/n2dz-pwuk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/ac566ee9) |
 
 #### Command
 
@@ -1198,8 +1199,8 @@ t:license_class_description=ALE
 | Description | List of employees and associated meta data that will be used to generate agency, department, office, and section directories. |
 | Attribution | Oregon Military Department |
 | Category | Administrative |
-| Date Range | 200?-2017 |
-| Links | [catalog](http://catalog.data.gov/dataset/omd-employees), [metadata](https://data.oregon.gov/api/views/p65y-ar9u),  [data](https://data.oregon.gov/api/views/p65y-ar9u/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+| Date Range | 2016 |
+| Links | [catalog](http://catalog.data.gov/dataset/omd-employees), [metadata](https://data.oregon.gov/api/views/p65y-ar9u),  [data](https://data.oregon.gov/api/views/p65y-ar9u/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/53dda43d) |
 
 #### Command
 
@@ -1238,8 +1239,8 @@ t:firstname=James t:type=Administrative
 | Description | This dataset includes Information Technology projects reported to the Office of Policy and Management by each state agency.  The dataset is updated on a quarterly basis minimally and includes active projects as well as completed projects (Post-Implementation). |
 | Attribution | Oregon Military Department |
 | Category | Government |
-| Date Range | 200?-2017 |
-| Links | [catalog](http://catalog.data.gov/dataset/information-technology-project-portfolio), [attribution](http://www.ct.gov/opm), [metadata](https://data.ct.gov/api/views/i7h5-rx65),  [data](https://data.ct.gov/api/views/i7h5-rx65/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+| Date Range | 2015-2016 |
+| Links | [catalog](http://catalog.data.gov/dataset/information-technology-project-portfolio), [attribution](http://www.ct.gov/opm), [metadata](https://data.ct.gov/api/views/i7h5-rx65),  [data](https://data.ct.gov/api/views/i7h5-rx65/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3c933389) |
 
 #### Command
 
@@ -1279,8 +1280,8 @@ m:"Pilot the use of virtual desktops or virtual applications in the agency."
 | State | [Oregon](https://data.oregon.gov) |
 | Description | Updated 8/1/2016 List of All Active Filings and their associated Secured Parties. This Dataset will be updated monthly by the 9th of each month. |
 | Category | Business |
-| Date Range | 200?-2017 |
-| Links | [catalog](http://catalog.data.gov/dataset/ucc-secured-parties-list-23e64),  [metadata](https://data.oregon.gov/api/views/2kf7-i54h),  [data](https://data.oregon.gov/api/views/2kf7-i54h/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+| Date Range | 1970-2016 |
+| Links | [catalog](http://catalog.data.gov/dataset/ucc-secured-parties-list-23e64),  [metadata](https://data.oregon.gov/api/views/2kf7-i54h),  [data](https://data.oregon.gov/api/views/2kf7-i54h/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/55fff646) |
 
 #### Command
 
