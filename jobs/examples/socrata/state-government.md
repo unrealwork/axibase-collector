@@ -651,14 +651,14 @@ m:national_veterans_unemployment_rate=8.7
 | Description | Data are provided by the Maryland Transit Administration (MTA). This data set includes total trips taken by bus, metro, rail, and mobility/paratransit services. Beginning in FY2014, the Maryland Transit Administration (MTA) began counting Core Bus ridership using an Automated Passenger Count (APC) system to better track the number of people boarding and leaving the buses. In order to maintain the integrity of historical comparisons for the Transit Ridership Goal, the MTA used ridership estimate differences between the new APC system and previous counting estimates for its Bus Service to allow for apples-to-apples comparisons between fiscal years. |
 | Attribution | Maryland Transit Authority |
 | Category | Transportation |
-| Date Range | 201?-201? |
-| Links | [catalog](http://catalog.data.gov/dataset/trips-taken-on-public-transit-by-transit-type-4abd1), [attribution](http://mta.maryland.gov/), [metadata](https://data.maryland.gov/api/views/5ymg-2p8u),  [data](https://data.maryland.gov/api/views/5ymg-2p8u/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+| Date Range | 2007-2016 |
+| Links | [catalog](http://catalog.data.gov/dataset/trips-taken-on-public-transit-by-transit-type-4abd1), [attribution](http://mta.maryland.gov/), [metadata](https://data.maryland.gov/api/views/5ymg-2p8u),  [data](https://data.maryland.gov/api/views/5ymg-2p8u/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/1e5e4eb7) |
 
 #### Command
 
 ```ls
-series e:5ymg-2p8u d:2007-01-01T00:00:00.000Z t:month=Jul-06 m:marc_total=566473 
-m:bus=5022875 m:metro=1062276 m:total_ridership=7560691 m:mobility=66973 m:light_rail=563420 
+series e:5ymg-2p8u d:2007-07-06T00:00:00.000Z m:marc_total=566473 m:bus=5022875 
+m:metro=1062276 m:total_ridership=7560691 m:mobility=66973 m:light_rail=563420 
 m:commuter_bus_total=249082 m:taxi_access_trips=29592
 ```
 
