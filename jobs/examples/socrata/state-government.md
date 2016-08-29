@@ -605,8 +605,8 @@ m:paris_closed_prior_resolved=9
 | Description | This data set contains the veterans unemployment rate in Maryland. Figures come from the Bureau of Labor Statistics, and are subject to revision. |
 | Attribution | Bureau of Labor Statistics |
 | Category | Business and Economy |
-| Date Range | 201?-201? |
-| Links | [catalog](http://catalog.data.gov/dataset/maryland-veterans-unemployment-rate-3ea61), [attribution](http://www.bls.gov/), [metadata](https://data.maryland.gov/api/views/prxf-ppu5),  [data](https://data.maryland.gov/api/views/prxf-ppu5/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+| Date Range | 2009-2014 |
+| Links | [catalog](http://catalog.data.gov/dataset/maryland-veterans-unemployment-rate-3ea61), [attribution](http://www.bls.gov/), [metadata](https://data.maryland.gov/api/views/prxf-ppu5),  [data](https://data.maryland.gov/api/views/prxf-ppu5/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/1b2f3caf) |
 
 #### Command
 
