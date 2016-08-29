@@ -460,55 +460,39 @@ m:used=49927 m:total_sales_new=755015820
 }
 ```
 
-### MEA SmartEnergy: Energy Efficiency
+### DAS HR Almanac - Executive Branch Employment By Race
 
 | **Name** | **Value** |
 |:---|:---|
-| Id | 26ni-9b4w |
-| Name | MEA SmartEnergy: Energy Efficiency |
-| State | [Maryland](https://data.maryland.gov) |
-| Description | Energy efficiency dollars awarded through Maryland Energy Administration's smart energy projects. |
-| Attribution | Maryland Energy Administration|
-| Category | Energy and Environment |
+| Id | qm34-pq7e |
+| Name | DAS HR Almanac - Executive Branch Employment By Race |
+| State | [Connecticut](https://data.ct.gov) |
+| Description | This data is reflective of the State of Connecticut Executive Branch workforce only.  The data does not reflect employees of the University of Connecticut Health Center, University of Connecticut and Board of Regents which includes the state university system and community colleges.  Judicial Branch and Legislative Branch employees are also not reflected in this data. |
+| Attribution | DAS Human Resources |
+| Category | Government |
 | Date Range | 200?-201? |
-| Links | [catalog](http://catalog.data.gov/dataset/mea-smartenergy-energy-efficiency), [attribution](http://www.mva.maryland.gov/), [metadata](https://data.maryland.gov/api/views/26ni-9b4w),  [data](https://data.maryland.gov/api/views/26ni-9b4w/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+| Links | [catalog](http://catalog.data.gov/dataset/das-hr-almanac-executive-branch-employment-by-race),  [metadata](https://data.ct.gov/api/views/qm34-pq7e),  [data](https://data.ct.gov/api/views/qm34-pq7e/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/e6a33318) |
 
 #### Command
 
 ```ls
-series e:26ni-9b4w d:2010-02-25T00:00:00.000Z t:recipient_region_s_if_applicable="Aberdeen City" 
-t:id=EECBG001 t:sector="Local Government" t:program_type=Grant t:project_name="Aberdeen City" 
-t:county=Harford t:legislative_district=34A t:program_name="EECBG Building Retrofit"
-t:link=http://energy.maryland.gov/Govt/EECBG.html t:natural_gas_savings_therms=0 m:mea_award=79986.72
-m:co2_emissions_reductions_metric_tons=15.83 m:propane_savings_gallons=0 m:fuel_oil_savings_gallons=0
-m:electricity_savings_kwh=31980
+series e:qm34-pq7e d:2003-01-01T00:00:00.000Z m:other=920 m:white=27361 m:unknown=235 
+m:amer_indian=117 m:hispanic=2956 m:black=6559 m:asian=568
 ```
 
 #### JSON
 
 ```JSON
 {
-      "sector": "Local Government",
-      "program_type": "Grant",
-      "project_name": "Aberdeen City",
-      "total_project_cost": null,
-      "program_name": "EECBG Building Retrofit",
-      "link": "http://energy.maryland.gov/Govt/EECBG.html",
-      "propane_savings_gallons": 0,
-      "fuel_oil_savings_gallons": 0,
-      "natural_gas_savings_therms": "0",
-      "congressional_district": null,
-      "award_date": "2010-02-25T00:00:00",
-      "id": "EECBG001",
-      "recipient_region_s_if_applicable": "Aberdeen City",
-      "mea_award": 79986.72,
-      "co2_emissions_reductions_metric_tons": 15.83,
-      "county": "Harford",
-      "legislative_district": "34A",
-      "notes": null,
-      "gasoline_savings_gallons": null,
-      "electricity_savings_kwh": 31980
-}
+      "other": 920,
+      "white": 27361,
+      "year": 2003,
+      "unknown": 235,
+      "amer_indian": 117,
+      "hispanic": 2956,
+      "black": 6559,
+      "asian": 568
+ }
 ```
 
 ### State of Iowa Budget Expenditures
