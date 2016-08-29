@@ -105,6 +105,10 @@
       	type = chart
       	title = Cache Statistics
       	statistic = counter
+        [dropdown]
+    		change-field = series.metric
+            options = nginx-plus.bytes, nginx-plus.responses, nginx-plus.bytes_written, nginx-plus.responses_written
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
       	[dropdown]
     		change-field = series.tags.cache_status
             &lt;#assign states = getTags(&quot;nginx-plus.bytes&quot;, &quot;${entity}&quot;, &quot;cache_status&quot;) &gt;     
@@ -386,6 +390,6 @@
           key=last_passed
       [property]
        	  type = stream.upstreams.peers</content>
-    <lastModified>2016-08-08 10:23:02.148 UTC</lastModified>
+    <lastModified>2016-08-29 10:35:45.669 UTC</lastModified>
   </com.axibase.tsd.model.portal.PortalConfig>
 </list>
