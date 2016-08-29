@@ -23,6 +23,8 @@ ___
 | Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
 | Maryland | [MVA Vehicle Sales Counts by Month for CY 2002-2015](#mva-vehicle-sales-counts-by-month-for-cy-2002---2015) | Motor Vehicle Administration |
+| Maryland | [MEA SmartEnergy: Energy Efficiency](#) | Maryland Energy Administration |
+| New York | [Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013](#) | New York State Office of Temporary and Disability Assistance (OTDA) |
 
 ### Abortion Demographics, 1995-2012
 
@@ -454,6 +456,228 @@ m:used=49927 m:total_sales_new=755015820
 }
 ```
 
+### MEA SmartEnergy: Energy Efficiency
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | 26ni-9b4w |
+| Name | MEA SmartEnergy: Energy Efficiency |
+| State | [Maryland](https://data.maryland.gov) |
+| Description | Energy efficiency dollars awarded through Maryland Energy Administration's smart energy projects. |
+| Attribution | Maryland Energy Administration|
+| Category | Energy and Environment |
+| Date Range | 200?-201? |
+| Links | [catalog](http://catalog.data.gov/dataset/mea-smartenergy-energy-efficiency), [attribution](http://www.mva.maryland.gov/), [metadata](https://data.maryland.gov/api/views/26ni-9b4w),  [data](https://data.maryland.gov/api/views/26ni-9b4w/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+
+#### Command
+
+```ls
+series e:26ni-9b4w d:2010-02-25T00:00:00.000Z t:recipient_region_s_if_applicable="Aberdeen City" 
+t:id=EECBG001 t:sector="Local Government" t:program_type=Grant t:project_name="Aberdeen City" 
+t:county=Harford t:legislative_district=34A t:program_name="EECBG Building Retrofit"
+t:link=http://energy.maryland.gov/Govt/EECBG.html t:natural_gas_savings_therms=0 m:mea_award=79986.72
+m:co2_emissions_reductions_metric_tons=15.83 m:propane_savings_gallons=0 m:fuel_oil_savings_gallons=0
+m:electricity_savings_kwh=31980
+```
+
+#### JSON
+
+```JSON
+{
+      "sector": "Local Government",
+      "program_type": "Grant",
+      "project_name": "Aberdeen City",
+      "total_project_cost": null,
+      "program_name": "EECBG Building Retrofit",
+      "link": "http://energy.maryland.gov/Govt/EECBG.html",
+      "propane_savings_gallons": 0,
+      "fuel_oil_savings_gallons": 0,
+      "natural_gas_savings_therms": "0",
+      "congressional_district": null,
+      "award_date": "2010-02-25T00:00:00",
+      "id": "EECBG001",
+      "recipient_region_s_if_applicable": "Aberdeen City",
+      "mea_award": 79986.72,
+      "co2_emissions_reductions_metric_tons": 15.83,
+      "county": "Harford",
+      "legislative_district": "34A",
+      "notes": null,
+      "gasoline_savings_gallons": null,
+      "electricity_savings_kwh": 31980
+}
+```
+
+### State of Iowa Budget Expenditures
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | 26ni-9b4w |
+| Name | State of Iowa Budget Expenditures |
+| State | [Iowa](https://data.iowa.gov) |
+| Description | This dataset provides information on budgeted expenditures, and balance carry forwards for both funds and appropriations by fiscal year starting in FY 2010. The data provides granular detail down to the budget organizational unit and and object class/job class for the department request, the Governor's recommendation, the enacted budget, and the adopted budget.\r\n\r\nThe state fiscal year runs from July 1 to the following June 30 and is numbered for the calendar year in which it ends. The State of Iowa operates on a modified accrual basis which provides that encumbrances on June 30 must be paid within 60 days after year end. The Legislature may enact exceptions to this statute and usually do so for capital items which may run for several years.\r\n\r\nDepartment names and budget units for FY 2010 - 2015 are based on names used in FY 2016. |
+| Attribution | Iowa Department of Management, I3 Budget System |
+| Category | Government |
+| Date Range | 200?-201? |
+| Links | [catalog](http://catalog.data.gov/dataset/state-of-iowa-budget-dispositions-by-fiscal-year-and-budget-org-unit), [metadata](https://data.iowa.gov/api/views/hqz2-xt9r),  [data](https://data.iowa.gov/api/views/hqz2-xt9r/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+
+#### Command
+
+```ls
+series e:hqz2-xt9r d:2010-01-01T00:00:00.000Z t:object_class_type=Expenditures t:fund_code=0001
+t:budget_line_code=2010-0001-0824-006824A-602 t:object_class_code=602 
+:appropriation="Federal Cash Management Standing" t:appropriation_no=0824 t:budget_unit_code=006824A
+t:budget_unit="Federal Cash Management" t:fund="General Fund" t:object_class="Other Expense & Obligations"
+t:dept_name="Administrative Services, Department of" t:function="Administration and Regulation"
+m:gov_recommendation=436250 m:dept_request=436250 m:adopted_budget=396208
+```
+
+#### JSON
+
+```JSON
+{
+      "gov_recommendation": 436250,
+      "fund_code": "0001",
+      "adopted_budget": 396208,
+      "object_class_code": "602",
+      "appropriation_no": "0824",
+      "budget_unit_code": "006824A",
+      "object_class": "Other Expense &amp; Obligations",
+      "dept_name": "Administrative Services, Department of",
+      "function": "Administration and Regulation",
+      "fiscal_year": 2010,
+      "dept_request": 436250,
+      "object_class_type": "Expenditures",
+      "budget_line_code": "2010-0001-0824-006824A-602",
+      "appropriation": "Federal Cash Management Standing",
+      "fund": "General Fund",
+      "budget_unit": "Federal Cash Management"
+}
+```
+
+### Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | 26ni-9b4w |
+| Name | Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013 |
+| State | [New York](https://data.ny.gov) |
+| Description | This dataset from the New York State Office of Temporary and Disability Assistance contains the results of several local district investigations initiated by flagged cases of the State’s cash public assistance programs and the Supplemental Nutrition Assistance Program (SNAP).  It includes information from the Front End Detection System (FEDS), from Intentional Program Violations (IPVs), from Prison matches and from the Public Assistance Reporting Information System (PARIS). |
+| Attribution | New York State Office of Temporary and Disability Assistance (OTDA) |
+| Category | Human Services |
+| Date Range | 2013-201? |
+| Links | [catalog](http://catalog.data.gov/dataset/public-assistance-and-snap-fraud-prevention-performance-measures-beginning-2013), [attribution](https://otda.ny.gov/resources/welfare-fraud/), [metadata](https://data.ny.gov/api/views/uubd-eei2),  [data](https://data.ny.gov/api/views/uubd-eei2/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+
+#### Command
+
+```ls
+series e:uubd-eei2 d:2013-01-01T00:00:00.000Z t:district=Albany m:prison_unresolved=0 
+m:prison_closed_resolved=75 m:feds_total_investigated=33 m:prison_exonerated_resolved=25 
+m:district_cd=1 m:total_ipvs=24 m:paris_closed_resolved=30 m:feds_cases_no_impact=0 
+m:paris_total_matches=215 m:ipv_positive_investigations=17 m:paris_unresolved=0 
+m:paris_exonerated_resolved=60 m:feds_cases_no_errors=39 m:prison_total_matches=65 
+m:prison_closed_prior_resolved=0 m:feds_cases_referred=1 m:feds_cases_denied_grant_reduced=61
+m:paris_closed_prior_resolved=9
+```
+
+#### JSON
+
+```JSON
+{
+      "prison_unresolved": 0,
+      "prison_closed_resolved": 75,
+      "feds_total_investigated": 33,
+      "prison_exonerated_resolved": 25,
+      "district_cd": 1,
+      "total_ipvs": 24,
+      "paris_closed_resolved": 30,
+      "feds_cases_no_impact": 0,
+      "paris_total_matches": 215,
+      "ipv_positive_investigations": 17,
+      "paris_unresolved": 0,
+      "paris_exonerated_resolved": 60,
+      "feds_cases_no_errors": 39,
+      "prison_total_matches": 65,
+      "year": 2013,
+      "prison_closed_prior_resolved": 0,
+      "district": "Albany",
+      "feds_cases_referred": 1,
+      "feds_cases_denied_grant_reduced": 61,
+      "paris_closed_prior_resolved": 9,
+      "quarter": 1
+}
+```
+
+### Maryland Veterans Unemployment Rate
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | 26ni-9b4w |
+| Name | Maryland Veterans Unemployment Rate |
+| State | [Maryland](https://data.maryland.gov) |
+| Description | This data set contains the veterans unemployment rate in Maryland. Figures come from the Bureau of Labor Statistics, and are subject to revision. |
+| Attribution | Bureau of Labor Statistics |
+| Category | Business and Economy |
+| Date Range | 201?-201? |
+| Links | [catalog](http://catalog.data.gov/dataset/maryland-veterans-unemployment-rate-3ea61), [attribution](http://www.bls.gov/), [metadata](https://data.maryland.gov/api/views/prxf-ppu5),  [data](https://data.maryland.gov/api/views/prxf-ppu5/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+
+#### Command
+
+```ls
+series e:prxf-ppu5 d:2010-01-01T00:00:00.000Z m:maryland_veterans_unemployment_rate=5
+m:national_veterans_unemployment_rate=8.7
+```
+
+#### JSON
+
+```JSON
+{
+      "maryland_veterans_unemployment_rate": 5,
+      "year": 2010,
+      "national_veterans_unemployment_rate": 8.7
+}
+```
+
+### Trips Taken on Public Transit by Transit Type - Monthly Total Trips
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | 5ymg-2p8u |
+| Name | Trips Taken on Public Transit by Transit Type - Monthly Total Trips |
+| State | [Maryland](https://data.maryland.gov) |
+| Description | Data are provided by the Maryland Transit Administration (MTA). This data set includes total trips taken by bus, metro, rail, and mobility/paratransit services. Beginning in FY2014, the Maryland Transit Administration (MTA) began counting Core Bus ridership using an Automated Passenger Count (APC) system to better track the number of people boarding and leaving the buses. In order to maintain the integrity of historical comparisons for the Transit Ridership Goal, the MTA used ridership estimate differences between the new APC system and previous counting estimates for its Bus Service to allow for apples-to-apples comparisons between fiscal years. |
+| Attribution | Maryland Transit Authority |
+| Category | Transportation |
+| Date Range | 201?-201? |
+| Links | [catalog](http://catalog.data.gov/dataset/trips-taken-on-public-transit-by-transit-type-4abd1), [attribution](http://mta.maryland.gov/), [metadata](https://data.maryland.gov/api/views/5ymg-2p8u),  [data](https://data.maryland.gov/api/views/5ymg-2p8u/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+
+#### Command
+
+```ls
+series e:5ymg-2p8u d:2007-01-01T00:00:00.000Z t:month=Jul-06 m:marc_total=566473 
+m:bus=5022875 m:metro=1062276 m:total_ridership=7560691 m:mobility=66973 m:light_rail=563420 
+m:commuter_bus_total=249082 m:taxi_access_trips=29592
+```
+
+#### JSON
+
+```JSON
+{
+      "fiscal_year": 2007,
+      "washington": null,
+      "marc_total": 566473,
+      "bus": 5022875,
+      "icc": null,
+      "metro": 1062276,
+      "baltimore": null,
+      "month": "Jul-06",
+      "total_ridership": 7560691,
+      "mobility": 66973,
+      "light_rail": 563420,
+      "commuter_bus_total": 249082,
+      "taxi_access_trips": 29592
+}
+```
+
 ##Messages
 ### Datasets
 
@@ -469,6 +693,9 @@ m:used=49927 m:total_sales_new=755015820
 | Connecticut | [Accidental Drug Related Deaths 2012-2015](#accidental-drug-related-deaths-2012-2015) | Office of the Chief Medical Examiner |
 | Oregon | [Oregon Consumer Complaints](#oregon-consumer-complaints) | Oregon Department of Justice |
 | Hawaii | [OAHU Food Establishments](#oahu-food-establishments) | Department of Health |
+| New York | [Parolees Under Community Supervision: Beginning 2008](#) | NYS Department of Corrections and Community Supervision |
+| New York | [State Liquor Authority (SLA) Brand Label and Wholesaler Information for Alcoholic Beverage Products Registered in New York State](#) | NYSLA Wholesale Bureau / NYSITS |
+| Oregon | [OMD Employees](#) | Oregon Military Department |
 
 
 ### Attorney General Consumer Complaints
@@ -894,5 +1121,204 @@ t:mailing_address_city=HONOLULU
       "establishment_address_state": "HAWAII",
       "telephone": "(808)721-7464",
       "establishment_address_street_name": "GULICK AVENUE "
+}
+```
+
+### Parolees Under Community Supervision: Beginning 2008
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | pmxm-gftz |
+| Name | Parolees Under Community Supervision: Beginning 2008 |
+| State | [New York](https://data.ny.gov) |
+| Description | Provides data about parolees under community supervision on March 31 of the snapshot year. Information includes region of supervision, county of residence, snapshot year, supervision level, gender, age as of the file date, and crime type for most serious instant offense. |
+| Attribution | NYS Department of Corrections and Community Supervision |
+| Category | Public Safety |
+| Date Range | 2008-2015 |
+| Links | [catalog](http://catalog.data.gov/dataset/parolees-under-community-supervision-beginning-2008), [metadata](https://data.ny.gov/api/views/pmxm-gftz),  [data](https://data.ny.gov/api/views/pmxm-gftz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+
+#### Command
+
+```ls
+message e:pmxm-gftz d:2008-01-01T00:00:00.000Z t:region=WILLARD 
+t:source="NYS Department of Corrections and Community Supervision" t:county=SENECA 
+t:crime="DRUG OFFENSES" t:age=29.0 t:gender=MALE t:type="Public Safety"
+```
+
+#### JSON
+
+```JSON
+{
+      "region": "WILLARD",
+      "county": "SENECA",
+      "crime": "DRUG OFFENSES",
+      "age": 29,
+      "snapshot_year": 2008,
+      "supervision_level": null,
+      "gender": "MALE"
+}
+```
+
+### State Liquor Authority (SLA) Brand Label and Wholesaler Information for Alcoholic Beverage Products Registered in New York State
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | n2dz-pwuk |
+| Name | State Liquor Authority (SLA) Brand Label and Wholesaler Information for Alcoholic Beverage Products Registered in New York State |
+| State | [New York](https://data.ny.gov) |
+| Description | Brand Label and Wholesale Information for Alcohol Products Registered in NYS.The New York State Alcohol Beverage Control Law specifies that no manufacturer or wholesaler shall sell to any retailer nor shall any retailer purchase any alcoholic beverages unless these beverages are labeled in accordance with the Authority's Rules and Federal Regulations and unless such label shall be registered with and approved by the State Liquor Authority. Effective January 1, 1994, wine does not need to be brand label registered if the wine has received label approval from the Bureau of Alcohol, Tobacco and Firearms (BATF). |
+| Attribution | NYSLA Wholesale Bureau / NYSITS |
+| Category | Economic Development |
+| Date Range | 200?-2017 |
+| Links | [catalog](http://catalog.data.gov/dataset/state-liquor-authority-sla-brand-label-and-wholesaler-information-for-alcoholic-beverage-p), [metadata](https://data.ny.gov/api/views/n2dz-pwuk),  [data](https://data.ny.gov/api/views/n2dz-pwuk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+
+#### Command
+
+```ls
+message e:n2dz-pwuk d:2017-06-30T00:00:00.000Z t:brand_label_serial_number=5002370 
+t:wholesaler_name="MATT BREWING CO INC" t:source="NYSLA Wholesale Bureau / NYSITS" 
+t:brand_label_name="SARANAC PALE ALE" t:license_class_code=650 t:wholesaler_license_serial_number=2503534
+t:license_type_code=1 t:domestic_d_or_imported_i=D t:type="Economic Development" t:product_description=ALE
+t:license_class_description=ALE
+```
+
+#### JSON
+
+```JSON
+{
+      "brand_label_serial_number": "5002370",
+      "wholesaler_name": "MATT BREWING CO INC",
+      "wholesaler_license_serial_number": "2503534",
+      "license_class_code": "650",
+      "brand_label_name": "SARANAC PALE ALE",
+      "license_type_code": "1",
+      "domestic_d_or_imported_i": "D",
+      "product_description": "ALE",
+      "license_class_description": "ALE",
+      "brand_label_expiration_date": "2017-06-30T00:00:00"
+}
+```
+
+### OMD Employees
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | p65y-ar9u |
+| Name | OMD Employees |
+| State | [Oregon](https://data.oregon.gov) |
+| Description | List of employees and associated meta data that will be used to generate agency, department, office, and section directories. |
+| Attribution | Oregon Military Department |
+| Category | Administrative |
+| Date Range | 200?-2017 |
+| Links | [catalog](http://catalog.data.gov/dataset/omd-employees), [metadata](https://data.oregon.gov/api/views/p65y-ar9u),  [data](https://data.oregon.gov/api/views/p65y-ar9u/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+
+#### Command
+
+```ls
+message e:p65y-ar9u d:2016-08-29T02:00:00.000Z t:phonenumber=5413179623x247 
+t:source="Oregon Military Department" t:emailaddress=jcalice@state.or.us t:description=ISS5 
+t:department=YCP t:company="Oregon Military Department" t:lastname=Calice t:ismanager=no 
+t:firstname=James t:type=Administrative
+```
+
+#### JSON
+
+```JSON
+{
+      "lastupdatedate": "2016-08-29T02:00:00",
+      "phonenumber": "5413179623x247",
+      "emailaddress": "jcalice@state.or.us",
+      "department": "YCP",
+      "description": "ISS5",
+      "company": "Oregon Military Department",
+      "pobox": null,
+      "lastname": "Calice",
+      "ismanager": "no",
+      "firstname": "James",
+      "city": null
+}
+```
+
+### Information Technology Project Portfolio
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | i7h5-rx65 |
+| Name | Information Technology Project Portfolio |
+| State | [Connecticut](https://data.ct.gov) |
+| Description | This dataset includes Information Technology projects reported to the Office of Policy and Management by each state agency.  The dataset is updated on a quarterly basis minimally and includes active projects as well as completed projects (Post-Implementation). |
+| Attribution | Oregon Military Department |
+| Category | Government |
+| Date Range | 200?-2017 |
+| Links | [catalog](http://catalog.data.gov/dataset/information-technology-project-portfolio), [attribution](http://www.ct.gov/opm), [metadata](https://data.ct.gov/api/views/i7h5-rx65),  [data](https://data.ct.gov/api/views/i7h5-rx65/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+
+#### Command
+
+```ls
+message e:i7h5-rx65 d:2015-12-30T13:11:00.000Z t:project_health=Green t:level=1.0 
+t:project_name="Virtual Desktop Pilot" t:source="Office of Policy and Management" 
+t:it_capital_investment_fund=0.0 t:project_start_date=2013-03-04T00:00:00 
+t:planned_project_end_date=2014-02-05T00:00:00 t:total_budget=500000.0 
+t:project_phase="Post Implementation" t:type=Government t:agency_name="Department of Children and Families" 
+m:"Pilot the use of virtual desktops or virtual applications in the agency."
+```
+
+#### JSON
+
+```JSON
+{
+      "project_health": "Green",
+      "project_name": "Virtual Desktop Pilot",
+      "date_information_is_being_provided": "2015-12-30T13:11:00",
+      "level": 1,
+      "it_capital_investment_fund": 0,
+      "project_start_date": "2013-03-04T00:00:00",
+      "project_phase": "Post Implementation",
+      "total_budget": 500000,
+      "planned_project_end_date": "2014-02-05T00:00:00",
+      "agency_name": "Department of Children and Families",
+      "project_description": "Pilot the use of virtual desktops or virtual applications in the agency."
+}
+```
+
+### UCC Secured Parties List
+
+| **Name** | **Value** |
+|:---|:---|
+| Id | 2kf7-i54h |
+| Name | UCC Secured Parties List |
+| State | [Oregon](https://data.oregon.gov) |
+| Description | Updated 8/1/2016 List of All Active Filings and their associated Secured Parties. This Dataset will be updated monthly by the 9th of each month. |
+| Category | Business |
+| Date Range | 200?-2017 |
+| Links | [catalog](http://catalog.data.gov/dataset/ucc-secured-parties-list-23e64),  [metadata](https://data.oregon.gov/api/views/2kf7-i54h),  [data](https://data.oregon.gov/api/views/2kf7-i54h/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3cb445e9) |
+
+#### Command
+
+```ls
+message e:2kf7-i54h d:1991-07-02T00:00:00.000Z t:filenumber=104008 t:postalcode=97290-6550
+t:lapse_date=2021-07-02T00:00:00 t:secured_party="KEY BANK OF OREGON" t:source=2kf7-i54h 
+t:addr1="PO BOX 66550" t:state=OR t:lt_cd=UCC t:type=Business t:city=PORTLAND t:country=USA
+```
+
+#### JSON
+
+```JSON
+{
+      "postalcode": "97290-6550",
+      "filenumber": "104008",
+      "secured_party": "KEY BANK OF OREGON",
+      "lapse_date": "2021-07-02T00:00:00",
+      "addr1": "PO BOX 66550",
+      "addr2": null,
+      "state": "OR",
+      "lt_cd": "UCC",
+      "image_link": [
+         "http://records.sos.state.or.us/webdrawer/webdrawer.dll/webdrawer/rec/1901587/view",
+         null
+      ],
+      "filing_date": "1991-07-02T00:00:00",
+      "country": "USA",
+      "city": "PORTLAND"
 }
 ```
