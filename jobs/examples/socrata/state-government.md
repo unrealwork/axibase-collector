@@ -25,7 +25,7 @@ ___
 | Maryland | [MVA Vehicle Sales Counts by Month for CY 2002-2015](#mva-vehicle-sales-counts-by-month-for-cy-2002---2015) | Motor Vehicle Administration |
 | Maryland | [MEA SmartEnergy: Energy Efficiency](#mea-smartenergy-energy-efficiency) | Maryland Energy Administration |
 | Connecticut | [DAS HR Almanac - Executive Branch Employment By Race](#das-hr-almanac---executive-branch-employment-by-race) | DAS Human Resources |
-| Iowa | [State of Iowa Budget Expenditures](#state-of-iowa-budget-expenditures) | Iowa Department of Management, I3 Budget System |
+| New York | [Scholarship Recipients and Dollars by Sector Group: Beginning 2009](#) | New York State Higher Education Services Corporation |
 | New York | [Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013](#public-assistance-and-snap-fraud-prevention-performance-measures-beginning-2013) | New York State Office of Temporary and Disability Assistance (OTDA) |
 | Maryland | [Maryland Veterans Unemployment Rate](#maryland-veterans-unemployment-rate) | Bureau of Labor Statistics
 | Maryland | [Trips Taken on Public Transit by Transit Type - Monthly Total Trips](#trips-taken-on-public-transit-by-transit-type---monthly-total-trips) | Maryland Transit Authority |
@@ -141,7 +141,7 @@ m:m_v_theft=599.3 m:violent_crime_rate=608.6 m:rape=22.3 m:population=331390
 | Attribution | The Port Authority of New York & New Jersey |
 | Category | Transportation |
 | Date Range | 2000-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/automobiles-annual-imports-and-exports-through-port-authority-of-ny-nj-maritime-terminals-), [attribution](http://www.panynj.gov/port/pdf/port-trade-statistics-summary-2001-2011.pdf), [metadata](https://data.ny.gov/api/views/u49g-d7hw), [data](https://data.ny.gov/api/views/u49g-d7hw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/e6224061) |
+| Links | [catalog](http://catalog.data.gov/dataset/automobiles-annual-imports-and-exports-through-port-authority-of-ny-nj-maritime-terminals-), [attribution](http://www.panynj.gov/port/pdf/port-trade-statistics-summary-2001-2011.pdf), [metadata](https://data.ny.gov/api/views/u49g-d7hw), [data](https://data.ny.gov/api/views/u49g-d7hw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/a3028849) |
 
 #### Command
 
@@ -170,7 +170,7 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 | Attribution | Bureau of Labor Statistics |
 | Category | Business and Economy |
 | Date Range | 2003-2014 |
-| Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/b6a82b54) |
+| Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/e2b3cd80) |
 
 #### Command
 
@@ -213,7 +213,7 @@ m:maryland_civilian_labor_force=2877486 m:maryland_unemployment=126413 m:marylan
 | Attribution | New York State Energy Research and Development Authority |
 | Category | Energy & Environment |
 | Date Range | 2010-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin), [metadata](https://data.ny.gov/api/views/3pzs-2zsk),  [data](https://data.ny.gov/api/views/3pzs-2zsk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/2bd4a4f6) |
+| Links | [catalog](http://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin), [metadata](https://data.ny.gov/api/views/3pzs-2zsk),  [data](https://data.ny.gov/api/views/3pzs-2zsk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/6ec0124e) |
 
 #### Command
 
@@ -251,7 +251,7 @@ m:total_nameplate_kw=4.6 m:expected_kwh_annual_production=5399.66 m:incentive_do
 | Attribution | DOH |
 | Category | Health |
 | Date Range | 2004-2008 |
-| Links | [catalog](http://catalog.data.gov/dataset/table-17-solid-waste-recycled-in-tons-851c9), [attribution](http://hawaii.gov/doh), [metadata](https://data.hawaii.gov/api/views/v48g-wbhi),  [data](https://data.hawaii.gov/api/views/v48g-wbhi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/8a4cc1ff) |
+| Links | [catalog](http://catalog.data.gov/dataset/table-17-solid-waste-recycled-in-tons-851c9), [attribution](http://hawaii.gov/doh), [metadata](https://data.hawaii.gov/api/views/v48g-wbhi),  [data](https://data.hawaii.gov/api/views/v48g-wbhi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/d65a7458) |
 
 #### Command
 
@@ -284,7 +284,7 @@ m:diverted_statewide=688820 m:produced_statewide=2116724
 | Attribution | Iowa Department of Education, Adequate Yearly Progress |
 | Category | Education |
 | Date Range | 2003-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level), [attribution](http://itp.education.uiowa.edu/ia/AYPInformation.aspx), [metadata](https://data.iowa.gov/api/views/f3h8-mnxi),  [data](https://data.iowa.gov/api/views/f3h8-mnxi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/39910c7d) |
+| Links | [catalog](http://catalog.data.gov/dataset/math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level), [attribution](http://itp.education.uiowa.edu/ia/AYPInformation.aspx), [metadata](https://data.iowa.gov/api/views/f3h8-mnxi),  [data](https://data.iowa.gov/api/views/f3h8-mnxi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/05a62eb9) |
 
 #### Command
 
@@ -321,7 +321,7 @@ m:district=1080 m:proficient_1=40
 | Attribution | Department of Economic Development and Tourism |
 | Category | Economic Development |
 | Date Range | 2006-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/aaa-fuel-prices-52bf0), [attribution](http://hawaii.gov/dbedt),  [metadata](https://data.hawaii.gov/api/views/dqp6-3idi),  [data](https://data.hawaii.gov/api/views/dqp6-3idi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/046ceb33) |
+| Links | [catalog](http://catalog.data.gov/dataset/aaa-fuel-prices-52bf0), [attribution](http://hawaii.gov/dbedt),  [metadata](https://data.hawaii.gov/api/views/dqp6-3idi),  [data](https://data.hawaii.gov/api/views/dqp6-3idi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/fc9c8489) |
 
 #### Command
 
@@ -353,7 +353,7 @@ t:physicalunit=Dollars m:price=2.314
 | Attribution | Department of Revenue Services |
 | Category | Government |
 | Date Range | 2013-2014 |
-| Links | [catalog](http://catalog.data.gov/dataset/sales-and-use-tax-per-town-by-naics-2013-and-2014), [attribution](http://www.ct.gov/drs/cwp/view.asp?a=4128&q=483506), [metadata](https://data.ct.gov/api/views/rkm7-uwkb),  [data](https://data.ct.gov/api/views/rkm7-uwkb/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/758ed22a) |
+| Links | [catalog](http://catalog.data.gov/dataset/sales-and-use-tax-per-town-by-naics-2013-and-2014), [attribution](http://www.ct.gov/drs/cwp/view.asp?a=4128&q=483506), [metadata](https://data.ct.gov/api/views/rkm7-uwkb),  [data](https://data.ct.gov/api/views/rkm7-uwkb/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/1e78fa72) |
 
 #### Command
 
@@ -389,7 +389,7 @@ m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 | Attribution | MEA |
 | Category | Energy and Environment |
 | Date Range | 2007-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/per-capita-electricity-consumption-7b888), [attribution](http://energy.maryland.gov/), [metadata](https://data.maryland.gov/api/views/64jf-g2fe),  [data](https://data.maryland.gov/api/views/64jf-g2fe/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/39e52a3b) |
+| Links | [catalog](http://catalog.data.gov/dataset/per-capita-electricity-consumption-7b888), [attribution](http://energy.maryland.gov/), [metadata](https://data.maryland.gov/api/views/64jf-g2fe),  [data](https://data.maryland.gov/api/views/64jf-g2fe/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/25e805d0) |
 
 #### Command
 
@@ -438,12 +438,12 @@ m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 | Attribution | Motor Vehicle Administration |
 | Category | Transportation |
 | Date Range | 2007-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/mva-vehicle-sales-counts-by-month-for-cy-2002-2015), [attribution](http://www.mva.maryland.gov/), [metadata](https://data.maryland.gov/api/views/un65-7ipd),  [data](https://data.maryland.gov/api/views/un65-7ipd/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+| Links | [catalog](http://catalog.data.gov/dataset/mva-vehicle-sales-counts-by-month-for-cy-2002-2015), [attribution](http://www.mva.maryland.gov/), [metadata](https://data.maryland.gov/api/views/un65-7ipd),  [data](https://data.maryland.gov/api/views/un65-7ipd/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f4f2e3a4) |
 
 #### Command
 
 ```ls
-series e:un65-7ipd d:2002-01-01T00:00:00.000Z t:month=JAN m:new=31106 m:total_sales_used=386481929 
+series e:un65-7ipd d:2002-01-01T00:00:00.000Z m:new=31106 m:total_sales_used=386481929 
 m:used=49927 m:total_sales_new=755015820
 ```
 
@@ -471,7 +471,7 @@ m:used=49927 m:total_sales_new=755015820
 | Attribution | DAS Human Resources |
 | Category | Government |
 | Date Range | 2003-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/das-hr-almanac-executive-branch-employment-by-race),  [metadata](https://data.ct.gov/api/views/qm34-pq7e),  [data](https://data.ct.gov/api/views/qm34-pq7e/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/36b39d67) |
+| Links | [catalog](http://catalog.data.gov/dataset/das-hr-almanac-executive-branch-employment-by-race),  [metadata](https://data.ct.gov/api/views/qm34-pq7e),  [data](https://data.ct.gov/api/views/qm34-pq7e/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/6127a705) |
 
 #### Command
 
@@ -495,50 +495,37 @@ m:amer_indian=117 m:hispanic=2956 m:black=6559 m:asian=568
  }
 ```
 
-### State of Iowa Budget Expenditures
+### Scholarship Recipients and Dollars by Sector Group: Beginning 2009
 
 | **Name** | **Value** |
 |:---|:---|
-| Id | hqz2-xt9r |
-| Name | State of Iowa Budget Expenditures |
-| State | [Iowa](https://data.iowa.gov) |
-| Description | This dataset provides information on budgeted expenditures, and balance carry forwards for both funds and appropriations by fiscal year starting in FY 2010. The data provides granular detail down to the budget organizational unit and and object class/job class for the department request, the Governor's recommendation, the enacted budget, and the adopted budget.\r\n\r\nThe state fiscal year runs from July 1 to the following June 30 and is numbered for the calendar year in which it ends. The State of Iowa operates on a modified accrual basis which provides that encumbrances on June 30 must be paid within 60 days after year end. The Legislature may enact exceptions to this statute and usually do so for capital items which may run for several years.\r\n\r\nDepartment names and budget units for FY 2010 - 2015 are based on names used in FY 2016. |
-| Attribution | Iowa Department of Management, I3 Budget System |
-| Category | Government |
-| Date Range | 200?-201? |
-| Links | [catalog](http://catalog.data.gov/dataset/state-of-iowa-budget-dispositions-by-fiscal-year-and-budget-org-unit), [metadata](https://data.iowa.gov/api/views/hqz2-xt9r),  [data](https://data.iowa.gov/api/views/hqz2-xt9r/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f36a7aeb) |
+| Id | d8hf-wqd9 |
+| Name | Scholarship Recipients and Dollars by Sector Group: Beginning 2009 |
+| State | [New York](https://data.ny.gov) |
+| Description | This data includes the number of Scholarship award recipients and dollar amounts by TAP Sector Group beginning academic year 2009 (for HESC-administered scholarships only) |
+| Attribution | New York State Higher Education Services Corporation |
+| Category | Education |
+| Date Range | 2009-2014 |
+| Links | [catalog](http://catalog.data.gov/dataset/scholarship-recipients-and-dollars-by-sector-group-beginning-2009), [atribution](http://www.hesc.ny.gov/content.nsf/SFC/Grants_Scholarships_and_Awards), [metadata](https://data.ny.gov/api/views/d8hf-wqd9),  [data](https://data.ny.gov/api/views/d8hf-wqd9/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/9e8ba820) |
 
 #### Command
 
 ```ls
-series e:hqz2-xt9r d:2010-01-01T00:00:00.000Z t:object_class_type=Expenditures t:fund_code=0001
-t:budget_line_code=2010-0001-0824-006824A-602 t:object_class_code=602 
-:appropriation="Federal Cash Management Standing" t:appropriation_no=0824 t:budget_unit_code=006824A
-t:budget_unit="Federal Cash Management" t:fund="General Fund" t:object_class="Other Expense & Obligations"
-t:dept_name="Administrative Services, Department of" t:function="Administration and Regulation"
-m:gov_recommendation=436250 m:dept_request=436250 m:adopted_budget=396208
+series e:d8hf-wqd9 d:2014-01-01T00:00:00.000Z t:tap_sector_group="3-SUNY SO" 
+t:scholarship_name="Flight 3407 Memorial Scholarship" m:scholarship_dollars=42954 
+m:scholarship_fte=2.5 m:scholarship_headcount=3
 ```
 
 #### JSON
 
 ```JSON
 {
-      "gov_recommendation": 436250,
-      "fund_code": "0001",
-      "adopted_budget": 396208,
-      "object_class_code": "602",
-      "appropriation_no": "0824",
-      "budget_unit_code": "006824A",
-      "object_class": "Other Expense &amp; Obligations",
-      "dept_name": "Administrative Services, Department of",
-      "function": "Administration and Regulation",
-      "fiscal_year": 2010,
-      "dept_request": 436250,
-      "object_class_type": "Expenditures",
-      "budget_line_code": "2010-0001-0824-006824A-602",
-      "appropriation": "Federal Cash Management Standing",
-      "fund": "General Fund",
-      "budget_unit": "Federal Cash Management"
+      "academic_year": 2014,
+      "scholarship_dollars": 42954,
+      "scholarship_name": "Flight 3407 Memorial Scholarship",
+      "tap_sector_group": "3-SUNY SO",
+      "scholarship_fte": 2.5,
+      "scholarship_headcount": 3
 }
 ```
 
