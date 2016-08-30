@@ -663,7 +663,7 @@ m:commuter_bus_total=249082 m:taxi_access_trips=29592
 | Description | This dataset contains employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates.  All dollar estimates are in current dollars (not adjusted for inflation).  Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for their work during the period. It consists of wages and salaries and of supplements to wages and salaries. Compensation is presented on an accrual basis--that is, it reflects compensation liabilities incurred by the employer in a given period regardless of when the compensation is actually received by the employee. The estimates of compensation by industry for 1998-2006 are based on the 2002 North American Industry Classification System (NAICS). The estimates for 2007-2010 are based on the 2007 NAICS. The estimates for 2011 forward are based on the 2012 NAICS. |
 | Attribution | U.S. Department of Commerce, Bureau of Economic Analysis, Compensation of Employees by Industry (SQ6, SQ6N) |
 | Category | Economy |
-| Date Range | 1998-2000 |
+| Date Range | 1998-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa), [attribution](http://www.bea.gov/itable/index.cfm), [metadata](https://data.iowa.gov/api/views/yrss-ncc4),  [data](https://data.iowa.gov/api/views/yrss-ncc4/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/aa431af8) |
 
 #### Command
