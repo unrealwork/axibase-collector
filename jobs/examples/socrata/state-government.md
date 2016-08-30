@@ -28,7 +28,7 @@ ___
 | New York | [Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013](#public-assistance-and-snap-fraud-prevention-performance-measures-beginning-2013) | New York State Office of Temporary and Disability Assistance (OTDA) |
 | Maryland | [Maryland Veterans Unemployment Rate](#maryland-veterans-unemployment-rate) | Bureau of Labor Statistics
 | Maryland | [Trips Taken on Public Transit by Transit Type - Monthly Total Trips](#trips-taken-on-public-transit-by-transit-type---monthly-total-trips) | Maryland Transit Authority |
-| Iowa | [Employee Compensation by Industry in Iowa](#) | U.S. Department of Commerce, Bureau of Economic Analysis, Compensation of Employees by Industry (SQ6, SQ6N) |
+| Iowa | [Employee Compensation by Industry in Iowa](#employee-compensation-by-industry-in-iowa) | U.S. Department of Commerce, Bureau of Economic Analysis, Compensation of Employees by Industry (SQ6, SQ6N) |
 
 ### Abortion Demographics, 1995-2012
 
