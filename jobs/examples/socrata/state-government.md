@@ -175,10 +175,10 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 #### Command
 
 ```ls
-series e:je5z-53wn d:2003-01-01T00:00:00.000Z t:month=Jan-03 m:maryland_jobs=2481200 
-m:national_jobs_created_lost=89000 m:maryland_jobs_created_lost=3800 m:national_jobs=130380000 
-m:national_unemployment_rate=5.8 m:maryland_unemployment_rate=4.4 
-m:maryland_civilian_labor_force=2877486 m:maryland_unemployment=126413 m:maryland_employment=2751073
+series e:je5z-53wn d:2003-01-01T00:00:00.000Z m:maryland_jobs=2481200 m:national_jobs_created_lost=89000
+m:maryland_jobs_created_lost=3800 m:national_jobs=130380000 m:maryland_unemployment_rate=4.4
+m:national_unemployment_rate=5.8 m:maryland_civilian_labor_force=2877486 m:maryland_employment=2751073
+m:maryland_unemployment=126413
 ```
 
 #### JSON
