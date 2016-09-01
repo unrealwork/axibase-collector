@@ -98,7 +98,7 @@ series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=523
 | Attribution | MSAC |
 | Category | Public Safety |
 | Date Range | 1975-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/anne-arundel-county-crime-rate-by-type-e5923), [attribution](http://www.goccp.maryland.gov/msac/crime-statistics-county.php?id=18), [metadata](https://data.maryland.gov/api/views/3fys-ggpk),  [data](https://data.maryland.gov/api/views/3fys-ggpk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/74ad9e64) |
+| Links | [catalog](http://catalog.data.gov/dataset/anne-arundel-county-crime-rate-by-type-e5923), [attribution](http://www.goccp.maryland.gov/msac/crime-statistics-county.php?id=18), [metadata](https://data.maryland.gov/api/views/3fys-ggpk),  [data](https://data.maryland.gov/api/views/3fys-ggpk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/8bf312fd) |
 
 #### Command
 
@@ -170,7 +170,7 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 | Attribution | Bureau of Labor Statistics |
 | Category | Business and Economy |
 | Date Range | 2003-2014 |
-| Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/7c3f4943) |
+| Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/550b4c1e) |
 
 #### Command
 
