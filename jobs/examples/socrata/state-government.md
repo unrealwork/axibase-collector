@@ -98,7 +98,7 @@ series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=523
 | Attribution | MSAC |
 | Category | Public Safety |
 | Date Range | 1975-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/anne-arundel-county-crime-rate-by-type-e5923), [attribution](http://www.goccp.maryland.gov/msac/crime-statistics-county.php?id=18), [metadata](https://data.maryland.gov/api/views/3fys-ggpk),  [data](https://data.maryland.gov/api/views/3fys-ggpk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/29c2391a) |
+| Links | [catalog](http://catalog.data.gov/dataset/anne-arundel-county-crime-rate-by-type-e5923), [attribution](http://www.goccp.maryland.gov/msac/crime-statistics-county.php?id=18), [metadata](https://data.maryland.gov/api/views/3fys-ggpk),  [data](https://data.maryland.gov/api/views/3fys-ggpk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/a85c4f60) |
 
 #### Command
 
@@ -170,7 +170,7 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 | Attribution | Bureau of Labor Statistics |
 | Category | Business and Economy |
 | Date Range | 2003-2014 |
-| Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/44e99aaa) |
+| Links | [catalog](http://catalog.data.gov/dataset/employment-figures-f55ae), [attribution](http://www.bls.gov/),  [metadata](https://data.maryland.gov/api/views/je5z-53wn),  [data](https://data.maryland.gov/api/views/je5z-53wn/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/fc75db9b) |
 
 #### Command
 
@@ -251,7 +251,7 @@ m:total_nameplate_kw=4.6 m:expected_kwh_annual_production=5399.66 m:incentive_do
 | Attribution | DOH |
 | Category | Health |
 | Date Range | 2004-2008 |
-| Links | [catalog](http://catalog.data.gov/dataset/table-17-solid-waste-recycled-in-tons-851c9), [attribution](http://hawaii.gov/doh), [metadata](https://data.hawaii.gov/api/views/v48g-wbhi),  [data](https://data.hawaii.gov/api/views/v48g-wbhi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/84fe671e) |
+| Links | [catalog](http://catalog.data.gov/dataset/table-17-solid-waste-recycled-in-tons-851c9), [attribution](http://hawaii.gov/doh), [metadata](https://data.hawaii.gov/api/views/v48g-wbhi),  [data](https://data.hawaii.gov/api/views/v48g-wbhi/rows.json?accessType=DOWNLOAD),  [portal](https://apps.axibase.com/chartlab/48b1d9b2) |
 
 #### Command
 
@@ -389,7 +389,7 @@ m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 | Attribution | MEA |
 | Category | Energy and Environment |
 | Date Range | 2007-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/per-capita-electricity-consumption-7b888), [attribution](http://energy.maryland.gov/), [metadata](https://data.maryland.gov/api/views/64jf-g2fe),  [data](https://data.maryland.gov/api/views/64jf-g2fe/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/7d5bb55c) |
+| Links | [catalog](http://catalog.data.gov/dataset/per-capita-electricity-consumption-7b888), [attribution](http://energy.maryland.gov/), [metadata](https://data.maryland.gov/api/views/64jf-g2fe),  [data](https://data.maryland.gov/api/views/64jf-g2fe/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/db5aa772) |
 
 #### Command
 
@@ -438,7 +438,7 @@ m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 | Attribution | Motor Vehicle Administration |
 | Category | Transportation |
 | Date Range | 2007-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/mva-vehicle-sales-counts-by-month-for-cy-2002-2015), [attribution](http://www.mva.maryland.gov/), [metadata](https://data.maryland.gov/api/views/un65-7ipd),  [data](https://data.maryland.gov/api/views/un65-7ipd/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/6a4486c1) |
+| Links | [catalog](http://catalog.data.gov/dataset/mva-vehicle-sales-counts-by-month-for-cy-2002-2015), [attribution](http://www.mva.maryland.gov/), [metadata](https://data.maryland.gov/api/views/un65-7ipd),  [data](https://data.maryland.gov/api/views/un65-7ipd/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f2083bc9) |
 
 #### Command
 
@@ -471,7 +471,7 @@ m:used=49927 m:total_sales_new=755015820
 | Attribution | DAS Human Resources |
 | Category | Government |
 | Date Range | 2003-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/das-hr-almanac-executive-branch-employment-by-race),  [metadata](https://data.ct.gov/api/views/qm34-pq7e),  [data](https://data.ct.gov/api/views/qm34-pq7e/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/4f85cdfd) |
+| Links | [catalog](http://catalog.data.gov/dataset/das-hr-almanac-executive-branch-employment-by-race),  [metadata](https://data.ct.gov/api/views/qm34-pq7e),  [data](https://data.ct.gov/api/views/qm34-pq7e/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/88942f63) |
 
 #### Command
 
@@ -593,7 +593,7 @@ m:paris_closed_prior_resolved=9
 | Attribution | Bureau of Labor Statistics |
 | Category | Business and Economy |
 | Date Range | 2009-2014 |
-| Links | [catalog](http://catalog.data.gov/dataset/maryland-veterans-unemployment-rate-3ea61), [attribution](http://www.bls.gov/), [metadata](https://data.maryland.gov/api/views/prxf-ppu5),  [data](https://data.maryland.gov/api/views/prxf-ppu5/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/e7070636) |
+| Links | [catalog](http://catalog.data.gov/dataset/maryland-veterans-unemployment-rate-3ea61), [attribution](http://www.bls.gov/), [metadata](https://data.maryland.gov/api/views/prxf-ppu5),  [data](https://data.maryland.gov/api/views/prxf-ppu5/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/61e23fa5) |
 
 #### Command
 
@@ -623,7 +623,7 @@ m:national_veterans_unemployment_rate=8.7
 | Attribution | Maryland Transit Authority |
 | Category | Transportation |
 | Date Range | 2007-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/trips-taken-on-public-transit-by-transit-type-4abd1), [attribution](http://mta.maryland.gov/), [metadata](https://data.maryland.gov/api/views/5ymg-2p8u),  [data](https://data.maryland.gov/api/views/5ymg-2p8u/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/4c05da7a) |
+| Links | [catalog](http://catalog.data.gov/dataset/trips-taken-on-public-transit-by-transit-type-4abd1), [attribution](http://mta.maryland.gov/), [metadata](https://data.maryland.gov/api/views/5ymg-2p8u),  [data](https://data.maryland.gov/api/views/5ymg-2p8u/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/fd596ed9) |
 
 #### Command
 
