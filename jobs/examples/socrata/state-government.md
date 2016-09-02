@@ -703,7 +703,7 @@ series e:yrss-ncc4 d:1998-03-31T00:00:00.000Z t:industry_type=Farm t:industry=Fa
 | Connecticut | [Information Technology Project Portfolio](#information-technology-project-portfolio) | Oregon Military Department |
 | Oregon | [UCC Secured Parties List](#ucc-secured-parties-list) |  |
 
-
+<!--
 ### Attorney General Consumer Complaints
 
 | **Name** | **Value** |
@@ -748,7 +748,7 @@ t:businesscity=Burien
       "businesscity": "Burien"
 }
 ```
-
+-->
 ### Insurance Company Complaints, Resolutions, Status, and Recoveries
 
 | **Name** | **Value** |
