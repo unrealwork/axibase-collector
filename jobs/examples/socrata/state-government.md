@@ -688,7 +688,7 @@ series e:yrss-ncc4 d:1998-03-31T00:00:00.000Z t:industry_type=Farm t:industry=Fa
 
 | **State** | **Name** | **Attribution** |
 |:---|:---|:---|
-| Washington | [Attorney General Consumer Complaints](#attorney-general-consumer-complaints) | Washington State Attorney General's Office Consumer Protection Division |
+<!--| Washington | [Attorney General Consumer Complaints](#attorney-general-consumer-complaints) | Washington State Attorney General's Office Consumer Protection Division |-->
 | Connecticut | [Insurance Company Complaints, Resolutions, Status, and Recoveries](#insurance-company-complaints-resolutions-status-and-recoveries) | Department of Insurance |
 | New York | [Lottery Powerball Winning Numbers: Beginning 2010](#lottery-powerball-winning-numbers-beginning-2010) | New York State Gaming Commission |
 | New York | [Lottery Mega Millions Winning Numbers: Beginning 2002](#lottery-mega-millions-winning-numbers-beginning-2002) | New York State Gaming Commission |
