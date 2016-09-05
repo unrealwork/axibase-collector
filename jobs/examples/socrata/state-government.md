@@ -688,7 +688,6 @@ series e:yrss-ncc4 d:1998-03-31T00:00:00.000Z t:industry_type=Farm t:industry=Fa
 
 | **State** | **Name** | **Attribution** |
 |:---|:---|:---|
-<!--| Washington | [Attorney General Consumer Complaints](#attorney-general-consumer-complaints) | Washington State Attorney General's Office Consumer Protection Division |-->
 | Connecticut | [Insurance Company Complaints, Resolutions, Status, and Recoveries](#insurance-company-complaints-resolutions-status-and-recoveries) | Department of Insurance |
 | New York | [Lottery Powerball Winning Numbers: Beginning 2010](#lottery-powerball-winning-numbers-beginning-2010) | New York State Gaming Commission |
 | New York | [Lottery Mega Millions Winning Numbers: Beginning 2002](#lottery-mega-millions-winning-numbers-beginning-2002) | New York State Gaming Commission |
@@ -760,7 +759,7 @@ t:businesscity=Burien
 | Attribution | Department of Insurance |
 | Category | Business |
 | Date Range | 2007-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/391dc5aa) |
+| Links | [catalog](http://catalog.data.gov/dataset/insurance-company-complaints-resolutions-status-and-recoveries), [attribution](http://www.ct.gov/cid), [metadata](https://data.ct.gov/api/views/t64r-mt64),  [data](https://data.ct.gov/api/views/t64r-mt64/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/b1200161) |
 
 #### Command
 
@@ -800,7 +799,7 @@ t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recover
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2010-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/4f2ad36a) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-powerball-winning-numbers-beginning-2010), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_powerball), [metadata](https://data.ny.gov/api/views/d6yy-54nr),  [data](https://data.ny.gov/api/views/d6yy-54nr/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/09133023) |
 
 #### Command
 
@@ -830,7 +829,7 @@ t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2002-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/fc6b4d35) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-mega-millions-winning-numbers-beginning-2002), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresultsmega), [metadata](https://data.ny.gov/api/views/5xaw-6ayf),  [data](https://data.ny.gov/api/views/5xaw-6ayf/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3084bd37) |
 
 #### Command
 
@@ -860,7 +859,7 @@ t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
 | Description | Businesses registered with the Secretary of State Corporation Division during the month of June. |
 | Category | Business |
 | Date Range | June 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/234ebdeb) |
+| Links | [catalog](http://catalog.data.gov/dataset/new-business-list-june-1accb),  [metadata](https://data.oregon.gov/api/views/i8h7-mn6v),  [data](https://data.oregon.gov/api/views/i8h7-mn6v/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/83760504) |
 
 #### Command
 
@@ -905,7 +904,7 @@ t:city=ATLANTA t:registry_number=122151194
 | Description | Updated 8/1/2016 List of New UCC filings entered during the previous month.  This list will be updated by the 9th of every month. |
 | Category | Business |
 | Date Range | July 2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/80ec9f92) |
+| Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/6e35e121) |
 
 #### Command
 
@@ -949,7 +948,7 @@ t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:origin
 | Attribution | New York State Gaming Commission |
 | Category | Government & Finance |
 | Date Range | 2014-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f0c056e0) |
+| Links | [catalog](http://catalog.data.gov/dataset/lottery-cash-4-life-winning-numbers-beginning-2014), [attribution](http://nylottery.ny.gov/wps/portal/Home/Lottery/home/your+lottery/drawing+results/drawingresults_cash4life), [metadata](https://data.ny.gov/api/views/kwxv-fwze),  [data](https://data.ny.gov/api/views/kwxv-fwze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/954ff842) |
 
 #### Command
 ```ls
@@ -978,7 +977,7 @@ t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 | Attribution | Office of the Chief Medical Examiner |
 | Category | Health and Human Services |
 | Date Range | 2012-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/7f9d281b) |
+| Links | [catalog](http://catalog.data.gov/dataset/accidental-drug-related-deaths-january-2012-sept-2015), [attribution](http://www.ct.gov/ocme), [metadata](https://data.ct.gov/api/views/rybz-nyjw),  [data](https://data.ct.gov/api/views/rybz-nyjw/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/80aaea79) |
 
 #### Command
 
@@ -1036,7 +1035,7 @@ t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodi
 | Attribution | Oregon Department of Justice |
 | Category | Public Safety |
 | Date Range | 2013-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/fac1a12f) |
+| Links | [catalog](http://catalog.data.gov/dataset/oregon-consumer-complaints-7f511), [attribution](http://www.doj.state.or.us/), [metadata](https://data.oregon.gov/api/views/2ix7-8hwk),  [data](https://data.oregon.gov/api/views/2ix7-8hwk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/00c21bea) |
 
 #### Command
 
@@ -1081,7 +1080,7 @@ m:"Provided goods or services different than the ones complainant ordered; unaut
 | Attribution | Department of Health |
 | Category | Health |
 | Date Range | 2005-2012 |
-| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/097750b8) |
+| Links | [catalog](http://catalog.data.gov/dataset/oahu-food-establishments-8adda), [metadata](https://data.hawaii.gov/api/views/qkvm-skze),  [data](https://data.hawaii.gov/api/views/qkvm-skze/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/fdef2e30) |
 
 #### Command
 
@@ -1141,7 +1140,7 @@ t:mailing_address_city=HONOLULU
 | Attribution | NYS Department of Corrections and Community Supervision |
 | Category | Public Safety |
 | Date Range | 2008-2015 |
-| Links | [catalog](http://catalog.data.gov/dataset/parolees-under-community-supervision-beginning-2008), [metadata](https://data.ny.gov/api/views/pmxm-gftz),  [data](https://data.ny.gov/api/views/pmxm-gftz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/026bb01b) |
+| Links | [catalog](http://catalog.data.gov/dataset/parolees-under-community-supervision-beginning-2008), [metadata](https://data.ny.gov/api/views/pmxm-gftz),  [data](https://data.ny.gov/api/views/pmxm-gftz/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3bc9ae9a) |
 
 #### Command
 
@@ -1176,7 +1175,7 @@ t:crime="DRUG OFFENSES" t:age=29.0 t:gender=MALE t:type="Public Safety"
 | Attribution | NYSLA Wholesale Bureau / NYSITS |
 | Category | Economic Development |
 | Date Range | 2016-2018 |
-| Links | [catalog](http://catalog.data.gov/dataset/state-liquor-authority-sla-brand-label-and-wholesaler-information-for-alcoholic-beverage-p), [metadata](https://data.ny.gov/api/views/n2dz-pwuk),  [data](https://data.ny.gov/api/views/n2dz-pwuk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/5f521e5d) |
+| Links | [catalog](http://catalog.data.gov/dataset/state-liquor-authority-sla-brand-label-and-wholesaler-information-for-alcoholic-beverage-p), [metadata](https://data.ny.gov/api/views/n2dz-pwuk),  [data](https://data.ny.gov/api/views/n2dz-pwuk/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/f83cf3ff) |
 
 #### Command
 
@@ -1216,7 +1215,7 @@ t:license_class_description=ALE
 | Attribution | Oregon Military Department |
 | Category | Government |
 | Date Range | 2015-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/information-technology-project-portfolio), [attribution](http://www.ct.gov/opm), [metadata](https://data.ct.gov/api/views/i7h5-rx65),  [data](https://data.ct.gov/api/views/i7h5-rx65/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/3c933389) |
+| Links | [catalog](http://catalog.data.gov/dataset/information-technology-project-portfolio), [attribution](http://www.ct.gov/opm), [metadata](https://data.ct.gov/api/views/i7h5-rx65),  [data](https://data.ct.gov/api/views/i7h5-rx65/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/0653c6b5) |
 
 #### Command
 
@@ -1257,7 +1256,7 @@ m:"Pilot the use of virtual desktops or virtual applications in the agency."
 | Description | Updated 8/1/2016 List of All Active Filings and their associated Secured Parties. This Dataset will be updated monthly by the 9th of each month. |
 | Category | Business |
 | Date Range | 1970-2016 |
-| Links | [catalog](http://catalog.data.gov/dataset/ucc-secured-parties-list-23e64),  [metadata](https://data.oregon.gov/api/views/2kf7-i54h),  [data](https://data.oregon.gov/api/views/2kf7-i54h/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/55fff646) |
+| Links | [catalog](http://catalog.data.gov/dataset/ucc-secured-parties-list-23e64),  [metadata](https://data.oregon.gov/api/views/2kf7-i54h),  [data](https://data.oregon.gov/api/views/2kf7-i54h/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/4a12f7d4) |
 
 #### Command
 
