@@ -106,3 +106,19 @@ uname -a
 * 4.2.0-30.35+ 
 
 See "Latest Quick Workarounds" for Docker issue [#18180](https://github.com/docker/docker/issues/18180#issuecomment-193708192).
+
+## Create a docker image with dependencies
+If you need to deploy a Collector image to the host without access to https://hub.docker.com, you should prepare an image with dependencies using following commands:
+
+```sh
+docker pull axibase/collector:latest
+docker save -o docker-axibase-collector.tar axibase/collector:latest
+gzip docker-axibase-collector.tar
+```
+Or you can download prepared image [here](https://axibase.com/public/docker-axibase-collector.tar.gz).
+
+Then you should load the image on target host:
+
+```sh
+docker load < docker-axibase-collector.tar.gz
+```
