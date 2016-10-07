@@ -10,6 +10,28 @@
 * [Dockerfile](https://github.com/axibase/docker-axibase-collector/blob/master/Dockerfile)
 * [Docker Hub](https://hub.docker.com/r/axibase/collector/)
 
+## Importing an Image in Restricted Environments
+
+If the target Docker host has no direct connectivity to [Docker Hub](https://hub.docker.com), execute the following steps to prepare and load the Collector image:
+
+* Login into a Docker host which is connected to Docker Hub
+* Pull the Collector image from Docker Hub and export it into an archive file:
+
+```sh
+docker pull axibase/collector:latest
+docker save -o docker-axibase-collector.tar axibase/collector:latest
+gzip docker-axibase-collector.tar
+```
+
+* Copy the `docker-axibase-collector.tar.gz` archive to the target Docker host
+* Import the image from the archive:
+
+```sh
+docker load < docker-axibase-collector.tar.gz
+```
+
+Alternatively, you can download a prepared Collector image from [axibase.com](https://axibase.com/public/docker-axibase-collector.tar.gz).
+
 ## Start Container
 
 ```properties
@@ -21,7 +43,7 @@ docker run \
  axibase/collector:latest
 ```
 
-To automatically configure Axibase Time Series Database connection add `-atsd-url` parameter containing ATSD hostname and https port (default 8443) and [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
+To automatically configure a connection to Axibase Time Series Database add `-atsd-url` parameter containing ATSD hostname and https port (default 8443) as well as [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
 
 ```properties
 docker run \
@@ -33,7 +55,11 @@ docker run \
   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port
 ```
 
-If the container is launched to collect data from Docker Engine API on the local host, mount Unix socket as described [here](/jobs/docker.md#local-collection).  
+## Start Container for Docker Monitoring
+
+The launch command is different if you're starting the container in order to monitor events and statistic from the local Docker Engine.
+
+Review the following [document](/jobs/docker.md#local-collection) on how to mount a Unix socket and launch the container for this purpose.  
 
 ## Launch Parameters
 
