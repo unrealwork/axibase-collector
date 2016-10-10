@@ -5,14 +5,14 @@ To add a database as a data source in Axibase Collector, navigate to Data Source
 | FIELD        | DESCRIPTION |
 |:-------------|:-------------|
 | Name | Name of data source |
-| Database Type  | Type of database. <br> Possible values: Oracle, MSSQL, MSSQL_Native, DB2, SOLID, MYSQL, POSTGRESQL, SYSBASE, DERBY, SAP, CUSTOM      |
+| Database Type  | Type of database. <br> Possible values: Oracle, MSSQL, MSSQL_Native, DB2, SOLID, MYSQL, POSTGRESQL, SYBASE, DERBY, SAP, PI_SERVER, VERTICA, CUSTOM      |
 | Server | IP or hostname of target server |
-| Port | Port at which the database is listening |
+| Port | Port on which the database is listening |
 | Database | Name of the database, residing on the database server |
 | Instance | Name of the instance |
-| Uername | Username which will be connecting to the database. We recommend that a read-only account is created to access the database |
+| Username | Username which will be connecting to the database. We recommend that a read-only account is created to access the database |
 | Password | User password | 
-| Driver Properties | Extended JDBC diver properties, they are specific to each databse |
+| Driver Properties | Extended JDBC diver properties, they are specific to each database |
 | Test Query | Test query to keep the connection alive |
 | Max Active | Maximum number of active connections |
 | Max Idle | Maximum number of idle connections | 
