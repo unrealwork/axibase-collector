@@ -57,6 +57,8 @@ docker run \
 
 If the user name or password contains `$`, `&`, `#` or `!` character, escape it with backslash `\``.
 
+The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
+
 For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at https://10.102.0.6:8443 specify:
 
 ```properties
