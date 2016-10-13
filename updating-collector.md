@@ -1,16 +1,66 @@
-# Updaing Axibase Collector
+# Updating Axibase Collector
 
-Follow these steps to upgrade Axibase Collector to the latest revision:
+### Download the latest Axibase Collector Release
 
-* Download Axibase Collector `.tar.gz` archive to the server where collector is installed.
+The latest release is available at the following [link](https://axibase.com/public/axibase-collector_latest.htm).
 
-* Stop collector process:
-```sh
-./bin/stop-collector.sh
+```bash
+wget -O axibase-collector.tar.gz http://axibase.com/public/axibase-collector-v{revision}.tar.gz
 ```
-* Replace `./lib/axibase-collector.war` with the version contained in the archive.
 
-* Start collector process:
-```sh
-./bin/start-collector.sh
+### Copy Archive
+
+Copy the `axibase-collector.tar.gz` file to the server where Axibase Collector is running.
+
+### Switch User
+
+Switch to user under which the collector's java process is executing.
+
+To lookup Axibase Collector installation directory, run:
+
+```bash
+axibase@36e26a5fd70a:~$ ps aux | grep "axibase-collector.war"
+axibase  25647 27.0  0.9 8037420 625988 ?      Sl   07:23   6:53 java -XX:PermSize=128m ...
 ```
+
+```bash
+su axibase
+```
+
+### Unpack Archive
+
+```bash
+tar xvf axibase-collector.tar.gz
+```
+
+### Stop the Collector Process
+
+To lookup Axibase Collector installation directory, run:
+
+```
+axibase@36e26a5fd70a:~$ ps aux | grep "axibase-collector.war"
+axibase  25647 27.0  0.9 8037420 625988 ?      Sl   07:23   6:53 java -XX:PermSize=128m ...
+-Dlogback.configurationFile=/opt/axibase-collector/conf/logback.xml ...
+```
+
+The installation directory is `/opt/axibase-collector` in the above example.
+
+```bash
+/opt/axibase-collector/bin/stop-collector.sh
+```
+
+### Replace `axibase-collector.war` File
+
+Replace `/opt/axibase-collector/lib/axibase-collector.war` with the version contained in the archive.
+
+```bash
+cp ./axibase-collector/lib/axibase-collector.war /opt/axibase-collector/lib/
+```
+
+### Start the Collector Process
+
+```sh
+/opt/axibase-collector/bin/start-collector.sh
+```
+
+

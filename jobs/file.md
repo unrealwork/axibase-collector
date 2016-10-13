@@ -41,9 +41,11 @@ In addition to scheduled checks, the FILE protocol exposes a setting to continuo
 
 When the file in the watched directory is created or changed, it is processed with the same workflow as files identified with scheduled execution, except that the job continues running and watching for subsequent changes until the next job start time or until the watch interval expires. 
 
-Tests executed for file watch configurations are pre-configured to watch the directory for 15 seconds.
+Tests of file watch configurations are pre-configured to watch the directory for 15 seconds.
 
-Consecutive file modification events that occurred within 1 minute of each other, are deduplicated to prevent too many files being sent into the database.
+Consecutive file modification events that occurred within 1 second of each other, are deduplicated to prevent too many files being sent into the database.
+
+> Note that watch monitors only file create and modify events. Existing files that match the path but remain unchanged will be ignored.
 
 ## Downloading Multiple Files
 
