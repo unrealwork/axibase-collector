@@ -19,9 +19,6 @@ The information is collected for the following object types:
 `Property Refresh Interval` | Interval for refreshing detailed image and container properties.
 `API Version` | API version used when querying Docker Engine API. Defaults to 'latest'. <br>Can be set to a specific version to ensure compatibility.
 
-
-
-
 ## Prerequisites
 
 * [Docker Engine v1.7+](https://docs.docker.com/engine/installation/).
@@ -51,7 +48,23 @@ docker run \
    -job-enable=docker-socket
 ```
 
-It may take up to 5 minute to initialize the application on first start.
+If the user name or password contains `$`, `&`, `#` or `!` character, escape it with backslash `\``.
+
+For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at https://10.102.0.6:8443 specify:
+
+```properties
+docker run \
+   --detach \
+   --publish-all \
+   --restart=always \   
+   --name=axibase-collector \
+   --volume /var/run/docker.sock:/var/run/docker.sock \
+  axibase/collector \
+   -atsd-url=https://adm-dev:my\$pwd@10.102.0.6:8443 \
+   -job-enable=docker-socket
+```
+
+It may take up to 5 minute to initialize the Collector's database on initial start.
 
 The Docker job should start executing immediately, even if collector user has not been created. 
 
@@ -132,6 +145,8 @@ docker run \
   axibase/collector \
    -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port
 ```
+
+If the user name or password contains `$`, `&`, `#` or `!` character, escape it with backslash `\``.
 
 * Find https port assigned to `axibase-collector` container. 
 

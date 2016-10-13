@@ -43,7 +43,7 @@ docker run \
  axibase/collector:latest
 ```
 
-To automatically configure a connection to Axibase Time Series Database add `-atsd-url` parameter containing ATSD hostname and https port (default 8443) as well as [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
+To automatically configure a connection to Axibase Time Series Database, add `-atsd-url` parameter containing ATSD hostname and https port (default 8443) as well as [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
 
 ```properties
 docker run \
@@ -55,9 +55,23 @@ docker run \
   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port
 ```
 
-## Start Container for Docker Monitoring
+If the user name or password contains `$`, `&`, `#` or `!` character, escape it with backslash `\``.
 
-The launch command is different if you're starting the container in order to monitor events and statistic from the local Docker Engine.
+For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at https://10.102.0.6:8443 specify:
+
+```properties
+docker run \
+ --detach \
+ --publish-all \
+ --restart=always \
+ --name=axibase-collector \
+ axibase/collector:latest \
+  -atsd-url=https://adm-dev:my\$pwd@10.102.0.6:8443
+```
+
+## Start Container in Privileged Mode
+
+The launch command is different if you're starting the Collector container to monitor events and statistic from the local Docker Engine.
 
 Review the following [document](/jobs/docker.md#local-collection) on how to mount a Unix socket and launch the container for this purpose.  
 
