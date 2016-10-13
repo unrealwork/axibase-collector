@@ -63,4 +63,10 @@ cp ./axibase-collector/lib/axibase-collector.war /opt/axibase-collector/lib/
 /opt/axibase-collector/bin/start-collector.sh
 ```
 
+## Updating Collector on Docker
+
+Follow the steps outlined in the following [note](updating-collector-on-docker.md).
+
+
+
 
