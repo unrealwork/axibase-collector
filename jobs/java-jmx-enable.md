@@ -10,13 +10,13 @@
 
 #### Configure JMX properties
 
-* Change to ActiveMQ installation directory.
+* Change to ActiveMQ installation directory:
 
 ```sh
 cd /opt/apache-activemq-5.13.1
 ```
 
-* Modify JMX settings in ActiveMQ JVM launch options. <br>Search for ACTIVEMQ_SUNJMX_START setting and change it as specified below.
+* Modify JMX settings in the ActiveMQ JVM launch options. <br>Search for the `ACTIVEMQ_SUNJMX_START` setting and change it as specified below.
 
 ##### ActiveMQ 5.11.x and later:
 
@@ -50,44 +50,44 @@ ACTIVEMQ_SUNJMX_START="-Dcom.sun.management.jmxremote \
    -Dcom.sun.management.jmxremote.access.file=${ACTIVEMQ_BASE}/conf/jmx.access"
 ```
 
-> Replace activemq_hostname with full hostname or IP address of the ActiveMQ server.
-> This should be the same hostname that Axibase Collector will be using when connecting to ActiveMQ server.
+> Replace `activemq_hostname` with the full hostname or IP address of the ActiveMQ server.
+> This should be the same hostname that Axibase Collector will be using when connecting to the ActiveMQ server.
 
-The result should be as shown on the image below:
+The result should be as shown in the image below:
 
 ![SUN_JMX_START_IMAGE](https://axibase.com/wp-content/uploads/2016/03/very_new_screen.png)
 
-#### Setup JMX user credentials
+#### Setup JMX User Credentials
 
-Change to ./conf directory. 
+Change to `./conf` directory. 
 
-Add/edit jmx.access and jmx.password file as follows. 
+Add/edit the `jmx.access` and `jmx.password` files as follows. 
 
 Make sure the owner of these files is the same as ActiveMQ user.
 
-jmx.access:
+`jmx.access`:
 
 ```
 # The "monitorRole" role has readonly access.
 monitorRole readonly
 ```
 
-jmx.password:
+`jmx.password`:
 
 ```
 # The "monitorRole" role has password "abc123".
 monitorRole abc123
 ```
 
-#### Secure password file
+#### Secure Password File
 
-Secure access to jmx.password file by restricting permissions: 
+Secure access to the  `jmx.password` file by restricting permissions: 
 
 ```sh
 chmod -v 0600 ./conf/jmx.password
 ```
 
-#### Restart ActiveMQ server.
+#### Restart ActiveMQ Server
 
 ```sh
 ./bin/activemq stop

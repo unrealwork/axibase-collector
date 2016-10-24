@@ -4,7 +4,7 @@
 
 JMX (Java Management Extensions) is an [industry-standard](http://java.sun.com/products/JavaManagement/download.html) technology for monitoring and managing Java applications. Java applications instrumented with JMX expose a set of resources called MBeans (Management Beans) with attributes and methods that can be queried and invoked programmatically.
 
-The JMX job in Axibase Collector provides a way to query MBean attribute values from remote Java applications and transmit them to Axibase Time Series Database for alerting and long-term retention. MBean attribute values can be stored as properties or series in case of numeric attributes.
+The JMX job in Axibase Collector provides a way to query MBean attribute values from remote Java applications and transmit them to the Axibase Time Series Database for alerting and long-term retention. MBean attribute values can be stored as properties or series in case of numeric attributes.
 
 The JMX job can have one or multiple JMX configurations each describing connection parameters and MBean queries. It is common for configurations in a given job to connect to the same Java application.
 
@@ -21,7 +21,7 @@ The JMX job can have one or multiple JMX configurations each describing connecti
 | Password | JMX password. |
 | Service Name | 	JMX service username. The default service name is `jmxrmi`. |
 
-Connection parameters should correspond to `com.sun.management.jmxremote` settings specified by the target Java application.
+Connection parameters should correspond to the `com.sun.management.jmxremote` settings specified by the target Java application.
 
 ```sh
 ACTIVEMQ_SUNJMX_START="-Dcom.sun.management.jmxremote \
@@ -33,9 +33,9 @@ ACTIVEMQ_SUNJMX_START="-Dcom.sun.management.jmxremote \
    -Dcom.sun.management.jmxremote.access.file=${ACTIVEMQ_BASE}/conf/jmx.access"
 ```
 
-To verify connectivity with the remote host, click Test or Viewer buttons. 
+To verify connectivity with the remote host, click the 'Test' or 'Viewer' buttons. 
 
-Add hostname to /etc/hosts file on the collector machine in case of UnknownHostException.
+Add hostname to the `/etc/hosts` file directory on the collector machine in case of `UnknownHostException`.
 
 ```java
 Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: NURSWGVML011; nested exception is:  	java.net.UnknownHostException: NURSWGVML011]
@@ -48,7 +48,7 @@ Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exc
 | Entity | Entity name under which the data will be stored. |
 | Command Type | Insert command type: SERIES, PROPERTY or BOTH. |
 | Metric Prefix | Common prefix added to metric names, for example `jmx.activemq.`  |
-| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.`<br>Property type is set to MBean `type` attribute by default |
+| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.`<br>Property type is set to MBean `type` attribute by default. |
 | Excluded Property Attributes | List of attribute names excluded from property commands.  |
 | Excluded Series Attributes | List of attribute names excluded from series commands. |
 | Series Tags | Pre-defined tags added to series commands. |
@@ -57,15 +57,15 @@ Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exc
 
 #### Entity Name
 
-If not specified, entity name is set to the value of the Host field. You can override it, for example, if Host field contains DNS hostname whereas you need to collect data under a short hostname of the server where Java application is running.
+If not specified, the entity name is set to the value of the Host field. You can override it, for example, if the Host field contains a DNS hostname, whereas you need to collect data under a short hostname of the server where the Java application is running.
 
-In addition, entity name can be retrieved dynamically by specifying MBean Object Name followed by `>` and attribute name (`mbean>attribute`), for example:
+In addition, the entity name can be retrieved dynamically by specifying the MBean Object Name followed by `>` and the attribute name (`mbean>attribute`). For example:
 
 ```
 java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 ```
 
-> If the entity name query fails to provide a value, for example, if bean or attribute is not found, the entity name will be set to Host field. If the composite expression retrieves a value successfully, it will be stored in Axibase Collector database and will be re-used in case of subsequent connection errors.
+> If the entity name query fails to provide a value or if bean or attribute is not found, the entity name will be set to the Host field. If the composite expression retrieves a value successfully, it will be stored in the Axibase Collector database and will be re-used in case of subsequent connection errors.
 
 #### Queries
 
@@ -74,7 +74,7 @@ Configuration includes a list of MBean queries consisting of two parts:
 * [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
 * Attribute Name list
 
-The list of queries can be entered manually or by opening [Viewer](#viewer), expanding MBean hierarchy and choosing attributes of interest.
+The list of queries can be entered manually or by opening [Viewer](#viewer), expanding MBean hierarchy, and choosing attributes of interest.
 
 ```
 org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
@@ -150,10 +150,3 @@ Restart Axibase Collector process, execute the JMX job or open the Viewer to rev
 ```
 tail -f ./axibase-collector/logs/axibase-collector.log
 ```
-
-
-
-
-
-
-
