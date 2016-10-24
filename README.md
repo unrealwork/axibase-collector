@@ -2,7 +2,7 @@
 
 ## Overview
 
-Axibase Collector is a Java-based ETL application that queries external data sources on schedule and uploads received data as series, properties, messages, and files into Axibase Time Series Database.
+Axibase Collector is a Java-based ETL application that queries external data sources on schedule and uploads received data as series, properties, messages, and files into the Axibase Time Series Database.
 
 It supports [collections](collections.md)-based automation in order to query as many data sources as possible with the same configuration.
 
@@ -69,5 +69,3 @@ It supports [collections](collections.md)-based automation in order to query as 
 [OVPM](jobs/ovpm.md) | Offloads statistics from HP OpenView Performance Manager.
 [SNMP](jobs/snmp.md) | Queries SNMP devices using built-in and custom MIB files.
 [TCP](jobs/tcp.md) | Connects to hostnames/IP addresses and stores connection status.
-
-
