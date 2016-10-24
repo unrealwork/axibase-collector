@@ -12,7 +12,7 @@ Each job has the following generic properties:
 | Cron Expression | [Cron Expression](scheduling.md#cron-expressions) determines how frequently the job is executed.
 | Storage | Target ATSD server for sending collected data. |
 
-Type-specific properties, such as SQL query in JDBC job or CSV parser in FILE job, are specified in nested configuration objects.
+Type-specific properties, such as a SQL query in a JDBC job or a CSV parser in a FILE job, are specified in nested configuration objects.
 
 ```
 + job-1
@@ -23,17 +23,18 @@ Type-specific properties, such as SQL query in JDBC job or CSV parser in FILE jo
 ...
 ```
 
-The job may include multiple configurations, for example a JDBC job may be configured to execute multiple SQL queries.
+The job may include multiple configurations. For example, a JDBC job may be configured to execute multiple SQL queries.
 
 ![](job-properties.png)
 
 ## Cloning Jobs
 
-You can create the exact copy of the job by clicking Clone. <br>
+You can create the exact copy of the job by clicking 'Clone'.
+
 The copied job will have the same name as the original job but with the '-cloned' postfix. 
 
 By default, cloned jobs are disabled. 
 
 You can change the necessary settings and enable the job by selecting the Enabled check box. 
 
-Cloned job has its own primary key and can run concurrently with the original job.
+A cloned job has its own primary key and can run concurrently with the original job.

@@ -2,7 +2,7 @@
 
 ## Host Requirements
 
-* [Docker Engine](https://docs.docker.com/engine/installation/) 1.7+.
+* [Docker Engine](https://docs.docker.com/engine/installation/) 1.7+
 
 ## Image Information
 
@@ -14,7 +14,7 @@
 
 If the target Docker host has no direct connectivity to [Docker Hub](https://hub.docker.com), execute the following steps to prepare and load the Collector image:
 
-* Login into a Docker host which is connected to Docker Hub
+* Login into a Docker host which is connected to Docker Hub.
 * Pull the Collector image from Docker Hub and export it into an archive file:
 
 ```sh
@@ -23,7 +23,7 @@ docker save -o docker-axibase-collector.tar axibase/collector:latest
 gzip docker-axibase-collector.tar
 ```
 
-* Copy the `docker-axibase-collector.tar.gz` archive to the target Docker host
+* Copy the `docker-axibase-collector.tar.gz` archive to the target Docker host.
 * Import the image from the archive:
 
 ```sh
@@ -43,7 +43,7 @@ docker run \
  axibase/collector:latest
 ```
 
-To automatically configure a connection to Axibase Time Series Database, add `-atsd-url` parameter containing ATSD hostname and https port (default 8443) as well as [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
+To automatically configure a connection to the Axibase Time Series Database, add the `-atsd-url` parameter containing the ATSD hostname and https port (default 8443), as well as [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
 
 ```properties
 docker run \
@@ -55,11 +55,11 @@ docker run \
   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port
 ```
 
-If the user name or password contains `$`, `&`, `#` or `!` character, escape it with backslash `\``.
+If the user name or password contains a `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
 The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
 
-For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at https://10.102.0.6:8443 specify:
+For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at https://10.102.0.6:8443, specify:
 
 ```properties
 docker run \
@@ -73,7 +73,7 @@ docker run \
 
 ## Start Container in Privileged Mode
 
-The launch command is different if you're starting the Collector container to monitor events and statistic from the local Docker Engine.
+The launch command is different if you're starting the Collector container to monitor events and statistics from the local Docker Engine.
 
 Review the following [document](/jobs/docker.md#local-collection) on how to mount a Unix socket and launch the container for this purpose.  
 
@@ -82,11 +82,11 @@ Review the following [document](/jobs/docker.md#local-collection) on how to moun
 **Name** | **Required** | **Description**
 ----- | ----- | -----
 `--detach` | Yes | Run container in background and print container id.
-`--publish-all` | No | Publish exposed https port (9443) to a random port
+`--publish-all` | No | Publish exposed https port (9443) to a random port.
 `--restart` | No | Auto-restart policy. _Not supported in all Docker Engine versions._
 `--name` | No | Assign a host-unique name to the container.
 
-To bind the collector to a particular port instead of a random one, replace `--publish-all` with `--publish 10443:9443`, where the first number indicates an available port on Docker host.
+To bind the collector to a particular port instead of a random one, replace `--publish-all` with `--publish 10443:9443`, where the first number indicates an available port on the Docker host.
 
 ## Check Installation
 
@@ -100,7 +100,7 @@ Wait until the following message appears:
 
 > _FrameworkServlet 'dispatcher': initialization completed._
 
-This message indicates that initial configuration is complete.
+This message indicates that the initial configuration is complete.
 
 ## Validation
 
@@ -113,7 +113,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ee15099d9f88        axibase/collector   "/bin/bash /opt/axiba"   33 seconds ago      Up 32 seconds       0.0.0.0:32769->9443/tcp   axibase-collector
 ```
 
-Take note of the public https port assigned to axibase-collector container, e.g. **32769** in the example above.
+Take note of the public https port assigned to axibase-collector container, i.e. **32769** in the example above.
 
 ## Login
 
@@ -121,7 +121,7 @@ Open https://hostname:9443 in your browser and create an [administrator account]
 
 ## Setup ATSD Connection
 
-Configure [ATSD Server connection](atsd-server-connection.md) to send data into an Axibase Time Series Database instance.
+Configure the [ATSD Server connection](atsd-server-connection.md) to send data into an Axibase Time Series Database instance.
 
 ## Troubleshooting
 

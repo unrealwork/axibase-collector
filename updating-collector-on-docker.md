@@ -2,7 +2,7 @@
 
 ### Download the Latest Axibase Collector Release
 
-The latest release is available at the following [link](https://axibase.com/public/axibase-collector_latest.htm).
+The latest release is available at the following [link](https://axibase.com/public/axibase-collector_latest.htm):
 
 ```bash
 wget -O axibase-collector.tar.gz http://axibase.com/public/axibase-collector-v{revision}.tar.gz
@@ -28,7 +28,7 @@ docker exec -it axibase-collector /opt/axibase-collector/bin/stop-collector.sh
 
 ### Replace `axibase-collector.war` File
 
-Replace `/opt/axibase-collector/lib/axibase-collector.war` in the container with the version contained in the archive.
+Replace `/opt/axibase-collector/lib/axibase-collector.war` in the container with the version contained in the archive:
 
 ```bash
 docker cp ./axibase-collector/lib/axibase-collector.war axibase-collector:/opt/axibase-collector/lib/

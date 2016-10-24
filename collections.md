@@ -6,9 +6,9 @@ Item List is a collection of strings used to execute repetitive actions as part 
 
 Such automation provides a way to create re-usable configurations as opposed to creating different job configurations for a list of similar items.
 
-List items can be specified by entering items as text, one element per line, on the form or by reading them from an external source such as file or script output.
+List items can be specified by entering items as text (one element per line) on the form or by reading them from an external source such as a file or script output.
 
-Items (lines) starting with hash `#` symbol are treated as comments and are ignored.
+Items (lines) starting with the hash `#` symbol are treated as comments and are ignored.
 
 Supported list types:
 
@@ -27,7 +27,7 @@ Job types with support for Item List automation:
 
 ### Configuration
 
-To create a new list, open **Collections:Item Lists** page, click **Add**:
+To create a new list, open the **Collections:Item Lists** page, and click **Add**:
 
 | **Field** | **Description**|
 |:----|:---|
@@ -39,11 +39,11 @@ To create a new list, open **Collections:Item Lists** page, click **Add**:
  
 ### Usage
 
-Use `${ITEM}` placeholder to access the value of the current item in the list while iterating. 
+Use the `${ITEM}` placeholder to access the value of the current item in the list while iterating. 
 
 The items retain the original order as specified in the editor or returned by an external source.
 
-For example, include `${ITEM}` placeholder into Path field in JSON job to query a different URL for each element in the list. 
+For example, include the `${ITEM}` placeholder into the Path field in JSON job to query a different URL for each element in the list. 
 
 ![Item List Example](item-list.png)
 
@@ -89,19 +89,19 @@ If the file is not found, an empty collection is returned. List items in the fil
 
 #### SCRIPT
 
-Executes a script specified in `Command` field and reads lines from standard output as list items.
+Executes a script specified in the `Command` field and reads lines from a standard output as list items.
 
-Only scripts in `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
+Only scripts in the `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
 
-`Command` field should start with script file name (absolute path not supported) and optional script arguments.
+The `Command` field should start with the script file name (absolute path not supported) and optional script arguments.
 
-The script should return list of items separated by line break to stdout.
+The script should return a list of items separated by line break to 'stdout'.
 
 ![SCRIPT Type](collection_script_type.png)
 
 **Example**
 
-Directory `/tmp/report/csv` contains CSV files. The Item List should contain a collection of file name prefixes before underscore symbol.
+The directory `/tmp/report/csv` contains CSV files. The Item List should contain a collection of file name prefixes before the underscore symbol.
 
 ```
 ent-1_file-1.csv
@@ -142,13 +142,13 @@ ent-3
 
 ## Replacement Tables
 
-Replacement table is a list of `key=value` pairs that can be used to rename input string into output string. 
+Replacement tables are a list of `key=value` pairs that can be used to rename input strings into output strings. 
 
-Replacement table can serve a lookup dictionary to convert numeric identifiers into human-readable names, for instance IP addresses into hostnames. It can be also used to remove extra symbols from inputs, for example to replace entity name 'nurswgvml001:LZ' with 'nurswgvml001'.
+Replacement tables can serve a lookup dictionary to convert numeric identifiers into human-readable names (for instance IP addresses into hostnames). It can be also used to remove extra symbols from inputs, for example to replace the entity name 'nurswgvml001:LZ' with 'nurswgvml001'.
 
 ### Configuration
 
-To create a new replacement table, open **Collections:Replacement Tables** page:
+To create a new replacement table, open the **Collections:Replacement Tables** page:
 
 **Field** | **Description**
 | :---- | ----- |
