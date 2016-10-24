@@ -1,8 +1,8 @@
 # Updating Axibase Collector
 
-### Download the latest Axibase Collector Release
+### Download the Latest Axibase Collector Release
 
-The latest release is available at the following [link](https://axibase.com/public/axibase-collector_latest.htm).
+The latest release is available at the following [link](https://axibase.com/public/axibase-collector_latest.htm):
 
 ```bash
 wget -O axibase-collector.tar.gz http://axibase.com/public/axibase-collector-v{revision}.tar.gz
@@ -14,9 +14,9 @@ Copy the `axibase-collector.tar.gz` file to the server where Axibase Collector i
 
 ### Switch User
 
-Switch to user under which the collector's java process is executing.
+Switch to the user under which the collector's java process is executing.
 
-To lookup Axibase Collector installation directory, run:
+To lookup the Axibase Collector installation directory, run:
 
 ```bash
 axibase@36e26a5fd70a:~$ ps aux | grep "axibase-collector.war"
@@ -51,7 +51,7 @@ The installation directory is `/opt/axibase-collector` in the above example.
 
 ### Replace `axibase-collector.war` File
 
-Replace `/opt/axibase-collector/lib/axibase-collector.war` with the version contained in the archive.
+Replace `/opt/axibase-collector/lib/axibase-collector.war` with the version contained in the archive:
 
 ```bash
 cp ./axibase-collector/lib/axibase-collector.war /opt/axibase-collector/lib/
@@ -66,7 +66,3 @@ cp ./axibase-collector/lib/axibase-collector.war /opt/axibase-collector/lib/
 ## Updating Collector on Docker
 
 Follow the steps outlined in the following [note](updating-collector-on-docker.md).
-
-
-
-
