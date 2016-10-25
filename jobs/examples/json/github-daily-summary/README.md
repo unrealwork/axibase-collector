@@ -4,7 +4,7 @@
 
 Download GitHub Daily Summary by using [api](https://status.github.com/api).
 
-The Json Path field contains `${DATE_ITEM}` placeholder so that multiple dates can be queried with one configuration.
+The Json Path field contains the `${DATE_ITEM}` placeholder so that multiple dates can be queried with one configuration.
 
 
 ## File

@@ -13,7 +13,7 @@ JSON Lines is a text format, also called [newline-delimited JSON](http://jsonlin
 
 [JSON Lines](json_lines.txt) file.
 
-Before processing JSON Lines are converted to JSON array:
+Before processing JSON Lines are converted to a JSON array:
 
 ```json
 [

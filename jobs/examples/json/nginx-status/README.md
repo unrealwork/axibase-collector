@@ -2,15 +2,15 @@
 
 ## Overview
 
-Download Nginx statistics by [api](http://nginx.org/en/docs/http/ngx_http_status_module.html).
+Download Nginx statistics using [api](http://nginx.org/en/docs/http/ngx_http_status_module.html).
 
-The Path field contains `${ITEM}` placeholder so that multiple servers can be queried with one configuration.
+The Path field contains the `${ITEM}` placeholder so that multiple servers can be queried with one configuration.
 
 ## File
 
 ### URI
 
-Template: http://${ITEM}/status
+Template: `http://${ITEM}/status`
 
 Example: http://demo.nginx.com/status
 
@@ -152,7 +152,7 @@ Example: http://demo.nginx.com/status
 
 <br>
 
-* **Caches, server zones and upstreams:**
+* **Caches, Server Zones, and Upstreams:**
   ```javascript
   $['caches'|'server_zones'|'upstreams'].*
   ```
@@ -267,7 +267,7 @@ Example: http://demo.nginx.com/status
 
 <br>
 
-* **Server zones:**
+* **Server Zones:**
   ```javascript
   $['stream']['server_zones'].*
   ```
