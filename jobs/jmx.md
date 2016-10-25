@@ -67,7 +67,7 @@ java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 
 > If the entity name query fails to provide a value or if bean or attribute is not found, the entity name will be set to the Host field. If the composite expression retrieves a value successfully, it will be stored in the Axibase Collector database and will be re-used in case of subsequent connection errors.
 
-#### Queries
+#### Queries  
 
 Configuration includes a list of MBean queries consisting of two parts:
 
