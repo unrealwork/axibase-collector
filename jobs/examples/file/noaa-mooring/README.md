@@ -9,11 +9,11 @@ FTP server access is anonymous.
 
 The Path field contains a wildcard to match multiple files that provide data in the expected format.
 
-Default Entity is extracted from file name.
+Default Entity is extracted from the file name.
 
-The files are copied to success or error directory on completion.
+The files are copied to a success or error directory on completion.
 
-The parser discard reserved (invalid) values: -999 and -9.999.
+The parser discards reserved (invalid) values: -999 and -9.999.
 
 ## File
 

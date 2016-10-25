@@ -6,9 +6,11 @@ Download Q&A activity statistics for a set of stackoverflow tags in JSON format.
 
 API key is required.
 
-Included fields are `count, name` of which count becomes a metric and name becomes as a series tag.
+Included fields are `count, name`. 
 
-Records are timestamped with current time.
+`count` becomes a metric and `name` becomes a series tag.
+
+Records are timestamped with the current time.
 
 ## File
 
