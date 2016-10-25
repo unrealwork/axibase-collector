@@ -65,9 +65,9 @@ In addition, the entity name can be retrieved dynamically by specifying the MBea
 java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 ```
 
-> If the entity name query fails to provide a value or if bean or attribute is not found, the entity name will be set to the Host field. If the composite expression retrieves a value successfully, it will be stored in the Axibase Collector database and will be re-used in case of subsequent connection errors.
+> If the entity name query fails to provide a value or if the bean or attribute is not found, the entity name will be set to the Host field. If the composite expression retrieves a value successfully, it will be stored in the Axibase Collector database and will be re-used in case of subsequent connection errors.
 
-#### Queries  
+#### Queries
 
 Configuration includes a list of MBean queries consisting of two parts:
 
@@ -82,25 +82,25 @@ org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCoun
 
 Object Name pattern matches all MBean instances of specified type and name. 
 
-The Attribute Name list selects attributes whose values will be retrieved and sent to the database. Attribute Name list can include specific names as well as name patterns. 
+The Attribute Name list selects attributes whose values will be retrieved and sent to the database. The Attribute Name list can include specific names as well as name patterns. 
 
-Both part of the query support wildcards:
+Both parts of the query support wildcards:
 
-* Asterisk (*) replaces any number (including zero) of characters
-* Question mark (?) replaces any one character
+* Asterisk `*` replaces any number (including zero) of characters.
+* Question mark `?` replaces any one character.
 
 ##### Object Name Pattern Examples
 
-* *:type=Foo,name=Bar to match names in any domain whose exact set of keys is type=Foo,name=Bar.
-* d:type=Foo,name=Bar,* to match names in the domain d that have the keys type=Foo,name=Bar plus zero or more other keys.
-* *:type=Foo,name=Bar,* to match names in any domain that has the keys type=Foo,name=Bar plus zero or more other keys.
-* d:type=F?o,name=Bar will match e.g. d:type=Foo,name=Bar and d:type=Fro,name=Bar.
-* d:type=F*o,name=Bar will match e.g. d:type=Fo,name=Bar and d:type=Frodo,name=Bar.
-* d:type=Foo,name="B*" will match e.g. d:type=Foo,name="Bling". Wildcards are recognized inside quotes and can be escaped with \.
+* `*:type=Foo,name=Bar`: matches names in any domain whose exact set of keys is `type=Foo,name=Bar`.
+* `d:type=Foo,name=Bar,*`: matches names in the domain `d` that have the keys `type=Foo,name=Bar` plus zero or more other keys.
+* `*:type=Foo,name=Bar,*`: matches names in any domain that has the keys `type=Foo,name=Bar` plus zero or more other keys.
+* `d:type=F?o,name=Bar`: matches for example `d:type=Foo,name=Bar` and `d:type=Fro,name=Bar`.
+* `d:type=F*o,name=Bar`: matches for example `d:type=Fo,name=Bar` and `d:type=Frodo,name=Bar`.
+* `d:type=Foo,name="B*"`: matches for example `d:type=Foo,name="Bling"`. Wildcards are recognized inside quotes and can be escaped with `\`.
 
 ##### Attribute Name Pattern Examples
 
-You can specify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean java.lang:*,type=GarbageCollector, specify * in the corresponding attribute selector field.
+You can specify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean `java.lang:*,type=GarbageCollector`, specify `*` in the corresponding attribute selector field.
 
 | Object Name Pattern        | Attribute Name List  |
 |:-------------|:-------------|
@@ -108,10 +108,10 @@ You can specify the list of collected attributes by replacing specific attribute
 | `java.lang:*,type=GarbageCollector` | `CollectionCount, LastGcInfo.*`|
 | `java.lang:type=Memory` | `HeapMemoryUsage*` |
 
-Special processing for PROPERTY command:
+Special processing for `PROPERTY` command:
 
 - Attribute Name list is ignored for property commands since property commands collect all attributes of the matched beans.
-- The default value for property `type` field is set to MBean type, for instanance, to `Broker` in the example above. To override the default type, enter a custom value in Property Type column.
+- The default value for property `type` field is set to MBean type, for instance, to `Broker` in the example above. To override the default type, enter a custom value in `property_type` column.
 
 ![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 
@@ -122,9 +122,9 @@ Special processing for PROPERTY command:
 
 ## Viewer
 
-Click Viewer to open a tree-based MBean navigator displaying available Management Beans and their attributes.
+Click 'Viewer' to open a tree-based MBean navigator displaying available Management Beans and their attributes.
 
-Select a checkbox next to an attribute name to add to the list of collected attributes. Modify the expression by replacing specific Object Name fields with wildcards, if necessary.
+Select a checkbox next to an attribute name to add to the list of collected attributes. Modify the expression by replacing the specific Object Name fields with wildcards, if necessary.
 
 ![JMX Viewer](https://axibase.com/wp-content/uploads/2014/06/jmx_viewer.png)
 
@@ -132,12 +132,12 @@ Select a checkbox next to an attribute name to add to the list of collected attr
 
 The following MBean attributes are ignored from Viewer and commands:
 
-* Attribute value cannot be obtained due to a processing error: <br>- UnsupportedOperationException<br>- UnmarshalException<br>- ReflectionException<br>- RuntimeOperationsException<br>- InstanceNotFoundException
-* Attribute value is NaN (Not a Number) for numeric attributes in case of **series** command. <br>NaN can occur, for example, on division by zero.
+* Attribute value cannot be obtained due to a processing error: <br>- `UnsupportedOperationException`<br>- `UnmarshalException`<br>- `ReflectionException`<br>- `RuntimeOperationsException`<br>- `InstanceNotFoundException`
+* Attribute value is NaN (Not a Number) for numeric attributes in case of a **series** command. <br>NaN can occur, for example, on division by zero.
 
-### Attrubute Error Debugging
+### Attribute Error Debugging
 
-To view attributes ignored due to processing errors, enable debugging for **MBeansInfoExtractor** class:
+To view attributes ignored due to processing errors, enable debugging for the **MBeansInfoExtractor** class:
 
 ```xml
 <logger name="com.axibase.collector.model.jmx.MBeansInfoExtractor" level="DEBUG">
@@ -145,7 +145,7 @@ To view attributes ignored due to processing errors, enable debugging for **MBea
 </logger>
 ```
 
-Restart Axibase Collector process, execute the JMX job or open the Viewer to review the log:
+Restart Axibase Collector process, execute the JMX job, or open the Viewer to review the log:
 
 ```
 tail -f ./axibase-collector/logs/axibase-collector.log
