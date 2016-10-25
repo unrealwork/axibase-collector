@@ -13,7 +13,7 @@ The following placeholders are supported to format strings, calculate dates, and
 | `${TIME()}` | Text output of the `TIME` function. |
 | `${DATE_ITEM()}` | Current element in the Date Item list.|
 
-* (1) In case of HTTP protocol, placeholder `${FILE}` returns part of the URL after the last slash and before query string, for example, `http://examples.com/data/stats.csv?city=Denver` -> `${FILE}` = `stats.csv`
+* (1) In the case of HTTP protocol, the placeholder `${FILE}` returns part of the URL after the last slash and before query string. For example: `http://examples.com/data/stats.csv?city=Denver` -> `${FILE}` = `stats.csv`
 
 ## Usage 
 
@@ -26,11 +26,11 @@ The following placeholders are supported to format strings, calculate dates, and
 | `${TIME()}` | Path, Success Directory, Error Directory | All |
 | `${DATE_TIME()}` | Path | All |
 
-* To URL-encode placeholder value, for example, if it may contain special characters and is included in Path, apply `url` function as follows: `${ITEM?url}`.
+* To URL-encode placeholder value, for example, if it may contain special characters and is included in the Path, apply the `url` function as follows: `${ITEM?url}`.
 
 ## Syntax
 
-The placeholder is prefix with `$` and enclosed in curly brackets `{}`.
+The placeholder is prefixed with `$` and enclosed in curly brackets `{}`.
 
 ```ls
 ${PLACEHOLDER}
@@ -46,27 +46,27 @@ file:///opt/files/inbound/${TIME("previous_day", "yyyy-MM-dd")}/daily.csv
 
 ## Functions
 
-### TIME Function
+### `TIME` Function
 
-TIME function calculates the time based on [endtime](https://github.com/axibase/atsd-docs/blob/master/end-time-syntax.md) syntax outputs its value in the specified `time_format`.
+The `TIME` function calculates time based on the [endtime](https://github.com/axibase/atsd-docs/blob/master/end-time-syntax.md). The syntax outputs its value in the specified `time_format`.
 
 Syntax: `${TIME("end_time_syntax", "time_format")}` 
 
 Example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}` 
 
-Time format can be specified using a of: `y`, `M`, `d`, `H`, `m`, `s`. See [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for reference.
+The time format can be specified using `y`, `M`, `d`, `H`, `m`, or `s`. See [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for reference.
 
-If the TIME function returns a number, it can be used in addition or subtraction expressions:
+If the `TIME` function returns a number, it can be used in addition or subtraction expressions:
 
-Example: `${TIME("2016-01-01","M") - 1}` -- subtract 1 from month
+Example: `${TIME("2016-01-01","M") - 1}` -- subtract 1 from month.
 
-### DATE_ITEM Function
+### `DATE_ITEM` Function
 
-DATE_ITEM function returns an array of strings.
+The `DATE_ITEM` function returns an array of strings.
 
 It creates an array of dates between start and end time arguments, and formats these dates into strings with the specified date format.
 
-If the path contains `${DATE_ITEM()}` placeholder, it should execute a separate file request for each string in the array.
+If the path contains the `${DATE_ITEM()}` placeholder, it should execute a separate file request for each string in the array.
 
 Syntax: `${DATE_ITEM(startDate, endDate, periodCount, periodUnit, timeFormat)}` 
 
@@ -86,11 +86,11 @@ Example: `${FILE?keep_before("_")}`
 
 | **Function** | **Description** | 
 |:---|:---|
-| [`keep_after`](#keep_after) | Removes part of the string before first occurrence of the given substring |
-| [`keep_after_last`](#keep_after_last) | Removes part of the string before last occurrence of the given substring |
+| [`keep_after`](#keep_after) | Removes part of the string before the first occurrence of the given substring. |
+| [`keep_after_last`](#keep_after_last) | Removes part of the string before the last occurrence of the given substring. |
 | [`keep_before`](#keep_before) | Removes part of the string that starts with the first occurrence of the given substring. |
 | [`keep_before_last`](#keep_before_last) | Removes part of the string that starts with the last occurrence of the given substring. |
-| [`replace`](#replace) | Replace all occurrences of the given string in in the original string with another string |
+| [`replace`](#replace) | Replace all occurrences of the given string in the original string with another string. |
 | [`remove_beginning`](#remove_beginning) | Removes the given substring from the beginning of the string. |
 | [`remove_ending`](#remove_ending) | Removes the given substring from the end of the string. |
 
@@ -116,7 +116,7 @@ Input: **ftp.example.com/data/95014_Cupertino_20160625_DAILY.csv**
 
 ### String Function Examples
 
-The following examples based on [`Path `](file.md#download) field value and can be used to define [`Default Entity`](file.md#upload)
+The following examples are based on the [`Path `](file.md#download) field value and can be used to define [`Default Entity`](file.md#upload).
 
 #### keep_after 
 * `file:///opt/files/cpu_busy.*` 
