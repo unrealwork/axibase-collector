@@ -167,7 +167,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 ### Entity Views
 
 * Open **Configuration:Entity Views**, click the `Import` button and upload  [activemq_entity_view.xml](configs/activemq_entity_view.xml).
-* Select the imported `	Apache ActiveMQ Brokers` view.
+* Select the imported `Apache ActiveMQ Brokers` view.
 * Select the Entity Group that you created earlier.
 * Click on the `View` button and browse information about your entities.
 

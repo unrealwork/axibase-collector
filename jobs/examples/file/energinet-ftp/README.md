@@ -21,24 +21,24 @@ Example: `ftp000148:my-pwd@10.102.0.51:21/onlinedata/20160609_onlinedata.txt`
 ### First Lines
 
 ```ls
- 1 Centrale kraftv�rker DK1
- 2 Centrale kraftv�rker DK2
- 3 Decentrale kraftv�rker DK1
- 4 Decentrale kraftv�rker DK2
- 5 Vindm�ller DK1
- 6 Vindm�ller DK2
+ 1 Centrale kraftværker DK1
+ 2 Centrale kraftværker DK2
+ 3 Decentrale kraftværker DK1
+ 4 Decentrale kraftværker DK2
+ 5 Vindmøller  DK1
+ 6 Vindmøller  DK2
  7 Udveksling Jylland-Norge
  8 Udveksling Jylland-Sverige
  9 Udveksling Jylland-Tyskland
-10 Udveksling Sj�lland-Sverige
-11 Udveksling Sj�lland-Tyskland
+10 Udveksling Sjælland-Sverige
+11 Udveksling Sjælland-Tyskland
 12 Udveksling Bornholm-Sverige
 13 Udveksling Fyn-Sjaelland
 14 Temperatur i Malling
 15 Vindhastighed i Malling
 16 CO2 udledning
-17 Havm�ller DK
-18 Landm�ller DK
+17 Havmøller  DK
+18 Landmøller  DK
 19 Solceller DK1
 20 Solceller DK2
  

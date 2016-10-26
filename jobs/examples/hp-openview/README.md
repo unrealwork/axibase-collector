@@ -19,7 +19,7 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 ### Configure HP Open View HTTP Pool
 
 * Open the **Data Sources:HTTP Pools** page, select the `ovpm-10.102.0.6` database.
-* Provide connection parameters to the target `	ovpm-10.102.0.6` pool as displayed below:
+* Provide connection parameters to the target `ovpm-10.102.0.6` pool as displayed below:
 
 ![](images/http_pool_conf.png)
 

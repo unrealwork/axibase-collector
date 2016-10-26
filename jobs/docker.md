@@ -94,7 +94,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Configure Docker daemon for secure access by default. 
 
-    * Edit the `/etc/default/docker` file for Ubuntu or create a `/etc/sysconfig/docker` file for CentOS
+    * Edit the `/etc/default/docker` file for Ubuntu or create a `/etc/sysconfig/docker` file for CentOS:
 
    ```properties
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
@@ -105,7 +105,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
    
-    * For CentOS, in addition, create the file `/etc/systemd/system/docker.service.d/docker.conf`
+    * For CentOS, in addition, create the file `/etc/systemd/system/docker.service.d/docker.conf`:
    
    ```properties
    [Service]

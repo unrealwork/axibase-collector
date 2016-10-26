@@ -95,7 +95,7 @@ Only scripts in the `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
 
 The `Command` field should start with the script file name (absolute path not supported) and optional script arguments.
 
-The script should return a list of items separated by line break to 'stdout'.
+The script should return a list of items separated by line breaks to 'stdout'.
 
 ![SCRIPT Type](collection_script_type.png)
 
