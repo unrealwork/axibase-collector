@@ -2,7 +2,7 @@
 
 This list contains references to datasets released by State Governments on [data.gov](http://catalog.data.gov/dataset?q=&sort=views_recent+desc&organization_type=State+Government&res_format=JSON) in [Socrata](https://github.com/socrata) format (JSON).
 
-#Dataset types:
+#Dataset Types:
 ##[Series](#series-1)
 ##[Messages](#messages-1)
 ___
@@ -18,7 +18,7 @@ ___
 | Maryland | [Employment Figures](#employment-figures) | Bureau of Labor Statistics |
 | New York | [Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor: Beginning 2010](#solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginning-2010) | New York State Energy Research and Development Authority |
 | Hawaii | [Table 17: Solid Waste Recycled (in tons)](#table-17-solid-waste-recycled-in-tons) | Iowa Department of Education, Adequate Yearly Progress |
-| Iowa | [Math And Reading Proficiency by School Year, Public School District and Grade Level](#math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level) | Iowa Department of Education, Adequate Yearly Progress |
+| Iowa | [Math And Reading Proficiency by School Year, Public School District, and Grade Level](#math-and-reading-proficiency-by-school-year-public-school-district-and-grade-level) | Iowa Department of Education, Adequate Yearly Progress |
 | Hawaii | [AAA Fuel Prices](#aaa-fuel-prices) | Department of Economic Development and Tourism |
 | Connecticut | [Sales and Use Tax per Town by NAICS (2013 and 2014)](#sales-and-use-tax-per-town-by-naics-2013-and-2014) | Department of Revenue Services |
 | Maryland | [Per Capita Electricity Consumption](#per-capita-electricity-consumption) | MEA |
@@ -137,7 +137,7 @@ m:m_v_theft=599.3 m:violent_crime_rate=608.6 m:rape=22.3 m:population=331390
 | Id | u49g-d7hw |
 | Name | Automobiles Annual Imports and Exports Through Port Authority of NY NJ Maritime Terminals: Beginning 2000 |
 | State | [New York](https://data.ny.gov) |
-| Description | This dataset represents the total number of Automobiles Imported and Exported annually through maritime terminals located within Port Authority property in the Port of New York and New Jersey in vehicle units beginning 2000 |
+| Description | This dataset represents the total number of Automobiles Imported and Exported annually through maritime terminals located within Port Authority property in the Port of New York and New Jersey in vehicle units beginning in 2000. |
 | Attribution | The Port Authority of New York & New Jersey |
 | Category | Transportation |
 | Date Range | 2000-2015 |
@@ -166,7 +166,7 @@ series e:u49g-d7hw d:2015-01-01T00:00:00.000Z t:type=Imports m:volume=433822
 | Id | je5z-53wn |
 | Name | Employment Figures |
 | State | [Maryland](https://data.maryland.gov) |
-| Description | Figures come from the Bureau of Labor Statistics, and are subject to revision. |
+| Description | Figures from the Bureau of Labor Statistics, and are subject to revision. |
 | Attribution | Bureau of Labor Statistics |
 | Category | Business and Economy |
 | Date Range | 2003-2014 |
@@ -209,7 +209,7 @@ m:maryland_unemployment=126413
 | Id | 3pzs-2zsk |
 | Name | Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor: Beginning 2010 |
 | State | [New York](https://data.ny.gov) |
-| Description | The Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor Dataset provides market insight into the volume of work and photovoltaic (PV) capacity installed in New York State annually, by city and contractor, beginning August 2010 under the New York State Energy Research and Development Authority (NYSERDA)’s NY-Sun Solar Electric Incentive Program Opportunity Notice (PON) 2112.The dataset includes the following data points: Project Install Year, Contractor, County, City, Project Count by City, Project Cost, NYSERDA Incentives, Kilowatt Capacity, Expected Annual Kilowatt Hour Production, and NYSERDA Solicitation. |
+| Description | The Solar Photovoltaic (PV) Incentive Program Completed Projects by City and Contractor Dataset provides market insight into the volume of work and photovoltaic (PV) capacity installed in New York State annually, by city and contractor, beginning August 2010 under the New York State Energy Research and Development Authority (NYSERDA)’s NY-Sun Solar Electric Incentive Program Opportunity Notice (PON) 2112. The dataset includes the following data points: Project Install Year, Contractor, County, City, Project Count by City, Project Cost, NYSERDA Incentives, Kilowatt Capacity, Expected Annual Kilowatt Hour Production, and NYSERDA Solicitation. |
 | Attribution | New York State Energy Research and Development Authority |
 | Category | Energy & Environment |
 | Date Range | 2010-2015 |
@@ -273,14 +273,14 @@ m:diverted_statewide=688820 m:produced_statewide=2116724
 }
 ```
 
-### Math And Reading Proficiency by School Year, Public School District and Grade Level
+### Math And Reading Proficiency by School Year, Public School District, and Grade Level
 
 | **Name** | **Value** |
 |:---|:---|
 | Id | f3h8-mnxi |
 | Name | Math And Reading Proficiency by School Year, Public School District and Grade Level |
 | State | [Iowa](https://data.iowa.gov) |
-| Description | Dataset contains information on public school districts academic progress of their students in reading and math annually starting with school year ending in 2003.  All public schools and districts report annually to the Iowa Department of Education through Adequate Yearly Progress (AYP)<br>All AYP determinations are made annually using reading and math student assessment data.  Proficiency is based on a standard score scale.  More information can be found at: http://itp.education.uiowa.edu/ia/AYPInformation.aspx |
+| Description | Dataset contains information on public school districts academic progress of their students in reading and math annually starting with school year ending in 2003.  All public schools and districts report annually to the Iowa Department of Education through Adequate Yearly Progress (AYP).<br>All AYP determinations are made annually using reading and math student assessment data.  Proficiency is based on a standard score scale.  More information can be found at: http://itp.education.uiowa.edu/ia/AYPInformation.aspx |
 | Attribution | Iowa Department of Education, Adequate Yearly Progress |
 | Category | Education |
 | Date Range | 2003-2015 |
@@ -349,7 +349,7 @@ t:physicalunit=Dollars m:price=2.314
 | Id | rkm7-uwkb |
 | Name | Sales and Use Tax per Town by NAICS (2013 and 2014) |
 | State | [Connecticut](https://data.ct.gov) |
-| Description | Sales and use tax data, by quarter, by town, disaggreagted by North America Industrial Classification (NAICS) groups for calendar years 2013 and 2014.  The data available is unique to each municipality as detailed NAICS information is only provided where there are ten or more taxpayers in a given category.<br>This data will be updated annually so that all four quarters of a calendar year are available at once.  This list reflects the tax collected at both the 6.35% and 7% rates, where applicable |
+| Description | Sales and use tax data, by quarter, by town, disaggregated by the North America Industrial Classification (NAICS) groups for calendar years 2013 and 2014.  The data available is unique to each municipality as detailed NAICS information is only provided where there are ten or more taxpayers in a given category.<br>This data will be updated annually so that all four quarters of a calendar year are available at once.  This list reflects the tax collected at both the 6.35% and 7% rates, where applicable. |
 | Attribution | Department of Revenue Services |
 | Category | Government |
 | Date Range | 2013-2014 |
@@ -385,7 +385,7 @@ m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 | Id | 64jf-g2fe |
 | Name | Per Capita Electricity Consumption |
 | State | [Maryland](https://data.maryland.gov) |
-| Description | Data are provided by the Maryland Energy Administration (MEA). Data show per capita electricity usage overall and usage demand during times of peak electricity use (peak demand). |
+| Description | Data are provided by the Maryland Energy Administration (MEA). The data shows per capita electricity usage overall and usage demand during times of peak electricity use (peak demand). |
 | Attribution | MEA |
 | Category | Energy and Environment |
 | Date Range | 2007-2015 |
@@ -434,7 +434,7 @@ m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 | Id | un65-7ipd |
 | Name | MVA Vehicle Sales Counts by Month for CY 2002-2015 |
 | State | [Maryland](https://data.maryland.gov) |
-| Description | The number of new and used vehicles and the sales dollars respectively sold by month.Data as of October 2015 |
+| Description | The number of new and used vehicles and the sales dollars respectively sold by month. Data as of October 2015. |
 | Attribution | Motor Vehicle Administration |
 | Category | Transportation |
 | Date Range | 2007-2015 |
@@ -467,7 +467,7 @@ m:used=49927 m:total_sales_new=755015820
 | Id | qm34-pq7e |
 | Name | DAS HR Almanac - Executive Branch Employment By Race |
 | State | [Connecticut](https://data.ct.gov) |
-| Description | This data is reflective of the State of Connecticut Executive Branch workforce only.  The data does not reflect employees of the University of Connecticut Health Center, University of Connecticut and Board of Regents which includes the state university system and community colleges.  Judicial Branch and Legislative Branch employees are also not reflected in this data. |
+| Description | This data is reflective of the State of Connecticut Executive Branch workforce only.  The data does not reflect employees of the University of Connecticut Health Center, University of Connecticut, and Board of Regents which includes the state university system and community colleges.  Judicial Branch and Legislative Branch employees are also not reflected in this data. |
 | Attribution | DAS Human Resources |
 | Category | Government |
 | Date Range | 2003-2015 |
@@ -502,7 +502,7 @@ m:amer_indian=117 m:hispanic=2956 m:black=6559 m:asian=568
 | Id | d8hf-wqd9 |
 | Name | Scholarship Recipients and Dollars by Sector Group: Beginning 2009 |
 | State | [New York](https://data.ny.gov) |
-| Description | This data includes the number of Scholarship award recipients and dollar amounts by TAP Sector Group beginning academic year 2009 (for HESC-administered scholarships only) |
+| Description | This data includes the number of Scholarship award recipients and dollar amounts by TAP Sector Group beginning with the 2009 academic year (for HESC-administered scholarships only). |
 | Attribution | New York State Higher Education Services Corporation |
 | Category | Education |
 | Date Range | 2009-2014 |
@@ -536,7 +536,7 @@ m:scholarship_fte=2.5 m:scholarship_headcount=3
 | Id | uubd-eei2 |
 | Name | Public Assistance and SNAP Fraud Prevention Performance Measures: Beginning 2013 |
 | State | [New York](https://data.ny.gov) |
-| Description | This dataset from the New York State Office of Temporary and Disability Assistance contains the results of several local district investigations initiated by flagged cases of the State’s cash public assistance programs and the Supplemental Nutrition Assistance Program (SNAP).  It includes information from the Front End Detection System (FEDS), from Intentional Program Violations (IPVs), from Prison matches and from the Public Assistance Reporting Information System (PARIS). |
+| Description | This dataset from the New York State Office of Temporary and Disability Assistance contains the results of several local district investigations initiated by flagged cases of the State’s cash public assistance programs and the Supplemental Nutrition Assistance Program (SNAP).  It includes information from the Front End Detection System (FEDS), the Intentional Program Violations (IPVs), Prison matches, and from the Public Assistance Reporting Information System (PARIS). |
 | Attribution | New York State Office of Temporary and Disability Assistance (OTDA) |
 | Category | Human Services |
 | Date Range | 2013-2016 |
@@ -660,7 +660,7 @@ m:commuter_bus_total=249082 m:taxi_access_trips=29592
 | Id | yrss-ncc4 |
 | Name | Employee Compensation by Industry in Iowa |
 | State | [Iowa](https://data.iowa.gov) |
-| Description | This dataset contains employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates.  All dollar estimates are in current dollars (not adjusted for inflation).  Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for their work during the period. It consists of wages and salaries and of supplements to wages and salaries. Compensation is presented on an accrual basis--that is, it reflects compensation liabilities incurred by the employer in a given period regardless of when the compensation is actually received by the employee. The estimates of compensation by industry for 1998-2006 are based on the 2002 North American Industry Classification System (NAICS). The estimates for 2007-2010 are based on the 2007 NAICS. The estimates for 2011 forward are based on the 2012 NAICS. |
+| Description | This dataset contains employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates.  All dollar estimates are in current dollars (not adjusted for inflation).  Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for their work during the period. It consists of wages and salaries and of supplements to wages and salaries. Compensation is presented on an accrual basis - that is, it reflects compensation liabilities incurred by the employer in a given period regardless of when the compensation is actually received by the employee. The estimates of compensation by industry for 1998-2006 are based on the 2002 North American Industry Classification System (NAICS). The estimates for 2007-2010 are based on the 2007 NAICS. The estimates for 2011 forward are based on the 2012 NAICS. |
 | Attribution | U.S. Department of Commerce, Bureau of Economic Analysis, Compensation of Employees by Industry (SQ6, SQ6N) |
 | Category | Economy |
 | Date Range | 1998-2016 |
@@ -901,7 +901,7 @@ t:city=ATLANTA t:registry_number=122151194
 | Id | snfi-f79b |
 | Name | UCC List of Filings Entered Last Month |
 | State | [Oregon](https://data.oregon.gov) |
-| Description | Updated 8/1/2016 List of New UCC filings entered during the previous month.  This list will be updated by the 9th of every month. |
+| Description | Updated 8/1/2016. List of New UCC filings entered during the previous month.  This list will be updated by the 9th of every month. |
 | Category | Business |
 | Date Range | July 2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/ucc-list-of-filings-entered-last-month-7c45d),  [metadata](https://data.oregon.gov/api/views/snfi-f79b),  [data](https://data.oregon.gov/api/views/snfi-f79b/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/6e35e121) |
@@ -973,7 +973,7 @@ t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 | Id | rybz-nyjw |
 | Name | Accidental Drug Related Deaths  2012-2015 |
 | State | [Connecticut](https://data.ct.gov) |
-| Description | A listing of each accidental death associated with drug overdose in Connecticut from 2012 to 2015. A "Y" value under the different substance columns indicates that particular substance was detected.Data are derived from an investigation by the Office of the Chief Medical Examiner which includes the toxicity report, death certificate, as well as a scene investigation.The “Morphine (Not Heroin)” values are related to the differences between how Morphine and Heroin are metabolized and therefor detected in the toxicity results. Heroin metabolizes to 6-MAM which then metabolizes to morphine.  6-MAM is unique to heroin, and has a short half-life (as does heroin itself). Thus, in some heroin deaths, the toxicity results will not indicate whether the morphine is from heroin or prescription morphine. In these cases the Medical Examiner may be able to determine the cause based on the scene investigation (such as  finding heroin needles). If they find prescription morphine at the scene it is certified as “Morphine (not heroin).” The refor, the Cause of Death may indicate Morphine, but the Heroin or Morphine (Not Heroin) may not be indicated.“Any Opioid” – If the Medical Examiner cannot conclude whether it’s RX Morphine or heroin based morphine in the toxicity results, that column may be checked |
+| Description | A listing of each accidental death associated with drug overdose in Connecticut from 2012 to 2015. A "Y" value under the different substance columns indicates whether that particular substance was detected. Data is derived from an investigation by the Office of the Chief Medical Examiner which includes the toxicity report, death certificate, as well as a scene investigation. The “Morphine (Not Heroin)” values are related to the differences between how Morphine and Heroin are metabolized and therefore detected in the toxicity results. Heroin metabolizes to 6-MAM which then metabolizes to morphine.  6-MAM is unique to heroin, and has a short half-life (as does heroin itself). Thus, in some heroin deaths, the toxicity results will not indicate whether the morphine is from heroin or prescription morphine. In these cases the Medical Examiner may be able to determine the cause based on the scene investigation (such as  finding heroin needles). If they find prescription morphine at the scene it is certified as “Morphine (not heroin).” Therefor, the Cause of Death may indicate Morphine, but the Heroin or Morphine (Not Heroin) may not be indicated. “Any Opioid” – if the Medical Examiner cannot conclude whether the cause of death is from RX Morphine or heroin based morphine in the toxicity results, that column may be checked |
 | Attribution | Office of the Chief Medical Examiner |
 | Category | Health and Human Services |
 | Date Range | 2012-2015 |
@@ -1031,7 +1031,7 @@ t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodi
 | Id | 2ix7-8hwk |
 | Name | Oregon Consumer Complaints |
 | State | [Oregon](https://data.oregon.gov) |
-| Description | Consumer complaints registered with the Oregon Dept. of Justice.  The database of consumer complaints is derived from consumer contacts for the past 3 years and is for information only. This database may not offer a completely accurate or comprehensive account of every incident. Several factors, including a company’s size and volume of transactions, may affect the likelihood of a consumer complaint being filed. The number of complaints about a business may not be a reliable measure as to whether it is appropriately conducting business.The information in this database is updated as soon as possible. However, recently submitted complaints may not be immediately available.The statements in this database do not necessarily reflect the opinion of the DOJ.For more information, see http://www.doj.state.or.us/finfraud/index.shtml |
+| Description | Consumer complaints registered with the Oregon Deptartment of Justice.  The database of consumer complaints is derived from consumer contacts for the past 3 years and is for information only. This database may not offer a completely accurate or comprehensive account of every incident. Several factors, including a company’s size and volume of transactions, may affect the likelihood of a consumer complaint being filed. The number of complaints about a business may not be a reliable measure as to whether it is appropriately conducting business. The information in this database is updated as soon as possible. However, recently submitted complaints may not be immediately available. The statements in this database do not necessarily reflect the opinion of the DOJ. For more information, see http://www.doj.state.or.us/finfraud/index.shtml |
 | Attribution | Oregon Department of Justice |
 | Category | Public Safety |
 | Date Range | 2013-2016 |
@@ -1076,7 +1076,7 @@ m:"Provided goods or services different than the ones complainant ordered; unaut
 | Id | qkvm-skze |
 | Name | OAHU Food Establishments |
 | State | [Hawaii](https://data.hawaii.gov) |
-| Description | Lists represent all of the permitted Food Establishments.  These include everything from Restaurants, take out, Fast-food, Convenience stores, Mom and Pop Markets, shave ice stands, supermarkets, Mega markets like Costco-Sam’s-Walmart, lunch wagons, food manufacturers, etc |
+| Description | Lists represent all of the permitted Food Establishments.  These include everything from restaurants, take out, fast-food, convenience stores, mom and pop markets, shave ice stands, supermarkets, mega markets (such as Costco, Sam’s, and Walmart), lunch wagons, food manufacturers, etc. |
 | Attribution | Department of Health |
 | Category | Health |
 | Date Range | 2005-2012 |
@@ -1171,7 +1171,7 @@ t:crime="DRUG OFFENSES" t:age=29.0 t:gender=MALE t:type="Public Safety"
 | Id | n2dz-pwuk |
 | Name | State Liquor Authority (SLA) Brand Label and Wholesaler Information for Alcoholic Beverage Products Registered in New York State |
 | State | [New York](https://data.ny.gov) |
-| Description | Brand Label and Wholesale Information for Alcohol Products Registered in NYS.The New York State Alcohol Beverage Control Law specifies that no manufacturer or wholesaler shall sell to any retailer nor shall any retailer purchase any alcoholic beverages unless these beverages are labeled in accordance with the Authority's Rules and Federal Regulations and unless such label shall be registered with and approved by the State Liquor Authority. Effective January 1, 1994, wine does not need to be brand label registered if the wine has received label approval from the Bureau of Alcohol, Tobacco and Firearms (BATF). |
+| Description | Brand Label and Wholesale Information for Alcohol Products Registered in New York State. The New York State Alcohol Beverage Control Law specifies that no manufacturer or wholesaler shall sell to any retailer nor shall any retailer purchase any alcoholic beverages unless these beverages are labeled in accordance with the Authority's Rules and Federal Regulations, and unless such labels shall be registered with and approved by the State Liquor Authority. Effective January 1, 1994, wine does not need to be brand label registered if the wine has received label approval from the Bureau of Alcohol, Tobacco, and Firearms (BATF). |
 | Attribution | NYSLA Wholesale Bureau / NYSITS |
 | Category | Economic Development |
 | Date Range | 2016-2018 |
@@ -1253,7 +1253,7 @@ m:"Pilot the use of virtual desktops or virtual applications in the agency."
 | Id | 2kf7-i54h |
 | Name | UCC Secured Parties List |
 | State | [Oregon](https://data.oregon.gov) |
-| Description | Updated 8/1/2016 List of All Active Filings and their associated Secured Parties. This Dataset will be updated monthly by the 9th of each month. |
+| Description | Updated 8/1/2016. List of All Active Filings and their associated Secured Parties. This Dataset will be updated monthly by the 9th of each month. |
 | Category | Business |
 | Date Range | 1970-2016 |
 | Links | [catalog](http://catalog.data.gov/dataset/ucc-secured-parties-list-23e64),  [metadata](https://data.oregon.gov/api/views/2kf7-i54h),  [data](https://data.oregon.gov/api/views/2kf7-i54h/rows.json?accessType=DOWNLOAD), [portal](https://apps.axibase.com/chartlab/4a12f7d4) |

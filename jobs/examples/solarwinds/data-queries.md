@@ -1,6 +1,6 @@
-# SolarWinds data queries
+# SolarWinds Data Queries
 ## SolarWinds Base Queries
-* Metrics Queries select most recent statistics
+* Metrics Queries select the most recent statistics:
 ```SQL
 SELECT REPLACE(ISNULL(NULLIF(N.SysName, ''), N.Caption), ' ', '_') AS SysName, V.Caption AS Name,
 T.DateTime, T.DiskSize, T.AvgDiskUsed, T.PercentDiskUsed
@@ -51,7 +51,7 @@ WHERE T.NodeID = N.NodeID   AND T.DateTime > ?
 ORDER BY T.DateTime
 ```
 
-* Properties Query selects current properties
+* Properties Query selects current properties:
 ```SQL
 SELECT REPLACE(ISNULL(NULLIF(N.SysName, ''), N.Caption), ' ', '_') AS ValidSysName, ObjectSubType,
 IP_Address, IP_Address_Type,
@@ -63,7 +63,7 @@ CPULoad, MemoryUsed, PercentMemoryUsed FROM Nodes N
 ```
 
 ## SolarWinds VMware Queries
-* Metrics Queries select most recent statistics
+* Metrics Queries select the most recent statistics:
 ```SQL
 LECT N.HostName AS Name, C.Name AS Cluster, T.*
 FROM VIM_HostStatistics T, VIM_Hosts N, VIM_Clusters C
@@ -93,7 +93,7 @@ WHERE T.ClusterID = N.ClusterID
 AND N.TotalMemory > 0 AND T.DateTime > ?
 ORDER BY T.DateTime
 ```
-* Properties Query selects current properties
+* Properties Query selects current properties:
 
 ```SQL
 SELECT LOWER(REPLACE(N.Name, ' ', '_')) AS Name, N.DataStoreIdentifier, N.Type, N.URL, N.Accessible,
@@ -147,7 +147,7 @@ DatastoreUsedSpace, CpuUtilizationDepletionDate, MemoryUtilizationDepletionDate 
 ```
 ## SolarWinds AMP Queries
 
-* Metrics Queries select most recent statistics
+* Metrics Queries select the most recent statistics:
 
 ```SQL
 SELECT REPLACE(ISNULL(NULLIF(N.SysName, ''), N.Caption), ' ', '_') AS Name,
@@ -158,7 +158,7 @@ AND ISNULL(C.IsDisabled, 0) != 1 AND DateTime > ?
 ORDER BY DateTime
 ```
 
-* Properties Query selects current properties
+* Properties Query selects current properties:
 
 ```SQL
 SELECT REPLACE(ISNULL(NULLIF(N.SysName, ''), N.Caption), ' ', '_') AS Name,
