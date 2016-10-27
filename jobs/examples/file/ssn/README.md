@@ -2,7 +2,7 @@
 
 ## Overview
 
-Download Sunspot Daily Count report in CSV file and upload it into ATSD.
+Download Sunspot Daily Count report in a CSV file and upload it into ATSD.
 
 ## File
 

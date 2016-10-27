@@ -2,9 +2,9 @@
 
 ## Overview
 
-This document describes how to collect connection and request metrics from an NGINX web server for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect connection and request metrics from an NGINX web server for long-term retention and monitoring in the Axibase Time Series Database.
 
-The process involves enabling NGINX status page and configuring Axibase Collector to poll and upload this page every 5 seconds for parsing in ATSD.
+The process involves enabling the NGINX status page and configuring Axibase Collector to poll and upload this page every 5 seconds for parsing in ATSD.
 
 ## Requirements
 
@@ -14,7 +14,7 @@ The process involves enabling NGINX status page and configuring Axibase Collecto
 
 ## NGINX Server Configuration
 
-Follow the steps outlined in [NGINX server configuration guide](./nginx-configure.md) to enable metrics on its status page.
+Follow the steps outlined in the [NGINX server configuration guide](./nginx-configure.md) to enable metrics on its status page.
 
 The status page returns connection statistics in an unstructured/malformed format, which is parsed by ATSD with [RFC 7111](https://axibase.com/products/axibase-time-series-database/writing-data/csv/csv-schema/) selectors using whitespace as a separator.
 
@@ -32,14 +32,14 @@ metric(cell(row, 1) + '_' + (cell(row,col-1)+'').substring(0,(cell(row,col-1)+''
 ...
 ```
 
-## Import NGINX CSV parser configuration into ATSD
+## Import NGINX CSV Parser Configuration into ATSD
 
-* Login into ATSD web interface.
-* Open **Configuration:Parsers CSV** page. Click Import.
-* Import [CSV parser](./configs/nginx-atsd-csv-parser.xml) for NGINX status page.  
+* Login into the ATSD web interface.
+* Open the **Configuration:Parsers CSV** page. Click Import.
+* Import [CSV parser](./configs/nginx-atsd-csv-parser.xml) for the NGINX status page.  
 * The parser splits status page content into cells and assembles series commands from extracted cell values.<br>In addition, it creates a derived metric `unhandled_percent` equal to `100*(1-handled/accepted)`.
 
-## Configure jobs in Axibase Collector
+## Configure Jobs in Axibase Collector
 
 Axibase Collector will poll the NGINX status page every 5 seconds and upload the downloaded file into ATSD for parsing. Moreover, Axibase Collector will try to establish a TCP connection with the same period to check availability of the server. 
 
@@ -47,39 +47,39 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 
 ### Create Item List for NGINX servers
 
-* Open **Collections:Item Lists** page
-* Add a new TEXT [Item List](/collections.md) named **nginx-servers** containing DNS names or IP addresses of the monitored NGINX servers, one server per line. <br>Make sure that each server on the list is accessible on the specified protocol and port and exposes the status page on the same path `/nginx_status`. <br>If the protocols and ports are different, move the entire url to the list and set Path field to equal `${ITEM}` placeholder.
+* Open the **Collections:Item Lists** page.
+* Add a new TEXT [Item List](/collections.md) named **nginx-servers**, containing DNS names or IP addresses of the monitored NGINX servers, one server per line. Make sure that each server on the list is accessible on the specified protocol and port and exposes the status page on the same path: `/nginx_status`. If the protocols and ports are different, move the entire url to the list and set the Path field equal to the `${ITEM}` placeholder.
 * **Save** the list.
  
 ![Server list example](./images/nginx-server-list.png)
 
-### Import jobs
+### Import Jobs
 
-* Import [nginx-collector-jobs.xml](./configs/nginx-collector-jobs.xml) job on **Jobs:Import** page.
-* Open the `nginx-statistics` FILE job. 
-* If 'Storage' drop-down is set to `None`, select the target ATSD server.
+* Import the [nginx-collector-jobs.xml](./configs/nginx-collector-jobs.xml) job on the **Jobs:Import** page.
+* Open the `nginx-statistics` FILE job.
+* If the 'Storage' drop-down is set to `None`, select the target ATSD server.
 * Set Status to Enabled.
 * **Save** the job.
 * Open the `nginx-connect-check` TCP job. 
-* If 'Storage' drop-down is set to `None`, select the target ATSD server.
+* If the 'Storage' drop-down is set to `None`, select the target ATSD server.
 * Set Status to Enabled.
 * **Save** the job.
 
 ### Validate Data Availability
 
-* Open `nginx-status` configuration in `nginx-statistics` job.
+* Open the `nginx-status` configuration in the `nginx-statistics` job.
 * Click Test to verify processing.
 
 ![NGINX test](./images/nginx-collector-test-stat.png)
 
-* Open `nginx-connect` configuration in `nginx-connect-check` job.
-* Click Test to verify connectivity to the target server. <br>If TCP connection is successful, `tcp-connect` metric returns 0 exit code. 
+* Open the `nginx-connect` configuration in the `nginx-connect-check` job.
+* Click Test to verify connectivity to the target server. <br>If TCP connection was successful, the `tcp-connect` metric returns a 0 exit code. 
 
 ![NGINX test](./images/nginx-collector-test-TCP.png)
 
-* Login into ATSD web interface.
-* Open Metrics tab and apply `nginx*` name mask to view nginx metrics received by ATSD.
-* Click on Series link and check that metrics are present for each server in in the **nginx-servers** list.
+* Login into the ATSD web interface.
+* Open the Metrics tab and apply the `nginx*` name mask to view `nginx` metrics received by ATSD.
+* Click on the Series link and check that metrics are present for each server in the **nginx-servers** list.
 
 ![NGINX metrics](./images/nginx-metrics-list.png)
 
@@ -87,9 +87,9 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 
 | Metric                  |                                      Description                                        |
 |:-----------------------:|:----------------------------------------------------------------------------------------|
-| Active connection       |The current number of active client connections including Waiting connections.           |
+| Active connection       |The current number of active client connections, including Waiting connections.           |
 | Server accepts          |The total number of accepted client connections.                                         |
-| Server handled          |The total number of handled connections.<br> The parameter is lower than accepts if resource limits have been reached (for example, the worker_connections limit).                          |
+| Server handled          |The total number of handled connections.<br> The parameter is lower than Server accepts if the resource limits have been reached (for example, the `worker_connections` limit).                          |
 | Server requests         |The total number of client requests.                                                     |
 | Reading                 |The current number of connections where nginx is reading the request header.             |
 | Writing                 |The current number of connections where nginx is writing the response back to the client.|
@@ -99,17 +99,17 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 
 ## Metrics
 
-List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
+List of collected [NGINX server metrics](./nginx-basic-server-metrics.md).
 
 ## Entity Group
-* Open **Admin:Entity Groups**, click Import button and upload [nginx_basic_entity_group.xml](./configs/nginx_entity_group.xml)
-* Select imported nginx-servers group
-* Verify that the group contains your NGINX servers
+* Open **Admin:Entity Groups**, click the `Import` button, and upload [nginx_basic_entity_group.xml](./configs/nginx_entity_group.xml).
+* Select imported `nginx-servers` group.
+* Verify that the group contains your NGINX servers.
 
 ## Portal
-* Open **Configuration: Portals** click Import button and upload [nginx_portal.xml](./configs/nginx_portal.xml).
-* Click **Assign** link and associate the portal with the entity group you created earlier
-* Open *Entity* tabs, find the NGINX servers you would like to see information about, and click on its portal icon
+* Open **Configuration: Portals**, click the `Import` button, and upload [nginx_portal.xml](./configs/nginx_portal.xml).
+* Click the **Assign** link and associate the portal with the entity group you created earlier.
+* Open the *Entity* tab, find the NGINX servers you would like to see information about, and click on its portal icon.
 ![](./images/nginx-portal-selection.png)
 [Basic NGINX Status portal example](http://apps.axibase.com/chartlab/966f33e4)
 ![Basic NGINX Status portal](./images/nginx-portal-basic.png)
@@ -118,7 +118,7 @@ List of collected [NGINX server metrics](./nginx-basic-server-metrics.md)
 
 You can monitor key NGINX statistics by creating a rule in ATSD rule engine to send an email notification in case of abnormal conditions. 
 
-For example, you can send an email if average *Active Connections* count over the last 15 minutes on a target NGINX server drops below the specified threshold.
+For example, you can send an email if the average *Active Connections* count over the last 15 minutes on a target NGINX server drops below the specified threshold.
 
 ### Setting up Mail Client
 
@@ -127,19 +127,18 @@ For example, you can send an email if average *Active Connections* count over th
 ### Import rules
 
 * Download an [xml file](./configs/nginx_notification_rules.xml) containing the rules.
-* Open **Configuration: Rules** page.
-* Click *Import* and attach nginx_notification_rules.xml file.
-* Open created rules in the Rule Editor and change recipient address on the *Email Notifications* tab.
-* These rules will automatically apply to all NGINX servers monitored by Axibase Collector
+* Open the **Configuration: Rules** page.
+* Click *Import* and attach the `nginx_notification_rules.xml` file.
+* Open created rules in the Rule Editor and change the recipient address on the *Email Notifications* tab.
+* These rules will automatically apply to all NGINX servers monitored by Axibase Collector.
 
-The following rules are provided in the nginx_notification_rules.xml file:
+The following rules are provided in the `nginx_notification_rules.xml` file:
 
 | **Rule**                                     |                                      **Description**                        |
 |:----------------------------------------:|:------------------------------------------------------------------------|
 |nginx_unhandled_percent_high| Raise an alert when an NGINX server unhandled connection percentage is above 2%.|
 | nginx_active_connections_low | Raise an alert when an NGINX server average Active Connection count is below 10 over the last 15 minutes.|
 | nginx_active_connections_heartbeat| Raise an alert when status page statistics are no longer being received by ATSD.<br> Check that the server is reachable and Axibase Collector job is running. |
-|nginx_tcp_heartbeat| Raise an alert when TCP connect metric is no longer being received by ATSD or if tcp connect metric contains error codes.<br>Check that the server is reachable and Axibase Collector job is running.|
+|nginx_tcp_heartbeat| Raise an alert when the TCP connect metric is no longer being received by ATSD or if the TCP connect metric contains error codes.<br>Check that the server is reachable and Axibase Collector job is running.|
 
 To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md). 
-

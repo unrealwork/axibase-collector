@@ -35,12 +35,12 @@ Apart from [common](https://github.com/axibase/axibase-collector-docs/blob/maste
 
 #### Job Configuration
 
-To add a new query, on the JDBC Job page click Create Query. <br>
+To add a new query, on the JDBC Job page click 'Create Query'. <br>
 Use the table below to fill in the fields and configure the query.
 
 | FIELD              | DESCRIPTION  |
 | :----------------- |:-------------| 
-| Query           | Query field must contain the entity name, time and a collection of metric columns. |
+| Query           | Query field must contain the entity name, time, and a collection of metric columns. |
 | Default Entity  | Assign a default entity to the collected metrics. |
 | Entity Column   | Assign a column that contains the entity names. | 
 | Replacement Table |Select a [replacement table](../collections.md#replacement-tables) to convert entities. |
@@ -56,19 +56,15 @@ Use the table below to fill in the fields and configure the query.
 | Ignore Number Parse Errors | Ignore cells that fail to parse from string into number without raising error. Default: false.  |
 | Time Column | Column containing the time stamp. |
 | Time Type | Time-stamp type. <br> Possible values: TIMESTAMP, TIVOLI, TEXT, UNIX |
-| Time Format | Format of the timestamp | 
+| Time Format | Format of the timestamp. | 
 | Time Round | Time will be rounded before storing the series in ATSD. <br> Possible values: MILLISECOND, SECONDS, MINUTE, HOUR, DAY |
 | Time Zone | Time zone in which the data was originally collected and stored. |
 | Check Last Time | Ignore metrics that have time set to less than the previous entry. |
-| Query With Time | When executing the job, the server will be set the maximum time of the previous data. |
+| Query With Time | When executing the job, the server will be set to the maximum time of the previous data. |
 | Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited. |
-| Query Timeout Seconds| Amount of seconds after which the query will be interrupted, -1 is unlimited. |
+| Query Timeout Seconds| Number of seconds after which the query will be interrupted, -1 is unlimited. |
 
 ### Configuration Example
 The image below shows an example JDBC query configuration. 
 
 ![JDBC Query](https://axibase.com/wp-content/uploads/2014/06/jdbc_job.png)
-
-
-
-

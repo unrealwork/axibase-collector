@@ -1,6 +1,6 @@
 # NGINX Plus Server Metrics
 
-### Server metrics
+### Server Metrics
 * nginx-plus.processes.respawned
 * nginx-plus.connections.active
 * nginx-plus.connections.idle
@@ -12,7 +12,7 @@
 * nginx-plus.requests.current
 * nginx-plus.requests.total
 
-### Server zone metrics
+### Server Zone Metrics
 * nginx-plus.received
 * nginx-plus.responses.5xx
 * nginx-plus.responses.2xx
@@ -25,10 +25,10 @@
 * nginx-plus.requests
 * nginx-plus.sent
 
-### Upstream metrics
+### Upstream Metrics
 * nginx-plus.keepalive
 
-### Upstream's peer metrics
+### Upstream's Peer Metrics
 * nginx-plus.received
 * nginx-plus.fails
 * nginx-plus.responses.5xx
@@ -49,19 +49,19 @@
 * nginx-plus.requests
 * nginx-plus.sent
 
-### Cache metrics
+### Cache Metrics
 * nginx-plus.responses
 * nginx-plus.bytes
 * nginx-plus.responses_written
 * nginx-plus.bytes_written
 
-### Stream.server_zone metrics
+### Stream.server_zone Metrics
 * nginx-plus.stream.server_zone.connections
 * nginx-plus.stream.server_zone.received
 * nginx-plus.stream.server_zone.processing
 * nginx-plus.stream.server_zone.sent
 
-### Stream.upstream's peer metrics
+### Stream.upstream's Peer Metrics
 * nginx-plus.received
 * nginx-plus.fails
 * nginx-plus.selected

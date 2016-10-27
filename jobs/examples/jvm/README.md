@@ -2,46 +2,46 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics exposed by Java applications for long-term retention and monitoring in Axibase Time Series Database.
+This document describes how to collect JMX metrics exposed by Java applications for long-term retention and monitoring in the Axibase Time Series Database.
 
-The integration enables both performance monitoring (garbage collection, load, threads, heap/offheap memory), availability monitoring (system uptime counter), as as well as configuration tracking by notifying on changes in system properties.  
+The integration enables both performance monitoring (garbage collection, load, threads, heap/offheap memory), availability monitoring (system uptime counter), as well as configuration tracking by notifying any changes in the system properties.  
 
 ## Requirements
 
 * JRE/JDK 6+
 
-## Installation steps
+## Installation Steps
 
-### Enable JMX in Java application
+### Enable JMX in Java Application
 
 Configure your Java application for JMX data collection as described [here](../../jmx.md).
 
-### Import JVM job into Axibase Collector
+### Import JVM Job into Axibase Collector
 
- * Open **Jobs:Import** and upload [jmx-jvm-job.xml](configs/jvm_job.xml) file
+ * Open **Jobs:Import** and upload the [jmx-jvm-job.xml](configs/jvm_job.xml) file.
 
 ### Configure JMV JMX Connection
 
-* Open **Jobs:JMX** page, select `jmx-jvm` job.
+* Open the **Jobs:JMX** page and select the `jmx-jvm` job.
 * For each JMX Configuration:
-    * provide connection parameters to the target JVM as displayed below:
+    * Provide connection parameters to the target JVM as displayed below:
     ![](images/jvm_jmx_configuration.png)
-    * Click `Test` button and make sure that the result similar to the screenshot
+    * Click the `Test` button and make sure that the result is similar to the below screenshot:
     ![](images/jvm_test_jmx_configuration.png)
 
 ### Schedule the Job
 
-* Open `JMX Job` page and click `Run` button for the JVM JMX job.
+* Open the `JMX Job` page and click the `Run` button for the JVM JMX job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)
 
-* If there are no errors, set job status to Enabled and save the job
+* If there are no errors, set the job status to 'Enabled' and save the job.
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD
-* Click on Metrics tab and filter metrics by name `jmx.jvm*`
+* Login into ATSD.
+* Click on Metrics tab and filter metrics by name `jmx.jvm*`.
 
 ![](images/jvm_metrics.png)
 
@@ -49,31 +49,31 @@ Configure your Java application for JMX data collection as described [here](../.
 
 ### Metrics
 
-* List of collected [JVM metrics](metric-list.md)
+* List of collected [JVM metrics](metric-list.md).
 
 ### Properties
 
-* List of collected [JVM properties](properties-list.md)
+* List of collected [JVM properties](properties-list.md).
 
 ### Entity group
 
-* Open **Admin:Entity Groups**, click `Import` button and upload  [jvm_entity_group.xml](configs/jvm_entity_group.xml)
-* Select imported `java-virtual-machine` group
-* Verify that the group contains your JVM hosts
+* Open **Admin:Entity Groups**, click the `Import` button, and upload  [jvm_entity_group.xml](configs/jvm_entity_group.xml).
+* Select the imported `java-virtual-machine` group.
+* Verify that the group contains your JVM hosts.
 
 ### Entity Views
 
-* Open **Configuration:Entity Views**, click `Import` button and upload  [jvm_entity_view.xml](configs/jvm_entity_view.xml)
-* Select imported `Java Applications` view
-* Select Entity Group that you created earlier.
-* Click on `View` button and browse information about your entities
+* Open **Configuration:Entity Views**, click the `Import` button, and upload  [jvm_entity_view.xml](configs/jvm_entity_view.xml).
+* Select the imported `Java Applications` view.
+* Select the Entity Group that you created earlier.
+* Click on the `View` button and browse information about your entities:
 ![](images/jvm_entity_view.png)
 
 ### Portal
 
-* Open **Configuration: Portals** click `Import` button and upload [jvm_portal.xml](configs/jvm_portal.xml).
-* Click Assign link and associate the portal with the entity group you created earlier
-* Open Entity tabs, find java application by name, and click on its portal icon
+* Open **Configuration: Portals**, click the `Import` button, and upload [jvm_portal.xml](configs/jvm_portal.xml).
+* Click the Assign link and associate the portal with the entity group you created earlier.
+* Open the Entity tab, find the java application by name, and click on its portal icon:
 
 ![](images/jvm_portal_icon.png)
 
@@ -88,7 +88,7 @@ Configure your Java application for JMX data collection as described [here](../.
 
 #### Import Rules
 
-* Open **Configuration: Rules** page, click `Import` button and upload [jvm_rules.xml](configs/jvm_rules.xml).
+* Open the **Configuration: Rules** page, click the `Import` button, and upload [jvm_rules.xml](configs/jvm_rules.xml).
 * For each created rule: open it in the Rule Editor and change recipient address on the *Email Notifications* tab.
 * These rules will automatically apply to all JVM based applications monitored by Axibase Collector.
 
@@ -96,12 +96,12 @@ Imported rules:
 
 | **Rule** |  **Description** |
 | :--- | :--- |
-| jvm_application_restart | Raise an alert when an application has been restarted less than 5 minutes ago  |
-| jvm_cpu_load | Raise an alert when an application cpu load exceeds the set threshold |
-| jvm_garbage_collection_rate |  Raise an alert when an application Garbage Collector rate exceeds the set threshold |
-| jvm_garbage_collection_time |   Raise an alert when an application Garbage Collector time exceeds the set threshold |
-| jvm_heap_memory_usage | Raise an alert when an application heap memory usage exceeds the set threshold |
-| jvm_runtime_property_changed | Raise an alert when an application property changed |
-| jvm_system_load | Raise an alert when an application system load exceeds the set threshold |
+| jvm_application_restart | Raise an alert when an application has been restarted less than 5 minutes ago.  |
+| jvm_cpu_load | Raise an alert when an application cpu load exceeds the set threshold. |
+| jvm_garbage_collection_rate |  Raise an alert when an application Garbage Collector rate exceeds the set threshold. |
+| jvm_garbage_collection_time |   Raise an alert when an application Garbage Collector time exceeds the set threshold. |
+| jvm_heap_memory_usage | Raise an alert when an application heap memory usage exceeds the set threshold. |
+| jvm_runtime_property_changed | Raise an alert when an application property is changed. |
+| jvm_system_load | Raise an alert when an application system load exceeds the set threshold. |
 
 To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md).

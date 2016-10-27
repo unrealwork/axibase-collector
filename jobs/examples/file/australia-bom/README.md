@@ -2,9 +2,9 @@
 
 ## Overview
 
-Download climate observations for Australian Bureau of Meteorology (BOM) stations located in Victoria province.
+Download climate observations for the Australian Bureau of Meteorology (BOM) stations located in Victoria province.
 
-The Path field contains `${ITEM}` placeholder so that multiple stations, defined in an item list, can be queried with one configuration.
+The Path field contains the `${ITEM}` placeholder so that multiple stations, defined in an item list, can be queried with one configuration.
 
 ## File
 

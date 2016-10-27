@@ -1,6 +1,6 @@
-# VMware data queries
+# VMware Data Queries
 
-* Cluster Metrics Query
+* Cluster Metrics Query:
 
 ```SQL
 SELECT st.SAMPLE_TIME, pe.NAME AS ENTITY_NAME, (sd.GROUP_NAME + '.' + sd.NAME) AS METRIC,
@@ -30,7 +30,7 @@ HAVING COUNT(hs.STAT_VAL) > 1
 ORDER BY SAMPLE_TIME
 ```
 
-* Host Metrics Query
+* Host Metrics Query:
 
 ```SQL
 SELECT st.SAMPLE_TIME, e.NAME AS ENTITY_NAME, LOWER(e.ENTITY_TYPE) AS ENTITY_TYPE,
@@ -52,7 +52,7 @@ WHERE sd.GROUP_NAME != 'sys' AND e.PARENT_ID IS NOT NULL AND e.ENTITY_TYPE != 'V
 ORDER BY st.SAMPLE_TIME
 ```
 
-* VM Metrics Query
+* VM Metrics Query:
 
 ```SQL
 SELECT st.SAMPLE_TIME, e.NAME AS ENTITY_NAME, LOWER(e.ENTITY_TYPE) AS ENTITY_TYPE,
@@ -74,7 +74,7 @@ WHERE sd.GROUP_NAME != 'sys' AND e.PARENT_ID IS NOT NULL AND e.ENTITY_TYPE = 'VM
 ORDER BY st.SAMPLE_TIME
 ```
 
-* Cluster Properties Query
+* Cluster Properties Query:
 
 ```SQL
 SELECT pe.NAME AS CLUSTER, vms.NAME as VM, e.NAME AS HOST, vms.POWER_STATE,
@@ -86,7 +86,7 @@ WHERE e.PARENT_ENTITY_TYPE = 'CLUSTER_COMPUTE_RESOURCE' AND e.ENTITY_TYPE = 'HOS
 AND VMS.POWER_STATE = 'On'
 ```
 
-* Resource Pool Properties Query
+* Resource Pool Properties Query:
 
 ```SQL
 SELECT C.NAME, R.ALLOCATED_CPU, ALLOCATED_VM_CPU, AVAILABLE_POOL_CPU, AVAILABLE_VM_CPU,
@@ -95,13 +95,13 @@ AVAILABLE_VM_MEM, CURRENT_CPU, CURRENT_MEM, OVERALL_STATUS
 FROM VPXV_RESOURCE_POOL R (NOLOCK) INNER JOIN VPXV_COMPUTE_RESOURCE C (NOLOCK) ON R.PARENT_ID = C.RESOURCEPOOLID
 ```
 
-* Host Properties Query
+* Host Properties Query:
 
 ```SQL
 SELECT NAME AS ESXHOSTNAME, * FROM VPXV_HOSTS
 ```
 
-* VM Properties Query
+* VM Properties Query:
 
 ```SQL
 SELECT REPLACE(NAME, ' ', '_') AS VMNAME, * FROM VPXV_VMS

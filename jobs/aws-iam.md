@@ -6,32 +6,32 @@ The following document describes the process of creating a read-only account use
 
 ## Configuration Steps
 
-### Login into AWS console and select Identity and Access Management (IAM)
+### Login into the AWS Console and Select Identity and Access Management (IAM)
 
 ![](images/img_554f3a8c1f70a.png)
 
 
-### Open Groups menu and click [Create New Group].
+### Open the Groups Menu and Click [Create New Group].
 
 Use a naming convention that would describe what this group is used for,
-for example cloudwatch-ro-group.
+for example `cloudwatch-ro-group`.
 
 ![aws-acl-2](images/aws-acl-2.png)
 
-### Open Users menu and click [Create New User].
+### Open Users Menu and Click [Create New User].
 
-Let the system generate access and secret key automatically and copy
+Let the system generate access and secret key automatically. Copy
 them for your reference.
 
 ![aws-acl-3](images/aws-acl-3.png)
 
-### Open Group menu again and click on Add Users to Group
+### Open Group Menu Again and Click on Add Users to Group
 
-Add cloudwatch-ro-user to cloudwatch-ro-group
+Add `cloudwatch-ro-user` to the `cloudwatch-ro-group`.
 
 ![aws-acl-4](images/aws-acl-4.png)
 
-### While on group page, scroll down to Inline Policies and click on  [Create Another Policy]
+### While on the Group Page, Scroll Down to Inline Policies and Click on [Create Another Policy]
 
 Enter the following JSON text and save the policy.
 
@@ -54,9 +54,8 @@ Enter the following JSON text and save the policy.
 
 ```
 
-### Save and verify that the policy is correct.
+### Save and Verify that the Policy is Correct.
 
 ![aws-acl-5](images/aws-acl-5.png)
 
-### You can now query Amazon CloudWatch monitoring service HTTP APIs with the new user account, access key and secret key.
-
+### You Can now Query Amazon CloudWatch Monitoring Service HTTP APIs with the New User Account, Access Key, and Secret Key.

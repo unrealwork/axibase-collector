@@ -2,7 +2,7 @@
 
 ## Overview
 
-Download 5-minute metering data (new files only) from energinet.dk FTP server and upload it into ATSD.
+Download 5-minute metering data (new files only) from the energinet.dk FTP server and upload it into ATSD.
 
 http://www.energinet.dk/EN/El/Engrosmarked/Udtraek-af-markedsdata/Sider/Femminutters-maalinger.aspx
 
@@ -10,9 +10,9 @@ http://www.energinet.dk/EN/El/Engrosmarked/Udtraek-af-markedsdata/Sider/Femminut
 
 ### URI
 
-Template: ftp000148:my-pwd@10.102.0.51:21/onlinedata/${TIME("now", "yyyyMMdd")}_onlinedata.txt
+Template: `ftp000148:my-pwd@10.102.0.51:21/onlinedata/${TIME("now", "yyyyMMdd")}_onlinedata.txt`
 
-Example: ftp000148:my-pwd@10.102.0.51:21/onlinedata/20160609_onlinedata.txt
+Example: `ftp000148:my-pwd@10.102.0.51:21/onlinedata/20160609_onlinedata.txt` 
 
 ### Local Copy
 
@@ -21,24 +21,24 @@ Example: ftp000148:my-pwd@10.102.0.51:21/onlinedata/20160609_onlinedata.txt
 ### First Lines
 
 ```ls
- 1 Centrale kraftværker DK1
- 2 Centrale kraftværker DK2
- 3 Decentrale kraftværker DK1
- 4 Decentrale kraftværker DK2
- 5 Vindmøller DK1
- 6 Vindmøller DK2
+ 1 Centrale kraftvÃ¦rker DK1
+ 2 Centrale kraftvÃ¦rker DK2
+ 3 Decentrale kraftvÃ¦rker DK1
+ 4 Decentrale kraftvÃ¦rker DK2
+ 5 VindmÃ¸ller  DK1
+ 6 VindmÃ¸ller  DK2
  7 Udveksling Jylland-Norge
  8 Udveksling Jylland-Sverige
  9 Udveksling Jylland-Tyskland
-10 Udveksling Sjælland-Sverige
-11 Udveksling Sjælland-Tyskland
+10 Udveksling SjÃ¦lland-Sverige
+11 Udveksling SjÃ¦lland-Tyskland
 12 Udveksling Bornholm-Sverige
 13 Udveksling Fyn-Sjaelland
 14 Temperatur i Malling
 15 Vindhastighed i Malling
 16 CO2 udledning
-17 Havmøller DK
-18 Landmøller DK
+17 HavmÃ¸ller  DK
+18 LandmÃ¸ller  DK
 19 Solceller DK1
 20 Solceller DK2
  

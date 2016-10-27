@@ -4,7 +4,7 @@
 
 Download solar system status for a given collection of devices.
 
-The file uses semi-colon as a line break.
+The file uses a semi-colon as a line break.
 
 API key is required.
 

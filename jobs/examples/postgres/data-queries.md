@@ -1,6 +1,6 @@
-# PostgreSQL data queries
+# PostgreSQL Data Queries
 ## PostgreSQL Base Queries
-* Metrics Queries select most recent statistics
+* Metrics Queries select the most recent statistics:
 
 ```SQL
 SELECT * FROM pg_stat_database WHERE datname NOT LIKE 'template%'

@@ -4,21 +4,21 @@
 
 [Oracle Enterprise Manager](http://www.oracle.com/us/products/enterprise-manager/index.html "Oracle Enterprise Manager") (Oracle EM) is a distributed application for centralized monitoring, diagnosing, and resolving issues related to Oracle products.
 
-Oracle EM collects and stores statistics from remote databases, applications, and systems in an Oracle database (`SYSMAN.gc$metric_values` table) which Axibase Collector queries every 15 minutes to offload incremental data into Axibase Time Series Database for long-term retention and operations analytics.
+Oracle EM collects and stores statistics from remote databases, applications, and systems in an Oracle database (`SYSMAN.gc$metric_values` table) which Axibase Collector queries every 15 minutes to offload incremental data into the Axibase Time Series Database for long-term retention and operations analytics.
 
 ## Requirements
 
 - Oracle Enterprise Manager `11+`
 
-## Installation steps
+## Installation Steps
 
-### Import Oracle EM JDBC job
+### Import Oracle EM JDBC Job
 
-* Open **Jobs:Import** and upload [oracle-em-jobs.xml](oracle-em-jobs.xml) file
+* Open **Jobs:Import** and upload the [oracle-em-jobs.xml](oracle-em-jobs.xml) file.
 
 ### Configure Oracle EM Database Connection
 
-* Open **Data Sources:Databases** page, select `OracleEM` database. 
+* Open the **Data Sources:Databases** page and select the `OracleEM` database. 
 * Provide connection parameters to the target Oracle EM database as displayed below:
 
 ![](images/oracle_database_example.png)
@@ -30,34 +30,34 @@ Oracle EM collects and stores statistics from remote databases, applications, an
 SELECT NULL FROM dual
 ```
 
-* Click on `Meta Data` button and check that **SYSMAN** schema is present in the list of schemas.
+* Click on the `Meta Data` button and check that the **SYSMAN** schema is present in the list of schemas.
 
 ### Verify Job Configuration
 
-* Open Oracle EM JDBC job
-* Set Data Source to OracleEM
+* Open Oracle EM JDBC job.
+* Set the Data Source to OracleEM.
 
 ![](images/oracle_job_ds.png)
 
 * Choose one of target ATSD instances if your Collector instance is connected to multiple ATSD servers.
-* Save the Job
-* Open each configuration, click on `Test` button and review output. See [Data Queries](#data-queries) below.
+* Save the Job.
+* Open each configuration, click on the `Test` button, and review the output. See [Data Queries](#data-queries) below.
 
 ![](images/test_result.png)
 
 ### Schedule the Job
 
-* Open `JDBC Job` page and click `Run` button for the Oracle EM JDBC job. 
+* Open the `JDBC Job` page and click the `Run` button for the Oracle EM JDBC job. 
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)
 
-* If there are no errors, set job status to Enabled and save the job
+* If there are no errors, set job status to 'Enabled' and save the job.
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD
-* Click on Metrics tab and filter metrics by name 'oem.*'
+* Login into ATSD.
+* Click on the Metrics tab and filter metrics by name `oem.*`.
 
 ![](images/metrics_atsd.png)
 
@@ -113,5 +113,3 @@ SELECT 'oem.' || TARGET_TYPE AS TTYPE, TARGET_NAME, HOST_NAME, DISPLAY_NAME, TIM
 FROM SYSMAN.GC$TARGET
 WHERE TARGET_TYPE IN ('host', 'oracle_database')
 ```
-
-

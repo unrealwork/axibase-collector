@@ -1,14 +1,14 @@
-# NGINX server configuration
+# NGINX Server Configuration
 
-## Verify that `ngx_http_stub_status_module` is present
+## Verify that `ngx_http_stub_status_module` is Present
 
 ```sh
 nginx -V 2>&1 | grep -o with-http_stub_status_module
 ```
 
-If the output contains module name, the module is installed.
+If the output contains the module name, the module is installed.
 
-If the response is empty, upgrade to a [newer version of NGINX](http://nginx.org/en/CHANGES) or recompile your NGINX server with *-with-http_stub_status_module* option.
+If the response is empty, upgrade to a [newer version of NGINX](http://nginx.org/en/CHANGES) or recompile your NGINX server with the *-with-http_stub_status_module* option.
 
 Sample `nginx -V` output:
 
@@ -22,15 +22,15 @@ configure arguments: --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-
 
 
 
-## Configure status page
+## Configure Status Page
 
-Open in nginx.conf file and review [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided in NGINX documentation. 
+Open the `nginx.conf` file and review the [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided in NGINX documentation. 
 
 ```sh
 sudo nano /etc/nginx/nginx.conf
 ```
 
-Enable the page on **/nginx_status** URL so that its accessible at *<your_server_address>/nginx_status*. 
+Enable the page on the `/nginx_status` URL so that it's accessible at *<your_server_address>/nginx_status*. 
 
 ```ls
 location /nginx_status {
@@ -53,11 +53,11 @@ server accepts handled requests
 Reading: 6 Writing: 179 Waiting: 106
 ```
 
-## Restrict access to the status page
+## Restrict Access to the Status Page
 
-Once you verify that status page is enabled, restrict access to this page only to the IP address of the server where Axibase Collector is installed. 
+Once you verify that the status page is enabled, restrict access to this page only to the IP address of the server where Axibase Collector is installed. 
 
-Add the following lines at the **beginning** of *location /nginx_status* directive:
+Add the following lines at the **beginning** of the *location /nginx_status* directive:
 
 ```java
    allow <collector_ip_address>;

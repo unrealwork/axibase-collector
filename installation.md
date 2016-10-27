@@ -17,7 +17,7 @@ sudo yum install java-1.7.0-openjdk-devel
 
 #### Oracle JDK
 
-Download Java 7 JDK from [Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
+Download Java 7 JDK from the [Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
 
 ```sh
 sudo rpm -i jdk-7u80-linux-x64.rpm
@@ -25,7 +25,7 @@ sudo rpm -i jdk-7u80-linux-x64.rpm
 
 ## Verify Java Installation
 
-Verify that `java` command displays version 1.7.x.
+Verify that the `java` command displays version 1.7.x.
 
 ```sh
 java -version
@@ -53,7 +53,7 @@ Check that port **9443** is available. If the port is available, output of this 
 sudo netstat -tulnp | grep "9443"
 ```
 
-If port **9443** is taken by another processes, open start-collector.sh script and set a custom port:
+If port **9443** is taken by another processes, open the `start-collector.sh` script and set a custom port:
 
 ```sh
 nano ./axibase-collector/bin/start-collector.sh
@@ -70,7 +70,7 @@ It may take up to 5 minutes for collector to initialize.
 
 ## Check Installation
 
-Check collector log file for message FrameworkServlet 'dispatcher': initialization completed.
+Check the collector log file for the message FrameworkServlet 'dispatcher': initialization completed.
 
 ```sh
 tail -f ./axibase-collector/logs/axibase-collector.log

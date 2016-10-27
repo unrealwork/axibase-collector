@@ -4,7 +4,7 @@
 
 Download basic statistics from an nginx web server. Parse plain text file into series commands.
 
-The Path field contains `${ITEM}` placeholder so that multiple nginx servers, defined in an item list, can be queried with one configuration.
+The Path field contains the `${ITEM}` placeholder so that multiple nginx servers, defined in an item list, can be queried with one configuration.
 
 ## File
 

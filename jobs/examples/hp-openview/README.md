@@ -4,7 +4,7 @@
 
 OVPM stores collected statistics in files on the local file system for a period of several months.
 
-Axibase Collector queries OVPM server for particular GLOBAL classes every 15 minutes to offload incremental data into Axibase Time Series Database for long-term retention and operations analytics.
+Axibase Collector queries the OVPM server for particular GLOBAL classes every 15 minutes to offload incremental data into the Axibase Time Series Database for long-term retention and operations analytics.
 
 ## Requirements
 
@@ -14,28 +14,27 @@ Axibase Collector queries OVPM server for particular GLOBAL classes every 15 min
 
 ### Import HP OpenView JDBC job
 
-* Open **Jobs:Import** page and upload [collector-jobs-ovpm-jobs.xml](collector-jobs-ovpm-jobs.xml) file
+* Open the **Jobs:Import** page and upload the [collector-jobs-ovpm-jobs.xml](collector-jobs-ovpm-jobs.xml) file.
 
 ### Configure HP Open View HTTP Pool
 
-* Open **Data Sources:HTTP Pools** page, select `ovpm-10.102.0.6` database.
-* Provide connection parameters to the target `	ovpm-10.102.0.6` pool as displayed below:
+* Open the **Data Sources:HTTP Pools** page, select the `ovpm-10.102.0.6` database.
+* Provide connection parameters to the target `ovpm-10.102.0.6` pool as displayed below:
 
 ![](images/http_pool_conf.png)
 
 ### Verify Job Configuration
 
-* Open `ovpm-global` job
-* Set HTTP Pool to `ovpm-10.102.0.6`
+* Open the `ovpm-global` job.
+* Set the HTTP Pool to `ovpm-10.102.0.6`.
 
 ![](images/ovmp_configuration.png)
 
 * Choose an ATSD server if your Collector instance is connected to multiple ATSD servers.
-* Save the Job
-
-* Open each configuration
-* Open `ovpm` Item List and populate it with servers that you would like to collect statistics from 
-* Click on `Test` button and review output.
+* Save the Job.
+* Open each configuration.
+* Open the `ovpm` Item List and populate it with servers that you would like to collect statistics from.
+* Click on the `Test` button and review the output.
 
 <!---
 ![](images/ovmp.png)
@@ -43,17 +42,17 @@ Axibase Collector queries OVPM server for particular GLOBAL classes every 15 min
 
 ### Schedule the Job
 
-* Open `OVPM Job` page and click `Run` button for the `ovpm-global` job.
+* Open the `OVPM Job` page and click the `Run` button for the `ovpm-global` job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/ovmp-global.png)
 
-* If there are no errors, set job status to Enabled and save the job
+* If there are no errors, set job status to 'Enabled' and save the job.
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD
-* Click on Metrics tab and filter metrics by prefix 'gbl_.*'
+* Login into ATSD.
+* Click on Metrics tab and filter metrics by the prefix `gbl_.*`
 
 ![](images/metrics.png)
 
@@ -67,7 +66,7 @@ Axibase Collector queries OVPM server for particular GLOBAL classes every 15 min
 -->
 
 
-## Entity group list
+## Entity Group List
 
 - OVPM Linux
 - OVPM Unix

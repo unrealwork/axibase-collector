@@ -1,16 +1,16 @@
-# Launching Linked Containers with docker-compose
+# Launching Linked Containers with `docker-compose`
 
-You can launch linked ATSD and Axibase Collector containers on the same Docker host with docker-compose. 
+You can launch linked ATSD and Axibase Collector containers on the same Docker host with `docker-compose`. 
 There are two alternatives for passing common parameters to both containers:
 
 * Export parameters as environment variables
 * Use composite yaml files
  
-Make sure [docker.xml](docker.xml) file is present in /tmp directory on the Docker host.
+Make sure that the [docker.xml](docker.xml) file is present in the `/tmp` directory on the Docker host.
 
-## Export credentials as environment variables
+## Export Credentials as Environment Variables
 
-docker-compose.yml
+`docker-compose.yml`
 
 ```yaml
 version: '2'
@@ -52,9 +52,9 @@ export USER=myuser; export PASSWORD=mypassword; docker-compose up
 ```
 
 
-## Specify credentials in base yaml file
+## Specify Credentials in `base.yaml` File
 
-base.yml
+`base.yml`
 
 ```yaml
 version: '2'
@@ -66,7 +66,7 @@ services:
       ATSD_USER_PASSWORD: mypassword 
 ```
 
-docker-compose.yml
+`docker-compose.yml`
 
 ```yaml
 version: '2'

@@ -1,6 +1,6 @@
 # Collected PostgreSQL Properties
 
-* postgres.activity
+* `postgres.activity`:
 ```json
 [
   {
@@ -15,7 +15,7 @@
     ]
 ```
 
-* postgres.info
+* `postgres.info`:
 
 ```json
 [{
@@ -35,7 +35,7 @@
   ]
 ```
 
-* postgres.pg_class
+* `postgres.pg_class`:
 ```json
 [{
     "type": "postgres.pg_class",

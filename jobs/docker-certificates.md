@@ -5,22 +5,22 @@ Make sure you replace **`$HOST`** in the following examples with the DNS name of
 
 > Credit: https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl
 
-## Generate private and public keys for a CA (Certificate Authority)
+## Generate Private and Public Keys for a CA (Certificate Authority)
 
-Create a directory for certificate files.
+Create a directory for certificate files:
 
 ```
 mkdir /home/ubuntu/certs
 cd /home/ubuntu/certs
 ```
 
-Generate private key
+Generate a private key:
 
 ```sh
 openssl genrsa -aes256 -out ca-key.pem 4096
 ```
 
-Generate a certificate request using the pass phrase for ca-key.pem.
+Generate a certificate request using the pass phrase for `ca-key.pem`:
 
 ```sh
 openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
@@ -28,7 +28,7 @@ openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
 
 Fill out the fields.
 
-Make sure you set Common Name to DNS name of the Docker host: **`$HOST`**
+Make sure you set Common Name to the DNS name of the Docker host: **`$HOST`**
 
 ```properties
 Country Name (2 letter code) [AU]:US
@@ -40,7 +40,7 @@ Common Name (e.g. server FQDN or YOUR name) []:$HOST
 Email Address []:
 ```
 
-## Create a server key and certificate signing request (CSR). 
+## Create a Server Key and Certificate Signing Request (CSR)
 
 ```sh
 openssl genrsa -out server-key.pem 4096
@@ -50,10 +50,9 @@ openssl genrsa -out server-key.pem 4096
 openssl req -subj "/CN=$HOST" -sha256 -new -key server-key.pem -out server.csr
 ```
 
-## Sign the public key with our CA:
+## Sign the Public Key with our CA:
 
-Since TLS connections can be made via IP address as well as DNS name, they need
-to be specified when creating the certificate. For example, to allow connections
+TLS connections need to be specified when creating the certificate, as they can be made via the IP address as well as the DNS name. For example, to allow connections
 using `10.10.10.20` and `127.0.0.1`:
 
 ```sh
@@ -65,7 +64,7 @@ openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem 
       -CAcreateserial -out server-cert.pem -extfile extfile.cnf
 ```
 
-## Create a client key and certificate signing request for client authentication
+## Create a Client Key and Certificate Signing Request for Client Authentication
 
 ```
 openssl genrsa -out key.pem 4096
@@ -89,14 +88,14 @@ openssl x509 -req -days 365 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem 
       -CAcreateserial -out cert.pem -extfile extfile.cnf
 ```
 
-After generating `cert.pem` and `server-cert.pem` you can safely remove the
+After generating `cert.pem` and `server-cert.pem`, you can safely remove the
 two certificate signing requests:
 
 ```
 rm -v client.csr server.csr
 ```
 
-## Set permissions to private keys
+## Set Permissions to Private Keys
 
 With a default `umask` of 022, your secret keys will be *world-readable* and
 writable for you and your group.
@@ -116,4 +115,4 @@ chmod -v 0444 ca.pem server-cert.pem cert.pem
 ```
 
 Now you can make the Docker daemon only accept connections from clients
-providing a certificate trusted by our CA
+providing a certificate trusted by our CA.
