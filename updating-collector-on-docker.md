@@ -23,7 +23,7 @@ tar xvf axibase-collector.tar.gz
 Assuming `axibase-collector` is the name of the Collector container to be updated, execute the following command: 
 
 ```bash
-docker exec -it axibase-collector /opt/axibase-collector/bin/stop-collector.sh
+docker exec axibase-collector /opt/axibase-collector/bin/stop-collector.sh
 ```
 
 ### Replace `axibase-collector.war` File
@@ -37,5 +37,5 @@ docker cp ./axibase-collector/lib/axibase-collector.war axibase-collector:/opt/a
 ### Start the Collector Process
 
 ```sh
-docker exec -it axibase-collector /opt/axibase-collector/bin/start-collector.sh
+docker exec axibase-collector /opt/axibase-collector/bin/start-collector.sh
 ```
