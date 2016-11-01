@@ -160,7 +160,7 @@ docker ps -a | grep axibase-collector
 
 * Login into Axibase Collector web interface at `https://hostname:port`.
 * Open the **Jobs > Docker > Add Job** page and enter the job name. Click **Enabled** to enable the job. Click Save.
-* Click the **Use Wizard** button, specify the Docker Engine hostname, API port (2376), and attach `{cert,key,ca}.pem` files.
+* Click the [Use Wizard] button, specify the Docker Engine hostname, API port (2376), and attach `{cert,key,ca}.pem` files.
 * Click Validate and Save the job if the test is successful.
     
 ## Validation
