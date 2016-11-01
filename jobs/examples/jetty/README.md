@@ -24,12 +24,12 @@ Configure your Java application for JMX monitoring as described [here](../../jmx
 * For each JMX Configuration:
     * Provide connection parameters to the target Jetty as displayed below:
     ![](images/jetty_jmx_configuration.png)
-    * Click the `Test` button and make sure that the result is similar to the below screenshot:
+    * Click the [Test] button and make sure that the result is similar to the below screenshot:
     ![](images/jetty_test_jmx_configuration.png)
 
 ### Schedule the Job
 
-* Open the `JMX Job` page and click the `Run` button for the Jetty JMX job.
+* Open the `JMX Job` page and click the [Run] button for the Jetty JMX job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)
@@ -56,22 +56,22 @@ Configure your Java application for JMX monitoring as described [here](../../jmx
 
 ### Entity Group
 
-* Open **Admin:Entity Groups**, click the `Import` button, and upload  [jetty_entity_group.xml](configs/jetty_entity_group.xml).
+* Open **Admin:Entity Groups**, click the [Import] button, and upload  [jetty_entity_group.xml](configs/jetty_entity_group.xml).
 * Select the imported `jetty-web-server` group.
 * Verify that the group contains your Jetty hosts.
 
 
 ### Entity Views
 
-* Open **Configuration:Entity Views**, click the `Import` button, and upload  [jetty_entity_view.xml](configs/jetty_entity_view.xml).
+* Open **Configuration:Entity Views**, click the [Import] button, and upload  [jetty_entity_view.xml](configs/jetty_entity_view.xml).
 * Select the imported `Java Applications` view.
 * Select the Entity Group that you created earlier.
-* Click on the `View` button and browse information about your entities.
+* Click on the [View] button and browse information about your entities.
 ![](images/jetty_entity_view.png)
 
 
 ### Portal
-* Open the **Configuration: Portals**, click the `Import` button, and upload [jetty_portal.xml](configs/jetty_portal.xml).
+* Open the **Configuration: Portals**, click the [Import] button, and upload [jetty_portal.xml](configs/jetty_portal.xml).
 * Click the Assign link and associate the portal with the entity group you created earlier.
 * Open Entity tabs, find the java application by name, and click on its portal icon.
 

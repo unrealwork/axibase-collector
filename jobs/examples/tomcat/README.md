@@ -26,12 +26,12 @@ Configure your Java for JMX monitoring as described [here](../../jmx.md).
 * For each JMX Configuration:
     * Provide connection parameters to the target Tomcat as displayed below:
     ![](images/tomcat_jmx_configuration.png)
-    * Click the `Test` button and make sure that the result is similar to the below screenshot:
+    * Click the [Test] button and make sure that the result is similar to the below screenshot:
     ![](images/tomcat_test_jmx_configuration.png)
 
 ### Schedule the Job
 
-* Open the `JMX Job` page and click the `Run` button for the Tomcat JMX job.
+* Open the `JMX Job` page and click the [Run] button for the Tomcat JMX job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)
@@ -58,23 +58,23 @@ Configure your Java for JMX monitoring as described [here](../../jmx.md).
 
 ### Entity group
 
-* Open **Admin:Entity Groups**, click the `Import` button, and upload  [tomcat_entity_group.xml](configs/tomcat_entity_group.xml).
+* Open **Admin:Entity Groups**, click the [Import] button, and upload  [tomcat_entity_group.xml](configs/tomcat_entity_group.xml).
 * Select the imported `apache-tomcat` group.
 * Verify that the group contains your Tomcat hosts.
 
 
 ### Entity Views
 
-* Open **Configuration:Entity Views**, click the `Import` button, and upload  [tomcat_entity_view.xml](configs/tomcat_entity_view.xml).
+* Open **Configuration:Entity Views**, click the [Import] button, and upload  [tomcat_entity_view.xml](configs/tomcat_entity_view.xml).
 * Select the imported `Apache Tomcat Containers` view.
 * Select the Entity Group that you created earlier.
-* Click on the `View` button and browse information about your entities:
+* Click on the [View] button and browse information about your entities:
 ![](images/tomcat_entity_view.png)
 
 
 ### Portal
 
-* Open **Configuration: Portals**, click the `Import` button, and upload [tomcat_portal.xml](configs/tomcat_portal.xml).
+* Open **Configuration: Portals**, click the [Import] button, and upload [tomcat_portal.xml](configs/tomcat_portal.xml).
 * Click the Assign link and associate the portal with the entity group you created earlier.
 * Open Entity tabs, find the java application by name, and click on its portal icon.
 

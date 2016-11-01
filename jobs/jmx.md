@@ -33,7 +33,7 @@ ACTIVEMQ_SUNJMX_START="-Dcom.sun.management.jmxremote \
    -Dcom.sun.management.jmxremote.access.file=${ACTIVEMQ_BASE}/conf/jmx.access"
 ```
 
-To verify connectivity with the remote host, click the 'Test' or 'Viewer' buttons. 
+To verify connectivity with the remote host, click the [Test] or [Viewer] buttons. 
 
 Add hostname to the `/etc/hosts` file directory on the collector machine in case of `UnknownHostException`.
 
