@@ -34,7 +34,7 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 * Save the Job.
 * Open each configuration.
 * Open the `ovpm` Item List and populate it with servers that you would like to collect statistics from.
-* Click on the `Test` button and review the output.
+* Click on the [Test] button and review the output.
 
 <!---
 ![](images/ovmp.png)
@@ -42,7 +42,7 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 
 ### Schedule the Job
 
-* Open the `OVPM Job` page and click the `Run` button for the `ovpm-global` job.
+* Open the `OVPM Job` page and click the [Run] button for the `ovpm-global` job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/ovmp-global.png)

@@ -1,6 +1,6 @@
 # JDBC Data Source
 
-To add a database as a data source in Axibase Collector, navigate to **Data Sources > Databases** and select “New Data Source”.
+To add a database as a data source in Axibase Collector, navigate to **Data Sources > Databases** and select "New Data Source".
 
 | FIELD        | DESCRIPTION |
 |:-------------|:-------------|

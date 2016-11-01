@@ -47,13 +47,13 @@ SELECT 1
 
 * Choose one of the target ATSD instances if your Collector instance is connected to multiple ATSD servers.
 * Save the Job.
-* Open each configuration, click on the `Test` button and review output. See [Data Queries](#data-queries) below.
+* Open each configuration, click on the [Test] button and review output. See [Data Queries](#data-queries) below.
 
 ![](images/test_result.png)
 
 ### Schedule the Job
 
-* Open the `JDBC Job` page and click the `Run` button for the MySQL Server JDBC job.
+* Open the `JDBC Job` page and click the [Run] button for the MySQL Server JDBC job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)

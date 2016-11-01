@@ -26,12 +26,12 @@ Configure your Java application for JMX data collection as described [here](../.
 * For each JMX Configuration:
     * Provide connection parameters to the target JVM as displayed below:
     ![](images/jvm_jmx_configuration.png)
-    * Click the `Test` button and make sure that the result is similar to the below screenshot:
+    * Click the [Test] button and make sure that the result is similar to the below screenshot:
     ![](images/jvm_test_jmx_configuration.png)
 
 ### Schedule the Job
 
-* Open the `JMX Job` page and click the `Run` button for the JVM JMX job.
+* Open the `JMX Job` page and click the [Run] button for the JVM JMX job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)
@@ -57,21 +57,21 @@ Configure your Java application for JMX data collection as described [here](../.
 
 ### Entity group
 
-* Open **Admin:Entity Groups**, click the `Import` button, and upload  [jvm_entity_group.xml](configs/jvm_entity_group.xml).
+* Open **Admin:Entity Groups**, click the [Import] button, and upload  [jvm_entity_group.xml](configs/jvm_entity_group.xml).
 * Select the imported `java-virtual-machine` group.
 * Verify that the group contains your JVM hosts.
 
 ### Entity Views
 
-* Open **Configuration:Entity Views**, click the `Import` button, and upload  [jvm_entity_view.xml](configs/jvm_entity_view.xml).
+* Open **Configuration:Entity Views**, click the [Import] button, and upload  [jvm_entity_view.xml](configs/jvm_entity_view.xml).
 * Select the imported `Java Applications` view.
 * Select the Entity Group that you created earlier.
-* Click on the `View` button and browse information about your entities:
+* Click on the [View] button and browse information about your entities:
 ![](images/jvm_entity_view.png)
 
 ### Portal
 
-* Open **Configuration: Portals**, click the `Import` button, and upload [jvm_portal.xml](configs/jvm_portal.xml).
+* Open **Configuration: Portals**, click the [Import] button, and upload [jvm_portal.xml](configs/jvm_portal.xml).
 * Click the Assign link and associate the portal with the entity group you created earlier.
 * Open the Entity tab, find the java application by name, and click on its portal icon:
 
@@ -88,7 +88,7 @@ Configure your Java application for JMX data collection as described [here](../.
 
 #### Import Rules
 
-* Open the **Configuration: Rules** page, click the `Import` button, and upload [jvm_rules.xml](configs/jvm_rules.xml).
+* Open the **Configuration: Rules** page, click the [Import] button, and upload [jvm_rules.xml](configs/jvm_rules.xml).
 * For each created rule: open it in the Rule Editor and change recipient address on the *Email Notifications* tab.
 * These rules will automatically apply to all JVM based applications monitored by Axibase Collector.
 
