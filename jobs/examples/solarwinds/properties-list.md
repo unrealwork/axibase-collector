@@ -82,7 +82,7 @@
   "tags": {
     "host": "nuresx003",
     "memoryconfigured": "1073741824",
-    "name": "Axibase Time-Series Database (ATSD)",
+    "name": "Axibase Time Series Database (ATSD)",
     "powerstate": "poweredOff",
     "processorcount": "1"
   },
