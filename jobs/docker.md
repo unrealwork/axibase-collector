@@ -22,7 +22,7 @@ The information is collected for the following object types:
 ## Prerequisites
 
 * [Docker Engine v1.7+](https://docs.docker.com/engine/installation/)
-* [Axibase Time-Series Database](https://github.com/axibase/atsd-docs/blob/master/installation/docker.md) container as a centralized metrics store and rule engine.
+* [Axibase Time Series Database](https://github.com/axibase/atsd-docs/blob/master/installation/docker.md) container as a centralized metrics store and rule engine.
 
 ## Installation
 
