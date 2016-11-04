@@ -40,7 +40,7 @@ In local collection mode, Axibase Collector containers run on each Docker host a
 docker run \
    --detach \
    --publish-all \
-   --restart=always \   
+   --restart=always \
    --name=axibase-collector \
    --volume /var/run/docker.sock:/var/run/docker.sock \
   axibase/collector \
@@ -48,9 +48,9 @@ docker run \
    -job-enable=docker-socket
 ```
 
-If the user name or password contains `$`, `&`, `#`, or `!` character, escape it with backslash `\``.
+If the user name or password contains `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
-The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
+The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
 
 For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at https://10.102.0.6:8443 specify:
 
@@ -58,7 +58,7 @@ For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at h
 docker run \
    --detach \
    --publish-all \
-   --restart=always \   
+   --restart=always \
    --name=axibase-collector \
    --volume /var/run/docker.sock:/var/run/docker.sock \
   axibase/collector \
@@ -68,7 +68,7 @@ docker run \
 
 It may take up to 5 minute to initialize the Collector's database from the initial start.
 
-The Docker job should start executing immediately, even if collector user has not been created. 
+The Docker job should start executing immediately, even if collector user has not been created.
 
 > On hosts with SELinux enabled, the container will run into a `permission denied` error when trying to read data from  `/var/run/docker.sock`. Switch to the Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
 
@@ -92,7 +92,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Login into Docker host via SSH and generate [client and server certificates](docker-certificates.md).
 
-* Configure Docker daemon for secure access by default. 
+* Configure Docker daemon for secure access by default.
 
     * Edit the `/etc/default/docker` file for Ubuntu or create a `/etc/sysconfig/docker` file for CentOS:
 
@@ -100,36 +100,36 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
    DOCKER_CERT_PATH=/home/docker/certs
    export DOCKER_CERT_PATH
-   
+
    # Add TCP socket on port 2376
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
-   
+
     * For CentOS, in addition, create the file `/etc/systemd/system/docker.service.d/docker.conf`:
-   
+
    ```properties
    [Service]
    EnvironmentFile=-/etc/sysconfig/docker
    ExecStart=
    ExecStart=/usr/bin/docker daemon $DOCKER_OPTS
    ```
-   
+
 * Restart Docker daemon:
 
 ```sh
 sudo service docker restart
 ```
-   
+
 * Ensure that the Docker status is Active and there are no warnings:
-  
+
 ```sh
 sudo service docker status
 ```
-   
-   
+
+
 * Verify connectivity:
-  
-  ```properties 
+
+  ```properties
    curl https://127.0.0.1:2376/info \
   --cert /home/ubuntu/certs/cert.pem \
   --key /home/ubuntu/certs/key.pem \
@@ -152,7 +152,7 @@ If the user name or password contains `$`, `&`, `#`, or `!` character, escape it
 
 The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
 
-* Find the https port assigned to the `axibase-collector` container. 
+* Find the https port assigned to the `axibase-collector` container.
 
 ```sh
 docker ps -a | grep axibase-collector
@@ -162,7 +162,7 @@ docker ps -a | grep axibase-collector
 * Open the **Jobs > Docker > Add Job** page and enter the job name. Click **Enabled** to enable the job. Click Save.
 * Click the **Use Wizard** button, specify the Docker Engine hostname, API port (2376), and attach `{cert,key,ca}.pem` files.
 * Click Validate and Save the job if the test is successful.
-    
+
 ## Validation
 
 Login into ATSD and verify that connected Docker hosts are displayed on the 'Entities: Docker Hosts' page.

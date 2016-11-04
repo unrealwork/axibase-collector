@@ -30,9 +30,11 @@ gzip docker-axibase-collector.tar
 docker load < docker-axibase-collector.tar.gz
 ```
 
-Alternatively, you can download a prepared Collector image from [axibase.com](https://axibase.com/public/docker-axibase-collector.tar.gz).
+Alternatively, you can download a pre-built image file from [axibase.com](https://axibase.com/public/docker-axibase-collector.tar.gz).
 
 ## Start Container
+
+> Using Collector to monitor Docker? Launch container in privileged mode as described in this [document](/jobs/docker.md#local-collection).
 
 ```properties
 docker run \
@@ -57,7 +59,7 @@ docker run \
 
 If the user name or password contains a `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
-The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
+The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
 
 For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at https://10.102.0.6:8443, specify:
 
@@ -75,7 +77,7 @@ docker run \
 
 The launch command is different if you're starting the Collector container to monitor events and statistics from the local Docker Engine.
 
-Review the following [document](/jobs/docker.md#local-collection) on how to mount a Unix socket and launch the container for this purpose.  
+
 
 ## Launch Parameters
 
@@ -137,14 +139,14 @@ docker exec -it axibase-collector tail -n 100 /opt/axibase-collector/logs/err-co
 
 ## Known Issues
 
-If the container fails to start, verify that the Docker host runs on a supported kernel level. 
+If the container fails to start, verify that the Docker host runs on a supported kernel level.
 
 ```sh
-uname -a 
+uname -a
 ```
 
-* 3.13.0-79.123+ 
-* 3.19.0-51.57+ 
-* 4.2.0-30.35+ 
+* 3.13.0-79.123+
+* 3.19.0-51.57+
+* 4.2.0-30.35+
 
 See "Latest Quick Workarounds" for Docker issue [#18180](https://github.com/docker/docker/issues/18180#issuecomment-193708192).
