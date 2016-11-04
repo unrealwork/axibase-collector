@@ -64,12 +64,12 @@ Other settings blocks in the provided [collector job configuration file](./confi
 List of collected [NGINX PLUS server metrics](./nginx-plus-server-metrics.md).
 
 ## Entity Group
-* Open **Admin:Entity Groups**, click the `Import` button, and upload [nginx_plus_entity_group.xml](./configs/nginx-plus-entity-group.xml).
+* Open **Admin:Entity Groups**, click the [Import] button, and upload [nginx_plus_entity_group.xml](./configs/nginx-plus-entity-group.xml).
 * Select the imported `nginx-plus-servers` group.
 * Verify that the group contains your NGINX servers.
 
 ## Portal
-* Open **Configuration: Portals**, click the `Import` button, and upload [nginx-plus-portal.xml](./configs/nginx-plus-portal.xml).
+* Open **Configuration: Portals**, click the [Import] button, and upload [nginx-plus-portal.xml](./configs/nginx-plus-portal.xml).
 * Click the **Assign** link and associate the portal with the entity group you created earlier.
 * Open *Entity* tabs, find the NGINX PLUS servers you would like to see information about, and click on its portal icon.
 ![](./images/ngp_portal_selection.png)
@@ -100,7 +100,7 @@ The following rules are provided in the `nginx_plus_rules.xml` file:
 |nginx_plus_respawned_proc_increase        | Raise an alert when an NGINX PLUS server's total number of abnormally terminated and respawned child processes increases.|
 | nginx_plus_fails_high                    | Raise an alert when an NGINX PLUS server's total number of unsuccessful attempts to communicate with some peer server is high.|
 | nginx_plus_droppped_high                 | Raise an alert when an NGINX PLUS server dropped sufficient amount of connections. |
-| nginx_plus_downtime_long                 | Raise an alert indicating NGINX PLUS server's peer is in “unavail” and “unhealthy” states during a specified period of time (default: 15 minutes). |
+| nginx_plus_downtime_long                 | Raise an alert indicating NGINX PLUS server's peer is in "unavail" and "unhealthy" states during a specified period of time (default: 15 minutes). |
 |nginx_plus_active_connection_low          | Raise an alert when an NGINX PLUS server average active connection count is below the specified threshold (default: 10) over the last 15 minutes.|
 | nginx_plus_active_connection_heartbeat   | Raise an alert when status page statistics are no longer being received by ATSD. Check that the server is reachable and Axibase Collector job is running. |
 
