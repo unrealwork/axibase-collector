@@ -48,7 +48,7 @@ services:
 Launch containers:
 
 ```sh
-export USER=myuser; export PASSWORD=mypassword; docker-compose up
+export USER=myuser; export PASSWORD=mypassword; docker-compose up -d
 ```
 
 
@@ -106,5 +106,5 @@ services:
 Launch containers:
 
 ```sh
-docker-compose up
+docker-compose up -d
 ```
