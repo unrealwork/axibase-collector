@@ -160,6 +160,7 @@ The expression will select all elements of the `book` array in the root's child 
 * [JSON Lines](examples/json/json_lines/README.md#overview)
 * [GitHub Daily Summary](examples/json/github-daily-summary/README.md#overview)
 * [Nginx Status](examples/json/nginx-status/README.md#overview)
+* [BLS](examples/json/bls/README.md#overview)
 
 ## Additional Examples
 
