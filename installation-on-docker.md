@@ -75,7 +75,7 @@ docker run \
 
 ## Start Container with Environment Variable
 
-To use full hostname of Docker host, add an environment variable `DOCKER_HOSTNAME` containing the hostname:
+To use full hostname of Docker host in the Collector, add an environment variable `DOCKER_HOSTNAME` containing the hostname:
 
 ```properties
 docker run \
