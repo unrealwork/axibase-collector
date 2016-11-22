@@ -73,20 +73,6 @@ docker run \
   -atsd-url=https://adm-dev:my\$pwd@10.102.0.6:8443
 ```
 
-## Start Container with Environment Variable
-
-To use full hostname of Docker host in the Collector, add an environment variable `DOCKER_HOSTNAME` containing the hostname:
-
-```properties
-docker run \
- --detach \
- --publish-all \
- --restart=always \
- --name=axibase-collector \
- -e DOCKER_HOSTNAME=`hostname -f` \
- axibase/collector:latest
-```
-
 ## Start Container in Privileged Mode
 
 The launch command is different if you're starting the Collector container to monitor events and statistics from the local Docker Engine.
