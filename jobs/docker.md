@@ -16,8 +16,14 @@ The information is collected for the following object types:
 
 **Name** | **Description**
 ----- | -----
-`Property Refresh Interval` | Interval for refreshing detailed image and container properties.
 `API Version` | API version used when querying Docker Engine API. Defaults to 'latest'. <br>Can be set to a specific version to ensure compatibility.
+`Lifecycle Event Monitoring` | Enable continuous monitoring of container lifecycle events instead of scheduled polling.
+`Property Interval`, minutes | Interval for refreshing detailed image and container properties.
+`Statistics Interval`, seconds | Interval at which utilization statistics from running containers are collected.
+`Process Interval`, minutes | Interval at which top process list is collected from running docker containers.
+`Excluded Processes` | List of expressions, separated by comma, to exclude matching processes (ps aux) from collection. The expressions support * as a wildcard.
+`Environment Tags` | List of ENV variables stored as entity tags.
+
 
 ## Prerequisites
 
