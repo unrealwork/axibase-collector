@@ -16,8 +16,14 @@ The information is collected for the following object types:
 
 **Name** | **Description**
 ----- | -----
-`Property Refresh Interval` | Interval for refreshing detailed image and container properties.
 `API Version` | API version used when querying Docker Engine API. Defaults to 'latest'. <br>Can be set to a specific version to ensure compatibility.
+`Lifecycle Event Monitoring` | Enable continuous monitoring of container lifecycle events instead of scheduled polling.
+`Property Interval`, minutes | Interval for refreshing detailed image and container properties.
+`Statistics Interval`, seconds | Interval at which utilization statistics from running containers are collected.
+`Process Interval`, minutes | Interval at which top process list is collected from running docker containers.
+`Excluded Processes` | List of expressions, separated by comma, to exclude matching processes (ps aux) from collection. The expressions support * as a wildcard.
+`Environment Tags` | List of ENV variables stored as entity tags.
+
 
 ## Prerequisites
 
@@ -43,6 +49,7 @@ docker run \
    --restart=always \
    --name=axibase-collector \
    --volume /var/run/docker.sock:/var/run/docker.sock \
+   --env=DOCKER_HOSTNAME=`hostname -f` \
   axibase/collector \
    -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port \
    -job-enable=docker-socket
@@ -61,6 +68,7 @@ docker run \
    --restart=always \
    --name=axibase-collector \
    --volume /var/run/docker.sock:/var/run/docker.sock \
+   --env=DOCKER_HOSTNAME=`hostname -f` \
   axibase/collector \
    -atsd-url=https://adm-dev:my\$pwd@10.102.0.6:8443 \
    -job-enable=docker-socket
@@ -81,6 +89,7 @@ The Docker job should start executing immediately, even if collector user has no
 `--name` | No | Assign a host-unique name to the container.
 `--restart` | No | Auto-restart policy. _Not supported in all Docker Engine versions._
 `--publish-all` | No | Publish all exposed ports to random ports.
+`--env` | No | Set environment variables.
 
 #### Remote Collection
 
