@@ -89,6 +89,7 @@ The Docker job should start executing immediately, even if collector user has no
 `--name` | No | Assign a host-unique name to the container.
 `--restart` | No | Auto-restart policy. _Not supported in all Docker Engine versions._
 `--publish-all` | No | Publish all exposed ports to random ports.
+`--env` | NO | Set environment variables.
 
 #### Remote Collection
 
