@@ -75,9 +75,7 @@ docker run \
 
 ## Start Container in Privileged Mode
 
-The launch command is different if you're starting the Collector container to monitor events and statistics from the local Docker Engine.
-
-
+The launch command is different if the Collector container is used to [monitor statistics](jobs/docker.md#local-collection) from the local Docker Engine.
 
 ## Launch Parameters
 
