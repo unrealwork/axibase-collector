@@ -43,6 +43,7 @@ docker run \
    --restart=always \
    --name=axibase-collector \
    --volume /var/run/docker.sock:/var/run/docker.sock \
+   --env=DOCKER_HOSTNAME=`hostname -f` \
   axibase/collector \
    -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port \
    -job-enable=docker-socket
@@ -61,6 +62,7 @@ docker run \
    --restart=always \
    --name=axibase-collector \
    --volume /var/run/docker.sock:/var/run/docker.sock \
+   --env=DOCKER_HOSTNAME=`hostname -f` \
   axibase/collector \
    -atsd-url=https://adm-dev:my\$pwd@10.102.0.6:8443 \
    -job-enable=docker-socket
