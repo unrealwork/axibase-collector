@@ -12,13 +12,35 @@ The process involves enabling a JDBC job in Axibase Collector.
 |---|---|---|
 | tag | name (lowercased, normalized) | field |
 | tag | label | field |
+| descriptor | description | field |
+| zero | min | field |
+| zero + span | max | field |
+| engunits | units | field |
+| step | interpolation (0=>linear, 1=>previous) | field |
+| pointtypex | data type (converted to ATSD type) | field |
+| creationdate | creation_date | tag |
+| digitalset | digital_set | tag |
+| pointsource | point_source | tag |
+| pointtype | point_type | tag |
+| pointtypex | point_data_type | tag |
+| typicalvalue | typical_value | tag |
 
 In addition to copying PI Point attributes, the job can be configured to populate the metrics' timezone field based on the selected timezone identifier.
+
+#### PI Server Tag Info
+![](images/pi-tag-ba-info.png)
+
+#### ATSD Metric Info
+![](images/atsd-metric-ba.png)
 
 ## Requirements
 
 - PI SQL Data Access Server `1.5+`
 - PI JDBC Driver `1.5+`
+
+## Limitations
+
+* ATSD has limitations on number of stored metrics. Please, check the limits in [ATSD Docs](https://github.com/axibase/atsd-docs/tree/master/api/network#schema)
 
 ## Installation Steps
 
@@ -90,9 +112,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD.
-* Click on the Entity tab and filter entities by name `pi.default`.
-![](images/pi-atsd-entity.png)
-* Click on date in Metrics column. You should see a list of exported PI tags
+* Click on the Metrics tab and filter entities by name, e.g. find by prefix `ba:`. You should see a list of exported PI tags
 ![](images/pi-atsd-metrics.png)
 
 
