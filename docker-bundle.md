@@ -12,8 +12,10 @@ services:
   atsd:
     image: axibase/atsd:latest
     ports:
+      - "8088:8088"
       - "8443:8443"
       - "8081:8081"
+      - "8082:8082/udp"
     container_name: atsd
     hostname: atsd
     environment:
