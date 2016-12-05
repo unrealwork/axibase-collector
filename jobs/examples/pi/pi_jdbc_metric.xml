@@ -77,6 +77,7 @@ FROM pipoint..pipoint2</query>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
         <labelColumn>tag</labelColumn>
+        <descriptionColumn>descriptor</descriptionColumn>
         <metricDataTypeColumn>atsd_type</metricDataTypeColumn>
         <interpolationModeColumn>interp</interpolationModeColumn>
         <unitsColumn>engunits</unitsColumn>
