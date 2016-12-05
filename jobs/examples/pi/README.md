@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes how to copy PI Tag attributes from [PI Server](http://www.osisoft.com/pi-system/pi-capabilities/pi-server/) into corresponding [metric](https://github.com/axibase/atsd-docs/blob/master/api/meta/metric/list.md#fields) fields in the Axibase Time Series Database.
+This document describes how to copy PI Tag attributes from a [PI Server](http://www.osisoft.com/pi-system/pi-capabilities/pi-server/) into the corresponding [metric](https://github.com/axibase/atsd-docs/blob/master/api/meta/metric/list.md#fields) fields in the Axibase Time Series Database.
 
 The process involves enabling a JDBC job in Axibase Collector.
 
@@ -40,7 +40,7 @@ In addition to copying PI Point attributes, the job can be configured to populat
 
 ## Limitations
 
-* ATSD has limitations on number of stored metrics. Please, check the limits in [ATSD Docs](https://github.com/axibase/atsd-docs/tree/master/api/network#schema)
+* ATSD has limitations for the number of allowable stored metrics. Please check the limits in [ATSD Docs](https://github.com/axibase/atsd-docs/tree/master/api/network#schema)
 
 ## Installation Steps
 
@@ -89,21 +89,21 @@ SELECT 1
 
 ### Verify Job Configuration
 
-* Open the PI_JDBC_META_METRIC job.
+* Open the `PI_JDBC_META_METRIC` job.
 * Set the Data Source to `PI_JDBC`.
 
 ![](images/pi-metric-job.png)
 
 * Choose one of the target ATSD instances if your Collector instance is connected to multiple ATSD servers.
 * Save the Job.
-* Open each configuration, click on the [Test] button, and review the output.
+* Open each configuration, click the [Test] button, and review the output.
 
 ![](images/pi-metric-test.png)
 
 ### Schedule the Job
 
 * Open the `JDBC Job` page and click the [Run] button for the PI Server jobs.
-* Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
+* Make sure that the job status is `COMPLETED`, and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/pi-metric-exec-status.png)
 
@@ -112,7 +112,7 @@ SELECT 1
 ### Verify Metrics in ATSD
 
 * Login into ATSD.
-* Click on the Metrics tab and filter entities by name, e.g. find by prefix `ba:`. You should see a list of exported PI tags
+* Click on the Metrics tab and filter entities by name, e.g. find by prefix `ba:`. You should see a list of exported PI tags:
 ![](images/pi-atsd-metrics.png)
 
 
