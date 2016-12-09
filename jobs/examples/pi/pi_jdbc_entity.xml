@@ -1,0 +1,87 @@
+<list>
+  <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+    <name>PI_JDBC_META_ENTITY</name>
+    <cronExpression>0 0 8 1 * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>JDBC</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <databaseConfiguration>
+      <name>PI_JDBC</name>
+      <type>PI_SERVER</type>
+      <server>piserver</server>
+      <port>5461</port>
+      <dbUser>PIUser</dbUser>
+      <dbPasswd></dbPasswd>
+      <instance>localhost</instance>
+      <testQuery/>
+      <maxActive>4</maxActive>
+      <maxIdle>4</maxIdle>
+      <minIdle>0</minIdle>
+      <initialSize>0</initialSize>
+      <maxWaitSeconds>60</maxWaitSeconds>
+      <maxAgeMinutes>60</maxAgeMinutes>
+      <loginTimeoutSeconds>60</loginTimeoutSeconds>
+      <idleTimeoutSeconds>60</idleTimeoutSeconds>
+      <socketTimeoutSeconds>0</socketTimeoutSeconds>
+      <active>0</active>
+      <idle>0</idle>
+      <driverClassName>com.osisoft.jdbc.Driver</driverClassName>
+      <connectionStringProperties>
+        <string>Allow Expensive=True</string>
+        <string>Cancel On Low Resources=True</string>
+        <string>Connect Timeout=60</string>
+        <string>Command Timeout=60</string>
+        <string>Ignore Errors=False</string>
+        <string>Integers as Value=False</string>
+        <string>Keep Default Ordering=True</string>
+      </connectionStringProperties>
+    </databaseConfiguration>
+    <configurations>
+      <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        <query>SELECT tag, descriptor, zero as minvalue, zero + span as maxvalue, engunits as engineering_units,&#xd;
+CASE WHEN step = 0 THEN &apos;linear&apos; ELSE &apos;previous&apos; END AS interp, &#xd;
+CONCAT(FORMAT(creationdate, &apos;yyyy-MM-dd&apos;), &apos;T&apos;, FORMAT(creationdate, &apos;HH:mm:ss.fff&apos;), &apos;Z&apos;) AS creation_date,&#xd;
+digitalset AS digital_set,&#xd;
+pointsource AS point_source,&#xd;
+pointtype AS point_type,&#xd;
+pointtypex AS point_data_type,&#xd;
+typicalvalue AS typical_value&#xd;
+FROM pipoint..pipoint2</query>
+        <tagColumns>
+          <string>creation_date</string>
+          <string>point_source</string>
+          <string>minvalue</string>
+          <string>typical_value</string>
+          <string>point_type</string>
+          <string>engineering_units</string>
+          <string>maxvalue</string>
+          <string>point_data_type</string>
+          <string>digital_set</string>
+        </tagColumns>
+        <defaultTags/>
+        <metricColumns/>
+        <ignoredMetricColumns/>
+        <entityColumn>tag</entityColumn>
+        <metricNameColumn>tag</metricNameColumn>
+        <queryWithTime>false</queryWithTime>
+        <checkLastTime>false</checkLastTime>
+        <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+        <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+        <maxRows>-1</maxRows>
+        <putType>ENTITY</putType>
+        <propertyKeyColumns/>
+        <propertyValueColumns/>
+        <ignoredPropertyValueColumns/>
+        <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <labelColumn>tag</labelColumn>
+        <interpolationModeColumn>interp</interpolationModeColumn>
+        <unitsColumn>engunits</unitsColumn>
+        <minValueColumn>zero</minValueColumn>
+        <maxValueColumn>maxvalue</maxValueColumn>
+      </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+</list>
