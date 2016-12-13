@@ -38,11 +38,31 @@
 				<headers />
 				<keyStore>NONE</keyStore>
 				<unixSocket>/var/run/docker.sock</unixSocket>
-			</connectionPoolConfig>
+		    </connectionPoolConfig>
 			<propertyRefreshInterval>60</propertyRefreshInterval>
-            <apiVersion>LATEST</apiVersion>
+			<apiVersion>LATEST</apiVersion>
             <watcherEnabled>true</watcherEnabled>
             <statisticsInterval>15</statisticsInterval>
+            <entitySet>
+                <name>Docker Excluded Processes</name>
+                <type>TEXT</type>
+                <discardDuplicates>false</discardDuplicates>
+                <entities>
+                    <string>/bin/bash</string>
+                    <string>bash</string>
+                    <string>tail *</string>
+                    <string>vim *</string>
+                    <string>/usr/sbin/cron</string>
+                    <string>sleep *</string>
+                    <string>/bin/sleep*</string>
+                    <string>su*</string>
+                    <string>awk *</string>
+                    <string>nano *</string>
+                    <string>sed *</string>
+                    <string>/bin/sh *</string>
+                    <string>/bin/bash *</string>
+                </entities>
+            </entitySet>
 		</com.axibase.collector.model.job.docker.DockerConfiguration>
 	</configurations>
 </com.axibase.collector.model.job.docker.DockerJobConfig>
