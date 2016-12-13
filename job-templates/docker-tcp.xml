@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.tcp.TcpJobConfig>
+    <name>docker-tcp</name>
+    <cronExpression>R 0/1 * * * ?</cronExpression>
+    <enabled>false</enabled>
+    <jobType>TCP</jobType>
+    <defaultTags />
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+        <com.axibase.collector.model.job.tcp.TcpConfiguration>
+            <name>docker-tcp-local</name>
+            <port>80</port>
+            <timeout>3</timeout>
+            <failureRetestNumber>1</failureRetestNumber>
+            <failureRetestDelay>3</failureRetestDelay>
+            <defaultTags>
+                <entry>
+                    <string>external-port</string>
+                    <string>${ITEM?split(&apos;,&apos;)[1]}</string>
+                </entry>
+                <entry>
+                    <string>container-name</string>
+                    <string>${ITEM?split(&apos;,&apos;)[5]}</string>
+                </entry>
+            </defaultTags>
+            <tcpMetricPrefix>dkr.</tcpMetricPrefix>
+            <tcpMetricName>tcp-connect-status</tcpMetricName>
+            <entitySet>
+                <name>docker-containers-tcp-local</name>
+                <type>QUERY</type>
+                <discardDuplicates>false</discardDuplicates>
+                <entities>
+                    <string>select dp.property_value docker_host, dcp.host_port, dcp.port, dp1.entity_id,
+                        dp1.property_value ip_address, dp2.property_value name
+                        from job_config jc
+                        inner join docker_configuration dc on dc.job_id = jc.id
+                        inner join connection_pool cp on cp.id = dc.connection_pool_config and cp.protocol = &apos;unix&apos;
+                        inner join docker_property dp1 on dp1.configuration_id = dc.id
+                        inner join docker_property dp2 on dp2.configuration_id = dc.id
+                        inner join docker_container_port dcp on dcp.configuration_id = dc.id
+                        inner join docker_property dp on dp.configuration_id = dc.id and dp.property_name = &apos;docker-host&apos;
+                        where jc.job_type = &apos;DOCKER&apos;
+                        and jc.enabled = &apos;true&apos;
+                        and dp1.property_name = &apos;ip-address&apos;
+                        and dp2.entity_id = dp1.entity_id
+                        and dp2.property_name = &apos;name&apos;
+                        and dcp.container_id = dp1.entity_id
+                        and dcp.host_port is not null
+                    </string>
+                </entities>
+                <databaseConfiguration>
+                    <name>derby_embedded</name>
+                    <type>DERBY_EMBEDDED</type>
+                    <port>0</port>
+                    <maxActive>4</maxActive>
+                    <maxIdle>4</maxIdle>
+                    <minIdle>0</minIdle>
+                    <initialSize>0</initialSize>
+                    <maxWaitSeconds>60</maxWaitSeconds>
+                    <maxAgeMinutes>60</maxAgeMinutes>
+                    <loginTimeoutSeconds>60</loginTimeoutSeconds>
+                    <idleTimeoutSeconds>60</idleTimeoutSeconds>
+                    <socketTimeoutSeconds>0</socketTimeoutSeconds>
+                    <active>0</active>
+                    <idle>0</idle>
+                    <connectionStringProperties />
+                </databaseConfiguration>
+                <separator>,</separator>
+            </entitySet>
+            <urlFormat>${ITEM?split(&apos;,&apos;)[4]}:${ITEM?split(&apos;,&apos;)[2]}</urlFormat>
+            <entityName>${ITEM?split(&apos;,&apos;)[3]}</entityName>
+        </com.axibase.collector.model.job.tcp.TcpConfiguration>
+    </configurations>
+</com.axibase.collector.model.job.tcp.TcpJobConfig>

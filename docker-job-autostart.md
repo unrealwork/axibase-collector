@@ -9,9 +9,9 @@ To automatically start a job(s) on Docker, use Collector parameters:
 `-job-enable` | Enable specified job by name. Support job names separated by comma.
 `-job-path` | Import job from specified file. Support files separated by comma.
 
-## Autostart Predefined Job
+## Autostart Pre-configured Job
 
-To automatically start predefined job, use the '-job-enable' parameter with [preconfigured ATSD](installation-on-docker.md#start-container):
+To automatically start one of the [pre-configured jobs](pre-configured-jobs.md), use the '-job-enable' parameter with [pre-configured ATSD](installation-on-docker.md#start-container):
 
 ```properties
 docker run \
@@ -65,4 +65,17 @@ docker run \
   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port \
   -job-path=/tmp/job.xml \
   -job-enable=json-socrata
+```
+
+## Autostart Multiple Jobs
+
+```properties
+docker run \
+ --detach \
+ --publish-all \
+ --restart=always \
+ --name=axibase-collector \
+ axibase/collector:latest \
+  -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port \
+  -job-enable=docker-socket,docker-tcp
 ```

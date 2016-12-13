@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.AtsdConfiguration>
+	<charset>UTF-8</charset>
+	<port>8081</port>
+	<timeout>5</timeout>
+	<readTimeout>5</readTimeout>
+	<connectionPoolConfig>
+		<name>atsd</name>
+		<protocol>https</protocol>
+		<server>localhost</server>
+		<port>8443</port>
+		<maxTotal>10</maxTotal>
+		<cookieEnabled>false</cookieEnabled>
+		<soTimeout>15</soTimeout>
+		<soReuse>true</soReuse>
+		<soLinger>0</soLinger>
+		<soKeepAlive>true</soKeepAlive>
+		<tcpNoDelay>false</tcpNoDelay>
+		<sslSkip>true</sslSkip>
+		<closeInterval>10</closeInterval>
+		<connectionTimeout>10</connectionTimeout>
+		<connectionPoolTimeout>5</connectionPoolTimeout>
+		<testPath>/ping</testPath>
+		<authType>BASIC</authType>
+		<userName>axibase</userName>
+		<password>cPJj9oHVtS0=</password>
+		<headers />
+		<keyStore>NONE</keyStore>
+	</connectionPoolConfig>
+	<apiPath>/api/v1</apiPath>
+	<transportType>HTTP_BATCH</transportType>
+</com.axibase.collector.model.AtsdConfiguration>
