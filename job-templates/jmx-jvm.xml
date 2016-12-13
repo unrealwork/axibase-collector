@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.jmx.JmxJobConfig>
+	<name>jmx-jvm</name>
+	<cronExpression>0 * * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>JMX</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.jmx.JmxConfiguration>
+			<name>jvm-series</name>
+			<host>java_hostname</host>
+			<port>1090</port>
+			<userName>monitorRole</userName>
+			<password />
+			<trackingMBeans>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.nio:name=*,type=BufferPool</objectName>
+					<attributes>*</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:type=OperatingSystem</objectName>
+					<attributes>*</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:name=*,type=MemoryPool</objectName>
+					<attributes>Usage.used, Usage.max, Name</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:type=Memory</objectName>
+					<attributes>HeapMemoryUsage.max, HeapMemoryUsage.used, NonHeapMemoryUsage.max, NonHeapMemoryUsage.used</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:name=*,type=GarbageCollector</objectName>
+					<attributes>LastGcInfo.duration</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+			</trackingMBeans>
+			<entity />
+			<metricPrefix>jmx.jvm.</metricPrefix>
+			<serviceName />
+			<excludedMetrics />
+			<seriesTags />
+			<putType>SERIES</putType>
+		</com.axibase.collector.model.job.jmx.JmxConfiguration>
+		<com.axibase.collector.model.job.jmx.JmxConfiguration>
+			<name>jvm-property</name>
+			<host>java_hostname</host>
+			<port>1090</port>
+			<userName>monitorRole</userName>
+			<password />
+			<trackingMBeans>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:type=Runtime</objectName>
+					<attributes>BootClassPath</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:type=OperatingSystem</objectName>
+					<attributes>Arch</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:name=*,type=MemoryPool</objectName>
+					<attributes>CollectionUsage.committed</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:name=*,type=MemoryManager</objectName>
+					<attributes>MemoryPoolNames_0</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:type=Memory</objectName>
+					<attributes>HeapMemoryUsage.committed</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.lang:name=*,type=GarbageCollector</objectName>
+					<attributes>CollectionCount</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+				<com.axibase.collector.model.job.jmx.TrackingMBean>
+					<objectName>java.nio:name=*,type=BufferPool</objectName>
+					<attributes>Count</attributes>
+				</com.axibase.collector.model.job.jmx.TrackingMBean>
+			</trackingMBeans>
+			<entity />
+			<metricPrefix>jmx.jvm.</metricPrefix>
+			<serviceName />
+			<excludedMetrics />
+			<seriesTags />
+			<putType>PROPERTY</putType>
+		</com.axibase.collector.model.job.jmx.JmxConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.jmx.JmxJobConfig>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.aws.AwsJobConfig>
+	<name>aws-cloudwatch</name>
+	<cronExpression>R 0/5 * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>AWS</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.aws.AwsConfiguration>
+			<name>aws-cloudwatch-ro-user</name>
+			<endpoint>US_EAST_1</endpoint>
+			<username>cloudwatch-ro-user</username>
+			<accessKeyId />
+			<secretAccessKey />
+			<collectStatus>true</collectStatus>
+			<propertyRefreshInterval>15</propertyRefreshInterval>
+			<cacheMetrics>false</cacheMetrics>
+			<namespaces>AWS_AUTOS_CALING,AWS_BILLING,AWS_CLOUD_FRONT,AWS_DYNAMO_DB,AWS_ELASTI_CACHE,AWS_EBS,AWS_EC2,AWS_ELB,AWS_ELASTIC_MAP_REDUCE,AWS_KINESIS,AWS_OPS_WORKS,AWS_REDSHIFT,AWS_RDS,AWS_ROUTE53,AWS_SNS,AWS_SQS,AWS_SWF,AWS_STORAGE_GATEWAY,CUSTOM_METRICS</namespaces>
+			<namespaceArray>
+				<com.axibase.collector.model.aws.Namespace>AWS_AUTOS_CALING</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_CLOUD_FRONT</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_DYNAMO_DB</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_ELASTI_CACHE</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_EBS</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_EC2</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_ELB</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_ELASTIC_MAP_REDUCE</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_KINESIS</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_OPS_WORKS</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_REDSHIFT</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_RDS</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_ROUTE53</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_SNS</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_SQS</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_SWF</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>AWS_STORAGE_GATEWAY</com.axibase.collector.model.aws.Namespace>
+				<com.axibase.collector.model.aws.Namespace>CUSTOM_METRICS</com.axibase.collector.model.aws.Namespace>
+			</namespaceArray>
+			<connectionPoolConfig>
+				<name>monitoring.us-east-1.amazonaws.com</name>
+				<protocol>http</protocol>
+				<server>monitoring.us-east-1.amazonaws.com</server>
+				<port>80</port>
+				<maxTotal>8</maxTotal>
+				<cookieEnabled>false</cookieEnabled>
+				<soTimeout>15</soTimeout>
+				<soReuse>true</soReuse>
+				<soLinger>0</soLinger>
+				<soKeepAlive>true</soKeepAlive>
+				<tcpNoDelay>false</tcpNoDelay>
+				<sslSkip>false</sslSkip>
+				<closeInterval>600</closeInterval>
+				<connectionTimeout>15</connectionTimeout>
+				<connectionPoolTimeout>10</connectionPoolTimeout>
+				<testPath>/</testPath>
+				<authType>NONE</authType>
+				<userName />
+				<password />
+				<headers />
+				<keyStore>NONE</keyStore>
+			</connectionPoolConfig>
+		</com.axibase.collector.model.job.aws.AwsConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.aws.AwsJobConfig>

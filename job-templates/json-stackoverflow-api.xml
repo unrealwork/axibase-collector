@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.json.JsonJobConfig>
+	<name>json-stackoverflow-api</name>
+	<cronExpression>R 0 * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>JSON</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.json.JsonConfiguration>
+			<name>tags</name>
+            <format>JSON</format>
+			<path>/2.2/tags/${ITEM}/info?key=********((&amp;site=stackoverflow</path>
+			<connectionPoolConfig>
+				<name>https://api.stackexchange.com</name>
+				<protocol>https</protocol>
+				<server>api.stackexchange.com</server>
+				<port>443</port>
+				<maxTotal>4</maxTotal>
+				<cookieEnabled>false</cookieEnabled>
+				<soTimeout>15</soTimeout>
+				<soReuse>false</soReuse>
+				<soLinger>0</soLinger>
+				<soKeepAlive>false</soKeepAlive>
+				<tcpNoDelay>false</tcpNoDelay>
+				<sslSkip>false</sslSkip>
+				<closeInterval>300</closeInterval>
+				<connectionTimeout>15</connectionTimeout>
+				<connectionPoolTimeout>15</connectionPoolTimeout>
+				<testPath>/</testPath>
+				<authType>NONE</authType>
+				<headers />
+				<keyStore>NONE</keyStore>
+			</connectionPoolConfig>
+			<entitySet>
+				<name>stackoverflow-cloud-tags</name>
+				<entities>
+					<string>openstack</string>
+					<string>amazon-ec2</string>
+					<string>google-app-engine</string>
+					<string>amazon-web-services</string>
+					<string>amazon-s3</string>
+					<string>bluemix</string>
+					<string>azure</string>
+				</entities>
+			</entitySet>
+			<enableWebDriver>false</enableWebDriver>
+            <settings>
+                <com.axibase.collector.model.job.json.JsonConfigurationSetting>
+                    <defaultEntity>stackoverflow-${ITEM}</defaultEntity>
+                    <metricPrefix>so.tags.</metricPrefix>
+                    <seriesEnabled>true</seriesEnabled>
+                    <jsonPath>$.items</jsonPath>
+                    <depth>1</depth>
+                    <propertyKeyFields/>
+                    <propertyValueFields/>
+                    <includedFields>
+				        <string>count</string>
+			        </includedFields>
+                    <excludedFields/>
+                    <renamedFields/>
+                    <customTags/>
+                </com.axibase.collector.model.job.json.JsonConfigurationSetting>
+            </settings>
+		</com.axibase.collector.model.job.json.JsonConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.json.JsonJobConfig>
