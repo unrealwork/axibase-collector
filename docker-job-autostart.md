@@ -7,7 +7,7 @@ To automatically start a job(s) on Docker, use Collector parameters:
 **Name** | **Description**
 ----- | -----
 `-job-enable` | Enable specified job by name. Support job names separated by comma.
-`-job-path` | Import job from specified file. Support files separated by comma.
+`-job-path` | Import job from specified file or HTTP(s) content. Support files separated by comma. If `job-enable` parameter is not defined, ALL jobs in the file will be started.
 
 ## Autostart Pre-configured Job
 
@@ -67,6 +67,19 @@ docker run \
   -job-enable=json-socrata
 ```
 
+For example, for remote job file:
+
+```properties
+docker run \
+ --detach \
+ --publish-all \
+ --restart=always \
+ --name=axibase-collector \
+ axibase/collector:latest \
+  -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port \
+  -job-path=https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/job-templates/icmp-ping.xml
+```
+
 ## Autostart Multiple Jobs
 
 ```properties
@@ -77,5 +90,6 @@ docker run \
  --name=axibase-collector \
  axibase/collector:latest \
   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port \
-  -job-enable=docker-socket,docker-tcp
+  -job-path=/tmp/jobs.xml \
+  -job-enable=json-job,tcp-job
 ```
