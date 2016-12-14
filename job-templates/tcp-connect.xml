@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.tcp.TcpJobConfig>
+	<name>tcp-connect</name>
+	<cronExpression>0 * * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>TCP</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.tcp.TcpConfiguration>
+			<name>80-http</name>
+			<port>80</port>
+			<tcpMetricName>tcp-connect-status</tcpMetricName>
+			<timeout>5</timeout>
+			<failureRetestNumber>2</failureRetestNumber>
+			<failureRetestDelay>5</failureRetestDelay>
+			<entitySet>
+				<name>servers</name>
+				<entities>
+					<string>ibm.com</string>
+					<string>google.com</string>
+					<string>axibase.com</string>
+				</entities>
+			</entitySet>
+		</com.axibase.collector.model.job.tcp.TcpConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.tcp.TcpJobConfig>

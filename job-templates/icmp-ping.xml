@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.icmp.IcmpJobConfig>
+	<name>icmp-ping</name>
+	<cronExpression>0 * * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>ICMP</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.icmp.IcmpConfiguration>
+			<icmpConfigurationName>icmp</icmpConfigurationName>
+			<timeout>3</timeout>
+			<ttl>0</ttl>
+			<icmpMetricName>icmp</icmpMetricName>
+			<failureRetests>1</failureRetests>
+			<messageSize>56</messageSize>
+			<delay>1</delay>
+			<strategy>SYSTEM</strategy>
+			<entitySet>
+				<name>icmp-hosts</name>
+				<entities>
+					<string>google.com</string>
+					<string>10.102.0.10</string>
+					<string>axibase.com</string>
+				</entities>
+			</entitySet>
+			<ipVersion>Prefer IPv4</ipVersion>
+		</com.axibase.collector.model.job.icmp.IcmpConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.icmp.IcmpJobConfig>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.jmx.JmxJobConfig>
+    <name>jmx-activemq</name>
+    <cronExpression>0/10 * * * * ?</cronExpression>
+    <enabled>false</enabled>
+    <jobType>JMX</jobType>
+    <outputFileSettings>
+        <appendFile>false</appendFile>
+        <outputFileMaxSize>0</outputFileMaxSize>
+    </outputFileSettings>
+    <defaultTags />
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+        <com.axibase.collector.model.job.jmx.JmxConfiguration>
+            <name>activemq-series</name>
+            <host>activemq_hostname</host>
+            <port>1090</port>
+            <userName>monitorRole</userName>
+            <password />
+            <trackingMBeans>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:brokerName=*,destinationName=*,destinationType=*,type=Broker</objectName>
+                    <attributes>AverageBlockedTime, AverageEnqueueTime,
+                        BlockedSends, ConsumerCount, CursorMemoryUsage,
+                        CursorPercentUsage, DequeueCount, DispatchCount,
+                        EnqueueCount, ExpiredCount, InFlightCount,
+                        MemoryPercentUsage, MemoryUsageByteCount,
+                        ProducerCount, QueueSize, TotalBlockedTime
+                    </attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:brokerName=localhost,type=Broker</objectName>
+                    <attributes>TotalProducerCount, TotalMessageCount, TotalEnqueueCount, TotalDequeueCount, TotalConsumerCount, TotalConnectionsCount, TempPercentUsage, StorePercentUsage, MemoryPercentUsage, JobSchedulerStorePercentUsage,CurrentConnectionsCount</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:InstanceName=*,Service=*,brokerName=*,type=Broker</objectName>
+                    <attributes>*</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:brokerName=*,instanceName=*,service=*,type=Broker</objectName>
+                    <attributes>Size</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+            </trackingMBeans>
+            <entity />
+            <metricPrefix>jmx.activemq.</metricPrefix>
+            <serviceName />
+            <excludedMetrics />
+            <seriesTags />
+            <putType>SERIES</putType>
+        </com.axibase.collector.model.job.jmx.JmxConfiguration>
+        <com.axibase.collector.model.job.jmx.JmxConfiguration>
+            <name>activemq-property</name>
+            <host>activemq_hostname</host>
+            <port>1090</port>
+            <userName>monitorRole</userName>
+            <password />
+            <trackingMBeans>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:brokerName=*,type=Broker</objectName>
+                    <attributes>TotalConnectionsCount, TotalConsumerCount, TotalDequeueCount, TotalEnqueueCount, TotalMessageCount, TotalProducerCount</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:brokerName=*,destinationName=*,destinationType=*,type=Broker</objectName>
+                    <attributes>EnqueueCount, ExpiredCount</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:InstanceName=*,Service=*,brokerName=*,type=Broker</objectName>
+                    <attributes>Size</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:brokerName=*,clientId=*,consumerId=*,destinationName=*,destinationType=*,endpoint=*,type=Broker</objectName>
+                    <attributes>ConsumedCount</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:brokerName=*,connectionName=*,connectionViewType=*,connector=*,connectorName=*,type=Broker</objectName>
+                    <attributes>Active</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+                <com.axibase.collector.model.job.jmx.TrackingMBean>
+                    <objectName>org.apache.activemq:brokerName=*,instanceName=*,service=*,type=Broker</objectName>
+                    <attributes>Data</attributes>
+                </com.axibase.collector.model.job.jmx.TrackingMBean>
+            </trackingMBeans>
+            <entity />
+            <metricPrefix>jmx.activemq.</metricPrefix>
+            <serviceName />
+            <excludedMetrics />
+            <excludedProperties>
+					<string>Queues_*</string>
+					<string>QueueSubscribers_*</string>
+					<string>Topics_*</string>
+					<string>TopicSubscribers_*</string>
+					<string>QueueProducers_*</string>
+            </excludedProperties>
+            <seriesTags />
+            <putType>PROPERTY</putType>
+        </com.axibase.collector.model.job.jmx.JmxConfiguration>
+    </configurations>
+</com.axibase.collector.model.job.jmx.JmxJobConfig>

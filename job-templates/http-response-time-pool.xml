@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.http.HttpJobConfig>
+	<name>http-response-time-pool</name>
+	<cronExpression>R 0/5 * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>HTTP</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.http.HttpConfiguration>
+			<name>ibm us</name>
+			<path>/us-en/</path>
+			<responseText>IBM - United States</responseText>
+			<matchType>CONTAINS</matchType>
+			<failureRetest>2</failureRetest>
+			<failureRetestDelay>15</failureRetestDelay>
+			<connectionPoolConfig>
+				<name>https://www.ibm.com/</name>
+				<protocol>https</protocol>
+				<server>www.ibm.com</server>
+				<port>443</port>
+				<maxTotal>2</maxTotal>
+				<cookieEnabled>false</cookieEnabled>
+				<soTimeout>0</soTimeout>
+				<soReuse>false</soReuse>
+				<soLinger>0</soLinger>
+				<soKeepAlive>false</soKeepAlive>
+				<tcpNoDelay>false</tcpNoDelay>
+				<sslSkip>false</sslSkip>
+				<closeInterval>15</closeInterval>
+				<connectionTimeout>5</connectionTimeout>
+				<connectionPoolTimeout>5</connectionPoolTimeout>
+				<testPath>/</testPath>
+				<authType>NONE</authType>
+				<headers />
+				<keyStore>NONE</keyStore>
+			</connectionPoolConfig>
+			<enableWebDriver>false</enableWebDriver>
+		</com.axibase.collector.model.job.http.HttpConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.http.HttpJobConfig>
