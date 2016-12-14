@@ -2,7 +2,7 @@
 
 ## Overview
 
-To automatically start a job(s), use Collector parameters:
+To automatically start a job, use Collector parameters:
 
 **Name** | **Description**
 ----- | -----
