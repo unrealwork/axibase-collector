@@ -6,18 +6,18 @@ To automatically start a job, use the following Collector parameters:
 
 **Name** | **Description**
 ----- | -----
-`-job-enable` | Enable specified job by name. Support job names separated by comma.
-`-job-path` | Import a job from a specified file or HTTP(s) content. Support files separated by comma. If `job-enable` parameter is not defined, ALL jobs in the file will be started.
+`-job-enable` | Enable specified job by name. Support job names separated by commas.
+`-job-path` | Import a job from a specified file or HTTP(s) content. Supports comma seperated files. If the `job-enable` parameter is not defined, **ALL** jobs in the file will be started.
 
 ## Autostart Pre-configured Job
 
-To automatically start one of the [pre-configured jobs](pre-configured-jobs.md), use the '-job-enable' parameter:
+To automatically start one of the [pre-configured jobs](pre-configured-jobs.md), use the `-job-enable` parameter:
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-enable=job_name
 ```
  
-For example, for job with name 'json-socrata':
+For example, for a job with the name 'json-socrata':
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-enable=json-socrata
@@ -25,13 +25,13 @@ For example, for job with name 'json-socrata':
 
 ## Autostart Job from File
 
-To automatically start job from file, use the '-job-path' and '-job-enable' parameters:
+To automatically start job from file, use the `-job-path` and `-job-enable` parameters:
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-path=path_to_file -job-enable=job_name
 ```
  
-For example, for job with name 'json-socrata' from the file '/tmp/job.xml':
+For example, for job with the name 'json-socrata' from the file `/tmp/job.xml`:
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-path=/tmp/job.xml -job-enable=json-socrata
