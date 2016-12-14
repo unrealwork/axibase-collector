@@ -2,12 +2,12 @@
 
 ## Overview
 
-To automatically start a job, use Collector parameters:
+To automatically start a job, use the following Collector parameters:
 
 **Name** | **Description**
 ----- | -----
 `-job-enable` | Enable specified job by name. Support job names separated by comma.
-`-job-path` | Import job from specified file or HTTP(s) content. Support files separated by comma. If `job-enable` parameter is not defined, ALL jobs in the file will be started.
+`-job-path` | Import a job from a specified file or HTTP(s) content. Support files separated by comma. If `job-enable` parameter is not defined, ALL jobs in the file will be started.
 
 ## Autostart Pre-configured Job
 
