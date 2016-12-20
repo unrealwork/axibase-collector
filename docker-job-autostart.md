@@ -2,16 +2,16 @@
 
 ## Overview
 
-To automatically start a job(s) on Docker, use Collector parameters:
+To automatically start a job on Docker, use the following Collector parameters:
 
 **Name** | **Description**
 ----- | -----
-`-job-enable` | Enable specified job by name. Support job names separated by comma.
-`-job-path` | Import job from specified file or HTTP(s) content. Support files separated by comma. If `job-enable` parameter is not defined, ALL jobs in the file will be started.
+`-job-enable` | Enable a specified job by name. Supports job names separated by commas.
+`-job-path` | Import a job from a specified file or HTTP(s) content. Supports comma seperated files. If the `job-enable` parameter is not defined, **ALL** jobs in the file will be started.
 
 ## Autostart Pre-configured Job
 
-To automatically start one of the [pre-configured jobs](pre-configured-jobs.md), use the '-job-enable' parameter with [pre-configured ATSD](installation-on-docker.md#start-container):
+To automatically start one of the [pre-configured jobs](pre-configured-jobs.md), use the `-job-enable` parameter with [pre-configured ATSD](installation-on-docker.md#start-container):
 
 ```properties
 docker run \
@@ -24,7 +24,7 @@ docker run \
   -job-enable=job_name
 ```
  
-For example, for job with name 'json-socrata':
+For example, for a job with the name 'json-socrata':
 
 ```properties
 docker run \
@@ -39,7 +39,7 @@ docker run \
 
 ## Autostart Job from File
 
-To automatically start job from file, use the '-job-path' and '-job-enable' parameters:
+To automatically start a job from file, use the `-job-path` and `-job-enable` parameters:
 
 ```properties
 docker run \
@@ -53,7 +53,7 @@ docker run \
   -job-enable=job_name
 ```
  
-For example, for job with name 'json-socrata' from the file '/tmp/job.xml':
+For example, for a job with the name 'json-socrata' from the file `/tmp/job.xml`:
 
 ```properties
 docker run \
@@ -67,7 +67,7 @@ docker run \
   -job-enable=json-socrata
 ```
 
-For example, for remote job file:
+For example, for a remote job file:
 
 ```properties
 docker run \
