@@ -28,9 +28,9 @@ services:
     hostname: atsd
     restart: always
     environment:
-      - COLLECTOR_USER_NAME=${USER}
-      - COLLECTOR_USER_PASSWORD=${PASSWORD}
-      - COLLECTOR_USER_TYPE=${TYPE}
+      - COLLECTOR_USER_NAME=${C_USER}
+      - COLLECTOR_USER_PASSWORD=${C_PASSWORD}
+      - COLLECTOR_USER_TYPE=api-rw
 
   collector:
     image: axibase/collector:latest
@@ -43,13 +43,13 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - COLLECTOR_ARGS=-atsd-url=https://${USER}:${PASSWORD}@atsd:8443 -job-enable=docker-socket
+      - COLLECTOR_ARGS=-atsd-url=https://${C_USER}:${C_PASSWORD}@atsd:8443 -job-enable=docker-socket
 ```
 
 Launch containers:
 
 ```sh
-export USER=myuser; export PASSWORD=mypassword; export TYPE=api-rw; docker-compose up -d
+export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose up -d
 ```
 
 
