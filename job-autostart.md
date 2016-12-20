@@ -8,7 +8,7 @@ To automatically start a job, use the following Collector parameters:
 ----- | -----
 `-job-enable` | Enable specified job by name. Support job names separated by commas.
 `-job-path` | Import a job from a specified file or HTTP(s) content. Supports comma seperated files. If the `job-enable` parameter is not defined, **ALL** jobs in the file will be started.
-`-job-execute` | Run specified job by name immediately. Support job names separated by commas.
+`-job-execute` | Immediately run specified job by name. Support job names separated by commas.
 
 ## Autostart Pre-configured Job
 
@@ -26,19 +26,19 @@ For example, for a job with the name 'json-socrata':
 
 ## Autostart Job from File
 
-To automatically start job from file, use the `-job-path` and `-job-enable` parameters:
+To automatically start a job from file, use the `-job-path` and `-job-enable` parameters:
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-path=path_to_file -job-enable=job_name
 ```
  
-For example, for job with the name 'json-socrata' from the file `/tmp/job.xml`:
+For example, for a job with the name 'json-socrata' from the file `/tmp/job.xml`:
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-path=/tmp/job.xml -job-enable=json-socrata
 ```
 
-For example, for remote job file:
+For example, for a remote job file:
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-path=https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/job-templates/icmp-ping.xml
@@ -52,13 +52,13 @@ For example, for remote job file:
 
 ## Execute Job Immediately
 
-To execute job immediately, use the `-job-execute` parameter:
+To execute a job immediately, use the `-job-execute` parameter:
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-execute=job_name
 ```
 
-For example, for job with the name 'json-socrata':
+For example, for a job with the name 'json-socrata':
 
 ```sh
 ./axibase-collector/bin/start-collector.sh -job-execute=json-socrata
