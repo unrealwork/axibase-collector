@@ -8,7 +8,7 @@ To automatically start a job on Docker, use the following Collector parameters:
 ----- | -----
 `-job-enable` | Enable a specified job by name. Supports job names separated by commas.
 `-job-path` | Import a job from a specified file or HTTP(s) content. Supports comma seperated files. If the `job-enable` parameter is not defined, **ALL** jobs in the file will be started.
-`-job-execute` | Run specified job by name immediately. Support job names separated by commas.
+`-job-execute` | Immediately run specified job by name. Support job names separated by commas.
 
 ## Autostart Pre-configured Job
 
@@ -97,7 +97,7 @@ docker run \
 
 ## Execute Job Immediately
 
-To execute job immediately, use the `-job-execute` parameter:
+To execute a job immediately, use the `-job-execute` parameter:
 
 ```properties
 docker run \
@@ -110,7 +110,7 @@ docker run \
   -job-execute=job_name
 ```
 
-For example, for job with the name 'json-socrata':
+For example, for a job with the name 'json-socrata':
 
 ```properties
 docker run \
