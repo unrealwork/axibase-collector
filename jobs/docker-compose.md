@@ -105,8 +105,8 @@ services:
       - COLLECTOR_ARGS=-atsd-url=https://${COLLECTOR_USER_NAME}:${COLLECTOR_USER_PASSWORD}@atsd:8443 -job-enable=docker-socket
 ```
 
-Launch containers:
+Pull latest images and launch the containers:
 
 ```sh
-docker-compose up -d
+docker-compose pull && docker-compose up -d
 ```
