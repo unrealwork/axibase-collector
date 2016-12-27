@@ -4,7 +4,7 @@
 
 Monitoring disk space usage with a breakdown by individual container ensures continuous service availability by preventing space leakages in containers with data (persistent) volumes.
 
-While the Docker [command line](https://docs.docker.com/engine/reference/commandline/ps/) provides a way to obtain container sizes using the `--size` flag, the command may take several minutes to complete while significantly overloading the hosts disk subsystem and slowing down API requests in the Docker engine. Besides, parsing the output of a `docker ps --size` command requires handling size units (kb, mb, gb) and doesn't expose space usage by volume.
+While the Docker [command line](https://docs.docker.com/engine/reference/commandline/ps/) provides a way to obtain container sizes using the `--size` flag, the command may take several minutes to complete while significantly overloading the host's disk subsystem and slowing down Docker Engine API response times. Besides, the output of the docker CLI doesn't expose space usage by volume and requires parsing size units (kb, mb, gb).
 
   ```sh
   axibase@NURSWGHBS001:~$ docker ps -s --format "{{.ID}}\t{{.Names}}\t{{.Size}}"
@@ -20,7 +20,7 @@ While the Docker [command line](https://docs.docker.com/engine/reference/command
   ...
   ```
 
-For example, on a Docker host where the `/var/lib/docker` size is 30Gb with 20 running containers and 80 in total, the initial execution of the `docker ps -as` command takes more than 2 minutes while full loading the host's I/O.
+For example, on a Docker host where the `/var/lib/docker` size is 30Gb with 20 running containers and 80 in total, the initial execution of the `docker ps -as` command takes more than 2 minutes while fully loading the host's I/O.
 
   ```sh
   axibase@NURSWGHBS001:~$ time docker ps -as
