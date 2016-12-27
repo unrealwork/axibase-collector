@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
-
+# Example of usage:
+# sudo ./docker_volume_collect.sh /dev/tcp/atsd_host/8081
 metric_used=docker.volume.used
 metric_used_percent=docker.volume.used_percent
 metric_total_used=docker.volume.total_used
 metric_total_used_percent=docker.volume.total_used_percent
 metric_fs_size=docker.volume.fs.size
 docker_volumes_directory=/var/lib/docker/volumes/
-
+atsd_host=$1
 
 
 #Send network command to atsd by TCP
 function send_network_command {
-  # echo -e $@ > /dev/tcp/atsd_hostname/8081
+  echo -e $@ > ${atsd_host}
   # echo $@ >> ./out.txt
-  echo -e $@
+  # echo -e $@
 }
 
 #Hostname in lower case
@@ -30,7 +31,7 @@ function send_series {
    local hostname=$5
    local command="series e:$entity m:$metric=$value d:${datetime}";
    if [[ ! -z ${hostname} ]]; then
-     command=${command}'t:docker-host="'${hostname}'"';
+     command=${command}' t:docker-host="'${hostname}'"';
    fi
    send_network_command ${command}
 }
@@ -93,5 +94,8 @@ function send_volume_information {
 
 }
 
-send_volume_information
+if [[ ($# == 1) && !( -z $1) ]]; then
+    atsd_host=$1
+    send_volume_information
+fi
 
