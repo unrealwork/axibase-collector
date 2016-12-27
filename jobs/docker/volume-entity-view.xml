@@ -1,0 +1,80 @@
+<linked-list>
+  <com.axibase.tsd.model.EntityView>
+    <name>Docker Volumes</name>
+    <entityGroup>docker-volumes</entityGroup>
+    <columns>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>LABEL_COLUMN</type>
+        <header>Label</header>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>NAME_COLUMN</type>
+        <header>Id</header>
+        <formatting>value.length()&lt;12 ? value : value.substring(0, 12)</formatting>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTIES_COLUMN</type>
+        <header>Properties</header>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>ENTITY_TAG</type>
+        <header>Status</header>
+        <value>status</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>SERIES_VALUE</type>
+        <header>Space Used, Mb</header>
+        <value>docker.volume.used</value>
+        <formatting>Math.round(value/Math.pow(2,10))</formatting>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>SERIES_VALUE</type>
+        <header>Space Used, %</header>
+        <value>docker.volume.used_percent</value>
+        <formatting>new java.text.DecimalFormat(&quot;0.00&quot;).format(value)</formatting>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>ENTITY_TAG</type>
+        <header>Container Id</header>
+        <value>container</value>
+        <link>ENTITY</link>
+        <formatting>value.length()&lt;12 ? value : value.substring(0, 12)</formatting>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>ENTITY_TAG</type>
+        <header>Container</header>
+        <value>container</value>
+        <link>ENTITY</link>
+        <label>docker.container::name</label>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>ENTITY_TAG</type>
+        <header>Path</header>
+        <value>destination</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>ENTITY_TAG</type>
+        <header>R/W</header>
+        <value>read/write</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Driver</header>
+        <value>docker.volume::driver</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+      <com.axibase.tsd.model.EntityViewColumn>
+        <type>PROPERTY_TAG</type>
+        <header>Mount Point</header>
+        <value>docker.volume::mountpoint</value>
+      </com.axibase.tsd.model.EntityViewColumn>
+    </columns>
+    <pageSize>250</pageSize>
+    <enabled>true</enabled>
+    <menu>false</menu>
+    <filters class="java.util.Arrays$ArrayList">
+      <a class="com.axibase.tsd.model.EntityView$EntityViewFilter-array"/>
+    </filters>
+    <grouping>docker-host</grouping>
+    <displayIndex>0</displayIndex>
+  </com.axibase.tsd.model.EntityView>
+</linked-list>
