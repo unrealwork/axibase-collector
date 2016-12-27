@@ -2,9 +2,9 @@
 
 ## Overview
 
-Monitoring disk space usage with breakdown by individual container ensures continuous service availability by preventing space leakages in containers with data (persistent) volumes.
+Monitoring disk space usage with a breakdown by individual container ensures continuous service availability by preventing space leakages in containers with data (persistent) volumes.
 
-While the Docker [command line](https://docs.docker.com/engine/reference/commandline/ps/) provides a way to obtain container sizes using the `--size` flag, the command may take several minutes to complete while significantly overloading the hosts disk subsystem and slowing down API requests in the Docker engine. Besides, parsing the output of `docker ps --size` command requires handling size units (kb, mb, gb) and doesn't expose space usage by volume.
+While the Docker [command line](https://docs.docker.com/engine/reference/commandline/ps/) provides a way to obtain container sizes using the `--size` flag, the command may take several minutes to complete while significantly overloading the hosts disk subsystem and slowing down API requests in the Docker engine. Besides, parsing the output of a `docker ps --size` command requires handling size units (kb, mb, gb) and doesn't expose space usage by volume.
 
   ```sh
   axibase@NURSWGHBS001:~$ docker ps -s --format "{{.ID}}\t{{.Names}}\t{{.Size}}"
@@ -20,7 +20,7 @@ While the Docker [command line](https://docs.docker.com/engine/reference/command
   ...
   ```
 
-For example, on a Docker host where `/var/lib/docker` size is 30Gb with 20 running and 80 total containers, the initial execution of `docker ps -as` command takes more than 2 minutes while full loading the host's I/O.
+For example, on a Docker host where the `/var/lib/docker` size is 30Gb with 20 running containers and 80 in total, the initial execution of the `docker ps -as` command takes more than 2 minutes while full loading the host's I/O.
 
   ```sh
   axibase@NURSWGHBS001:~$ time docker ps -as
@@ -34,7 +34,7 @@ For example, on a Docker host where `/var/lib/docker` size is 30Gb with 20 runni
 
 ![docker-ps](docker-ps-as.png)
 
-Executing API requests with `&size=1` parameter typically requires even more time that `docker ps -as` command and may cause timeout issues for API clients.
+Executing API requests with the `&size=1` parameter typically requires even more time than the `docker ps -as` command and may cause timeout issues for API clients.
 
 ## Alternative
 
@@ -55,23 +55,23 @@ One of the "lesser evil" alternatives is to calculate disk usage of `/var/lib/do
   307M	/var/lib/docker/volumes/eb3952dec29e293cfae8149b20c40859ac944723abd28666e093ab1d76b43a0c
   ```
 
-The following [collector](docker_volume_collect.sh) script executes the `ds` command to calculate total disk usage of each subdirectory in `/var/lib/docker/volumes/` directory as well as computes the percentage of total size of the underlying file system, used by each volume.
+The following [collector](docker_volume_collect.sh) script executes the `ds` command to calculate total disk usage of each subdirectory in the `/var/lib/docker/volumes/` directory, as well as computes the percentage of the total size of the underlying file system, used by each volume.
 
 ### Running
 
-* Print commands to stdout
+* Print commands to stdout:
 
   ```sh
   sudo ./docker_volume_collect.sh
   ```
 
-* Print commands to file
+* Print commands to file:
 
   ```sh
   sudo ./docker_volume_collect.sh >> /tmp/docker-volumes.out
   ```
 
-* Send commands to ATSD
+* Send commands to ATSD:
 
   ```sh
   sudo ./docker_volume_collect.sh > /dev/tcp/{atsd_hostname}/8081
@@ -88,14 +88,14 @@ The following [collector](docker_volume_collect.sh) script executes the `ds` com
 
 ### Scheduling
 
-* To send commands to ATSD on schedule:
+* To send commands to ATSD on schedule, open crontab:
 
   ```sh
   su root
   crontab -e
   ```
 
-Add the task to crontab to collect data every 15 minutes:
+* Add the task to collect data every 15 minutes:
 
   ```
   */15 * * * * /opt/scripts/docker_volume_collect.sh > /dev/tcp/{atsd_hostname}/8081
@@ -105,23 +105,23 @@ Add the task to crontab to collect data every 15 minutes:
 
 | **Metric Name** | **Description** |
 |---|---|
-|docker.volume.fs.size | Total size (used + available) of the file system where /var/lib/docker directory is located, in bytes. Collected for the entire docker host. |
-|docker.volume.total_used | Total space used by /var/lib/docker directory, in bytes. Collected for the entire docker host. |
-|docker.volume.total_used_percent | Percentage of space used by /var/lib/docker directory in the file system where /var/lib/docker directory is located. Calculated as docker.volume.total_used/docker.volume.fs.size * 100. Collected for the entire docker host. |
-|docker.volume.used | Space used by all files in the given volume, in bytes.|
-|docker.volume.used_percent | Space used by files in the given volume as percentage of total size of the ile system where /var/lib/docker directory is located. Calculated as docker.volume.used/docker.volume.fs.size * 100.
+|docker.volume.fs.size | Total size (used + available, in bytes) of the file system where the `/var/lib/docker` directory is located. Collected for the entire docker host. |
+|docker.volume.total_used | Total space (in bytes) used by the `/var/lib/docker` directory. Collected for the entire docker host. |
+|docker.volume.total_used_percent | Percentage of space used by the `/var/lib/docker` directory in the file system where the `/var/lib/docker` directory is located. Calculated as docker.volume.total_used/docker.volume.fs.size * 100. Collected for the entire docker host. |
+|docker.volume.used | Space used by all files in the given volume (in bytes).|
+|docker.volume.used_percent | Space used by files in the given volume as percentage of the total size of the file system where the `/var/lib/docker` directory is located. Calculated as docker.volume.used/docker.volume.fs.size * 100.
 
 ## Volume View
 
-To display volume sizes, import the [updated Entity View](volume-entity-view.xml) for Docker Volumes via ATSD -> [Configuration] -> Entity Views -> [Import] with replace.
+To display volume sizes, import the [updated Entity View](volume-entity-view.xml) for Docker Volumes via ATSD -> [Configuration] -> Entity Views -> [Import] with the 'Replace Existing Entity Views' option enabled.
 
 ![volume-view](volume-view.png)
 
 ## Volume Disk Rules
 
-Import the [rules](volume-rules) to raise an alert whenever a volume consumes more than 50% of total file system size
+Import the [rules](volume-rules.xml) file to raise an alert whenever a volume consumes more than 50% of total file system size.
 
 | Rule Name | Description |
 |---|---|
-|docker-host-volume-space-low | Raise alert if the total size of `/var/lib/docker` directory exceeds 60% of the total space on the file system. |
-| docker-volume-space-leak| Raise alert if the volume consumes more than 25% of the total space on the file system where `/var/lib/docker` is located.|
+|docker-host-volume-space-low | Raise an alert if the total size of the `/var/lib/docker` directory exceeds 60% of the total space on the file system. |
+| docker-volume-space-leak| Raise an alert if the volume consumes more than 25% of the total space on the file system where `/var/lib/docker` is located.|
