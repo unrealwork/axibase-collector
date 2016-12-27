@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Example of usages
-# stdout: sudo ./docker_volume_collect.sh
-# file: sudo ./docker_volume_collect.sh >> ~/out.txt
-# atsd_host: sudo ./docker_volume_collect.sh > /dev/tcp/atsd_host/tcp_port
+# stdout: ./docker_volume_collect.sh
+# file: ./docker_volume_collect.sh >> ~/out.txt
+# atsd_host: ./docker_volume_collect.sh > /dev/tcp/atsd_host/tcp_port
 
 metric_used=docker.volume.used
 metric_used_percent=docker.volume.used_percent
