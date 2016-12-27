@@ -88,14 +88,14 @@ The following [collector](docker_volume_collect.sh) script executes the `ds` com
 
 ### Scheduling
 
-* To send commands to ATSD on schedule:
+* To send commands to ATSD on schedule, open crontab:
 
   ```sh
   su root
   crontab -e
   ```
 
-* Add the task to crontab to collect data every 15 minutes:
+* Add the task to collect data every 15 minutes:
 
   ```
   */15 * * * * /opt/scripts/docker_volume_collect.sh > /dev/tcp/{atsd_hostname}/8081
@@ -119,7 +119,7 @@ To display volume sizes, import the [updated Entity View](volume-entity-view.xml
 
 ## Volume Disk Rules
 
-Import the [rules](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/docker/volume-rules.xml) file to raise an alert whenever a volume consumes more than 50% of total file system size.
+Import the [rules](volume-rules.xml) file to raise an alert whenever a volume consumes more than 50% of total file system size.
 
 | Rule Name | Description |
 |---|---|
