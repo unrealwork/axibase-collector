@@ -22,7 +22,9 @@ function send_network_command {
 
 #Hostname in lower case
 function  formatted_hostname {
-    echo $(echo $HOSTNAME | awk '{print tolower($0)}');
+    hostname=$([ -z ${DOCKER_HOST} ] && echo $HOSTNAME || echo ${DOCKER_HOST})
+    echo $(echo $hostname | awk '{print tolower($0)}');
+    exit 1;
 }
 
 #Send series to atsd host
