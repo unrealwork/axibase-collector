@@ -127,16 +127,13 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
 | docker-volume-space-leak| Raise an alert if the volume consumes more than 25% of the total space on the file system where `/var/lib/docker` is located.|
 
 
-## Launch Collector container with volume size monitoring.
+## Monitor Volume Sizes using a Container
 
-   Compared to the [standard](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/docker.md#local-collection) launch command, the following example mounts `/var/lib/docker/volumes` directory in read-only mode to grant permissions required to obtain volume sizes with `du -s /var/lib/docker/volumes/*` command.
+As an alternative to running the above `du` script on the Docker host, you can launch an Axibase Collector container with `/var/lib/docker/volumes` directory mounted in read-only mode.
 
-   * Copy the [`docker_volume_collect.sh`](https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/jobs/docker/docker_volume_collect.sh) script to the Docker host, e.g. to `/home/axibase` directory.
-   * Update the script path accordingly in the command below.
-   * Replace `atsd_host` placeholders with the actual ATSD hostname.
+   * Replace both `atsd_host` placeholders with the actual ATSD hostname in the command below.
    * Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials below.
 
-   1. Start the container
    ```properties
    docker run \
      --detach \
@@ -151,31 +148,36 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
       -job-enable=docker-socket
    ```
 
-   2. Load script to container
-        There are two ways:Copy file from docker host
+   1. Start the container
+
+   2. Copy the script into the container
+        
+        There are two alternatives: 
+        
+        a) Copy the script file to Docker host and then copy the file into the container.
 
    ```sh
    docker cp /tmp/docker_volume_collect.sh axibase-collector:/opt/axibase-collector/ext/docker_volume_collect.sh
    ```
 
-   Or retrieve script by network
+   b) Download the script file directly into the container
 
    ```sh
    docker exec axibase-collector wget https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/jobs/docker/docker_volume_collect.sh -P /opt/axibase-collector/ext
    ```
 
-   3. Give execute permissions to the script
+   3. Grant `execute` permissions to the script
    ```sh
    docker exec axibase-collector chmod +x  /opt/axibase-collector/ext/docker_volume_collect.sh
    ```
 
-   4. Run the script once manually:
+   4. Run the script once manually to validate ingestion
 
    ```sh
    docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh
    ```
 
-        Login into ATSD and verify that the following metrics are available:
+   5. Login into ATSD and verify that the following metrics are available
 
         * docker.volume.fs.size
         * docker.volume.total_used
@@ -183,23 +185,21 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
         * docker.volume.used
         * docker.volume.used_percent
 
-
-
-   5. Open the shell in the container.
+   6. Open the cron file in the container shell.
 
    ```sh
    docker exec -it axibase-collector crontab -e
    ```
 
-   6. Copy the following lines to cron schedule:
+   7. Add the following lines to cron schedule:
 
    ```sh
    # Run script every 15 minutes
    */15 * * * * /opt/axibase-collector/ext/docker_volume_collect.sh
-   # An empty line is required at the end of this file for a valid cron file
+   # Empty line is required at the end of this file for a valid cron file
    ```
 
-   7. Save the cron file.
+   8. Save the cron file.
 
 
 
