@@ -175,13 +175,13 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
    docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh
    ```
 
-   Login into ATSD and verify that the following metrics are available:
+        Login into ATSD and verify that the following metrics are available:
 
-   * docker.volume.fs.size
-   * docker.volume.total_used
-   * docker.volume.total_used_percent
-   * docker.volume.used
-   * docker.volume.used_percent
+        * docker.volume.fs.size
+        * docker.volume.total_used
+        * docker.volume.total_used_percent
+        * docker.volume.used
+        * docker.volume.used_percent
 
 
 
