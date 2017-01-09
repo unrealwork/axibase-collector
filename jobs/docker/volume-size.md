@@ -152,9 +152,9 @@ As an alternative to running the above `du` script on the Docker host, you can l
 
    2. Copy the script into the container
         
-        There are two alternatives: 
+   There are two alternatives: 
         
-        a) Copy the script file to Docker host and then copy the file into the container.
+   a) Copy the script file to Docker host and then copy the file into the container
 
    ```sh
    docker cp /tmp/docker_volume_collect.sh axibase-collector:/opt/axibase-collector/ext/docker_volume_collect.sh
@@ -179,13 +179,13 @@ As an alternative to running the above `du` script on the Docker host, you can l
 
    5. Login into ATSD and verify that the following metrics are available
 
-        * docker.volume.fs.size
-        * docker.volume.total_used
-        * docker.volume.total_used_percent
-        * docker.volume.used
-        * docker.volume.used_percent
+        docker.volume.fs.size
+        docker.volume.total_used
+        docker.volume.total_used_percent
+        docker.volume.used
+        docker.volume.used_percent
 
-   6. Open the cron file in the container shell.
+   6. Open the cron file in the container shell
 
    ```sh
    docker exec -it axibase-collector crontab -e
