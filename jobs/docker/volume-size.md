@@ -125,3 +125,81 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
 |---|---|
 |docker-host-volume-space-low | Raise an alert if the total size of the `/var/lib/docker` directory exceeds 60% of the total space on the file system. |
 | docker-volume-space-leak| Raise an alert if the volume consumes more than 25% of the total space on the file system where `/var/lib/docker` is located.|
+
+
+## Launch Collector container with volume size monitoring.
+
+   Compared to the [standard](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/docker.md#local-collection) launch command, the following example mounts `/var/lib/docker/volumes` directory in read-only mode to grant permissions required to obtain volume sizes with `du -s /var/lib/docker/volumes/*` command.
+
+   * Copy the [`docker_volume_collect.sh`](https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/jobs/docker/docker_volume_collect.sh) script to the Docker host, e.g. to `/home/axibase` directory.
+   * Update the script path accordingly in the command below.
+   * Replace `atsd_host` placeholders with the actual ATSD hostname.
+   * Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials below.
+
+   1. Start the container
+   ```properties
+   docker run \
+     --detach \
+     --publish-all \
+     --restart=always \
+     --name=axibase-collector \
+     --volume /var/lib/docker/volumes:/var/lib/docker/volumes:ro \
+     --env DOCKER_HOSTNAME=$HOSTNAME \
+     --env ATSD_URL=tcp://atsd_host:8081 \
+     axibase/collector
+      -atsd-url=https://collector-user:collector-password@atsd_host:8443 \
+      -job-enable=docker-socket
+   ```
+
+   2. Load script to container
+        There are two ways:Copy file from docker host
+
+   ```sh
+   docker cp /tmp/docker_volume_collect.sh axibase-collector:/opt/axibase-collector/ext/docker_volume_collect.sh
+   ```
+
+   Or retrieve script by network
+
+   ```sh
+   docker exec axibase-collector wget https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/jobs/docker/docker_volume_collect.sh -P /opt/axibase-collector/ext
+   ```
+
+   3. Give execute permissions to the script
+   ```sh
+   docker exec axibase-collector chmod +x  /opt/axibase-collector/ext/docker_volume_collect.sh
+   ```
+
+   4. Run the script once manually:
+
+   ```sh
+   docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh
+   ```
+
+   Login into ATSD and verify that the following metrics are available:
+
+   * docker.volume.fs.size
+   * docker.volume.total_used
+   * docker.volume.total_used_percent
+   * docker.volume.used
+   * docker.volume.used_percent
+
+
+
+   Open the shell in the container.
+
+   ```sh
+   docker exec -it axibase-collector crontab -e
+   ```
+
+   Copy the following lines to cron schedule:
+
+   ```sh
+   # Run script every 15 minutes
+   */15 * * * * /opt/axibase-collector/ext/docker_volume_collect.sh
+   # An empty line is required at the end of this file for a valid cron file
+   ```
+
+   Save the cron file.
+
+
+
