@@ -185,13 +185,13 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
 
 
 
-   Open the shell in the container.
+   5. Open the shell in the container.
 
    ```sh
    docker exec -it axibase-collector crontab -e
    ```
 
-   Copy the following lines to cron schedule:
+   6. Copy the following lines to cron schedule:
 
    ```sh
    # Run script every 15 minutes
@@ -199,7 +199,7 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
    # An empty line is required at the end of this file for a valid cron file
    ```
 
-   Save the cron file.
+   7. Save the cron file.
 
 
 
