@@ -143,7 +143,7 @@ As an alternative to running the above `du` script on the Docker host, you can l
      --volume /var/lib/docker/volumes:/var/lib/docker/volumes:ro \
      --env DOCKER_HOSTNAME=$HOSTNAME \
      --env ATSD_URL=tcp://atsd_host:8081 \
-     axibase/collector
+     axibase/collector \
       -atsd-url=https://collector-user:collector-password@atsd_host:8443 \
       -job-enable=docker-socket
    ```
