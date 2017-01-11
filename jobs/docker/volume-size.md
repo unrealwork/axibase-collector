@@ -172,7 +172,7 @@ As an alternative to running the above `du` script on the Docker host, you can l
    4. Run the script once manually to validate ingestion
 
    ```sh
-   docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh tcp://atsd_host:8081 hostname
+   docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh tcp://atsd_host:8081 docker_hostname
    ```
 
    5. Login into ATSD and verify that the following metrics are available
