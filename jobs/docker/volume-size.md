@@ -140,9 +140,9 @@ As an alternative to running the above `du` script on the Docker host, you can l
      --publish-all \
      --restart=always \
      --name=axibase-collector \
-     --volume /var/lib/docker/volumes:/var/lib/docker/volumes:ro \
      --env DOCKER_HOSTNAME=$HOSTNAME \
-     --env ATSD_URL=tcp://atsd_host:8081 \
+     --env ATSD_URL=tcp://hbs.axibase.com:9081 \
+     --volume /var/lib/docker/volumes:/var/lib/docker/volumes:ro \
      axibase/collector \
       -atsd-url=https://collector-user:collector-password@atsd_host:8443 \
       -job-enable=docker-socket
@@ -194,12 +194,11 @@ As an alternative to running the above `du` script on the Docker host, you can l
    7. Add the following lines to cron schedule:
 
    ```sh
+   DOCKER_HOSTNAME=hostname
+   ATSD_URL=tcp://atsd_host:8081
    # Run script every 15 minutes
    */15 * * * * /opt/axibase-collector/ext/docker_volume_collect.sh
    # Empty line is required at the end of this file for a valid cron file
    ```
 
    8. Save the cron file.
-
-
-
