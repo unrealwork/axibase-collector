@@ -114,5 +114,5 @@ atsd_port=${split_address[1]}
 if [[ -z ${atsd_host} || -z ${atsd_port} ]]; then
     send_volume_information
 else
-   send_volume_information
+   send_volume_information > /dev/tcp/${atsd_host}/${atsd_port}
 fi
