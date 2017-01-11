@@ -104,7 +104,8 @@ function send_volume_information {
     exit 1;
 }
 
-
+ATSD_URL=$1
+DOCKER_HOSTNAME=$2
 original_name=${ATSD_URL};
 without_proto="${original_name/"tcp://"/}"
 split_address=(${without_proto//:/ })
