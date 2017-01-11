@@ -172,7 +172,7 @@ As an alternative to running the above `du` script on the Docker host, you can l
    4. Run the script once manually to validate ingestion
 
    ```sh
-   docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh tcp://atsd_host:8081 docker_hostname
+   docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh docker_hostname tcp://atsd_host:8081
    ```
 
    5. Login into ATSD and verify that the following metrics are available
@@ -195,7 +195,7 @@ As an alternative to running the above `du` script on the Docker host, you can l
    # Replace 'docker_hostname' with the hostname of the Docker host
    # Replace 'atsd_host' with ATSD hostname or IP address
    # Run script every 15 minutes
-   */15 * * * * /opt/axibase-collector/ext/docker_volume_collect.sh tcp://atsd_host:8081 docker_hostname
+   */15 * * * * /opt/axibase-collector/ext/docker_volume_collect.sh docker_hostname tcp://atsd_host:8081
    # Empty line is required at the end of this file for a valid cron file
    ```
 

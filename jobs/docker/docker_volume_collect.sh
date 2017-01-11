@@ -9,7 +9,7 @@
 # - Write commands to file.
 # ./docker_volume_collect.sh docker_hostname >> ~/out.txt
 # - Send commands to ATSD. Replace atsd_host with the actual ATSD hostname.
-# ./docker_volume_collect.sh tcp://atsd_host:8081 docker_hostname
+# ./docker_volume_collect.sh docker_hostname tcp://atsd_host:8081
 
 metric_used=docker.volume.used
 metric_used_percent=docker.volume.used_percent
@@ -110,8 +110,8 @@ function send_volume_information {
     exit 1;
 }
 
-ATSD_URL=$1
-DOCKER_HOSTNAME=$2
+DOCKER_HOSTNAME=$1
+ATSD_URL=$2
 original_name=${ATSD_URL};
 without_proto="${original_name/"tcp://"/}"
 split_address=(${without_proto//:/ })
