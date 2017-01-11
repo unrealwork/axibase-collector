@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-# Example of usages
-# stdout: ./docker_volume_collect.sh docker_hostname
-# file: ./docker_volume_collect.sh docker_hostname >> ~/out.txt
-# atsd_host:
-#   1) ./docker_volume_collect.sh docker_hostname > /dev/tcp/atsd_host/tcp_port
-#   2) ./docker_volume_collect.sh docker_hostname tcp://atsd_host:atsd_port
+#
+# Usage examples:
+# Replace docker_hostname with the actual Docker hostname.
+#
+# - Print commands to standard out.
+# ./docker_volume_collect.sh docker_hostname
+# - Write commands to file.
+# ./docker_volume_collect.sh docker_hostname >> ~/out.txt
+# - Send commands to ATSD. Replace atsd_host with the actual ATSD hostname.
+# ./docker_volume_collect.sh tcp://atsd_host:8081 docker_hostname
 
 metric_used=docker.volume.used
 metric_used_percent=docker.volume.used_percent
