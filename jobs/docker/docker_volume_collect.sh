@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 # Example of usages
-# stdout: ./docker_volume_collect.sh
-# file: ./docker_volume_collect.sh >> ~/out.txt
-# atsd_host: ./docker_volume_collect.sh > /dev/tcp/atsd_host/tcp_port
+# stdout: ./docker_volume_collect.sh docker_hostname
+# file: ./docker_volume_collect.sh docker_hostname >> ~/out.txt
+# atsd_host:
+#   1) ./docker_volume_collect.sh docker_hostname > /dev/tcp/atsd_host/tcp_port
+#   2) ./docker_volume_collect.sh docker_hostname tcp://atsd_host:atsd_port
 
 metric_used=docker.volume.used
 metric_used_percent=docker.volume.used_percent
@@ -104,8 +106,8 @@ function send_volume_information {
     exit 1;
 }
 
-ATSD_URL=$1
-DOCKER_HOSTNAME=$2
+DOCKER_HOSTNAME=$1
+ATSD_URL=$2
 original_name=${ATSD_URL};
 without_proto="${original_name/"tcp://"/}"
 split_address=(${without_proto//:/ })
