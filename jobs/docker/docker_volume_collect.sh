@@ -77,7 +77,7 @@ function get_docker_file_system_size {
 #Parse and send information about every container
 function send_volume_information {
     #Description of volumes retrieved by du command
-    local volumes_info=$(bash -c 'du -s '${docker_volumes_directory}'*')
+    local volumes_info=$(bash -c 'du -sh '${docker_volumes_directory}'*')
     #Split information by spaces
     local split_info=(${volumes_info})
     local size=${#split_info[@]}
@@ -105,7 +105,6 @@ function send_volume_information {
 }
 
 
-. $HOME/.profile
 original_name=${ATSD_URL};
 without_proto="${original_name/"tcp://"/}"
 split_address=(${without_proto//:/ })
@@ -115,5 +114,5 @@ atsd_port=${split_address[1]}
 if [[ -z ${atsd_host} || -z ${atsd_port} ]]; then
     send_volume_information
 else
-   send_volume_information > /dev/tcp/${atsd_host}/${atsd_port}
+   send_volume_information
 fi
