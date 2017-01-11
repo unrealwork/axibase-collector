@@ -10,7 +10,7 @@ metric_used_percent=docker.volume.used_percent
 metric_total_used=docker.volume.total_used
 metric_total_used_percent=docker.volume.total_used_percent
 metric_fs_size=docker.volume.fs.size
-
+docker_volumes_directory=/var/lib/docker/volumes/
 
 #Send network command to atsd by TCP
 function send_network_command {
@@ -77,7 +77,7 @@ function get_docker_file_system_size {
 #Parse and send information about every container
 function send_volume_information {
     #Description of volumes retrieved by du command
-    local volumes_info=$(bash -c 'du -sh '${docker_volumes_directory}'*')
+    local volumes_info=$(bash -c 'du -s '${docker_volumes_directory}'*')
     #Split information by spaces
     local split_info=(${volumes_info})
     local size=${#split_info[@]}
