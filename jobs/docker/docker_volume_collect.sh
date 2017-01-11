@@ -105,7 +105,7 @@ function send_volume_information {
 }
 
 
-
+. $HOME/.bashrc
 original_name=${ATSD_URL};
 without_proto="${original_name/"tcp://"/}"
 split_address=(${without_proto//:/ })
