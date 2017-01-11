@@ -10,7 +10,7 @@ metric_used_percent=docker.volume.used_percent
 metric_total_used=docker.volume.total_used
 metric_total_used_percent=docker.volume.total_used_percent
 metric_fs_size=docker.volume.fs.size
-
+docker_volumes_directory=/var/lib/docker/volumes/
 
 #Send network command to atsd by TCP
 function send_network_command {
@@ -104,12 +104,16 @@ function send_volume_information {
     exit 1;
 }
 
-
-
+ATSD_URL=$1
+DOCKER_HOSTNAME=$2
 original_name=${ATSD_URL};
 without_proto="${original_name/"tcp://"/}"
 split_address=(${without_proto//:/ })
 atsd_host=${split_address[0]}
 atsd_port=${split_address[1]}
-echo ${DOCKER_HOSTNAME}
-send_volume_information > /dev/tcp/${atsd_host}/${atsd_port}
+
+if [[ -z ${atsd_host} || -z ${atsd_port} ]]; then
+    send_volume_information
+else
+   send_volume_information > /dev/tcp/${atsd_host}/${atsd_port}
+fi

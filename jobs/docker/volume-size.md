@@ -131,8 +131,8 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
 
 As an alternative to running the above `du` script on the Docker host, you can launch an Axibase Collector container with `/var/lib/docker/volumes` directory mounted in read-only mode.
 
-   * Replace both `atsd_host` placeholders with the actual ATSD hostname in the command below.
-   * Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials below.
+   * Replace `atsd_host` placeholder with the actual ATSD hostname in the command below.
+   * Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials.
 
    ```properties
    docker run \
@@ -141,8 +141,6 @@ As an alternative to running the above `du` script on the Docker host, you can l
      --restart=always \
      --name=axibase-collector \
      --volume /var/lib/docker/volumes:/var/lib/docker/volumes:ro \
-     --env DOCKER_HOSTNAME=$HOSTNAME \
-     --env ATSD_URL=tcp://atsd_host:8081 \
      axibase/collector \
       -atsd-url=https://collector-user:collector-password@atsd_host:8443 \
       -job-enable=docker-socket
@@ -174,7 +172,7 @@ As an alternative to running the above `du` script on the Docker host, you can l
    4. Run the script once manually to validate ingestion
 
    ```sh
-   docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh
+   docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh tcp://atsd_host:8081 docker_hostname
    ```
 
    5. Login into ATSD and verify that the following metrics are available
@@ -194,12 +192,11 @@ As an alternative to running the above `du` script on the Docker host, you can l
    7. Add the following lines to cron schedule:
 
    ```sh
+   # Replace 'docker_hostname' with the hostname of the Docker host
+   # Replace 'atsd_host' with ATSD hostname or IP address
    # Run script every 15 minutes
-   */15 * * * * /opt/axibase-collector/ext/docker_volume_collect.sh
+   */15 * * * * /opt/axibase-collector/ext/docker_volume_collect.sh tcp://atsd_host:8081 docker_hostname
    # Empty line is required at the end of this file for a valid cron file
    ```
 
    8. Save the cron file.
-
-
-
