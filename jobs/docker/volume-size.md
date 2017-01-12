@@ -129,9 +129,9 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
 
 ## Monitor Volume Sizes using a Container
 
-As an alternative to running the above `du` script on the Docker host, you can launch an Axibase Collector container with `/var/lib/docker/volumes` directory mounted in read-only mode.
+As an alternative to running the above `du` script on the Docker host, you can launch an Axibase Collector container with the `/var/lib/docker/volumes` directory mounted in read-only mode.
 
-   * Replace `atsd_host` placeholder with the actual ATSD hostname in the command below.
+   * Replace the `atsd_host` placeholder with the actual ATSD hostname in the command below.
    * Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials.
 
    ```properties
@@ -146,36 +146,36 @@ As an alternative to running the above `du` script on the Docker host, you can l
       -job-enable=docker-socket
    ```
 
-   1. Start the container
+   1. Start the container.
 
-   2. Copy the script into the container
+   2. Copy the script into the container.
         
-   There are two alternatives: 
+   Here, there are two alternatives: 
         
-   a) Copy the script file to Docker host and then copy the file into the container
+   a) Copy the script file to the Docker host and then copy the file into the container:
 
    ```sh
    docker cp /tmp/docker_volume_collect.sh axibase-collector:/opt/axibase-collector/ext/docker_volume_collect.sh
    ```
 
-   b) Download the script file directly into the container
+   b) Download the script file directly into the container:
 
    ```sh
    docker exec axibase-collector wget https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/jobs/docker/docker_volume_collect.sh -P /opt/axibase-collector/ext
    ```
 
-   3. Grant `execute` permissions to the script
+   3. Grant `execute` permissions to the script:
    ```sh
    docker exec axibase-collector chmod +x  /opt/axibase-collector/ext/docker_volume_collect.sh
    ```
 
-   4. Run the script once manually to validate ingestion
+   4. Run the script once manually to validate ingestion:
 
    ```sh
    docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh docker_hostname tcp://atsd_host:8081
    ```
 
-   5. Login into ATSD and verify that the following metrics are available
+   5. Login into ATSD and verify that the following metrics are available:
 
         docker.volume.fs.size
         docker.volume.total_used
@@ -183,7 +183,7 @@ As an alternative to running the above `du` script on the Docker host, you can l
         docker.volume.used
         docker.volume.used_percent
 
-   6. Open the cron file in the container shell
+   6. Open the cron file in the container shell:
 
    ```sh
    docker exec -it axibase-collector crontab -e
