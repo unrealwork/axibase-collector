@@ -36,7 +36,28 @@ For example, on a Docker host where the `/var/lib/docker` size is 30Gb with 20 r
 
 Executing API requests with the `&size=1` parameter typically requires even more time than the `docker ps -as` command and may cause timeout issues for API clients.
 
-## Alternative
+## Collecting Container Sizes with Axibase Collector
+
+To gather container sizes using Axibase Collector, set **Container Size Interval** to an interval 60 minutes or longer.
+
+To minimize the load on the disk subsystem, this interval will be applied to running containers, while the size of inactive containers will be collected less frequently, as specified by the Property Interval.
+
+### Container Size Metrics
+
+Axibase Collector collects sizes for both individual containers as well as the total for running and all containers.
+
+**Metric Name** | **Description**
+---|---
+docker.fs.size.rw | The total size of all the files in the container, in bytes. If you were to export the filesystem of the container as a tarball, it would be about that size.
+docker.fs.size.rootfs | The size of the files which have been created or changed, if you compare the container to its base image. Just after creation, this should be zero; as you modify (or create) files, this will increase
+docker.fs.total.size.rw | The total size of all the files for all containers, in bytes. Σ docker.fs.size.rw for all containers.
+docker.fs.total.size.rootfs | The size of the files which have been created or changed for all containers. Σ docker.fs.size.rootfs for all containers.
+docker.fs.running.size.rw | The total size of all the files for all running containers, in bytes. Σ docker.fs.size.rw for running containers.
+docker.fs.running.size.rootfs | The size of the files which have been created or changed for running containers. Σ docker.fs.size.rootfs for running containers.
+
+Chartlab example: https://apps.axibase.com/chartlab/81932cd6/2/
+
+## `du` Alternative
 
 One of the "lesser evil" alternatives is to calculate disk usage of `/var/lib/docker` subdirectories using the `ds` command. This requires superuser privileges.
 
@@ -101,7 +122,7 @@ The following [collector](docker_volume_collect.sh) script executes the `ds` com
   */15 * * * * /opt/scripts/docker_volume_collect.sh > /dev/tcp/{atsd_hostname}/8081
   ```
 
-## Collected Metrics
+## Container Volume Metrics
 
 | **Metric Name** | **Description** |
 |---|---|
