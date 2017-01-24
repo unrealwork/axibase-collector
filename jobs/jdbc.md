@@ -43,7 +43,8 @@ Use the table below to fill in the fields and configure the query.
 | Query           | Query field must contain the entity name, time, and a collection of metric columns. |
 | Default Entity  | Assign a default entity to the collected metrics. |
 | Entity Column   | Assign a column that contains the entity names. | 
-| Replacement Table |Select a [replacement table](../collections.md#replacement-tables) to convert entities. |
+| Replacement Table | Select a [replacement table](../collections.md#replacement-tables) to convert entities. |
+| Split Condition | Split resultset into multiple smaller resultsets by entering WHERE conditions to be inserted into the query text. Each condition must be specified on a separate line. The query text should include `${SPLIT_CONDITION}` placeholder which will be replaced with the condition text at each iteration. |
 | Tag Columns     | Columns that contain tags or meta data defining the series. |
 | Default Tags    | Assign predefined tags to all series. |
 | Put Type        | Type of data. Possible values: SERIES, PROPERTY, BOTH. |
