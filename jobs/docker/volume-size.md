@@ -119,7 +119,7 @@ The following [collector](docker_volume_collect.sh) script executes the `ds` com
 * Add the task to collect data every 15 minutes:
 
   ```
-  */15 * * * * /opt/scripts/docker_volume_collect.sh > /dev/tcp/{atsd_hostname}/8081
+  */15 * * * * /bin/bash -l -c '/opt/scripts/docker_volume_collect.sh > /dev/tcp/{atsd_hostname}/8081'
   ```
 
 ## Container Volume Metrics
