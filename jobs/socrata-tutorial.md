@@ -54,4 +54,6 @@ The JSON file (1.1 MB) can be found [here](https://data.cityofnewyork.us/api/vie
 
     ![Figure 10](images/Figure10.png)
 
-11. After pressing this button.
+11. After pressing this button, you can see all of your series tags. 
+
+    ![Figure 11](images/Figure11.png)
