@@ -48,13 +48,34 @@ The JSON file (1.1 MB) can be found [here](https://data.cityofnewyork.us/api/vie
    
    ![Figure 9](images/Figure9.png)
    
-9. Press `Add`.
+9. Press `Add` to create a pre-configured settings section.
 10. Press `Test`. To view descriptions of each of the fields shown below, click [here](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/socrata.md#job-configuration). 
 
     ![Figure 10](images/Figure10.png)
 
-11. After pressing the `Test` button, you should get the following output. We have downloaded a part of the JSON file (file limitation 1 Mb) and generated commands based off of 
-    the dataset configuration (series, property, message, metric, and entity tags). You may now save this configuration (by clicking the `Save` button shown in the image from
-    step 10) and run the job in Collector. This will send generated commands to ATSD, which will enable you to begin working with this dataset.
+11. After pressing the `Test` button, you should get the following output. Collector has downloaded a part of the JSON file (file limitation 1 Mb) and generated commands based off of 
+    the dataset configuration (series, property, message, metric, and entity tags). These commands are only for text purposes, and have not yet been sent/saved to ATSD. 
+    
+    You may save this configuration by clicking the `Save` button shown in the image from step 10. 
 
     ![Figure 11](images/Figure11.png)
+    
+12. Navigate back to the Socrata job (the figure shown in step 7). Press `Run`. This will send generated commands to ATSD, which will enable you to begin working with this dataset.
+    After hitting `Run`, you will be sent to this page. Hit the `Refresh` button after a couple of seconds. If your job has been successfully completed, you should see something
+    like the images below.
+    
+    ![Figure 12](images/Figure12.png)
+    
+    ![Figure 13](images/Figure13.png)
+       
+13. Navigate to your local ATSD instance and log in. Open the 'Entities' tab to verify that metrics from the dataset are present in ATSD. You can search by your dataset id, which
+    is taken from the original JSON file and in this case is `5b3a-rs48`. We can see that metrics were successfully sent from Collector to ATSD and we can begin analyzing this 
+    dataset.   
+ 
+    ![Figure 14](images/Figure14.png)
+
+
+     
+     
+
+
