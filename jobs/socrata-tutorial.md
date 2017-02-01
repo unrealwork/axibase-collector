@@ -29,8 +29,8 @@ The JSON file (1.1 MB) can be found [here](https://data.cityofnewyork.us/api/vie
 
    ![Figure 6](images/Figure6.png)
 
-   - `Enabled`: job status. You may enable the job, which will turn it on for data collection, by clicking the check box. To have the job disabled, leave it unchecked. 
-	  Leave unchecked this for tutorial. 
+   - `Enabled`: job status. You may enable the job, which will schedule it for data collection with the period specified in the Cron Expression, by clicking the check box. To 
+      have the job disabled, leave it unchecked. Leave unchecked this for tutorial. 
    - `Name`: job name. Enter in a relevant name for your new Socrata job. Let's use the name `NYC-Social-Media-Usage`.
    - `Cron Expression`: job execution time period. Cron fields are specified in the following order: second, minute, hour, day-of-month, month, and day-of-week. You can randomize time of execution by putting `R` onto time placeholders. Click 
 	  on field to see time periods in human readable formats, as shown in the image below. 
@@ -49,12 +49,12 @@ The JSON file (1.1 MB) can be found [here](https://data.cityofnewyork.us/api/vie
    ![Figure 9](images/Figure9.png)
    
 9. Press `Add`.
-10. Press `Test`. To view descriptions of each of the fields show below, click [here](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/socrata.md#job-configuration). 
+10. Press `Test`. To view descriptions of each of the fields shown below, click [here](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/socrata.md#job-configuration). 
 
     ![Figure 10](images/Figure10.png)
 
 11. After pressing the `Test` button, you should get the following output. We have downloaded a part of the JSON file (file limitation 1 Mb) and generated commands based off of 
     the dataset configuration (series, property, message, metric, and entity tags). You may now save this configuration (by clicking the `Save` button shown in the image from
-    step 10), and run this job in ATSD to begin working with this dataset.
+    step 10) and run the job in Collector. This will send generated commands to ATSD, which will enable you to begin working with this dataset.
 
     ![Figure 11](images/Figure11.png)
