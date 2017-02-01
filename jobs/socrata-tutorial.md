@@ -49,7 +49,7 @@ The JSON file (1.1 MB) can be found [here](https://data.cityofnewyork.us/api/vie
    ![Figure 9](images/Figure9.png)
    
 9. Press `Add`.
-10. Press `Test`. To view descriptions of each of the fields show below, click [here](https://github.com/axibase/axibase-collector-docs/blob/collector-updates/jobs/socrata-tutorial.md). 
+10. Press `Test`. To view descriptions of each of the fields show below, click [here](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/socrata.md#job-configuration). 
 
     ![Figure 10](images/Figure10.png)
 
