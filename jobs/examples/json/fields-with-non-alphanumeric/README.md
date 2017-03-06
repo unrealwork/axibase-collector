@@ -2,7 +2,7 @@
 
 ## Overview
 
-The field with non alphanumeric characters, excluding '_' and '-', is not accessible by it's name directly, use square brackets and single quotes to access the field, for example ['x.y'].
+Since the fields with non-alphanumeric characters, excluding '_' and '-', are not accessible by name, use square brackets and single quotes to access the field, for example ['x.y'].
 
 ## JSON
 
@@ -72,7 +72,7 @@ Excluded Fields    | ['x.y'],['x y'],x.['a.b'].*
 Metric Name Field  | m
 Metric Value Field | x.['a.b'].[2]
 
-  [JSON Job Configuration](fields_with_non_alphanumeric.xml) file. Import xml into Collector.
+  [JSON Job Configuration](fields_with_non_alphanumeric.xml) file. Import the xml file into Collector.
 
   ## Matched Object
 
