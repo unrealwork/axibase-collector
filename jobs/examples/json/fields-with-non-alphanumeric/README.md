@@ -68,7 +68,7 @@ JSON Path          | $
 Depth              | 3
 Custom Tags        | test=${['x y']}
 Included Fields    | *
-Excluded Fields    | ['x.y'],x.['a.b'].*
+Excluded Fields    | ['x.y'],['x y'],x.['a.b'].*
 Metric Name Field  | m
 Metric Value Field | x.['a.b'].[2]
 

@@ -40,6 +40,7 @@
             </includedFields>
             <excludedFields>
               <string>[&apos;x.y&apos;]</string>
+              <string>[&apos;x y&apos;]</string>
               <string>x.[&apos;a.b&apos;].*</string>
             </excludedFields>
             <metricNameField>m</metricNameField>
