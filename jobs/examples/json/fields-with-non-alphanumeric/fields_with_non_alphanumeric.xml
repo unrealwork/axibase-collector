@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<list>
+  <com.axibase.collector.model.job.json.JsonJobConfig>
+    <name>test</name>
+    <cronExpression>0 0/15 * * * ?</cronExpression>
+    <enabled>false</enabled>
+    <jobType>JSON</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.json.JsonConfiguration>
+        <name>index</name>
+        <protocol>HTTP</protocol>
+        <path>https://api.myjson.com/bins/1fpjdd</path>
+        <format>JSON</format>
+        <payloadMethod>GET</payloadMethod>
+        <httpHeaders/>
+        <enableWebDriver>false</enableWebDriver>
+        <driverTimeout>0</driverTimeout>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <ignoreDuplicates>false</ignoreDuplicates>
+        <settings>
+          <com.axibase.collector.model.job.json.JsonConfigurationSetting>
+            <jsonPath>$</jsonPath>
+            <depth>3</depth>
+            <defaultEntity>tst</defaultEntity>
+            <customTags>
+              <entry>
+                <string>test</string>
+                <string>${[&apos;x y&apos;]}</string>
+              </entry>
+            </customTags>
+            <renamedFields/>
+            <timeEnabled>false</timeEnabled>
+            <seriesEnabled>true</seriesEnabled>
+            <includedFields>
+              <string>*</string>
+            </includedFields>
+            <excludedFields>
+              <string>[&apos;x.y&apos;]</string>
+              <string>[&apos;x y&apos;]</string>
+              <string>x.[&apos;a.b&apos;].*</string>
+            </excludedFields>
+            <metricNameField>m</metricNameField>
+            <metricValueField>x.[&apos;a.b&apos;].[2]</metricValueField>
+            <propertyEnabled>false</propertyEnabled>
+            <propertyKeyFields/>
+            <propertyValueFields/>
+            <messageEnabled>false</messageEnabled>
+            <messageTagFields/>
+            <rawCommands/>
+          </com.axibase.collector.model.job.json.JsonConfigurationSetting>
+        </settings>
+      </com.axibase.collector.model.job.json.JsonConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.json.JsonJobConfig>
+</list>
