@@ -29,7 +29,7 @@
             <customTags>
               <entry>
                 <string>test</string>
-                <string>${[&apos;x.y&apos;]}</string>
+                <string>${[&apos;x y&apos;]}</string>
               </entry>
             </customTags>
             <renamedFields/>

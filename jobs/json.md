@@ -161,7 +161,7 @@ The expression will select all elements of the `book` array in the root's child 
 * [GitHub Daily Summary](examples/json/github-daily-summary/README.md#overview)
 * [Nginx Status](examples/json/nginx-status/README.md#overview)
 * [BLS](examples/json/bls/README.md#overview)
-* [Fields with dot](examples/json/fields-with-dot/README.md#overview)
+* [Fields with non alphanumeric characters](examples/json/fields-with-non-alphanumeric/README.md#overview)
 
 ## Additional Examples
 
