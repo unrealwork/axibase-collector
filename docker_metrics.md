@@ -32,6 +32,14 @@ docker.sum.diskio.ioservicebytes.read |
 docker.sum.diskio.ioservicebytes.write | 
 docker.sum.memory.rss | 
 docker.sum.memory.usage | 
+docker.data.space_available | 
+docker.data.space_used | 
+docker.data.space_used_percent | 
+docker.data.space_total | 
+docker.metadata.space_available | 
+docker.metadata.space_used | 
+docker.metadata.space_used_percent | 
+docker.metadata.space_total | 
 
 ### Container Metrics
 
