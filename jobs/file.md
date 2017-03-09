@@ -104,7 +104,7 @@ FILE protocol supports directory traversal.
 | **Name** | **Format** | **Description** |
 |:---|:---|:---|
 | Minimum Line Count | CSV | Minimum line count for the CSV file to contain. <br>An error will be raised if the threshold is greater than 0 and the number of lines in the file is less than the threshold. |
-| First Line Contains | CSV | Checks if the first non-empty line in the file contains the specified text. The check is case-sensitive.<br>If the specified text is not found within the first non-empty line, the data will not be sent to ATSD.<br>Supported placeholder: `${TIME}`. For example: `# Effective Data ${TIME("previous_day", "dd.MM.yyyy")}`. |
+| First Line Contains | CSV | Checks if the first non-empty line in the file contains the specified text. The check is case-sensitive.<br>If the specified text is not found within the first non-empty line, the data will not be sent to ATSD.<br>Supported placeholders: ``${ITEM}`, `${TIME()}`, `${FILE}`, `${DIRECTORY}`, `${PATH}``. For example: `# Effective Data ${TIME("previous_day", "dd.MM.yyyy")}`. |
 | File Contains | JSON | Checks if the file contains the specified text on any line. The check is case-sensitive.<br>If the specified text is not found within the file text, the data will not be sent to ATSD.<br>Supported placeholders: `${TIME}`. For example: `"report_date": "${TIME("current_day", "yy/MM/dd")}"`.| 
 | Parse | JSON | JSON files are automatically validated by parsing the file as a JSON document. |
 

@@ -19,12 +19,12 @@ The following placeholders are supported to format strings, calculate dates, and
 
 | **Name** | **Supported Fields** | **Supported Protocols** |
 |:---|:---|:---|
-| `${ITEM}` | Path, Default Entity, Metric Prefix, Custom Tags, Success Directory, Error Directory | All |
-| `${PATH}` | Default Entity, Metric Prefix | All |
-| `${FILE}` | Default Entity, Metric Prefix | All |
-| `${DIRECTORY}` | Default Entity, Metric Prefix | FILE, FTP, SFTP, SCP |
-| `${TIME()}` | Path, Success Directory, Error Directory | All |
-| `${DATE_TIME()}` | Path | All |
+| `${ITEM}` | Path, First Line Contains, Default Entity, Metric Prefix, Custom Tags, Success Directory, Error Directory | All |
+| `${PATH}` | First Line Contains, Default Entity, Metric Prefix | All |
+| `${FILE}` | First Line Contains, Default Entity, Metric Prefix | All |
+| `${DIRECTORY}` | First Line Contains, Default Entity, Metric Prefix | FILE, FTP, SFTP, SCP |
+| `${TIME()}` | First Line Contains, Path, Success Directory, Error Directory | All |
+| `${DATE_ITEM()}` | Path | All |
 
 * To URL-encode placeholder value, for example, if it may contain special characters and is included in the Path, apply the `url` function as follows: `${ITEM?url}`.
 
