@@ -6,15 +6,11 @@
 
 Name | Category | Description
 ---- | -------- | --------
-docker.totalcontainers | | Total number of containers.
-docker.activecontainers | | Total number of active containers.
-docker.stoppedcontainers | | Total number of stopped containers.
-docker.pausedcontainers | | Total number of paused containers.
-docker.totalImages | | Total number of images.
-docker.fs.running.size.rootfs | Disk | The size of the files which have been created or changed for running containers. Σ docker.fs.size.rootfs for running containers.
-docker.fs.running.size.rw | Disk | The total size of all the files for all running containers, in bytes. Σ docker.fs.size.rw for running containers.
-docker.fs.total.size.rootfs | Disk | The size of the files which have been created or changed for all containers. Σ docker.fs.size.rootfs for all containers.
-docker.fs.total.size.rw | Disk | The total size of all the files for all containers, in bytes. Σ docker.fs.size.rw for all containers.
+docker.totalcontainers | System | Total number of containers.
+docker.activecontainers | System | Total number of active containers.
+docker.stoppedcontainers | System | Total number of stopped containers.
+docker.pausedcontainers | System | Total number of paused containers.
+docker.totalImages | System | Total number of images.
 docker.cpu.sum.avg.usage.host.percent | CPU | 
 docker.cpu.sum.avg.usage.kernel.percent | CPU | 
 docker.cpu.sum.avg.usage.total.percent | CPU | 
@@ -30,39 +26,43 @@ docker.cpu.sum.usage.total | CPU |
 docker.cpu.sum.usage.total.percent | CPU | 
 docker.cpu.sum.usage.user | CPU | 
 docker.cpu.sum.usage.user.percent | CPU | 
-docker.sum.diskio.ioservicebytes.read | Disk | 
-docker.sum.diskio.ioservicebytes.write | Disk | 
 docker.sum.memory.rss | Memory | 
 docker.sum.memory.usage | Memory | | 
-docker.data.space_available | | 
-docker.data.space_used | | 
-docker.data.space_used_percent | | 
-docker.data.space_total | | 
-docker.metadata.space_available | | 
-docker.metadata.space_used | | 
-docker.metadata.space_used_percent | | 
-docker.metadata.space_total | | 
+docker.sum.diskio.ioservicebytes.read | I/O | 
+docker.sum.diskio.ioservicebytes.write | I/O | 
+docker.fs.running.size.rootfs | File System | The size of the files which have been created or changed for running containers. Σ docker.fs.size.rootfs for running containers.
+docker.fs.running.size.rw | File System | The total size of all the files for all running containers, in bytes. Σ docker.fs.size.rw for running containers.
+docker.fs.total.size.rootfs | File System | The size of the files which have been created or changed for all containers. Σ docker.fs.size.rootfs for all containers.
+docker.fs.total.size.rw | File System | The total size of all the files for all containers, in bytes. Σ docker.fs.size.rw for all containers.
+docker.data.space_available | File System | 
+docker.data.space_used | File System | 
+docker.data.space_used_percent | File System | 
+docker.data.space_total | File System | 
+docker.metadata.space_available | File System | 
+docker.metadata.space_used | File System| 
+docker.metadata.space_used_percent | File System | 
+docker.metadata.space_total | File System | 
 
 ### Container Metrics
 
 Name | Category | Description
 ---- | -------- | --------
-docker.fs.size.rw | Disk | The total size of all the files in the container, in bytes. If you were to export the filesystem of the container as a tarball, it would be about that size.
-docker.fs.size.rootfs | Disk | The size of the files which have been created or changed, if you compare the container to its base image. Just after creation, this should be zero; as you modify (or create) files, this will increase.
-docker.process.all | System |
-docker.process.filtered | System |
-docker.network.rx | Network | 
-docker.network.rx_sec | Network | 
-docker.network.rxbytes | Network | Total received bytes on the network interface.
-docker.network.rxdropped | Network | Total receive packets dropped on the network interface.
-docker.network.rxerrors | Network | Total receive errors on the network interface.
-docker.network.rxpackets | Network | Total received packets on the network interface.
-docker.network.tx | Network | 
-docker.network.tx_sec | Network | 
-docker.network.txbytes | Network | Total transmitted bytes on the network interface.
-docker.network.txdropped | Network | Total transmitted packets dropped on the network interface.
-docker.network.txerrors | Network | Total transmission errors on the network interface.
-docker.network.txpackets | Network | Total packets transmitted on the network interface.
+docker.cpu.usage.system | CPU | Total CPU consumed by container in kernel mode in nanoseconds.
+docker.cpu.usage.user | CPU | Total CPU consumed by tasks of the cgroup in user mode in nanoseconds.
+docker.cpu.usage.user.percent | CPU | 
+docker.cpu.usage.total | CPU | Total CPU time consumed.
+docker.cpu.usage.total.percent | CPU | 
+docker.cpu.usage.kernel | CPU | Total CPU consumed by tasks of the cgroup in kernel mode in nanoseconds.
+docker.cpu.usage.kernel.percent | CPU | 
+docker.cpu.usage.percpu | CPU | Total CPU time consumed per core.
+docker.cpu.throttlingdata.periods | CPU | The number of periods with throttling active.
+docker.cpu.throttlingdata.throttledperiods | CPU | The number of periods when the container hit its throttling limit.
+docker.cpu.throttlingdata.throttledtime | CPU | Total time that a container's CPU usage was throttled.
+docker.cpu.avg.usage.total.percent | CPU | 
+docker.cpu.avg.usage.allocated.percent | CPU | 
+docker.cpu.avg.usage.host.percent | CPU | 
+docker.cpu.avg.usage.kernel.percent | CPU | 
+docker.cpu.avg.usage.user.percent | CPU | 
 docker.memory.activeanon | Memory | The number of bytes of active memory backed by anonymous pages, excluding sub-cgroups.
 docker.memory.activefile | Memory | The number of bytes of active memory backed by files, excluding sub-cgroups.
 docker.memory.cache | Memory | The number of bytes used for the cache, excluding sub-cgroups.
@@ -100,42 +100,42 @@ docker.memory.total.rsshuge | Memory | The number of bytes of anonymous transpar
 docker.memory.total.swap | Memory | 
 docker.memory.total.unevictable | Memory | The number of bytes of memory that cannot be reclaimed (mlocked etc), including sub-cgroups.
 docker.memory.total.writeback | Memory | The number of bytes being written back to disk, including sub-cgroups.
-docker.diskio.iomerged.* | Disk | 
-docker.diskio.ioqueue.* | Disk | 
-docker.diskio.ioservicebytes.async | Disk | 
-docker.diskio.ioservicebytes.blockread | Disk | 
-docker.diskio.ioservicebytes.blockread_sec | Disk | 
-docker.diskio.ioservicebytes.blockwrite | Disk | 
-docker.diskio.ioservicebytes.blockwrite_sec | Disk | 
-docker.diskio.ioservicebytes.read | Disk | 
-docker.diskio.ioservicebytes.sync | Disk | 
-docker.diskio.ioservicebytes.total | Disk | 
-docker.diskio.ioservicebytes.write | Disk | 
-docker.diskio.ioservicetime.* | Disk | 
-docker.diskio.ioserviced.async | Disk | 
-docker.diskio.ioserviced.read | Disk | 
-docker.diskio.ioserviced.sync | Disk | 
-docker.diskio.ioserviced.total | Disk | 
-docker.diskio.ioserviced.write | Disk | 
-docker.diskio.iotime.* | Disk | 
-docker.diskio.iowaittime.* | Disk | 
-docker.diskio.sectors.* | Disk | 
-docker.cpu.usage.system | CPU | Total CPU consumed by container in kernel mode in nanoseconds.
-docker.cpu.usage.user | CPU | Total CPU consumed by tasks of the cgroup in user mode in nanoseconds.
-docker.cpu.usage.user.percent | CPU | 
-docker.cpu.usage.total | CPU | Total CPU time consumed.
-docker.cpu.usage.total.percent | CPU | 
-docker.cpu.usage.kernel | CPU | Total CPU consumed by tasks of the cgroup in kernel mode in nanoseconds.
-docker.cpu.usage.kernel.percent | CPU | 
-docker.cpu.usage.percpu | CPU | Total CPU time consumed per core.
-docker.cpu.throttlingdata.periods | CPU | The number of periods with throttling active.
-docker.cpu.throttlingdata.throttledperiods | CPU | The number of periods when the container hit its throttling limit.
-docker.cpu.throttlingdata.throttledtime | CPU | Total time that a container's CPU usage was throttled.
-docker.cpu.avg.usage.total.percent | CPU | 
-docker.cpu.avg.usage.allocated.percent | CPU | 
-docker.cpu.avg.usage.host.percent | CPU | 
-docker.cpu.avg.usage.kernel.percent | CPU | 
-docker.cpu.avg.usage.user.percent | CPU | 
+docker.network.rx | Network | 
+docker.network.rx_sec | Network | 
+docker.network.rxbytes | Network | Total received bytes on the network interface.
+docker.network.rxdropped | Network | Total receive packets dropped on the network interface.
+docker.network.rxerrors | Network | Total receive errors on the network interface.
+docker.network.rxpackets | Network | Total received packets on the network interface.
+docker.network.tx | Network | 
+docker.network.tx_sec | Network | 
+docker.network.txbytes | Network | Total transmitted bytes on the network interface.
+docker.network.txdropped | Network | Total transmitted packets dropped on the network interface.
+docker.network.txerrors | Network | Total transmission errors on the network interface.
+docker.network.txpackets | Network | Total packets transmitted on the network interface.
+docker.diskio.iomerged.* | I/O | 
+docker.diskio.ioqueue.* | I/O | 
+docker.diskio.ioservicebytes.async | I/O | 
+docker.diskio.ioservicebytes.blockread | I/O | 
+docker.diskio.ioservicebytes.blockread_sec | I/O | 
+docker.diskio.ioservicebytes.blockwrite | I/O | 
+docker.diskio.ioservicebytes.blockwrite_sec | I/O | 
+docker.diskio.ioservicebytes.read | I/O | 
+docker.diskio.ioservicebytes.sync | I/O | 
+docker.diskio.ioservicebytes.total | I/O | 
+docker.diskio.ioservicebytes.write | I/O | 
+docker.diskio.ioservicetime.* | I/O | 
+docker.diskio.ioserviced.async | I/O | 
+docker.diskio.ioserviced.read | I/O | 
+docker.diskio.ioserviced.sync | I/O | 
+docker.diskio.ioserviced.total | I/O | 
+docker.diskio.ioserviced.write | I/O | 
+docker.diskio.iotime.* | I/O | 
+docker.diskio.iowaittime.* | I/O | 
+docker.diskio.sectors.* | I/O | 
+docker.fs.size.rw | File System | The total size of all the files in the container, in bytes. If you were to export the filesystem of the container as a tarball, it would be about that size.
+docker.fs.size.rootfs | File System | The size of the files which have been created or changed, if you compare the container to its base image. Just after creation, this should be zero; as you modify (or create) files, this will increase.
+docker.process.all | Process |
+docker.process.filtered | Process |
 
 ### Collected by TCP Job
 
@@ -152,8 +152,8 @@ docker.tcp-connect-time | Network |
 
 Name | Category | Description
 ---- | -------- | --------
-docker.volume.fs.size | Disk | Total size (used + available, in bytes) of the file system where the /var/lib/docker directory is located. Collected for the entire docker host.
-docker.volume.total_used | Disk | Total space (in bytes) used by the /var/lib/docker directory. Collected for the entire docker host.
-docker.volume.total_used_percent | Disk | Percentage of space used by the /var/lib/docker directory in the file system where the /var/lib/docker directory is located. Calculated as docker.volume.total_used/docker.volume.fs.size * 100. Collected for the entire docker host.
-docker.volume.used | Disk | Space used by all files in the given volume (in bytes).
-docker.volume.used_percent | Disk | Space used by files in the given volume as percentage of the total size of the file system where the /var/lib/docker directory is located. Calculated as docker.volume.used/docker.volume.fs.size * 100.
+docker.volume.fs.size | File System | Total size (used + available, in bytes) of the file system where the /var/lib/docker directory is located. Collected for the entire docker host.
+docker.volume.total_used | File System | Total space (in bytes) used by the /var/lib/docker directory. Collected for the entire docker host.
+docker.volume.total_used_percent | File System | Percentage of space used by the /var/lib/docker directory in the file system where the /var/lib/docker directory is located. Calculated as docker.volume.total_used/docker.volume.fs.size * 100. Collected for the entire docker host.
+docker.volume.used | File System | Space used by all files in the given volume (in bytes).
+docker.volume.used_percent | File System | Space used by files in the given volume as percentage of the total size of the file system where the /var/lib/docker directory is located. Calculated as docker.volume.used/docker.volume.fs.size * 100.
