@@ -34,14 +34,14 @@ docker.fs.running.size.rootfs | File System | The size of the files which have b
 docker.fs.running.size.rw | File System | The total size of all the files for all running containers, in bytes. Σ docker.fs.size.rw for running containers.
 docker.fs.total.size.rootfs | File System | The size of the files which have been created or changed for all containers. Σ docker.fs.size.rootfs for all containers.
 docker.fs.total.size.rw | File System | The total size of all the files for all containers, in bytes. Σ docker.fs.size.rw for all containers.
-docker.data.space_available | File System | 
-docker.data.space_used | File System | 
-docker.data.space_used_percent | File System | 
-docker.data.space_total | File System | 
-docker.metadata.space_available | File System | 
-docker.metadata.space_used | File System| 
-docker.metadata.space_used_percent | File System | 
-docker.metadata.space_total | File System | 
+docker.data.space_available | File System | Data space available for storage driver 'devicemapper'.
+docker.data.space_used | File System | Data space used for storage driver 'devicemapper'.
+docker.data.space_used_percent | File System | Percentage of data space used for storage driver 'devicemapper'.
+docker.data.space_total | File System | Data space total for storage driver 'devicemapper'.
+docker.metadata.space_available | File System | Metadata space available for storage driver 'devicemapper'.
+docker.metadata.space_used | File System| Metadata space used for storage driver 'devicemapper'.
+docker.metadata.space_used_percent | File System | Percentage of metadata space used for storage driver 'devicemapper'.
+docker.metadata.space_total | File System | Metadata space total for storage driver 'devicemapper'.
 
 ### Container Metrics
 
@@ -50,7 +50,7 @@ Name | Category | Description
 docker.cpu.usage.system | CPU | Total CPU consumed by container in kernel mode in nanoseconds.
 docker.cpu.usage.user | CPU | Total CPU consumed by tasks of the cgroup in user mode in nanoseconds.
 docker.cpu.usage.user.percent | CPU | 
-docker.cpu.usage.total | CPU | Total CPU time consumed.
+docker.cpu.usage.total | CPU | Total CPU consumed by tasks of the cgroup in nanoseconds.
 docker.cpu.usage.total.percent | CPU | 
 docker.cpu.usage.kernel | CPU | Total CPU consumed by tasks of the cgroup in kernel mode in nanoseconds.
 docker.cpu.usage.kernel.percent | CPU | 
@@ -100,20 +100,21 @@ docker.memory.total.rsshuge | Memory | The number of bytes of anonymous transpar
 docker.memory.total.swap | Memory | 
 docker.memory.total.unevictable | Memory | The number of bytes of memory that cannot be reclaimed (mlocked etc), including sub-cgroups.
 docker.memory.total.writeback | Memory | The number of bytes being written back to disk, including sub-cgroups.
-docker.network.rx | Network | 
+docker.network.rx | Network | The number of bytes received by all network interfaces.
 docker.network.rx_sec | Network | 
 docker.network.rxbytes | Network | Total received bytes on the network interface.
 docker.network.rxdropped | Network | Total receive packets dropped on the network interface.
 docker.network.rxerrors | Network | Total receive errors on the network interface.
 docker.network.rxpackets | Network | Total received packets on the network interface.
-docker.network.tx | Network | 
+docker.network.tx | Network | The number of bytes transmitted by all network interfaces.
 docker.network.tx_sec | Network | 
 docker.network.txbytes | Network | Total transmitted bytes on the network interface.
 docker.network.txdropped | Network | Total transmitted packets dropped on the network interface.
 docker.network.txerrors | Network | Total transmission errors on the network interface.
 docker.network.txpackets | Network | Total packets transmitted on the network interface.
-docker.diskio.iomerged.* | I/O | 
-docker.diskio.ioqueue.* | I/O | 
+docker.diskio.iomerged.* | I/O | The number of BIOS requests merged into requests for I/O operations by a cgroup. Entries have two fields: number and operation. Number is the number of requests, and operation represents the type of operation (read, write, sync, or async).
+docker.diskio.ioqueue.* | I/O |  The number of requests queued for I/O operations by a cgroup. Entries have two fields: number and operation. Number is the number of requests, and operation represents the type of operation (read, write, sync, or async). If the cgroup isn’t doing any I/O, this will be zero.
+docker.diskio.ioservicebytes.* | I/O | The number of bytes transferred to or from specific devices by a cgroup as seen by the CFQ scheduler. Entries have four fields: major, minor, operation, and bytes. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and bytes is the number of transferred bytes.
 docker.diskio.ioservicebytes.async | I/O | 
 docker.diskio.ioservicebytes.blockread | I/O | 
 docker.diskio.ioservicebytes.blockread_sec | I/O | 
@@ -123,28 +124,29 @@ docker.diskio.ioservicebytes.read | I/O |
 docker.diskio.ioservicebytes.sync | I/O | 
 docker.diskio.ioservicebytes.total | I/O | 
 docker.diskio.ioservicebytes.write | I/O | 
-docker.diskio.ioservicetime.* | I/O | 
+docker.diskio.ioservicetime.* | I/O | The total time between request dispatch and request completion for I/O operations on specific devices by a cgroup as seen by the CFQ scheduler. Entries have four fields: major, minor, operation, and time. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and time is the length of time in nanoseconds (ns). The time is reported in nanoseconds rather than a larger unit so that this report is meaningful even for solid-state devices.
+docker.diskio.ioserviced.* | I/O | The number of I/O operations performed on specific devices by a cgroup as seen by the CFQ scheduler. Entries have four fields: major, minor, operation, and number. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and number represents the number of operations.
 docker.diskio.ioserviced.async | I/O | 
 docker.diskio.ioserviced.read | I/O | 
 docker.diskio.ioserviced.sync | I/O | 
 docker.diskio.ioserviced.total | I/O | 
 docker.diskio.ioserviced.write | I/O | 
-docker.diskio.iotime.* | I/O | 
-docker.diskio.iowaittime.* | I/O | 
-docker.diskio.sectors.* | I/O | 
+docker.diskio.iotime.* | I/O | The total time between request dispatch and request completion for I/O operations on specific devices by a cgroup as seen by the CFQ scheduler. Entries have four fields: major, minor, operation, and time. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and time is the length of time in nanoseconds (ns). The time is reported in nanoseconds rather than a larger unit so that this report is meaningful even for solid-state devices.
+docker.diskio.iowaittime.* | I/O | The total time I/O operations on specific devices by a cgroup spent waiting for service in the scheduler queues. When you interpret this report, note: <BR>* the time reported can be greater than the total time elapsed, because the time reported is the cumulative total of all I/O operations for the cgroup rather than the time that the cgroup itself spent waiting for I/O operations. To find the time that the group as a whole has spent waiting, use the blkio.group_wait_time parameter.<BR>* if the device has a queue_depth > 1, the time reported only includes the time until the request is dispatched to the device, not any time spent waiting for service while the device reorders requests.<BR>Entries have four fields: major, minor, operation, and time. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and time is the length of time in nanoseconds (ns). The time is reported in nanoseconds rather than a larger unit so that this report is meaningful even for solid-state devices.
+docker.diskio.sectors.* | I/O | The number of 512-bytes sectors read and written by the processes member of the cgroup, device by device. Reads and writes are merged in a single counter.
 docker.fs.size.rw | File System | The total size of all the files in the container, in bytes. If you were to export the filesystem of the container as a tarball, it would be about that size.
 docker.fs.size.rootfs | File System | The size of the files which have been created or changed, if you compare the container to its base image. Just after creation, this should be zero; as you modify (or create) files, this will increase.
 docker.process.all | Process |
 docker.process.filtered | Process |
 
-### Collected by TCP Job
+### Collected by [TCP Job](/jobs/tcp.md) 
 
 ### Container Metrics
 
 Name | Category | Description
 ---- | -------- | --------
-docker.tcp-connect-status | Network |
-docker.tcp-connect-time | Network | 
+docker.tcp-connect-status | Network | Connection status for the container port.
+docker.tcp-connect-time | Network | Number of milliseconds spent on opening the connection to the container port.
 
 ### Collected by [SCRIPT](jobs/docker/volume-size.md)
 
