@@ -11,37 +11,37 @@ docker.activecontainers | System | Total number of active containers.
 docker.stoppedcontainers | System | Total number of stopped containers.
 docker.pausedcontainers | System | Total number of paused containers.
 docker.totalImages | System | Total number of images.
-docker.cpu.sum.avg.usage.host.percent | CPU | 
-docker.cpu.sum.avg.usage.kernel.percent | CPU | 
-docker.cpu.sum.avg.usage.total.percent | CPU | 
-docker.cpu.sum.avg.usage.user.percent | CPU | 
-docker.cpu.sum.host.avg.usage.total.percent | CPU | 
-docker.cpu.sum.throttlingdata.periods | CPU | 
-docker.cpu.sum.throttlingdata.throttledperiods | CPU | 
-docker.cpu.sum.throttlingdata.throttledtime | CPU | 
-docker.cpu.sum.usage.kernel | CPU | 
-docker.cpu.sum.usage.kernel.percent | CPU | 
-docker.cpu.sum.usage.system | CPU | 
-docker.cpu.sum.usage.total | CPU | 
-docker.cpu.sum.usage.total.percent | CPU | 
-docker.cpu.sum.usage.user | CPU | 
-docker.cpu.sum.usage.user.percent | CPU | 
-docker.sum.memory.rss | Memory | 
-docker.sum.memory.usage | Memory | | 
-docker.sum.diskio.ioservicebytes.read | I/O | 
-docker.sum.diskio.ioservicebytes.write | I/O | 
-docker.fs.running.size.rootfs | File System | The size of the files which have been created or changed for running containers. Σ docker.fs.size.rootfs for running containers.
-docker.fs.running.size.rw | File System | The total size of all the files for all running containers, in bytes. Σ docker.fs.size.rw for running containers.
-docker.fs.total.size.rootfs | File System | The size of the files which have been created or changed for all containers. Σ docker.fs.size.rootfs for all containers.
-docker.fs.total.size.rw | File System | The total size of all the files for all containers, in bytes. Σ docker.fs.size.rw for all containers.
-docker.data.space_available | File System | Data space available for storage driver 'devicemapper'.
-docker.data.space_used | File System | Data space used for storage driver 'devicemapper'.
-docker.data.space_used_percent | File System | Percentage of data space used for storage driver 'devicemapper'.
-docker.data.space_total | File System | Data space total for storage driver 'devicemapper'.
-docker.metadata.space_available | File System | Metadata space available for storage driver 'devicemapper'.
-docker.metadata.space_used | File System| Metadata space used for storage driver 'devicemapper'.
-docker.metadata.space_used_percent | File System | Percentage of metadata space used for storage driver 'devicemapper'.
-docker.metadata.space_total | File System | Metadata space total for storage driver 'devicemapper'.
+docker.cpu.sum.avg.usage.host.percent | CPU | Σ `docker.cpu.avg.usage.host.percent` for running containers.
+docker.cpu.sum.avg.usage.kernel.percent | CPU | Σ `docker.cpu.avg.usage.kernel.percent` for running containers.
+docker.cpu.sum.avg.usage.total.percent | CPU | Σ `docker.cpu.avg.usage.total.percent` for running containers.
+docker.cpu.sum.avg.usage.user.percent | CPU | Σ `docker.cpu.avg.usage.user.percent` for running containers.
+docker.cpu.sum.host.avg.usage.total.percent | CPU | Σ `docker.cpu.host.avg.usage.total.percent` for running containers.
+docker.cpu.sum.throttlingdata.periods | CPU | Σ `docker.cpu.throttlingdata.periods` for running containers.
+docker.cpu.sum.throttlingdata.throttledperiods | CPU | Σ `docker.cpu.throttlingdata.throttledperiods` for running containers.
+docker.cpu.sum.throttlingdata.throttledtime | CPU | Σ `docker.cpu.throttlingdata.throttledtime` for running containers.
+docker.cpu.sum.usage.kernel | CPU | Σ `docker.cpu.usage.kernel` for running containers.
+docker.cpu.sum.usage.kernel.percent | CPU | Σ `docker.cpu.usage.kernel.percent` for running containers.
+docker.cpu.sum.usage.system | CPU | Σ `docker.cpu.usage.system` for running containers.
+docker.cpu.sum.usage.total | CPU | Σ `docker.cpu.usage.total` for running containers.
+docker.cpu.sum.usage.total.percent | CPU | Σ `docker.cpu.usage.total.percent` for running containers.
+docker.cpu.sum.usage.user | CPU | Σ `docker.cpu.usage.user` for running containers.
+docker.cpu.sum.usage.user.percent | CPU | Σ `docker.cpu.usage.user.percent` for running containers.
+docker.sum.memory.rss | Memory | Σ `docker.memory.rss` for running containers.
+docker.sum.memory.usage | Memory | Σ `docker.memory.usage` for running containers.
+docker.sum.diskio.ioservicebytes.read | I/O | Σ `docker.diskio.ioservicebytes.read` for running containers.
+docker.sum.diskio.ioservicebytes.write | I/O | Σ `docker.diskio.ioservicebytes.write` for running containers.
+docker.fs.running.size.rootfs | File System | The size of the files which have been created or changed for running containers. Σ `docker.fs.size.rootfs` for running containers.
+docker.fs.running.size.rw | File System | The total size of all the files for all running containers, in bytes. Σ `docker.fs.size.rw` for running containers.
+docker.fs.total.size.rootfs | File System | The size of the files which have been created or changed for all containers. Σ `docker.fs.size.rootfs` for all containers.
+docker.fs.total.size.rw | File System | The total size of all the files for all containers, in bytes. Σ `docker.fs.size.rw` for all containers.
+docker.data.space_available | File System | Data space available for the [Device Mapper](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/) storage driver.
+docker.data.space_used | File System | Data space used for the [Device Mapper](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/) storage driver.
+docker.data.space_used_percent | File System | Percentage of data space used for the [Device Mapper](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/) storage driver.
+docker.data.space_total | File System | Data space total for the [Device Mapper](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/) storage driver.
+docker.metadata.space_available | File System | Metadata space available for the [Device Mapper](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/) storage driver.
+docker.metadata.space_used | File System| Metadata space used for the [Device Mapper](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/) storage driver.
+docker.metadata.space_used_percent | File System | Percentage of metadata space used for the [Device Mapper](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/) storage driver.
+docker.metadata.space_total | File System | Metadata space total for the [Device Mapper](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/) storage driver.
 
 ### Container Metrics
 
@@ -49,32 +49,32 @@ Name | Category | Description
 ---- | -------- | --------
 docker.cpu.usage.system | CPU | Total CPU consumed by container in kernel mode in nanoseconds.
 docker.cpu.usage.user | CPU | Total CPU consumed by tasks of the cgroup in user mode in nanoseconds.
-docker.cpu.usage.user.percent | CPU | 
+docker.cpu.usage.user.percent | CPU | Percentage of CPU consumed by tasks in user mode.
 docker.cpu.usage.total | CPU | Total CPU consumed by tasks of the cgroup in nanoseconds.
-docker.cpu.usage.total.percent | CPU | 
+docker.cpu.usage.total.percent | CPU | Percentage of CPU consumed by tasks.
 docker.cpu.usage.kernel | CPU | Total CPU consumed by tasks of the cgroup in kernel mode in nanoseconds.
-docker.cpu.usage.kernel.percent | CPU | 
+docker.cpu.usage.kernel.percent | CPU | Percentage of CPU consumed by tasks in kernel mode.
 docker.cpu.usage.percpu | CPU | Total CPU time consumed per core.
 docker.cpu.throttlingdata.periods | CPU | The number of periods with throttling active.
 docker.cpu.throttlingdata.throttledperiods | CPU | The number of periods when the container hit its throttling limit.
 docker.cpu.throttlingdata.throttledtime | CPU | Total time that a container's CPU usage was throttled.
-docker.cpu.avg.usage.total.percent | CPU | 
+docker.cpu.avg.usage.total.percent | CPU | The average value for `docker.cpu.usage.total.percent`.
 docker.cpu.avg.usage.allocated.percent | CPU | 
 docker.cpu.avg.usage.host.percent | CPU | 
-docker.cpu.avg.usage.kernel.percent | CPU | 
-docker.cpu.avg.usage.user.percent | CPU | 
+docker.cpu.avg.usage.kernel.percent | CPU | The average value for `docker.cpu.usage.kernel.percent`.
+docker.cpu.avg.usage.user.percent | CPU | The average value for `docker.cpu.usage.user.percent`.
 docker.memory.activeanon | Memory | The number of bytes of active memory backed by anonymous pages, excluding sub-cgroups.
 docker.memory.activefile | Memory | The number of bytes of active memory backed by files, excluding sub-cgroups.
 docker.memory.cache | Memory | The number of bytes used for the cache, excluding sub-cgroups.
 docker.memory.failcnt | Memory | The number of times the container hit its memory limit.
-docker.memory.hierarchical.memorylimit | Memory |  The memory limit in bytes for the container.
-docker.memory.hierarchical.memswlimit | Memory | 
+docker.memory.hierarchical.memorylimit | Memory |  The memory limit for the hierarchy that contains the memory cgroup, in bytes.
+docker.memory.hierarchical.memswlimit | Memory | The memory plus swap limit for the hierarchy that contains the memory cgroup, in bytes.
 docker.memory.inactiveanon | Memory | The number of bytes of inactive memory in anonymous pages, excluding sub-cgroups.
 docker.memory.inactivefile | Memory | The number of bytes of inactive memory in file pages, excluding sub-cgroups.
 docker.memory.limit | Memory | The memory limit for the container in bytes.
 docker.memory.mappedfile | Memory | The number of bytes of mapped files, excluding sub-groups.
 docker.memory.maxusage | Memory | The max amount of memory used by container in bytes.
-docker.memory.percent | Memory | 
+docker.memory.percent | Memory | Percentage of memory used.
 docker.memory.pgfault | Memory | The total number of page faults, excluding sub-cgroups.
 docker.memory.pgmajfault | Memory | The number of major page faults, excluding sub-cgroups.
 docker.memory.pgpgin | Memory | The number of charging events, excluding sub-cgroups.
@@ -83,7 +83,7 @@ docker.memory.rss | Memory | The number of bytes of anonymous and swap cache mem
 docker.memory.rsshuge | Memory | The number of bytes of anonymous transparent hugepages, excluding sub-cgroups.
 docker.memory.unevictable | Memory | The number of bytes of memory that cannot be reclaimed (mlocked etc), excluding sub-cgroups.
 docker.memory.usage | Memory | The current number of bytes used for memory including cache.
-docker.memory.swap | Memory | The amount of swap currently used by the processes in this cgroup.
+docker.memory.swap | Memory | The amount of swap currently used by the processes, excluding sub-groups.
 docker.memory.writeback | Memory | The number of bytes being written back to disk, excluding sub-cgroups.
 docker.memory.total.activeanon | Memory | The number of bytes of active memory backed by anonymous pages, including sub-cgroups.
 docker.memory.total.activefile | Memory | The number of bytes of active memory backed by files, including sub-cgroups.
@@ -97,17 +97,17 @@ docker.memory.total.pgpgin | Memory | The number of charging events, including s
 docker.memory.total.pgpgout | Memory | The number of uncharging events, including sub-groups.
 docker.memory.total.rss | Memory | The number of bytes of anonymous and swap cache memory (includes transparent hugepages), including sub-cgroups.
 docker.memory.total.rsshuge | Memory | The number of bytes of anonymous transparent hugepages, including sub-cgroups.
-docker.memory.total.swap | Memory | 
+docker.memory.total.swap | Memory | The amount of swap currently used by the processes, including sub-groups.
 docker.memory.total.unevictable | Memory | The number of bytes of memory that cannot be reclaimed (mlocked etc), including sub-cgroups.
 docker.memory.total.writeback | Memory | The number of bytes being written back to disk, including sub-cgroups.
 docker.network.rx | Network | The number of bytes received by all network interfaces.
-docker.network.rx_sec | Network | 
+docker.network.rx_sec | Network | The number of bytes received by all network interfaces per second.
 docker.network.rxbytes | Network | Total received bytes on the network interface.
 docker.network.rxdropped | Network | Total receive packets dropped on the network interface.
 docker.network.rxerrors | Network | Total receive errors on the network interface.
 docker.network.rxpackets | Network | Total received packets on the network interface.
 docker.network.tx | Network | The number of bytes transmitted by all network interfaces.
-docker.network.tx_sec | Network | 
+docker.network.tx_sec | Network | The number of bytes transmitted by all network interfaces per second.
 docker.network.txbytes | Network | Total transmitted bytes on the network interface.
 docker.network.txdropped | Network | Total transmitted packets dropped on the network interface.
 docker.network.txerrors | Network | Total transmission errors on the network interface.
@@ -136,8 +136,8 @@ docker.diskio.iowaittime.* | I/O | The total time I/O operations on specific dev
 docker.diskio.sectors.* | I/O | The number of 512-bytes sectors read and written by the processes member of the cgroup, device by device. Reads and writes are merged in a single counter.
 docker.fs.size.rw | File System | The total size of all the files in the container, in bytes. If you were to export the filesystem of the container as a tarball, it would be about that size.
 docker.fs.size.rootfs | File System | The size of the files which have been created or changed, if you compare the container to its base image. Just after creation, this should be zero; as you modify (or create) files, this will increase.
-docker.process.all | Process |
-docker.process.filtered | Process |
+docker.process.all | Process | The number of all processes for running container. 
+docker.process.filtered | Process | The number of all processed which have been filtered by [field 'Excluded Processes'](/jobs/docker.md#job-settings) for running conteiner.
 
 ### Collected by [TCP Job](/jobs/tcp.md) 
 
