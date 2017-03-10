@@ -58,9 +58,9 @@ docker.cpu.usage.percpu | CPU | Total CPU time consumed per core.
 docker.cpu.throttlingdata.periods | CPU | The number of periods with throttling active.
 docker.cpu.throttlingdata.throttledperiods | CPU | The number of periods when the container hit its throttling limit.
 docker.cpu.throttlingdata.throttledtime | CPU | Total time that a container's CPU usage was throttled.
-docker.cpu.avg.usage.total.percent | CPU | The average value for `docker.cpu.usage.total.percent`.
-docker.cpu.avg.usage.allocated.percent | CPU | 
-docker.cpu.avg.usage.host.percent | CPU | 
+docker.cpu.avg.usage.total.percent | CPU | The average value of `docker.cpu.usage.total.percent`.
+docker.cpu.avg.usage.allocated.percent | CPU | The avarage value `docker.cpu.usage.total.percent` for allocated CPU core.
+docker.cpu.avg.usage.host.percent | CPU | The avarage value of `docker.cpu.usage.total.percent` for CPU core.
 docker.cpu.avg.usage.kernel.percent | CPU | The average value for `docker.cpu.usage.kernel.percent`.
 docker.cpu.avg.usage.user.percent | CPU | The average value for `docker.cpu.usage.user.percent`.
 docker.memory.activeanon | Memory | The number of bytes of active memory backed by anonymous pages, excluding sub-cgroups.
