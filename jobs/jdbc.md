@@ -43,13 +43,13 @@ Use the table below to fill in the fields and configure the query.
 
 | FIELD              | DESCRIPTION  |
 | :----------------- |:-------------| 
-| Query           | Query field must contain the entity name, time, and a collection of metric columns. |
-| Command Type    | Type of data. Possible values: SERIES, PROPERTY, MESSAGE, METRIC, ENTITY. |
-| Default Entity  | Assign a default entity to the collected metrics. |
-| Entity Column   | Assign a column that contains the entity names. | 
-| Entity Replacement Expression | Freemarker expression to convert entities. Supported extension functions: [LOOKUP](#lookup-function) |
-| Split Condition  | The condition that will replace the ${SPLIT_CONDITION} placeholder to split query returning large result set several queries returning smaller result sets  |
-| Tag Columns     | Columns that contain tags or meta data defining the series. |
+| Query           | SELECT query containing the entity name, time, and a list of metric columns. |
+| Command Type    | Type of command sent to ATSD. Possible values: SERIES, PROPERTY, MESSAGE, METRIC, ENTITY. |
+| Default Entity  | Default entity assigned to the collected metrics. |
+| Entity Column   | Retrieve entity value from the specified entity column. | 
+| Entity Replacement Expression | Freemarker expression to extract entity name from an input string or to retrieve it from a lookup table using the [LOOKUP](#lookup-function). |
+| Split Condition  | One or multiple WHERE conditions to copy the base query into multiple queries returning smaller resultsets.  |
+| Tag Columns     | Columns that contain series tags. |
 | Default Tags    | Assign predefined tags to all series. |
 | Time Column | Column containing the timestamp. |
 | Last Time Column | Column containing last update time. |
@@ -120,7 +120,7 @@ Use the table below to fill in the fields and configure the query.
 
 ### LOOKUP function
 
-The `LOOKUP` function provides key-to-value mapping in the given Item List.
+The `LOOKUP` function provides key-to-value mapping in the specified Item List.
 
 #### Syntax
 
