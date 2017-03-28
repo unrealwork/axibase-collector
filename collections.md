@@ -184,30 +184,6 @@ If the query returns nothing, an empty list is returned.
 
 ![QUERY Type](images/collection_query_type.png)
 
-***Example***
-
-Select ip-address and port for Docker containers from local DB.
-
-```
-Query = select dp.property_value ip_address, dcp.port from docker_property dp
-        join docker_container_port dcp on dcp.container_id = dp.entity_id and dcp.configuration_id = dp.configuration_id
-        where dp.property_name = 'ip-address'
-        order by ip_address
-Separator = :
-```
-
-result:
-
-```
-172.17.0.10:8084
-172.17.0.10:8081
-172.17.0.10:1099
-172.17.0.11:61616
-172.17.0.11:61613
-172.17.0.11:8161
-172.17.0.11:1099
-```
-
 #### ATSD_PROPERTY
 
 Requests property from ATSD using [api](https://github.com/axibase/atsd-docs/blob/master/api/data/properties/query.md). 
