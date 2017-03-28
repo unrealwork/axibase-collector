@@ -2,13 +2,11 @@
 
 ## Item Lists
 
-Item List is a collection of strings used to execute repetitive actions as part of the same job configuration. 
+Item List is a collection of strings which can be iterated to execute repetitive requests (queries) within the same job configuration.
 
-Such automation provides a way to create re-usable configurations as opposed to creating different job configurations for a list of similar items.
+The list can be defined by specifying items as text (one item per line) or by retrieving them from an external source such as file or script output.
 
-List items can be specified by entering items as text (one element per line) on the form or by reading them from an external source such as a file or script output.
-
-Items (lines) starting with the hash `#` symbol are treated as comments and are ignored.
+Items starting with the hash `#` symbol are treated as comments and are ignored.
 
 Supported list types:
 
@@ -98,7 +96,7 @@ Only scripts in the `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
 
 The `Command` field should start with the script file name (absolute path not supported) and optional script arguments.
 
-The script should return a list of items separated by line breaks to 'stdout'.
+The script should print items separated by line breaks to 'stdout'.
 
 ![SCRIPT Type](images/collection_script_type.png)
 
@@ -145,9 +143,9 @@ ent-3
 
 #### URL
 
-Reads lines from a remote file.
+Reads lines from a remote file/page.
 
-If the file is not found, an empty list is returned. List items in the file should be separated with a line break.
+If the file is not found, an empty list is returned. List items should be separated with a line break.
 
 ![URL Type](images/collection_url_type.png)
 
@@ -157,7 +155,7 @@ If the file is not found, an empty list is returned. List items in the file shou
 URL = http://m.uploadedit.com/ba3s/1490691073396.txt
 ```
 
-remote file content:
+Remote file content:
 
 ```
 #ID
@@ -176,37 +174,20 @@ result:
 
 #### QUERY
 
-Select data from DB by SQL query.
+Selects data from a database with a SELECT query.
 
-Each item of list is a concatenated string of column values separated by specified separator.
+Each item is created by concatenating values from **all** columns in a given row separated by the specified token.
 
-If the query returns nothing, an empty list is returned.
+If the result set is empty, an empty list is returned.
 
 ![QUERY Type](images/collection_query_type.png)
 
 #### ATSD_PROPERTY
 
-Requests property from ATSD using [api](https://github.com/axibase/atsd-docs/blob/master/api/data/properties/query.md). 
+Requests a list of property records from ATSD with the [property query](https://github.com/axibase/atsd-docs/blob/master/api/data/properties/query.md) method. 
 
-Each item of list is a concatenated string of field values (Keys/Tags + Entity Tags) separated by specified separator.
+Each item is created by concatenating field values (Keys/Tags + Entity Tags) separated by the specified token.
 
-If the property is not found, an empty list is returned.
+If no property records are found, an empty list is returned.
 
 ![ATSD_PROPERTY Type](images/collection_atsd_property_type.png)
-
-## Replacement Tables
-
-Replacement tables are a list of `key=value` pairs that can be used to rename input strings into output strings. 
-
-Replacement tables can serve a lookup dictionary to convert numeric identifiers into human-readable names (for instance IP addresses into hostnames). It can be also used to remove extra symbols from inputs, for example to replace the entity name 'nurswgvml001:LZ' with 'nurswgvml001'.
-
-### Configuration
-
-To create a new replacement table, open the **Collections:Replacement Tables** page:
-
-**Field** | **Description**
-| :---- | ----- |
- `Name` | Table name.
- `Records` | List of key=value pairs, each pair on a separate line.
- 
- ![Replacement Table Example](images/replacement-table.png)
