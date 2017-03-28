@@ -192,32 +192,6 @@ Each item of list is a concatenated string of field values (Keys/Tags + Entity T
 
 If the property is not found, an empty list is returned.
 
-**Example**
-
-Select ip-address, port and name for active Docker containers.
-
-```
-Property Type = docker.container.networksettings.ports
-Entity Group = docker-containers
-Entity Expression = tags.status != 'deleted'
-Key/Tag Filter = keys.container-ip != '' && keys.protocol = 'tcp'
-Keys/Tags = container-ip,port
-Entity Tags = name
-Separator = ,
-```
-
-result:
-
-```
-172.17.0.14,8161,activemq
-172.17.0.14,61616,activemq
-172.17.0.14,61613,activemq
-172.17.0.14,1099,activemq
-172.17.0.14,22,activemq
-172.17.0.5,1097,tomcat-7
-172.17.0.5,8080,tomcat-7
-```
-
 ![ATSD_PROPERTY Type](images/collection_atsd_property_type.png)
 
 ## Replacement Tables
