@@ -15,6 +15,9 @@ Supported list types:
 * [TEXT](#text)
 * [FILE](#file)
 * [SCRIPT](#script)
+* [URL](#url)
+* [QUERY](#query)
+* [ATSD_PROPERTY](#atsd_property)
 
 Job types with support for Item List automation:
 
@@ -45,7 +48,7 @@ The items retain the original order as specified in the editor or returned by an
 
 For example, include the `${ITEM}` placeholder into the Path field in JSON job to query a different URL for each element in the list. 
 
-![Item List Example](item-list.png)
+![Item List Example](images/item-list.png)
 
 ### Functions
 
@@ -75,7 +78,7 @@ An Item List which stores strings entered in the `Items` field on the form.
 
 List items should be separated by a line break.
 
-![TEXT Type](collection_text_type.png)
+![TEXT Type](images/collection_text_type.png)
 
 #### FILE
 
@@ -83,9 +86,9 @@ Reads lines from a file on the local filesystem.
 
 Absolute path to the target file should be specified in the `Path` field. 
 
-If the file is not found, an empty collection is returned. List items in the file should be separated with a line break.
+If the file is not found, an empty list is returned. List items in the file should be separated with a line break.
 
-![FILE Type](collection_file_type.png)
+![FILE Type](images/collection_file_type.png)
 
 #### SCRIPT
 
@@ -97,7 +100,7 @@ The `Command` field should start with the script file name (absolute path not su
 
 The script should return a list of items separated by line breaks to 'stdout'.
 
-![SCRIPT Type](collection_script_type.png)
+![SCRIPT Type](images/collection_script_type.png)
 
 **Example**
 
@@ -140,6 +143,107 @@ ent-2
 ent-3
 ```
 
+#### URL
+
+Reads lines from a remote file.
+
+If the file is not found, an empty list is returned. List items in the file should be separated with a line break.
+
+![URL Type](images/collection_url_type.png)
+
+***Example***
+
+```
+URL = http://m.uploadedit.com/ba3s/1490691073396.txt
+```
+
+remote file content:
+
+```
+#ID
+2128406
+2513822
+2513836
+```
+
+result:
+
+```
+2128406
+2513822
+2513836
+```
+
+#### QUERY
+
+Select data from DB by SQL query.
+
+Each item of list is a concatenated string of column values separated by specified separator.
+
+If the query returns nothing, an empty list is returned.
+
+![QUERY Type](images/collection_query_type.png)
+
+***Example***
+
+Select ip-address and port for Docker containers from local DB.
+
+```
+Query = select dp.property_value ip_address, dcp.port from docker_property dp
+        join docker_container_port dcp on dcp.container_id = dp.entity_id and dcp.configuration_id = dp.configuration_id
+        where dp.property_name = 'ip-address'
+        order by ip_address
+Separator = :
+```
+
+result:
+
+```
+172.17.0.10:8084
+172.17.0.10:8081
+172.17.0.10:1099
+172.17.0.11:61616
+172.17.0.11:61613
+172.17.0.11:8161
+172.17.0.11:1099
+```
+
+#### ATSD_PROPERTY
+
+Requests property from ATSD using [api](https://github.com/axibase/atsd-docs/blob/master/api/data/properties/query.md). 
+
+Each item of list is a concatenated string of field values (Keys/Tags + Entity Tags) separated by specified separator.
+
+If the property is not found, an empty list is returned.
+
+**Example**
+
+Select ip-address, port and name for active Docker containers.
+
+```
+Property Type = docker.container.networksettings.ports
+Entity Group = docker-containers
+Entity Expression = tags.status != 'deleted'
+Key/Tag Filter = keys.container-ip != '' && keys.protocol = 'tcp'
+Keys/Tags = container-ip,port
+Entity Tags = name
+Separator = ,
+```
+
+result:
+
+```
+172.17.0.14,8161,activemq
+172.17.0.14,61616,activemq
+172.17.0.14,61613,activemq
+172.17.0.14,1099,activemq
+172.17.0.14,22,activemq
+172.17.0.5,1097,tomcat-7
+172.17.0.5,8080,tomcat-7
+```
+
+![ATSD_PROPERTY Type](images/collection_atsd_property_type.png)
+
 ## Replacement Tables
 
 Replacement tables are a list of `key=value` pairs that can be used to rename input strings into output strings. 
@@ -155,4 +259,4 @@ To create a new replacement table, open the **Collections:Replacement Tables** p
  `Name` | Table name.
  `Records` | List of key=value pairs, each pair on a separate line.
  
- ![Replacement Table Example](replacement-table.png)
+ ![Replacement Table Example](images/replacement-table.png)
