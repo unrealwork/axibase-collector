@@ -2,19 +2,20 @@
 
 ## Item Lists
 
-Item List is a collection of strings used to execute repetitive actions as part of the same job configuration. 
+Item List is a collection of strings which can be iterated to execute repetitive requests (queries) within the same job configuration.
 
-Such automation provides a way to create re-usable configurations as opposed to creating different job configurations for a list of similar items.
+The list can be defined by specifying items as text (one item per line) or by retrieving them from an external source such as file or script output.
 
-List items can be specified by entering items as text (one element per line) on the form or by reading them from an external source such as a file or script output.
-
-Items (lines) starting with the hash `#` symbol are treated as comments and are ignored.
+Items starting with the hash `#` symbol are treated as comments and are ignored.
 
 Supported list types:
 
 * [TEXT](#text)
 * [FILE](#file)
 * [SCRIPT](#script)
+* [URL](#url)
+* [QUERY](#query)
+* [ATSD_PROPERTY](#atsd_property)
 
 Job types with support for Item List automation:
 
@@ -45,7 +46,7 @@ The items retain the original order as specified in the editor or returned by an
 
 For example, include the `${ITEM}` placeholder into the Path field in JSON job to query a different URL for each element in the list. 
 
-![Item List Example](item-list.png)
+![Item List Example](images/item-list.png)
 
 ### Functions
 
@@ -75,7 +76,7 @@ An Item List which stores strings entered in the `Items` field on the form.
 
 List items should be separated by a line break.
 
-![TEXT Type](collection_text_type.png)
+![TEXT Type](images/collection_text_type.png)
 
 #### FILE
 
@@ -83,9 +84,9 @@ Reads lines from a file on the local filesystem.
 
 Absolute path to the target file should be specified in the `Path` field. 
 
-If the file is not found, an empty collection is returned. List items in the file should be separated with a line break.
+If the file is not found, an empty list is returned. List items in the file should be separated with a line break.
 
-![FILE Type](collection_file_type.png)
+![FILE Type](images/collection_file_type.png)
 
 #### SCRIPT
 
@@ -95,9 +96,9 @@ Only scripts in the `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
 
 The `Command` field should start with the script file name (absolute path not supported) and optional script arguments.
 
-The script should return a list of items separated by line breaks to 'stdout'.
+The script should print items separated by line breaks to 'stdout'.
 
-![SCRIPT Type](collection_script_type.png)
+![SCRIPT Type](images/collection_script_type.png)
 
 **Example**
 
@@ -140,19 +141,53 @@ ent-2
 ent-3
 ```
 
-## Replacement Tables
+#### URL
 
-Replacement tables are a list of `key=value` pairs that can be used to rename input strings into output strings. 
+Reads lines from a remote file/page.
 
-Replacement tables can serve a lookup dictionary to convert numeric identifiers into human-readable names (for instance IP addresses into hostnames). It can be also used to remove extra symbols from inputs, for example to replace the entity name 'nurswgvml001:LZ' with 'nurswgvml001'.
+If the file is not found, an empty list is returned. List items should be separated with a line break.
 
-### Configuration
+![URL Type](images/collection_url_type.png)
 
-To create a new replacement table, open the **Collections:Replacement Tables** page:
+***Example***
 
-**Field** | **Description**
-| :---- | ----- |
- `Name` | Table name.
- `Records` | List of key=value pairs, each pair on a separate line.
- 
- ![Replacement Table Example](replacement-table.png)
+```
+URL = http://m.uploadedit.com/ba3s/1490691073396.txt
+```
+
+Remote file content:
+
+```
+#ID
+2128406
+2513822
+2513836
+```
+
+result:
+
+```
+2128406
+2513822
+2513836
+```
+
+#### QUERY
+
+Selects data from a database with a SELECT query.
+
+Each item is created by concatenating values from **all** columns in a given row separated by the specified token.
+
+If the result set is empty, an empty list is returned.
+
+![QUERY Type](images/collection_query_type.png)
+
+#### ATSD_PROPERTY
+
+Requests a list of property records from ATSD with the [property query](https://github.com/axibase/atsd-docs/blob/master/api/data/properties/query.md) method. 
+
+Each item is created by concatenating field values (Keys/Tags + Entity Tags) separated by the specified token.
+
+If no property records are found, an empty list is returned.
+
+![ATSD_PROPERTY Type](images/collection_atsd_property_type.png)
