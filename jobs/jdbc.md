@@ -59,6 +59,7 @@ Use the table below to fill in the fields and configure the query.
 | Time Zone | Time zone in which the data was originally collected and stored. |
 | Check Last Time | Ignore metrics that have time set to less than the previous entry. |
 | Query With Time | When executing the job, the server will be set to the maximum time of the previous data. |
+| Collection Start Time | [Endtime expression](https://github.com/axibase/atsd-docs/blob/master/end-time-syntax.md) defining the beginning of the data collection interval, for example, previous_week. |
 | Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited. |
 | Query Timeout Seconds| Number of seconds after which the query will be interrupted, -1 is unlimited. |
 
