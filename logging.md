@@ -21,3 +21,14 @@ Copy the created archive to the Docker host on which Axibase Collector container
 ```bash
 docker cp axibase-collector:/tmp/logs.tar.gz ./
 ```
+
+### Stop Collector on Out of Memory Error
+
+Add new options to the `start-collector.sh` script after row '`# COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $GC_OPTS"`':
+
+```bash
+export JAVA_TOOL_OPTIONS="-XX:OnOutOfMemoryError=\"kill \-9 %p\""
+
+OOM_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$LOGS"
+COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $OOM_OPTS"
+```
