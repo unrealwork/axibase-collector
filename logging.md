@@ -32,3 +32,34 @@ export JAVA_TOOL_OPTIONS="-XX:OnOutOfMemoryError=\"kill \-9 %p\""
 OOM_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$LOGS"
 COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $OOM_OPTS"
 ```
+
+For example:
+
+before:
+```bash
+...
+# GC_OPTS="-Xloggc:$LOGS/gc_$RANDOM.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGC"
+# COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $GC_OPTS"
+
+COLLECTOR_PID_FILE="$BIN/collector.pid"
+
+if type -p java > /dev/null 2>&1; then
+...
+```
+
+after:
+```bash
+...
+# GC_OPTS="-Xloggc:$LOGS/gc_$RANDOM.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGC"
+# COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $GC_OPTS"
+
+export JAVA_TOOL_OPTIONS="-XX:OnOutOfMemoryError=\"kill \-9 %p\""
+
+OOM_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$LOGS"
+COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $OOM_OPTS"
+
+COLLECTOR_PID_FILE="$BIN/collector.pid"
+
+if type -p java > /dev/null 2>&1; then
+...
+```
