@@ -22,20 +22,14 @@ Copy the created archive to the Docker host on which Axibase Collector container
 docker cp axibase-collector:/tmp/logs.tar.gz ./
 ```
 
-### Stop Collector on Out of Memory Error
+### Configure Collector to Exit and Dump Heap on OutOfMemory Error
 
-Add new options to the `start-collector.sh` script after row '`# COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $GC_OPTS"`':
+Edit the `./axibase-collector/bin/start-collector.sh` file.
 
-```bash
-export JAVA_TOOL_OPTIONS="-XX:OnOutOfMemoryError=\"kill \-9 %p\""
+Make the following changes by adding 3 lines after **`# Exit and dump heap on OoM after`**:
 
-OOM_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$LOGS"
-COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $OOM_OPTS"
-```
+Before:
 
-For example:
-
-before:
 ```bash
 ...
 # GC_OPTS="-Xloggc:$LOGS/gc_$RANDOM.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGC"
@@ -47,14 +41,15 @@ if type -p java > /dev/null 2>&1; then
 ...
 ```
 
-after:
+After:
+
 ```bash
 ...
 # GC_OPTS="-Xloggc:$LOGS/gc_$RANDOM.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGC"
 # COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $GC_OPTS"
 
+# Exit and dump heap on OoM
 export JAVA_TOOL_OPTIONS="-XX:OnOutOfMemoryError=\"kill \-9 %p\""
-
 OOM_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$LOGS"
 COLLECTOR_JAVA_OPTS="$COLLECTOR_JAVA_OPTS $OOM_OPTS"
 
