@@ -1,0 +1,45 @@
+<list>
+  <com.axibase.collector.model.job.file.FileJobConfig>
+    <name>nginx-statistics</name>
+    <cronExpression>R * * * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>FILE</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <name>nginx-status</name>
+        <path>https://${ITEM}/nginx_status</path>
+        <encoding>UTF-8</encoding>
+        <detectEncoding>false</detectEncoding>
+        <parserType>CSV</parserType>
+        <wait>false</wait>
+        <rules>true</rules>
+        <defaultEntity>${ITEM}</defaultEntity>
+        <useTime>false</useTime>
+        <ignoreDuplicates>false</ignoreDuplicates>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <validateFormat>false</validateFormat>
+        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+        <protocol>HTTP</protocol>
+        <copyFiles>false</copyFiles>
+        <included/>
+        <excluded/>
+        <entitySet>
+          <name>nginx-servers</name>
+          <type>TEXT</type>
+          <discardDuplicates>false</discardDuplicates>
+          <entities>
+            <string>example.com</string>
+            <string>example.org</string>
+          </entities>
+        </entitySet>
+        <enableWebDriver>false</enableWebDriver>
+        <driverTimeout>0</driverTimeout>
+        <driverFileEncoding>UTF-8</driverFileEncoding>
+      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.file.FileJobConfig>
+</list>

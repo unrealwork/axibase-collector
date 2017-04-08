@@ -1,0 +1,87 @@
+<list>
+  <com.axibase.tsd.model.csv.CsvConfiguration>
+    <name>pvout-getstatus</name>
+    <putType>METRIC</putType>
+    <delimiter>,</delimiter>
+    <recordDelimiter>;</recordDelimiter>
+    <padding> </padding>
+    <comment></comment>
+    <textQualifier>&quot;</textQualifier>
+    <entityColumn/>
+    <defaultEntity>it_should_be_provided_by_Collector</defaultEntity>
+    <timestampColumn class="java.util.Arrays$ArrayList">
+      <a class="string-array">
+        <string>Date</string>
+        <string>Time</string>
+      </a>
+    </timestampColumn>
+    <timestampFormat>yyyyMMdd-HH:mm</timestampFormat>
+    <metricPrefix>pvout.</metricPrefix>
+    <entityPrefix>pvout.</entityPrefix>
+    <timestampType>PATTERN</timestampType>
+    <processEvents>false</processEvents>
+    <writeProperty>false</writeProperty>
+    <enabled>true</enabled>
+    <discardNan>true</discardNan>
+    <ignoreParseErrors>true</ignoreParseErrors>
+    <tagColumns class="linked-hash-set"/>
+    <excludedColumns class="linked-hash-set">
+      <string>Efficiency</string>
+      <string>Normalised</string>
+      <string>EnergyUsed</string>
+      <string>PowerUsed</string>
+    </excludedColumns>
+    <propertyColumns class="linked-hash-set"/>
+    <propertyKeyColumns class="linked-hash-set"/>
+    <defaultTags class="linked-hash-map"/>
+    <renamedColumns class="linked-hash-map"/>
+    <header class="java.util.Arrays$ArrayList">
+      <a class="string-array">
+        <string>Date</string>
+        <string>Time</string>
+        <string>Energy</string>
+        <string>Efficiency</string>
+        <string>Power</string>
+        <string>Average</string>
+        <string>Normalised</string>
+        <string>EnergyUsed</string>
+        <string>PowerUsed</string>
+        <string>Temperature</string>
+        <string>Voltage</string>
+      </a>
+    </header>
+    <decimalSeparator>.</decimalSeparator>
+    <groupingSeparator>�</groupingSeparator>
+  </com.axibase.tsd.model.csv.CsvConfiguration>
+  <com.axibase.tsd.model.csv.CsvConfiguration>
+    <name>stackoverflow-tags</name>
+    <putType>METRIC</putType>
+    <delimiter>,</delimiter>
+    <recordDelimiter>
+</recordDelimiter>
+    <padding> </padding>
+    <comment></comment>
+    <textQualifier>&quot;</textQualifier>
+    <entityColumn/>
+    <defaultEntity>stackoverflow</defaultEntity>
+    <timestampFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timestampFormat>
+    <metricPrefix>so.api.test.</metricPrefix>
+    <timestampType>PATTERN</timestampType>
+    <processEvents>false</processEvents>
+    <writeProperty>false</writeProperty>
+    <enabled>true</enabled>
+    <discardNan>true</discardNan>
+    <ignoreParseErrors>false</ignoreParseErrors>
+    <tagColumns class="linked-hash-set">
+      <string>name</string>
+    </tagColumns>
+    <excludedColumns class="linked-hash-set"/>
+    <propertyColumns class="linked-hash-set"/>
+    <propertyKeyColumns class="linked-hash-set"/>
+    <defaultTags class="linked-hash-map"/>
+    <renamedColumns class="linked-hash-map"/>
+    <header/>
+    <decimalSeparator>.</decimalSeparator>
+    <groupingSeparator>�</groupingSeparator>
+  </com.axibase.tsd.model.csv.CsvConfiguration>
+</list>

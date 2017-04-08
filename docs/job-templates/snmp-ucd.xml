@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.snmp.SnmpJobConfig>
+	<name>snmp-ucd</name>
+	<cronExpression>R * * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>SNMP</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.snmp.SnmpConfiguration>
+			<configName>public</configName>
+			<transport>UDP</transport>
+			<port>161</port>
+			<mibName>UCD-DEMO-MIB</mibName>
+			<timeout>3</timeout>
+			<maxRepetitions>10</maxRepetitions>
+			<nonRepeaters>0</nonRepeaters>
+			<version>V2C</version>
+			<community>public</community>
+			<metricPrefix>snmp.</metricPrefix>
+			<entitySet>
+				<name>snmp hosts</name>
+				<entities>
+					<string>10.102.0.6</string>
+				</entities>
+			</entitySet>
+			<tagNames>
+				<string>laNames</string>
+			</tagNames>
+			<metricColumns>
+				<string>laLoad</string>
+				<string>memTotalFree</string>
+			</metricColumns>
+			<retries>3</retries>
+			<securityName>axibase</securityName>
+			<authenticationPassPhrase />
+			<authProtocol>MD5</authProtocol>
+			<privacyProtocol>DES</privacyProtocol>
+			<secLevel>AUTH_PRIV</secLevel>
+		</com.axibase.collector.model.job.snmp.SnmpConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.snmp.SnmpJobConfig>

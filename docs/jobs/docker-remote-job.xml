@@ -1,0 +1,47 @@
+<list>
+  <com.axibase.collector.model.job.docker.DockerJobConfig>
+    <name>remote_docker_host_job</name>
+    <cronExpression>30 0/1 * * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>DOCKER</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.docker.DockerConfiguration>
+        <name>remote_docker_host</name>
+        <connectionPoolConfig>
+          <name>remote_docker_host_pool</name>
+          <protocol>https</protocol>
+          <server>remote_docker_host</server>
+          <port>2376</port>
+          <maxTotal>64</maxTotal>
+          <coockieEnabled>true</coockieEnabled>
+          <soTimeout>0</soTimeout>
+          <soReuse>false</soReuse>
+          <soLinger>0</soLinger>
+          <soKeepAlive>false</soKeepAlive>
+          <tcpNoDelay>false</tcpNoDelay>
+          <sslSkip>false</sslSkip>
+          <closeInterval>0</closeInterval>
+          <connectionTimeout>5</connectionTimeout>
+          <connectionPoolTimeout>3</connectionPoolTimeout>
+          <testPath>/version</testPath>
+          <authType>NONE</authType>
+          <userName>axibase</userName>
+          <password></password>
+          <headers/>
+          <keyStore>CUSTOM</keyStore>
+          <keyStorePath>/home/axibase/docker-certificates/docker.jks</keyStorePath>
+          <keyStorePassword></keyStorePassword>
+          <keyAlias>docker</keyAlias>
+          <keyPassword></keyPassword>
+          <trustStorePath>/home/axibase/docker-certificates/docker_trust.jks</trustStorePath>
+          <trustStorePassword></trustStorePassword>
+        </connectionPoolConfig>
+        <propertyRefreshInterval>5</propertyRefreshInterval>
+      </com.axibase.collector.model.job.docker.DockerConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.docker.DockerJobConfig>
+</list>

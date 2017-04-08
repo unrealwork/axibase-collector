@@ -1,0 +1,11 @@
+<list>
+  <com.axibase.tsd.model.EntityGroup>
+    <name>java-virtual-machine</name>
+    <lastModified>1464555002075</lastModified>
+    <expression>properties(&apos;jvm.operatingsystem&apos;).size() &gt; 0</expression>
+    <entities class="sorted-set">
+      <comparator class="java.lang.String$CaseInsensitiveComparator"/>
+    </entities>
+    <tags class="linked-hash-map"/>
+  </com.axibase.tsd.model.EntityGroup>
+</list>

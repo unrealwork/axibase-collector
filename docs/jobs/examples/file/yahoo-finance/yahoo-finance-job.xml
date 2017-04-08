@@ -1,0 +1,54 @@
+<list>
+  <com.axibase.collector.model.job.file.FileJobConfig>
+    <name>yahoo-finance-history-daily</name>
+    <cronExpression>R R 8 * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>FILE</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <name>yahoo-finance-history-daily</name>
+        <path>http://real-chart.finance.yahoo.com/table.csv?s=${ITEM}&amp;a=${TIME(&quot;previous_day&quot;,&quot;M&quot;)-1}&amp;b=${TIME(&quot;previous_day&quot;,&quot;d&quot;)}&amp;c=${TIME(&quot;previous_day&quot;,&quot;yyy&quot;)}&amp;d=00&amp;e=1&amp;f=2099&amp;g=d&amp;ignore=.csv</path>
+        <encoding>UTF-8</encoding>
+        <detectEncoding>true</detectEncoding>
+        <parserType>CSV</parserType>
+        <wait>true</wait>
+        <rules>false</rules>
+        <metricPrefix>finance.yahoo.</metricPrefix>
+        <defaultEntity>finance.${ITEM}</defaultEntity>
+        <useTime>false</useTime>
+        <ignoreDuplicates>false</ignoreDuplicates>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <minimumLineCount>2</minimumLineCount>
+        <firstLine>Date,Open,High,Low,Close,Volume,Adj Close</firstLine>
+        <validateFormat>true</validateFormat>
+        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+        <protocol>HTTP</protocol>
+        <method>GET</method>
+        <copyFiles>false</copyFiles>
+        <included/>
+        <excluded/>
+        <entitySet>
+          <name>yahoo-finance-securities</name>
+          <type>TEXT</type>
+          <discardDuplicates>false</discardDuplicates>
+          <entities>
+            <string>AAPL</string>
+            <string>IBM</string>
+            <string>MSFT</string>
+            <string>GOOG</string>
+            <string>FB</string>
+            <string>AMZN</string>
+          </entities>
+        </entitySet>
+        <enableWebDriver>false</enableWebDriver>
+        <lastModifyTime>0</lastModifyTime>
+        <traversalDepth>0</traversalDepth>
+        <md5>c9c526eb24b385c483c57eff5abaf782</md5>
+      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.file.FileJobConfig>
+</list>

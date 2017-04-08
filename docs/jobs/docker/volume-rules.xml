@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rules>
+<rule>
+<name>docker-host-volume-space-low</name>
+<metric>docker.volume.total_used_percent</metric>
+<expression><![CDATA[value > 60]]></expression>
+<window>length(1)</window>
+<severity>WARNING</severity>
+<alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+<alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+<alertCancellationMessage><![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+<alertStrategy>
+<type>NONE</type>
+<intervalCount>5</intervalCount>
+<intervalUnit>MINUTE</intervalUnit>
+</alertStrategy>
+<lastUpdated>1482839152532</lastUpdated>
+<enabled>true</enabled>
+<disableEntityGrouping>false</disableEntityGrouping>
+<leavingEvents>false</leavingEvents>
+<logOutput>false</logOutput>
+<description><![CDATA[Raised if the total size of /var/lib/docker directory exceeds 60% of  the total space on the file system.]]></description>
+<actionStrategy>
+<type>NONE</type>
+<intervalCount>5</intervalCount>
+<intervalUnit>MINUTE</intervalUnit>
+</actionStrategy>
+<ruleTable/>
+</rule>
+<rule>
+<name>docker-volume-space-leak</name>
+<metric>docker.volume.used_percent</metric>
+<expression><![CDATA[value > 25]]></expression>
+<window>length(1)</window>
+<severity>WARNING</severity>
+<alertOpenMessage><![CDATA[Open alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertOpenMessage>
+<alertMessage><![CDATA[Repeat alert for ${entity}, ${metric}, ${tags}. Value: ${value}]]></alertMessage>
+<alertCancellationMessage><![CDATA[Cancel alert for ${entity}, ${metric}, ${tags} . Value: ${value}]]></alertCancellationMessage>
+<alertStrategy>
+<type>NONE</type>
+<intervalCount>5</intervalCount>
+<intervalUnit>MINUTE</intervalUnit>
+</alertStrategy>
+<lastUpdated>1482838983819</lastUpdated>
+<enabled>true</enabled>
+<disableEntityGrouping>false</disableEntityGrouping>
+<leavingEvents>false</leavingEvents>
+<logOutput>false</logOutput>
+<description><![CDATA[Raised if the volume consumes more than 25% of the total space on the file system where /var/lib/docker is located.]]></description>
+<actionStrategy>
+<type>NONE</type>
+<intervalCount>5</intervalCount>
+<intervalUnit>MINUTE</intervalUnit>
+</actionStrategy>
+<ruleTable/>
+</rule>
+</rules>

@@ -1,0 +1,96 @@
+<linked-list>
+    <com.axibase.tsd.model.EntityView>
+        <name>ActiveMQ Brokers</name>
+        <entityGroup>apache-activemq-brokers</entityGroup>
+        <columns>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PORTALS_COLUMN</type>
+                <header>Portals</header>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>NAME_COLUMN</type>
+                <header>Name</header>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTIES_COLUMN</type>
+                <header>Properties</header>
+                <value>activemq_broker</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Status</header>
+                <value>activemq_service:service=health:currentstatus</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Broker Name</header>
+                <value>activemq_broker::brokername</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Broker Version</header>
+                <value>activemq_broker::brokerversion</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Uptime</header>
+                <value>activemq_broker::uptime</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>SERIES_VALUE</type>
+                <header>Producers</header>
+                <value>jmx.activemq.totalproducercount</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>SERIES_VALUE</type>
+                <header>Consumers</header>
+                <value>jmx.activemq.totalconsumercount</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>SERIES_VALUE</type>
+                <header>Connections</header>
+                <value>jmx.activemq.currentconnectionscount</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>DB Size, MB</header>
+                <value>activemq_service_instance:service=persistenceadapter:size</value>
+                <formatting>Math.round(value/Math.pow(2,20))</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Data Directory</header>
+                <value>activemq_broker::datadirectory</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Memory Limit, GB</header>
+                <value>activemq_broker::memorylimit</value>
+                <formatting>Math.round(value/Math.pow(2,30))</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Store Limit, GB</header>
+                <value>activemq_broker::storelimit</value>
+                <formatting>Math.round(value/Math.pow(2,30))</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Temp Limit, GB</header>
+                <value>activemq_broker::templimit</value>
+                <formatting>Math.round(value/Math.pow(2,30))</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>METRICS_COLUMN</type>
+                <header>Metrics</header>
+            </com.axibase.tsd.model.EntityViewColumn>
+        </columns>
+        <pageSize>20</pageSize>
+        <enabled>true</enabled>
+        <menu>false</menu>
+        <filters class="java.util.Arrays$ArrayList">
+            <a class="com.axibase.tsd.model.EntityView$EntityViewFilter-array"/>
+        </filters>
+        <displayIndex>0</displayIndex>
+    </com.axibase.tsd.model.EntityView>
+</linked-list>

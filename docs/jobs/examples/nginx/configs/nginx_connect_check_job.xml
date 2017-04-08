@@ -1,0 +1,25 @@
+<list>
+  <com.axibase.collector.model.job.tcp.TcpJobConfig>
+    <name>nginx-connect-check</name>
+    <cronExpression>0/5 * * * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>TCP</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.tcp.TcpConfiguration>
+        <name>nginx-connect</name>
+        <port>80</port>
+        <tcpMetricName>tcp-connect</tcpMetricName>
+        <timeout>3</timeout>
+        <failureRetestNumber>1</failureRetestNumber>
+        <failureRetestDelay>3</failureRetestDelay>
+        <entitySet>
+          <name>nginx-servers</name>
+        </entitySet>
+      </com.axibase.collector.model.job.tcp.TcpConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.tcp.TcpJobConfig>
+</list>

@@ -1,0 +1,395 @@
+<list>
+  <com.axibase.tsd.model.portal.PortalConfig>
+    <name>nginx-plus</name>
+    <enabled>true</enabled>
+    <showInMenu>false</showInMenu>
+    <displayIndex>0</displayIndex>
+    <style>black.css</style>
+    <content>[configuration]
+  title = NGINX Plus Status
+  update-interval=5
+  step-line = false
+  markers = false
+  height-units = 5
+  width-units = 7
+  timespan = 1 day
+  entity = ${entity}
+
+################################################################################ 1st ROW
+[group]
+  [widget]
+      type = property
+      width-units = 2
+      title = Server properties: ${entity}
+      transpose = true
+      time-span = 15 minute
+      class = terminal
+      [column]
+          key=address
+      [column]
+          key=pid
+      [column]
+          key=nginx_version
+      [column]
+          key=generation
+      [column]
+          key=load_timestamp
+      [property]
+		  type = nginx_info     
+############
+  	[widget]
+    	width-units = 3
+    	type = chart
+    	title = Connections
+    	tooltip = Connection info
+    	statistics = counter
+    	label-format = label
+    	metric = nginx-plus.connections.active
+    	[dropdown]
+    		change-field = metric
+    		options = nginx-plus.connections.active, nginx-plus.connections.dropped, nginx-plus.connections.idle, nginx-plus.connections.accepted
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
+    	[series]
+      		color = blue
+      		label = Current
+      		style = stroke: 4px
+      	[series]
+      		color = orange
+      		label  = -1 day
+      		time-offset = 1 day
+      	[series]
+      		color = gray
+      		label  = -1 week
+      		time-offset = 1 week
+############
+    [widget]
+    	width-units = 2
+    	type = chart
+    	title = SSL
+    	tooltip = SSL information
+    	statistics = counter
+    	label-format = label
+        metric = nginx-plus.ssl.handshakes
+    	[dropdown]
+    		change-field = metric
+    		options = nginx-plus.ssl.handshakes, nginx-plus.ssl.handshakes_failed, nginx-plus.ssl.session_reuses
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
+    	[series]
+			color = blue
+      		label = Current
+      		style = stroke: 4px
+        [series]
+      		color = orange
+      		label  = -1 day
+      		time-offset = 1 day
+      	[series]
+      		color = gray
+      		label  = -1 week
+      		time-offset = 1 week
+################################################################################ 2nd ROW
+[group]
+    [widget]
+    	type = chart
+    	title = Respawned processes
+    	tooltip = The total number of abnormally terminated and respawned child processes.
+    	statistics = counter
+    	label-format = label
+        metric = nginx-plus.processes.respawned
+    	[series]
+			color = brown
+      		label = Current
+      		style = stroke: 4px
+############
+  	[widget]
+     	width-units = 3
+      	type = chart
+      	title = Cache Statistics
+      	statistic = counter
+        [dropdown]
+    		change-field = series.metric
+            options = nginx-plus.bytes, nginx-plus.responses, nginx-plus.bytes_written, nginx-plus.responses_written
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
+      	[dropdown]
+    		change-field = series.tags.cache_status
+            &lt;#assign states = getTags(&quot;nginx-plus.bytes&quot;, &quot;${entity}&quot;, &quot;cache_status&quot;) &gt;     
+    		options = ${states?join(&quot;, &quot;)}
+    	[dropdown]
+    		change-field = series.tags.name
+          	&lt;#assign names = getTags(&quot;nginx-plus.bytes&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
+    		options = ${names?join(&quot;, &quot;)}
+      	[series]
+        	metric = nginx-plus.responses
+     		color = green
+      	[tags]
+      		type = caches
+      		name = ${names[0]}
+      		cache_status = hit
+############
+    [widget]
+      	title = Cache hit rate today, %
+    	type = gauge
+	    tooltip = Percentage of cache hits today(100 * hit / (hit + miss))
+	    end-time = next_day
+	    statistic = counter
+	    period = 1 day
+	    style= padding-left: 40px; padding-right: 40px;
+	    gradient-count = 5, 4, 5
+	    gradient-intensity = 0 / .75
+	    ticks = 4
+	    format = decimal(3)
+	    display-tip = false
+	    thresholds = 0, 25, 75, 100
+	    colors = red, yellow, green
+      	[dropdown]
+      		change-field = series.tags.name
+      		&lt;#assign names = getTags(&quot;nginx-plus.bytes&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
+      		options = ${names?join(&quot;, &quot;)}
+      	[series]
+        	metric = nginx-plus.responses
+      		alias = hit
+        	display = false
+      		[tags]
+      			type = caches
+      			cache_status = hit
+      			name = ${names[0]} 
+      	[series]
+        	metric = nginx-plus.responses
+        	alias = miss
+        	display = false
+       		[tags]
+	      		type = caches
+	      		cache_status = miss
+    	  		name = ${names[0]}
+      	[series]
+	        color = magenta
+	        label = Hit rate, %
+	        value = (value(&apos;miss&apos;) + value(&apos;hit&apos;) == 0) ? 0 : 100 * value(&apos;hit&apos;) / (value(&apos;miss&apos;) + value(&apos;hit&apos;))
+############
+	[widget]
+      	type = property
+      	title = Cache Properties
+    	width-units = 2
+      	transpose = true
+      	time-span = 15 minute
+    	[column]
+    		key=name
+        	label=cache
+	    [column]
+    		key=cold
+        [column]
+        	key=size
+      		format = kilobytes
+      	[column]
+        	key=max_size
+      		format = kilobytes
+      	[property]
+        	type = caches
+################################################################################ 3rd ROW
+[group]
+   [widget]
+      width-units = 3
+      type = chart
+      title = Server Zones&apos; General Info
+      statistic = counter
+      metric = nginx-plus.requests
+      [dropdown]
+    		change-field = metric
+    		options = nginx-plus.requests, nginx-plus.received, nginx-plus.processing, nginx-plus.discarded, nginx-plus.sent
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
+      [dropdown]
+    		change-field = series.tags.name
+          	&lt;#assign names = getTags(&quot;nginx-plus.discarded&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
+    		options = ${names?join(&quot;, &quot;)}
+      [series]
+      		label = Current
+			color = blue
+      		[tags]
+      			type = server_zones
+      			name = ${names[0]}
+      [series]
+      		label  = -1 day
+            color = orange
+      		time-offset = 1 day
+      		[tags]
+      			type = server_zones
+      			name = ${names[0]}
+      [series]
+      		label  = -1 week
+      		color = gray
+      		time-offset = 1 week
+            [tags]
+      			type = server_zones
+      			name = ${names[0]}
+############
+    [widget]
+   	  width-units = 3
+      type = chart
+      title = Server Zones&apos; Responses
+      statistic = counter
+      metric = nginx-plus.responses.4xx
+      [dropdown]
+    		change-field = metric
+    		options = nginx-plus.responses.1xx, nginx-plus.responses.2xx,nginx-plus.responses.3xx,nginx-plus.responses.4xx,nginx-plus.responses.5xx,nginx-plus.responses.total
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
+      [dropdown]
+    		change-field = series.tags.name
+          	&lt;#assign names = getTags(&quot;nginx-plus.responses.1xx&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
+    		options = ${names?join(&quot;, &quot;)}
+      [series]
+      		label = Current
+      		color = blue
+      		[tags]
+      			type = server_zones
+      			name = ${names[0]}
+      [series]
+      		label  = -1 day
+      		color = orange
+      		time-offset = 1 day
+      		[tags]
+      			type = server_zones
+      			name = ${names[0]}
+      [series]
+      		label  = -1 week
+      		color = gray
+      		time-offset = 1 week
+            [tags]
+      			type = server_zones
+      			name = ${names[0]}
+############
+    [widget]
+    	width-units = 1
+      	type = chart
+      	title = Upstreams&apos; Keepalive
+    	tooltip = The current number of idle keepalive connections.
+      	statistic = counter
+        [dropdown]
+	     	change-field = series.tags.name
+	      	&lt;#assign names = getTags(&quot;nginx-plus.keepalive&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
+	      	options = ${names?join(&quot;, &quot;)}
+    	[series]
+	        metric = nginx-plus.keepalive
+      		color = yellow
+	      	[tags]
+	      		type = upstreams
+	      		name = ${names[0]}
+################################################################################ 4th ROW
+[group]
+	[widget]
+    	width-units = 5
+      	type = chart
+      	title = Upstream Peers&apos; Statistics
+      	statistic = counter
+      	[dropdown]
+	   		change-field = series.metric
+    		options = nginx-plus.active, nginx-plus.downstart, nginx-plus.downtime, nginx-plus.fails, nginx-plus.health_checks.checks, nginx-plus.health_checks.fails, nginx-plus.health_checks.unhealthy, nginx-plus.received, nginx-plus.requests, nginx-plus.responses.1xx, nginx-plus.responses.2xx, nginx-plus.responses.3xx, nginx-plus.responses.4xx, nginx-plus.responses.5xx, nginx-plus.responses.total, nginx-plus.selected, nginx-plus.sent, nginx-plus.unavail
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
+        [dropdown]
+    		change-field = series.tags.upstream
+          	&lt;#assign upstreams = getTags(&quot;nginx-plus.requests&quot;, &quot;${entity}&quot;, &quot;upstream&quot;) &gt;     
+    		options = ${upstreams?join(&quot;, &quot;)}
+    	[dropdown]
+    		change-field = series.tags.server
+          	&lt;#assign peers = getTags(&quot;nginx-plus.requests&quot;, &quot;${entity}&quot;, &quot;server&quot;) &gt;     
+    		options = ${peers?join(&quot;, &quot;)}
+      	[series]
+        	metric = nginx-plus.active
+ 			color = green
+      		[tags]
+	      		type = upstreams.peers
+      			upstream = ${upstreams[0]}
+	      		server = ${peers[0]}
+###########
+   [widget]
+      type = property
+      width-units = 2
+      title = Upstream Peers&apos; properties
+      time-span = 15 minute
+      [column]
+          key=server
+          label=peer
+      [column]
+          key=upstream
+	  [column]
+          key=state
+      [column]
+          key=backup
+      [column]
+          key=weight
+      [column]
+          key=id
+      [column]
+          key=last_passed
+      [property]
+          type = upstreams.peers
+################################################################################ 5th ROW
+[group]
+   [widget]
+      width-units = 2
+      type = chart
+      title = Stream Server Zones&apos; General Info
+      statistic = counter
+      [dropdown]
+    		change-field = series.metric
+    		options = nginx-plus.connections, nginx-plus.processing, nginx-plus.received, nginx-plus.sent
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
+      [dropdown]
+    		change-field = series.tags.name
+          	&lt;#assign names = getTags(&quot;nginx-plus.connections&quot;, &quot;${entity}&quot;, &quot;name&quot;) &gt;     
+    		options = ${names?join(&quot;, &quot;)}
+      [series]
+        metric = nginx-plus.connections
+      	color = magenta
+      [tags]
+      		type = stream.server_zones 
+      		name = ${names[0]}
+#############
+     [widget]
+    	width-units = 3
+      	type = chart
+      	title = Stream Peers&apos; Statistics
+      	statistic = counter
+      	[dropdown]
+	   		change-field = series.metric
+    		options = nginx-plus.active, nginx-plus.connections, nginx-plus.connect_time, nginx-plus.downstart, nginx-plus.downtime, nginx-plus.fails, nginx-plus.first_byte_time, nginx-plus.health_checks.checks, nginx-plus.health_checks.unhealthy, nginx-plus.max_conns, nginx-plus.received, nginx-plus.response_time, nginx-plus.selected, nginx-plus.sent, nginx-plus.unavail
+    		format = keepAfter(value, &apos;nginx-plus.&apos;)
+        [dropdown]
+    		change-field = series.tags.upstream
+          	&lt;#assign upstreams = getTags(&quot;nginx-plus.connections&quot;, &quot;${entity}&quot;, &quot;upstream&quot;) &gt;     
+    		options = ${upstreams?join(&quot;, &quot;)}
+    	[dropdown]
+    		change-field = series.tags.server
+          	&lt;#assign peers = getTags(&quot;nginx-plus.connections&quot;, &quot;${entity}&quot;, &quot;server&quot;) &gt;     
+    		options = ${peers?join(&quot;, &quot;)}
+      	[series]
+        	metric = nginx-plus.active
+ 			color = green
+      		[tags]
+	      		type = stream.upstreams.peers
+      			upstream=${upstreams[0]}
+	      		server = ${peers[0]}
+###########    
+   [widget]
+      type = property
+      width-units = 3
+      title = Stream Upstreams Peers&apos; Properties
+      time-span = 15 minute
+      [column]
+          key=server
+          label=peer
+      [column]
+          key=upstream
+	  [column]
+          key=state
+      [column]
+          key=backup
+      [column]
+          key=weight
+      [column]
+          key=id
+      [column]
+          key=last_passed
+      [property]
+       	  type = stream.upstreams.peers</content>
+    <lastModified>2016-08-29 10:35:45.669 UTC</lastModified>
+  </com.axibase.tsd.model.portal.PortalConfig>
+</list>

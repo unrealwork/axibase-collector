@@ -1,0 +1,97 @@
+<linked-list>
+    <com.axibase.tsd.model.EntityView>
+        <name>Java Applications</name>
+        <entityGroup>java-virtual-machine</entityGroup>
+        <columns>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PORTALS_COLUMN</type>
+                <header>Portals</header>
+                <value>JVM</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTIES_COLUMN</type>
+                <header>Properties</header>
+                <value>jvm.runtime</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>NAME_COLUMN</type>
+                <header>Name</header>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Uptime, hours</header>
+                <value>jvm.runtime::uptime</value>
+                <formatting>Math.round(value/3600000)</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>OS Name</header>
+                <value>jvm.operatingsystem::name</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>OS Version</header>
+                <value>jvm.operatingsystem::version</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>SERIES_VALUE</type>
+                <header>Heap Used, MB</header>
+                <value>jmx.jvm.heapmemoryusage.used</value>
+                <link>CHART</link>
+                <formatting>Math.round(value/Math.pow(2,20))</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>SERIES_VALUE</type>
+                <header>Heap Max, MB</header>
+                <value>jmx.jvm.heapmemoryusage.max</value>
+                <formatting>Math.round(value/Math.pow(2,20))</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>SERIES_VALUE</type>
+                <header>Process CPU, %</header>
+                <value>jmx.jvm.processcpuload</value>
+                <link>CHART</link>
+                <formatting>new java.text.DecimalFormat(&quot;0.0&quot;).format(100*value)</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>SERIES_VALUE</type>
+                <header>System CPU, %</header>
+                <value>jmx.jvm.systemcpuload</value>
+                <link>CHART</link>
+                <formatting>new java.text.DecimalFormat(&quot;0.0&quot;).format(100*value)</formatting>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>SERIES_VALUE</type>
+                <header>Load Avg</header>
+                <value>jmx.jvm.systemloadaverage</value>
+                <link>CHART</link>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Java Home</header>
+                <value>jvm.runtime::systemproperties.java.home.value</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Time Zone</header>
+                <value>jvm.runtime::systemproperties.user.timezone.value</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>PROPERTY_TAG</type>
+                <header>Classpath</header>
+                <value>jvm.runtime::classpath</value>
+            </com.axibase.tsd.model.EntityViewColumn>
+            <com.axibase.tsd.model.EntityViewColumn>
+                <type>METRICS_COLUMN</type>
+                <header>Metrics</header>
+            </com.axibase.tsd.model.EntityViewColumn>
+        </columns>
+        <pageSize>25</pageSize>
+        <enabled>true</enabled>
+        <menu>false</menu>
+        <filters class="java.util.Arrays$ArrayList">
+            <a class="com.axibase.tsd.model.EntityView$EntityViewFilter-array"/>
+        </filters>
+        <displayIndex>0</displayIndex>
+    </com.axibase.tsd.model.EntityView>
+</linked-list>

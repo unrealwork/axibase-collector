@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.http.HttpJobConfig>
+	<name>http-response-time</name>
+	<cronExpression>R 0/5 * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>HTTP</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.http.HttpConfiguration>
+			<name>https://www.google.com/</name>
+			<path>https://www.google.com/</path>
+			<responseText>Google</responseText>
+			<matchType>CONTAINS</matchType>
+			<failureRetest>2</failureRetest>
+			<failureRetestDelay>15</failureRetestDelay>
+			<enableWebDriver>false</enableWebDriver>
+		</com.axibase.collector.model.job.http.HttpConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.http.HttpJobConfig>

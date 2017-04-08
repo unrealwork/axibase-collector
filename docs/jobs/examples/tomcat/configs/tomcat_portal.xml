@@ -1,0 +1,129 @@
+<list>
+  <com.axibase.tsd.model.portal.PortalConfig>
+    <name>Derby</name>
+    <enabled>true</enabled>
+    <showInMenu>false</showInMenu>
+    <displayIndex>0</displayIndex>
+    <content>[configuration]
+  offset-right = 0
+  height-units = 4
+  width-units = 2
+  entity = ${entity}
+  step-line = false
+  markers = false
+  timespan = 1 day
+  last-value-label = none
+  legend-position = top
+  statistic = avg
+  step-line = false
+
+[group]
+
+  label-format = tags.name
+    [tags]
+    &quot;db&quot; = *
+    &quot;name&quot;  = *
+    
+
+[widget]
+  type = chart
+  title = ${entity}: Cache Hit Count
+  [series]
+    label = Hits
+    metric = jmx.derby.hitcount
+
+[widget]
+  type = chart
+  title = Cache Miss Count
+  [series]
+    label = Missed
+    metric = jmx.derby.misscount
+
+[group]
+
+[widget]
+  type = chart
+  title = Network Server I/O, per second
+  mode = column
+
+  [series]
+    label = Sent/sec
+    metric = jmx.derby.BytesSentPerSecond
+    replace-value = -value
+  [series]
+    label = Recv/sec
+    metric = jmx.derby.BytesReceivedPerSecond
+
+  [tags]
+    &quot;type&quot; = NetworkServer
+    system = *
+
+[widget]
+  type = chart
+  title = Network Server I/O, per second
+  mode = column
+
+  [series]
+    label = Connections
+    metric = jmx.derby.ConnectionCount
+    replace-value = -value
+  [series]
+    label = Active
+    metric = jmx.derby.ActiveConnectionCount
+  [series]
+    label = Connection Pool
+    metric = jmx.derby.ConnectionThreadPoolSize
+  [series]
+    label = Waiting
+    metric = jmx.derby.WaitingConnectionCount
+
+  [tags]
+    &quot;type&quot; = NetworkServer
+    system = *
+
+[group]
+
+[widget]
+	type = property
+	title = Properties
+	expand-tags = true
+    transpose = true
+    responsive = false
+    column-entity = null
+    column-time = null
+    join = entity
+
+	[property]
+      type = jmx.derby.JDBC
+	[property]
+      type = jmx.derby.Management
+
+[widget]
+	type = property
+	title = Network Server Properties
+	expand-tags = true
+    transpose = true
+    responsive = false
+    column-entity = null
+    column-time = null
+    join = entity
+
+    [property]
+      type = jmx.derby.NetworkServer
+
+[group]
+[widget]
+	type = property
+	title =Versions
+	expand-tags = true
+    width-units = 2
+    transpose = true
+    responsive = false
+    column-entity = null
+    column-time = null
+
+    [property]
+      type = jmx.derby.Version</content>
+    <lastModified>2016-05-31 08:46:13.577 UTC</lastModified>
+  </com.axibase.tsd.model.portal.PortalConfig>
+</list>

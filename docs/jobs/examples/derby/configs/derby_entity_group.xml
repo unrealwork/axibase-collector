@@ -1,0 +1,12 @@
+<list>
+    <com.axibase.tsd.model.EntityGroup>
+        <name>apache-derby-databases</name>
+        <lastModified>1464555002079</lastModified>
+        <expression>properties(&apos;jmx.derby.version&apos;).size() &gt; 0</expression>
+        <entities class="sorted-set">
+            <comparator class="java.lang.String$CaseInsensitiveComparator"/>
+        </entities>
+        <portals/>
+        <tags class="linked-hash-map"/>
+    </com.axibase.tsd.model.EntityGroup>
+</list>

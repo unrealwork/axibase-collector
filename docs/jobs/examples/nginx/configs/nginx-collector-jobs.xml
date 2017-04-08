@@ -1,0 +1,64 @@
+<list>
+  <com.axibase.collector.model.job.file.FileJobConfig>
+    <name>nginx-statistics</name>
+    <cronExpression>0 * * * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>FILE</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <name>nginx-status</name>
+        <path>https://${ITEM}/nginx_status</path>
+        <encoding>UTF8</encoding>
+        <parserType>CSV</parserType>
+        <wait>false</wait>
+        <rules>true</rules>
+        <defaultEntity>${ITEM}</defaultEntity>
+        <useTime>false</useTime>
+        <ignoreDuplicates>false</ignoreDuplicates>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <validateFormat>false</validateFormat>
+        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+        <included/>
+        <excluded/>
+        <entitySet>
+          <name>nginx-servers</name>
+          <type>TEXT</type>
+          <discardDuplicates>false</discardDuplicates>
+          <entities>
+            <string>www.axibase.com</string>
+            <string>apps.axibase.com</string>
+          </entities>
+        </entitySet>
+        <enableWebDriver>false</enableWebDriver>
+        <driverTimeout>0</driverTimeout>
+        <driverFileEncoding>UTF8</driverFileEncoding>
+      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.file.FileJobConfig>
+  <com.axibase.collector.model.job.tcp.TcpJobConfig>
+    <name>nginx-connect-check</name>
+    <cronExpression>0/5 * * * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>TCP</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.tcp.TcpConfiguration>
+        <name>nginx-connect</name>
+        <port>80</port>
+        <tcpMetricName>tcp-connect</tcpMetricName>
+        <timeout>3</timeout>
+        <failureRetestNumber>1</failureRetestNumber>
+        <failureRetestDelay>3</failureRetestDelay>
+        <defaultTags/>
+        <entitySet reference="../../../../com.axibase.collector.model.job.file.FileJobConfig/configurations/com.axibase.collector.model.job.file.FileRoutingConfiguration/entitySet"/>
+      </com.axibase.collector.model.job.tcp.TcpConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.tcp.TcpJobConfig>
+</list>

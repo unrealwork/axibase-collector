@@ -1,0 +1,39 @@
+<list>
+  <com.axibase.collector.model.job.file.FileJobConfig>
+    <name>Sunspot daily count</name>
+    <cronExpression>R R 0/3 * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>FILE</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <name>SSN daily count</name>
+        <path>http://www.sidc.be/silso/DATA/EISN/EISN_current.csv</path>
+        <encoding>UTF-8</encoding>
+        <detectEncoding>true</detectEncoding>
+        <parserType>CSV</parserType>
+        <wait>false</wait>
+        <rules>false</rules>
+        <metricPrefix>ssn.</metricPrefix>
+        <defaultEntity>SSN</defaultEntity>
+        <useTime>false</useTime>
+        <ignoreDuplicates>false</ignoreDuplicates>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <validateFormat>true</validateFormat>
+        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+        <protocol>HTTP</protocol>
+        <method>GET</method>
+        <copyFiles>false</copyFiles>
+        <included/>
+        <excluded/>
+        <enableWebDriver>false</enableWebDriver>
+        <lastModifyTime>0</lastModifyTime>
+        <traversalDepth>0</traversalDepth>
+        <md5>a312f5f022ca3cff1cc57c3f5e1e802d</md5>
+      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.file.FileJobConfig>
+</list>

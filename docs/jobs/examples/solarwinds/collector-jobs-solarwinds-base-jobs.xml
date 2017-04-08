@@ -1,0 +1,264 @@
+<list>
+    <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+        <name>solarwinds-base</name>
+        <cronExpression>0 0/5 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>JDBC</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags/>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <configs>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT REPLACE(ISNULL(NULLIF(N.SysName, &apos;&apos;), N.Caption), &apos; &apos;, &apos;_&apos;)
+                    AS SysName, V.Caption AS Name, T.DateTime, T.DiskSize, T.AvgDiskUsed, T.PercentDiskUsed FROM
+                    VolumeUsage T, Nodes N, Volumes V WHERE T.NodeID = N.NodeID AND T.VolumeID = V.VolumeID AND V.NodeID
+                    = T.NodeID AND VolumeTypeID IN (4, 10) AND T.DateTime &gt;= DATEADD(MINUTE, -5, ?) AND V.VolumeSize
+                    &gt; 0 ORDER BY T.DateTime
+                </query>
+                <tagColumns>
+                    <string>Name</string>
+                </tagColumns>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>SysName</entityColumn>
+                <timeColumn>DateTime</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>sw.volume_usage.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT REPLACE(ISNULL(NULLIF(N.SysName, &apos;&apos;), N.Caption), &apos; &apos;, &apos;_&apos;)
+                    AS SysName, V.Caption AS Name, T.DateTime, T.AvgDiskQueueLength, T.AvgDiskTransfer, T.AvgDiskReads,
+                    T.AvgDiskWrites FROM VolumePerformance T, Nodes N, Volumes V WHERE T.NodeID = N.NodeID AND
+                    T.VolumeID = V.VolumeID AND V.NodeID = T.NodeID AND VolumeTypeID IN (4, 10) AND V.VolumeSize &gt; 0
+                    AND T.DateTime &gt;= DATEADD(MINUTE, -5, ?) ORDER BY T.DateTime
+                </query>
+                <tagColumns>
+                    <string>Name</string>
+                </tagColumns>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>SysName</entityColumn>
+                <timeColumn>DateTime</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>sw.volume_performance.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT REPLACE(ISNULL(NULLIF(N.SysName, &apos;&apos;), N.Caption), &apos; &apos;, &apos;_&apos;)
+                    AS SysName, T.DateTime, T.AvgResponseTime, T.PercentLoss FROM ResponseTime T, Nodes N WHERE T.NodeID
+                    = N.NodeID AND T.DateTime &gt;= DATEADD(MINUTE, -5, ?) ORDER BY T.DateTime
+                </query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>SysName</entityColumn>
+                <timeColumn>DateTime</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>sw.node_responsetime.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT REPLACE(ISNULL(NULLIF(N.SysName, &apos;&apos;), N.Caption), &apos; &apos;, &apos;_&apos;)
+                    AS SysName, I.InterfaceName AS Name, T.DateTime, T.In_Averagebps, T.In_TotalBytes, T.In_TotalPkts,
+                    T.In_AvgUniCastPkts, T.In_AvgMultiCastPkts, T.Out_Averagebps, T.Out_TotalBytes, T.Out_TotalPkts,
+                    T.Out_AvgUniCastPkts, T.Out_AvgMultiCastPkts FROM InterfaceTraffic T, Nodes N, Interfaces I WHERE
+                    T.NodeID = N.NodeID AND T.InterfaceID = I.InterfaceID AND I.NodeID = T.NodeID AND I.InterfaceType !=
+                    24 AND T.DateTime &gt;= DATEADD(MINUTE, -5, ?) ORDER BY T.DateTime
+                </query>
+                <tagColumns>
+                    <string>Name</string>
+                </tagColumns>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>SysName</entityColumn>
+                <timeColumn>DateTime</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>sw.interface_traffic.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT REPLACE(ISNULL(NULLIF(N.SysName, &apos;&apos;), N.Caption), &apos; &apos;, &apos;_&apos;)
+                    AS SysName, I.InterfaceName AS Name, T.DateTime, T.In_Discards, T.In_Errors, T.Out_Discards,
+                    T.Out_Errors FROM InterfaceErrors T, Nodes N, Interfaces I WHERE T.NodeID = N.NodeID AND
+                    T.InterfaceID = I.InterfaceID AND I.NodeID = T.NodeID AND InterfaceType != 24 AND T.DateTime &gt;=
+                    DATEADD(MINUTE, -5, ?) ORDER BY T.DateTime
+                </query>
+                <tagColumns>
+                    <string>Name</string>
+                </tagColumns>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>SysName</entityColumn>
+                <timeColumn>DateTime</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>sw.interface_errors.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT REPLACE(ISNULL(NULLIF(N.SysName, &apos;&apos;), N.Caption), &apos; &apos;, &apos;_&apos;)
+                    AS SysName, T.* FROM CPULoad T, Nodes N &#xd;
+                    WHERE T.NodeID = N.NodeID AND T.DateTime &gt;= DATEADD(MINUTE, -5, ?) ORDER BY T.DateTime
+                </query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns>
+                    <string>Archive</string>
+                    <string>Weight</string>
+                    <string>NodeID</string>
+                </ignoredMetricColumns>
+                <entityColumn>SysName</entityColumn>
+                <timeColumn>DateTime</timeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>sw.cpu.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>true</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+    <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+        <name>solarwinds-base-properties</name>
+        <cronExpression>0 0/15 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>JDBC</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags>
+            <entry>
+                <string>table</string>
+                <string>Nodes</string>
+            </entry>
+        </defaultTags>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <configs>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT REPLACE(ISNULL(NULLIF(N.SysName, &apos;&apos;), N.Caption), &apos; &apos;, &apos;_&apos;)
+                    AS ValidSysName, ObjectSubType, IP_Address, IP_Address_Type, &#xd;
+                    DynamicIP, UnManaged, Caption, DNS, SysName, Vendor, Description, IOSVersion, StatusDescription,
+                    Status, MachineType, IsServer, &#xd;
+                    Severity, TotalMemory, LastBoot, SystemUpTime, ResponseTime, PercentLoss, AvgResponseTime,
+                    MinResponseTime, MaxResponseTime, &#xd;
+                    CPULoad, MemoryUsed, PercentMemoryUsed FROM Nodes N
+                </query>
+                <tagColumns/>
+                <defaultTags>
+                    <entry>
+                        <string>table</string>
+                        <string>Nodes</string>
+                    </entry>
+                </defaultTags>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>ValidSysName</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>sw.node</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+</list>

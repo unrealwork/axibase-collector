@@ -1,0 +1,45 @@
+<list>
+  <com.axibase.collector.model.job.file.FileJobConfig>
+    <name>NOAA Mooring</name>
+    <cronExpression>0 0 0 1 * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>FILE</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <name>noaa-mooring</name>
+        <path>ftp.nodc.noaa.gov/nodc/archive/arc0047/0084099/3.3/data/0-data/CCE*N_M*20??.csv</path>
+        <encoding>UTF-8</encoding>
+        <detectEncoding>true</detectEncoding>
+        <parserType>CSV</parserType>
+        <wait>true</wait>
+        <rules>false</rules>
+        <metricPrefix>noaa.mooring.</metricPrefix>
+        <defaultEntity>${FILE?split(&apos;_&apos;)[0]}_${FILE?split(&apos;_&apos;)[1]}_${FILE?split(&apos;_&apos;)[2]}</defaultEntity>
+        <useTime>false</useTime>
+        <ignoreDuplicates>true</ignoreDuplicates>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <minimumLineCount>10</minimumLineCount>
+        <firstLine>Mooring Name,Latitude</firstLine>
+        <validateFormat>true</validateFormat>
+        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+        <timeZone>PST</timeZone>
+        <protocol>FTP</protocol>
+        <method>GET</method>
+        <copyFiles>true</copyFiles>
+        <included/>
+        <excluded/>
+        <errorDir>/tmp/noaa/mooring/err</errorDir>
+        <successDir>/tmp/noaa/mooring/ok</successDir>
+        <enableWebDriver>false</enableWebDriver>
+        <driverTimeout>0</driverTimeout>
+        <driverFileEncoding>UTF-8</driverFileEncoding>
+        <lastModifyTime>0</lastModifyTime>
+        <traversalDepth>0</traversalDepth>
+      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.file.FileJobConfig>
+</list>

@@ -1,0 +1,12 @@
+{
+	"items": [{
+		"has_synonyms": false,
+		"is_moderator_only": false,
+		"is_required": false,
+		"count": 13158,
+		"name": "docker"
+	}],
+	"has_more": false,
+	"quota_max": 10000,
+	"quota_remaining": 9999
+}

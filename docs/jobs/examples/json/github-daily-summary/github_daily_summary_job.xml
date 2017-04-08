@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<list>
+  <com.axibase.collector.model.job.json.JsonJobConfig>
+    <name>github-daily</name>
+    <cronExpression>R 5 * * * ?</cronExpression>
+    <enabled>false</enabled>
+    <jobType>JSON</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.json.JsonConfiguration>
+        <name>daily-summary</name>
+        <path>https://status.github.com/api/daily-summary.json</path>
+        <format>JSON</format>
+        <payloadMethod>GET</payloadMethod>
+        <httpHeaders/>
+        <enableWebDriver>false</enableWebDriver>
+        <driverTimeout>0</driverTimeout>
+        <settings>
+          <com.axibase.collector.model.job.json.JsonConfigurationSetting>
+            <jsonPath>$[&apos;${DATE_ITEM(&quot;current_day - 2 * day&quot;, &quot;null&quot;, 1, &quot;DAY&quot;, &quot;yyyy-MM-dd&quot;)}&apos;]</jsonPath>
+            <depth>1</depth>
+            <defaultEntity>github-status</defaultEntity>
+            <customTags/>
+            <renamedFields/>
+            <timeEnabled>true</timeEnabled>
+            <timeDefault>${PARENT}</timeDefault>
+            <timeFormat>yyyy-MM-dd</timeFormat>
+            <timeZone>UTC</timeZone>
+            <seriesEnabled>true</seriesEnabled>
+            <metricPrefix>github-status.</metricPrefix>
+            <includedFields/>
+            <excludedFields/>
+            <propertyEnabled>false</propertyEnabled>
+            <propertyKeyFields/>
+            <propertyValueFields/>
+            <messageEnabled>false</messageEnabled>
+            <messageTagFields/>
+          </com.axibase.collector.model.job.json.JsonConfigurationSetting>
+        </settings>
+      </com.axibase.collector.model.job.json.JsonConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.json.JsonJobConfig>
+</list>

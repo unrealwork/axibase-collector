@@ -1,0 +1,11 @@
+<list>
+    <com.axibase.tsd.model.EntityGroup>
+        <name>apache-activemq-brokers</name>
+        <lastModified>1462643688310</lastModified>
+        <expression>properties(&apos;broker&apos;).size() &gt; 0</expression>
+        <entities class="sorted-set">
+            <comparator class="java.lang.String$CaseInsensitiveComparator"/>
+        </entities>
+        <tags class="linked-hash-map"/>
+    </com.axibase.tsd.model.EntityGroup>
+</list>

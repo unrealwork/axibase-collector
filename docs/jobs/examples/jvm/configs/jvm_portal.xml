@@ -1,0 +1,342 @@
+<list>
+  <com.axibase.tsd.model.portal.PortalConfig>
+    <name>JVM</name>
+    <enabled>true</enabled>
+    <showInMenu>false</showInMenu>
+    <displayIndex>0</displayIndex>
+    <content>[configuration]
+  offset-right = 0
+  height-units = 4
+  width-units = 3
+  entity = ${entity}
+  step-line = false
+  markers = false
+  timespan = 1 day
+  last-value-label = none
+  disconnect-interval = 15 minute
+
+[group]
+  statistic = avg
+
+[widget]
+  type = chart
+  title = ${entity}: CPU Load
+  max-range = 100
+  max-range-right = 1.0001
+  mode = stack
+  alert-expression = value &gt; 75
+  alert-style = stroke: red;
+
+  [series]
+    label = System
+    metric = jmx.jvm.systemcpuload  
+    replace-value = value*100
+    color = violet 
+
+  [series]
+    label = Process
+    metric = jmx.jvm.processcpuload
+    replace-value = value*100
+    series-type = p
+      
+[widget]
+  type = chart
+  title = System Load Average
+  max-range = 1.00001
+  mode = stack
+    
+  alert-expression = value &gt; 4
+  alert-style = stroke: red;    
+ 
+  [series]
+    label = Load Avg
+    metric = jmx.jvm.systemloadaverage
+    color = silver
+      
+[widget]
+  type = chart
+  title = Threads
+  min-range = 0 
+  min-range-right = 0
+
+  [series]
+    label = total
+    metric = jmx.jvm.threadcount
+    [tags]
+      &quot;type&quot; = Threading     
+   
+  [series]
+    label = daemon
+    metric = jmx.jvm.daemonthreadcount 
+    [tags]
+      &quot;type&quot; = Threading     
+    
+  [series]
+    label = file descriptors   
+    metric = jmx.jvm.OpenFileDescriptorCount    
+    axis = right
+    [tags]
+      &quot;type&quot; = OperatingSystem     
+
+[group]
+  width-units = 0.75
+
+  [widget]
+	title = Heap Usage
+	type = gauge
+	mode = half
+    timespan = 15 minute
+    last = true
+
+	thresholds = 0
+	thresholds = value(&apos;heapmax&apos;) * 0.5
+    thresholds = value(&apos;heapmax&apos;) * 0.75
+    thresholds = value(&apos;heapmax&apos;) * 0.9
+    thresholds = value(&apos;heapmax&apos;)
+    
+    color-range = green, yellow, orange, red
+    format-axis = bytes
+    format-counter = bytes
+    format-tip = byte
+    	
+	[series]
+		metric = jmx.jvm.heapmemoryusage.used
+      
+    [series]
+      alias = heapmax
+      display = false
+      metric = jmx.jvm.heapmemoryusage.max
+
+[widget]
+  type = chart
+  title = Physical Memory
+  format = bytes
+  min-range = 0
+  label-format = label: statistic
+   
+  [series]
+    metric = jmx.jvm.freephysicalmemorysize
+    display = false
+    alias = free
+            
+  [series]
+    label = Total
+    metric = jmx.jvm.totalphysicalmemorysize
+    alias = total
+      
+  [series]
+    label = Used
+    value = value(&apos;total&apos;) - value(&apos;free&apos;) 
+    color = green
+
+  [series]
+    label = Heap
+    metric = jmx.jvm.heapmemoryusage.used
+    color = magenta
+  [tags]
+    &quot;type&quot; = Memory
+      
+  [series]
+    label = Non-Heap
+    metric = jmx.jvm.nonheapmemoryusage.used
+    color = silver
+  [tags]
+    &quot;type&quot; = Memory      
+      
+      
+[widget]
+  type = chart
+  title = Swap Memory
+  format = bytes
+  min-range = 0
+   
+  [series]
+    metric = jmx.jvm.freeswapspacesize
+    display = false
+    alias = free
+            
+  [series]
+    label = Total
+    metric = jmx.jvm.totalswapspacesize
+    alias = total
+      
+  [series]
+    label = Used
+    value = value(&apos;total&apos;) - value(&apos;free&apos;) 
+    color = green
+      
+[widget]
+  type = box
+  title = Buffer Memory Daily
+  label-format = tags.name
+  format = bytes
+  timespan = 1 day
+
+  [series]
+    metric = jmx.jvm.memoryused  
+  [tags]
+    &quot;type&quot; = BufferPool
+    name = *
+    
+  [series]
+    metric = jmx.jvm.memoryused  
+  [tags]
+    &quot;type&quot; = BufferPool
+    name = * 
+
+[group]
+	width-units = 0.75
+
+[widget]
+  type = chart
+  title = Heap Memory, Avg
+  label-format = tags.name
+  legend-position = top
+  format = bytes
+  statistic = avg
+  period = 1 hour
+  mode = column-stack
+
+  [series]
+    metric = jmx.jvm.usage.used 
+  [tags]
+    &quot;type&quot; = HEAP
+    name = *  
+
+[widget]
+  type = chart
+  title = Garbage Collection Rate/minute
+  label-format = tags.name
+  legend-position = top
+  mode = range
+  rate = 1 minute
+  metric = jmx.jvm.collectioncount
+  enabled = tags.name.toLowerCase().indexOf(&apos;sweep&apos;) &gt;= 0
+  min-range = 0
+
+  [series]
+      statistic = max
+      period = 5 minute
+  [tags]
+    &quot;type&quot; = GarbageCollector
+    name = *   
+      
+[widget]
+  type = chart
+  title = Garbage Collection Time (max per period), %
+  label-format = tags.name
+  legend-position = top
+  rate = 1 minute
+  metric = jmx.jvm.collectiontime
+  enabled = tags.name.toLowerCase().indexOf(&apos;sweep&apos;) &gt;= 0
+  mode = range
+  period = 5 minute
+  min-range = 0
+  max-range = 100
+    
+  [tags]
+    &quot;type&quot; = GarbageCollector
+    name = *        
+
+  [series]
+      statistic = avg
+      
+[widget]
+  type = chart
+  title = Last GC duration, ms
+  label-format = tags.name
+  legend-position = top
+  metric = jmx.jvm.lastgcinfo.duration
+  enabled = tags.name.toLowerCase().indexOf(&apos;sweep&apos;) &gt;= 0
+  mode = column
+  format = numeric 
+  min-range = 0
+  [tags]
+    &quot;type&quot; = GarbageCollector
+    name = *     
+
+  [series]
+    statistic = avg 
+    replace-value = Math.max(0, value)
+      
+[group]
+      
+[widget]
+	type = property
+	title = Operating System, Runtime, and Memory Properties
+	expand-tags = true
+    transpose = true
+    responsive = false
+    column-entity = null
+    column-time = null
+    join = entity
+    width-units = 2
+    hide-column	= column.key.indexOf(&apos;size&apos;) &gt; 0 || column.key.indexOf(&apos;load&apos;) &gt; 0 || column.key.indexOf(&apos;inputarg&apos;) &gt;= 0 || column.key.indexOf(&apos;used&apos;) &gt;= 0 || column.key.indexOf(&apos;cputime&apos;) &gt; 0 || column.key.indexOf(&apos;systemproperties.&apos;) == 0 &amp;&amp; column.key.indexOf(&apos;.key&apos;) &gt; 0
+      
+    [column]
+      key = uptime
+      label = Uptime
+      format = intervalFormat(&apos;%dd %Hh:%Mm&apos;)
+      alert-expression = value &lt; 60000*60
+      alert-style = color: orange; font-weight: bold
+      
+    [column]
+      key = starttime
+      label = Start Time
+      format = iso   
+      
+    [column]
+      key = maxfiledescriptorcount
+      label = Max File Descriptors
+      alert-expression = value &lt;= 4096
+      alert-style = color: orange; font-weight: bold
+      
+    column-systemproperties.user.name.value = Username
+    column-systemproperties.user.timezone.value = Time Zone
+    column-heapmemoryusage.committed = null
+    column-nonheapmemoryusage.committed = null
+      
+    [column]
+      key = heapmemoryusage.max
+      label = Heap Memory Max
+      format = bytes
+      
+    [column]
+      key = heapmemoryusage.init
+      label = Heap Memory Init
+      format = bytes   
+      
+    [column]
+      key = nonheapmemoryusage.max
+      label = Non-Heap Memory Max
+      format = bytes
+      
+    [column]
+      key = nonheapmemoryusage.init
+      label = Non-Heap Memory Init
+      format = bytes      
+
+	[property]
+      type = jvm.OperatingSystem
+	[property]
+      type = jvm.Runtime  
+	[property]
+      type = jvm.Memory       
+      
+[widget]
+  type = text
+  title = Uptime
+  last = true
+  timespan = 15 minute
+
+  [series]
+      metric = jmx.jvm.uptime
+      label = Uptime
+      format = intervalFormat(&apos;%dd %Hh:%Mm&apos;)
+      alert-expression = value &lt; 60000*60*1 ? 1 : (this.last.t != null &amp;&amp; ((new Date()).getTime() - this.last.t &gt; 120000 ? 2 : false))
+      alert-style = (alert == 1) ? &apos;color: orange&apos; : &apos;color: red&apos;
+  [tags]
+    &quot;type&quot; = Runtime        </content>
+    <lastModified>2016-04-14 19:15:15.459 UTC</lastModified>
+  </com.axibase.tsd.model.portal.PortalConfig>
+</list>

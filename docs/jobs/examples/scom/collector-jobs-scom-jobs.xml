@@ -1,0 +1,233 @@
+<list>
+    <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+        <name>scom-metrics</name>
+        <cronExpression>0 5,35 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>JDBC</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags/>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <configs>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT LEFT(tme.NAME+&apos;.&apos;, CHARINDEX(&apos;.&apos;,tme.NAME+&apos;.&apos;)-1) AS
+                    EntityName,&#xd;
+                    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(mp.MpName, &apos;.2003&apos;,
+                    &apos;&apos;), &apos;.2007&apos;, &apos;&apos;), &apos;.2008&apos;, &apos;&apos;), &apos;.2012&apos;,
+                    &apos;&apos;), &apos;.Windows.Server&apos;, &apos;.Server&apos;), &apos;Server.AD&apos;, &apos;AD&apos;),
+                    &apos;Microsoft.&apos;, &apos;&apos;), &apos;.Monitoring&apos;, &apos;&apos;), &apos;.Internal&apos;,
+                    &apos;&apos;) + &apos;.&apos; +&#xd;
+                    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(pc.ObjectName, &apos; 2008&apos;, &apos;&apos;), &apos;$&apos;,
+                    &apos;.&apos;), &apos;/&apos;, &apos;_&apos;), &apos; : &apos;, &apos;_&apos;), &apos; &apos;,
+                    &apos;_&apos;) + &apos;.&apos; + &#xd;
+                    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(pc.CounterName, &apos;I/O&apos;, &apos;IO&apos;),
+                    &apos;)&apos;, &apos;&apos;), &apos;(&apos;, &apos;&apos;), &apos;, &apos;, &apos;_&apos;), &apos;.
+                    &apos;, &apos;_&apos;), &apos; &apos;, &apos;_&apos;), &apos;/&apos;, &apos;_&apos;) AS MetricName,
+                    &#xd;
+                    ps.PerfmonInstanceName AS Instance, pdv.SampleValue, pdv.TimeSampled, pdv.TimeAdded&#xd;
+                    FROM dbo.PerformanceDataAllView pdv WITH (NOLOCK, NOWAIT)&#xd;
+                    INNER JOIN dbo.PerformanceSource ps WITH (NOLOCK, NOWAIT) ON pdv.performancesourceinternalid =
+                    ps.performancesourceinternalid&#xd;
+                    INNER JOIN dbo.PerformanceCounter pc WITH (NOLOCK, NOWAIT) ON pc.performancecounterid =
+                    ps.performancecounterid&#xd;
+                    INNER JOIN Rules r WITH (NOLOCK, NOWAIT) ON ps.RuleId = r.RuleId &#xd;
+                    INNER JOIN ManagementPack mp WITH (NOLOCK, NOWAIT) ON mp.ManagementPackId = r.ManagementPackId &#xd;
+                    INNER JOIN dbo.BaseManagedEntity bme WITH (NOLOCK, NOWAIT) ON ps.BaseManagedEntityId =
+                    bme.BaseManagedEntityId&#xd;
+                    INNER JOIN dbo.BaseManagedEntity tme WITH (NOLOCK, NOWAIT) ON tme.BaseManagedEntityId =
+                    bme.TopLevelHostEntityId&#xd;
+                    WHERE pdv.TimeAdded &gt; ? ORDER BY pdv.TimeSampled
+                </query>
+                <tagColumns>
+                    <string>Instance</string>
+                </tagColumns>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>EntityName</entityColumn>
+                <metricNameColumn>MetricName</metricNameColumn>
+                <metricValueColumn>SampleValue</metricValueColumn>
+                <timeColumn>TimeSampled</timeColumn>
+                <lastTimeColumn>TimeAdded</lastTimeColumn>
+                <timeType>TIMESTAMP</timeType>
+                <metricPrefix>scom.</metricPrefix>
+                <queryWithTime>true</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+    <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+        <name>scom-properties</name>
+        <cronExpression>0 0/15 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>JDBC</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags/>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <configs>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT LEFT(tme.NAME+&apos;.&apos;, CHARINDEX(&apos;.&apos;,tme.NAME+&apos;.&apos;)-1) AS Name,
+                    &#xd;
+                    tme.Name AS FullName,&#xd;
+                    DisplayName_55270A70_AC47_C853_C617_236B0CFF9B4C AS DisplayName, &#xd;
+                    Collation_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS Collation, &#xd;
+                    DatabaseAutogrow_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS DatabaseAutogrow, &#xd;
+                    DatabaseName_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS DatabaseName, &#xd;
+                    DatabaseSize_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS DatabaseSize, &#xd;
+                    DatabaseSizeNumeric_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS DatabaseSizeNumeric, &#xd;
+                    LogAutogrow_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS LogAutogrow, &#xd;
+                    LogSize_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS LogSize, &#xd;
+                    LogSizeNumeric_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS LogSizeNumeric, &#xd;
+                    Owner_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS Owner, &#xd;
+                    RecoveryModel_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS RecoveryModel, &#xd;
+                    Updateability_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS Updateability, &#xd;
+                    UserAccess_10C1C7F7_BA0F_5F9B_C74A_79A891170934 AS UserAccess, &#xd;
+                    InstanceName_97408C11_D1C8_5BCE_EF78_74F0473964F3 AS InstanceName &#xd;
+                    FROM MTV_Database mvi WITH (NOLOCK, NOWAIT) &#xd;
+                    INNER JOIN BaseManagedEntity bme WITH (NOLOCK, NOWAIT) ON bme.BaseManagedEntityId =
+                    mvi.BaseManagedEntityId&#xd;
+                    INNER JOIN BaseManagedEntity tme WITH (NOLOCK, NOWAIT) ON tme.BaseManagedEntityId =
+                    bme.TopLevelHostEntityId
+                </query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>Name</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>scom.database</propertyDefaultType>
+                <propertyKeyColumns>
+                    <string>DatabaseName</string>
+                </propertyKeyColumns>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT LEFT(tme.NAME+&apos;.&apos;, CHARINDEX(&apos;.&apos;,tme.NAME+&apos;.&apos;)-1) AS Name,
+                    &#xd;
+                    tme.Name AS FullName,&#xd;
+                    ActiveDirectoryObjectSid, &#xd;
+                    ActiveDirectorySite, &#xd;
+                    DNSName, &#xd;
+                    DomainDnsName, &#xd;
+                    ForestDnsName, &#xd;
+                    IPAddress, &#xd;
+                    IsVirtualMachine, &#xd;
+                    LogicalProcessors, &#xd;
+                    NetbiosComputerName, &#xd;
+                    NetbiosDomainName, &#xd;
+                    NetworkName, &#xd;
+                    OrganizationalUnit, &#xd;
+                    PrincipalName&#xd;
+                    FROM MTV_Computer mvi WITH (NOLOCK, NOWAIT) &#xd;
+                    INNER JOIN BaseManagedEntity bme WITH (NOLOCK, NOWAIT) ON bme.BaseManagedEntityId =
+                    mvi.BaseManagedEntityId&#xd;
+                    INNER JOIN BaseManagedEntity tme WITH (NOLOCK, NOWAIT) ON tme.BaseManagedEntityId =
+                    bme.TopLevelHostEntityId
+                </query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>Name</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>scom.computer</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+            <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+                <query>SELECT LEFT(tme.NAME+&apos;.&apos;, CHARINDEX(&apos;.&apos;,tme.NAME+&apos;.&apos;)-1) AS Name,
+                    &#xd;
+                    tme.Name AS FullName,&#xd;
+                    DisplayName_55270A70_AC47_C853_C617_236B0CFF9B4C AS DisplayName,&#xd;
+                    OSVersion_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS OSVersion,&#xd;
+                    SerialNumber_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS SerialNumber,&#xd;
+                    PhysicalMemory_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS PhysicalMemory,&#xd;
+                    OSVersionDisplayName_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS OSVersionDisplayName,&#xd;
+                    LogicalProcessors_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS LogicalProcessors,&#xd;
+                    SystemDrive_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS SystemDrive,&#xd;
+                    InstallDate_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS InstallDate,&#xd;
+                    WindowsDirectory_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS WindowsDirectory,&#xd;
+                    ServicePackVersion_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS ServicePackVersion,&#xd;
+                    CSDVersion_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS CSDVersion,&#xd;
+                    ProductType_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS ProductType,&#xd;
+                    BuildNumber_66DD9B43_3DC1_3831_95D4_1B03B0A6EA13 AS BuildNumber,&#xd;
+                    InstallType_CE8B3D0D_530C_D1DD_B9B7_1FE321B33A6D AS InstallType,&#xd;
+                    PowerPlan_CE8B3D0D_530C_D1DD_B9B7_1FE321B33A6D AS PowerPlan,&#xd;
+                    InstallType_D96F58D4_4D6E_E538_4736_5639707EF674 AS InstallType,&#xd;
+                    PowerPlan_2C2DE865_0CD3_A6B8_51A5_3DABF7B48D4E AS PowerPlan&#xd;
+                    FROM MTV_OperatingSystem mvi WITH (NOLOCK, NOWAIT) &#xd;
+                    INNER JOIN BaseManagedEntity bme WITH (NOLOCK, NOWAIT) ON bme.BaseManagedEntityId =
+                    mvi.BaseManagedEntityId&#xd;
+                    INNER JOIN BaseManagedEntity tme WITH (NOLOCK, NOWAIT) ON tme.BaseManagedEntityId =
+                    bme.TopLevelHostEntityId
+                </query>
+                <tagColumns/>
+                <defaultTags/>
+                <metricColumns/>
+                <ignoredMetricColumns/>
+                <entityColumn>Name</entityColumn>
+                <timeType>TIMESTAMP</timeType>
+                <queryWithTime>false</queryWithTime>
+                <checkLastTime>false</checkLastTime>
+                <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+                <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+                <maxRows>-1</maxRows>
+                <useEntityLookup>false</useEntityLookup>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>scom.operating_system</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <ignoredPropertyValueColumns/>
+                <outputFileSettings>
+                    <appendFile>false</appendFile>
+                    <outputFileMaxSize>0</outputFileMaxSize>
+                </outputFileSettings>
+            </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+</list>

@@ -1,0 +1,107 @@
+2016-08-01 17:22:23.172671 | Starting collection...
+2016-08-01 17:22:23.172742 | Processing http://demo.nginx.com
+2016-08-01 17:22:23.596935 | All data loaded.
+2016-08-01 17:22:23.598055 | Traversing obtained json ... 
+
+2016-08-01 17:22:23.598182 | ---------Processing SERVER ZONES
+2016-08-01 17:22:23.598197 | ------Processing SERVER ZONE trac.nginx.org
+2016-08-01 17:22:23.598239 | ------Processing SERVER ZONE hg.nginx.org
+2016-08-01 17:22:23.598279 | ------Processing SERVER ZONE lxr.nginx.org
+2016-08-01 17:22:23.598317 | ---------Processing SERVER ZONES finished
+2016-08-01 17:22:23.598330 | ---------Processing UPSTREAMS
+2016-08-01 17:22:23.598340 | ------Processing UPSTREAM demo-backend
+2016-08-01 17:22:23.598355 | ---Processing UPSTREAM.PEER 10.0.0.2:15431
+2016-08-01 17:22:23.598447 | ------Processing UPSTREAM hg-backend
+2016-08-01 17:22:23.598466 | ---Processing UPSTREAM.PEER 10.0.0.1:8088
+2016-08-01 17:22:23.598549 | ---Processing UPSTREAM.PEER 10.0.0.1:8089
+2016-08-01 17:22:23.598704 | ------Processing UPSTREAM trac-backend
+2016-08-01 17:22:23.598760 | ---Processing UPSTREAM.PEER 10.0.0.1:8080
+2016-08-01 17:22:23.598966 | ---Processing UPSTREAM.PEER 10.0.0.1:8081
+2016-08-01 17:22:23.599181 | ------Processing UPSTREAM lxr-backend
+2016-08-01 17:22:23.599225 | ---Processing UPSTREAM.PEER unix:/tmp/cgi.sock
+2016-08-01 17:22:23.599424 | ---Processing UPSTREAM.PEER unix:/tmp/cgib.sock
+2016-08-01 17:22:23.599641 | ---------Processing UPSTREAMS finished
+2016-08-01 17:22:23.599676 | ---------Processing CACHES
+2016-08-01 17:22:23.599713 | ---Processing CACHE http_cache
+2016-08-01 17:22:23.600028 | ---------Processing CACHES finished
+2016-08-01 17:22:23.600067 | ---------Processing STREAM.SERVER_ZONES
+2016-08-01 17:22:23.600094 | ------Processing SERVER_ZONE postgresql_loadbalancer
+2016-08-01 17:22:23.600152 | ------Processing SERVER_ZONE dns_loadbalancer
+2016-08-01 17:22:23.600213 | ---------Processing STREAM.UPSTREAMS
+2016-08-01 17:22:23.600243 | ------Processing STREAM.UPSTREAM unused_tcp_backends
+2016-08-01 17:22:23.600278 | ---Processing STREAM.UPSTREAM.PEER 95.211.80.227:80
+2016-08-01 17:22:23.600445 | ---Processing STREAM.UPSTREAM.PEER 206.251.255.63:80
+2016-08-01 17:22:23.600606 | ---Processing STREAM.UPSTREAM.PEER [2001:1af8:4060:a004:21::e3]:80
+2016-08-01 17:22:23.600770 | ------Processing STREAM.UPSTREAM postgresql_backends
+2016-08-01 17:22:23.600812 | ---Processing STREAM.UPSTREAM.PEER 10.0.0.2:15432
+2016-08-01 17:22:23.601003 | ---Processing STREAM.UPSTREAM.PEER 10.0.0.2:15433
+2016-08-01 17:22:23.601183 | ---Processing STREAM.UPSTREAM.PEER 10.0.0.2:15434
+2016-08-01 17:22:23.601403 | ---Processing STREAM.UPSTREAM.PEER 10.0.0.2:15435
+2016-08-01 17:22:23.601567 | ------Processing STREAM.UPSTREAM dns_udp_backends
+2016-08-01 17:22:23.601616 | ---Processing STREAM.UPSTREAM.PEER 10.0.0.5:53
+2016-08-01 17:22:23.601775 | ---Processing STREAM.UPSTREAM.PEER 10.0.0.2:53
+2016-08-01 17:22:23.601936 | ---Processing STREAM.UPSTREAM.PEER 10.0.0.7:53
+2016-08-01 17:22:23.602154 | ---------Processing STREAM.SERVER_ZONES finished
+2016-08-01 17:22:23.602250 | Commands built.(53)
+2016-08-01 17:22:23.602277 | Preparing data...
+2016-08-01 17:22:23.603952 | Data prepared: 
+
+property t:caches e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:type=caches k:name=http_cache v:cold=false v:max_size=536870912 v:size=535519232
+property t:nginx_info e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:address=206.251.255.64 v:generation=17 v:pid=12121 v:load_timestamp=1469872800422 v:version=6 v:nginx_version=1.9.13
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.2:15432 k:type=stream.upstreams.peers k:upstream=postgresql_backends v:last_passed=true v:state=up v:backup=false v:id=0 v:weight=1
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.2:15433 k:type=stream.upstreams.peers k:upstream=postgresql_backends v:last_passed=true v:state=up v:backup=false v:id=1 v:weight=1
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.2:15434 k:type=stream.upstreams.peers k:upstream=postgresql_backends v:last_passed=true v:state=up v:backup=false v:id=2 v:weight=1
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.2:15435 k:type=stream.upstreams.peers k:upstream=postgresql_backends v:state=down v:backup=false v:id=3 v:weight=1
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.2:53 k:type=stream.upstreams.peers k:upstream=dns_udp_backends v:last_passed=true v:state=up v:backup=false v:id=1 v:weight=1
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.5:53 k:type=stream.upstreams.peers k:upstream=dns_udp_backends v:last_passed=true v:state=up v:backup=false v:id=0 v:weight=2
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.7:53 k:type=stream.upstreams.peers k:upstream=dns_udp_backends v:state=down v:backup=false v:id=2 v:weight=1
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=206.251.255.63:80 k:type=stream.upstreams.peers k:upstream=unused_tcp_backends v:state=down v:backup=false v:id=2 v:weight=1
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=95.211.80.227:80 k:type=stream.upstreams.peers k:upstream=unused_tcp_backends v:state=down v:backup=false v:id=1 v:weight=1
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=[2001:1af8:4060:a004:21::e3]:80 k:type=stream.upstreams.peers k:upstream=unused_tcp_backends v:state=down v:backup=false v:id=3 v:weight=1
+property t:upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.1:8080 k:type=upstreams.peers k:upstream=trac-backend v:last_passed=true v:state=up v:backup=false v:id=0 v:weight=1
+property t:upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.1:8081 k:type=upstreams.peers k:upstream=trac-backend v:last_passed=false v:state=unhealthy v:backup=true v:id=1 v:weight=1
+property t:upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.1:8088 k:type=upstreams.peers k:upstream=hg-backend v:last_passed=true v:state=up v:backup=false v:id=0 v:weight=5
+property t:upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.1:8089 k:type=upstreams.peers k:upstream=hg-backend v:last_passed=false v:state=unhealthy v:backup=true v:id=1 v:weight=1
+property t:upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=10.0.0.2:15431 k:type=upstreams.peers k:upstream=demo-backend v:last_passed=true v:state=up v:backup=false v:id=0 v:weight=1
+property t:upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=unix:/tmp/cgi.sock k:type=upstreams.peers k:upstream=lxr-backend v:state=up v:backup=false v:id=0 v:weight=1
+property t:upstreams.peers e:demo.nginx.com d:2016-08-01T14:22:31.630Z k:server=unix:/tmp/cgib.sock k:type=upstreams.peers k:upstream=lxr-backend v:state=up v:backup=true v:id=1 v:weight=1
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z m:nginx-plus.processes.respawned=0 m:nginx-plus.ssl.handshakes=31592 m:nginx-plus.requests.total=83043680 m:nginx-plus.connections.dropped=0 m:nginx-plus.ssl.session_reuses=5596 m:nginx-plus.ssl.handshakes_failed=4829 m:nginx-plus.connections.idle=39 m:nginx-plus.requests.current=9 m:nginx-plus.connections.accepted=39334880 m:nginx-plus.connections.active=9
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=caches t:name=http_cache t:cache_status=bypass m:nginx-plus.bytes_written=19178438311 m:nginx-plus.bytes=19178560046 m:nginx-plus.responses=482074 m:nginx-plus.responses_written=481242
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=caches t:name=http_cache t:cache_status=expired m:nginx-plus.bytes_written=11216046569 m:nginx-plus.bytes=11432543199 m:nginx-plus.responses=305257 m:nginx-plus.responses_written=279400
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=caches t:name=http_cache t:cache_status=hit m:nginx-plus.bytes=31675370773 m:nginx-plus.responses=2067203
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=caches t:name=http_cache t:cache_status=miss m:nginx-plus.bytes_written=57017078751 m:nginx-plus.bytes=150247972532 m:nginx-plus.responses=3834876 m:nginx-plus.responses_written=1354703
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=caches t:name=http_cache t:cache_status=revalidated m:nginx-plus.bytes=0 m:nginx-plus.responses=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=caches t:name=http_cache t:cache_status=stale m:nginx-plus.bytes=0 m:nginx-plus.responses=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=caches t:name=http_cache t:cache_status=updating m:nginx-plus.bytes=0 m:nginx-plus.responses=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=server_zones t:name=hg.nginx.org m:nginx-plus.received=12331234 m:nginx-plus.responses.4xx=635 m:nginx-plus.responses.3xx=2121 m:nginx-plus.responses.1xx=0 m:nginx-plus.processing=0 m:nginx-plus.discarded=3079 m:nginx-plus.responses.2xx=36022 m:nginx-plus.sent=1561908714 m:nginx-plus.requests=44172 m:nginx-plus.responses.5xx=2315 m:nginx-plus.responses.total=41093
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=server_zones t:name=lxr.nginx.org m:nginx-plus.received=1846724 m:nginx-plus.responses.4xx=377 m:nginx-plus.responses.3xx=126 m:nginx-plus.responses.1xx=0 m:nginx-plus.processing=0 m:nginx-plus.discarded=97 m:nginx-plus.responses.2xx=4275 m:nginx-plus.sent=178098347 m:nginx-plus.requests=5158 m:nginx-plus.responses.5xx=283 m:nginx-plus.responses.total=5061
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=server_zones t:name=trac.nginx.org m:nginx-plus.received=26365369 m:nginx-plus.responses.4xx=3435 m:nginx-plus.responses.3xx=16814 m:nginx-plus.responses.1xx=0 m:nginx-plus.processing=0 m:nginx-plus.discarded=3696 m:nginx-plus.responses.2xx=56620 m:nginx-plus.sent=2147302920 m:nginx-plus.requests=81588 m:nginx-plus.responses.5xx=1023 m:nginx-plus.responses.total=77892
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=stream.server_zones t:name=dns_loadbalancer m:nginx-plus.connections=107872 m:nginx-plus.received=2912544 m:nginx-plus.processing=0 m:nginx-plus.sent=13489148
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=stream.server_zones t:name=postgresql_loadbalancer m:nginx-plus.connections=187804 m:nginx-plus.received=19907224 m:nginx-plus.processing=0 m:nginx-plus.sent=1388658926
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=upstreams t:name=demo-backend m:nginx-plus.keepalive=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=upstreams t:name=hg-backend m:nginx-plus.keepalive=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=upstreams t:name=lxr-backend m:nginx-plus.keepalive=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:type=upstreams t:name=trac-backend m:nginx-plus.keepalive=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=demo-backend t:type=upstreams.peers t:server=10.0.0.2:15431 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=187804 m:nginx-plus.responses.4xx=0 m:nginx-plus.responses.3xx=0 m:nginx-plus.responses.1xx=0 m:nginx-plus.selected=0 m:nginx-plus.sent=0 m:nginx-plus.responses.2xx=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.requests=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.responses.5xx=0 m:nginx-plus.responses.total=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=dns_udp_backends t:type=stream.upstreams.peers t:server=10.0.0.2:53 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=4496354 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=37667 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.selected=1470061347000 m:nginx-plus.connections=35957 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=970839
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=dns_udp_backends t:type=stream.upstreams.peers t:server=10.0.0.5:53 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=8992794 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=37667 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.selected=1470061347000 m:nginx-plus.connections=71915 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=1941705
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=dns_udp_backends t:type=stream.upstreams.peers t:server=10.0.0.7:53 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.selected=0 m:nginx-plus.connections=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=hg-backend t:type=upstreams.peers t:server=10.0.0.1:8088 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=1547134265 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=18783 m:nginx-plus.responses.4xx=634 m:nginx-plus.responses.3xx=0 m:nginx-plus.responses.1xx=0 m:nginx-plus.selected=1470061332000 m:nginx-plus.sent=9794666 m:nginx-plus.responses.2xx=34443 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.requests=35079 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.responses.5xx=2 m:nginx-plus.responses.total=35079
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=hg-backend t:type=upstreams.peers t:server=10.0.0.1:8089 m:nginx-plus.health_checks.fails=18849 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=18849 m:nginx-plus.responses.4xx=0 m:nginx-plus.responses.3xx=0 m:nginx-plus.responses.1xx=0 m:nginx-plus.selected=0 m:nginx-plus.sent=0 m:nginx-plus.responses.2xx=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=188550367 m:nginx-plus.active=0 m:nginx-plus.downstart=1469872801263 m:nginx-plus.requests=0 m:nginx-plus.health_checks.unhealthy=1 m:nginx-plus.responses.5xx=0 m:nginx-plus.responses.total=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=lxr-backend t:type=upstreams.peers t:server=unix:/tmp/cgi.sock m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=178857520 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.responses.4xx=0 m:nginx-plus.responses.3xx=0 m:nginx-plus.responses.1xx=0 m:nginx-plus.selected=1470061310000 m:nginx-plus.sent=3144064 m:nginx-plus.responses.2xx=3583 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.requests=3584 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.responses.5xx=0 m:nginx-plus.responses.total=3583
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=lxr-backend t:type=upstreams.peers t:server=unix:/tmp/cgib.sock m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.responses.4xx=0 m:nginx-plus.responses.3xx=0 m:nginx-plus.responses.1xx=0 m:nginx-plus.selected=0 m:nginx-plus.max_conns=42 m:nginx-plus.sent=0 m:nginx-plus.responses.2xx=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.requests=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.responses.5xx=0 m:nginx-plus.responses.total=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=postgresql_backends t:type=stream.upstreams.peers t:server=10.0.0.2:15432 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=462890518 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=37685 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.connect_time=1 m:nginx-plus.selected=1470061351000 m:nginx-plus.max_conns=42 m:nginx-plus.connections=62602 m:nginx-plus.response_time=9 m:nginx-plus.first_byte_time=9 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=6635812 m:nginx-plus.unavail=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=postgresql_backends t:type=stream.upstreams.peers t:server=10.0.0.2:15433 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=462884111 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=37685 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.connect_time=1 m:nginx-plus.selected=1470061349000 m:nginx-plus.connections=62601 m:nginx-plus.response_time=1 m:nginx-plus.first_byte_time=1 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=6635706 m:nginx-plus.unavail=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=postgresql_backends t:type=stream.upstreams.peers t:server=10.0.0.2:15434 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=462884297 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=37684 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.connect_time=1 m:nginx-plus.selected=1470061350000 m:nginx-plus.connections=62601 m:nginx-plus.response_time=20 m:nginx-plus.first_byte_time=20 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=6635706 m:nginx-plus.unavail=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=postgresql_backends t:type=stream.upstreams.peers t:server=10.0.0.2:15435 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.selected=0 m:nginx-plus.connections=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=trac-backend t:type=upstreams.peers t:server=10.0.0.1:8080 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=1932947186 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=18823 m:nginx-plus.responses.4xx=1025 m:nginx-plus.responses.3xx=275 m:nginx-plus.responses.1xx=0 m:nginx-plus.selected=1470061350000 m:nginx-plus.sent=15168370 m:nginx-plus.responses.2xx=33137 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.requests=34448 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.responses.5xx=11 m:nginx-plus.responses.total=34448
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=trac-backend t:type=upstreams.peers t:server=10.0.0.1:8081 m:nginx-plus.health_checks.fails=18849 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=18849 m:nginx-plus.responses.4xx=0 m:nginx-plus.responses.3xx=0 m:nginx-plus.responses.1xx=0 m:nginx-plus.selected=0 m:nginx-plus.sent=0 m:nginx-plus.responses.2xx=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=188550359 m:nginx-plus.active=0 m:nginx-plus.downstart=1469872801271 m:nginx-plus.requests=0 m:nginx-plus.health_checks.unhealthy=1 m:nginx-plus.responses.5xx=0 m:nginx-plus.responses.total=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=unused_tcp_backends t:type=stream.upstreams.peers t:server=206.251.255.63:80 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.selected=0 m:nginx-plus.connections=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=unused_tcp_backends t:type=stream.upstreams.peers t:server=95.211.80.227:80 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.selected=0 m:nginx-plus.connections=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=0
+series e:demo.nginx.com d:2016-08-01T14:22:31.630Z t:upstream=unused_tcp_backends t:type=stream.upstreams.peers t:server=[2001:1af8:4060:a004:21::e3]:80 m:nginx-plus.health_checks.fails=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.selected=0 m:nginx-plus.connections=0 m:nginx-plus.unavail=0 m:nginx-plus.downtime=0 m:nginx-plus.active=0 m:nginx-plus.downstart=0 m:nginx-plus.sent=0
+
+2016-08-01 17:22:23.604166 | Connecting to ATSD...
+2016-08-01 17:22:23.689842 | Sending...
+2016-08-01 17:22:23.690213 | Sent.
+2016-08-01 17:22:23.690331 | All done.
+

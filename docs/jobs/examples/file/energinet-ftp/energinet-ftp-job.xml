@@ -1,0 +1,39 @@
+<list>
+  <com.axibase.collector.model.job.file.FileJobConfig>
+    <name>dk-metrics</name>
+    <cronExpression>45 0/1 * * * ?</cronExpression>
+    <enabled>true</enabled>
+    <jobType>FILE</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <name>energinet-dk-ftp</name>
+        <path>ftp000000:my-pwd@10.102.0.51:21/onlinedata/${TIME(&quot;now&quot;, &quot;yyyyMMdd&quot;)}_onlinedata.txt</path>
+        <encoding>ISO-8859-1</encoding>
+        <detectEncoding>false</detectEncoding>
+        <parserType>CSV</parserType>
+        <wait>true</wait>
+        <rules>true</rules>
+        <useTime>false</useTime>
+        <ignoreDuplicates>true</ignoreDuplicates>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <validateFormat>true</validateFormat>
+        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+        <timeZone>Europe/Stockholm</timeZone>
+        <protocol>FTP</protocol>
+        <method>GET</method>
+        <copyFiles>false</copyFiles>
+        <included/>
+        <excluded/>
+        <enableWebDriver>false</enableWebDriver>
+        <driverTimeout>0</driverTimeout>
+        <driverFileEncoding>UTF-8</driverFileEncoding>
+        <lastModifyTime>0</lastModifyTime>
+        <traversalDepth>0</traversalDepth>
+      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.file.FileJobConfig>
+</list>

@@ -1,0 +1,464 @@
+<list>
+    <com.axibase.collector.model.job.ovpm.OvpmJobConfig>
+        <name>ovpm-fs</name>
+        <cronExpression>0 3 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>OVPM</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags/>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <encoding>UTF8</encoding>
+        <timeoutMillis>0</timeoutMillis>
+        <ignoreHeader>false</ignoreHeader>
+        <configs>
+            <com.axibase.collector.model.job.ovpm.OvpmConfiguration>
+                <configurationName>FILESYSTEM</configurationName>
+                <responseColumnOrder>ENTITY_ROW_ENTITY</responseColumnOrder>
+                <startTime>1</startTime>
+                <checkLastTime>false</checkLastTime>
+                <timeFormat>yyyy,MM,dd,HH,mm,ss</timeFormat>
+                <timeLocale>en_US</timeLocale>
+                <numberLocale>en_US</numberLocale>
+                <entityColumnIndex>-1</entityColumnIndex>
+                <timeColumnIndex>-1</timeColumnIndex>
+                <timeOffsetColumnIndex>-1</timeOffsetColumnIndex>
+                <metricColumnIndex>-1</metricColumnIndex>
+                <timeRound>HOUR</timeRound>
+                <httpMethod>POST</httpMethod>
+                <url>/OVPM/?UTF8&amp;STARTTIME={starttime}&amp;SYSTEMNAME=[entity]&amp;CLASS=FILESYSTEM&amp;GRAPHTYPE=TSV&amp;POINTSEVERY=raw&amp;NUMBEROFPOINTS=1000000</url>
+                <timeColumnName>TIME</timeColumnName>
+                <responseTimeFormat>MM/dd/yy hh:mm:ss a</responseTimeFormat>
+                <executionVariants>SERIAL</executionVariants>
+                <timeZone>Europe/Minsk</timeZone>
+                <tags>
+                    <string>FS_DIRNAME</string>
+                </tags>
+                <putType>METRIC</putType>
+                <propertyDefaultType>hp_filesystem</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <maxRows>0</maxRows>
+                <commitInterval>300</commitInterval>
+                <errorThreshold>5</errorThreshold>
+                <byErrorDelayTime>300</byErrorDelayTime>
+                <maxEntityCount>1</maxEntityCount>
+                <metrics>
+                    <string>FS_DIRNAME = FS Directory</string>
+                    <string>FS_MAX_SIZE = Max Size</string>
+                    <string>FS_SPACE_USED = Space Used</string>
+                    <string>FS_SPACE_UTIL = Space%</string>
+                </metrics>
+            </com.axibase.collector.model.job.ovpm.OvpmConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.ovpm.OvpmJobConfig>
+    <com.axibase.collector.model.job.ovpm.OvpmJobConfig>
+        <name>ovpm-global</name>
+        <cronExpression>0 0/15 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>OVPM</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags/>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <encoding>UTF-8</encoding>
+        <ignoreHeader>false</ignoreHeader>
+        <configs>
+            <com.axibase.collector.model.job.ovpm.OvpmConfiguration>
+                <configurationName>GLOBAL</configurationName>
+                <responseColumnOrder>ENTITY_ROW_ENTITY</responseColumnOrder>
+                <startTime>12</startTime>
+                <checkLastTime>true</checkLastTime>
+                <timeFormat>yyyy,MM,dd,HH,mm,ss</timeFormat>
+                <timeLocale>en_US</timeLocale>
+                <numberLocale>en_US</numberLocale>
+                <entityColumnIndex>-1</entityColumnIndex>
+                <timeColumnIndex>-1</timeColumnIndex>
+                <timeOffsetColumnIndex>-1</timeOffsetColumnIndex>
+                <metricColumnIndex>-1</metricColumnIndex>
+                <timeRound>HOUR</timeRound>
+                <httpMethod>POST</httpMethod>
+                <url>/OVPM/?UTF8&amp;STARTTIME={starttime}&amp;SYSTEMNAME=[entity]&amp;CLASS=GLOBAL&amp;GRAPHTYPE=TSV&amp;POINTSEVERY=raw&amp;NUMBEROFPOINTS=100000</url>
+                <timeColumnName>TIME</timeColumnName>
+                <responseTimeFormat>MM/dd/yy hh:mm:ss a</responseTimeFormat>
+                <executionVariants>SERIAL</executionVariants>
+                <timeZone>Europe/Minsk</timeZone>
+                <tags/>
+                <putType>METRIC</putType>
+                <propertyKeyColumns/>
+                <propertyValueColumns/>
+                <maxRows>0</maxRows>
+                <commitInterval>300</commitInterval>
+                <errorThreshold>5</errorThreshold>
+                <byErrorDelayTime>300</byErrorDelayTime>
+                <maxEntityCount>1</maxEntityCount>
+                <metrics>
+                    <string>GBL_DISK_PHYS_READ_BYTE_RATE = Phys Rd KB Rt</string>
+                    <string>GBL_DISK_PHYS_READ_PCT = Phys Read %</string>
+                    <string>GBL_DISK_PHYS_READ_RATE = Phys Rd Rt</string>
+                    <string>GBL_DISK_PHYS_WRITE = Phys Writes</string>
+                    <string>GBL_DISK_PHYS_WRITE_BYTE_RATE = Phys Wr KB Rt</string>
+                    <string>GBL_DISK_PHYS_WRITE_RATE = Phys Wr Rt</string>
+                    <string>GBL_DISK_RAW_IO = Raw IOs</string>
+                    <string>GBL_DISK_RAW_IO_RATE = Raw IO Rt</string>
+                    <string>GBL_DISK_RAW_READ = Raw Reads</string>
+                    <string>GBL_DISK_RAW_READ_RATE = Raw Rd Rt</string>
+                    <string>GBL_DISK_RAW_WRITE = Raw Writes</string>
+                    <string>GBL_DISK_RAW_WRITE_RATE = Raw Wr Rt</string>
+                    <string>GBL_DISK_REQUEST_QUEUE = Disk Req Q</string>
+                    <string>GBL_DISK_SUBSYSTEM_QUEUE = DskSubsys Queue</string>
+                    <string>GBL_DISK_SYSTEM_IO = System IOs</string>
+                    <string>GBL_DISK_SYSTEM_IO_RATE = System IO Rt</string>
+                    <string>GBL_DISK_SYSTEM_READ = System Reads</string>
+                    <string>GBL_DISK_SYSTEM_READ_RATE = System Rd Rt</string>
+                    <string>GBL_DISK_SYSTEM_WRITE = System Writes</string>
+                    <string>GBL_DISK_SYSTEM_WRITE_RATE = System Wr Rt</string>
+                    <string>GBL_DISK_TIME_PEAK = Peak Disk Time</string>
+                    <string>GBL_DISK_UTIL = Disk %</string>
+                    <string>GBL_DISK_UTIL_PEAK = Peak Disk %</string>
+                    <string>GBL_FS_SPACE_UTIL_PEAK = Pk FS sp %</string>
+                    <string>GBL_LOADAVG = Load Avg</string>
+                    <string>GBL_LOADAVG15 = Load Avg15</string>
+                    <string>GBL_LOADAVG5 = Load Avg5</string>
+                    <string>GBL_MACHINE_MEM_USED = Phys Mem Used</string>
+                    <string>GBL_MEM_ACTIVE_VIRT = Active VM</string>
+                    <string>GBL_MEM_ACTIVE_VIRT_UTIL = Active VM %</string>
+                    <string>GBL_MEM_CACHE = Cache Mem</string>
+                    <string>GBL_MEM_CACHE_FLUSH_RATE = Cache Flush Rate</string>
+                    <string>GBL_MEM_CACHE_HIT_PCT = Cache Mem Hit %</string>
+                    <string>GBL_MEM_CACHE_UTIL = Cache%</string>
+                    <string>GBL_MEM_CACHE_WRITE_HIT = Cache Wr Hit</string>
+                    <string>GBL_MEM_CACHE_WRITE_HIT_PCT = Cache WrHit%</string>
+                    <string>GBL_MEM_DATAMAP_HIT_PCT = DataMap Hit%</string>
+                    <string>GBL_MEM_DNLC_HIT_PCT = DNLC Hit %</string>
+                    <string>GBL_MEM_FILE_PAGEIN_RATE = File Page In Rate</string>
+                    <string>GBL_MEM_FILE_PAGEOUT_RATE = File Page Out Rate</string>
+                    <string>GBL_MEM_FILE_PAGE_CACHE = FileCache Memory</string>
+                    <string>GBL_MEM_FILE_PAGE_CACHE_UTIL = File Cache%</string>
+                    <string>GBL_MEM_FREE = Free Mem</string>
+                    <string>GBL_MEM_FREE_UTIL = Free Mem %</string>
+                    <string>GBL_MEM_LOCKED = Locked Memory</string>
+                    <string>GBL_MEM_LOCKED_UTIL = Lock Mem %</string>
+                    <string>GBL_MEM_OVERHEAD = Phys Mem Ovrhd</string>
+                    <string>GBL_MEM_PAGEIN = Page In</string>
+                    <string>GBL_MEM_PAGEIN_BYTE = Page In KB</string>
+                    <string>GBL_MEM_PAGEIN_BYTE_RATE = Page In KB Rt</string>
+                    <string>GBL_MEM_PAGEIN_RATE = Pg In Rate</string>
+                    <string>GBL_MEM_PAGEOUT = Page Out</string>
+                    <string>GBL_MEM_PAGEOUT_BYTE = Page Out KB</string>
+                    <string>GBL_MEM_PAGEOUT_BYTE_RATE = Page Out KB Rt</string>
+                    <string>GBL_MEM_PAGEOUT_RATE = Pg Out Rate</string>
+                    <string>GBL_MEM_PAGE_FAULT = Page Faults</string>
+                    <string>GBL_MEM_PAGE_FAULT_RATE = Page Flt Rate</string>
+                    <string>GBL_MEM_PAGE_REQUEST = Page Reqs</string>
+                    <string>GBL_MEM_PAGE_REQUEST_RATE = Page Req Rate</string>
+                    <string>GBL_MEM_PG_SCAN = VM Pg Scan</string>
+                    <string>GBL_MEM_PG_SCAN_RATE = VM Pg Scan Rt</string>
+                    <string>GBL_MEM_PHYS = Phys Mem</string>
+                    <string>GBL_MEM_PHYS_SWAPPED = VM Phys Mem Swapped</string>
+                    <string>GBL_MEM_QUEUE = Memory Queue</string>
+                    <string>GBL_MEM_SWAP = Memory Swap</string>
+                    <string>GBL_MEM_SWAPIN_BYTE = Swap In KB</string>
+                    <string>GBL_MEM_SWAPIN_BYTE_RATE = Swap In KB Rt</string>
+                    <string>GBL_MEM_SWAPIN_RATE = Swap In Rt</string>
+                    <string>GBL_MEM_SWAPOUT_BYTE = Swap Out KB</string>
+                    <string>GBL_MEM_SWAPOUT_BYTE_RATE = SwapOut KB Rt</string>
+                    <string>GBL_MEM_SWAPOUT_RATE = Swap Out Rt</string>
+                    <string>GBL_MEM_SWAP_1_HR_RATE = Swaps per hr</string>
+                    <string>GBL_MEM_SYS = System Memory</string>
+                    <string>GBL_MEM_SYS_AND_CACHE_UTIL = Sys+ Cache%</string>
+                    <string>GBL_MEM_SYS_UTIL = SysMem %</string>
+                    <string>GBL_MEM_USER = User Memory</string>
+                    <string>GBL_MEM_USER_UTIL = User Mem %</string>
+                    <string>GBL_MEM_UTIL = Memory %</string>
+                    <string>GBL_MEM_VIRT = Virtual Memory</string>
+                    <string>GBL_NETWORK_SUBSYSTEM_QUEUE = Netwk Queue</string>
+                    <string>GBL_NET_COLLISION = Colls</string>
+                    <string>GBL_NET_COLLISION_1_MIN_RATE = Coll /Min</string>
+                    <string>GBL_NET_COLLISION_PCT = Coll %</string>
+                    <string>GBL_NET_COLLISION_RATE = Coll Rate</string>
+                    <string>GBL_NET_DEFERRED_PCT = Defer %</string>
+                    <string>GBL_NET_ERROR = Errors</string>
+                    <string>GBL_NET_ERROR_1_MIN_RATE = Errors /Min</string>
+                    <string>GBL_NET_ERROR_RATE = Error Rate</string>
+                    <string>GBL_NET_IN_ERROR_PCT = In Err %</string>
+                    <string>GBL_NET_IN_ERROR_RATE = In Err Rate</string>
+                    <string>GBL_NET_IN_PACKET = Input Pkt</string>
+                    <string>GBL_NET_IN_PACKET_RATE = In Pkt Rate</string>
+                    <string>GBL_NET_OUTQUEUE = Netwk OutQ</string>
+                    <string>GBL_NET_OUT_ERROR_PCT = OutErr %</string>
+                    <string>GBL_NET_OUT_ERROR_RATE = OutErr Rate</string>
+                    <string>GBL_NET_OUT_PACKET = Output Pkt</string>
+                    <string>GBL_NET_OUT_PACKET_RATE = Out Pkt Rate</string>
+                    <string>GBL_NET_PACKET_RATE = Network Pkt Rt</string>
+                    <string>GBL_NET_UTIL_PEAK = Peak Net %</string>
+                    <string>GBL_OTHER_QUEUE = Procs blocked on other</string>
+                    <string>GBL_PRI_QUEUE = Pri Queue</string>
+                    <string>GBL_PROC_RUN_TIME = Run Time</string>
+                    <string>GBL_PROC_SAMPLE = Proc Sample</string>
+                    <string>GBL_RUN_QUEUE = Run Queue</string>
+                    <string>GBL_SLEEP_QUEUE = Sleep Queue</string>
+                    <string>GBL_STARTED_PROC = Proc Start</string>
+                    <string>GBL_STARTED_PROC_RATE = Started Proc Rt</string>
+                    <string>GBL_SWAP_SPACE_AVAIL = Swap Avail</string>
+                    <string>GBL_SWAP_SPACE_DEVICE_AVAIL = Sw Dev Avail</string>
+                    <string>GBL_SWAP_SPACE_RESERVED = Swap Resrvd</string>
+                    <string>GBL_SWAP_SPACE_USED = Swap Used</string>
+                    <string>GBL_SWAP_SPACE_USED_UTIL = Swap Used %</string>
+                    <string>GBL_SWAP_SPACE_UTIL = Swap %</string>
+                    <string>GBL_SYSCALL = SysCall</string>
+                    <string>GBL_SYSCALL_RATE = SysCall Rate</string>
+                    <string>GBL_ACTIVE_PROC = Active Proc</string>
+                    <string>GBL_ALIVE_PROC = Alive Proc</string>
+                    <string>GBL_COMPLETED_PROC = Compl Proc</string>
+                    <string>GBL_CPU_CSWITCH_UTIL = CSwtch CPU %</string>
+                    <string>GBL_CPU_ENTL_UTIL = % Entl Util</string>
+                    <string>GBL_CPU_IDLE_UTIL = Idle CPU %</string>
+                    <string>GBL_CPU_INTERRUPT_UTIL = Intrpt CPU %</string>
+                    <string>GBL_CPU_NICE_UTIL = Nice CPU %</string>
+                    <string>GBL_CPU_NORMAL_UTIL = Normal CPU %</string>
+                    <string>GBL_CPU_PHYSC = Physc CPU</string>
+                    <string>GBL_CPU_PHYS_TOTAL_UTIL = % Phys Util</string>
+                    <string>GBL_CPU_QUEUE = CPU Queue</string>
+                    <string>GBL_CPU_REALTIME_UTIL = RealTm CPU %</string>
+                    <string>GBL_CPU_SYSCALL_UTIL = SysCall CPU %</string>
+                    <string>GBL_CPU_SYS_MODE_UTIL = System CPU %</string>
+                    <string>GBL_CPU_TOTAL_UTIL = CPU %</string>
+                    <string>GBL_CPU_USER_MODE_UTIL = User CPU %</string>
+                    <string>GBL_CPU_WAIT_UTIL = Wait CPU %</string>
+                    <string>GBL_CSWITCH_RATE = CSwitch Rate</string>
+                    <string>GBL_DISK_CACHE_READ = Cache Read IOs</string>
+                    <string>GBL_DISK_CACHE_READ_RATE = Cache Rd Rt</string>
+                    <string>GBL_DISK_FS_IO = File System IOs</string>
+                    <string>GBL_DISK_FS_IO_RATE = FS IO Rate</string>
+                    <string>GBL_DISK_FS_READ = FS Reads</string>
+                    <string>GBL_DISK_FS_READ_RATE = FS Rd Rt</string>
+                    <string>GBL_DISK_FS_WRITE = FS Writes</string>
+                    <string>GBL_DISK_FS_WRITE_RATE = FS Wr Rt</string>
+                    <string>GBL_DISK_LOGL_IO = Logl I/O</string>
+                    <string>GBL_DISK_LOGL_IO_RATE = Logl I/O Rate</string>
+                    <string>GBL_DISK_LOGL_READ = Logl Reads</string>
+                    <string>GBL_DISK_LOGL_READ_BYTE = Logl Read KB</string>
+                    <string>GBL_DISK_LOGL_READ_BYTE_RATE = Logl Read KB/sec</string>
+                    <string>GBL_DISK_LOGL_READ_RATE = Logl Rd Rt</string>
+                    <string>GBL_DISK_LOGL_WRITE = Logical Writes</string>
+                    <string>GBL_DISK_LOGL_WRITE_BYTE = Logical Write KBs</string>
+                    <string>GBL_DISK_LOGL_WRITE_BYTE_RATE = Logical Write KBs/sec</string>
+                    <string>GBL_DISK_LOGL_WRITE_RATE = Logical Writes/sec</string>
+                    <string>GBL_DISK_PHYS_BYTE = Phys KB</string>
+                    <string>GBL_DISK_PHYS_BYTE_RATE = Phys KB Rt</string>
+                    <string>GBL_DISK_PHYS_IO = Phys IOs</string>
+                    <string>GBL_DISK_PHYS_IO_RATE = Phys IO Rt</string>
+                    <string>GBL_DISK_PHYS_READ = Phys Reads</string>
+                </metrics>
+            </com.axibase.collector.model.job.ovpm.OvpmConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.ovpm.OvpmJobConfig>
+    <com.axibase.collector.model.job.ovpm.OvpmJobConfig>
+        <name>ovpm-config</name>
+        <cronExpression>0 0 0 * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>OVPM</jobType>
+        <outputFileSettings>
+            <appendFile>false</appendFile>
+            <outputFileMaxSize>0</outputFileMaxSize>
+        </outputFileSettings>
+        <defaultTags/>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <encoding>UTF-8</encoding>
+        <ignoreHeader>false</ignoreHeader>
+        <configs>
+            <com.axibase.collector.model.job.ovpm.OvpmConfiguration>
+                <configurationName>CONFIGURATION-GLOBAL</configurationName>
+                <responseColumnOrder>ENTITY_ROW_ENTITY</responseColumnOrder>
+                <startTime>25</startTime>
+                <checkLastTime>false</checkLastTime>
+                <timeFormat>yyyy,MM,dd,HH,mm,ss</timeFormat>
+                <timeLocale>en_US</timeLocale>
+                <numberLocale>en_US</numberLocale>
+                <entityColumnIndex>-1</entityColumnIndex>
+                <timeColumnIndex>-1</timeColumnIndex>
+                <timeOffsetColumnIndex>-1</timeOffsetColumnIndex>
+                <metricColumnIndex>-1</metricColumnIndex>
+                <timeRound>HOUR</timeRound>
+                <httpMethod>GET</httpMethod>
+                <url>/OVPM/?UTF8&amp;STARTTIME={starttime}&amp;SYSTEMNAME=[entity]&amp;CLASS=GLOBAL&amp;GRAPHTYPE=TSV&amp;POINTSEVERY=day</url>
+                <timeColumnName>TIME</timeColumnName>
+                <responseTimeFormat>MM/dd/yy hh:mm:ss a</responseTimeFormat>
+                <executionVariants>SERIAL</executionVariants>
+                <timeZone>Europe/Minsk</timeZone>
+                <tags/>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>ovpm.configuration</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns>
+                    <string>GBL_GMTOFFSET</string>
+                    <string>GBL_NUM_APP</string>
+                    <string>GBL_CPU_ENTL_MAX</string>
+                    <string>GBL_CPU_CYCLE_ENTL_MAX</string>
+                    <string>GBL_NUM_NETWORK</string>
+                    <string>GBL_CPU_CLOCK</string>
+                    <string>GBL_SWAP_SPACE_AVAIL</string>
+                    <string>GBL_ACTIVE_CPU_CORE</string>
+                    <string>GBL_NUM_SOCKET</string>
+                    <string>GBL_BOOT_TIME</string>
+                    <string>GBL_OSNAME</string>
+                    <string>GBL_NUM_LS</string>
+                    <string>GBL_NUM_CPU</string>
+                    <string>GBL_MACHINE</string>
+                    <string>GBL_OSRELEASE</string>
+                    <string>GBL_CPU_ENTL_MIN</string>
+                    <string>GBL_MEM_ENTL_MAX</string>
+                    <string>GBL_NUM_DISK</string>
+                    <string>GBL_MEM_ENTL_MIN</string>
+                    <string>GBL_OSVERSION</string>
+                    <string>GBL_MEM_AVAIL</string>
+                    <string>GBL_NUM_CPU_CORE</string>
+                    <string>GBL_MEM_PHYS</string>
+                    <string>GBL_SYSTEM_ID</string>
+                    <string>GBL_MACHINE_MODEL</string>
+                    <string>GBL_NUM_ACTIVE_LS</string>
+                    <string>GBL_CPU_CYCLE_ENTL_MIN</string>
+                    <string>GBL_OSKERNELTYPE_INT</string>
+                </propertyValueColumns>
+                <maxRows>0</maxRows>
+                <commitInterval>300</commitInterval>
+                <errorThreshold>5</errorThreshold>
+                <byErrorDelayTime>300</byErrorDelayTime>
+                <maxEntityCount>1</maxEntityCount>
+                <metrics>
+                    <string>GBL_NUM_SOCKET = CPU Sockets</string>
+                    <string>GBL_OSKERNELTYPE_INT = OS Kernel Type Int</string>
+                    <string>GBL_OSNAME = OS Name</string>
+                    <string>GBL_OSRELEASE = OS Release</string>
+                    <string>GBL_OSVERSION = OS Version</string>
+                    <string>GBL_SWAP_SPACE_AVAIL = Swap Avail</string>
+                    <string>GBL_SYSTEM_ID = System ID</string>
+                    <string>GBL_ACTIVE_CPU_CORE = Active Core</string>
+                    <string>GBL_BOOT_TIME = Boot Time</string>
+                    <string>GBL_CPU_CYCLE_ENTL_MAX = CPU Ent Max MHz</string>
+                    <string>GBL_CPU_CYCLE_ENTL_MIN = CPU Ent Min MHz</string>
+                    <string>GBL_CPU_CLOCK = CPU Clk MHz</string>
+                    <string>GBL_CPU_ENTL_MAX = CPUcap Max</string>
+                    <string>GBL_CPU_ENTL_MIN = CPUCap Min</string>
+                    <string>GBL_GMTOFFSET = GMT Offset</string>
+                    <string>GBL_MACHINE = Machine Type</string>
+                    <string>GBL_MACHINE_MODEL = Machine Model</string>
+                    <string>GBL_MEM_AVAIL = Avail Mem</string>
+                    <string>GBL_MEM_ENTL_MAX = MEM Ent Max</string>
+                    <string>GBL_MEM_ENTL_MIN = MEM Ent Min</string>
+                    <string>GBL_MEM_PHYS = Phys Mem</string>
+                    <string>GBL_NUM_ACTIVE_LS = Active LS</string>
+                    <string>GBL_NUM_APP = Num App</string>
+                    <string>GBL_NUM_CPU = Num CPUs</string>
+                    <string>GBL_NUM_CPU_CORE = Num Core</string>
+                    <string>GBL_NUM_DISK = Num Disk</string>
+                    <string>GBL_NUM_LS = Num LS</string>
+                    <string>GBL_NUM_NETWORK = Netwk IFs</string>
+                </metrics>
+            </com.axibase.collector.model.job.ovpm.OvpmConfiguration>
+            <com.axibase.collector.model.job.ovpm.OvpmConfiguration>
+                <configurationName>CONFIGURATION-CONFIGURATION</configurationName>
+                <responseColumnOrder>ENTITY_ROW_ENTITY</responseColumnOrder>
+                <startTime>25</startTime>
+                <checkLastTime>false</checkLastTime>
+                <timeFormat>yyyy,MM,dd,HH,mm,ss</timeFormat>
+                <timeLocale>en_US</timeLocale>
+                <numberLocale>en_US</numberLocale>
+                <entityColumnIndex>-1</entityColumnIndex>
+                <timeColumnIndex>-1</timeColumnIndex>
+                <timeOffsetColumnIndex>-1</timeOffsetColumnIndex>
+                <metricColumnIndex>-1</metricColumnIndex>
+                <timeRound>HOUR</timeRound>
+                <httpMethod>GET</httpMethod>
+                <url>/OVPM/?UTF8&amp;STARTTIME={starttime}&amp;SYSTEMNAME=[entity]&amp;CLASS=CONFIGURATION&amp;GRAPHTYPE=TSV&amp;POINTSEVERY=day</url>
+                <timeColumnName>TIME</timeColumnName>
+                <responseTimeFormat>MM/dd/yy hh:mm:ss a</responseTimeFormat>
+                <executionVariants>SERIAL</executionVariants>
+                <timeZone>Europe/Minsk</timeZone>
+                <tags/>
+                <putType>PROPERTY</putType>
+                <propertyDefaultType>ovpm.configuration</propertyDefaultType>
+                <propertyKeyColumns/>
+                <propertyValueColumns>
+                    <string>GBL_GMTOFFSET</string>
+                    <string>GBL_NUM_APP</string>
+                    <string>GBL_CPU_ENTL_MAX</string>
+                    <string>GBL_NUM_NETWORK</string>
+                    <string>GBL_CPU_CYCLE_ENTL_MAX</string>
+                    <string>GBL_CPU_CLOCK</string>
+                    <string>GBL_SWAP_SPACE_AVAIL</string>
+                    <string>GBL_ACTIVE_CPU_CORE</string>
+                    <string>GBL_NUM_SOCKET</string>
+                    <string>GBL_OSNAME</string>
+                    <string>GBL_BOOT_TIME</string>
+                    <string>GBL_NUM_LS</string>
+                    <string>GBL_NUM_CPU</string>
+                    <string>GBL_MACHINE</string>
+                    <string>GBL_OSRELEASE</string>
+                    <string>GBL_CPU_ENTL_MIN</string>
+                    <string>GBL_NUM_DISK</string>
+                    <string>GBL_MEM_ENTL_MAX</string>
+                    <string>GBL_MEM_ENTL_MIN</string>
+                    <string>GBL_OSVERSION</string>
+                    <string>GBL_MEM_AVAIL</string>
+                    <string>GBL_NUM_CPU_CORE</string>
+                    <string>GBL_MEM_PHYS</string>
+                    <string>GBL_SYSTEM_ID</string>
+                    <string>GBL_SWAP_SPACE_AVAIL_KB</string>
+                    <string>GBL_MACHINE_MODEL</string>
+                    <string>GBL_APP_THRESHOLD</string>
+                    <string>GBL_NUM_ACTIVE_LS</string>
+                    <string>GBL_CPU_CYCLE_ENTL_MIN</string>
+                    <string>GBL_OSKERNELTYPE_INT</string>
+                </propertyValueColumns>
+                <maxRows>0</maxRows>
+                <commitInterval>300</commitInterval>
+                <errorThreshold>5</errorThreshold>
+                <byErrorDelayTime>300</byErrorDelayTime>
+                <maxEntityCount>1</maxEntityCount>
+                <metrics>
+                    <string>GBL_BOOT_TIME = System Boot Time</string>
+                    <string>GBL_CPU_CYCLE_ENTL_MAX = CPU Ent Max MHz</string>
+                    <string>GBL_CPU_CYCLE_ENTL_MIN = CPU Ent Min MHz</string>
+                    <string>GBL_CPU_CLOCK = CPU Clk MHz</string>
+                    <string>GBL_CPU_ENTL_MAX = CPUcap Max</string>
+                    <string>GBL_CPU_ENTL_MIN = CPUCap Min</string>
+                    <string>GBL_GMTOFFSET = GMT Offset</string>
+                    <string>GBL_MACHINE = Architecture Type</string>
+                    <string>GBL_MACHINE_MODEL = Machine Model</string>
+                    <string>GBL_MEM_AVAIL = Avail Mem</string>
+                    <string>GBL_MEM_ENTL_MAX = MEM Ent Max</string>
+                    <string>GBL_MEM_ENTL_MIN = MEM Ent Min</string>
+                    <string>GBL_MEM_PHYS = Phys Mem</string>
+                    <string>GBL_NUM_ACTIVE_LS = Active LS</string>
+                    <string>GBL_NUM_APP = Num App</string>
+                    <string>GBL_NUM_CPU = Num CPU</string>
+                    <string>GBL_NUM_CPU_CORE = Num Core</string>
+                    <string>GBL_NUM_DISK = Num Disk</string>
+                    <string>GBL_NUM_LS = Num LS</string>
+                    <string>GBL_NUM_NETWORK = Netwk IFs</string>
+                    <string>GBL_NUM_SOCKET = CPU Sockets</string>
+                    <string>GBL_OSKERNELTYPE_INT = OS Kernel Type Int</string>
+                    <string>GBL_OSNAME = OS Name</string>
+                    <string>GBL_OSRELEASE = OS Release</string>
+                    <string>GBL_OSVERSION = OS Version</string>
+                    <string>GBL_SWAP_SPACE_AVAIL = Swap Avail</string>
+                    <string>GBL_SWAP_SPACE_AVAIL_KB = Swap Avail KB</string>
+                    <string>GBL_SYSTEM_ID = System ID</string>
+                    <string>GBL_ACTIVE_CPU_CORE = Active Core</string>
+                </metrics>
+            </com.axibase.collector.model.job.ovpm.OvpmConfiguration>
+        </configs>
+    </com.axibase.collector.model.job.ovpm.OvpmJobConfig>
+</list>

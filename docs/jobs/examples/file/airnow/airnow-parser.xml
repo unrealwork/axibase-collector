@@ -1,0 +1,53 @@
+<list>
+  <com.axibase.tsd.model.csv.CsvConfiguration>
+    <name>airnow</name>
+    <putType>METRIC</putType>
+    <delimiter>,</delimiter>
+    <recordDelimiter>
+</recordDelimiter>
+    <padding> </padding>
+    <comment></comment>
+    <textQualifier>&quot;</textQualifier>
+    <entityColumn/>
+    <defaultEntity>mock_entity_the_real_value_should_be_specified_in_file_forwarding_configuration</defaultEntity>
+    <timestampColumn class="java.util.Arrays$ArrayList">
+      <a class="string-array">
+        <string>Time</string>
+      </a>
+    </timestampColumn>
+    <timestampFormat>yyyy-MM-dd&apos;T&apos;HH:mm</timestampFormat>
+    <metricNameColumn>Parameter</metricNameColumn>
+    <metricValueColumn>Concentration</metricValueColumn>
+    <timestampType>PATTERN</timestampType>
+    <filter>number(&apos;Concentration&apos;) &gt;= 0</filter>
+    <processEvents>false</processEvents>
+    <writeProperty>false</writeProperty>
+    <enabled>true</enabled>
+    <discardNan>true</discardNan>
+    <ignoreParseErrors>false</ignoreParseErrors>
+    <timeZone>UTC</timeZone>
+    <tagColumns class="linked-hash-set"/>
+    <excludedColumns class="linked-hash-set">
+      <string>Latitude</string>
+      <string>Longitude</string>
+      <string>Unit</string>
+      <string>Time</string>
+    </excludedColumns>
+    <propertyColumns class="linked-hash-set"/>
+    <propertyKeyColumns class="linked-hash-set"/>
+    <defaultTags class="linked-hash-map"/>
+    <renamedColumns class="linked-hash-map"/>
+    <header class="java.util.Arrays$ArrayList">
+      <a class="string-array">
+        <string>&quot;Latitude&quot;</string>
+        <string>&quot;Longitude&quot;</string>
+        <string>&quot;Time&quot;</string>
+        <string>&quot;Parameter&quot;</string>
+        <string>&quot;Concentration&quot;</string>
+        <string>&quot;Unit&quot;</string>
+      </a>
+    </header>
+    <decimalSeparator>.</decimalSeparator>
+    <groupingSeparator>�</groupingSeparator>
+  </com.axibase.tsd.model.csv.CsvConfiguration>
+</list>

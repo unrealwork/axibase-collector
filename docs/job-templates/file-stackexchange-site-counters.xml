@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.file.FileJobConfig>
+	<name>stackexchange-site-counters</name>
+	<cronExpression>R 0 * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>FILE</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<configurations>
+		<com.axibase.collector.model.job.file.FileRoutingConfiguration>
+			<name>stackoverflow</name>
+			<connectionPoolConfig>
+				<name>https://api.stackexchange.com</name>
+				<protocol>https</protocol>
+				<server>api.stackexchange.com</server>
+				<port>443</port>
+				<maxTotal>4</maxTotal>
+				<cookieEnabled>false</cookieEnabled>
+				<soTimeout>15</soTimeout>
+				<soReuse>false</soReuse>
+				<soLinger>0</soLinger>
+				<soKeepAlive>false</soKeepAlive>
+				<tcpNoDelay>false</tcpNoDelay>
+				<sslSkip>false</sslSkip>
+				<closeInterval>300</closeInterval>
+				<connectionTimeout>15</connectionTimeout>
+				<connectionPoolTimeout>15</connectionPoolTimeout>
+				<testPath>/</testPath>
+				<authType>NONE</authType>
+				<headers />
+				<keyStore>NONE</keyStore>
+			</connectionPoolConfig>
+			<path>/2.2/info?key=********((&amp;site=${ITEM}</path>
+			<encoding>UTF8</encoding>
+			<parserType>JSON</parserType>
+			<wait>true</wait>
+			<rules>false</rules>
+			<metricPrefix>so.api.info.</metricPrefix>
+			<defaultEntity>${ITEM}</defaultEntity>
+			<useTime>true</useTime>
+			<ignoreDuplicates>false</ignoreDuplicates>
+			<deleteFileOnUpload>false</deleteFileOnUpload>
+			<validateFormat>true</validateFormat>
+			<timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+			<included />
+			<excluded />
+			<entitySet>
+				<name>stackexchange-sites</name>
+				<entities>
+					<string>math</string>
+					<string>serverfault</string>
+					<string>dba</string>
+					<string>stackoverflow</string>
+					<string>softwarerecs</string>
+					<string>askubuntu</string>
+					<string>superuser</string>
+				</entities>
+			</entitySet>
+			<enableWebDriver>false</enableWebDriver>
+		</com.axibase.collector.model.job.file.FileRoutingConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.file.FileJobConfig>

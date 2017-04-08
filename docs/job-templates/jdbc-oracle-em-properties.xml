@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.axibase.collector.model.job.jdbc.JdbcJobConfig>
+	<name>oracle-em-properties</name>
+	<cronExpression>R 0/15 * * * ?</cronExpression>
+	<enabled>false</enabled>
+	<jobType>JDBC</jobType>
+	<outputFileSettings>
+		<appendFile>false</appendFile>
+		<outputFileMaxSize>0</outputFileMaxSize>
+	</outputFileSettings>
+	<defaultTags />
+	<checkLastTime>false</checkLastTime>
+	<commitInterval>10</commitInterval>
+	<errorThreshold>0</errorThreshold>
+	<databaseConfiguration>
+		<name>OracleEM</name>
+		<type>ORACLE</type>
+		<server>10.102.0.8</server>
+		<port>1521</port>
+		<database>SYSMAN</database>
+		<dbUser>axibase</dbUser>
+		<dbPasswd />
+		<instance>ORCL</instance>
+		<maxActive>4</maxActive>
+		<maxIdle>4</maxIdle>
+		<minIdle>0</minIdle>
+		<initialSize>0</initialSize>
+		<maxWaitSeconds>60</maxWaitSeconds>
+		<maxAgeMinutes>60</maxAgeMinutes>
+		<loginTimeoutSeconds>60</loginTimeoutSeconds>
+		<idleTimeoutSeconds>60</idleTimeoutSeconds>
+		<socketTimeoutSeconds>0</socketTimeoutSeconds>
+		<active>0</active>
+		<idle>0</idle>
+		<driverClassName>oracle.jdbc.OracleDriver</driverClassName>
+	</databaseConfiguration>
+	<configurations>
+		<com.axibase.collector.model.job.jdbc.QueryConfiguration>
+			<query>SELECT &apos;oem.&apos; || TARGET_TYPE AS TTYPE, TARGET_NAME, HOST_NAME, DISPLAY_NAME, TIMEZONE_REGION, TYPE_QUALIFIER1 AS TYPE&#xd;
+FROM SYSMAN.GC$TARGET&#xd;
+WHERE TARGET_TYPE IN (&apos;host&apos;, &apos;oracle_database&apos;)</query>
+			<tagColumns />
+			<defaultTags />
+			<metricColumns />
+			<ignoredMetricColumns />
+			<entityColumn>TARGET_NAME</entityColumn>
+			<timeType>TIMESTAMP</timeType>
+			<queryWithTime>false</queryWithTime>
+			<checkLastTime>false</checkLastTime>
+			<lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+			<queryTimeoutSeconds>-1</queryTimeoutSeconds>
+			<maxRows>-1</maxRows>
+			<putType>PROPERTY</putType>
+			<propertyTypeColumn>TTYPE</propertyTypeColumn>
+			<propertyKeyColumns />
+			<propertyValueColumns>
+				<string>DISPLAY_NAME</string>
+				<string>TIMEZONE_REGION</string>
+				<string>HOST_NAME</string>
+				<string>TYPE</string>
+			</propertyValueColumns>
+			<ignoredPropertyValueColumns />
+			<outputFileSettings>
+				<appendFile>false</appendFile>
+				<outputFileMaxSize>0</outputFileMaxSize>
+			</outputFileSettings>
+		</com.axibase.collector.model.job.jdbc.QueryConfiguration>
+	</configurations>
+</com.axibase.collector.model.job.jdbc.JdbcJobConfig>
