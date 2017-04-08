@@ -37,4 +37,4 @@ _*These fields become available if you select the Enable Web Driver check box._
 
 ### Configuration Example
 
-![HTTP Configuration](Images/httpconfiguration.png)
+![HTTP Configuration](images/httpconfiguration.png)
