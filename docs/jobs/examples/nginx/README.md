@@ -10,7 +10,7 @@ The process involves enabling the NGINX status page and configuring Axibase Coll
 
 * NGINX server with [ngx_http_stub_status_module](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html) enabled.
 * [Axibase Collector](/docs/README.md) for scheduled polling of the NGINX status page.
-* [Axibase Time Series Database](https://github.com/axibase/atsd-docs/blob/master/installation/README.md) as a centralized data repository.
+* [Axibase Time Series Database](https://github.com/axibase/atsd/blob/master/docs/installation/README.md) as a centralized data repository.
 
 ## NGINX Server Configuration
 
@@ -122,7 +122,7 @@ For example, you can send an email if the average *Active Connections* count ove
 
 ### Setting up Mail Client
 
-* Configure [Mail Client](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md).
+* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/docs/administration/setting-up-email-client.md).
 
 ### Import rules
 
@@ -141,4 +141,4 @@ The following rules are provided in the `nginx_notification_rules.xml` file:
 | nginx_active_connections_heartbeat| Raise an alert when status page statistics are no longer being received by ATSD.<br> Check that the server is reachable and Axibase Collector job is running. |
 |nginx_tcp_heartbeat| Raise an alert when the TCP connect metric is no longer being received by ATSD or if the TCP connect metric contains error codes.<br>Check that the server is reachable and Axibase Collector job is running.|
 
-To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md).
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/docs/rule-engine/rule-engine.md).

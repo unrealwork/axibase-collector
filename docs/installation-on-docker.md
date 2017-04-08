@@ -45,7 +45,7 @@ docker run \
  axibase/collector:latest
 ```
 
-To automatically configure a connection to the Axibase Time Series Database, add the `-atsd-url` parameter containing the ATSD hostname and https port (default 8443), as well as [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials:
+To automatically configure a connection to the Axibase Time Series Database, add the `-atsd-url` parameter containing the ATSD hostname and https port (default 8443), as well as [collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-account.md) credentials:
 
 ```properties
 docker run \
@@ -59,7 +59,7 @@ docker run \
 
 If the user name or password contains a `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
-The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
+The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/docs/administration/user-authentication.md#password-requirements).
 
 For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at https://10.102.0.6:8443, specify:
 

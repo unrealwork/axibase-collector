@@ -48,7 +48,7 @@ file:///opt/files/inbound/${TIME("previous_day", "yyyy-MM-dd")}/daily.csv
 
 ### `TIME` Function
 
-The `TIME` function calculates time based on the [endtime](https://github.com/axibase/atsd-docs/blob/master/end-time-syntax.md). The syntax outputs its value in the specified `time_format`.
+The `TIME` function calculates time based on the [endtime](https://github.com/axibase/atsd/blob/master/docs/end-time-syntax.md). The syntax outputs its value in the specified `time_format`.
 
 Syntax: `${TIME("end_time_syntax", "time_format")}` 
 
@@ -70,7 +70,7 @@ If the path contains the `${DATE_ITEM()}` placeholder, it should execute a separ
 
 Syntax: `${DATE_ITEM(startDate, endDate, periodCount, periodUnit, timeFormat)}` 
 
-`startDate` and `endDate` support [endtime](https://github.com/axibase/atsd-docs/blob/master/end-time-syntax.md) syntax.
+`startDate` and `endDate` support [endtime](https://github.com/axibase/atsd/blob/master/docs/end-time-syntax.md) syntax.
 
 Example: `${DATE_ITEM("current_day - 7 * DAY", "now", 1, "HOUR", "yyyy/MM/dd/HH")}`
 

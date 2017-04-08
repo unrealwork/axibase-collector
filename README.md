@@ -49,7 +49,7 @@ The Collector supports [collections](/docs/collections.md)-based automation to e
   - Installation on [host](/docs/installation.md)
   - Installation in [Docker container](/docs/installation-on-docker.md)
 * [Administrator Account](/docs/configure-administrator-account.md)
-* [Collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) in ATSD
+* [Collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-account.md) in ATSD
 * [ATSD Server Connection](/docs/atsd-server-connection.md)
 
 ## Jobs

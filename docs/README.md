@@ -49,7 +49,7 @@ It supports [collections](collections.md)-based automation in order to query as 
   - Installation on [host](installation.md)
   - Installation in [Docker container](installation-on-docker.md)
 * [Administrator Account](configure-administrator-account.md)
-* [Collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) in ATSD
+* [Collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-account.md) in ATSD
 * [ATSD Server Connection](atsd-server-connection.md)
 
 ## Jobs

@@ -11,7 +11,7 @@ The document will provide instructions for the first way of configuring.
 ## Requirements
 * NGINX PLUS server with [ngx_http_status_module](http://nginx.org/en/docs/http/ngx_http_status_module.html) enabled.
 * [Axibase Collector](/docs/README.md) for scheduled polling of the NGINX status page.
-* [Axibase Time Series Database](https://github.com/axibase/atsd-docs/blob/master/installation/README.md) as a centralized data repository.
+* [Axibase Time Series Database](https://github.com/axibase/atsd/blob/master/docs/installation/README.md) as a centralized data repository.
 
 ## Configure a job in Axibase Collector
 Axibase Collector will poll the NGINX PLUS status page every 5 seconds, build network commands, and send them to ATSD.
@@ -83,7 +83,7 @@ For example, you can send an email if the average active connections* count over
 
 ### Setting up Mail Client
 
-* Configure [Mail Client](https://github.com/axibase/atsd-docs/blob/master/administration/setting-up-email-client.md).
+* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/docs/administration/setting-up-email-client.md).
 
 ### Import rules
 
@@ -104,4 +104,4 @@ The following rules are provided in the `nginx_plus_rules.xml` file:
 |nginx_plus_active_connection_low          | Raise an alert when an NGINX PLUS server average active connection count is below the specified threshold (default: 10) over the last 15 minutes.|
 | nginx_plus_active_connection_heartbeat   | Raise an alert when status page statistics are no longer being received by ATSD. Check that the server is reachable and Axibase Collector job is running. |
 
-To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd-docs/blob/master/rule-engine/rule-engine.md).
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/docs/rule-engine/rule-engine.md).

@@ -28,7 +28,7 @@ The information is collected for the following object types:
 ## Prerequisites
 
 * [Docker Engine v1.7+](https://docs.docker.com/engine/installation/)
-* [Axibase Time Series Database](https://github.com/axibase/atsd-docs/blob/master/installation/docker.md) container as a centralized metrics store and rule engine.
+* [Axibase Time Series Database](https://github.com/axibase/atsd/blob/master/docs/installation/docker.md) container as a centralized metrics store and rule engine.
 
 ## Installation
 
@@ -39,7 +39,7 @@ In local collection mode, Axibase Collector containers run on each Docker host a
 ![Local Collection](docker-local.png)
 
 - Replace `atsd_host` and `atsd_https_port` with ATSD hostname/IP address and https port (default 8443).
-- Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials below.
+- Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-account.md) credentials below.
 - Start Axibase Collector container:
 
 ```properties
@@ -57,7 +57,7 @@ docker run \
 
 If the user name or password contains `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
-The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
+The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/docs/administration/user-authentication.md#password-requirements).
 
 For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at https://10.102.0.6:8443 specify:
 
@@ -159,7 +159,7 @@ docker run \
 
 If the user name or password contains `$`, `&`, `#`, or `!` character, escape it with backslash `\``.
 
-The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd-docs/blob/master/administration/user-authentication.md#password-requirements).
+The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/docs/administration/user-authentication.md#password-requirements).
 
 * Find the https port assigned to the `axibase-collector` container.
 

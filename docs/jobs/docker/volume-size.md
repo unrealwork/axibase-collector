@@ -153,7 +153,7 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
 As an alternative to running the above `du` script on the Docker host, you can launch an Axibase Collector container with the `/var/lib/docker/volumes` directory mounted in read-only mode.
 
    * Replace the `atsd_host` placeholder with the actual ATSD hostname in the command below.
-   * Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd-docs/blob/master/administration/collector-account.md) credentials.
+   * Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-account.md) credentials.
 
    ```properties
    docker run \
