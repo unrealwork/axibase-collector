@@ -67,11 +67,11 @@ It supports [collections](collections.md)-based automation in order to query as 
 **Type** | **Description**
 ----- | -----
 [AWS](jobs/aws.md) | Collects AWS statistics using CloudWatch API.
-[Docker](jobs/docker.md) | Collects container, image, and volume statistics using Docker Engine API.
+[DOCKER](jobs/docker.md) | Collects container, image, and volume statistics using Docker Engine API.
 [JDBC](jobs/jdbc.md) | Executes SQL queries against relational databases.<br>Converts rows into series,  property, or message commands.
-[File](jobs/file.md) | Downloads CSV/TSV files from remote servers or local file system and uploads them into ATSD for parsing.<br>Supports HTTP/s, FTP, SFTP, SCP, and FILE protocols.
+[FILE](jobs/file.md) | Downloads CSV/TSV files from remote servers or local file system and uploads them into ATSD for parsing.<br>Supports HTTP/s, FTP, SFTP, SCP, and FILE protocols.
 [JSON](jobs/json.md) | Downloads JSON files, parses the documents and converts JSON fields into series, property, and message commands using JSONPath.
-[Socrata](jobs/socrata.md) | Downloads JSON documents published in Socrata schema and converts them into series, property, and message commands.
+[SOCRATA](jobs/socrata.md) | Downloads JSON documents published in Socrata schema and converts them into series, property, and message commands.
 [JMX](jobs/jmx.md) | Collects MBean attribute values from Java applications.
 [HTTP](jobs/http.md) | Executes HTTP requests or Web Driver scripts and stores response status and response times as metrics.
 [ICMP](jobs/icmp.md) | Pings hostnames/IP addresses and stores response status.
