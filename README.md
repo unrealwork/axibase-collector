@@ -2,17 +2,33 @@
 
 ## Overview
 
-Axibase Collector is a Java-based ETL application that queries external data sources on schedule and uploads received data as series, properties, messages, and files into the Axibase Time Series Database.
+Axibase Collector is a Java-based ETL application that queries external data sources on schedule and uploads received data as series, properties, messages, and files into [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/)(ATSD).
 
-The Collector supports [collections](/docs/collections.md)-based automation to efficiently cope data from multiple sources with the same re-usable configuration.
+The Collector supports data markers to minimize the load on the source systems as well as [list-](collections.md)-based automation to efficiently copy data from multiple sources with re-usable configuration.
 
-## Typical Use Cases
+## Use Cases
 
 * Download CSV/TSV file from a URL or an FTP server and upload it into ATSD.
+* Offload data from a relational database for long-term storage in ATSD.
 * Query a web service, convert its JSON output into tabular format, and upload it into ATSD.
-* Historize metrics by querying their current values and storing them in ATSD for analytics.
-* Offload prunable data from relational databases for long-term storage in ATSD.
-* Collect real-time performance metrics from Java applications (JMX), network devices (SNMP), etc.
+* Historize metrics by querying current values and retaining their history in ATSD.
+* Collect key performance metrics from Java applications (JMX), network devices (SNMP), etc.
+
+## Supported Databases
+
+* Oracle
+* IBM DB2
+* Microsoft SQL Server
+* MySQL
+* PostgreSQL
+* Sybase
+* Apache Derby
+* Vertica
+* ATSD
+* SAP HANA
+* OSISoft PI Data Archive
+* OSISoft PIOleDBEnt
+* Custom
 
 ## Supported Data/Network Protocols
 
@@ -32,35 +48,34 @@ The Collector supports [collections](/docs/collections.md)-based automation to e
 
 ## Supported Schemas
 
-* [Open Data](https://project-open-data.cio.gov/v1.1/schema/) (aka Socrata)
+* [Open Data/SOCRATA](https://project-open-data.cio.gov/v1.1/schema/)
 
 ## Supported APIs
 
 * Amazon Web Services CloudWatch
 * Docker Engine
 * HP OVPM (Performance Manager)
-* OSISoft PI DataArchive
-* OSISoft PIOLEDBEnt
 
 ## Installation
 
-* [Requirements](/docs/requirements.md)
+* [Requirements](requirements.md)
 * Installation:
-  - Installation on [host](/docs/installation.md)
-  - Installation in [Docker container](/docs/installation-on-docker.md)
-* [Administrator Account](/docs/configure-administrator-account.md)
+  - Installation on [host](installation.md)
+  - Installation in [Docker container](installation-on-docker.md)
+* [Administrator Account](configure-administrator-account.md)
 * [Collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-account.md) in ATSD
-* [ATSD Server Connection](/docs/atsd-server-connection.md)
+* [ATSD Server Connection](atsd-server-connection.md)
 
 ## Jobs
 
-* [Overview](/docs/job-generic.md)
-* [Scheduling](/docs/scheduling.md)
-* [Monitoring](/docs/monitoring.md)
+* [Overview](job-generic.md)
+* [Scheduling](scheduling.md)
+* [Monitoring](monitoring.md)
 
 ## Automation
 
-* [Item Lists](/docs/collections.md)
+* [Scheduling](scheduling.md)
+* [Item Lists](collections.md)
 
 ## Job Types
 
@@ -79,3 +94,32 @@ The Collector supports [collections](/docs/collections.md)-based automation to e
 [PI](/docs/jobs/pi.md) | Extracts PI points archive data via JDBC driver.
 [SNMP](/docs/jobs/snmp.md) | Queries SNMP devices using built-in and custom MIB files.
 [TCP](/docs/jobs/tcp.md) | Connects to hostnames/IP addresses and stores connection status.
+
+## Administration
+
+* [Monitoring](monitoring.md)
+* [Logging](logging.md)
+* [Settings](settings.md)
+
+## Examples
+
+**Name** | **Job Type** | **Description**
+----- | ----- | ----
+[ActiveMQ](/docs/jobs/examples/activemq) | JMX | Collect metrics about brokers, queues, pub/sub topics
+[Derby Database](/docs/jobs/examples/derby) | JMX | Collect uptime metrics for the database
+[File](/docs/jobs/examples/file) | File | Download CSV files
+[HP OpenView](/docs/jobs/examples/hp-openview) | OVPM | Offload CODA metrics from OVPM
+[Jetty](/docs/jobs/examples/jetty) | JMX | Collect sessions, requests, status from the Jetty server
+[JSON](/docs/jobs/examples/json) | JSON | Download json file and convert it to CSV format
+[JVM](/docs/jobs/examples/jvm) | JMX | Collect key JVM performance metrics:
+[MySQL](/docs/jobs/examples/mysql) | JDBC | Collect database performance metrics
+[nginx](/docs/jobs/examples/nginx) | File | Collect key web server metrics for nginx
+[nginx-plus](/docs/jobs/examples/nginx-plus) | File | Collect extended web server metrics for nginx-plus
+[Oracle EM](/docs/jobs/examples/oracle-enterprise-manager) | JDBC | Offload incremental database and application metrics collected by Oracle EM
+[PI](/docs/jobs/examples/pi) | PI | Copy incremental tag values from PI Data Archive
+[PostgreSQL](/docs/jobs/examples/postgres) | JDBC | Collect database performance metrics
+[SCOM](/docs/jobs/examples/scom) | JDBC | Offload incremental server metrics collected by SCOM
+[Socrata](/docs/jobs/examples/socrata) | Socrata | Download and parse datasets published in Socrata format
+[SolarWinds](/docs/jobs/examples/solarwinds) | JDBC | Offload incremental network and server metrics collected by SolarWinds
+[Tomcat](/docs/jobs/examples/tomcat) | JMX | Collect key container metrics exposed by Tomcat
+[VMware](/docs/jobs/examples/vmware) | JDBC | Offload incremental cluster, host, VM metrics collected by VMware vCenter
