@@ -2,9 +2,9 @@
 
 ## Overview
 
-Axibase Collector is a Java-based ETL application that queries external data sources on schedule and uploads received data as series, properties, messages, and files into [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/)(ATSD).
+Axibase Collector is a Java-based ETL application that queries external data sources on schedule and uploads received data as series, properties, messages, and files into [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) (ATSD).
 
-The Collector supports data markers to minimize the load on the source systems as well as [list-](collections.md)-based automation to efficiently copy data from multiple sources with re-usable configuration.
+The Collector supports data markers to minimize the load on the source systems as well as [list](collections.md)-based automation to efficiently copy data from multiple sources with re-usable configuration.
 
 ## Use Cases
 
@@ -58,24 +58,23 @@ The Collector supports data markers to minimize the load on the source systems a
 
 ## Installation
 
-* [Requirements](requirements.md)
+* [Requirements](/docs/requirements.md)
 * Installation:
-  - Installation on [host](installation.md)
-  - Installation in [Docker container](installation-on-docker.md)
-* [Administrator Account](configure-administrator-account.md)
+  - Installation on [host](/docs/installation.md)
+  - Installation in [Docker container](/docs/installation-on-docker.md)
+* [Administrator Account](/docs/configure-administrator-account.md)
 * [Collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-account.md) in ATSD
-* [ATSD Server Connection](atsd-server-connection.md)
+* [ATSD Server Connection](/docs/atsd-server-connection.md)
 
 ## Jobs
 
-* [Overview](job-generic.md)
-* [Scheduling](scheduling.md)
-* [Monitoring](monitoring.md)
+* [Overview](/docs/job-generic.md)
+* [Scheduling](/docs/scheduling.md)
+* [Monitoring](/docs/monitoring.md)
 
 ## Automation
 
-* [Scheduling](scheduling.md)
-* [Item Lists](collections.md)
+* [Item Lists](/docs/ollections.md)
 
 ## Job Types
 
