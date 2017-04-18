@@ -39,7 +39,7 @@ It supports [collections](collections.md)-based automation in order to query as 
 * Amazon Web Services CloudWatch
 * Docker Engine
 * HP OVPM (Performance Manager)
-* OSISoft PI DataArchve
+* OSISoft PI DataArchive
 * OSISoft PIOLEDBEnt
 
 ## Installation
@@ -76,5 +76,6 @@ It supports [collections](collections.md)-based automation in order to query as 
 [HTTP](jobs/http.md) | Executes HTTP requests or Web Driver scripts and stores response status and response times as metrics.
 [ICMP](jobs/icmp.md) | Pings hostnames/IP addresses and stores response status.
 [OVPM](jobs/ovpm.md) | Offloads statistics from HP OpenView Performance Manager.
+[PI](jobs/pi.md) | Extracts PI points archive data via JDBC driver.
 [SNMP](jobs/snmp.md) | Queries SNMP devices using built-in and custom MIB files.
 [TCP](jobs/tcp.md) | Connects to hostnames/IP addresses and stores connection status.

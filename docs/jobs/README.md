@@ -11,5 +11,7 @@
 [ICMP](icmp.md) | Pings hostnames/IP addresses and stores response status.
 [JSON](json.md) | Downloads JSON documents and extracts series and properties using JSONPath.
 [OVPM](ovpm.md) | Offloads statistics from HP OpenView Performance Manager.
+[PI](pi.md) | Extracts PI points archive data via JDBC driver.
 [SNMP](snmp.md) | Queries SNMP devices using built-in and custom MIB files.
+[Socrata](socrata.md) | Downloads JSON documents published in Socrata schema and converts them into series, property, and message commands.
 [TCP](tcp.md) | Connects to hostnames/IP addresses and stores connection status.
