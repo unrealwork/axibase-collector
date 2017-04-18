@@ -24,22 +24,20 @@ The information is collected for the following object types:
 `Excluded Processes` | List of expressions, separated by comma, to exclude matching processes (ps aux) from collection. The expressions support * as a wildcard.
 `Environment Tags` | List of ENV variables stored as entity tags.
 
-
 ## Prerequisites
 
 * [Docker Engine v1.7+](https://docs.docker.com/engine/installation/)
 * [Axibase Time Series Database](https://github.com/axibase/atsd/blob/master/docs/installation/docker.md) container as a centralized metrics store and rule engine.
 
-## Installation
-
-#### Local Collection
+## Local Installation
 
 In local collection mode, Axibase Collector containers run on each Docker host and gather statistics locally from the Docker engine API exposed at the [/var/run/docker.sock](https://docs.docker.com/engine/reference/api/docker_remote_api/) Unix socket.
 
 ![Local Collection](docker-local.png)
 
+- Create [collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-rw-account.md) in ATSD.
 - Replace `atsd_host` and `atsd_https_port` with ATSD hostname/IP address and https port (default 8443).
-- Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-account.md) credentials below.
+- Replace `collector-rw` and `collector-password` with actual credentials below.
 - Start Axibase Collector container:
 
 ```properties
@@ -51,7 +49,7 @@ docker run \
    --volume /var/run/docker.sock:/var/run/docker.sock \
    --env=DOCKER_HOSTNAME=`hostname -f` \
   axibase/collector \
-   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port \
+   -atsd-url=https://collector-rw:collector-password@atsd_host:atsd_https_port \
    -job-enable=docker-socket
 ```
 
@@ -80,8 +78,7 @@ The Docker job should start executing immediately, even if collector user has no
 
 > On hosts with SELinux enabled, the container will run into a `permission denied` error when trying to read data from  `/var/run/docker.sock`. Switch to the Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
 
-
-##### Launch Parameters
+**Launch Parameters**
 
 **Name** | **Required** | **Description**
 ----- | ----- | -----
@@ -91,19 +88,19 @@ The Docker job should start executing immediately, even if collector user has no
 `--publish-all` | No | Publish all exposed ports to random ports.
 `--env` | No | Set environment variables.
 
-#### Remote Collection
+## Remote Collection
 
 In remote collection mode Axibase Collector fetches data from multiple remote Docker hosts using `https` protocol.  
 
 ![Local Collection](docker-remote.png)
 
-##### Enable Remote API Access on Docker Hosts
+### Enable Remote API Access on Docker Hosts
 
 * Login into Docker host via SSH and generate [client and server certificates](docker-certificates.md).
 
 * Configure Docker daemon for secure access by default.
 
-    * Edit the `/etc/default/docker` file for Ubuntu or create a `/etc/sysconfig/docker` file for CentOS:
+* Edit the `/etc/default/docker` file for Ubuntu or create a `/etc/sysconfig/docker` file for CentOS:
 
    ```properties
    # Set path to the folder containing {ca,server-cert,server-key}.pem files
@@ -114,7 +111,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
 
-    * For CentOS, in addition, create the file `/etc/systemd/system/docker.service.d/docker.conf`:
+* For CentOS, in addition, create the file `/etc/systemd/system/docker.service.d/docker.conf`:
 
    ```properties
    [Service]
@@ -125,16 +122,15 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Restart Docker daemon:
 
-```sh
-sudo service docker restart
-```
+  ```sh
+  sudo service docker restart
+  ```
 
 * Ensure that the Docker status is Active and there are no warnings:
 
-```sh
-sudo service docker status
-```
-
+  ```sh
+  sudo service docker status
+  ```
 
 * Verify connectivity:
 
@@ -146,7 +142,11 @@ sudo service docker status
   ```
 * Copy the `{ca,cert,key}.pem` files to your machine.
 
-* Start Axibase Collector container:
+### Launch Axibase Collector Container
+
+* Create [collector account](https://github.com/axibase/atsd/blob/master/docs/administration/collector-rw-account.md) in ATSD.
+
+* Start Axibase Collector container, replacing `collector-rw` and `collector-password` with actual credentials:
 
 ```properties
 docker run \
@@ -154,10 +154,10 @@ docker run \
    --publish-all \
    --name=axibase-collector \
   axibase/collector \
-   -atsd-url=https://collector-user:collector-password@atsd_host:atsd_https_port
+   -atsd-url=https://collector-rw:collector-password@atsd_host:atsd_https_port
 ```
 
-If the user name or password contains `$`, `&`, `#`, or `!` character, escape it with backslash `\``.
+If the user name or password contains `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
 The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/docs/administration/user-authentication.md#password-requirements).
 
