@@ -84,7 +84,7 @@ Configure your Java application for JMX data collection as described [here](../.
 
 ### Setting up Mail Client
 
-* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/docs/administration/setting-up-email-client.md).
+* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/administration/setting-up-email-client.md).
 
 #### Import Rules
 
@@ -104,4 +104,4 @@ Imported rules:
 | jvm_runtime_property_changed | Raise an alert when an application property is changed. |
 | jvm_system_load | Raise an alert when an application system load exceeds the set threshold. |
 
-To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/docs/rule-engine/rule-engine.md).
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/rule-engine/rule-engine.md).

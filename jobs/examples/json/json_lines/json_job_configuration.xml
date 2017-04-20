@@ -12,7 +12,7 @@
     <configurations>
       <com.axibase.collector.model.job.json.JsonConfiguration>
         <name>lines</name>
-        <path>https://raw.githubusercontent.com/axibase/axibase-collector/master/docs/jobs/examples/json/json_lines/json_lines.txt</path>
+        <path>https://raw.githubusercontent.com/axibase/axibase-collector/master/jobs/examples/json/json_lines/json_lines.txt</path>
         <format>JSON_LINES</format>
         <payloadMethod>GET</payloadMethod>
         <httpHeaders/>

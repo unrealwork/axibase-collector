@@ -43,7 +43,7 @@ For example, to enable a 'my-jmx-job' job loaded from the file `/tmp/job.xml`:
 To load jobs from a remote file, specify the full path:
 
 ```sh
-./axibase-collector/bin/start-collector.sh -job-path=https://raw.githubusercontent.com/axibase/axibase-collector/master/docs/job-templates/icmp-ping.xml
+./axibase-collector/bin/start-collector.sh -job-path=https://raw.githubusercontent.com/axibase/axibase-collector/master/job-templates/icmp-ping.xml
 ```
 
 ## Enable Multiple Jobs
