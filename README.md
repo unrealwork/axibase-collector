@@ -118,7 +118,7 @@ The Collector supports data markers to minimize the load on the source systems a
 [PI](jobs/examples/pi) | PI | Copy incremental tag values from PI Data Archive
 [PostgreSQL](jobs/examples/postgres) | JDBC | Collect database performance metrics
 [SCOM](jobs/examples/scom) | JDBC | Offload incremental server metrics collected by SCOM
-[Socrata](jobs/examples/socrata) | Socrata | Download and parse datasets published in Socrata format
+[Socrata](jobs/examples/socrata/state-government.md) | Socrata | Download and parse datasets published in Socrata format
 [SolarWinds](jobs/examples/solarwinds) | JDBC | Offload incremental network and server metrics collected by SolarWinds
 [Tomcat](jobs/examples/tomcat) | JMX | Collect key container metrics exposed by Tomcat
 [VMware](jobs/examples/vmware) | JDBC | Offload incremental cluster, host, VM metrics collected by VMware vCenter
