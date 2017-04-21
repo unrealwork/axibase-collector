@@ -116,9 +116,9 @@ Input: **ftp.example.com/data/95014_Cupertino_20160625_DAILY.csv**
 
 ### String Function Examples
 
-The following examples are based on the [`Path `](file.md#download) field value and can be used to define [`Default Entity`](file.md#upload).
+The following examples are based on the [`Path`](file.md#download) field.
+The Path field can be used to define [`Default Entity`](file.md#upload).
 
-A [`Word`](file.md#upload) A [download](./file.md#download) [installation](../installation.md) [`Default Entity`](./file.md#upload) [Word](file.md#upload) [`Word`](file.md#upload).
 #### keep_after 
 * `file:///opt/files/cpu_busy.*` 
 * `${PATH?keep_after('.')}` 
