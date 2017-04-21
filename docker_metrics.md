@@ -1,6 +1,6 @@
 ## Docker Metrics
 
-### Collected by [DOCKER Job](jobs/docker.md) 
+### Collected by [DOCKER Job](./jobs/docker.md)
 
 ### Host Metrics
 
@@ -137,7 +137,7 @@ docker.diskio.sectors.* | I/O | The number of 512-bytes sectors read and written
 docker.fs.size.rw | File System | The total size of all the files in the container, in bytes. If you were to export the filesystem of the container as a tarball, it would be about that size.
 docker.fs.size.rootfs | File System | The size of the files which have been created or changed, if you compare the container to its base image. Just after creation, this should be zero; as you modify (or create) files, this will increase.
 docker.process.all | Process | The number of all processes for running container. 
-docker.process.filtered | Process | The number of all processed which have been filtered by [field 'Excluded Processes'](/jobs/docker.md#job-settings) for running conteiner.
+docker.process.filtered | Process | The number of all processed which have been filtered by [field 'Excluded Processes'](./jobs/docker.md#job-settings) for running conteiner.
 docker.pids.current | Process | The number of pids in the cgroup (Linux specific stats, not populated on Windows.)
 docker.pids.limit | Process | The hard limit on the number of pids in the cgroup. A "Limit" of 0 means that there is no limit. (Linux specific stats, not populated on Windows.)
 docker.storage.read.count.normalized | I/O | The disk stats on Windows.
@@ -145,7 +145,7 @@ docker.storage.read.size | I/O | The disk stats on Windows.
 docker.storage.write.count.normalized | I/O | The disk stats on Windows.
 docker.storage.write.size | I/O | The disk stats on Windows.
 
-### Collected by [TCP Job](/jobs/tcp.md) 
+### Collected by [TCP Job](./jobs/tcp.md)
 
 ### Container Metrics
 
@@ -154,7 +154,7 @@ Name | Category | Description
 docker.tcp-connect-status | Network | Connection status for the container port.
 docker.tcp-connect-time | Network | Number of milliseconds spent on opening the connection to the container port.
 
-### Collected by [SCRIPT](jobs/docker/volume-size.md)
+### Collected by [SCRIPT](./jobs/docker/volume-size.md)
 
 ### Volume Metrics
 

@@ -8,7 +8,7 @@ Axibase Collector can be configured to extract data from the PI Server via JDBC,
 
 ## Preconditions
 
-Before starting to configure the PI job, you should have the PI JDBC driver installed and put into the Collector's classpath. To do it, follow the steps in [the manual](examples/pi/export-metrics.mde#provide-axibase-collector-with-pi-jdbc-driver).
+Before starting to configure the PI job, you should have the PI JDBC driver installed and put into the Collector's classpath. To do it, follow the steps in [the manual](examples/pi/export-metrics.md#provide-axibase-collector-with-pi-jdbc-driver).
 
 ## Job Settings
 

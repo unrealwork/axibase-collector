@@ -2,12 +2,13 @@
 
 This list contains references to datasets released by State Governments on [data.gov](http://catalog.data.gov/dataset?q=&sort=views_recent+desc&organization_type=State+Government&res_format=JSON) in [Socrata](https://github.com/socrata) format (JSON).
 
-#Dataset Types:
-##[Series](#series-1)
-##[Messages](#messages-1)
+# Dataset Types:
+* [Series](#series)
+* [Messages](#messages)
+
 ___
 
-##Series
+## Series
 ### Datasets
 
 | **State** | **Name** | **Attribution** |
@@ -683,7 +684,7 @@ series e:yrss-ncc4 d:1998-03-31T00:00:00.000Z t:industry_type=Farm t:industry=Fa
 }
 ```
 
-##Messages
+## Messages
 ### Datasets
 
 | **State** | **Name** | **Attribution** |

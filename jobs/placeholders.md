@@ -116,7 +116,8 @@ Input: **ftp.example.com/data/95014_Cupertino_20160625_DAILY.csv**
 
 ### String Function Examples
 
-The following examples are based on the [`Path `](file.md#download) field value and can be used to define [`Default Entity`](file.md#upload).
+The following examples are based on the [`Path`](file.md#download) field.
+The Path field can be used to define [`Default Entity`](file.md#upload).
 
 #### keep_after 
 * `file:///opt/files/cpu_busy.*` 
