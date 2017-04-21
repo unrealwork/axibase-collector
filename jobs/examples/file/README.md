@@ -13,4 +13,3 @@
 * [stackoverflow](stackoverflow)
 * [uk-caa](uk-caa)
 * [yahoo-finance](yahoo-finance)
-* [airnow](airnow)
