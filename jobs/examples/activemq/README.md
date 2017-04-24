@@ -208,4 +208,4 @@ Imported rules:
 | *activemq_unauthorized_connection* | Raise an alert when connection from unauthorized IP adddress is detected. |
 
 
-To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/rule-engine/rule-engine.md).
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/rule-engine/README.md).

@@ -104,4 +104,4 @@ Imported rules:
 | jvm_runtime_property_changed | Raise an alert when an application property is changed. |
 | jvm_system_load | Raise an alert when an application system load exceeds the set threshold. |
 
-To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/rule-engine/rule-engine.md).
+To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/rule-engine/README.md).

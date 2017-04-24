@@ -132,7 +132,7 @@ FILE protocol supports directory traversal.
 | Use Current Time | Enables all data contained in the CSV file to be stored with the current time of the Collector instead of the date/time possibly contained in the file. This option should be used when the CSV file doesn't contain any time/date information.|
 | Time Zone | Time Zone which should be used by ATSD when parsing the datetime column in the CSV file, if the datetime format does not contain information about the time zone.|
 | Wait for Upload | Wait for ATSD to finish validating and parsing the uploaded file. If disabled, the server responds HTTP Code 200 (success) immediately after the file is transferred to ATSD. If Wait for Upload is disabled, the collector job may not know if the upload file is valid and if it contains any errors. |
-| Process in Rule Engine | Process parsed commands in the [ATSD Rule Engine](https://axibase.com/products/axibase-time-series-database/rule-engine/ "Rule Engine"). If enabled, allows the data in the CSV file to be checked by rules. |
+| Process in Rule Engine | Process parsed commands in the [ATSD Rule Engine](https://github.com/axibase/atsd/blob/master/rule-engine/README.md "Rule Engine"). If enabled, allows the data in the CSV file to be checked by rules. |
 | Ignore Unchanged Files | Prevents unchanged files from being repeatedly uploaded into the database. When enabled, the collector compares the downloaded file's last modified time (FILE, FTP, SFTP) or MD5 hashcode (HTTP, HTTP_POOL, SCP) with the previously stored information and ignores the upload if the file hasn't changed. For FTP and SFTP protocols, the remote files with unchanged last modified times are not downloaded to the collector host.|
 
 ### Post-Processing
