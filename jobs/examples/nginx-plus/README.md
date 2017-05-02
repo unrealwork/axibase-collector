@@ -5,7 +5,7 @@ This document describes how to collect various metrics from an NGINX PLUS web se
 
 The periodic data collection can be organized in several ways:
 * Configuring Axibase Collector JSON job to periodically poll server's status page and upload obtained data for parsing in ATSD.
-* Using [axibase_nginx_plus_collector](../../../jobs/examples/nginx-plus/axibase-nginx-plus-collector/src) python script along with an OS scheduler. This way is described at [axibase_nginx_plus_collector page](../../../jobs/examples/nginx-plus/axibase-nginx-plus-collector).
+* Using [axibase_nginx_plus_collector](https://github.com/axibase/axibase-collector/tree/master/jobs/examples/nginx-plus/axibase-nginx-plus-collector/src) python script along with an OS scheduler. This way is described at [axibase_nginx_plus_collector page](../../../jobs/examples/nginx-plus/axibase-nginx-plus-collector).
 
 The document will provide instructions for the first way of configuring.
 ## Requirements
@@ -25,7 +25,7 @@ Login into Axibase Collector web interface.
 ![Server list example](./images/ngp_item_list.png)
 
 ### Import a job
-* Import the [nginx-plus-collector-job.xml](./configs/nginx-plus-collector-job.xm) job on the **Jobs:Import** page.
+* Import the [nginx-plus-collector-job.xml](./configs/nginx-plus-collector-job.xml) job on the **Jobs:Import** page.
 * Open the `nginx-plus-statistics` JSON job.
 * If the 'Storage' drop-down is set to `None`, select the target ATSD server.
 * Set Status to Enabled.
