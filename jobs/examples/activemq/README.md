@@ -116,7 +116,7 @@ chmod 600 ./conf/jmx.password
 1. Locate the `jmx-activemq` job.
 1. On the JMX Job page, enable its status by checking on the 'Enabled' check box.
 1. Adjust the cron expression if required. By default, the job will be executed every 10 seconds.
-  - For more information on cron expressions, see [Scheduling](http://axibase.com/products/axibase-time-series-database/writing-data/collector/set_schedule/).
+  - For more information on cron expressions, see [Scheduling](../../../scheduling.md).
 ![JMX_JOB](https://axibase.com/wp-content/uploads/2016/03/jmx_job_to_configuration.png)
 
 ##### Configuring activemq-series
