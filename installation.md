@@ -1,31 +1,31 @@
 # Axibase Collector Installation
 
-## Install Java 7 JDK:
+## Install Java 8 JDK:
 
 #### OpenJDK on Ubuntu or Debian
 
 ```sh
 sudo apt-get update
-sudo apt-get install openjdk-7-jdk
+sudo apt-get install openjdk-8-jdk
 ```
 
 #### OpenJDK on RHEL, SLES, CentOS
 
 ```sh
-sudo yum install java-1.7.0-openjdk-devel
+sudo yum install java-1.8.0-openjdk-devel
 ```
 
 #### Oracle JDK
 
-Download Java 7 JDK from the [Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
+Download Java 8 JDK from the [Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 ```sh
-sudo rpm -i jdk-7u80-linux-x64.rpm
+sudo rpm -i jdk-8u131-linux-x64.rpm
 ```
 
 ## Verify Java Installation
 
-Verify that the `java` command displays version 1.7.x.
+Verify that the `java` command displays version 1.8.x.
 
 ```sh
 java -version
