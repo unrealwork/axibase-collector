@@ -33,7 +33,7 @@ Click Test to verify the settings:
 #### Recommended HTTP Pool Settings
 
 **Setting** | **Value**
------ | ----- | -----
+----- | -----
 Max Connections | 16
 Use Cookies | false
 Connection Pool Timeout | 15
