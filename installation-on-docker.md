@@ -117,7 +117,9 @@ Take note of the public https port assigned to axibase-collector container, i.e.
 
 ## Login
 
-Open https://hostname:9443 in your browser and create an [administrator account](configure-administrator-account.md).
+Open https://docker_hostname:32769 in your browser and create an [administrator account](configure-administrator-account.md). 
+
+`docker_hostname` is the hostname or IP address of the Docker host and **32769** is the external port number assigned to the Collector container in the previous step.
 
 ## Setup ATSD Connection
 
