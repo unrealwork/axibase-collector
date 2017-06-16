@@ -88,7 +88,7 @@ The Collector supports data markers to minimize the load on the source systems a
 [JDBC](jobs/jdbc.md) | Executes SQL queries against relational databases.<br>Converts rows into series,  property, or message commands.
 [JMX](jobs/jmx.md) | Collects MBean attribute values from Java applications.
 [JSON](jobs/json.md) | Downloads JSON files, parses the documents and converts JSON fields into series, property, and message commands using JSONPath.
-[Kafka](jobs/kafka.md) | Reads messages from Kafka broker(s), parses and converts into series, property, and message commands.
+[Kafka](jobs/kafka.md) | Reads JSON messages from Kafka brokers, parses the messages and converts them into series, property, and message commands.
 [OVPM](jobs/ovpm.md) | Offloads statistics from HP OpenView Performance Manager.
 [PI](jobs/pi.md) | Extracts PI points archive data via JDBC driver.
 [SNMP](jobs/snmp.md) | Queries SNMP devices using built-in and custom MIB files.
