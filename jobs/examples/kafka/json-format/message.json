@@ -1,0 +1,12 @@
+{
+  "pitagname":"AXI.REM-1612-26B/PV.CV",
+  "pitagvalue":"84.488",
+  "pointtype":"Float32",
+  "questionable":0,
+  "substituted":0,
+  "timestamp":"2016-03-09T17:47:23.000",
+  "localtime":"2016-03-09T19:47:23.000",
+  "annotated":0,
+  "original_timestamp_from_sdk":"2016-03-09T19:47:23.000",
+  "path":"/Axibase/NUR/AXI/Harvest/CT-1612"
+}
