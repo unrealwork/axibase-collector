@@ -94,7 +94,7 @@ Message Field   | Field with value that will be used as message text.
 
 ```json
 {
-  "pitagname":"AR6.R06PIS01:SIC-84-601.PV",
+  "pitagname":"AXI.R06PIS01:SIC-84-601.PV",
   "pitagvalue":"149.478",
   "pointtype":"Float32",
   "questionable":0,
@@ -103,7 +103,7 @@ Message Field   | Field with value that will be used as message text.
   "localtime":"2015-12-25T13:28:14.000",
   "annotated":0,
   "original_timestamp_from_sdk":"2015-12-25T13:28:14.000",
-  "path":"/Axibase/NUR/AR6/Upstream/84BR02"
+  "path":"/Axibase/NUR/AXI/Upstream/84BR02"
 }
 ```
 
@@ -111,5 +111,5 @@ Message Field   | Field with value that will be used as message text.
 * Sample Command:
 
 ```ls
-series e:/axibase/nur/ar6/upstream/84br02 d:2015-12-25T13:28:14.000Z m:AR6.R06PIS01:SIC-84-601.PV=149.478
+series e:/axibase/nur/axi/upstream/84br02 d:2015-12-25T13:28:14.000Z m:AXI.R06PIS01:SIC-84-601.PV=149.478
 ```
