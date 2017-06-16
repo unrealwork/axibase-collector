@@ -4,7 +4,7 @@
 
 ```json
 {
-  "pitagname":"AR5.PIC-1612-26B/PV.CV",
+  "pitagname":"AXI.REM-1612-26B/PV.CV",
   "pitagvalue":"84.488",
   "pointtype":"Float32",
   "questionable":0,
@@ -13,7 +13,7 @@
   "localtime":"2016-03-09T19:47:23.000",
   "annotated":0,
   "original_timestamp_from_sdk":"2016-03-09T19:47:23.000",
-  "path":"/Axibase/NUR/AR5/Harvest/CT-1612"
+  "path":"/Axibase/NUR/AXI/Harvest/CT-1612"
 }
 ```
 
@@ -42,7 +42,7 @@ Metric Value Field | pitagvalue
 ## Command
 
 ```ls
-series e:/axibase/nur/ar5/harvest/ct-1612 d:2016-03-09T19:47:23.000Z m:AR5.PIC-1612-26B/PV.CV=84.488
+series e:/axibase/nur/axi/harvest/ct-1612 d:2016-03-09T19:47:23.000Z m:AXI.REM-1612-26B/PV.CV=84.488
 ```
 
 ## Screenshots
