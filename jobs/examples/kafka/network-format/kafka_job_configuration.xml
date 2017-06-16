@@ -1,0 +1,33 @@
+<com.axibase.collector.model.job.kafka.KafkaJobConfig>
+    <name>network-format</name>
+    <cronExpression>0 * * * * ?</cronExpression>
+    <enabled>false</enabled>
+    <jobType>KAFKA</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <consumerConfiguration>
+        <name>consumer-to-kafka-2.0.1-1.2.0.1.p0.5 (0.9) - old kafka broker</name>
+        <servers>172.17.0.1:9093</servers>
+        <readTimeout>3</readTimeout>
+        <pollTimeout>500</pollTimeout>
+        <securityProtocol>PLAINTEXT</securityProtocol>
+        <properties/>
+    </consumerConfiguration>
+    <configurations>
+        <com.axibase.collector.model.job.kafka.KafkaConfiguration>
+            <name>test</name>
+            <groupId>load</groupId>
+            <topicName>load-network</topicName>
+            <messageFormat>NETWORK</messageFormat>
+            <useListener>true</useListener>
+            <ignoreInvalidCommands>false</ignoreInvalidCommands>
+            <offsetResetStrategy>EARLIEST</offsetResetStrategy>
+            <syncCommit>true</syncCommit>
+            <batchSize>5000</batchSize>
+            <lastCount>100</lastCount>
+            <settings/>
+        </com.axibase.collector.model.job.kafka.KafkaConfiguration>
+    </configurations>
+</com.axibase.collector.model.job.kafka.KafkaJobConfig>

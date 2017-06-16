@@ -82,16 +82,17 @@ The Collector supports data markers to minimize the load on the source systems a
 ----- | -----
 [AWS](jobs/aws.md) | Collects AWS statistics using CloudWatch API.
 [Docker](jobs/docker.md) | Collects container, image, and volume statistics using Docker Engine API.
-[JDBC](jobs/jdbc.md) | Executes SQL queries against relational databases.<br>Converts rows into series,  property, or message commands.
 [File](jobs/file.md) | Downloads CSV/TSV files from remote servers or local file system and uploads them into ATSD for parsing.<br>Supports HTTP/s, FTP, SFTP, SCP, and FILE protocols.
-[JSON](jobs/json.md) | Downloads JSON files, parses the documents and converts JSON fields into series, property, and message commands using JSONPath.
-[Socrata](jobs/socrata.md) | Downloads JSON documents published in Socrata schema and converts them into series, property, and message commands.
-[JMX](jobs/jmx.md) | Collects MBean attribute values from Java applications.
 [HTTP](jobs/http.md) | Executes HTTP requests or Web Driver scripts and stores response status and response times as metrics.
 [ICMP](jobs/icmp.md) | Pings hostnames/IP addresses and stores response status.
+[JDBC](jobs/jdbc.md) | Executes SQL queries against relational databases.<br>Converts rows into series,  property, or message commands.
+[JMX](jobs/jmx.md) | Collects MBean attribute values from Java applications.
+[JSON](jobs/json.md) | Downloads JSON files, parses the documents and converts JSON fields into series, property, and message commands using JSONPath.
+[Kafka](jobs/kafka.md) | Reads messages from Kafka broker(s), parses and converts into series, property, and message commands.
 [OVPM](jobs/ovpm.md) | Offloads statistics from HP OpenView Performance Manager.
 [PI](jobs/pi.md) | Extracts PI points archive data via JDBC driver.
 [SNMP](jobs/snmp.md) | Queries SNMP devices using built-in and custom MIB files.
+[Socrata](jobs/socrata.md) | Downloads JSON documents published in Socrata schema and converts them into series, property, and message commands.
 [TCP](jobs/tcp.md) | Connects to hostnames/IP addresses and stores connection status.
 
 ## Administration
