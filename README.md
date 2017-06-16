@@ -52,6 +52,7 @@ The Collector supports data markers to minimize the load on the source systems a
 
 ## Supported APIs
 
+* Kafka
 * Amazon Web Services CloudWatch
 * Docker Engine
 * HP OVPM (Performance Manager)
