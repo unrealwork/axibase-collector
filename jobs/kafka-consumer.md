@@ -23,7 +23,7 @@ If `SSL` protocol is selected, we need to configure additional settings:
 
 **Field** | **Description**
 --------- | ---------------
-Key Store | Key stores:<br>\*custom - use custom trust/key stores<br>\*default - use Collector stores
+Key Store | Key stores:<br>\* CUSTOM - use custom trust/key stores<br>\* DEFAULT - use Collector stores
 Trust Store Path | The location of the trust store file.
 Trust Store Password | The password for the trust store file.
 Two-Way Authentication | Enable 2-Way Authentication (client verification).
