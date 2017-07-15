@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Docker collects properties, events, and statistics from Docker daemons via [Docker Engine Remote API](https://docs.docker.com/engine/reference/api/docker_remote_api/).
+The Docker Job collects container statistics, states, and events from the Docker daemons via [Docker Engine Remote API](https://docs.docker.com/engine/reference/api/docker_remote_api/).
 
 The information is collected for the following object types:
 
@@ -37,7 +37,7 @@ In local collection mode, Axibase Collector containers run on each Docker host a
 
 - Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
 - Replace `atsd_host` and `atsd_https_port` with the ATSD hostname/IP address and https port (default 8443).
-- Replace `collector-rw` and `collector-password` with legitimate credentials in the script below.
+- Replace `collector-rw` and `collector-password` with valid credentials in the script below.
 - Start Axibase Collector container:
 
 ```properties
