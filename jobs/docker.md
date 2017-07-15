@@ -2,7 +2,7 @@
 
 ## Overview
 
-Docker Job collects properties, events, and statistics from Docker daemons via [Docker Engine Remote API](https://docs.docker.com/engine/reference/api/docker_remote_api/).
+The Docker collects properties, events, and statistics from Docker daemons via [Docker Engine Remote API](https://docs.docker.com/engine/reference/api/docker_remote_api/).
 
 The information is collected for the following object types:
 
@@ -35,9 +35,9 @@ In local collection mode, Axibase Collector containers run on each Docker host a
 
 ![Local Collection](docker-local.png)
 
-- Create [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
-- Replace `atsd_host` and `atsd_https_port` with ATSD hostname/IP address and https port (default 8443).
-- Replace `collector-rw` and `collector-password` with actual credentials below.
+- Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
+- Replace `atsd_host` and `atsd_https_port` with the ATSD hostname/IP address and https port (default 8443).
+- Replace `collector-rw` and `collector-password` with legitimate credentials in the script below.
 - Start Axibase Collector container:
 
 ```properties
@@ -74,7 +74,7 @@ docker run \
 
 It may take up to 5 minute to initialize the Collector's database from the initial start.
 
-The Docker job should start executing immediately, even if collector user has not been created.
+The Docker job should start executing immediately.
 
 > On hosts with SELinux enabled, the container will run into a `permission denied` error when trying to read data from  `/var/run/docker.sock`. Switch to the Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
 
@@ -96,9 +96,9 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 ### Enable Remote API Access on Docker Hosts
 
-* Login into Docker host via SSH and generate [client and server certificates](docker-certificates.md).
+* Log in to the Docker host via SSH and generate [client and server certificates](docker-certificates.md).
 
-* Configure Docker daemon for secure access by default.
+* Configure the Docker daemon for secure access by default.
 
 * Edit the `/etc/default/docker` file for Ubuntu or create a `/etc/sysconfig/docker` file for CentOS:
 
@@ -144,7 +144,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 ### Launch Axibase Collector Container
 
-* Create [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
+* Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
 
 * Start Axibase Collector container, replacing `collector-rw` and `collector-password` with actual credentials:
 
@@ -157,7 +157,7 @@ docker run \
    -atsd-url=https://collector-rw:collector-password@atsd_host:atsd_https_port
 ```
 
-If the user name or password contains `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
+If the user name or password contains a `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
 The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/administration/user-authentication.md#password-requirements).
 
@@ -167,14 +167,14 @@ The password must contain at least **6** characters and is subject to the follow
 docker ps -a | grep axibase-collector
 ```
 
-* Login into Axibase Collector web interface at `https://hostname:port`.
+* Login into the Axibase Collector web interface at `https://hostname:port`.
 * Open the **Jobs > Docker > Add Job** page and enter the job name. Click **Enabled** to enable the job. Click Save.
 * Click the [Use Wizard] button, specify the Docker Engine hostname, API port (2376), and attach `{cert,key,ca}.pem` files.
 * Click Validate and Save the job if the test is successful.
 
 ## Validation
 
-Login into ATSD and verify that connected Docker hosts are displayed on the 'Entities: Docker Hosts' page.
+Log in to ATSD and verify that connected Docker hosts are displayed on the 'Entities: Docker Hosts' page.
 
 If the Docker host is missing in ATSD, open the 'Jobs' page in Collector, check the **Result** column, and review the **Execution Details** page for any errors.
 
@@ -190,7 +190,7 @@ The following message indicates that the initial configuration is finished:
 
 ## UI
 
-Check the https port that is assigned to collector and open it in your browser: https://container-ip:port
+Check the https port that is assigned to the collector and open it in your browser: https://container-ip:port
 
 ```sh
 docker ps | grep axibase-collector
@@ -214,4 +214,4 @@ See "Workarounds" in [#18180](https://github.com/docker/docker/issues/18180#issu
 
 ## Testing and Evaluating
 
-You can launch both **atsd** and **axibase-collector** containers in a [test environment](docker-compose.md) using  `docker-compose`.
+You can launch both the **atsd** and **axibase-collector** containers in a [test environment](docker-compose.md) using  `docker-compose`.
