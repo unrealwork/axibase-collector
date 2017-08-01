@@ -2,9 +2,9 @@
 
 ## Overview
 
-The Docker Job collects container statistics, states, and events from the Docker daemons via [Docker Engine Remote API](https://docs.docker.com/engine/reference/api/docker_remote_api/).
+The Docker Job collects container statistics, states, and events from Docker daemons via the [Docker Engine Remote API](https://docs.docker.com/engine/reference/api/docker_remote_api/).
 
-The information is collected for the following object types:
+Information is collected for the following object types:
 
 * Host
 * Image
@@ -16,12 +16,12 @@ The information is collected for the following object types:
 
 **Name** | **Description**
 ----- | -----
-`API Version` | API version used when querying Docker Engine API. Defaults to 'latest'. <br>Can be set to a specific version to ensure compatibility.
-`Lifecycle Event Monitoring` | Enable continuous monitoring of container lifecycle events instead of scheduled polling.
+`API Version` | API version used when querying the Docker Engine API. Defaults to 'latest'. <br>Can be set to a specific version to ensure compatibility.
+`Lifecycle Event Monitoring` | Enables continuous monitoring of container lifecycle events instead of scheduled polling.
 `Property Interval`, minutes | Interval for refreshing detailed image and container properties.
 `Statistics Interval`, seconds | Interval at which utilization statistics from running containers are collected.
 `Process Interval`, minutes | Interval at which top process list is collected from running docker containers.
-`Excluded Processes` | List of expressions, separated by comma, to exclude matching processes (ps aux) from collection. The expressions support * as a wildcard.
+`Excluded Processes` | Lists processes, separated by comma, to exclude from collection. Expressions support the wildcard option (*).
 `Environment Tags` | List of ENV variables stored as entity tags.
 
 ## Prerequisites
@@ -90,7 +90,7 @@ The Docker job should start executing immediately.
 
 ## Remote Collection
 
-In remote collection mode Axibase Collector fetches data from multiple remote Docker hosts using `https` protocol.  
+In remote collection mode Axibase Collector fetches data from multiple remote Docker hosts using https protocol.  
 
 ![Local Collection](docker-remote.png)
 
@@ -111,7 +111,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
    ```
 
-* For CentOS, in addition, create the file `/etc/systemd/system/docker.service.d/docker.conf`:
+* For CentOS, additionally create the file `/etc/systemd/system/docker.service.d/docker.conf`:
 
    ```properties
    [Service]
@@ -146,7 +146,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
 
-* Start Axibase Collector container, replacing `collector-rw` and `collector-password` with actual credentials:
+* Start Axibase Collector container, replacing `collector-rw` and `collector-password` with valid credentials:
 
 ```properties
 docker run \
@@ -167,10 +167,10 @@ The password must contain at least **6** characters and is subject to the follow
 docker ps -a | grep axibase-collector
 ```
 
-* Login into the Axibase Collector web interface at `https://hostname:port`.
+* Log in to the Axibase Collector web interface at `https://hostname:port`.
 * Open the **Jobs > Docker > Add Job** page and enter the job name. Click **Enabled** to enable the job. Click Save.
 * Click the [Use Wizard] button, specify the Docker Engine hostname, API port (2376), and attach `{cert,key,ca}.pem` files.
-* Click Validate and Save the job if the test is successful.
+* Click Validate and then Save if the test is successful.
 
 ## Validation
 
@@ -190,13 +190,13 @@ The following message indicates that the initial configuration is finished:
 
 ## UI
 
-Check the https port that is assigned to the collector and open it in your browser: https://container-ip:port
+Verify the https port that is assigned to the collector and open it in your browser: https://container-ip:port
 
 ```sh
 docker ps | grep axibase-collector
 ```
 
-Locate the **docker-socket** job on the 'Jobs' list and check that it's enabled and `Items Read` is not 0.
+Locate the **docker-socket** job on the 'Jobs' list and verify that it is enabled and that the `Items Read` column is not 0.
 
 ## Known Issues
 
