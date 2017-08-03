@@ -107,7 +107,7 @@ The expression will select all elements of the `book` array in the root's child 
 | Metric Prefix      | Text added to metric name.<br> For example, if Metric Prefix is set to 'custom.' and the metric name is 'cpu_busy', the resulting metric name will be 'custom.cpu_busy'. |
 | Included Fields    | Specify fields that should be included into the Series command ([example](#included-fields)). If you leave the field empty, all values will be included into the command. You can use the `.` symbol for nested fields. The wildcard `*` is supported. |
 | Excluded Fields    | Specify fields that should be excluded from the Series command ([example](#excluded-fields)). You can use the `.` symbol for nested fields. The wildcard `*` is supported. |
-| Metric Name Field  | Metric name extracted from the given field in the matched object ([example](#metric-name-and-value-fields)). |
+| Metric Name Field  | Metric name extracted from the given field in the matched object ([example](#metric-name-and-value-fields)).<br>This field supports additional option:<br>- ${ITEM} = Current element in the Item List.|
 | Metric Value Field | Metric value extracted from the given field in the matched object ([example](#metric-name-and-value-fields)). |
 
 ### Property Fields
