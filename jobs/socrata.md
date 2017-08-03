@@ -36,7 +36,7 @@ If the source dataset is static and will not be updated, it may not make sense t
 
 Each Socrata job can have multiple configurations, with each loading data for a different dataset. The configurations will be executed sequentially, when the job is launched, and will send the data into the same ATSD instance. It is recommended that datasets with similar update intervals are grouped under one job for efficient processing. For example, datasets that are updated weekly can be grouped into one 'Weekly Socrata' job.
 
-#### Job Configuration
+### Job Configuration
 
 The configuration instructs Collector how to convert fields in the JSON document into series, property, and message commands.
 
@@ -44,23 +44,58 @@ The configuration instructs Collector how to convert fields in the JSON document
 
 | **Field** | **Description**  |
 | :---- |:--- |
-| Path | Full URL to the dataset including the protocol, host, port, path, and optional query string.<br>Example: 	https://data.cityofnewyork.us/api/views/f9bf-2cp4/rows.json or	https://data.cityofnewyork.us/api/views/f9bf-2cp4. The URL is typically available in the dataset [catalogs](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system) as 'Unique Identifier' under the 'Additional Metadata' section.|
+| Path | Full URL to the dataset including the protocol, host, port, path, and optional query string.<br>Example: 	https://data.cityofnewyork.us/api/views/f9bf-2cp4/rows.json or	https://data.cityofnewyork.us/api/views/f9bf-2cp4. The URL is typically available in the dataset [catalogs](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system) as 'Unique Identifier' under the 'Additional Metadata' section.<br>The Path supports the following placeholders:<br>- `${ITEM}` current element in the Item List<br>- `${TIME()}` text output of the TIME function<br>- `${DATE_ITEM()}` text output of the DATE_ITEM function.<br><br>If `${DATE_ITEM()}` is present in Path, the job will execute as many queries as there are elements returned by the `${DATE_ITEM()}` function, substituting the `${DATE_ITEM()}` placeholder with the element value for each request.<br>The Path can include either the `${DATE_ITEM()}` or `${ITEM}` function, but not both.|
+| Query Filter | Column filter passed to the datasource as part of the request, for example:<br>- single column: region==West<br>- multiple columns: mega_ball>50&&draw_date>2004-09-24<br>- column contains value: phone like '%123%'<br>Query Filter supports the following options:<br>- `${LAST_MODIFIED_TIME}` = Last modified time from previous execution
 | Name | Configuration Name. You can complete this field manually. Otherwise, it will be automatically filled in from the 'Name' field from when you initially created the job.|
-| Ignore Unchanged Files | Prevents unchanged http entities from being repeatedly processed. When enabled, Collector compares the "Last-Modified" header/MD5 hashcode (HTTP, HTTP_POOL) with the previously stored value and ignores it if there are no changes.|
+| Ignore Unchanged Files | Prevents unchanged http entities from being repeatedly processed.<br>When enabled, Collector compares the "Last-Modified" header/MD5 hashcode with the previously stored value and ignores it if there are no changes.<br>If the header is present and the value hasn't changed since the last execution, the response content is not downloaded.|
 | Skip Old Data | Ignore re-sending previously sent data when an updated dataset file is being processed.|
+| Check Each Row | Check each row when `Skip Old Data` is enabled. Use it when dataset is not ordered.
 | Item List | A collection of elements to execute multiple requests for different SOCRATA files in a loop. The current element in the loop can be accessed with the `${ITEM}` placeholder, which can be embedded into the Path and Default Entity fields.|
 | Custom Tags | Additional series, property, and message tags, specified as name=value, one tag per line. Examples: `region=${region}`, `class=${graduating_class}` |
+| Row Filter | The row filter expression excludes matching rows for which the expression evaluates to 'true'.<br>The expression should return a boolean value and may reference field values using ${field-name} placeholder, for example:<br>- compare string: `${sat_math_avg_score} == 's'`, this means that all rows with field sat_math_avg_score equal to 's' will be ignored.<br>- compare number: `${mobility} > 2000`, this means that all rows with field mobility greater than 2000 will be ignored.<br>- matches regex: `${start_date} matches \'^\d{5,}-.*$\'`, this means that all rows with field start_date like \'20132-08-07T00:00:00.000Z\' will be ignored',
 | Add Row Number | An extra metric with name `{prefix}row_number` added to series commands in case the data row doesn't contain any numeric columns.|
-| Entity | Entity name, specified literally or extracted from the specific field in the matched object (usually `$.meta.view.id`).|
+
+### Conversion Settings
+
+#### Entity Fields
+
+| **Name** | **Description** |
+|:---|:---|
+| Default Entity | Entity that will be used in all commands.<br> This field  supports the following options:<br> - Text value<br> - `${HOST}` placeholder - Hostname from which the JSON document was loaded.<br> - `${ITEM}` placeholder - Current element in the Item List.<br> - `${PARENT(n)}` placeholder - Name of the Nth parent of the matched object. `{PARENT}` is a shortcut for `${PARENT(1)}`.|
+| Entity | Entity name, specified literally or extracted from the specific field in the matched object (usually `$.meta.view.id`).<br>Entity Field supports the following options:<br>- Name of the field containing entity.<br>- JSON Path|
 | Entity Prefix | Text added to the entity name, retrieved from the specified field. For example, if Entity Prefix is set to 'custom.', and the field value is 'my-host', the resulting entity name will be 'custom.my-host'.|
+
+#### Time Fields
+
+| **Name** | **Description** |
+|:---|:---|
+| Time Default | Specify time value for all commands.<br> This field supports the following options:<br> - `${TIME()}` - text output of the TIME function.<br> - `${ITEM}` placeholder - Current element in the Item List.<br> - `${PARENT(n)}` - Name of the Nth parent of the matched object. `{PARENT}` is a shortcut for `${PARENT(1)}`.|
+| Time Field   | Field with values that specify time for all commands.<br> This field supports the following options:<br> - Name of the field containing date in the matched object<br> - JSON Path |
+| Time Format  | Date format applied when parsing time value. |
+| Time Zone    | Time zone can be optionally applied if the extracted date is in local time, otherwise the local Collector time zone is in effect. |
+
+#### Series Fields
+
+| **Name** | **Description** |
+|:---|:---|
 | Metric Prefix | Text added to the metric name. For example, if Metric Prefix is set to 'custom.', and the metric name is 'cpu_busy', the resulting metric name will be 'custom.cpu_busy'.|
 | Included Fields | By default, all numeric fields from nested objects are included in commands. The list of included fields can be overridden explicitly by specifying their names, separated by comma.|
 | Excluded Fields | List of particular field names to be excluded from commands. Applies when 'Included Fields' is empty.|
 | Annotation Fields | List of fields whose values will be saved as 'text' annotation along with the numeric value.|
-   
+
+
+
 ### Configuration Example
 
-![Socrata Configuration Example](socrata_cdc_example.png)
+![Socrata Configuration](images/socrata_job_configuration.png)
+
+![Socrata Configuration Settings](images/socrata_job_configuration_settings.png)
+
+#### Dataset Info
+![Socrata Dataset Info](images/socrata_job_dataset_info.png)
+
+#### Columns Info
+![Socrata Columns Info](images/socrata_job_columns_info.png)
 
 * Dataset URL: https://data.cdc.gov/api/views/mr8w-325u
 * Sample Command:
