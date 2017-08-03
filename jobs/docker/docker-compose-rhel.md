@@ -1,11 +1,11 @@
 # Launching Linked Containers with `docker-compose`
 
-You can launch linked ATSD and Axibase Collector containers on the same Docker host with `docker-compose`. 
+You can launch linked ATSD and Axibase Collector containers on the same Docker host with `docker-compose`.
 There are two alternatives for passing common parameters to both containers:
 
 * Export parameters as environment variables
 * Use composite yml files
- 
+
 ## Export Credentials as Environment Variables
 
 `docker-compose.yml`
@@ -16,7 +16,7 @@ version: '2'
 services:
 
   atsd:
-    image: axibase/atsd:latest
+    image: registry.connect.redhat.com/axibase/atsd:latest
     ports:
       - "8088:8088"
       - "8443:8443"
@@ -31,7 +31,7 @@ services:
       - COLLECTOR_USER_TYPE=api-rw
 
   collector:
-    image: axibase/collector:latest
+    image: registry.connect.redhat.com/axibase/collector:latest
     depends_on:
       - atsd
     ports:
@@ -62,7 +62,7 @@ services:
   base:
     environment:
       COLLECTOR_USER_NAME: myuser
-      COLLECTOR_USER_PASSWORD: mypassword 
+      COLLECTOR_USER_PASSWORD: mypassword
       COLLECTOR_USER_TYPE: api-rw
 ```
 
@@ -73,7 +73,7 @@ version: '2'
 
 services:
   atsd:
-    image: axibase/atsd:latest
+    image: registry.connect.redhat.com/axibase/atsd:latest
     ports:
       - "8088:8088"
       - "8443:8443"
@@ -87,9 +87,9 @@ services:
       service: base
 
   collector:
-    image: axibase/collector:latest
+    image: registry.connect.redhat.com/axibase/collector:latest
     depends_on:
-      - atsd    
+      - atsd
     ports:
       - "9443:9443"
     container_name: axibase-collector
