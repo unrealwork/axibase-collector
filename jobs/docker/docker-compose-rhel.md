@@ -51,19 +51,15 @@ export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose up -d
 ```
 
 
-## Specify Credentials in `base.yml` File
+## Specify Credentials in `.env` File
 
-`base.yml`
+`.env`
 
 ```yaml
-version: '2'
+COLLECTOR_USER_NAME=myuser
+COLLECTOR_USER_PASSWORD=mypassword
+COLLECTOR_USER_TYPE=api-rw
 
-services:
-  base:
-    environment:
-      COLLECTOR_USER_NAME: myuser
-      COLLECTOR_USER_PASSWORD: mypassword
-      COLLECTOR_USER_TYPE: api-rw
 ```
 
 `docker-compose.yml`
@@ -82,9 +78,6 @@ services:
     container_name: atsd
     hostname: atsd
     restart: always
-    extends:
-      file: base.yml
-      service: base
 
   collector:
     image: registry.connect.redhat.com/axibase/collector:latest
@@ -94,9 +87,6 @@ services:
       - "9443:9443"
     container_name: axibase-collector
     restart: always
-    extends:
-      file: base.yml
-      service: base
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
