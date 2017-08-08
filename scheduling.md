@@ -65,7 +65,7 @@ Second, minute, and hour fields support **R** (random) symbol to randomize execu
 |:---|---:|---:|---:|---:|---:|---:|:---|
 | `0 0/15 * * * ?` | 0 | 0/15 | * | * | * | ? | Every 15 minutes. |
 | `0 5 4 * * ?`    | 0 | 5 | 4 | * | * | ? | At 04:05 every day. |
-| `0/10 * * * * ?` | 0 | 0/10 | * | * | * | ? | Every 10 seconds. |
+| `0/10 * * * * ?` | 0/10 | * | * | * | * | ? | Every 10 seconds. |
 | `0 0/1 * * * ?`  | 0 | 0/1 | * | * | * | ? | Every minute. |
 | `0 0 0 * * ?`    | 0 | 0 | 0 | * | * | ? | Every day at 00:00. |  
 | `R 0/5 * * * ?`  | R | 0/5 | * | * | * | ? | Every 5 minutes at a random second. |
