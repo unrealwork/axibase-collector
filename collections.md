@@ -20,11 +20,13 @@ Supported list types:
 Job types with support for Item List automation:
 
 * FILE
-* JSON
-* TCP
+* HTTP
 * ICMP
+* JSON
 * OVPM
 * SNMP
+* SOCRATA
+* TCP
 
 ### Configuration
 
@@ -80,19 +82,29 @@ List items should be separated by a line break.
 
 #### FILE
 
-Reads lines from a file on the local filesystem. 
+Reads lines from a file on the local filesystem.
 
-Absolute path to the target file should be specified in the `Path` field. 
+**Field** | **Description**
+:--- | :---
+`Path` | Absolute path to the text file containing Item List elements
+`Item Filter` | Expression for matching item. This field also supports regex expression, for example: REGEXP(expression).
 
 If the file is not found, an empty list is returned. List items in the file should be separated with a line break.
 
 ![FILE Type](images/collection_file_type.png)
 
+Exclude items which end with `axibase.com`:
+
+![FILE Type](images/collection_file_type_filtered.png)
+
 #### SCRIPT
 
 Executes a script specified in the `Command` field and reads lines from a standard output as list items.
 
-Only scripts in the `${COLLECTOR_HOME}/conf/scripts` directory can be executed.
+**Field** | **Description**
+:--- | :---
+`Path to the Script` | Relative path to a script file returning Item List elements.<br>Scripts should be located in $AXIBASE_COLLECTOR_HOME/conf/scripts directory.
+`Command` | A list of commands returning Item List elements. During execution a temporary file is created in the directory $AXIBASE_COLLECTOR_HOME/conf/scripts, also this directory is used as working directory.<br>It is recommended to specify a command interpreter by providing a shebang on the first line, e.g. #!/usr/bin/env bash.<br>You must provide the setting 'script.text.execute.allow=true' in server.properties file in order to be able to use this feature.
 
 The `Command` field should start with the script file name (absolute path not supported) and optional script arguments.
 
@@ -145,14 +157,29 @@ ent-3
 
 Reads lines from a remote file/page.
 
-If the file is not found, an empty list is returned. List items should be separated with a line break.
+**Field** | **Description**
+:--- | :---
+`HTTP Pool` | HTTP Pool specifying connection properties to ATSD from which the records will be retrieved.
+`Path` | HTTP(s) Path to file. If HTTP Pool is enabled, the path should be relative. Otherwise the Path should be a full URI including the protocol, host, port and path.
+`Content Format` | Content format in the file. Supported formats: `MULTILINE_TEXT` and `JSON`.
+`Item Filter`| Expression for matching item. This field also supports regex expression, for example: REGEXP(expression).
+`JSON Path` | JSON Path expression to match a list of items in the JSON document.
+`Separator` | Separator used when concatenating multiple field values.
+
+If the file is not found, an empty list is returned. List items should be separated with a line break when the `MULTILINE_TEXT` format is selected.
+
+Examples:
+* [MULTILINE_TEXT](#example-with-multiline-text-content)
+* [JSON](#example-with-json-content)
+
+##### Example with `MULTILINE_TEXT` content
 
 ![URL Type](images/collection_url_type.png)
 
 ***Example***
 
 ```
-URL = http://m.uploadedit.com/ba3s/1490691073396.txt
+URL = http://m.uploadedit.com/bbtc/1502281772577.txt
 ```
 
 Remote file content:
@@ -162,6 +189,8 @@ Remote file content:
 2128406
 2513822
 2513836
+2513838
+2513839
 ```
 
 result:
@@ -170,11 +199,23 @@ result:
 2128406
 2513822
 2513836
+2513838
+2513839
 ```
+
+##### Example with `JSON` content:
+
+![URL Type JSON](images/collection_url_type_json.png)
 
 #### QUERY
 
 Selects data from a database with a SELECT query.
+
+**Field** | **Description**
+:--- | :---
+`Database` | Database from which the item list records will be selected.
+`Query` | SELECT query for retrieving item list elements. Values contained in multiple columns are concatenated using specified separator.
+`Separator` | Separator used when concatenating multiple column values.
 
 Each item is created by concatenating values from **all** columns in a given row separated by the specified token.
 
@@ -185,6 +226,18 @@ If the result set is empty, an empty list is returned.
 #### ATSD_PROPERTY
 
 Requests a list of property records from ATSD with the [property query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) method. 
+
+**Field** | **Description**
+:--- | :---
+`HTTP Pool` | HTTP Pool specifying connection properties to ATSD from which the records will be retrieved.
+`Property Type` | Property type to be retrieved.
+`Entity` | Entity name or pattern containing * as a wildcard.
+`Entity Group` | Entity group name to filter records for entities that are members of this group.
+`Entity Expression` | An expression to filter entities: all or a subset matched with Entity/Entity Group fields.
+`Key/Tag Filter` | Expression for matching property records with specified keys or tags.
+`Keys/Tags` | List of property keys and tags to be concatenated into a line using separator specified in Separator field. All fields are concatenated, if this field is set to *.
+`Entity Tags` | List of entity tags to be concatenated into a line using separator specified in Separator field. All fields are concatenated, if this field is set to *.
+`Separator` | Separator used when concatenating multiple key/tag values.
 
 Each item is created by concatenating field values (Keys/Tags + Entity Tags) separated by the specified token.
 
