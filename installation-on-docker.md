@@ -136,17 +136,3 @@ docker exec -it axibase-collector tail -n 100 /opt/axibase-collector/logs/axibas
 ```sh
 docker exec -it axibase-collector tail -n 100 /opt/axibase-collector/logs/err-collector.log
 ```
-
-## Known Issues
-
-If the container fails to start, verify that the Docker host runs on a supported kernel level.
-
-```sh
-uname -a
-```
-
-* 3.13.0-79.123+
-* 3.19.0-51.57+
-* 4.2.0-30.35+
-
-See "Latest Quick Workarounds" for Docker issue [#18180](https://github.com/docker/docker/issues/18180#issuecomment-193708192).
