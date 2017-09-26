@@ -1,8 +1,6 @@
-# Launching Linked Containers with `docker-compose`
+# Launching Linked Containers
 
 You can launch linked ATSD and Axibase Collector containers on the same Docker host with `docker-compose`. 
- 
-## Export Credentials as Environment Variables
 
 `docker-compose.yml`
 
@@ -14,35 +12,35 @@ services:
   atsd:
     image: axibase/atsd:latest
     ports:
-      - "8088:8088"
-      - "8443:8443"
       - "8081:8081"
-      - "8082:8082/udp"
+      - "8443:8443"
     container_name: atsd
-    hostname: atsd
-    restart: always
     environment:
-      - COLLECTOR_USER_NAME=${C_USER}
-      - COLLECTOR_USER_PASSWORD=${C_PASSWORD}
-      - COLLECTOR_USER_TYPE=api-rw
+      - ADMIN_USER_NAME=${ADMUSR}
+      - ADMIN_USER_PASSWORD=${ADMPWD}
+      - COLLECTOR_USER_TYPE=api-rw  
+      - COLLECTOR_USER_NAME=${USR}
+      - COLLECTOR_USER_PASSWORD=${PWD}
 
   collector:
     image: axibase/collector:latest
+    ports:
+      - "9443:9443"    
     depends_on:
       - atsd
-    ports:
-      - "9443:9443"
-    container_name: axibase-collector
-    restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - COLLECTOR_ARGS=-atsd-url=https://${C_USER}:${C_PASSWORD}@atsd:8443 -job-enable=docker-socket
+      - COLLECTOR_ARGS=-atsd-url=https://${USR}:${PWD}@atsd:8443 -job-enable=docker-socket
 ```
 
 Launch containers:
 
 ```sh
-export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose up -d
+export ADMUSR=auser; export ADMPWD=apassword; \
+      export USR=cuser; export PWD=cpassword; \
+      docker-compose up -d
 ```
+
+Login into ATSD on `https://docker_host:8443` using administrator credentials.
 
