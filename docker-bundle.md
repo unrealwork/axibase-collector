@@ -19,9 +19,9 @@ services:
     container_name: atsd
     hostname: atsd
     environment:
-      - COLLECTOR_USER_NAME=${C_USER}
-      - COLLECTOR_USER_PASSWORD=${C_PASSWORD}
-
+      - COLLECTOR_USER_NAME=${cuser}
+      - COLLECTOR_USER_PASSWORD=${cpassword}
+      - COLLECTOR_USER_TYPE=api-rw
   collector:
     image: axibase/collector:latest
     depends_on:
@@ -36,7 +36,7 @@ services:
 ## Launch Containers
 
 ```sh
-export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d
+export cuser=myuser; export cpassword=mypassword; docker-compose pull && docker-compose up -d
 ```
 
 ## Access UI
