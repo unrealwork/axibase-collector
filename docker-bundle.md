@@ -30,7 +30,9 @@ services:
       - "9443:9443"
     container_name: axibase-collector
     environment:
-      - COLLECTOR_ARGS=-atsd-url=https://${C_USER}:${C_PASSWORD}@atsd:8443
+      - COLLECTOR_USER_NAME=${cuser}
+      - COLLECTOR_USER_PASSWORD=${cpassword}
+      - ATSD_URL=https://atsd:8443
 ```
 
 ## Launch Containers
