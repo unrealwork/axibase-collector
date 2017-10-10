@@ -37,7 +37,10 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - COLLECTOR_ARGS=-atsd-url=https://${C_USER}:${C_PASSWORD}@atsd:8443 -job-enable=docker-socket
+      - COLLECTOR_USER_NAME=${C_USER}
+      - COLLECTOR_USER_PASSWORD=${C_PASSWORD}
+      - ATSD_URL=https://atsd:8443
+      - COLLECTOR_ARGS=-job-enable=docker-socket
 ```
 
 Launch containers:
