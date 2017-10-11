@@ -198,20 +198,6 @@ docker ps | grep axibase-collector
 
 Locate the **docker-socket** job on the 'Jobs' list and verify that it is enabled and that the `Items Read` column is not 0.
 
-## Known Issues
-
-If Axibase Collector fails to start, verify that your Docker host runs on a supported kernel level.
-
-```sh
-uname -a
-```
-
-* 3.13.0-79.123+
-* 3.19.0-51.57+
-* 4.2.0-30.35+
-
-See "Workarounds" in [#18180](https://github.com/docker/docker/issues/18180#issuecomment-193708192)
-
 ## Testing and Evaluating
 
 You can launch both the **atsd** and **axibase-collector** containers in a [test environment](docker-compose.md) using  `docker-compose`.
