@@ -63,6 +63,7 @@ The Collector supports data markers to minimize the load on the source systems a
 * Installation:
   - Installation on [host](installation.md)
   - Installation in [Docker container](installation-on-docker.md)
+  - Installation on [Kubernetes](installation-on-kubernetes.md)
 * [Administrator Account](configure-administrator-account.md)
 * [Collector account](https://github.com/axibase/atsd/blob/master/administration/collector-account.md) in ATSD
 * [ATSD Server Connection](atsd-server-connection.md)
