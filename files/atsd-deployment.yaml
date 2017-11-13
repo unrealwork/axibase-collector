@@ -20,13 +20,6 @@ spec:
       - image: axibase/atsd:latest
         name: atsd
         env:
-        - name: ADMIN_USER_NAME
-          value: atsd
-        - name: ADMIN_USER_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: axibase
-              key: atsd-pass
         - name: COLLECTOR_USER_TYPE
           value: api-rw
         - name: COLLECTOR_USER_NAME

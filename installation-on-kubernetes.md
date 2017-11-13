@@ -2,7 +2,7 @@
 
 ## Create secrets
 
-Create a [secret object](https://kubernetes.io/docs/concepts/configuration/secret/#creating-your-own-secrets) for passwords for ATSD and Collector users.
+Create a [secret object](https://kubernetes.io/docs/concepts/configuration/secret/#creating-your-own-secrets) for Collector user.
 
 For example, create a [`secret.yaml`](./files/secret.yaml) file [manually](https://kubernetes.io/docs/concepts/configuration/secret/#creating-a-secret-manually) with content:
 
@@ -13,7 +13,6 @@ metadata:
   name: axibase
 type: Opaque
 data:
-  atsd-pass: MTIzNDU2Nzg5MA==
   collector-pass: MTIzNDU2Nzg5MA==
 ```
 
@@ -55,13 +54,6 @@ spec:
       - image: axibase/atsd:latest
         name: atsd
         env:
-        - name: ADMIN_USER_NAME
-          value: atsd
-        - name: ADMIN_USER_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: axibase
-              key: atsd-pass
         - name: COLLECTOR_USER_TYPE
           value: api-rw
         - name: COLLECTOR_USER_NAME
@@ -196,6 +188,16 @@ spec:
       labels:
         app: axibase-collector
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+             matchExpressions:
+             - key: app
+               operator: In
+               values:
+               - axibase-collector
+            topologyKey: kubernetes.io/hostname
       containers:
       - image: axibase/collector:latest
         name: axibase-collector
@@ -230,13 +232,14 @@ spec:
 
 In this example:
 * A Deployment named `axibase-collector` is created, indicated by the `metadata: name` field.
-* The Deployment creates three replicated Pods, indicated by the `replicas` field.
+* The Deployment creates three replicated Pods, indicated by the [`replicas`](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#replicas) field. If you want to install the Collector on each node, the replicas value must be equal node count.
 * The `selector` field defines how the Deployment finds which Pod to manage. In this case, we simply select on one label defined in the Pod template (`app: axibase-collector`).
 * The Pod template’s specification, or `template: spec` field, indicates that the Pod run one container, `axibase-collector`, which runs the collector [Docker Hub](https://hub.docker.com/r/axibase/collector/) image at latest version.
 * The Deployment opens port 9443 for use by the Pod.
 
 The `template` field contains the following instructions:
 * The Pods are labeled `app: axibase-collector`
+* The Pods use [`affinity`](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity). We have `podAntiAffinity` that will restrict to have two same pods (label `app:axibase-collector`) in one node.
 * Create one container and name it `axibase-collector`.
 * Create one volume and name it `docker-socket`.
 * Run the `axibase/collector` image at latest version.

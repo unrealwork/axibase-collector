@@ -17,6 +17,16 @@ spec:
       labels:
         app: axibase-collector
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - axibase-collector
+            topologyKey: kubernetes.io/hostname
       containers:
       - image: axibase/collector:latest
         name: axibase-collector
