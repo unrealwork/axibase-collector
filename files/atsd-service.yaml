@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: atsd
+  labels:
+    app: atsd
+    tier: service
+spec:
+  ports:
+    - protocol: TCP
+      port: 8081
+      nodePort: 30081
+      name: tcp
+    - protocol: TCP
+      port: 8443
+      nodePort: 30443
+      name: https
+  selector:
+    app: atsd
+  type: NodePort

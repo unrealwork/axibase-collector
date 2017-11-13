@@ -1,0 +1,59 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: axibase-collector
+  labels:
+    app: axibase-collector
+    tier: deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: axibase-collector
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: axibase-collector
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - axibase-collector
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - image: axibase/collector:latest
+        name: axibase-collector
+        env:
+        - name: COLLECTOR_USER_NAME
+          value: collector
+        - name: COLLECTOR_USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: axibase
+              key: collector-pass
+        - name: JAVA_OPTS
+          value: "-Xmx512m"      
+        args: ["-job-enable=docker-socket"]
+        ports:
+        - containerPort: 9443
+          hostPort: 9443
+          name: https
+        volumeMounts:
+        - name: docker-socket
+          mountPath: /var/run/docker.sock
+        resources:
+          requests:
+            memory: "200Mi"
+          limits:
+            memory: "700Mi"
+      volumes:
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock

@@ -1,0 +1,41 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: atsd
+  labels:
+    app: atsd
+    tier: deployment
+spec:
+  selector:
+    matchLabels:
+      app: atsd
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: atsd
+    spec:
+      containers:
+      - image: axibase/atsd:latest
+        name: atsd
+        env:
+        - name: COLLECTOR_USER_TYPE
+          value: api-rw
+        - name: COLLECTOR_USER_NAME
+          value: collector
+        - name: COLLECTOR_USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: axibase
+              key: collector-pass
+        ports:
+        - containerPort: 8081
+          name: tcp
+        - containerPort: 8443
+          name: https
+        resources:
+          requests:
+            memory: "600Mi"
+          limits:
+            memory: "1200Mi"
