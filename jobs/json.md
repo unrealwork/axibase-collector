@@ -66,12 +66,17 @@ The expression will select all elements of the `book` array in the root's child 
 
 | **Name** | **Description** |
 |:---|:---|
+| Name     | Name of the configuration. |
 | Protocol | HTTP or File protocol to download JSON files from a remote server or read them from the local file system. File protocol supports wildcards in Path. |
 | HTTP Pool                | Pre-defined HTTP connection parameters to limit the number of open connections, to customize timeout settings, and to re-use connections across multiple requests.<br> When HTTP Pool is selected, the Path field should contain a relative URI: [/]path[?query][#fragment] |
 | Path                     | URI Path to JSON file, for example https://example.com/api/daily-summary.json, or the absolute path to the file(s) on the local file system.<br> If the HTTP Pool is enabled, the path should be relative, for example `/api/daily-summary.json`. Otherwise, the Path should be a full URI including protocol, host, port, and the path.<br> The Path supports the following placeholders:<br> - `${ITEM}`: current element in the Item List.<br> - `${TIME()}`: text output of the `TIME` function.<br> - `${DATE_ITEM()}`: text output of the `DATE_ITEM` function.<br> If `${DATE_ITEM()}` is present in the Path, the job will execute as many queries as there are elements returned by the `${DATE_ITEM()}` function, substituting the `${DATE_ITEM()}` placeholder with the element value for each request.<br> The Path can include either the `${DATE_ITEM()}` or `${ITEM}` function, but not both. |
-| Format                   | JSON, JSON Lines, or SODA Rows. If the `JSON Lines` format is selected, the input lines contained in the file will be added to a parent array object and processed as a single JSON document. |
+| Format                   | JSON or JSON Lines. If the `JSON Lines` format is selected, the input lines contained in the file will be added to a parent array object and processed as a single JSON document. |
+| Delete Files on Upload   | _Applies to FILE protocol._ Delete source file(s) that were parsed into at least 1 command which was successfully sent to the database. |
+| Ignore Unchanged Files   | Prevents unchanged files or http entities from being repeatedly processed.<br>When enabled, the collector compares the file's last modified time (FILE) or "Last-Modified" header/MD5 hashcode (HTTP, HTTP_POOL) with the previously stored value and ignores it if there were no changes.<br>In the case of HTTP and HTTP_POOL protocols, the collector checks the "Last-Modified" response header. If the header is present and the value hasn't changed since the last execution, the response content is not downloaded. |
+| Ignore Invalid Commands  | If enabled, invalid commands will be ignored. |
 | Item List                | A collection of elements to execute multiple requests for different JSON files in a loop.<br> The current element in the loop can be accessed with the `${ITEM}` placeholder, which can be embedded into the Path and Default Entity fields.<br> When Item List is selected and `${ITEM}` is present in the Path, the job will execute as many queries as there are elements in the list, substituting `${ITEM}` with the element value for each request. |
 | Replacement Table        | A set of mappings for converting entity names retrieved from the JSON document into entity names to be stored in the database. |
+| Enable Stream Reader     | If enabled, items will be processed sequentially. |
 | HTTP Method              | HTTP Method executed: GET or POST. The POST method provides a way to specify request parameters in payload. |
 | Payload                  | POST request payload. |
 | HTTP Headers             | Specify request headers. |
@@ -79,7 +84,6 @@ The expression will select all elements of the `book` array in the root's child 
 | Driver Script*           | Downloads the file by executing a set of pre-recorded browser actions such as opening a page and clicking on a button to export a file.<br> The script is recorded in Selenium IDE and exported into Java format. |
 | Driver Timeout, seconds* | Maximum time allowed for the Driver Script to run before it will be aborted. |
 | Driver File Encoding*    | File Encoding to use when saving a file downloaded with Driver Script. |
-| Delete Files on Upload   | _Applies to FILE protocol._ Delete source file(s) that were parsed into at least 1 command which was successfully sent to the database. |
 
 ## Conversion Settings
 
@@ -758,7 +762,11 @@ message e:tst d:2016-07-06T08:19:30.563Z t:id=1 t:source=1.2.3.4:1234 t:type=pee
 
 ## Configuration Example
 
-![](images/json_job.png)
+![](images/json_job_configuration.png)
+
+## Settings Example
+
+![](images/json_job_configuration_settings.png)
 
 ## JSON Viewer Example
 
