@@ -76,7 +76,13 @@ It may take up to 5 minute to initialize the Collector's database from the initi
 
 The Docker job should start executing immediately.
 
-> On hosts with SELinux enabled, the container will run into a `permission denied` error when trying to read data from  `/var/run/docker.sock`. Switch to the Remote Collection option. Other alternatives: https://github.com/dpw/selinux-dockersock
+> On hosts with SELinux enabled, the container will run into a `permission denied` error when trying to read data from  `/var/run/docker.sock`. 
+Switch to the Remote Collection option or follow to the one of the following steps to avoid it:
+> - run container in privileged mode (--privileged) 
+> - run container with disabled security labeling (--security-opt label=disable)
+> - adjust SELinux settings (sudo setenforce Permissive)
+>
+> Other alternatives: https://github.com/dpw/selinux-dockersock
 
 **Launch Parameters**
 
