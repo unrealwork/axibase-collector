@@ -38,6 +38,8 @@ SELECT 1
 ```
 * Query result must be `Query OK`.
 
+> If test hangs, allow external connections to your MySQL instance (add `bind-address = 0.0.0.0` to `mysql.cnf`)
+
 ### Verify Job Configuration
 
 * Open MySQL Server job.
