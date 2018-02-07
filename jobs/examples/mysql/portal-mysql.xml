@@ -28,7 +28,7 @@
       type = chart
       title = InnoDB Buffer Pool Requests
       tooltip = Request
-      timespan = 2 hours
+      timespan = 2 hour
       label-format = javascript:keepAfterLast(metric, &apos;pool_&apos;)
       statistics = counter
       period = 10 minutes
@@ -228,7 +228,7 @@
     	label-format = javascript:keepAfterLast(metric, &apos;.&apos;)
         markers = true
         statistics = counter
-        period = 6 hours
+        period = 6 hour
         [series]
           metric = mysql.global_status.key_reads
         [series]
