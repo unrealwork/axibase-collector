@@ -105,7 +105,7 @@
       title = Uptime
       tooltip = Uptime
       circle = true
-      format = %d %Hh
+      format = intervalFormat('%dd %Hh')(value*1000)
       label-format = javascript:keepAfterLast(metric, &apos;.&apos;)
       [series]
         metric = mysql.global_status.uptime
