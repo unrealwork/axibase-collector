@@ -47,8 +47,8 @@ Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exc
 |:---|:---|
 | Entity | Entity name under which the data will be stored. |
 | Command Type | Insert command type: SERIES, PROPERTY or BOTH. |
-| Metric Prefix | Common prefix added to metric names, for example `jmx.activemq.`<br>This field supports the following placeholders:<br>- `${domain}` = Domain of the MBean<br>- `${name}` = Value of 'name' attribute of the MBean<br>- `${type}` = Value of 'type' attribute of the MBean<br>The attributes (name, type) will be excluded from series tags, if they are included using a placeholder. |
-| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.`<br>Property type is set to MBean `type` attribute by default.<br>This field supports the following placeholders:<br>- `${domain}` = Domain of the MBean<br>- `${name}` = Value of 'name' attribute of the MBean<br>The attribute 'name' will be excluded from property keys, if it is included using a placeholder. |
+| Metric Prefix | Common prefix added to metric names, for example `jmx.activemq.`<br>This field supports the following placeholders:<br>- `${domain}` = Domain of the MBean<br>- `${attribute_name}` = Value of attribute of the MBean<br>The attributes will be excluded from series tags, if they are included using a placeholder. |
+| Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.`<br>Property type is set to MBean `type` attribute by default.<br>This field supports the following placeholders:<br>- `${domain}` = Domain of the MBean<br>- `${attribute_name}` = Value of attribute of the MBean<br>The attributes will be excluded from property keys, if they are included using a placeholder. |
 | Excluded Property Attributes | List of attribute names excluded from property commands.  |
 | Excluded Series Attributes | List of attribute names excluded from series commands. |
 | Series Tags | Pre-defined tags added to series commands. |
@@ -111,7 +111,7 @@ You can specify the list of collected attributes by replacing specific attribute
 Special processing for `PROPERTY` command:
 
 - Attribute Name list is ignored for property commands since property commands collect all attributes of the matched beans.
-- The default value for property `type` field is set to MBean type, for instance, to `Broker` in the example above. To override the default type, enter a custom value in `property_type` column.
+- The default value for property `type` field is set to MBean type, for instance, to `Broker` in the example above. To override the default type, enter a custom value or use `${attribute_name}` placeholders in the `property_type` column.
 
 ![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 
