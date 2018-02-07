@@ -20,6 +20,18 @@ GRANT SELECT ON performance_schema.* TO 'axibase-ro'@'collector_host';
 FLUSH PRIVILEGES;
 ```
 
+To allow connection from any IP address, use the wildcard for remote address:
+
+```sql
+CREATE USER 'axibase-ro'@'collector_host' IDENTIFIED BY '********';
+GRANT SELECT ON performance_schema.* TO 'axibase-ro'@'*';
+FLUSH PRIVILEGES;
+```
+
+### Allow External Connection to the Database
+
+Modify `mysql.cnf` by setting `bind-address = 0.0.0.0`.
+
 ### Import MySQL Server Job into Axibase Collector
 
 * Open **Jobs:Import** and upload the [mysql-server-jobs.xml](mysql-server-jobs.xml) file.
@@ -37,8 +49,6 @@ FLUSH PRIVILEGES;
 SELECT 1
 ```
 * Query result must be `Query OK`.
-
-> If test hangs, allow external connections to your MySQL instance (add `bind-address = 0.0.0.0` to `mysql.cnf`)
 
 ### Verify Job Configuration
 
