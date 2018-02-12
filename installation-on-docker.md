@@ -99,7 +99,7 @@ To bind the collector to a particular port instead of a random one, replace `--p
 |`COLLECTOR_USER_NAME` | No | User name for the [data collector](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) account. |
 |`COLLECTOR_USER_PASSWORD` | No | [Password](https://github.com/axibase/atsd/blob/master/administration/user-authentication.md#password-requirements) for the data collector account.|
 |`DOCKER_HOSTNAME` | No | Hostname of the Docker host where Axibase Collector container is running.|
-|`JAVA_OPTS` | No| Java VM options.|
+|`JAVA_OPTS` | No| Java VM options.<br>By default the collector starts with an option `-Xmx256m` |
 
 For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at https://10.102.0.6:8443, specify:
 
