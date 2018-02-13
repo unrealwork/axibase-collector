@@ -46,12 +46,12 @@ Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exc
 | Field | Description |
 |:---|:---|
 | Entity | Entity name under which the data will be stored. |
+| Predefined Tags | Predefined tags added to all commands, one name=value pair per line.<br>This field supports the following placeholders:<br>- `${domain}` = Domain of the mbean<br>- `${name}` = Value of 'name' attribute of the mbean |
 | Command Type | Insert command type: SERIES, PROPERTY or BOTH. |
 | Metric Prefix | Common prefix added to metric names, for example `jmx.activemq.`<br>This field supports the following placeholders:<br>- `${domain}` = Domain of the MBean<br>- `${attribute_name}` = Value of attribute of the MBean<br>The attributes will be excluded from series tags, if they are included using a placeholder. |
 | Property Type Prefix  | Prefix added to property type, for example `jmx.activemq.`<br>Property type is set to MBean `type` attribute by default.<br>This field supports the following placeholders:<br>- `${domain}` = Domain of the MBean<br>- `${attribute_name}` = Value of attribute of the MBean<br>The attributes will be excluded from property keys, if they are included using a placeholder. |
 | Excluded Property Attributes | List of attribute names excluded from property commands.  |
 | Excluded Series Attributes | List of attribute names excluded from series commands. |
-| Series Tags | Pre-defined tags added to series commands. |
 
 > Excluded Property and Series Attributes support '*' wildcards, for example: `DynamicDestinationProducers_*, QueueProducers_*`.
 
@@ -129,8 +129,7 @@ The attribute `name` is excluded from series tags, because the `Metric Prefix` f
 
 ## JMX Configuration Example
 
-![](https://axibase.com/wp-content/uploads/2014/06/jmx_config.png)
-
+![](images/jmx_configuration_example.png)
 
 ## Viewer
 
