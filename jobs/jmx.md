@@ -97,6 +97,7 @@ Both parts of the query support wildcards:
 * `d:type=F?o,name=Bar`: matches for example `d:type=Foo,name=Bar` and `d:type=Fro,name=Bar`.
 * `d:type=F*o,name=Bar`: matches for example `d:type=Fo,name=Bar` and `d:type=Frodo,name=Bar`.
 * `d:type=Foo,name="B*"`: matches for example `d:type=Foo,name="Bling"`. Wildcards are recognized inside quotes and can be escaped with `\`.
+* `d:type=Foo,name!=B*` : matches names that doesn't start from `B`, for example `d:type=Foo,name=Store`.
 
 ##### Attribute Name Pattern Examples
 
