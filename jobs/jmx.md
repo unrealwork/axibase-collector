@@ -55,7 +55,7 @@ Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exc
 
 > Excluded Property and Series Attributes support '*' wildcards, for example: `DynamicDestinationProducers_*, QueueProducers_*`.
 
-#### Entity Name
+### Entity Name
 
 If not specified, the entity name is set to the value of the Host field. You can override it, for example, if the Host field contains a DNS hostname, whereas you need to collect data under a short hostname of the server where the Java application is running.
 
@@ -67,29 +67,32 @@ java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 
 > If the entity name query fails to provide a value or if the bean or attribute is not found, the entity name will be set to the Host field. If the composite expression retrieves a value successfully, it will be stored in the Axibase Collector database and will be re-used in case of subsequent connection errors.
 
-#### Queries
+## Queries
 
-Configuration includes a list of MBean queries consisting of two parts:
-
-* [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
-* Attribute Name list
+Configuration includes a list of MBean queries consisting of two parts: object name pattern and attribute list. 
 
 The list of queries can be entered manually or by opening [Viewer](#viewer), expanding MBean hierarchy, and choosing attributes of interest.
-
-```
-org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
-```
-
-Object Name pattern matches all MBean instances of specified type and name. 
-
-The Attribute Name list selects attributes whose values will be retrieved and sent to the database. The Attribute Name list can include specific names as well as name patterns. 
 
 Both parts of the query support wildcards:
 
 * Asterisk `*` replaces any number (including zero) of characters.
 * Question mark `?` replaces any one character.
 
-##### Object Name Pattern Examples
+### [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
+
+The pattern pattern matches MBean instances of specified type and name. 
+
+```
+org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
+```
+
+Negation is not supported by JMX natively and is therefore implemented on the client. To exclude MBean use `!=` operator. For example, to exclude topics starting with underscore, specify the query as follows:
+
+```
+kafka.cluster:name=*,partition=*,topic!=_*,type=Partition
+```
+
+#### Examples
 
 * `*:type=Foo,name=Bar`: matches names in any domain whose exact set of keys is `type=Foo,name=Bar`.
 * `d:type=Foo,name=Bar,*`: matches names in the domain `d` that have the keys `type=Foo,name=Bar` plus zero or more other keys.
@@ -97,9 +100,16 @@ Both parts of the query support wildcards:
 * `d:type=F?o,name=Bar`: matches for example `d:type=Foo,name=Bar` and `d:type=Fro,name=Bar`.
 * `d:type=F*o,name=Bar`: matches for example `d:type=Fo,name=Bar` and `d:type=Frodo,name=Bar`.
 * `d:type=Foo,name="B*"`: matches for example `d:type=Foo,name="Bling"`. Wildcards are recognized inside quotes and can be escaped with `\`.
-* `d:type=Foo,name!=B*` : matches names that doesn't start from `B`, for example `d:type=Foo,name=Store`.
+* `d:type=Foo,name!=B*` : matches names that doesn't start with `B`, for example `d:type=Foo,name=Store`.
 
-##### Attribute Name Pattern Examples
+
+### Attribute Name list
+
+The list specifies attributes whose values will be retrieved and sent to the database. 
+
+The list can include specific names as well as name patterns.
+
+#### Examples
 
 You can specify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean `java.lang:*,type=GarbageCollector`, specify `*` in the corresponding attribute selector field.
 
@@ -116,7 +126,7 @@ Special processing for `PROPERTY` command:
 
 ![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 
-##### Metric Prefix Example
+#### Metric Prefix Example
 
 Metric Prefix:
 
@@ -142,12 +152,10 @@ Select a checkbox next to an attribute name to add to the list of collected attr
 
 ## Ignored MBean Attributes
 
-The following MBean attributes are ignored from Viewer and commands:
+The following MBean attributes are ignored from Viewer and the commands:
 
 * Attribute value cannot be obtained due to a processing error: <br>- `UnsupportedOperationException`<br>- `UnmarshalException`<br>- `ReflectionException`<br>- `RuntimeOperationsException`<br>- `InstanceNotFoundException`
 * Attribute value is NaN (Not a Number) for numeric attributes in case of a **series** command. <br>NaN can occur, for example, on division by zero.
-
-### Attribute Error Debugging
 
 To view attributes ignored due to processing errors, enable debugging for the **MBeansInfoExtractor** class:
 
@@ -157,7 +165,9 @@ To view attributes ignored due to processing errors, enable debugging for the **
 </logger>
 ```
 
-Restart Axibase Collector process, execute the JMX job, or open the Viewer to review the log:
+Restart Axibase Collector process, execute the JMX job, or open the Viewer.
+
+Review the log:
 
 ```
 tail -f ./axibase-collector/logs/axibase-collector.log
