@@ -92,15 +92,15 @@ Negation is not supported by JMX natively and is therefore implemented on the cl
 kafka.cluster:name=*,partition=*,topic!=_*,type=Partition
 ```
 
-#### Examples
-
-* `*:type=Foo,name=Bar`: matches names in any domain whose exact set of keys is `type=Foo,name=Bar`.
-* `d:type=Foo,name=Bar,*`: matches names in the domain `d` that have the keys `type=Foo,name=Bar` plus zero or more other keys.
-* `*:type=Foo,name=Bar,*`: matches names in any domain that has the keys `type=Foo,name=Bar` plus zero or more other keys.
-* `d:type=F?o,name=Bar`: matches for example `d:type=Foo,name=Bar` and `d:type=Fro,name=Bar`.
-* `d:type=F*o,name=Bar`: matches for example `d:type=Fo,name=Bar` and `d:type=Frodo,name=Bar`.
-* `d:type=Foo,name="B*"`: matches for example `d:type=Foo,name="Bling"`. Wildcards are recognized inside quotes and can be escaped with `\`.
-* `d:type=Foo,name!=B*` : matches names that doesn't start with `B`, for example `d:type=Foo,name=Store`.
+| Example  | Description |
+|:-------------|:-------------|
+| `*:type=Foo,name=Bar` | matches names in any domain whose exact set of keys is `type=Foo,name=Bar`. |
+| `d:type=Foo,name=Bar,*`| matches names in the domain `d` that have the keys `type=Foo,name=Bar` plus zero or more other keys.|
+| `*:type=Foo,name=Bar,*`| matches names in any domain that has the keys `type=Foo,name=Bar` plus zero or more other keys.|
+| `d:type=F?o,name=Bar`| matches for example `d:type=Foo,name=Bar` and `d:type=Fro,name=Bar`.|
+| `d:type=F*o,name=Bar`| matches for example `d:type=Fo,name=Bar` and `d:type=Frodo,name=Bar`.|
+| `d:type=Foo,name="B*"`| matches for example `d:type=Foo,name="Bling"`. Wildcards are recognized inside quotes and can be escaped with `\`.|
+| `d:type=Foo,name!=B*` | matches names that doesn't start with `B`, for example `d:type=Foo,name=Store`.|
 
 
 ### Attribute Name list
@@ -108,8 +108,6 @@ kafka.cluster:name=*,partition=*,topic!=_*,type=Partition
 The list specifies attributes whose values will be retrieved and sent to the database. 
 
 The list can include specific names as well as name patterns.
-
-#### Examples
 
 You can specify the list of collected attributes by replacing specific attribute names with wildcards. For example, to collect all numeric attributes from MBean `java.lang:*,type=GarbageCollector`, specify `*` in the corresponding attribute selector field.
 
