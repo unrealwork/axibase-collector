@@ -15,11 +15,12 @@ The JMX job can have one or multiple JMX configurations each describing connecti
 | Field       | Description |
 |:-------------|:-------------|
 | Name | Job configuration name. |
+| Item List | A collection of elements to execute multiple requests to JMX service in a loop.<br>The current element in the loop can be accessed with ${ITEM} placeholder. When Item List is selected and ${ITEM} is present in one of the fields, the job will execute as many queries as there are elements in the list, substituting ${ITEM} with element value for each request. |
 | Host | Hostname or IP address of the remote server running Java application with JMX service. |
 | Port | JMX service port.  |
-| User Name | 	JMX username. |
+| User Name | JMX username. |
 | Password | JMX password. |
-| Service Name | 	JMX service username. The default service name is `jmxrmi`. |
+| Service Name | JMX service username. The default service name is `jmxrmi`. |
 
 Connection parameters should correspond to the `com.sun.management.jmxremote` settings specified by the target Java application.
 
@@ -135,6 +136,20 @@ jmx.${domain}.${name}
 The attribute `name` is excluded from series tags, because the `Metric Prefix` field contains it using placeholder:
 
 ![image](images/jmx_configuration_metric_prefix_example.png)
+
+#### Item List Example
+
+The `kafka-cluster-jmx` list contains items (`host,port,entity`):
+
+```
+172.17.0.1,1099,kafka1
+172.17.0.2,1099,kafka2
+172.17.0.3,1099,kafka3
+```
+
+The each row is splitted by [freemarker function](https://freemarker.apache.org/docs/ref_builtins_string.html#ref_builtin_split) to extract values:
+
+![image](images/jmx_configuration_item_list_example.png)
 
 ## JMX Configuration Example
 
