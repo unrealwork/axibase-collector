@@ -104,7 +104,7 @@ You can configure the AWS job to collect metrics for all or a subset of namespac
 * Select AWS regions from which you want to collect data. <br>The wizard will create a separate AWS configuration for each region within the same job.
 * Validate the credentials and save the job if there are no errors.
 
-![AWS Wizard](aws-wizard-validate.png)
+![AWS Wizard](images/aws-wizard-validate.png)
 
 ## Validation
 

@@ -33,7 +33,7 @@ Information is collected for the following object types:
 
 In local collection mode, Axibase Collector containers run on each Docker host and gather statistics locally from the Docker engine API exposed at the [/var/run/docker.sock](https://docs.docker.com/engine/reference/api/docker_remote_api/) Unix socket.
 
-![Local Collection](docker-local.png)
+![Local Collection](images/docker-local.png)
 
 - Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
 - Replace `atsd_host` and `atsd_https_port` with the ATSD hostname/IP address and https port (default 8443).
@@ -98,7 +98,7 @@ Switch to the Remote Collection option or follow one of the following steps to a
 
 In remote collection mode Axibase Collector fetches data from multiple remote Docker hosts using https protocol.  
 
-![Local Collection](docker-remote.png)
+![Local Collection](images/docker-remote.png)
 
 ### Enable Remote API Access on Docker Hosts
 
