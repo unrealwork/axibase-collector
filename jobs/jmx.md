@@ -15,7 +15,7 @@ The JMX job can have one or multiple JMX configurations each describing connecti
 | Field       | Description |
 |:-------------|:-------------|
 | Name | Job configuration name. |
-| Item List | A collection of elements to execute multiple requests to JMX service in a loop.<br>The current element in the loop can be accessed with ${ITEM} placeholder. When Item List is selected and ${ITEM} is present in one of the fields, the job will execute as many queries as there are elements in the list, substituting ${ITEM} with element value for each request. |
+| Item List | A collection of elements to execute multiple requests to JMX service in a loop.<br>The current element in the loop can be accessed with `${ITEM}` placeholder. When Item List is selected and `${ITEM}` is present in one of the fields, the job will execute as many queries as there are elements in the list, substituting `${ITEM}` with element value for each request.<br>The placeholder `${ITEM}` supports [standard functions](../collections.md#functions) and [column](../functions-freemarker.md#column) function. |
 | Host | Hostname or IP address of the remote server running Java application with JMX service. |
 | Port | JMX service port.  |
 | User Name | JMX username. |
