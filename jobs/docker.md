@@ -169,7 +169,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
     systemctl status docker-tcp.socket
     ```
 
-    Ouput example:
+    Output example:
 
     ```text
     ● docker-tcp.socket - Docker TCP Socket for the API
