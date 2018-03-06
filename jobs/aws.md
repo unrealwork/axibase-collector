@@ -6,7 +6,7 @@ AWS job allows you to collect data from the [Amazon Web Services CloudWatch](htt
 
 Refer to [AWS documentation](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html) for a complete list of available metrics.
 
-The request is submitted to the specified endpoint using the GET method with `application/x-www-form-urlencoded` content type. The request includes additional AWS parameters (Version, X-Amz-Date) and is signed with [AWS Signature Version 4](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+The request is submitted to the specified endpoint using the GET method. The request includes additional AWS parameters (Version, X-Amz-Date) and is signed with [AWS Signature Version 4](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
 
 The AWS job includes multiple configurations to query metrics from different [regional endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region). The endpoints are queried sequentially within each job invocation.
 
