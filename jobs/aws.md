@@ -10,7 +10,7 @@ The request is submitted to the specified endpoint using the GET method with `ap
 
 The AWS job includes multiple configurations to query metrics from different [regional endpoints](http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region). The endpoints are queried sequentially within each job invocation.
 
-The job stores markers for each metric so that API requests are incremental and load only the most recent data. These markers allow the job to build optimized queries and to avoid data gaps in case of service outages. 
+The job stores markers for each metric so that API requests are incremental and load only the most recent data. These markers allow the job to build optimized queries and to avoid data gaps in case of service outages.
 
 When an AWS job is started for the first time, it will load and configure all of the available current historical data from the CloudWatch service (up to the previous 2 weeks).
 
