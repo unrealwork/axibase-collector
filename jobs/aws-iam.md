@@ -2,38 +2,49 @@
 
 ## Overview
 
-The following document describes the process of creating a read-only account used to query statistics from AWS CloudWatch API.
+The following document describes the process of creating a **read-only** account used to query statistics from AWS CloudWatch API.
 
-## Configuration Steps
+## Account Configuration
 
-### Login into the AWS Console and Select Identity and Access Management (IAM)
+### Create User Group
 
-![](images/img_554f3a8c1f70a.png)
+Login into the AWS Console and locate **IAM** (Identity and Access Management) service under the **Security, Identity and Compliance** section.
 
+![](images/aws-console.png)
 
-### Open the Groups Menu and Click [Create New Group].
+Open the Groups menu and click **Create New Group**.
 
-Use a naming convention that would describe what this group is used for,
-for example `cloudwatch-ro-group`.
+Specify group name, for example `cloudwatch-ro-group`.
 
-![aws-acl-2](images/aws-acl-2.png)
+![](images/aws-acl-2.png)
 
-### Open Users Menu and Click [Create New User].
+### Create User
 
-Let the system generate access and secret key automatically. Copy
-them for your reference.
+Open Users page and click **Create New User**.
 
-![aws-acl-3](images/aws-acl-3.png)
+Enter a user name such as `cloudwatch-ro-user`.
 
-### Open Group Menu Again and Click on Add Users to Group
+![](images/aws-acl-3.png)
+
+Generate access and secret keys for the user. Copy the keys for your reference.
+
+![](images/aws-access-key.png)
+
+The keys will be required for the AWS job in Axibase Collector.
+
+### Add User To Group
+
+Open Group page and click on **Add Users to Group**.
 
 Add `cloudwatch-ro-user` to the `cloudwatch-ro-group`.
 
-![aws-acl-4](images/aws-acl-4.png)
+![](images/aws-acl-4.png)
 
-### While on the Group Page, Scroll Down to Inline Policies and Click on [Create Another Policy]
+### Grant Permissions
 
-Enter the following JSON text and save the policy.
+Open the Group page and click **Create Group Policy**
+
+Enter the following policy text in `JSON` format, click **Validate Policy** and save it.
 
 ```json
 {
@@ -41,21 +52,35 @@ Enter the following JSON text and save the policy.
     "Statement": [
         {
             "Action": [
-                "cloudwatch:Describe*",
-                "cloudwatch:Get*",
                 "cloudwatch:List*",
-                "ec2:Describe*"
+                "cloudwatch:Get*",    
+                "cloudwatch:Describe*",
+                "ec2:Describe*",
+                "autoscaling:Describe*",
+                "route53:List*"
             ],
             "Effect": "Allow",
             "Resource": "*"
         }
     ]
 }
-
 ```
 
-### Save and Verify that the Policy is Correct.
+The above policy grants users in the `cloudwatch-ro-group` permissions to execute various `Get`, `List`, and `Describe` API methods. This type of policy provides a **read-only** access.
 
-![aws-acl-5](images/aws-acl-5.png)
+The `cloudwatch:` actions are required to list available CloudWatch metrics and download statistics, whereas actions for the other namespaces are required to download AWS resource attributes and relationships and store them as metadata in ATSD.
 
-### You Can now Query Amazon CloudWatch Monitoring Service HTTP APIs with the New User Account, Access Key, and Secret Key.
+To simplify configuration, use wildcards to grant multiple actions using prefix matching. For example, specify `route53:List*` action instead of `route53:ListHealthChecks` and `route53:ListTagsForResources`.
+
+Sample namespace-specific actions:
+
+* [`ec2:DescribeInstances`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html)
+* [`ec2:DescribeVolumes`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html)
+* [`autoscaling:DescribeScalingPlans`](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_DescribeScalingPlans.html)
+* [`autoscaling:DescribeScalingPlanResources`](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_DescribeScalingPlanResources.html)
+* [`route53:ListTagsForResources`](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html)
+* [`route53:ListHealthChecks`](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html)
+
+![](images/aws-policy.png)
+
+You can now query Amazon CloudWatch APIs with the new user account, access key, and secret key.
