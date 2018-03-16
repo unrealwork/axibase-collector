@@ -57,7 +57,7 @@ For example, the `AWS/Billing Estimated Charges` metric is stored as 5 metrics:
 
 The number of metrics within each namespace varies greatly. For AWS/EC2 the list consists of 15+ [metrics](#aws-ec2-metrics).
 
-
+The job assigns each metric to an entity which is determined based on the [primary dimension](#namespace-dimensions).
 
 ## Configuration Settings
 
@@ -134,3 +134,68 @@ The number of metrics within each namespace varies greatly. For AWS/EC2 the list
 AWS applies [usage charges](https://aws.amazon.com/cloudwatch/pricing/) for CloudWatch API requests with free entitlement available on a monthly basis.  
 
 An extra fee is charged for detailed monitoring, as well as for custom metrics. The detailed monitoring provides `1-minute` period granularity and a lower delay, typically 1 or 2 minutes, whereas the basic monitoring can have a delay between 5 and 10 minutes.
+
+## Namespace Dimensions
+
+The primary dimension determines entity name in ATSD.
+
+|**Namespace**|**Primary Dimension**|
+|---|---|
+| AWS/Route53 | HealthCheckId |
+| AWS/ApiGateway | ApiName |
+| AWS/AppStream | Fleet |
+| AWS/AutoScaling | AutoScalingGroupName |
+| AWS/Billing | ServiceName |
+| AWS//CloudFront | DistributionId |
+| AWS/CloudSearch | ClientId |
+| CWAgent | InstanceId |
+| AWS/Events | RuleName |
+| AWS/Logs | LogGroupName |
+| AWS/Connect | InstanceId |
+| AWS/DMS --> extract *id* or *arn* |
+| AWS/DX | ConnectionId |
+| AWS/DynamoDB | TableName |
+| AWS/EC2 | InstanceId |
+| AWS/EC2Spot | AvailabilityZone |
+| AWS/ECS | ClusterName |
+| AWS/ElasticBeanstalk | InstanceId |
+| AWS/EBS | VolumeId |
+| AWS/EFS | FileSystemId |
+| AWS/ELB | LoadBalancerName  |
+| AWS/ApplicationELB | LoadBalancerName |
+| AWS/NetworkELB  | LoadBalancer |
+| AWS/ElasticTranscoder | PipelineId |
+| AWS/ElastiCache | CacheClusterId |
+| AWS/ES | ClientId |
+| AWS/ElasticMapReduce | JobId |
+| AWS/GameLift | FleetId |
+| AWS/Inspector | ??? |
+| AWS/IoT | RuleName |
+| AWS/KMS | KeyId |
+| AWS/KinesisAnalytics | Flow |
+| AWS/Firehose | DeliveryStreamName |
+| AWS/Kinesis | StreamName |
+| AWS/KinesisVideo | StreamName |
+| AWS/Lambda | FunctionName |
+| AWS/Lex | BotName |
+| AWS/ML | MLModelId |
+| AWS/OpsWorks | InstanceId |
+| AWS/Polly | Operation |
+| AWS/Redshift | NodeID | 
+| AWS/RDS | DBInstanceIdentifier |
+| AWS/Route53 | HealthCheckId |
+| AWS/SageMaker | Host |
+| AWS/DDoSProtection |  |
+| AWS/SES | |
+| AWS/SNS | Application |
+| AWS/SQS | QueueName |
+| AWS/S3 | BucketName |
+| AWS/SWF | Domain |
+| AWS/States | *arn |
+| AWS/StorageGateway | GatewayName |
+| AWS/NATGateway | NatGatewayId |
+| AWS/VPN | VpnId |
+| WAF | Rule |
+| AWS/WorkSpaces | WorkspaceId |
+| AWS/AmazonMQ | Topic  |
+| AWS/TrustedAdvisor | ServiceName |
