@@ -186,7 +186,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
     systemctl start docker
     ```
 
-  * Ensure that the Docker daemin status is _active_ and there are no warnings.
+  * Ensure that the Docker daemon status is _active_ and there are no warnings.
 
     ```sh
     systemctl status docker
