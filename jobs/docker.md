@@ -72,7 +72,7 @@ docker run \
    -job-enable=docker-socket
 ```
 
-It may take up to 5 minute to initialize the Collector's database from the initial start.
+It may take up to 5 minutes to initialize the Collector's database upon initial startup.
 
 The Docker job should start executing immediately.
 
