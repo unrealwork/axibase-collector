@@ -72,7 +72,7 @@ docker run \
    -job-enable=docker-socket
 ```
 
-It may take up to 5 minute to initialize the Collector's database from the initial start.
+It may take up to 5 minutes to initialize the Collector's database upon initial startup.
 
 The Docker job should start executing immediately.
 
@@ -104,48 +104,103 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 * Log in to the Docker host via SSH and generate [client and server certificates](docker-certificates.md).
 
-* Configure the Docker daemon for secure access by default.
+* Configure the Docker daemon for secure access over HTTPS.
 
-* Edit the `/etc/default/docker` file for Ubuntu or create a `/etc/sysconfig/docker` file for CentOS:
+  **On Ubuntu 14.04**
 
-   ```properties
-   # Set path to the folder containing {ca,server-cert,server-key}.pem files
-   DOCKER_CERT_PATH=/home/docker/certs
-   export DOCKER_CERT_PATH
+  * Edit the `/etc/default/docker` file
 
-   # Add TCP socket on port 2376
-   DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
-   ```
+    ```sh
+    # Set path to the folder containing {ca,server-cert,server-key}.pem files
+    DOCKER_CERT_PATH=/home/user/certs
+    export DOCKER_CERT_PATH
 
-* For CentOS, additionally create the file `/etc/systemd/system/docker.service.d/docker.conf`:
+    # Add TCP socket on port 2376
+    DOCKER_OPTS="--tlsverify --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/server-cert.pem --tlskey=$DOCKER_CERT_PATH/server-key.pem -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376"
+    ```
 
-   ```properties
-   [Service]
-   EnvironmentFile=-/etc/sysconfig/docker
-   ExecStart=
-   ExecStart=/usr/bin/docker daemon $DOCKER_OPTS
-   ```
+  * Restart the Docker daemon.
 
-* Restart Docker daemon:
+    ```sh
+    sudo service docker restart
+    ```
+
+  **On Ubuntu 16.04, Centos 7.x and RHEL 7.x**
+
+  * Create new socket unit.
+
+    ```sh
+    echo <<EOF > /lib/sytemd/system/docker-tcp.socket
+    [Unit]
+    Description=Docker TCP Socket for the API
+
+    [Socket]
+    ListenStream=2376
+    Service=docker.service
+
+    [Install]
+    WantedBy=sockets.target
+    EOF
+    ```
+
+  * Edit `/etc/docker/daemon.json` file by adding the options below. Replace `/home/user/certs` with absolute path of previously created `certs` directory.
+
+    ```text
+    {
+      ...,
+      "tlscacert": "/home/user/certs/ca.pem",
+      "tlscert": "/home/user/certs/server-cert.pem",
+      "tlskey": "/home/user/certs/server-key.pem",
+      "tlsverify": true
+    }
+    ```
+
+  * Stop the Docker daemon and activate the socket.
+
+    ```sh
+    systemctl enable docker-tcp.socket
+    systemctl stop docker
+    systemctl start docker-tcp.socket
+    ```
+
+  * Check that the socket has been successfully activated.
+
+    ```sh
+    systemctl status docker-tcp.socket
+    ```
+
+    Output example:
+
+    ```text
+    ● docker-tcp.socket - Docker TCP Socket for the API
+      Loaded: loaded (/lib/systemd/system/docker-tcp.socket; enabled; vendor preset: enabled)
+      Active: active (running) since Sat 2018-03-03 18:54:32 CET; 2min ago
+      Listen: [::]:2376 (Stream)
+
+    Mar 03 18:54:32 localhost systemd[1]: Listening on Docker TCP Socket for the API.
+    ```
+
+  * Start the Docker daemon.
+
+    ```sh
+    systemctl start docker
+    ```
+
+  * Ensure that the Docker daemin status is _active_ and there are no warnings.
+
+    ```sh
+    systemctl status docker
+    ```
+
+* Verify connectivity.
 
   ```sh
-  sudo service docker restart
+  curl https://127.0.0.1:2376/info     \
+      --cert /home/user/certs/cert.pem \
+      --key /home/user/certs/key.pem   \
+      --cacert /home/user/certs/ca.pem
   ```
 
-* Ensure that the Docker status is Active and there are no warnings:
-
-  ```sh
-  sudo service docker status
-  ```
-
-* Verify connectivity:
-
-  ```properties
-   curl https://127.0.0.1:2376/info \
-  --cert /home/ubuntu/certs/cert.pem \
-  --key /home/ubuntu/certs/key.pem \
-  --cacert /home/ubuntu/certs/ca.pem
-  ```
 * Copy the `{ca,cert,key}.pem` files to your machine.
 
 ### Launch Axibase Collector Container
