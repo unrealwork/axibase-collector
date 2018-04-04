@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics exposed by [Jetty (Web server)](http://www.eclipse.org/jetty/) for long-term retention and monitoring in the Axibase Time Series Database.
+This document describes how to collect JMX metrics exposed by [Jetty (Web server)](http://www.eclipse.org/jetty/) for long-term retention and monitoring in Axibase Time Series Database.
 
 ## Requirements
 
@@ -38,7 +38,7 @@ Configure your Java application for JMX monitoring as described [here](../../jmx
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD.
+* Log in to ATSD.
 * Click on Metrics tab and filter metrics by name `jmx.jetty*`.
 
 ![](images/jetty_metrics.png)
