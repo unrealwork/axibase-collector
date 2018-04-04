@@ -33,8 +33,8 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 * Choose an ATSD server if your Collector instance is connected to multiple ATSD servers.
 * Save the Job.
 * Open each configuration.
-* Open the `ovpm` Item List and populate it with servers that you would like to collect statistics from.
-* Click on the [Test] button and review the output.
+* Open the `ovpm` Item List and populate it with servers whose statistics you would like to collect.
+* Click the **Test** button and review the output.
 
 <!---
 ![](images/ovmp.png)
@@ -42,8 +42,8 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 
 ### Schedule the Job
 
-* Open the `OVPM Job` page and click the [Run] button for the `ovpm-global` job.
-* Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
+* Open the `OVPM Job` page and click the **Run** button for the `ovpm-global` job.
+* Make sure that the job status is `COMPLETED` and the `Items Read` and `Sent commands` fields show a value greater than 0.
 
 ![](images/ovmp-global.png)
 
@@ -51,7 +51,7 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD.
+* Log in to ATSD.
 * Click on Metrics tab and filter metrics by the prefix `gbl_.*`
 
 ![](images/metrics.png)
