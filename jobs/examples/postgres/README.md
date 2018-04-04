@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes how to collect statistics' metrics introduced in [PostgreSQL](http://www.mysql.com/) 9.1+ for long-term retention and monitoring in the Axibase Time Series Database.
+This document describes how to collect statistics' metrics introduced in [PostgreSQL](http://www.mysql.com/) 9.1+ for long-term retention and monitoring in Axibase Time Series Database.
 
 The process involves enabling a JDBC job in Axibase Collector to poll [statistics views](https://www.postgresql.org/docs/9.1/static/monitoring-stats.html) in the PostgreSQL database and uploading the counters and properties into ATSD for processing.
 
@@ -19,7 +19,7 @@ The process involves enabling a JDBC job in Axibase Collector to poll [statistic
 adduser readonly
 ```
 
-* Login as a `postgres` user and open the `psql` console:
+* Log in as a `postgres` user and open the `psql` console:
 
 ```sh
 sudo su postgres
@@ -75,7 +75,7 @@ SELECT 1
 
 ![](images/postgres-jdbc-job.png)
 
-* Choose one of target ATSD instances if your Collector instance is connected to multiple ATSD servers.
+* Choose one of the target ATSD instances if your Collector instance is connected to multiple ATSD servers.
 * Save the Job.
 * Open each configuration, click on the [Test] button, and review the output. See [Data Queries](#data-queries) below.
 
@@ -92,7 +92,7 @@ SELECT 1
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD.
+* Login to ATSD.
 * Click on the Metrics tab and filter metrics by name `postgres.*`.
 
 ![](images/postgres-metrics.png)
