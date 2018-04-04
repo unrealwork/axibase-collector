@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes how to collect JMX metrics exposed by [Apache Tomcat](http://tomcat.apache.org/) Servlet Containers  for long-term retention and monitoring in the Axibase Time Series Database.
+This document describes how to collect JMX metrics exposed by [Apache Tomcat](http://tomcat.apache.org/) Servlet Containers  for long-term retention and monitoring in Axibase Time Series Database.
 
 ## Requirements
 
@@ -40,7 +40,7 @@ Configure your Java for JMX monitoring as described [here](../../jmx.md).
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD.
+* Log in to ATSD.
 * Click on the Metrics tab and filter metrics by name `jmx.tomcat*`.
 
 ![](images/tomcat_metrics.png)
