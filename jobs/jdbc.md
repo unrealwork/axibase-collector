@@ -70,7 +70,7 @@ Following **placeholders** will be placed with the corresponding values:
 
 | Placeholder | Value |
 | --- | --- |
-| **${DB_NAME}** | [Name](jdbc-data-source.md#db-name) of datasource configuration. |
+| **${DB_CONFIG_NAME}** | [Name](jdbc-data-source.md#db-name) of datasource configuration. |
 | **${DB_SERVER}** | [Server](jdbc-data-source.md#db-server) that used in current datasource configuration. | |
 | **${DB_PORT}** | [Port](jdbc-data-source.md#db-port) that used in current datasource configuration.|
 | **${DB_NAME}** | [Database Name](jdbc-data-source.md#db-database) that used in current datasource configuration. |
