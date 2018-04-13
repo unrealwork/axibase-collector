@@ -63,6 +63,15 @@ Use the table below to fill in the fields and configure the query.
 | Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited. |
 | Query Timeout Seconds| Number of seconds after which the query will be interrupted, -1 is unlimited. |
 
+##### Placeholders
+
+| Placeholder | Value |
+| --- | --- |
+| **${DB_NAME}** | [name](jdbc-data-source#db-name) |
+| **${DB_SERVER}** | [server](jdbc-data-source#db-server) |
+| **${DB_PORT}** | [port](jdbc-data-source#db-port) |
+| **${DB_NAME}** | [database](jdbc-data-source#db-database) |
+
 #### Type-Specific options
 
 ##### SERIES
