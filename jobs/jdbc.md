@@ -45,12 +45,12 @@ Use the table below to fill in the fields and configure the query.
 | :----------------- |:-------------|
 | Query           | SELECT query containing the entity name, time, and a list of metric columns. |
 | Command Type    | Type of command sent to ATSD. Possible values: SERIES, PROPERTY, MESSAGE, METRIC, ENTITY. |
-| Default Entity  | Default entity assigned to the collected metrics. |
+| <a name="field-default-entity"></a>Default Entity  | Default entity assigned to the collected metrics. |
 | Entity Column   | Retrieve entity value from the specified entity column. |
 | Entity Replacement Expression | Freemarker expression to extract entity name from an input string or to retrieve it from a lookup table using the [LOOKUP](#lookup-function). |
 | Split Condition  | One or multiple WHERE conditions to copy the base query into multiple queries returning smaller resultsets.  |
 | Tag Columns     | Columns that contain series tags. |
-| Default Tags    | Assign predefined tags to all series. |
+| <a name="field-pre-tags"></a>Predefined Tags    | Assign predefined tags to all series. |
 | Time Column | Column containing the timestamp. |
 | Last Time Column | Column containing last update time. |
 | Time Type | Timestamp type. <br> Possible values: TIMESTAMP, TIVOLI, TEXT, UNIX |
@@ -65,12 +65,15 @@ Use the table below to fill in the fields and configure the query.
 
 ##### Placeholders
 
+There are some placeholders that can be used in some fields such as [Default Entity](#field-default-entity) and [Predefined Tags](#field-pre-tags).
+Following **placeholders** will be placed with the corresponding values:
+
 | Placeholder | Value |
 | --- | --- |
-| **${DB_NAME}** | [name](jdbc-data-source#db-name) |
-| **${DB_SERVER}** | [server](jdbc-data-source#db-server) |
-| **${DB_PORT}** | [port](jdbc-data-source#db-port) |
-| **${DB_NAME}** | [database](jdbc-data-source#db-database) |
+| **${DB_NAME}** | [Name](jdbc-data-source.md#db-name) of datasource configuration. |
+| **${DB_SERVER}** | [Server](jdbc-data-source.md#db-server) that used in current datasource configuration. | |
+| **${DB_PORT}** | [Port](jdbc-data-source.md#db-port) that used in current datasource configuration.|
+| **${DB_NAME}** | [Database Name](jdbc-data-source.md#db-database) that used in current datasource configuration. |
 
 #### Type-Specific options
 
