@@ -45,12 +45,12 @@ Use the table below to fill in the fields and configure the query.
 | :----------------- |:-------------|
 | Query           | SELECT query containing the entity name, time, and a list of metric columns. |
 | Command Type    | Type of command sent to ATSD. Possible values: SERIES, PROPERTY, MESSAGE, METRIC, ENTITY. |
-| Default Entity  | Default entity assigned to the collected metrics. |
+| <a name="field-default-entity"></a>Default Entity  | Default entity assigned to the collected commands. |
 | Entity Column   | Retrieve entity value from the specified entity column. |
 | Entity Replacement Expression | Freemarker expression to extract entity name from an input string or to retrieve it from a lookup table using the [LOOKUP](#lookup-function). |
 | Split Condition  | One or multiple WHERE conditions to copy the base query into multiple queries returning smaller resultsets.  |
 | Tag Columns     | Columns that contain series tags. |
-| Default Tags    | Assign predefined tags to all series. |
+| <a name="field-pre-tags"></a>Predefined Tags    | Assign predefined tags to all series. |
 | Time Column | Column containing the timestamp. |
 | Last Time Column | Column containing last update time. |
 | Time Type | Timestamp type. <br> Possible values: TIMESTAMP, TIVOLI, TEXT, UNIX |
@@ -62,6 +62,17 @@ Use the table below to fill in the fields and configure the query.
 | Collection Start Time | [Endtime expression](https://github.com/axibase/atsd/blob/master/end-time-syntax.md) defining the beginning of the data collection interval, for example, previous_week. |
 | Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited. |
 | Query Timeout Seconds| Number of seconds after which the query will be interrupted, -1 is unlimited. |
+
+##### Placeholders
+
+[Default Entity](#field-default-entity) and [Predefined Tags](#field-pre-tags) fields support the following placeholders:
+
+| **Placeholder** | **Description** |
+| --- | :--- |
+| `${DB_CONFIG_NAME}` | Data source [Name](jdbc-data-source.md#db-name). |
+| `${DB_SERVER}` | Data source [Server](jdbc-data-source.md#db-server). |
+| `${DB_PORT}` | Data source [Port](jdbc-data-source.md#db-port).|
+| `${DB_NAME}` | Data source [Database Name](jdbc-data-source.md#db-database). |
 
 #### Type-Specific options
 
