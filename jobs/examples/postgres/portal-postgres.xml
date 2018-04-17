@@ -1,154 +1,160 @@
 <list>
-  <com.axibase.tsd.model.portal.PortalConfig>
-    <name>PostgreSQL</name>
-    <enabled>true</enabled>
-    <showInMenu>false</showInMenu>
-    <displayIndex>0</displayIndex>
-    <content>[configuration]  
-  title = PostgreSQL Portal 
-  offset-right = 50
-  height-units = 4
-  width-units = 3
-  timespan = 1 day
-  legend-position = top
-  entity = 10.102.0.9
-  stepline = false
-  markers = false
-  
-[group]
+    <com.axibase.tsd.service.portal.PortalServiceImpl_-PortalConfigAndAssignedEntityGroups>
+        <portalConfig>
+            <name>PostgreSQL</name>
+            <enabled>true</enabled>
+            <showInMenu>false</showInMenu>
+            <displayIndex>0</displayIndex>
+            <content>[configuration]
+                title = PostgreSQL Portal
+                offset-right = 50
+                height-units = 3
+                width-units = 3
+                timespan = 1 day
+                legend-position = top
+                entity = ${entity}
+                stepline = false
+                markers = false
+                display-panels = true
+                server-aggregate = true
 
-      
-  [widget]
-    type = chart
-    title = Active Queries
-    tooltip = Active queries
-    markers = true
-    statistics = max
-    period = 15 minute
-    metric = postgres.queries.active
-    [series]
-      label  = -1 week
-      color = silver
-      time-offset = 1 week
-    [series]
-      label  = -1 day
-      time-offset = 1 day
-    [series]
-      label  = Current
-      color = magenta
-      style = stroke: 4px      
-      
-    [widget]
-      type = property
-      title = Last Queries
-      timespan = 5 minute
-      width-units = 2
-      column-entity = null
-      column-time = null
-      display-tags = true
-      expand-tags = true
-      responsive = false
-      last = true
-      [property]
-          type = postgres.activity
+                [group]
 
-[group]
-	[widget]
-    	type = chart
-    	title = Datatables Blocks read
-    	tooltip = Datatables Blocks read
-    	statistics = counter
-    	period = 1 hour
-        mode = column stack
-    	label-format = tagValue
-    	[series]
-      		metric = postgres.database.blks_read
-      		[tags]
-      		  datname = *
-      
-	[widget]
-	  type = pie
-      title = Database Disk Space Usage
-      tooltip = Database disk space usage
-      mode = ring
-      label-format = tagValue
-	  metric = postgres.database.disk_usage
-      format = bytes		
-      [series]
-      	[tags]
-      		datname = *
-    [widget]
-      type = chart
-      title = Datatables Deadlocks
-      tooltip = Datatables deadlocks
-      label-format = tagValue
-      statistics = max
-      period = 1 hour
-      [series]
-        metric = postgres.database_conflicts.confl_deadlock
-        [tags]
-        datname = *
-      
-      
-[group]
-   [widget]
-     type = chart
-     title = BGWriter Params
-     tooltip = More important Buffer Params
-     label-format = javascript: keepAfterLast(metric,&apos;.&apos;)    
-     statistics = counter
-     period = 1 hour
-	 [series]
-       metric = postgres.bgwriter.buffers_backend
-     [series]
-       format = numeric
-       metric = postgres.bgwriter.buffers_alloc
-       axis = right
-      
-   [widget]
-	 type = bar
-     title = Top-10 Tables by Page Count
-     group = relname
-     sort = value ASC
-     column-label-format = tags.relname
-     metric = postgres.pg_class.relpages
-	 [series]
-       [tags]
-      	 relname = *
-      
-   [widget]
-	 type = bar
-     title = Top-10 Tables by Row Count
-     tooltip = Top-10 Tables by Row Count
-	 group = relname
-     column-label-format = tags.relname
-     sort = value ASC
-     metric = postgres.pg_class.reltuples
-	 [series]
-       [tags]
-      	 relname = *
-      
-[group]
-    [widget]
-	type = property
-	title = PostgreSQL Information
-    width-units = 1.5
-    column-entity = null
-    column-time = null
-    display-tags = true
-    expand-tags = true
-    transpose = true
-	[column]
-	  key = version
-      format =  value.substring(0, value.indexOf(&apos;on&apos;))
-    
-    [column]
-	  key = port
-      format = text
+                [widget]
+                type = chart
+                title = Database Disk Space Usage
+                tooltip = Database disk space usage
+                mode = ring
+                label-format = tagValue
+                metric = postgres.database.disk_usage
+                format = bytes
+                tag-expression = tags.datname != &apos;postgres&apos;
+                [series]
+                [tags]
+                datname = *
 
-	[property]
-	   type = postgres.info
-</content>
-    <lastModified>2016-05-27 16:38:53.528 UTC</lastModified>
-  </com.axibase.tsd.model.portal.PortalConfig>
+                [widget]
+                type = bar
+                title = Top-5 Tables by Row Count
+                tooltip = Top-5 Tables by Row Count
+                group = relname
+                column-label-format = tags.relname
+                sort = value ASC
+                metric = postgres.pg_class.reltuples
+                display = value &gt;= top(5)
+                hide-empty-columns=true
+                [series]
+                [tags]
+                relname = *
+
+                [widget]
+                type = bar
+                title = Top-5 Tables by Page Count
+                group = relname
+                sort = value ASC
+                column-label-format = tags.relname
+                metric = postgres.pg_class.relpages
+                display = value &gt;= top(5)
+                hide-empty-columns=true
+                [series]
+                [tags]
+                relname = *
+
+
+                list tuple_metrics = returned, fetched, inserted, updated, deleted
+
+                [group]
+                label-format = tags.datname
+                for tm in tuple_metrics
+                [widget]
+                type = chart
+                width-units = 0.6
+                title = Tuples &lt;b&gt;@{tm}&lt;/b&gt; / interval
+                statistics = counter
+                period = 10 minute
+                tag-expression = tags.datname != &apos;postgres&apos;
+                [series]
+                metric = postgres.database.tup_@{tm}
+                [tags]
+                datname = *
+                endfor
+
+                [group]
+                width-units = 0.75
+                [widget]
+                type = chart
+                title = Datatables Blocks read / interval
+                tooltip = Datatables Blocks read
+                statistics = counter
+                period = 10 minute
+                mode = column stack
+                label-format = tagValue
+                tag-expression = tags.datname != &apos;postgres&apos;
+                [series]
+                metric = postgres.database.blks_read
+                [tags]
+                datname = *
+
+                [widget]
+                type = chart
+                title = Datatables Deadlocks / interval
+                tooltip = Datatables deadlocks
+                label-format = tagValue
+                statistics = max
+                period = 10 minute
+                tag-expression = tags.datname != &apos;postgres&apos;
+                [series]
+                metric = postgres.database_conflicts.confl_deadlock
+                [tags]
+                datname = *
+
+                [widget]
+                type = chart
+                title = BGWriter Params / interval
+                label-format = javascript: keepAfterLast(metric,&apos;.&apos;)
+                statistics = counter
+                period = 10 minute
+                [series]
+                metric = postgres.bgwriter.buffers_backend
+                [series]
+                format = numeric
+                metric = postgres.bgwriter.buffers_alloc
+                axis = right
+
+                [widget]
+                type = table
+                title = Table Statistics / interval
+                merge-columns = entity, tags
+                column-metric = null
+                column-value = null
+                column-time = null
+                column-entity = null
+                #period = 10 minute
+                #statistics = counter
+                [column]
+                key = relname
+                label = Table
+                [column]
+                key = postgres.user_tables.seq_tup_read
+                label = seq_tup_read
+                [column]
+                key = postgres.user_tables.seq_scan
+                label = seq_scan
+
+                [tags]
+                relname = *
+
+                [series]
+                metric = postgres.user_tables.seq_tup_read
+                [series]
+                metric = postgres.user_tables.seq_scan
+
+            </content>
+            <lastModified>2018-04-07 19:38:37.221 UTC</lastModified>
+            <guestAccess>false</guestAccess>
+        </portalConfig>
+        <groupsAssignedToPortal>
+            <string>postgres</string>
+        </groupsAssignedToPortal>
+    </com.axibase.tsd.service.portal.PortalServiceImpl_-PortalConfigAndAssignedEntityGroups>
 </list>
