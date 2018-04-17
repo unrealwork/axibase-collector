@@ -1,7 +1,7 @@
 <list>
   <com.axibase.collector.model.job.jdbc.JdbcJobConfig>
-    <name>postgres</name>
-    <cronExpression>R 0/5 * * * ?</cronExpression>
+    <name>postgresql</name>
+    <cronExpression>R 4/15 * * * ?</cronExpression>
     <enabled>true</enabled>
     <jobType>JDBC</jobType>
     <defaultTags/>
@@ -9,13 +9,13 @@
     <commitInterval>10</commitInterval>
     <errorThreshold>0</errorThreshold>
     <databaseConfiguration>
-      <name>postgresql</name>
+      <name>localhost</name>
       <type>POSTGRESQL</type>
-      <server>10.102.0.9</server>
+      <server>localhost</server>
       <port>5432</port>
-      <database>redmine</database>
-      <dbUser>readonly</dbUser>
-      <dbPasswd>AAIjsvO7Ubsndy/ZdtWofA==</dbPasswd>
+      <database>test</database>
+      <dbUser>user</dbUser>
+      <dbPasswd>password</dbPasswd>
       <maxActive>4</maxActive>
       <maxIdle>4</maxIdle>
       <minIdle>0</minIdle>
@@ -28,19 +28,21 @@
       <active>0</active>
       <idle>0</idle>
       <driverClassName>org.postgresql.Driver</driverClassName>
+      <connectionStringProperties/>
     </databaseConfiguration>
     <configurations>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT * FROM pg_stat_database WHERE datname NOT LIKE &apos;template%&apos;</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
         <tagColumns>
           <string>datname</string>
         </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
           <string>datid</string>
-          <string>numbackends</string>
         </ignoredMetricColumns>
         <timeType>NONE</timeType>
         <metricPrefix>postgres.database.</metricPrefix>
@@ -54,11 +56,14 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT * FROM pg_stat_bgwriter</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
         <tagColumns/>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns/>
@@ -74,14 +79,18 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <defaultVersioningEnabled>false</defaultVersioningEnabled>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT * FROM pg_stat_user_tables where idx_scan &gt; 0</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
         <tagColumns>
-          <string>schemaname</string>
           <string>relname</string>
+          <string>schemaname</string>
         </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
@@ -99,20 +108,23 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT * FROM pg_stat_user_indexes WHERE idx_scan &gt; 0</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
         <tagColumns>
           <string>indexrelname</string>
-          <string>schemaname</string>
           <string>relname</string>
+          <string>schemaname</string>
         </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
-          <string>indexrelid</string>
           <string>relid</string>
+          <string>indexrelid</string>
         </ignoredMetricColumns>
         <timeType>NONE</timeType>
         <metricPrefix>postgres.user_indexes.</metricPrefix>
@@ -126,14 +138,17 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT * FROM pg_statio_user_tables WHERE heap_blks_read &gt; 10</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
         <tagColumns>
-          <string>schemaname</string>
           <string>relname</string>
+          <string>schemaname</string>
         </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
@@ -151,20 +166,23 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT * FROM pg_statio_user_indexes WHERE idx_blks_hit &gt; 1000</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
         <tagColumns>
           <string>indexrelname</string>
-          <string>schemaname</string>
           <string>relname</string>
+          <string>schemaname</string>
         </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
-          <string>indexrelid</string>
           <string>relid</string>
+          <string>indexrelid</string>
         </ignoredMetricColumns>
         <timeType>NONE</timeType>
         <metricPrefix>postgres.io_user_indexes.</metricPrefix>
@@ -178,13 +196,16 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT * FROM pg_stat_database_conflicts WHERE datname NOT LIKE &apos;template%&apos;</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
         <tagColumns>
           <string>datname</string>
         </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
@@ -202,13 +223,14 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT  inet_server_addr() AS server_address, version() AS version, current_user, inet_server_port() AS port, current_database() AS current_database, pg_postmaster_start_time() as start_time</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
-        <tagColumns>
-          <string>datname</string>
-        </tagColumns>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
+        <tagColumns/>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
@@ -227,13 +249,14 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT reltuples, relpages, relname FROM pg_class WHERE relkind = &apos;r&apos; AND relname NOT LIKE &apos;pg_%&apos; ORDER BY relpages DESC limit 10;</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
-        <tagColumns>
-          <string>relname</string>
-        </tagColumns>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
+        <tagColumns/>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
@@ -246,7 +269,7 @@
         <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
         <queryTimeoutSeconds>-1</queryTimeoutSeconds>
         <maxRows>-1</maxRows>
-        <putType>BOTH</putType>
+        <putType>PROPERTY</putType>
         <propertyDefaultType>postgres.pg_class</propertyDefaultType>
         <propertyKeyColumns>
           <string>relname</string>
@@ -254,13 +277,16 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
         <query>SELECT datname,pg_database_size(datname) AS disk_usage FROM pg_database WHERE datistemplate = false;</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
         <tagColumns>
           <string>datname</string>
         </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns/>
@@ -272,23 +298,20 @@
         <queryTimeoutSeconds>-1</queryTimeoutSeconds>
         <maxRows>-1</maxRows>
         <putType>SERIES</putType>
-        <propertyDefaultType>postgres.activity</propertyDefaultType>
-        <propertyKeyColumns>
-          <string>usename</string>
-          <string>usesysid</string>
-          <string>procpid</string>
-          <string>datname</string>
-        </propertyKeyColumns>
+        <propertyKeyColumns/>
         <propertyValueColumns/>
-        <ignoredPropertyValueColumns>
-          <string>datid</string>
-        </ignoredPropertyValueColumns>
+        <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
-        <query>SELECT COUNT(*) AS active FROM pg_stat_activity</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
-        <tagColumns/>
+        <query>SELECT datname, COUNT(*) AS ACTIVE FROM pg_stat_activity GROUP BY datname</query>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
+        <tagColumns>
+          <string>datname</string>
+        </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
@@ -306,13 +329,14 @@
         <propertyValueColumns/>
         <ignoredPropertyValueColumns/>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
       <com.axibase.collector.model.job.jdbc.QueryConfiguration>
-        <query>SELECT  * FROM pg_stat_activity</query>
-        <defaultEntity>10.102.0.9</defaultEntity>
-        <tagColumns>
-          <string>datname</string>
-        </tagColumns>
+        <query>SELECT * FROM pg_stat_activity WHERE current_query NOT LIKE &apos;%pg_%&apos; AND current_query != &apos;&lt;IDLE&gt;&apos; AND LENGTH(current_query)&gt; 0</query>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
+        <tagColumns/>
+        <tagNameColumns/>
+        <tagValueColumns/>
         <defaultTags/>
         <metricColumns/>
         <ignoredMetricColumns>
@@ -333,6 +357,57 @@
           <string>dataid</string>
         </ignoredPropertyValueColumns>
         <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
+      </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+      <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        <query>SELECT reltuples, relpages, relname FROM pg_class WHERE relkind = &apos;r&apos; AND relname NOT LIKE &apos;pg_%&apos; ORDER BY relpages DESC limit 10;</query>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
+        <tagColumns>
+          <string>relname</string>
+        </tagColumns>
+        <tagNameColumns/>
+        <tagValueColumns/>
+        <defaultTags/>
+        <metricColumns/>
+        <ignoredMetricColumns/>
+        <timeType>NONE</timeType>
+        <metricPrefix>postgres.pg_class.</metricPrefix>
+        <queryWithTime>false</queryWithTime>
+        <checkLastTime>false</checkLastTime>
+        <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+        <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+        <maxRows>-1</maxRows>
+        <putType>SERIES</putType>
+        <propertyKeyColumns/>
+        <propertyValueColumns/>
+        <ignoredPropertyValueColumns/>
+        <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
+      </com.axibase.collector.model.job.jdbc.QueryConfiguration>
+      <com.axibase.collector.model.job.jdbc.QueryConfiguration>
+        <query>SELECT name, setting, reset_val, boot_val, category, short_desc FROM pg_settings</query>
+        <defaultEntity>${DB_CONFIG_NAME}</defaultEntity>
+        <tagColumns/>
+        <tagNameColumns/>
+        <tagValueColumns/>
+        <defaultTags/>
+        <metricColumns/>
+        <ignoredMetricColumns/>
+        <timeType>NONE</timeType>
+        <queryWithTime>false</queryWithTime>
+        <checkLastTime>false</checkLastTime>
+        <lastTimeIntervalSeconds>0</lastTimeIntervalSeconds>
+        <queryTimeoutSeconds>-1</queryTimeoutSeconds>
+        <maxRows>-1</maxRows>
+        <putType>PROPERTY</putType>
+        <propertyDefaultType>postgres.settings</propertyDefaultType>
+        <propertyKeyColumns>
+          <string>name</string>
+        </propertyKeyColumns>
+        <propertyValueColumns/>
+        <ignoredPropertyValueColumns/>
+        <ignoreNumberParseErrors>false</ignoreNumberParseErrors>
+        <splitCondition/>
       </com.axibase.collector.model.job.jdbc.QueryConfiguration>
     </configurations>
   </com.axibase.collector.model.job.jdbc.JdbcJobConfig>
