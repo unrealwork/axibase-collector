@@ -2,13 +2,13 @@
 
 ## Scheduled Execution
 
-Axibase Collector executes enabled jobs based on their schedule.
+Axibase Collector executes enabled jobs based on a schedule.
 
 The number of concurrently executing jobs is set to 32 by default and is controlled with `quartz.properties`.
 
-Jobs execute concurrently, whereas configurations inside the same job are executed sequentially.
+Jobs execute simultaneously, whereas configurations inside the same job are executed sequentially.
 
-Instances of the same job cannot run at the same time. If the job is in STARTED status when it's time to execute the job again, the new execution will not be triggered until the current job instance finishes processing.  
+Multiple instances of the same job may not run at the same time. If the job is in STARTED status and it is scheduled to execute again, the new execution will not be triggered until the current job instance finishes processing.  
 
 ## Manual Execution
 
