@@ -1,12 +1,12 @@
 # Monitoring
 
-Axibase Collector sends job status messages into ATSD upon completion so that the job execution can be monitored using the built-in Rule Engine.
+Axibase Collector sends job status messages to ATSD upon completion so that job execution may be monitored using the built-in Rule Engine.
 
 Job status messages contain the following fields:
 
 * Type: collector-job
 * Source: job_name
-* Severity: NORMAL if ok, MAJOR on PARTIAL_FAIL, and CRITICAL in case of ERROR
+* Severity: NORMAL if okay, MAJOR on PARTIAL_FAIL, and CRITICAL in case of ERROR
 * Entity: Axibase Collector hostname
 * Tag `status`: COMPLETED, PARTIAL_FAIL, FAIL
 * Tag `job_name`
