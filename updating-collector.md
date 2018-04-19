@@ -16,7 +16,7 @@ Copy the `axibase-collector.tar.gz` file to the server where Axibase Collector i
 
 Switch to the user under which the collector's java process is executing.
 
-To lookup the Axibase Collector installation directory, run:
+To look up the Axibase Collector installation directory, run:
 
 ```bash
 axibase@36e26a5fd70a:~$ ps aux | grep "axibase-collector.war"
@@ -35,7 +35,7 @@ tar xvf axibase-collector.tar.gz
 
 ### Stop the Collector Process
 
-To lookup Axibase Collector installation directory, run:
+To look up Axibase Collector installation directory, run:
 
 ```
 axibase@36e26a5fd70a:~$ ps aux | grep "axibase-collector.war"
