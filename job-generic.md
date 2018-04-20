@@ -1,6 +1,6 @@
 # Jobs
 
-Job is a primary unit of configuration and scheduling in Axibase Collector. 
+A job is a primary unit of configuration and scheduling in Axibase Collector. 
 
 Each job has the following generic properties: 
 
