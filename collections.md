@@ -163,7 +163,7 @@ Reads lines from a remote file/page.
 `Path` | HTTP(s) Path to file. If HTTP Pool is enabled, the path should be relative. Otherwise the Path should be a full URI including the protocol, host, port and path.
 `Content Format` | Content format in the file. Supported formats: `MULTILINE_TEXT` and `JSON`.
 `Item Filter`| Expression for matching item. This field also supports regex expression, for example: REGEXP(expression).
-`JSON Path` | JSON Path expression to match a list of items in the JSON document.
+`JSON Path` | [JSON Path expression](https://github.com/json-path/JsonPath#path-examples) to match a list of items in the JSON document.
 `Separator` | Separator used when concatenating multiple field values.
 
 If the file is not found, an empty list is returned. List items should be separated with a line break when the `MULTILINE_TEXT` format is selected.
