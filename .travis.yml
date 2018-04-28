@@ -9,7 +9,7 @@ install:
 script: 
   - yaspeller -e ".md" ./
   - find . -name \*.md -exec markdown-link-check {} \;
-  - markdownlint *
+  - stylecheck
 cache:
   directories:
     - $(npm config get prefix)/lib/node_modules
