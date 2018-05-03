@@ -8,11 +8,11 @@ The number of concurrently executing jobs is set to 32 by default and is control
 
 Jobs execute simultaneously, whereas configurations inside the same job are executed sequentially.
 
-Multiple instances of the same job may not run at the same time. If the job is in STARTED status and it is scheduled to execute again, the new execution will not be triggered until the current job instance finishes processing.  
+Multiple instances of the same job may not run at the same time. If the job is in STARTED status and it is scheduled to execute again, the new execution will not be triggered until the current job instance finishes processing.
 
 ## Manual Execution
 
-Jobs can be executed manually with the `Run` action, regardless of its schedule or status. 
+Jobs can be executed manually with the `Run` action, regardless of its schedule or status.
 
 Manual execution produces the same results as a scheduled execution.
 
@@ -22,7 +22,7 @@ The manual mode is useful for running temporarily disabled jobs (for example whe
 
 A cron expression is a string that determines a schedule for executing a job.
 
-Fields in a cron expression have the following order: 
+Fields in a cron expression have the following order:
 
 ```ls
 [seconds] [minutes] [hours] [day-of-month] [month] [day-of-week]
@@ -37,8 +37,8 @@ Field Control Symbols:
 | *	| Any value |
 | ?	| No specific value |
 | R	| Random value within allowed value range |
-| ,	| Value list separator | 
-| -	| Range of values | 
+| ,	| Value list separator |
+| -	| Range of values |
 | /	| Step values |
 
 For example, `0 0 8 * * ?` means execution at 08:00:00 every day.
@@ -67,7 +67,7 @@ Second, minute, and hour fields support **R** (random) symbol to randomize execu
 | `0 5 4 * * ?`    | 0 | 5 | 4 | * | * | ? | At 04:05 every day. |
 | `0/10 * * * * ?` | 0/10 | * | * | * | * | ? | Every 10 seconds. |
 | `0 0/1 * * * ?`  | 0 | 0/1 | * | * | * | ? | Every minute. |
-| `0 0 0 * * ?`    | 0 | 0 | 0 | * | * | ? | Every day at 00:00. |  
+| `0 0 0 * * ?`    | 0 | 0 | 0 | * | * | ? | Every day at 00:00. |
 | `R 0/5 * * * ?`  | R | 0/5 | * | * | * | ? | Every 5 minutes at a random second. |
 | `R R 2 * * ?`    | R | R | 1 | * | * | ? | At a random minute and second past the 2nd hour. |
 | `0 5,35 * * * ?` | 0 | 5,35 | * | * | * | ? | Every hour at the 5th and 35th minute. |

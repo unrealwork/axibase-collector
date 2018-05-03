@@ -49,7 +49,7 @@ The JSON file (1.1 MB) can be found [here](https://data.cityofnewyork.us/api/vie
    ![Figure 9](images/Figure9.png)
 
 9. Press `Add` to create a pre-configured settings section.
-10. Press `Test`. To view descriptions of each of the fields shown below, click [here](../jobs/socrata.md#job-configuration). 
+10. Press `Test`. To view descriptions of each of the fields shown below, click [here](../jobs/socrata.md#job-configuration).
 
     ![Figure 10](images/Figure10.png)
 
@@ -70,6 +70,6 @@ The JSON file (1.1 MB) can be found [here](https://data.cityofnewyork.us/api/vie
 
 13. Navigate to your local ATSD instance and log in. Open the 'Entities' tab to verify that metrics from the dataset are present in ATSD. You can search by your dataset id, which
     is taken from the original JSON file and in this case is `5b3a-rs48`. We can see that metrics were successfully sent from Collector to ATSD and we can begin analyzing this
-    dataset.   
+    dataset.
 
     ![Figure 14](images/Figure14.png)

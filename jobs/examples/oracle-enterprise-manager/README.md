@@ -18,7 +18,7 @@ Oracle EM collects and stores statistics from remote databases, applications, an
 
 ### Configure Oracle EM Database Connection
 
-* Open the **Data Sources:Databases** page and select the `OracleEM` database. 
+* Open the **Data Sources:Databases** page and select the `OracleEM` database.
 * Provide connection parameters to the target Oracle EM database as displayed below:
 
 ![](images/oracle_database_example.png)
@@ -47,7 +47,7 @@ SELECT NULL FROM dual
 
 ### Schedule the Job
 
-* Open the `JDBC Job` page and click the [Run] button for the Oracle EM JDBC job. 
+* Open the `JDBC Job` page and click the [Run] button for the Oracle EM JDBC job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
 ![](images/test_run.png)
@@ -82,12 +82,12 @@ SELECT NULL FROM dual
 ![](images/oracle_databases_poral3.png "Oracle Databases")
 
 * [Oracle Host Live Portal](https://apps.axibase.com/chartlab/81259b97)
- 
+
 ![](images/oracle_host_portal.png "Oracle Host")
 
 ## Data Queries
 
-* Metrics Queries select most recent statistics 
+* Metrics Queries select most recent statistics
 
 ```SQL
 SELECT ENTITY_NAME, ENTITY_TYPE || '.' || REPLACE(REPLACE(METRIC_GROUP_LABEL, ',', ' '), ' ', '_') || '.' ||
@@ -106,7 +106,7 @@ NULLIF(KEY_PART_5, '%') AS KEY_5, NULLIF(KEY_PART_6, '%') AS KEY_6, NULLIF(KEY_P
 FROM SYSMAN.gc$metric_values
 WHERE ENTITY_TYPE = 'host' AND COLLECTION_TIME_UTC >= ? ORDER BY COLLECTION_TIME_UTC
 ```
-* Properties Query selects current properties 
+* Properties Query selects current properties
 
 ```SQL
 SELECT 'oem.' || TARGET_TYPE AS TTYPE, TARGET_NAME, HOST_NAME, DISPLAY_NAME, TIMEZONE_REGION, TYPE_QUALIFIER1 AS TYPE

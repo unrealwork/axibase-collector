@@ -12,7 +12,7 @@ http://www.energinet.dk/EN/El/Engrosmarked/Udtraek-af-markedsdata/Sider/Femminut
 
 Template: `ftp000148:my-pwd@10.102.0.51:21/onlinedata/${TIME("now", "yyyyMMdd")}_onlinedata.txt`
 
-Example: `ftp000148:my-pwd@10.102.0.51:21/onlinedata/20160609_onlinedata.txt` 
+Example: `ftp000148:my-pwd@10.102.0.51:21/onlinedata/20160609_onlinedata.txt`
 
 ### Local Copy
 
@@ -41,7 +41,7 @@ Example: `ftp000148:my-pwd@10.102.0.51:21/onlinedata/20160609_onlinedata.txt`
 18 Landmøller  DK
 19 Solceller DK1
 20 Solceller DK2
- 
+
 Dato og tid      ;      1 ;      2 ;      3 ;      4 ;      5 ;      6 ;      7 ;      8 ;      9 ;     10 ;     11 ;     12 ;     13 ;     14 ;     15 ;     16 ;     17 ;     18 ;     19 ;     20 ;
 2016-06-09 00:00 ;    508 ;     16 ;    120 ;    100 ;    405 ;    106 ;   1411 ;   -261 ;    251 ;   -101 ;    441 ;      8 ;   -566 ;     11 ;      4 ;    241 ;    313 ;    198 ;      0 ;      0 ;
 2016-06-09 00:05 ;    472 ;     16 ;    121 ;     99 ;    389 ;    105 ;   1417 ;   -102 ;     68 ;    -34 ;    381 ;      9 ;   -558 ;     11 ;      5 ;    211 ;    301 ;    194 ;      0 ;      0 ;

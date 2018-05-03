@@ -50,32 +50,32 @@ $['Results']['series'][0]['data'][N]
     {
         "footnotes": [
             {}
-        ], 
-        "period": "M09", 
-        "periodName": "September", 
-        "value": "241.002", 
-        "year": "2016"
-    }, 
-    {
-        "footnotes": [
-            {
-                "code": "R", 
-                "text": "Revised"
-            }
-        ], 
-        "period": "M08", 
-        "periodName": "August", 
-        "value": "240.301", 
+        ],
+        "period": "M09",
+        "periodName": "September",
+        "value": "241.002",
         "year": "2016"
     },
     {
         "footnotes": [
             {
-                "code": "R", 
+                "code": "R",
                 "text": "Revised"
             }
         ],
-        "period": "M07", 
+        "period": "M08",
+        "periodName": "August",
+        "value": "240.301",
+        "year": "2016"
+    },
+    {
+        "footnotes": [
+            {
+                "code": "R",
+                "text": "Revised"
+            }
+        ],
+        "period": "M07",
         "periodName": "July",
         "value": "239.810",
         "year": "2016"

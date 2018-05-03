@@ -21,19 +21,19 @@ Before processing JSON Lines are converted to a JSON array:
     {
       "data": [
         {
-          "pitagname": "metric1", 
-          "pitagvalue": 350.0, 
+          "pitagname": "metric1",
+          "pitagvalue": 350.0,
           "timestamp": "2016-07-01T15:59:07.6382972+05:30"
         }
       ]
     }
-  ], 
+  ],
   [
     {
       "data": [
         {
-          "pitagname": "metric2", 
-          "pitagvalue": 250.0, 
+          "pitagname": "metric2",
+          "pitagvalue": 250.0,
           "timestamp": "2016-07-01T15:58:07.6382972+05:30"
         }
       ]

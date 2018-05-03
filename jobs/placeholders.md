@@ -15,7 +15,7 @@ The following placeholders are supported to format strings, calculate dates, and
 
 * (1) In the case of HTTP protocol, the placeholder `${FILE}` returns part of the URL after the last slash and before query string. For example: `http://examples.com/data/stats.csv?city=Denver` -> `${FILE}` = `stats.csv`
 
-## Usage 
+## Usage
 
 | **Name** | **Supported Fields** | **Supported Protocols** |
 |:---|:---|:---|
@@ -36,7 +36,7 @@ The placeholder is prefixed with `$` and enclosed in curly brackets `{}`.
 ${PLACEHOLDER}
 ```
 
-Examples: 
+Examples:
 
 `${ITEM}`
 
@@ -50,9 +50,9 @@ file:///opt/files/inbound/${TIME("previous_day", "yyyy-MM-dd")}/daily.csv
 
 The `TIME` function calculates time based on the [endtime](https://github.com/axibase/atsd/blob/master/end-time-syntax.md). The syntax outputs its value in the specified `time_format`.
 
-Syntax: `${TIME("end_time_syntax", "time_format")}` 
+Syntax: `${TIME("end_time_syntax", "time_format")}`
 
-Example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}` 
+Example: `${TIME("previous_hour", "yyyy-MM-dd/HH")}`
 
 The time format can be specified using `y`, `M`, `d`, `H`, `m`, or `s`. See [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) for reference.
 
@@ -68,7 +68,7 @@ It creates an array of dates between start and end time arguments, and formats t
 
 If the path contains the `${DATE_ITEM()}` placeholder, it should execute a separate file request for each string in the array.
 
-Syntax: `${DATE_ITEM(startDate, endDate, periodCount, periodUnit, timeFormat)}` 
+Syntax: `${DATE_ITEM(startDate, endDate, periodCount, periodUnit, timeFormat)}`
 
 `startDate` and `endDate` support [endtime](https://github.com/axibase/atsd/blob/master/end-time-syntax.md) syntax.
 
@@ -84,7 +84,7 @@ ${PLACEHOLDER?function(arguments)}
 
 Example: `${FILE?keep_before("_")}`
 
-| **Function** | **Description** | 
+| **Function** | **Description** |
 |:---|:---|
 | [`keep_after`](#keep_after) | Removes part of the string before the first occurrence of the given substring. |
 | [`keep_after_last`](#keep_after_last) | Removes part of the string before the last occurrence of the given substring. |
@@ -119,53 +119,53 @@ Input: **ftp.example.com/data/95014_Cupertino_20160625_DAILY.csv**
 The following examples are based on the [`Path`](file.md#download) field.
 The Path field can be used to define [`Default Entity`](file.md#upload).
 
-#### keep_after 
-* `file:///opt/files/cpu_busy.*` 
-* `${PATH?keep_after('.')}` 
+#### keep_after
+* `file:///opt/files/cpu_busy.*`
+* `${PATH?keep_after('.')}`
 
 | Matching Paths | Output |
 |:---|:---|
-| /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 | 
+| /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 |
 
-#### keep_after_last 
+#### keep_after_last
 * `/2.2/tags/docker/info?key=privateKey((&site=${ITEM}`
 * `${ITEM?keep_after_last("-")}`
 
 | ITEM value | Output |
 |:---|:---|
-| so-stackoverflow | stackoverflow | 
+| so-stackoverflow | stackoverflow |
 
-#### keep_before 
-* `ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*` 
-* `${FILE?keep_before('_')}` 
-
-| Matching Paths | Output |
-|:---|:---|
-| /home/user/nurswgvml106_temperature.csv | nurswgvml106 | 
-
-#### keep_before_last 
-* `file:///opt/files/*_busy.csv` 
-* `${FILE?keep_before_last('_')}` 
+#### keep_before
+* `ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*`
+* `${FILE?keep_before('_')}`
 
 | Matching Paths | Output |
 |:---|:---|
-| /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu | 
+| /home/user/nurswgvml106_temperature.csv | nurswgvml106 |
+
+#### keep_before_last
+* `file:///opt/files/*_busy.csv`
+* `${FILE?keep_before_last('_')}`
+
+| Matching Paths | Output |
+|:---|:---|
+| /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu |
 
 #### replace
 * `file:///opt/files/*`
-* `${FILE?replace(' ','.')}` 
+* `${FILE?replace(' ','.')}`
 
 | Matching Paths | Output |
 |:---|:---|
-| /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy | 
+| /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy |
 
 #### remove_beginning
 * `file:///opt/files/*`
-* `${PATH?remove_beginning('/opt/files/')}` 
+* `${PATH?remove_beginning('/opt/files/')}`
 
 | Matching Paths | Output |
 |:---|:---|
-| /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 | 
+| /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 |
 
 #### remove_ending
 * `file:///opt/files/*.cpu_busy.csv`

@@ -51,7 +51,7 @@ Table_11_International_Air_Pax_Traffic_to_from_UK_by_Country.csv
 
 ### URI
 
-Template: 
+Template:
 
 ```elm
 http://www.caa.co.uk/uploadedFiles/CAA/Content/Standard_Content/Data_and_analysis/Datasets/Airport_stats/Airport_data_${DATE_ITEM("2015-01-01T00:00:00Z", "current_month - 3 * month", 1, "MONTH", "yyyy_MM")}/${ITEM}`
@@ -132,10 +132,10 @@ http://www.caa.co.uk/uploadedFiles/CAA/Content/Standard_Content/Data_and_analysi
 
 ```ls
 rundate,reporting_period,airport_name,this_year_pax,this_year_total_pax_UK_airports,last_year_pax,last_year_total_pax_UK_airports
-05-May-2016 09:23,201603,HEATHROW, 75382273 , 255339341 , 73693612 , 241853321 
-05-May-2016 09:23,201603,GATWICK, 40790754 , 255339341 , 38633115 , 241853321 
-05-May-2016 09:23,201603,MANCHESTER, 23513057 , 255339341 , 22300925 , 241853321 
-05-May-2016 09:23,201603,STANSTED, 23137198 , 255339341 , 20900098 , 241853321 
+05-May-2016 09:23,201603,HEATHROW, 75382273 , 255339341 , 73693612 , 241853321
+05-May-2016 09:23,201603,GATWICK, 40790754 , 255339341 , 38633115 , 241853321
+05-May-2016 09:23,201603,MANCHESTER, 23513057 , 255339341 , 22300925 , 241853321
+05-May-2016 09:23,201603,STANSTED, 23137198 , 255339341 , 20900098 , 241853321
 ```
 
 ## Configuration

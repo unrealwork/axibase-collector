@@ -89,7 +89,7 @@ docker.memory.total.activeanon | Memory | The number of bytes of active memory b
 docker.memory.total.activefile | Memory | The number of bytes of active memory backed by files, including sub-cgroups.
 docker.memory.total.cache | Memory | The number of bytes used for the cache, including sub-cgroups.
 docker.memory.total.inactiveanon | Memory | The number of bytes of inactive memory in anonymous pages, including sub-cgroups.
-docker.memory.total.inactivefile | Memory |The number of bytes of inactive memory in file pages, including sub-cgroups. 
+docker.memory.total.inactivefile | Memory |The number of bytes of inactive memory in file pages, including sub-cgroups.
 docker.memory.total.mappedfile | Memory | The number of bytes of mapped files, including sub-groups.
 docker.memory.total.pgfault | Memory | The total number of page faults, including sub-cgroups.
 docker.memory.total.pgmajfault | Memory | The number of major page faults, including sub-cgroups.
@@ -115,28 +115,28 @@ docker.network.txpackets | Network | Total packets transmitted on the network in
 docker.diskio.iomerged.* | I/O | The number of BIOS requests merged into requests for I/O operations by a cgroup. Entries have two fields: number and operation. Number is the number of requests, and operation represents the type of operation (read, write, sync, or async).
 docker.diskio.ioqueue.* | I/O |  The number of requests queued for I/O operations by a cgroup. Entries have two fields: number and operation. Number is the number of requests, and operation represents the type of operation (read, write, sync, or async). If the cgroup isn’t doing any I/O, this will be zero.
 docker.diskio.ioservicebytes.* | I/O | The number of bytes transferred to or from specific devices by a cgroup as seen by the CFQ scheduler. Entries have four fields: major, minor, operation, and bytes. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and bytes is the number of transferred bytes.
-docker.diskio.ioservicebytes.async | I/O | 
-docker.diskio.ioservicebytes.blockread | I/O | 
-docker.diskio.ioservicebytes.blockread_sec | I/O | 
-docker.diskio.ioservicebytes.blockwrite | I/O | 
-docker.diskio.ioservicebytes.blockwrite_sec | I/O | 
-docker.diskio.ioservicebytes.read | I/O | 
-docker.diskio.ioservicebytes.sync | I/O | 
-docker.diskio.ioservicebytes.total | I/O | 
-docker.diskio.ioservicebytes.write | I/O | 
+docker.diskio.ioservicebytes.async | I/O |
+docker.diskio.ioservicebytes.blockread | I/O |
+docker.diskio.ioservicebytes.blockread_sec | I/O |
+docker.diskio.ioservicebytes.blockwrite | I/O |
+docker.diskio.ioservicebytes.blockwrite_sec | I/O |
+docker.diskio.ioservicebytes.read | I/O |
+docker.diskio.ioservicebytes.sync | I/O |
+docker.diskio.ioservicebytes.total | I/O |
+docker.diskio.ioservicebytes.write | I/O |
 docker.diskio.ioservicetime.* | I/O | The total time between request dispatch and request completion for I/O operations on specific devices by a cgroup as seen by the CFQ scheduler. Entries have four fields: major, minor, operation, and time. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and time is the length of time in nanoseconds (ns). The time is reported in nanoseconds rather than a larger unit so that this report is meaningful even for solid-state devices.
 docker.diskio.ioserviced.* | I/O | The number of I/O operations performed on specific devices by a cgroup as seen by the CFQ scheduler. Entries have four fields: major, minor, operation, and number. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and number represents the number of operations.
-docker.diskio.ioserviced.async | I/O | 
-docker.diskio.ioserviced.read | I/O | 
-docker.diskio.ioserviced.sync | I/O | 
-docker.diskio.ioserviced.total | I/O | 
-docker.diskio.ioserviced.write | I/O | 
+docker.diskio.ioserviced.async | I/O |
+docker.diskio.ioserviced.read | I/O |
+docker.diskio.ioserviced.sync | I/O |
+docker.diskio.ioserviced.total | I/O |
+docker.diskio.ioserviced.write | I/O |
 docker.diskio.iotime.* | I/O | The total time between request dispatch and request completion for I/O operations on specific devices by a cgroup as seen by the CFQ scheduler. Entries have four fields: major, minor, operation, and time. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and time is the length of time in nanoseconds (ns). The time is reported in nanoseconds rather than a larger unit so that this report is meaningful even for solid-state devices.
 docker.diskio.iowaittime.* | I/O | The total time I/O operations on specific devices by a cgroup spent waiting for service in the scheduler queues. When you interpret this report, note: <BR>* the time reported can be greater than the total time elapsed, because the time reported is the cumulative total of all I/O operations for the cgroup rather than the time that the cgroup itself spent waiting for I/O operations. To find the time that the group as a whole has spent waiting, use the blkio.group_wait_time parameter.<BR>* if the device has a queue_depth > 1, the time reported only includes the time until the request is dispatched to the device, not any time spent waiting for service while the device reorders requests.<BR>Entries have four fields: major, minor, operation, and time. Major and minor are device types and node numbers specified in Linux Allocated Devices, operation represents the type of operation (read, write, sync, or async) and time is the length of time in nanoseconds (ns). The time is reported in nanoseconds rather than a larger unit so that this report is meaningful even for solid-state devices.
 docker.diskio.sectors.* | I/O | The number of 512-bytes sectors read and written by the processes member of the cgroup, device by device. Reads and writes are merged in a single counter.
 docker.fs.size.rw | File System | The total size of all the files in the container, in bytes. If you were to export the filesystem of the container as a tarball, it would be about that size.
 docker.fs.size.rootfs | File System | The size of the files which have been created or changed, if you compare the container to its base image. Just after creation, this should be zero; as you modify (or create) files, this will increase.
-docker.process.all | Process | The number of all processes for running container. 
+docker.process.all | Process | The number of all processes for running container.
 docker.process.filtered | Process | The number of all processed which have been filtered by [field 'Excluded Processes'](./jobs/docker.md#job-settings) for running conteiner.
 docker.pids.current | Process | The number of pids in the cgroup (Linux specific stats, not populated on Windows.)
 docker.pids.limit | Process | The hard limit on the number of pids in the cgroup. A "Limit" of 0 means that there is no limit. (Linux specific stats, not populated on Windows.)

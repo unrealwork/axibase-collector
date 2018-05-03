@@ -32,7 +32,7 @@ The JSON job provides a way to download JSON files from remote systems or read f
 
 The [JSON path](https://github.com/jayway/JsonPath#operators) is an expression evaluated against the JSON document to select its objects or specific fields.
 
-* The expression starts with `$`, which represents the root object followed by a dot-separated path to matched objects. 
+* The expression starts with `$`, which represents the root object followed by a dot-separated path to matched objects.
 * `.{cname}` denotes a selector of the given object's child object with name `cname`.
 * `{arr-name}[*]` stands for all elements of the specified array `arr-name`.
 
@@ -42,7 +42,7 @@ Example:
 $.store.book[*]
 ```
 
-The expression will select all elements of the `book` array in the root's child named `store`. 
+The expression will select all elements of the `book` array in the root's child named `store`.
 
 ```json
 {
@@ -101,7 +101,7 @@ The expression will select all elements of the `book` array in the root's child 
 | **Name** | **Description** |
 |:---|:---|
 | Default Entity | Entity that will be used in all commands ([example](#default-entity)).<br> This field  supports the following options:<br> - Text value<br> - `${HOST}` placeholder - Hostname from which the JSON document was loaded.<br> - `${ITEM}` placeholder - Current element in the Item List.<br> - `${PARENT(n)}` placeholder - Name of the Nth parent of the matched object. `{PARENT}` is a shortcut for `${PARENT(1)}`.|
-| Entity Field   | Value that will be used as the entity in all commands ([example](#entity-field)).<br> This field supports the following options:<br> - Name of the field containing entity in the matched object.<br> - JSON Path. | 
+| Entity Field   | Value that will be used as the entity in all commands ([example](#entity-field)).<br> This field supports the following options:<br> - Name of the field containing entity in the matched object.<br> - JSON Path. |
 | Entity Prefix  | Text added to entity name extracted retrieved from the specified field ([example](#entity-field)).<br> For example, if the Entity Prefix is set to `custom.`, and the field value is `my-host`, the resulting entity name will be `custom.my-host`. |
 
 ### Series Fields
@@ -269,7 +269,7 @@ JSON:
   ```ls
   series e:example.com d:2016-07-07T15:19:01.365Z m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
-  
+
 - Default Entity contains placeholder `${PARENT(n)}`:
 
   Field Name         | Field Value
@@ -284,7 +284,7 @@ JSON:
   ```ls
   series e:demo-backend d:2016-07-07T15:19:34.924Z m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
-  
+
 - Default Entity contains text:
 
   Field Name         | Field Value
@@ -347,14 +347,14 @@ JSON:
 
 ```json
 {
-  "has_more": false, 
+  "has_more": false,
   "items": [
     {
       "count": 878240,
       "name": "java"
     }
-  ], 
-  "quota_max": 10000, 
+  ],
+  "quota_max": 10000,
   "quota_remaining": 9923
 }
 ```
@@ -369,7 +369,7 @@ Depth             | 0
 Result:
 
 ```ls
-series e:tst d:2016-07-06T07:27:48.184Z m:mp.quota_max=10000 m:mp.items.0.count=878240 m:mp.quota_remaining=9923 
+series e:tst d:2016-07-06T07:27:48.184Z m:mp.quota_max=10000 m:mp.items.0.count=878240 m:mp.quota_remaining=9923
 ```
 
 #### Included Fields
@@ -378,14 +378,14 @@ JSON:
 
 ```json
 {
-  "has_more": false, 
+  "has_more": false,
   "items": [
     {
       "count": 878240,
       "name": "java"
     }
-  ], 
-  "quota_max": 10000, 
+  ],
+  "quota_max": 10000,
   "quota_remaining": 9923
 }
 ```
@@ -409,14 +409,14 @@ JSON:
 
 ```json
 {
-  "has_more": false, 
+  "has_more": false,
   "items": [
     {
       "count": 878240,
       "name": "java"
     }
-  ], 
-  "quota_max": 10000, 
+  ],
+  "quota_max": 10000,
   "quota_remaining": 9923
 }
 ```
@@ -506,14 +506,14 @@ JSON:
 
 ```json
 {
-  "has_more": false, 
+  "has_more": false,
   "items": [
     {
       "count": 878240,
       "name": "java"
     }
-  ], 
-  "quota_max": 10000, 
+  ],
+  "quota_max": 10000,
   "quota_remaining": 9923,
   "type": "type1"
 }
@@ -538,14 +538,14 @@ JSON:
 
 ```json
 {
-  "has_more": false, 
+  "has_more": false,
   "items": [
     {
       "count": 878240,
       "name": "java"
     }
-  ], 
-  "quota_max": 10000, 
+  ],
+  "quota_max": 10000,
   "quota_remaining": 9923,
   "type": "type1"
 }

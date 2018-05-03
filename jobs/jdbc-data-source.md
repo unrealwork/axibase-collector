@@ -11,11 +11,11 @@ To add a database as a data source in Axibase Collector, navigate to **Data Sour
 | <a name="db-database"></a>Database | Name of the database residing on the database server. |
 | Instance | Name of the instance. |
 | Username | Username which will be connecting to the database. We recommend that a read-only account is created to access the database. |
-| Password | User password. | 
+| Password | User password. |
 | Driver Properties | Extended JDBC diver properties. Specific to each database |
 | Test Query | Test query to keep the connection alive. |
 | Max Active | Maximum number of active connections. |
-| Max Idle | Maximum number of idle connections. | 
+| Max Idle | Maximum number of idle connections. |
 | Min Idle | Minimum number of idle connections. |
 | Initial Size | Initial size of the connection pool. |
 | Max Wait (seconds) | Maximum number of seconds for a job to wait until it requires a connection from the pool. |

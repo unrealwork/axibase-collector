@@ -53,7 +53,7 @@ Enter the following policy text in `JSON` format, click **Validate Policy** and 
         {
             "Action": [
                 "cloudwatch:List*",
-                "cloudwatch:Get*",    
+                "cloudwatch:Get*",
                 "cloudwatch:Describe*",
                 "ec2:Describe*",
                 "autoscaling:Describe*",

@@ -96,7 +96,7 @@ hasMetric('mysql.global_status.uptime')
 
 * Save and verify that the group contains your MySQL database hosts:
 
-![](images/mysql-entity-group.png) 
+![](images/mysql-entity-group.png)
 
 ### Portals
 
@@ -104,7 +104,7 @@ hasMetric('mysql.global_status.uptime')
 * Click Assign link and associate the portal with the entity group you created earlier.
 * Open Entity tabs, find the mysql database by name, and click on its portal icon.
 
-![](images/mysql-portal-icon.png) 
+![](images/mysql-portal-icon.png)
 
 [**MySQL Server Perfomance Live Portal**](http://apps.axibase.com/chartlab/cf72dec3)
 ![](images/mysql-portal.png)

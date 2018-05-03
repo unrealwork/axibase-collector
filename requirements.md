@@ -16,7 +16,7 @@
 * RedHat Enterprise Linux 6+
 * CentOS 6+
 * SUSE Linux Enterprise Server 11.2+
- 
+
 ## Java
 
 * JDK 1.7

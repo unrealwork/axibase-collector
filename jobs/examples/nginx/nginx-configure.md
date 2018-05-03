@@ -24,13 +24,13 @@ configure arguments: --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-
 
 ## Configure Status Page
 
-Open the `nginx.conf` file and review the [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided in NGINX documentation. 
+Open the `nginx.conf` file and review the [configuration example](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html#example) provided in NGINX documentation.
 
 ```sh
 sudo nano /etc/nginx/nginx.conf
 ```
 
-Enable the page on the `/nginx_status` URL so that it's accessible at *<your_server_address>/nginx_status*. 
+Enable the page on the `/nginx_status` URL so that it's accessible at *<your_server_address>/nginx_status*.
 
 ```ls
 location /nginx_status {
@@ -55,7 +55,7 @@ Reading: 6 Writing: 179 Waiting: 106
 
 ## Restrict Access to the Status Page
 
-Once you verify that the status page is enabled, restrict access to this page only to the IP address of the server where Axibase Collector is installed. 
+Once you verify that the status page is enabled, restrict access to this page only to the IP address of the server where Axibase Collector is installed.
 
 Add the following lines at the **beginning** of the *location /nginx_status* directive:
 
@@ -65,7 +65,7 @@ Add the following lines at the **beginning** of the *location /nginx_status* dir
 ```
 
  For example, if your collector is located at *10.102.0.6* , the configuration should look as follows:
- 
+
 ```ls
 location /nginx_status {
     allow 10.102.0.6;

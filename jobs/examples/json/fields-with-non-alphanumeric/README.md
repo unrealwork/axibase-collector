@@ -41,7 +41,7 @@ Format     | JSON
 * **Base**
 
   #### Settings
- 
+
   Field Name         | Field Value
 :----------------- | :----------
 Default Entity     | tst
@@ -50,9 +50,9 @@ Depth              | 1
 Included Fields    | ['x.y']
 Metric Name Field  | m
 Metric Value Field | v
-  
+
   #### Commands
- 
+
    ```ls
  series e:tst d:2017-03-01T11:13:56.344Z t:['x.y']=v1 m:m=1
  ```

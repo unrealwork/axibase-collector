@@ -13,7 +13,7 @@ ___
 
 | **State** | **Name** | **Attribution** |
 |:---|:---|:---|
-| Illinois | [Abortion Demographics, 1995-2012](#abortion-demographics-1995-2012) | Illinois Department of Public Health, Office of Finance and Administration, Division of Vital Records | 
+| Illinois | [Abortion Demographics, 1995-2012](#abortion-demographics-1995-2012) | Illinois Department of Public Health, Office of Finance and Administration, Division of Vital Records |
 | Maryland | [Anne Arundel County Crime Rate By Type](#anne-arundel-county-crime-rate-by-type) | MSAC |
 | New York | [Automobiles Annual Imports and Exports Through Port Authority of NY NJ Maritime Terminals: Beginning 2000](#automobiles-annual-imports-and-exports-through-port-authority-of-ny-nj-maritime-terminals-beginning-2000) | The Port Authority of New York & New Jersey |
 | Maryland | [Employment Figures](#employment-figures) | Bureau of Labor Statistics |
@@ -105,7 +105,7 @@ series e:f7nd-jj28 d:1995-01-01T00:00:00.000Z t:year=TOTAL m:f7nd-jj28.value=523
 
 ```ls
 series e:3fys-ggpk d:1975-01-01T00:00:00.000Z m:property_crime_rate=6151.1 m:larceny_theft=3843.2
-m:murder=4.8 m:robbery=124.6 m:total_crime_rate=6759.7 m:b_e=1708.6 m:agg_assault=456.9 
+m:murder=4.8 m:robbery=124.6 m:total_crime_rate=6759.7 m:b_e=1708.6 m:agg_assault=456.9
 m:m_v_theft=599.3 m:violent_crime_rate=608.6 m:rape=22.3 m:population=331390
 ```
 
@@ -219,8 +219,8 @@ m:maryland_unemployment=126413
 #### Command
 
 ```ls
-series e:3pzs-2zsk d:2010-01-01T00:00:00.000Z t:county=Allegany t:contractor=Other 
-t:solicitation="PON 2112" t:city=Other m:project_count_by_city=1 m:project_cost=34440 
+series e:3pzs-2zsk d:2010-01-01T00:00:00.000Z t:county=Allegany t:contractor=Other
+t:solicitation="PON 2112" t:city=Other m:project_count_by_city=1 m:project_cost=34440
 m:total_nameplate_kw=4.6 m:expected_kwh_annual_production=5399.66 m:incentive_dollars=8050
 ```
 
@@ -290,8 +290,8 @@ m:diverted_statewide=688820 m:produced_statewide=2116724
 #### Command
 
 ```ls
-series e:f3h8-mnxi d:2003-01-01T00:00:00.000Z t:topic=Reading t:district_name=Central 
-t:proficient_category="60.1 - 70%" m:total=59 m:proficient_2=67.8 m:grade=11 
+series e:f3h8-mnxi d:2003-01-01T00:00:00.000Z t:topic=Reading t:district_name=Central
+t:proficient_category="60.1 - 70%" m:total=59 m:proficient_2=67.8 m:grade=11
 m:district=1080 m:proficient_1=40
 ```
 
@@ -327,7 +327,7 @@ m:district=1080 m:proficient_1=40
 #### Command
 
 ```ls
-series e:dqp6-3idi d:2006-01-01T00:00:00.000Z t:county=US t:fuel="Gasoline - Regular" 
+series e:dqp6-3idi d:2006-01-01T00:00:00.000Z t:county=US t:fuel="Gasoline - Regular"
 t:physicalunit=Dollars m:price=2.314
 ```
 
@@ -359,8 +359,8 @@ t:physicalunit=Dollars m:price=2.314
 #### Command
 
 ```ls
-series e:rkm7-uwkb d:2014-01-01T00:00:00.000Z t:naics_industry_code="230 Construction" 
-t:municipality="OUT OF COUNTRY" m:taxpayer_count=16 m:total_tax_due_at_7=0 
+series e:rkm7-uwkb d:2014-01-01T00:00:00.000Z t:naics_industry_code="230 Construction"
+t:municipality="OUT OF COUNTRY" m:taxpayer_count=16 m:total_tax_due_at_7=0
 m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 ```
 
@@ -396,10 +396,10 @@ m:retail_sales_of_goods=0 m:total_tax_due_at_6_35=0
 
 ```ls
 series e:64jf-g2fe d:2007-01-01T00:00:00.000Z m:per_capita_consumption_2015_goal=10.521
-m:actual_per_capita_consumption=12.38 m:empower_per_capita_consumption_annual_goal=12.38 
+m:actual_per_capita_consumption=12.38 m:empower_per_capita_consumption_annual_goal=12.38
 m:peak_demand_2015_goal=2.173 m:per_capita_consumption_2015_goal_percent_below_baseline=-15
 m:peak_demand_percent_below_2007_baseline_goal_15=0 m:empower_peak_demand_annual_goals=2.56
-m:per_capita_consumption_percent_below_2007_baseline=0 
+m:per_capita_consumption_percent_below_2007_baseline=0
 m:peak_demand_2015_goal_percent_below_baseline=-15 m:peak_demand_annual_goals_percent_below_baseline=0
 m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 ```
@@ -444,7 +444,7 @@ m:actual_peak_demand=2.56 m:consumption_annual_goals_percent_below_baseline=0
 #### Command
 
 ```ls
-series e:un65-7ipd d:2002-01-01T00:00:00.000Z m:new=31106 m:total_sales_used=386481929 
+series e:un65-7ipd d:2002-01-01T00:00:00.000Z m:new=31106 m:total_sales_used=386481929
 m:used=49927 m:total_sales_new=755015820
 ```
 
@@ -477,7 +477,7 @@ m:used=49927 m:total_sales_new=755015820
 #### Command
 
 ```ls
-series e:qm34-pq7e d:2003-01-01T00:00:00.000Z m:other=920 m:white=27361 m:unknown=235 
+series e:qm34-pq7e d:2003-01-01T00:00:00.000Z m:other=920 m:white=27361 m:unknown=235
 m:amer_indian=117 m:hispanic=2956 m:black=6559 m:asian=568
 ```
 
@@ -512,8 +512,8 @@ m:amer_indian=117 m:hispanic=2956 m:black=6559 m:asian=568
 #### Command
 
 ```ls
-series e:d8hf-wqd9 d:2014-01-01T00:00:00.000Z t:tap_sector_group="3-SUNY SO" 
-t:scholarship_name="Flight 3407 Memorial Scholarship" m:scholarship_dollars=42954 
+series e:d8hf-wqd9 d:2014-01-01T00:00:00.000Z t:tap_sector_group="3-SUNY SO"
+t:scholarship_name="Flight 3407 Memorial Scholarship" m:scholarship_dollars=42954
 m:scholarship_fte=2.5 m:scholarship_headcount=3
 ```
 
@@ -546,11 +546,11 @@ m:scholarship_fte=2.5 m:scholarship_headcount=3
 #### Command
 
 ```ls
-series e:uubd-eei2 d:2013-01-01T00:00:00.000Z t:district=Albany m:prison_unresolved=0 
-m:prison_closed_resolved=75 m:feds_total_investigated=33 m:prison_exonerated_resolved=25 
-m:total_ipvs=24 m:paris_closed_resolved=30 m:feds_cases_no_impact=0 
-m:paris_total_matches=215 m:ipv_positive_investigations=17 m:paris_unresolved=0 
-m:paris_exonerated_resolved=60 m:feds_cases_no_errors=39 m:prison_total_matches=65 
+series e:uubd-eei2 d:2013-01-01T00:00:00.000Z t:district=Albany m:prison_unresolved=0
+m:prison_closed_resolved=75 m:feds_total_investigated=33 m:prison_exonerated_resolved=25
+m:total_ipvs=24 m:paris_closed_resolved=30 m:feds_cases_no_impact=0
+m:paris_total_matches=215 m:ipv_positive_investigations=17 m:paris_unresolved=0
+m:paris_exonerated_resolved=60 m:feds_cases_no_errors=39 m:prison_total_matches=65
 m:prison_closed_prior_resolved=0 m:feds_cases_referred=1 m:feds_cases_denied_grant_reduced=61
 m:paris_closed_prior_resolved=9
 ```
@@ -629,8 +629,8 @@ m:national_veterans_unemployment_rate=8.7
 #### Command
 
 ```ls
-series e:5ymg-2p8u d:2007-07-06T00:00:00.000Z m:marc_total=566473 m:bus=5022875 
-m:metro=1062276 m:total_ridership=7560691 m:mobility=66973 m:light_rail=563420 
+series e:5ymg-2p8u d:2007-07-06T00:00:00.000Z m:marc_total=566473 m:bus=5022875
+m:metro=1062276 m:total_ridership=7560691 m:mobility=66973 m:light_rail=563420
 m:commuter_bus_total=249082 m:taxi_access_trips=29592
 ```
 
@@ -720,8 +720,8 @@ series e:yrss-ncc4 d:1998-03-31T00:00:00.000Z t:industry_type=Farm t:industry=Fa
 
 ```ls
 message e:gpri-47xz d:2016-04-12T00:00:00.000Z t:id=483906 t:businesszip=98148-1220 t:openedyear=2016.0
-t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA 
-t:source="Washington State Attorney General's Office Consumer Protection Division" t:status=Open 
+t:naics="713940-Fitness & Recreational Industries" t:businessstate=WA
+t:source="Washington State Attorney General's Office Consumer Protection Division" t:status=Open
 t:business_id=257432 t:type="Attorney General Consumer Complaints" t:business="Highline Athletic Club"
 t:businesscity=Burien
 ```
@@ -765,9 +765,9 @@ t:businesscity=Burien
 #### Command
 
 ```ls
-message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance" 
-t:coverage="Auto Medical Payment" t:reason="Unfair Claims Practice" t:status=Closed 
-t:company="21st Century Assurance Company" t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00 
+message e:t64r-mt64 d:2013-05-15T00:00:00.000Z t:file_no=302165.0 t:source="Department of Insurance"
+t:coverage="Auto Medical Payment" t:reason="Unfair Claims Practice" t:status=Closed
+t:company="21st Century Assurance Company" t:subreason="Claim Delays" t:closed=2013-08-13T00:00:00
 t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recovery=2586.0
 ```
 
@@ -805,7 +805,7 @@ t:conclusion=Unjustified t:type=Business t:disposition="Claim Settled" t:recover
 #### Command
 
 ```ls
-message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:source="New York State Gaming Commission" 
+message e:d6yy-54nr d:2010-02-03T00:00:00.000Z t:source="New York State Gaming Commission"
 t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
 ```
 
@@ -835,7 +835,7 @@ t:type="Government & Finance" t:multiplier=2.0 m:"17 22 36 37 52 24"
 #### Command
 
 ```ls
-message e:5xaw-6ayf d:2002-05-17T00:00:00.000Z t:source="New York State Gaming Commission" 
+message e:5xaw-6ayf d:2002-05-17T00:00:00.000Z t:source="New York State Gaming Commission"
 t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
 ```
 
@@ -866,8 +866,8 @@ t:type="Government & Finance" t:mega_ball=30 m:"15 18 25 33 47"
 
 ```ls
 message e:i8h7-mn6v d:2016-06-01T00:00:00.000Z t:business_name="12 STONE CONTRACTING GROUP, INC."
-t:associated_name_type="MAILING ADDRESS" t:source=i8h7-mn6v t:zip_code=31106 t:address="PO BOX 8958" 
-t:state=GA t:type=Business t:entity_type="FOREIGN BUSINESS CORPORATION" 
+t:associated_name_type="MAILING ADDRESS" t:source=i8h7-mn6v t:zip_code=31106 t:address="PO BOX 8958"
+t:state=GA t:type=Business t:entity_type="FOREIGN BUSINESS CORPORATION"
 t:city=ATLANTA t:registry_number=122151194
 ```
 
@@ -910,10 +910,10 @@ t:city=ATLANTA t:registry_number=122151194
 #### Command
 
 ```ls
-message e:snfi-f79b d:2016-07-28T00:00:00.000Z t:lapse_date=2022-01-27T00:00:00 t:file_number=1866-23 
-t:entity="KEYBANK NATIONAL ASSOCIATION" t:st_cd_txt=OH t:zip_code_txt=44144 t:type=Business 
-t:file_type=AMENDMENT t:lien_type=UCC t:source=snfi-f79b t:city_descr=BROOKLYN t:party_type=SP 
-t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:original_file_number=1866 
+message e:snfi-f79b d:2016-07-28T00:00:00.000Z t:lapse_date=2022-01-27T00:00:00 t:file_number=1866-23
+t:entity="KEYBANK NATIONAL ASSOCIATION" t:st_cd_txt=OH t:zip_code_txt=44144 t:type=Business
+t:file_type=AMENDMENT t:lien_type=UCC t:source=snfi-f79b t:city_descr=BROOKLYN t:party_type=SP
+t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:original_file_number=1866
 ```
 
 #### JSON
@@ -953,7 +953,7 @@ t:entity_type=ORG t:mail_addr_1="4910 TIEDEMAN ROAD" t:cntry_cd_txt=USA t:origin
 
 #### Command
 ```ls
-message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:source="New York State Gaming Commission" 
+message e:kwxv-fwze d:2014-06-16T00:00:00.000Z t:source="New York State Gaming Commission"
 t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 ```
 
@@ -983,8 +983,8 @@ t:type="Government & Finance" t:cash_ball=03 m:"09 36 44 53 59"
 #### Command
 
 ```ls
-message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y 
-t:source="Office of the Chief Medical Examiner" t:mannerofdeath=Accident t:benzo_s=Y 
+message e:rybz-nyjw d:2014-06-28T00:00:00.000Z t:casenumber=14-9876 t:hydr_cod=Y
+t:source="Office of the Chief Medical Examiner" t:mannerofdeath=Accident t:benzo_s=Y
 t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodiazepine"
 ```
 
@@ -1041,10 +1041,10 @@ t:type="Health and Human Services" t:fentanyl=Y m:"Acute fent, hydrocod, benzodi
 #### Command
 
 ```ls
-message e:2ix7-8hwk d:2014-03-05T00:00:00.000Z t:respondent="7-ELEVEN, INC*" t:zip=752210711 
+message e:2ix7-8hwk d:2014-03-05T00:00:00.000Z t:respondent="7-ELEVEN, INC*" t:zip=752210711
 t:status=Closed t:closing_description="Voluntarily Resolved" t:state=TX t:address_1="CUSTOMER RELATIONS"
-t:reference_no_=FF1411-14 t:address_2="PO BOX 711" t:type="Public Safety" t:city=DALLAS 
-t:source="Oregon Department of Justice" t:date_closed=2014-06-27T00:00:00 
+t:reference_no_=FF1411-14 t:address_2="PO BOX 711" t:type="Public Safety" t:city=DALLAS
+t:source="Oregon Department of Justice" t:date_closed=2014-06-27T00:00:00
 t:business_type="Fuel: Gasoline Stations"
 m:"Provided goods or services different than the ones complainant ordered; unauthorized work"
 ```
@@ -1053,7 +1053,7 @@ m:"Provided goods or services different than the ones complainant ordered; unaut
 
 ```JSON
 {
-      "complaint_description": "Provided goods or services different than the ones complainant ordered; 
+      "complaint_description": "Provided goods or services different than the ones complainant ordered;
             unauthorized work",
       "respondent": "7-ELEVEN, INC*",
       "zip": "752210711",
@@ -1086,11 +1086,11 @@ m:"Provided goods or services different than the ones complainant ordered; unaut
 #### Command
 
 ```ls
-message e:qkvm-skze d:2011-07-25T00:00:00.000Z t:tmkzone=1.0 t:facility_permit=8807.0 
-t:establishment="MATSUMOTO'S OKAZUYA RESTAURANT, LLC" t:facility_type="137 New and Renewal 1" 
+message e:qkvm-skze d:2011-07-25T00:00:00.000Z t:tmkzone=1.0 t:facility_permit=8807.0
+t:establishment="MATSUMOTO'S OKAZUYA RESTAURANT, LLC" t:facility_type="137 New and Renewal 1"
 t:tmkparcel=24.0 t:permit_expire_date=2013-08-02T00:00:00 t:mailing_address_zip_code=96817 t:tmkplat=7.0
-t:permit_holder="TODD MATSUMOTO" t:type=Health t:source="Department of Health" 
-t:establishment_address_zip_code=96817 t:risk_category="Category 1" 
+t:permit_holder="TODD MATSUMOTO" t:type=Health t:source="Department of Health"
+t:establishment_address_zip_code=96817 t:risk_category="Category 1"
 t:mailing_address_street_name="GULICK AVENUE" t:business_status=Open t:establishment_address_state=HAWAII
 t:establishment_address_city=HONOLULU t:mailing_address_state=HAWAII t:telephone=(808)721-7464
 t:establishment_address_street_name="GULICK AVENUE" t:establishment_permit=8807.0 t:tmksection=3.0
@@ -1146,8 +1146,8 @@ t:mailing_address_city=HONOLULU
 #### Command
 
 ```ls
-message e:pmxm-gftz d:2008-01-01T00:00:00.000Z t:region=WILLARD 
-t:source="NYS Department of Corrections and Community Supervision" t:county=SENECA 
+message e:pmxm-gftz d:2008-01-01T00:00:00.000Z t:region=WILLARD
+t:source="NYS Department of Corrections and Community Supervision" t:county=SENECA
 t:crime="DRUG OFFENSES" t:age=29.0 t:gender=MALE t:type="Public Safety"
 ```
 
@@ -1181,8 +1181,8 @@ t:crime="DRUG OFFENSES" t:age=29.0 t:gender=MALE t:type="Public Safety"
 #### Command
 
 ```ls
-message e:n2dz-pwuk d:2017-06-30T00:00:00.000Z t:brand_label_serial_number=5002370 
-t:wholesaler_name="MATT BREWING CO INC" t:source="NYSLA Wholesale Bureau / NYSITS" 
+message e:n2dz-pwuk d:2017-06-30T00:00:00.000Z t:brand_label_serial_number=5002370
+t:wholesaler_name="MATT BREWING CO INC" t:source="NYSLA Wholesale Bureau / NYSITS"
 t:brand_label_name="SARANAC PALE ALE" t:license_class_code=650 t:wholesaler_license_serial_number=2503534
 t:license_type_code=1 t:domestic_d_or_imported_i=D t:type="Economic Development" t:product_description=ALE
 t:license_class_description=ALE
@@ -1221,11 +1221,11 @@ t:license_class_description=ALE
 #### Command
 
 ```ls
-message e:i7h5-rx65 d:2015-12-30T13:11:00.000Z t:project_health=Green t:level=1.0 
-t:project_name="Virtual Desktop Pilot" t:source="Office of Policy and Management" 
-t:it_capital_investment_fund=0.0 t:project_start_date=2013-03-04T00:00:00 
-t:planned_project_end_date=2014-02-05T00:00:00 t:total_budget=500000.0 
-t:project_phase="Post Implementation" t:type=Government t:agency_name="Department of Children and Families" 
+message e:i7h5-rx65 d:2015-12-30T13:11:00.000Z t:project_health=Green t:level=1.0
+t:project_name="Virtual Desktop Pilot" t:source="Office of Policy and Management"
+t:it_capital_investment_fund=0.0 t:project_start_date=2013-03-04T00:00:00
+t:planned_project_end_date=2014-02-05T00:00:00 t:total_budget=500000.0
+t:project_phase="Post Implementation" t:type=Government t:agency_name="Department of Children and Families"
 m:"Pilot the use of virtual desktops or virtual applications in the agency."
 ```
 
@@ -1263,7 +1263,7 @@ m:"Pilot the use of virtual desktops or virtual applications in the agency."
 
 ```ls
 message e:2kf7-i54h d:1991-07-02T00:00:00.000Z t:filenumber=104008 t:postalcode=97290-6550
-t:lapse_date=2021-07-02T00:00:00 t:secured_party="KEY BANK OF OREGON" t:source=2kf7-i54h 
+t:lapse_date=2021-07-02T00:00:00 t:secured_party="KEY BANK OF OREGON" t:source=2kf7-i54h
 t:addr1="PO BOX 66550" t:state=OR t:lt_cd=UCC t:type=Business t:city=PORTLAND t:country=USA
 ```
 

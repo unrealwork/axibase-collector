@@ -1,8 +1,8 @@
 # Jobs
 
-A job is a primary unit of configuration and scheduling in Axibase Collector. 
+A job is a primary unit of configuration and scheduling in Axibase Collector.
 
-Each job has the following generic properties: 
+Each job has the following generic properties:
 
 | **Name** | **Description** |
 |:--- |:---|
@@ -31,10 +31,10 @@ The job may include multiple configurations. For example, a JDBC job may be conf
 
 You can create the exact copy of the job by clicking 'Clone'.
 
-The copied job will have the same name as the original job but with the '-cloned' postfix. 
+The copied job will have the same name as the original job but with the '-cloned' postfix.
 
-By default, cloned jobs are disabled. 
+By default, cloned jobs are disabled.
 
-You can change the necessary settings and enable the job by selecting the Enabled check box. 
+You can change the necessary settings and enable the job by selecting the Enabled check box.
 
 A cloned job has its own primary key and can run concurrently with the original job.

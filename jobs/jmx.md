@@ -34,7 +34,7 @@ ACTIVEMQ_SUNJMX_START="-Dcom.sun.management.jmxremote \
    -Dcom.sun.management.jmxremote.access.file=${ACTIVEMQ_BASE}/conf/jmx.access"
 ```
 
-To verify connectivity with the remote host, click the [Test] or [Viewer] buttons. 
+To verify connectivity with the remote host, click the [Test] or [Viewer] buttons.
 
 Add hostname to the `/etc/hosts` file directory on the collector machine in case of `UnknownHostException`.
 
@@ -70,7 +70,7 @@ java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 
 ## Queries
 
-Configuration includes a list of MBean queries consisting of two parts: object name pattern and attribute list. 
+Configuration includes a list of MBean queries consisting of two parts: object name pattern and attribute list.
 
 The list of queries can be entered manually or by opening [Viewer](#viewer), expanding MBean hierarchy, and choosing attributes of interest.
 
@@ -81,7 +81,7 @@ Both parts of the query support wildcards:
 
 ### [Object Name](https://docs.oracle.com/javase/7/docs/api/javax/management/ObjectName.html) pattern
 
-The pattern pattern matches MBean instances of specified type and name. 
+The pattern pattern matches MBean instances of specified type and name.
 
 ```
 org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
@@ -106,7 +106,7 @@ kafka.cluster:name=*,partition=*,topic!=_*,type=Partition
 
 ### Attribute Name list
 
-The list specifies attributes whose values will be retrieved and sent to the database. 
+The list specifies attributes whose values will be retrieved and sent to the database.
 
 The list can include specific names as well as name patterns.
 

@@ -18,28 +18,28 @@ https://status.github.com/api/daily-summary.json
 ```json
 {
   "2016-07-04": {
-    "good": 64800, 
-    "major": 0, 
+    "good": 64800,
+    "major": 0,
     "minor": 0
-  }, 
+  },
   "2016-07-05": {
-    "good": 86400, 
-    "major": 0, 
+    "good": 86400,
+    "major": 0,
     "minor": 0
   },
   "2016-07-06": {
-    "good": 85072, 
-    "major": 157, 
+    "good": 85072,
+    "major": 157,
     "minor": 1171
-  }, 
+  },
   "2016-07-07": {
-    "good": 86400, 
-    "major": 0, 
+    "good": 86400,
+    "major": 0,
     "minor": 0
-  }, 
+  },
   "2016-07-08": {
-    "good": 27327, 
-    "major": 0, 
+    "good": 27327,
+    "major": 0,
     "minor": 0
   }
 }

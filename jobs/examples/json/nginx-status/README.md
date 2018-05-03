@@ -27,13 +27,13 @@ Example: http://demo.nginx.com/status
 * **Base:**
 
   ```javascript
-  $   
+  $
   ```
-  
+
   [JSON](nginx_status.json) file.
-    
+
   #### Commands
-    
+
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z m:nginx-plus.connections.accepted=20373129 m:nginx-plus.connections.dropped=0 m:nginx-plus.requests.current=6 m:nginx-plus.ssl.handshakes=84733 m:nginx-plus.connections.idle=46 m:nginx-plus.requests.total=48937280 m:nginx-plus.processes.respawned=0 m:nginx-plus.ssl.session_reuses=16478 m:nginx-plus.connections.active=8 m:nginx-plus.ssl.handshakes_failed=7022
   property t:nginx_info e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:address=206.251.255.64 v:nginx_version=1.9.13 v:pid=59970 v:load_timestamp=1467911779387 v:generation=11 v:version property t:nginx_info e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:address=206.251.255.64 v:nginx_version=1.9.13 v:pid=59970 v:load_timestamp=1467911779387 v:generation=11 v:version=6
@@ -45,98 +45,98 @@ Example: http://demo.nginx.com/status
   ```javascript
   $..peers.*
   ```
-  
+
   ```json
   [
     {
-      "active": 0, 
-      "backup": false, 
-      "downstart": 0, 
-      "downtime": 14907, 
-      "fails": 18, 
+      "active": 0,
+      "backup": false,
+      "downstart": 0,
+      "downtime": 14907,
+      "fails": 18,
       "health_checks": {
-        "checks": 7459, 
-        "fails": 0, 
-        "last_passed": true, 
+        "checks": 7459,
+        "fails": 0,
+        "last_passed": true,
         "unhealthy": 0
-      }, 
-      "id": 0, 
-      "received": 1362661342, 
-      "requests": 74535, 
+      },
+      "id": 0,
+      "received": 1362661342,
+      "requests": 74535,
       "responses": {
-        "1xx": 0, 
-        "2xx": 49890, 
-        "3xx": 988, 
-        "4xx": 14548, 
-        "5xx": 9109, 
+        "1xx": 0,
+        "2xx": 49890,
+        "3xx": 988,
+        "4xx": 14548,
+        "5xx": 9109,
         "total": 74535
-      }, 
-      "selected": 1467986488000, 
-      "sent": 45523551, 
-      "server": "10.0.0.1:8080", 
-      "state": "up", 
-      "unavail": 18, 
+      },
+      "selected": 1467986488000,
+      "sent": 45523551,
+      "server": "10.0.0.1:8080",
+      "state": "up",
+      "unavail": 18,
       "weight": 1
-    }, 
+    },
     {
-      "active": 0, 
-      "backup": true, 
-      "downstart": 1467911779938, 
-      "downtime": 74711578, 
-      "fails": 0, 
+      "active": 0,
+      "backup": true,
+      "downstart": 1467911779938,
+      "downtime": 74711578,
+      "fails": 0,
       "health_checks": {
-        "checks": 7468, 
-        "fails": 7468, 
-        "last_passed": false, 
+        "checks": 7468,
+        "fails": 7468,
+        "last_passed": false,
         "unhealthy": 1
-      }, 
-      "id": 1, 
-      "received": 0, 
-      "requests": 0, 
+      },
+      "id": 1,
+      "received": 0,
+      "requests": 0,
       "responses": {
-        "1xx": 0, 
-        "2xx": 0, 
-        "3xx": 0, 
-        "4xx": 0, 
-        "5xx": 0, 
+        "1xx": 0,
+        "2xx": 0,
+        "3xx": 0,
+        "4xx": 0,
+        "5xx": 0,
         "total": 0
-      }, 
-      "selected": 0, 
-      "sent": 0, 
-      "server": "10.0.0.1:8081", 
-      "state": "unhealthy", 
-      "unavail": 0, 
+      },
+      "selected": 0,
+      "sent": 0,
+      "server": "10.0.0.1:8081",
+      "state": "unhealthy",
+      "unavail": 0,
       "weight": 1
     },
     ...
     {
-      "active": 0, 
-      "backup": false, 
-      "connections": 0, 
-      "downstart": 0, 
-      "downtime": 0, 
-      "fails": 0, 
+      "active": 0,
+      "backup": false,
+      "connections": 0,
+      "downstart": 0,
+      "downtime": 0,
+      "fails": 0,
       "health_checks": {
-        "checks": 0, 
-        "fails": 0, 
+        "checks": 0,
+        "fails": 0,
         "unhealthy": 0
-      }, 
-      "id": 3, 
-      "received": 0, 
-      "selected": 0, 
-      "sent": 0, 
-      "server": "[2001:1af8:4060:a004:21::e3]:80", 
-      "state": "down", 
-      "unavail": 0, 
+      },
+      "id": 3,
+      "received": 0,
+      "selected": 0,
+      "sent": 0,
+      "server": "[2001:1af8:4060:a004:21::e3]:80",
+      "state": "down",
+      "unavail": 0,
       "weight": 1
     }
   ]
   ```
-  
+
   [JSON](matched_objects_2.json) file.
-  
+
   #### Commands
-  
+
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:upstream=trac-backend t:type=upstreams.peers m:nginx-plus.fails=18 m:nginx-plus.received=1362661342 m:nginx-plus.responses.4xx=14548 m:nginx-plus.responses.5xx=9109 m:nginx-plus.health_checks.fails=0 m:nginx-plus.sent=45523551 m:nginx-plus.responses.total=74535 m:nginx-plus.selected=1467986488000 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.health_checks.checks=7459 m:nginx-plus.active=0 m:nginx-plus.responses.3xx=988 m:nginx-plus.requests=74535 m:nginx-plus.unavail=18 m:nginx-plus.responses.2xx=49890 m:nginx-plus.downtime=14907 m:nginx-plus.downstart=0 m:nginx-plus.responses.1xx=0
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:upstream=trac-backend t:type=upstreams.peers m:nginx-plus.fails=0 m:nginx-plus.received=0 m:nginx-plus.responses.4xx=0 m:nginx-plus.responses.5xx=0 m:nginx-plus.health_checks.fails=7468 m:nginx-plus.sent=0 m:nginx-plus.responses.total=0 m:nginx-plus.selected=0 m:nginx-plus.health_checks.unhealthy=1 m:nginx-plus.health_checks.checks=7468 m:nginx-plus.active=0 m:nginx-plus.responses.3xx=0 m:nginx-plus.requests=0 m:nginx-plus.unavail=0 m:nginx-plus.responses.2xx=0 m:nginx-plus.downtime=74711578 m:nginx-plus.downstart=1467911779938 m:nginx-plus.responses.1xx=0
@@ -156,106 +156,106 @@ Example: http://demo.nginx.com/status
   ```javascript
   $['caches'|'server_zones'|'upstreams'].*
   ```
-   
+
   ```json
   [
     {
       "bypass": {
-        "bytes": 13010815042, 
-        "bytes_written": 13010806733, 
-        "responses": 340141, 
+        "bytes": 13010815042,
+        "bytes_written": 13010806733,
+        "responses": 340141,
         "responses_written": 340113
-      }, 
-      "cold": false, 
+      },
+      "cold": false,
       "expired": {
-        "bytes": 6709984777, 
-        "bytes_written": 6537974501, 
-        "responses": 198350, 
+        "bytes": 6709984777,
+        "bytes_written": 6537974501,
+        "responses": 198350,
         "responses_written": 177369
-      }, 
+      },
       "hit": {
-        "bytes": 16090273077, 
+        "bytes": 16090273077,
         "responses": 1233531
-      }, 
-      "max_size": 536870912, 
+      },
+      "max_size": 536870912,
       "miss": {
-        "bytes": 77000388079, 
-        "bytes_written": 23642451487, 
-        "responses": 1872931, 
+        "bytes": 77000388079,
+        "bytes_written": 23642451487,
+        "responses": 1872931,
         "responses_written": 612094
-      }, 
+      },
       "revalidated": {
-        "bytes": 0, 
+        "bytes": 0,
         "responses": 0
-      }, 
-      "size": 536838144, 
+      },
+      "size": 536838144,
       "stale": {
-        "bytes": 0, 
+        "bytes": 0,
         "responses": 0
-      }, 
+      },
       "updating": {
-        "bytes": 0, 
+        "bytes": 0,
         "responses": 0
       }
-    }, 
+    },
     {
-      "discarded": 136, 
-      "processing": 1, 
-      "received": 34286911, 
-      "requests": 64805, 
+      "discarded": 136,
+      "processing": 1,
+      "received": 34286911,
+      "requests": 64805,
       "responses": {
-        "1xx": 0, 
-        "2xx": 60361, 
-        "3xx": 1440, 
-        "4xx": 1640, 
-        "5xx": 1227, 
+        "1xx": 0,
+        "2xx": 60361,
+        "3xx": 1440,
+        "4xx": 1640,
+        "5xx": 1227,
         "total": 64668
-      }, 
+      },
       "sent": 1054502861
     },
-    ... 
+    ...
     {
-      "keepalive": 0, 
+      "keepalive": 0,
       "peers": [
         {
-          "active": 0, 
-          "backup": false, 
-          "downstart": 0, 
-          "downtime": 0, 
-          "fails": 0, 
+          "active": 0,
+          "backup": false,
+          "downstart": 0,
+          "downtime": 0,
+          "fails": 0,
           "health_checks": {
-            "checks": 74458, 
-            "fails": 0, 
-            "last_passed": true, 
+            "checks": 74458,
+            "fails": 0,
+            "last_passed": true,
             "unhealthy": 0
-          }, 
-          "id": 0, 
-          "received": 0, 
-          "requests": 0, 
+          },
+          "id": 0,
+          "received": 0,
+          "requests": 0,
           "responses": {
-            "1xx": 0, 
-            "2xx": 0, 
-            "3xx": 0, 
-            "4xx": 0, 
-            "5xx": 0, 
+            "1xx": 0,
+            "2xx": 0,
+            "3xx": 0,
+            "4xx": 0,
+            "5xx": 0,
             "total": 0
-          }, 
-          "selected": 0, 
-          "sent": 0, 
-          "server": "10.0.0.2:15431", 
-          "state": "up", 
-          "unavail": 0, 
+          },
+          "selected": 0,
+          "sent": 0,
+          "server": "10.0.0.2:15431",
+          "state": "up",
+          "unavail": 0,
           "weight": 1
         }
       ]
     }
   ]
   ```
-  
+
   [JSON](matched_objects_3.json) file.
-  
+
   #### Commands
-    
+
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=hg.nginx.org t:type=server_zones m:nginx-plus.received=34286911 m:nginx-plus.responses.4xx=1640 m:nginx-plus.responses.5xx=1227 m:nginx-plus.responses.3xx=1440 m:nginx-plus.requests=64805 m:nginx-plus.sent=1054502861 m:nginx-plus.processing=1 m:nginx-plus.responses.total=64668 m:nginx-plus.responses.2xx=60361 m:nginx-plus.discarded=136 m:nginx-plus.responses.1xx=0
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=trac.nginx.org t:type=server_zones m:nginx-plus.received=79989134 m:nginx-plus.responses.4xx=15632 m:nginx-plus.responses.5xx=9762 m:nginx-plus.responses.3xx=11006 m:nginx-plus.requests=142075 m:nginx-plus.sent=2025993239 m:nginx-plus.processing=1 m:nginx-plus.responses.total=139793 m:nginx-plus.responses.2xx=103393 m:nginx-plus.discarded=2281 m:nginx-plus.responses.1xx=0
@@ -271,26 +271,26 @@ Example: http://demo.nginx.com/status
   ```javascript
   $['stream']['server_zones'].*
   ```
-  
+
   ```json
   [
     {
-      "connections": 74457, 
-      "processing": 0, 
-      "received": 7892442, 
+      "connections": 74457,
+      "processing": 0,
+      "received": 7892442,
       "sent": 549295747
-    }, 
+    },
     {
-      "connections": 42742, 
-      "processing": 0, 
-      "received": 1154034, 
+      "connections": 42742,
+      "processing": 0,
+      "received": 1154034,
       "sent": 5344776
     }
   ]
   ```
-  
+
   #### Commands
-  
+
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=postgresql_loadbalancer t:type=stream.server_zones m:nginx-plus.received=7892442 m:nginx-plus.connections=74457 m:nginx-plus.sent=549295747 m:nginx-plus.processing=0
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=dns_loadbalancer t:type=stream.server_zones m:nginx-plus.received=1154034 m:nginx-plus.connections=42742 m:nginx-plus.sent=5344776 m:nginx-plus.processing=0
@@ -302,53 +302,53 @@ Example: http://demo.nginx.com/status
   ```javascript
   $['caches'].*.*
   ```
-  
+
   ```json
   [
-    536838144, 
-    536870912, 
-    false, 
+    536838144,
+    536870912,
+    false,
     {
-      "bytes": 16090273077, 
+      "bytes": 16090273077,
       "responses": 1233531
-    }, 
+    },
     {
-      "bytes": 0, 
+      "bytes": 0,
       "responses": 0
-    }, 
+    },
     {
-      "bytes": 0, 
+      "bytes": 0,
       "responses": 0
-    }, 
+    },
     {
-      "bytes": 0, 
+      "bytes": 0,
       "responses": 0
-    }, 
+    },
     {
-      "bytes": 77000388079, 
-      "bytes_written": 23642451487, 
-      "responses": 1872931, 
+      "bytes": 77000388079,
+      "bytes_written": 23642451487,
+      "responses": 1872931,
       "responses_written": 612094
-    }, 
+    },
     {
-      "bytes": 6709984777, 
-      "bytes_written": 6537974501, 
-      "responses": 198350, 
+      "bytes": 6709984777,
+      "bytes_written": 6537974501,
+      "responses": 198350,
       "responses_written": 177369
-    }, 
+    },
     {
-      "bytes": 13010815042, 
-      "bytes_written": 13010806733, 
-      "responses": 340141, 
+      "bytes": 13010815042,
+      "bytes_written": 13010806733,
+      "responses": 340141,
       "responses_written": 340113
     }
   ]
   ```
-  
+
   [JSON](matched_objects_5.json) file.
-  
+
   #### Commands
-  
+
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=http_cache t:cache_status=hit t:type=caches m:nginx-plus.responses=1233531 m:nginx-plus.bytes=16090273077
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=http_cache t:cache_status=stale t:type=caches m:nginx-plus.responses=0 m:nginx-plus.bytes=0

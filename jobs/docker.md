@@ -78,10 +78,10 @@ The Docker job should start executing immediately.
 
 #### SELinux
 
-On Docker hosts with SELinux enabled in enforced mode, the container will run into a `permission denied` error when trying to read data from  `/var/run/docker.sock`. 
+On Docker hosts with SELinux enabled in enforced mode, the container will run into a `permission denied` error when trying to read data from  `/var/run/docker.sock`.
 
 Switch to the Remote Collection option or follow one of the following steps to address it:
-- Run container in privileged mode (`--privileged`) 
+- Run container in privileged mode (`--privileged`)
 - Run container with disabled security labeling (`--security-opt label=disable`)
 - Disable SELinux or set it into logging mode with `sudo setenforce Permissive`
 - Other alternatives using `semodule`: https://github.com/dpw/selinux-dockersock
@@ -98,7 +98,7 @@ Switch to the Remote Collection option or follow one of the following steps to a
 
 ## Remote Collection
 
-In remote collection mode Axibase Collector fetches data from multiple remote Docker hosts using https protocol.  
+In remote collection mode Axibase Collector fetches data from multiple remote Docker hosts using https protocol.
 
 ![Local Collection](images/docker-remote.png)
 

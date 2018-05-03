@@ -19,9 +19,9 @@ https://example.com/nginx_status
 ### Content
 
 ```ls
-Active connections: 7 
+Active connections: 7
 server accepts handled requests
- 1308441 1308441 342390 
+ 1308441 1308441 342390
 Reading: 0 Writing: 1 Waiting: 6
 ```
 

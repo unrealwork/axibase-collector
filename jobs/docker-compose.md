@@ -1,6 +1,6 @@
 # Launching Linked Containers
 
-You can launch linked ATSD and Axibase Collector containers on the same Docker host with `docker-compose`. 
+You can launch linked ATSD and Axibase Collector containers on the same Docker host with `docker-compose`.
 
 `docker-compose.yml`
 
@@ -18,14 +18,14 @@ services:
     environment:
       - ADMIN_USER_NAME=${ADMUSR}
       - ADMIN_USER_PASSWORD=${ADMPWD}
-      - COLLECTOR_USER_TYPE=api-rw  
+      - COLLECTOR_USER_TYPE=api-rw
       - COLLECTOR_USER_NAME=${USR}
       - COLLECTOR_USER_PASSWORD=${PWD}
 
   collector:
     image: axibase/collector:latest
     ports:
-      - "9443:9443"    
+      - "9443:9443"
     depends_on:
       - atsd
     volumes:

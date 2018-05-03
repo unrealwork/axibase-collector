@@ -131,7 +131,7 @@ The job assigns each metric to an entity which is determined based on the [prima
 
 ## AWS CloudWatch API Fees
 
-AWS applies [usage charges](https://aws.amazon.com/cloudwatch/pricing/) for CloudWatch API requests with free entitlement available on a monthly basis.  
+AWS applies [usage charges](https://aws.amazon.com/cloudwatch/pricing/) for CloudWatch API requests with free entitlement available on a monthly basis.
 
 An extra fee is charged for detailed monitoring, as well as for custom metrics. The detailed monitoring provides `1-minute` period granularity and a lower delay, typically 1 or 2 minutes, whereas the basic monitoring can have a delay between 5 and 10 minutes.
 
@@ -181,7 +181,7 @@ The primary dimension determines entity name in ATSD.
 | AWS/ML | MLModelId |
 | AWS/OpsWorks | InstanceId |
 | AWS/Polly | Operation |
-| AWS/Redshift | NodeID | 
+| AWS/Redshift | NodeID |
 | AWS/RDS | DBInstanceIdentifier |
 | AWS/Route53 | HealthCheckId |
 | AWS/SageMaker | Host |

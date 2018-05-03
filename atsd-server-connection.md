@@ -2,7 +2,7 @@
 
 ## Overview
 
-In order for Axibase Collector to function properly, it needs to know where to send data collected from remote data sources. 
+In order for Axibase Collector to function properly, it needs to know where to send data collected from remote data sources.
 
 This document describes how to add a storage driver for sending data into ATSD.
 

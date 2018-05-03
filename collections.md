@@ -39,14 +39,14 @@ To create a new list, open the **Collections:Item Lists** page, and click **Add*
 | `Type` | Method used to retrieve list items. See [types](#types).|
 |`Discard Duplicates` | Discard items with the same name.<br>If true, the list discards duplicate items regardless of type (TEXT, FILE, SCRIPT).<br>String comparison for duplicate checks is case-sensitive.|
 |`Items`, `Path`, `Command`... | Type-specific fields to configure the source for reading list items.|
- 
+
 ### Usage
 
-Use the `${ITEM}` placeholder to access the value of the current item in the list while iterating. 
+Use the `${ITEM}` placeholder to access the value of the current item in the list while iterating.
 
 The items retain the original order as specified in the editor or returned by an external source.
 
-For example, include the `${ITEM}` placeholder into the Path field in JSON job to query a different URL for each element in the list. 
+For example, include the `${ITEM}` placeholder into the Path field in JSON job to query a different URL for each element in the list.
 
 ![Item List Example](images/item-list.png)
 
@@ -74,7 +74,7 @@ Item Lists may receive items from different sources. Currently the following typ
 
 #### TEXT
 
-An Item List which stores strings entered in the `Items` field on the form. 
+An Item List which stores strings entered in the `Items` field on the form.
 
 List items should be separated by a line break.
 
@@ -225,7 +225,7 @@ If the result set is empty, an empty list is returned.
 
 #### ATSD_PROPERTY
 
-Requests a list of property records from ATSD with the [property query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) method. 
+Requests a list of property records from ATSD with the [property query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) method.
 
 **Field** | **Description**
 :--- | :---

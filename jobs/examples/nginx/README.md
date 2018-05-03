@@ -36,7 +36,7 @@ metric(cell(row, 1) + '_' + (cell(row,col-1)+'').substring(0,(cell(row,col-1)+''
 
 * Login into the ATSD web interface.
 * Open the **Configuration:Parsers CSV** page. Click Import.
-* Import [CSV parser](./configs/nginx-atsd-csv-parser.xml) for the NGINX status page.  
+* Import [CSV parser](./configs/nginx-atsd-csv-parser.xml) for the NGINX status page.
 * The parser splits status page content into cells and assembles series commands from extracted cell values.<br>In addition, it creates a derived metric `unhandled_percent` equal to `100*(1-handled/accepted)`.
 
 ## Configure Jobs in Axibase Collector
