@@ -84,7 +84,7 @@ Configure your Java application for JMX data collection as described [here](../.
 
 ### Setting up Mail Client
 
-* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/administration/setting-up-email-client.md).
+* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/administration/mail-client.md).
 
 #### Import Rules
 

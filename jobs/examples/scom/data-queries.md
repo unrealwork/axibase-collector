@@ -1,6 +1,7 @@
 # Microsoft SCOM Data Queries
 
-- Metrics query:
+* Metrics query:
+
 ```SQL
 SELECT LEFT(tme.NAME+'.', CHARINDEX('.',tme.NAME+'.')-1) AS EntityName,
   REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(mp.MpName, '.2003', ''), '.2007', ''), '.2008', ''), '.2012', ''), '.Windows.Server', '.Server'), 'Server.AD', 'AD'), 'Microsoft.', ''), '.Monitoring', ''), '.Internal', '') + '.' +
@@ -17,7 +18,7 @@ SELECT LEFT(tme.NAME+'.', CHARINDEX('.',tme.NAME+'.')-1) AS EntityName,
 WHERE pdv.TimeAdded > ? ORDER BY pdv.TimeSampled
 ```
 
-- Properties queries:
+* Properties queries:
 
 ```SQL
 SELECT LEFT(tme.NAME+'.', CHARINDEX('.',tme.NAME+'.')-1) AS Name,

@@ -3,7 +3,7 @@
 ## Overview
 
 Download high-resolution ocean and atmosphere pCO2 time-series measurements for a particular
-mooring **CCE2_121W_34N** from a [NOAA FTP server](ftp://ftp.nodc.noaa.gov/nodc/archive/arc0047/0084099/3.3/data/0-data/).
+mooring **CCE2_121W_34N** from a NOAA FTP server at `ftp://ftp.nodc.noaa.gov/nodc/archive/arc0047/0084099/3.3/data/0-data/`.
 
 FTP server access is anonymous.
 
@@ -21,7 +21,7 @@ The parser discards reserved (invalid) values: -999 and -9.999.
 
 Template: `ftp.nodc.noaa.gov/nodc/archive/arc0047/0084099/3.3/data/0-data/CCE*N_M*20??.csv`
 
-Example: ftp://ftp.nodc.noaa.gov/nodc/archive/arc0047/0084099/3.3/data/0-data/CCE2_121W_34N_Mar2012_Mar2013.csv
+Example: `ftp://ftp.nodc.noaa.gov/nodc/archive/arc0047/0084099/3.3/data/0-data/CCE2_121W_34N_Mar2012_Mar2013.csv`
 
 ### Local Copy
 

@@ -12,7 +12,7 @@ Axibase Collector queries `PerformanceDataAllView`in the SCOM Operations databas
 
 ## Requirements
 
-- Microsoft System Center Operations Manager 2012+.
+* Microsoft System Center Operations Manager 2012+.
 
 ## Installation steps
 
@@ -77,8 +77,8 @@ SELECT 1
 
 ### Entity Groups
 
--   `scom-servers`
--   `scom-databases`
+*   `scom-servers`
+*   `scom-databases`
 
 ### Portals
 

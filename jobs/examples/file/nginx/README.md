@@ -10,7 +10,7 @@ The Path field contains the `${ITEM}` placeholder so that multiple nginx servers
 
 ### URI
 
-https://example.com/nginx_status
+`https://example.com/nginx_status`
 
 ### Local Copy
 

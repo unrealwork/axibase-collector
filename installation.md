@@ -78,7 +78,7 @@ tail -f ./axibase-collector/logs/axibase-collector.log
 
 ## Login
 
-Open https://hostname:9443 in your browser and [configure](configure-administrator-account.md) an administrator account.
+Open `https://hostname:9443` in your browser and [configure](configure-administrator-account.md) an administrator account.
 
 ## Setup ATSD connection
 

@@ -120,8 +120,8 @@ You can specify the list of collected attributes by replacing specific attribute
 
 Special processing for `PROPERTY` command:
 
-- Attribute Name list is ignored for property commands since property commands collect all attributes of the matched beans.
-- The default value for property `type` field is set to MBean type, for instance, to `Broker` in the example above. To override the default type, enter a custom value or use `${attribute_name}` placeholders in the `property_type` column.
+* Attribute Name list is ignored for property commands since property commands collect all attributes of the matched beans.
+* The default value for property `type` field is set to MBean type, for instance, to `Broker` in the example above. To override the default type, enter a custom value or use `${attribute_name}` placeholders in the `property_type` column.
 
 ![image](https://axibase.com/wp-content/uploads/2014/06/property_type.png)
 

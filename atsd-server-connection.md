@@ -26,9 +26,9 @@ Since Axibase Collector transmits data to ATSD using the http/https protocol, yo
 
 Click Test to verify the settings:
 
-- Response code is 200 if the connection is successful and credentials are valid.
-- Response code is 401 if credentials are not valid.
-- Response code is 403 if the specified user is not authorized to access the specified Test Path.
+* Response code is 200 if the connection is successful and credentials are valid.
+* Response code is 401 if credentials are not valid.
+* Response code is 403 if the specified user is not authorized to access the specified Test Path.
 
 #### Recommended HTTP Pool Settings
 

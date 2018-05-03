@@ -19,7 +19,7 @@ The Path field contains the `${ITEM}` placeholder so that multiple securities ca
 
 Template: `http://real-chart.finance.yahoo.com/table.csv?s=${ITEM}&a=07&b=9&c=1980&d=00&e=1&f=2099&g=d&ignore=.csv`
 
-Example: http://real-chart.finance.yahoo.com/table.csv?s=MSFT&a=07&b=9&c=2015&d=00&e=1&f=2099&g=d&ignore=.csv
+Example: `http://real-chart.finance.yahoo.com/table.csv?s=MSFT&a=07&b=9&c=2015&d=00&e=1&f=2099&g=d&ignore=.csv`
 
 ### Local Copy
 

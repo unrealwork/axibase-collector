@@ -9,7 +9,7 @@ SolarWinds Monitor products collect and store statistics from target devices in 
 
 ## Requirements
 
-- SolarWinds Server & Application Monitor `6+`
+* SolarWinds Server & Application Monitor `6+`
 
 ## Installation Steps
 
@@ -72,19 +72,19 @@ SELECT 1
 
 ### Entity Groups
 
-- `solarwinds-base`
-- `solarwind-vmware-vm`
-- `solarwind-vmware-host`
-- `solarwind-vmware-cluster`
+* `solarwinds-base`
+* `solarwind-vmware-vm`
+* `solarwind-vmware-host`
+* `solarwind-vmware-cluster`
 
 ### Portals
 
 * SolarWinds Base Portal
 ![](images/solarwinds_base_portal_31.png)
 
-- SolarWinds - VMware VM
-- SolarWinds - VMware Host
-- SolarWinds - VMware Cluster
+* SolarWinds - VMware VM
+* SolarWinds - VMware Host
+* SolarWinds - VMware Cluster
 
 ## Data Queries
 

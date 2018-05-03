@@ -8,7 +8,7 @@ VMware vCenter collects and stores statistics from ESX servers in an Microsoft S
 
 ## Requirements
 
-- VMware vCenter `5.x+`
+* VMware vCenter `5.x+`
 
 ## Installation Steps
 
@@ -71,9 +71,9 @@ Query result must be `Query OK`.
 
 ### Entity Groups
 
-- `VMware VMs`
-- `VMware Hosts`
-- `VMware Clusters`
+* `VMware VMs`
+* `VMware Hosts`
+* `VMware Clusters`
 
 ### Live Portals
 

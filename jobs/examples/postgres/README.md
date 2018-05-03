@@ -8,7 +8,7 @@ The process involves enabling a JDBC job in Axibase Collector to poll [statistic
 
 ## Requirements
 
-- PostgreSQL `9.1+`
+* PostgreSQL `9.1+`
 
 ## Installation Steps
 

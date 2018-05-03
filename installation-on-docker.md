@@ -61,7 +61,7 @@ If the user name or password contains a `$`, `&`, `#`, or `!` character, escape 
 
 The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/administration/user-authentication.md#password-requirements).
 
-For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at https://10.102.0.6:8443, specify:
+For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at `https://10.102.0.6:8443`, specify:
 
 ```properties
 docker run \
@@ -101,7 +101,7 @@ To bind the collector to a particular port instead of a random one, replace `--p
 |`DOCKER_HOSTNAME` | No | Hostname of the Docker host where Axibase Collector container is running.|
 |`JAVA_OPTS` | No| Java VM options.<br>By default the collector starts with an option `-Xmx256m` |
 
-For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at https://10.102.0.6:8443, specify:
+For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at `https://10.102.0.6:8443`, specify:
 
 ```properties
 docker run \
@@ -156,7 +156,7 @@ Take note of the public https port assigned to axibase-collector container, i.e.
 
 ## Login
 
-Open https://docker_hostname:32769 in your browser and create an [administrator account](configure-administrator-account.md).
+Open `https://docker_hostname:32769` in your browser and create an [administrator account](configure-administrator-account.md).
 
 `docker_hostname` is the hostname or IP address of the Docker host and **32769** is the external port number assigned to the Collector container in the previous step.
 

@@ -16,7 +16,7 @@ Records are timestamped with the current time.
 
 ### URI
 
-https://api.stackexchange.com/2.2/tags/docker/info?key=****&site=stackoverflow
+`https://api.stackexchange.com/2.2/tags/docker/info?key=****&site=stackoverflow`
 
 ### Local Copy
 
@@ -26,16 +26,16 @@ https://api.stackexchange.com/2.2/tags/docker/info?key=****&site=stackoverflow
 
 ```json
 {
-	"items": [{
-		"has_synonyms": false,
-		"is_moderator_only": false,
-		"is_required": false,
-		"count": 13158,
-		"name": "docker"
-	}],
-	"has_more": false,
-	"quota_max": 10000,
-	"quota_remaining": 9999
+    "items": [{
+    "has_synonyms": false,
+    "is_moderator_only": false,
+    "is_required": false,
+    "count": 13158,
+    "name": "docker"
+    }],
+    "has_more": false,
+    "quota_max": 10000,
+    "quota_remaining": 9999
 }
 ```
 

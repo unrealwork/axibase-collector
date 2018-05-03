@@ -101,7 +101,6 @@ The Collector supports data markers to minimize the load on the source systems a
 
 * [Monitoring](monitoring.md)
 * [Logging](logging.md)
-* [Settings](settings.md)
 
 ## Examples
 

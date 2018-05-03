@@ -122,7 +122,7 @@ For example, you can send an email if the average *Active Connections* count ove
 
 ### Setting up Mail Client
 
-* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/administration/setting-up-email-client.md).
+* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/administration/mail-client.md).
 
 ### Import rules
 

@@ -43,5 +43,5 @@ export cuser=myuser; export cpassword=mypassword; docker-compose pull && docker-
 
 ## Access UI
 
-* ATSD url: https://docker_host:8443/
-* Axibase Collector url: https://docker_host:9443/
+* ATSD url: `https://docker_host:8443/`
+* Axibase Collector url: `https://docker_host:9443/`

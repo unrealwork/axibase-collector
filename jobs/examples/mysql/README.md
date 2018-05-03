@@ -8,7 +8,7 @@ The process involves enabling a JDBC job in Axibase Collector to poll a `global_
 
 ## Requirements
 
-- MySQL Server `5.7+`
+* MySQL Server `5.7+`
 
 ## Installation Steps
 

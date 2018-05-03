@@ -35,8 +35,8 @@ In addition to copying PI Point attributes, the job can be configured to populat
 
 ## Requirements
 
-- PI SQL Data Access Server `1.5+`
-- PI JDBC Driver `1.5+`
+* PI SQL Data Access Server `1.5+`
+* PI JDBC Driver `1.5+`
 
 ## Limitations
 

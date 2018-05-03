@@ -8,7 +8,7 @@ Oracle EM collects and stores statistics from remote databases, applications, an
 
 ## Requirements
 
-- Oracle Enterprise Manager `11+`
+* Oracle Enterprise Manager `11+`
 
 ## Installation Steps
 
@@ -72,8 +72,8 @@ SELECT NULL FROM dual
 
 ### Entity Groups
 
-- oracle-databases
-- oracle-hosts
+* oracle-databases
+* oracle-hosts
 
 ### Portals
 

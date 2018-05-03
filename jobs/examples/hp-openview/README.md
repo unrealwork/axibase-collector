@@ -8,7 +8,7 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 
 ## Requirements
 
-- HP OpenView Performance Manager `9.+`
+* HP OpenView Performance Manager `9.+`
 
 ## Installation steps
 
@@ -68,9 +68,9 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 
 ## Entity Group List
 
-- OVPM Linux
-- OVPM Unix
-- OVPM Windows
+* OVPM Linux
+* OVPM Unix
+* OVPM Windows
 
 ## Portal List
 

@@ -12,7 +12,7 @@ API key is required.
 
 ### URI
 
-http://pvoutput.org/service/r2/getstatus.jsp?sid=38878&key=****&sid1=507&d=20160705&h=1&limit=288
+`http://pvoutput.org/service/r2/getstatus.jsp?sid=38878&key=****&sid1=507&d=20160705&h=1&limit=288`
 
 ### Local Copy
 

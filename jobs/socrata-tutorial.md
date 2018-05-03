@@ -33,7 +33,7 @@ The JSON file (1.1 MB) can be found [here](https://data.cityofnewyork.us/api/vie
       have the job disabled, leave it unchecked. Leave unchecked this for tutorial.
    - `Name`: job name. Enter in a relevant name for your new Socrata job. Let's use the name `NYC-Social-Media-Usage`.
    - `Cron Expression`: job execution time period. Cron fields are specified in the following order: second, minute, hour, day-of-month, month, and day-of-week. You can randomize time of execution by putting `R` onto time placeholders. Click
-	  on field to see time periods in human readable formats, as shown in the image below.
+      on field to see time periods in human readable formats, as shown in the image below.
    - `Storage`: database for storing data collected by this job.
 
    ![Figure 7](images/Figure7.png)

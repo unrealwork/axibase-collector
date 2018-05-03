@@ -35,10 +35,10 @@ In local collection mode, Axibase Collector containers run on each Docker host a
 
 ![Local Collection](images/docker-local.png)
 
-- Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
-- Replace `atsd_host` and `atsd_https_port` with the ATSD hostname/IP address and https port (default 8443).
-- Replace `collector-rw` and `collector-password` with valid credentials in the script below.
-- Start Axibase Collector container:
+* Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
+* Replace `atsd_host` and `atsd_https_port` with the ATSD hostname/IP address and https port (default 8443).
+* Replace `collector-rw` and `collector-password` with valid credentials in the script below.
+* Start Axibase Collector container:
 
 ```properties
 docker run \
@@ -57,7 +57,7 @@ If the user name or password contains `$`, `&`, `#`, or `!` character, escape it
 
 The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/administration/user-authentication.md#password-requirements).
 
-For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at https://10.102.0.6:8443 specify:
+For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at `https://10.102.0.6:8443` specify:
 
 ```properties
 docker run \
@@ -81,10 +81,10 @@ The Docker job should start executing immediately.
 On Docker hosts with SELinux enabled in enforced mode, the container will run into a `permission denied` error when trying to read data from  `/var/run/docker.sock`.
 
 Switch to the Remote Collection option or follow one of the following steps to address it:
-- Run container in privileged mode (`--privileged`)
-- Run container with disabled security labeling (`--security-opt label=disable`)
-- Disable SELinux or set it into logging mode with `sudo setenforce Permissive`
-- Other alternatives using `semodule`: https://github.com/dpw/selinux-dockersock
+* Run container in privileged mode (`--privileged`)
+* Run container with disabled security labeling (`--security-opt label=disable`)
+* Disable SELinux or set it into logging mode with `sudo setenforce Permissive`
+* Other alternatives using `semodule`: https://github.com/dpw/selinux-dockersock
 
 **Launch Parameters**
 
@@ -253,7 +253,7 @@ The following message indicates that the initial configuration is finished:
 
 ## UI
 
-Verify the https port that is assigned to the collector and open it in your browser: https://container-ip:port
+Verify the https port that is assigned to the collector and open it in your browser: `https://container-ip:port`
 
 ```sh
 docker ps | grep axibase-collector

@@ -189,7 +189,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 
 ### Setting up Mail Client
 
-* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/administration/setting-up-email-client.md).
+* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/administration/mail-client.md).
 
 #### Import Rules
 

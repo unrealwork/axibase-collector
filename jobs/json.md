@@ -46,19 +46,19 @@ The expression will select all elements of the `book` array in the root's child 
 
 ```json
 {
-	"store": {
-		"book": [{
-			"category": "reference",
-			"author": "Nigel Rees",
-			"title": "Sayings of the Century",
-			"price": 8.95
-		}, {
-			"category": "fiction",
-			"author": "Evelyn Waugh",
-			"title": "Sword of Honour",
-			"price": 12.99
-		}]
-	}
+    "store": {
+    "book": [{
+    "category": "reference",
+    "author": "Nigel Rees",
+    "title": "Sayings of the Century",
+    "price": 8.95
+    }, {
+    "category": "fiction",
+    "author": "Evelyn Waugh",
+    "title": "Sword of Honour",
+    "price": 12.99
+    }]
+    }
 }
 ```
 
@@ -169,24 +169,24 @@ The expression will select all elements of the `book` array in the root's child 
 
 ## Additional Examples
 
-- [Json Fields](#json-fields-examples)
+* [Json Fields](#json-fields-examples)
   - [Custom Tags](#custom-tags)
-- [Entity Fields](#entity-fields-examples)
+* [Entity Fields](#entity-fields-examples)
   - [Default Entity](#default-entity)
   - [Entity Field](#entity-field)
-- [Series Fields](#series-fields-examples)
+* [Series Fields](#series-fields-examples)
   - [Metric Prefix](#metric-prefix)
   - [Included Fields](#included-fields)
   - [Excluded Fields](#excluded-fields)
   - [Metric Name and Value Fields](#metric-name-and-value-fields)
-- [Property Fields](#property-fields-examples)
+* [Property Fields](#property-fields-examples)
   - [Property Default Type](#property-default-type)
   - [Property Type Field](#property-type-field)
   - [Property Key and Value Fields](#property-key-and-value-fields)
-- [Time Fields](#time-fields-examples)
+* [Time Fields](#time-fields-examples)
   - [Time Default](#time-default)
   - [Time Field](#time-field)
-- [Message Fields](#message-fields-examples)
+* [Message Fields](#message-fields-examples)
   - [Message Defaults](#message-defaults)
   - [Message Fields](#message-fields)
 
@@ -255,7 +255,7 @@ JSON:
 }
 ```
 
-- Default Entity contains placeholder `${HOST}`:
+* Default Entity contains placeholder `${HOST}`:
 
   Field Name         | Field Value
   :----------------- | :----------
@@ -270,7 +270,7 @@ JSON:
   series e:example.com d:2016-07-07T15:19:01.365Z m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
 
-- Default Entity contains placeholder `${PARENT(n)}`:
+* Default Entity contains placeholder `${PARENT(n)}`:
 
   Field Name         | Field Value
   :----------------- | :----------
@@ -285,7 +285,7 @@ JSON:
   series e:demo-backend d:2016-07-07T15:19:34.924Z m:id=1 m:active=0 m:responses.total=0 m:responses.1xx=0
   ```
 
-- Default Entity contains text:
+* Default Entity contains text:
 
   Field Name         | Field Value
   :----------------- | :----------
@@ -640,7 +640,7 @@ series e:tst d:2016-01-02T00:00:00.000Z m:fail=2 m:ok=15
 
 #### Message Defaults
 
-- Defaults contain placeholders:
+* Defaults contain placeholders:
 
   JSON:
 
@@ -679,7 +679,7 @@ series e:tst d:2016-01-02T00:00:00.000Z m:fail=2 m:ok=15
   message e:tst d:2016-07-06T08:19:30.563Z t:source=demo-backend t:type=upstreams.peers m:peers
   ```
 
-- Defaults contain text:
+* Defaults contain text:
 
   JSON:
 
