@@ -3,7 +3,7 @@
 Protecting the Docker daemon socket with OpenSSL.
 Make sure you replace **`$HOST`** in the following examples with the DNS name of the target Docker host.
 
-> Credit: `https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl`
+> Credit: [https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl](https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl)
 
 ## Generate Private and Public Keys for a CA (Certificate Authority)
 
