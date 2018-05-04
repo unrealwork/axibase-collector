@@ -1,4 +1,5 @@
 # Collected Microsoft SCOM Properties
+
 ## scom.computer
 
 ```json
@@ -26,6 +27,7 @@
 ```
 
 ## scom.database
+
 ```json
 {
   "type": "scom.database",
@@ -50,6 +52,7 @@
 ```
 
 ## scom.operating_systems
+
 ```json
 {
   "type": "scom.operating_system",

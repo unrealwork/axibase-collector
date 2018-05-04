@@ -12,7 +12,7 @@ The Path field contains the `${ITEM}` placeholder so that multiple stations in N
 
 Template: `http://www.bom.gov.au/fwo/IDN60801/IDN60801.${ITEM}.json`
 
-Example: http://www.bom.gov.au/fwo/IDN60801/IDN60801.95695.json
+Example: `http://www.bom.gov.au/fwo/IDN60801/IDN60801.95695.json`
 
 ### Local Copy
 
@@ -106,7 +106,7 @@ $['observations']['data']
     "wind_spd_kmh": 6,
     "wind_spd_kt": 3
     }
-]	
+]
 ```
 
 ## Commands
@@ -115,7 +115,7 @@ $['observations']['data']
 series e:Wilcannia_Airport d:2016-07-07T19:30:00.000Z m:au-weather-nsw.air_temp=8.8 m:au-weather-nsw.apparent_t=8.2
 series e:Wilcannia_Airport d:2016-07-07T19:00:00.000Z m:au-weather-nsw.air_temp=8.9 m:au-weather-nsw.apparent_t=7.1
 series e:Wilcannia_Airport d:2016-07-07T18:30:00.000Z m:au-weather-nsw.air_temp=9 m:au-weather-nsw.apparent_t=6.7
-... 	
+...
 series e:Tibooburra_Airport d:2016-07-07T19:30:00.000Z m:au-weather-nsw.air_temp=6
 series e:Tibooburra_Airport d:2016-07-07T19:00:00.000Z m:au-weather-nsw.air_temp=6.3
 series e:Tibooburra_Airport d:2016-07-07T18:30:00.000Z m:au-weather-nsw.air_temp=6.5

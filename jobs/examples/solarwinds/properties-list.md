@@ -1,6 +1,7 @@
 # Collected Microsoft SCOM Properties
 
 ## sw.node
+
 ```json
 {
   "type": "sw.node",
@@ -38,6 +39,7 @@
 ```
 
 ## sw.vmw.cluster
+
 ```json
 {
   "type": "sw.vmw.cluster",
@@ -91,6 +93,7 @@
 ```
 
 ## sw.vmw.host.vms
+
 ```json
 {
   "type": "sw.vmw.host.vms",
@@ -129,7 +132,6 @@
   "timestamp": 1451899080193
 }
 ```
-
 
 ## sw.vmw.vm
 
@@ -189,6 +191,7 @@
 ```
 
 ## sw.apm.component
+
 ```json
 {
   "type": "sw.apm.component",

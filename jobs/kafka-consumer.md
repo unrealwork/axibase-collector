@@ -2,7 +2,7 @@
 
 To add a consumer in Axibase Collector, navigate to **Data Sources > Kafka Consumers** and select "Add".
 
-### Supported Brokers
+## Supported Brokers
 
 [Apache Kafka](https://kafka.apache.org) 0.9.0.x +
 
@@ -35,7 +35,9 @@ Key Password | The password of the private key in the key store file.
 ## Screenshots
 
 ### Configuration
+
 ![Kafka Consumer Configuration Example](images/kafka_consumer_configuration.png)
 
 ### Test Result
+
 ![Kafka Consumer Test Results](images/kafka_consumer_test_results.png)

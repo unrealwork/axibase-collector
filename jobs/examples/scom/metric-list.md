@@ -1,7 +1,7 @@
-#### Collected SCOM Metrics
-
+# Collected SCOM Metrics
 
 ## SQL Server
+
 ```css
 scom.sqlserver.msas:connection.current_connections
 scom.sqlserver.msas:data_mining_model_processing.current_models_processing
@@ -193,7 +193,6 @@ scom.server.processor.%_processor_time
 scom.server.processor_information.%_processor_time
 scom.server.system.processor_queue_length
 ```
-
 
 ## System Center
 

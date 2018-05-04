@@ -16,7 +16,7 @@ Just like the general [JDBC job](jdbc.md), PI job has the `Data Source` field. I
 
 ![JDBC job settings](examples/pi/images/pi-job.png)
 
-#### PI Configuration
+### PI Configuration
 
 To configure a PI job, click on the `Create Configuration` button.
 Use the table below to set configuration parameters.
@@ -40,8 +40,10 @@ Use the table below to set configuration parameters.
 | Query Timeout, seconds | Query timeout in seconds |
 
 ### Configuration Example
+
 The image below shows an example PI configuration.
 ![](examples/pi/images/pi-config.png)
 
 ### Examples
+
 [PI Job](examples/pi/export-archive-data.md)

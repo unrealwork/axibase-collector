@@ -22,7 +22,7 @@ Retrieves column value by index. The first column index is 0.
 
 Retrieves column value by name. To use this function the `Item List` must contains a header row, for example:
 
-```
+```txt
 #column_name_1,column_name_2,column_name_3
 value1,value2,value3
 ```

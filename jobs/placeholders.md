@@ -120,6 +120,7 @@ The following examples are based on the [`Path`](file.md#download) field.
 The Path field can be used to define [`Default Entity`](file.md#upload).
 
 #### keep_after
+
 * `file:///opt/files/cpu_busy.*`
 * `${PATH?keep_after('.')}`
 
@@ -128,6 +129,7 @@ The Path field can be used to define [`Default Entity`](file.md#upload).
 | /opt/files/cpu_busy.nurswgvml.106<br>/opt/files/cpu_busy.nurswgvml.107 | nurswgvml.106<br>nurswgvml.107 |
 
 #### keep_after_last
+
 * `/2.2/tags/docker/info?key=privateKey((&site=${ITEM}`
 * `${ITEM?keep_after_last("-")}`
 
@@ -136,6 +138,7 @@ The Path field can be used to define [`Default Entity`](file.md#upload).
 | so-stackoverflow | stackoverflow |
 
 #### keep_before
+
 * `ftp://user:password@10.10.0.10:21/home/user/nurswgvml106_*`
 * `${FILE?keep_before('_')}`
 
@@ -144,6 +147,7 @@ The Path field can be used to define [`Default Entity`](file.md#upload).
 | /home/user/nurswgvml106_temperature.csv | nurswgvml106 |
 
 #### keep_before_last
+
 * `file:///opt/files/*_busy.csv`
 * `${FILE?keep_before_last('_')}`
 
@@ -152,6 +156,7 @@ The Path field can be used to define [`Default Entity`](file.md#upload).
 | /opt/files/nurswgvml106_cpu_busy.csv<br>/opt/files/nurswgvml107_cpu_busy.csv | nurswgvml106_cpu<br>nurswgvml107_cpu |
 
 #### replace
+
 * `file:///opt/files/*`
 * `${FILE?replace(' ','.')}`
 
@@ -160,6 +165,7 @@ The Path field can be used to define [`Default Entity`](file.md#upload).
 | /opt/files/nurswgvml106 cpu_busy | nurswgvml106.cpu_busy |
 
 #### remove_beginning
+
 * `file:///opt/files/*`
 * `${PATH?remove_beginning('/opt/files/')}`
 
@@ -168,6 +174,7 @@ The Path field can be used to define [`Default Entity`](file.md#upload).
 | /opt/files/nurswgvml106<br>/opt/files/nurswgvml107 | nurswgvml106<br>nurswgvml107 |
 
 #### remove_ending
+
 * `file:///opt/files/*.cpu_busy.csv`
 * `${FILE?remove_ending('.cpu_busy.csv')}`
 
@@ -179,7 +186,7 @@ The Path field can be used to define [`Default Entity`](file.md#upload).
 
 The `LOOKUP` function provides key-to-value mapping in the specified Item List. It is available in [JSON](json.md), [JDBC](jdbc.md), [PI](pi.md) jobs to resolve entities.
 
-#### Syntax
+* Syntax
 
 The LOOKUP function has several implementations.
 
@@ -192,7 +199,6 @@ Treat Item List as a properties file. Key is a substring of item list row before
 | itemList       | String         | Name of the Item List |
 | key            | String         | Lookup Key  |
 | separator      | String (optional) | Key/value separator |
-
 
 `LOOKUP(itemList, key, keyColumnIndex, valueColumnIndex, separator=',')`
 
@@ -209,7 +215,8 @@ Treat Item List as a CSV structure.
 #### LOOKUP Examples
 
 Consider the Item List **'us-regions'** with items:
-```
+
+```txt
 1=New-England
 2=Middle-Atlantic
 3=East-North-Central
@@ -221,13 +228,14 @@ Consider the Item List **'us-regions'** with items:
 9=Pacific
 ```
 
-```
+```sh
 ${LOOKUP('us-regions', '9')} => Pacific
 ${LOOKUP('us-regions', '2', '=')} => Middle-Atlantic
 ```
 
 Consider the Item List **'meteo-stations'**:
-```
+
+```txt
 94274,QLD,IDQ60801
 94341,QLD,IDQ60801
 94683,SA,IDS60801
@@ -238,7 +246,7 @@ Consider the Item List **'meteo-stations'**:
 94319,WA,IDW60801
 ```
 
-```
+```sh
 ${LOOKUP('meteo-stations', '94461', 1, 2)} => WA
 ${LOOKUP('meteo-stations', '94683', 1, 3, ',')} => IDS60801
 ${LOOKUP('meteo-stations', '94141', ',')} => NT,IDD60801

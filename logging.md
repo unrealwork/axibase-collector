@@ -1,6 +1,6 @@
 # Logging
 
-### Copy log file
+## Copy log file
 
 Copy log file to the Docker host on which Axibase Collector container is running:
 
@@ -8,7 +8,7 @@ Copy log file to the Docker host on which Axibase Collector container is running
 docker cp axibase-collector:/opt/axibase-collector/logs/axibase-collector.log ./
 ```
 
-### Copy all log files
+## Copy all log files
 
 Archive log files from the Docker host on which Axibase Collector container is running:
 
@@ -22,7 +22,7 @@ Copy the created archive to the Docker host on which Axibase Collector container
 docker cp axibase-collector:/tmp/logs.tar.gz ./
 ```
 
-### Configure Collector to Exit and Dump Heap on OutOfMemory Error
+## Configure Collector to Exit and Dump Heap on OutOfMemory Error
 
 Edit the `./axibase-collector/bin/start-collector.sh` file.
 

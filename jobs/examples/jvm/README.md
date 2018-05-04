@@ -18,16 +18,19 @@ Configure your Java application for JMX data collection as described [here](../.
 
 ### Import JVM Job into Axibase Collector
 
- * Open **Jobs:Import** and upload the [jmx-jvm-job.xml](configs/jvm_job.xml) file.
+* Open **Jobs:Import** and upload the [jmx-jvm-job.xml](configs/jvm_job.xml) file.
 
 ### Configure JMV JMX Connection
 
 * Open the **Jobs:JMX** page and select the `jmx-jvm` job.
 * For each JMX Configuration:
-    * Provide connection parameters to the target JVM as displayed below:
-    ![](images/jvm_jmx_configuration.png)
-    * Click the [Test] button and make sure that the result is similar to the below screenshot:
-    ![](images/jvm_test_jmx_configuration.png)
+* Provide connection parameters to the target JVM:
+
+![](images/jvm_jmx_configuration.png)
+
+* Click the [Test] button:
+
+![](images/jvm_test_jmx_configuration.png)
 
 ### Schedule the Job
 
@@ -67,6 +70,7 @@ Configure your Java application for JMX data collection as described [here](../.
 * Select the imported `Java Applications` view.
 * Select the Entity Group that you created earlier.
 * Click on the [View] button and browse information about your entities:
+
 ![](images/jvm_entity_view.png)
 
 ### Portal

@@ -11,12 +11,12 @@ While the Docker [command line](https://docs.docker.com/engine/reference/command
   ```
 
   ```sh
-  a832af264060	JENKINS_atsd-api-test_	132.3 kB (virtual 984.1 MB)
-  d7f87797f36e	distracted_williams	323 MB (virtual 1.821 GB)
-  f53cf366a4c6	stupefied_hamilton	323 MB (virtual 1.821 GB)
-  d6d362779455	sad_spence	446.5 MB (virtual 1.944 GB)
-  fa510d6c9a9a	ve-7.1.1	1.518 GB (virtual 2.244 GB)
-  75caaa907eab	axibase_collector	5.942 GB (virtual 20.38 GB)
+  a832af264060 JENKINS_atsd-api-test_ 132.3 kB (virtual 984.1 MB)
+  d7f87797f36e distracted_williams 323 MB (virtual 1.821 GB)
+  f53cf366a4c6 stupefied_hamilton 323 MB (virtual 1.821 GB)
+  d6d362779455 sad_spence 446.5 MB (virtual 1.944 GB)
+  fa510d6c9a9a ve-7.1.1 1.518 GB (virtual 2.244 GB)
+  75caaa907eab axibase_collector 5.942 GB (virtual 20.38 GB)
   ...
   ```
 
@@ -27,9 +27,9 @@ For example, on a Docker host where the `/var/lib/docker` size is 30Gb with 20 r
   CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS         PORTS                     SIZE
   83010924db3c   axibase/atsd_package_validation   "/bin/bash /root/chec"   5 minutes ago   Up 3 minutes   atsd_package_validation   561.7 MB (virtual 818.9 MB)
   ...
-  real	2m51.218s
-  user	0m0.026s
-  sys	0m0.032s
+  real 2m51.218s
+  user 0m0.026s
+  sys 0m0.032s
   ```
 
 ![docker-ps](docker-ps-as.png)
@@ -55,7 +55,7 @@ docker.fs.total.size.rootfs | The size of the files which have been created or c
 docker.fs.running.size.rw | The total size of all the files for all running containers, in bytes. Σ docker.fs.size.rw for running containers.
 docker.fs.running.size.rootfs | The size of the files which have been created or changed for running containers. Σ docker.fs.size.rootfs for running containers.
 
-Chartlab example: https://apps.axibase.com/chartlab/81932cd6/2/
+[Chartlab example](https://apps.axibase.com/chartlab/81932cd6/2/)
 
 ## `du` Alternative
 
@@ -67,13 +67,13 @@ One of the "lesser evil" alternatives is to calculate disk usage of `/var/lib/do
 
 > Note: We're using the `bash -c` wrapper here as a permission-safe way to pass the * wildcard.
 
-  ```
-  177M	/var/lib/docker/volumes/dd1e8b1942e204054b8a56219e523834d35bd8e84283720daf227823eae9b21f
-  174M	/var/lib/docker/volumes/de9a1746ea49e702accfb732ee74354c6291c2356a5319693868533fbeb40765
-  363M	/var/lib/docker/volumes/df81a9b753aa9464935af03b8e3dc57fa53cacaa1910a80dc4f1e6b9f952fb77
-  1.7G	/var/lib/docker/volumes/df8948c840a882070c9ed10f01bf3c6b594a0095f236f47af124cf9d76dee165
-  1.1G	/var/lib/docker/volumes/e1f9859a2a58a8071805597e3e4ea71d45e67cda13dbb9630742e654c379d544
-  307M	/var/lib/docker/volumes/eb3952dec29e293cfae8149b20c40859ac944723abd28666e093ab1d76b43a0c
+  ```sh
+  177M /var/lib/docker/volumes/dd1e8b1942e204054b8a56219e523834d35bd8e84283720daf227823eae9b21f
+  174M /var/lib/docker/volumes/de9a1746ea49e702accfb732ee74354c6291c2356a5319693868533fbeb40765
+  363M /var/lib/docker/volumes/df81a9b753aa9464935af03b8e3dc57fa53cacaa1910a80dc4f1e6b9f952fb77
+  1.7G /var/lib/docker/volumes/df8948c840a882070c9ed10f01bf3c6b594a0095f236f47af124cf9d76dee165
+  1.1G /var/lib/docker/volumes/e1f9859a2a58a8071805597e3e4ea71d45e67cda13dbb9630742e654c379d544
+  307M /var/lib/docker/volumes/eb3952dec29e293cfae8149b20c40859ac944723abd28666e093ab1d76b43a0c
   ```
 
 The following [collector](docker_volume_collect.sh) script executes the `ds` command to calculate total disk usage of each subdirectory in the `/var/lib/docker/volumes/` directory, as well as computes the percentage of the total size of the underlying file system, used by each volume.
@@ -118,7 +118,7 @@ The following [collector](docker_volume_collect.sh) script executes the `ds` com
 
 * Add the task to collect data every 15 minutes:
 
-  ```
+  ```sh
   */15 * * * * /bin/bash -l -c '/opt/scripts/docker_volume_collect.sh > /dev/tcp/{atsd_hostname}/8081'
   ```
 
@@ -147,13 +147,12 @@ Import the [rules](volume-rules.xml) file to raise an alert whenever a volume co
 |docker-host-volume-space-low | Raise an alert if the total size of the `/var/lib/docker` directory exceeds 60% of the total space on the file system. |
 | docker-volume-space-leak| Raise an alert if the volume consumes more than 25% of the total space on the file system where `/var/lib/docker` is located.|
 
-
 ## Monitor Volume Sizes using a Container
 
 As an alternative to running the above `du` script on the Docker host, you can launch an Axibase Collector container with the `/var/lib/docker/volumes` directory mounted in read-only mode.
 
-   * Replace the `atsd_host` placeholder with the actual ATSD hostname in the command below.
-   * Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-account.md) credentials.
+* Replace the `atsd_host` placeholder with the actual ATSD hostname in the command below.
+* Replace `collector-user` and `collector-password` with [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-account.md) credentials.
 
    ```properties
    docker run \
@@ -167,9 +166,9 @@ As an alternative to running the above `du` script on the Docker host, you can l
       -job-enable=docker-socket
    ```
 
-   1. Start the container.
+* Start the container.
 
-   2. Copy the script into the container.
+* Copy the script into the container.
 
    Here, there are two alternatives:
 
@@ -185,18 +184,19 @@ As an alternative to running the above `du` script on the Docker host, you can l
    docker exec axibase-collector wget https://raw.githubusercontent.com/axibase/axibase-collector/master/jobs/docker/docker_volume_collect.sh -P /opt/axibase-collector/ext
    ```
 
-   3. Grant `execute` permissions to the script:
+* Grant `execute` permissions to the script:
+
    ```sh
    docker exec axibase-collector chmod +x  /opt/axibase-collector/ext/docker_volume_collect.sh
    ```
 
-   4. Run the script once manually to validate ingestion:
+* Run the script once manually to validate ingestion:
 
    ```sh
    docker exec axibase-collector /opt/axibase-collector/ext/docker_volume_collect.sh docker_hostname tcp://atsd_host:8081
    ```
 
-   5. Login into ATSD and verify that the following metrics are available:
+* Login in to ATSD and verify that the following metrics are available:
 
         docker.volume.fs.size
         docker.volume.total_used
@@ -204,13 +204,13 @@ As an alternative to running the above `du` script on the Docker host, you can l
         docker.volume.used
         docker.volume.used_percent
 
-   6. Open the cron file in the container shell:
+* Open the cron file in the container shell:
 
    ```sh
    docker exec -it axibase-collector crontab -e
    ```
 
-   7. Add the following lines to cron schedule:
+* Add the following lines to cron schedule:
 
    ```sh
    # Replace 'docker_hostname' with the hostname of the Docker host
@@ -220,4 +220,4 @@ As an alternative to running the above `du` script on the Docker host, you can l
    # Empty line is required at the end of this file for a valid cron file
    ```
 
-   8. Save the cron file.
+* Save the cron file.

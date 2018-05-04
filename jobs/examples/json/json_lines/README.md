@@ -93,14 +93,18 @@ series e:json_lines d:2016-07-01T10:28:07.638Z m:metric2=250
 
 ## Screenshots
 
-### Configuration
+### Additional Configurations
+
 ![](images/configuration.png)
 
-### Settings
+### Additional Settings
+
 ![](images/settings.png)
 
 ### Viewer
+
 ![](images/viewer.png)
 
 ### Test Results
+
 ![](images/test_results.png)

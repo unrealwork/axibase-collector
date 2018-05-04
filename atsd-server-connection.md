@@ -22,7 +22,7 @@ Since Axibase Collector transmits data to ATSD using the http/https protocol, yo
 * Select Authentication Type=BASIC. Set Test Path to `/ping`.
 * Enter [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-account.md) credentials. <br>Make sure that the collector user has roles `API_DATA_WRITE` and `API_META_WRITE`, as well as 'All Access: Write' permission.
 
-#### Test HTTP Pool
+### Test HTTP Pool
 
 Click Test to verify the settings:
 
@@ -48,7 +48,7 @@ Socket Keep-Alive | true
 
 ![ATSD HTTP Pool](images/atsd_pool.png)
 
-## Storage Driver Configuration.
+## Storage Driver Configuration
 
 * Open the **Admin > Storage Drivers > Add** page.
 * Choose ATSD HTTP pool configured previously.

@@ -2,7 +2,7 @@
 
 HTTP (Hypertext Transfer Protocol) is the underlying protocol used by the World Wide Web that defines how messages are formatted and transmitted.
 
-#### HTTP Job Configuration
+## HTTP Job Configuration
 
 Use the table below to create HTTP job configuration.
 
@@ -22,8 +22,7 @@ Use the table below to create HTTP job configuration.
 
 _*These fields become available if you select the Enable Web Driver check box._
 
-### <code>http.status</code> Metric Values Based on HTTP Response Codes:
-
+### <code>http.status</code> Metric Values Based on HTTP Response Codes
 
 | Metric Value | Response Code |
 |:------------- |:-------------|

@@ -12,7 +12,6 @@ Each job can be configured to execute multiple configurations in order to retrie
 
 When an AWS job is started for the first time, it will load available historical data from CloudWatch, available for up to 2 weeks.
 
-
 ## Supported Namespaces
 
 Each AWS [namespace](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html) provides a set of metrics available for resources of a particular type.
@@ -127,7 +126,6 @@ The job assigns each metric to an entity which is determined based on the [prima
 * aws_ec2.statuscheckfailed
 * aws_ec2.statuscheckfailed_instance
 * aws_ec2.statuscheckfailed_system
-
 
 ## AWS CloudWatch API Fees
 

@@ -15,6 +15,7 @@ The process involves enabling a JDBC job in Axibase Collector to poll [statistic
 ## Create a readonly user for Axibase Collector
 
 * Create user:
+
 ```sh
 adduser readonly
 ```
@@ -39,15 +40,15 @@ ALTER ROLE readonly login;
 * Open the file **/etc/postgresql/${POSTGRES_VERSION}/main/pg_hba.conf**.
 * Add the following record to allow remote access from the Axibase Collector machine:
 
-```
+```txt
 host    all             readonly        10.102.0.12           trust
 ```
 
 * Open the file **/etc/postgresql/${POSTGRES_VERSION}/main/postgresql.conf**.
 * Enable the database to accept remote connections by specifying its external IP address:
 
-```
-listen_addresses = 'localhost,10.102.0.9'		# what IP address(es) to listen on;
+```sh
+listen_addresses = 'localhost,10.102.0.9' # what IP address(es) to listen on;
 ```
 
 ### Import PostgreSQL Job into Axibase Collector
@@ -66,6 +67,7 @@ listen_addresses = 'localhost,10.102.0.9'		# what IP address(es) to listen on;
 ```SQL
 SELECT 1
 ```
+
 * Query result must be `Query OK`.
 
 ### Verify Job Configuration
@@ -130,7 +132,6 @@ hasMetric('postgres.global_status.uptime')
 
 [PostgreSQL Live Portal](http://apps.axibase.com/chartlab/070b4941)
 ![](images/postgres-portal.png)
-
 
 ## Data Queries
 

@@ -1,8 +1,6 @@
 # Collected JVM Properties
 
-
-
-##jvm.bufferpool
+## jvm.bufferpool
 
 ```json
 {
@@ -120,8 +118,8 @@
   }
 ```
 
-
 ## jvm.memorypool
+
 ```json
 {
     "type": "jvm.memorypool",

@@ -1,4 +1,4 @@
-#### Collected VMware Metrics
+# Collected VMware Metrics
 
 ```css
 vmware.cluster.cpu.coreutilization.avg

@@ -27,10 +27,10 @@ The process involves enabling a JDBC job in Axibase Collector.
 
 In addition to copying PI Point attributes, the job can be configured to populate the metrics' timezone field based on the selected timezone identifier.
 
-#### PI Server Tag Info
 ![](images/pi-tag-ba-info.png)
 
-#### ATSD Metric Info
+### ATSD Metric Info
+
 ![](images/atsd-metric-ba.png)
 
 ## Requirements
@@ -47,6 +47,7 @@ In addition to copying PI Point attributes, the job can be configured to populat
 ### Provide Axibase Collector with PI JDBC Driver
 
 * Install the PI JDBC Driver:
+
 ```sh
 cd $PATH_TO_PI_JDBC_DRIVER_ARCHIVE
 tar -xzvf pijdbc_2016-x86-x64_.tar.gz
@@ -84,8 +85,8 @@ $AXIBASE_COLLECTOR_HOME/bin/start-collector.sh
 ```SQL
 SELECT 1
 ```
-* Query result must be `Query OK`.
 
+* Query result must be `Query OK`.
 
 ### Verify Job Configuration
 
@@ -111,6 +112,7 @@ SELECT 1
 
 ### Verify Metrics in ATSD
 
-* Login into ATSD.
+* Log in to ATSD.
 * Click on the Metrics tab and filter metrics by name, e.g. find by prefix `ba:`. You should see a list of exported PI tags:
+
 ![](images/pi-atsd-metrics.png)

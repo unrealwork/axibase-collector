@@ -1,21 +1,21 @@
 # Axibase Collector Installation
 
-## Install Java 8 JDK:
+## Install Java 8 JDK
 
-#### OpenJDK on Ubuntu or Debian
+### OpenJDK on Ubuntu or Debian
 
 ```sh
 sudo apt-get update
 sudo apt-get install openjdk-8-jdk
 ```
 
-#### OpenJDK on RHEL, SLES, CentOS
+### OpenJDK on RHEL, SLES, CentOS
 
 ```sh
 sudo yum install java-1.8.0-openjdk-devel
 ```
 
-#### Oracle JDK
+### Oracle JDK
 
 Download Java 8 JDK from the [Oracle web site](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
@@ -84,7 +84,7 @@ Open `https://hostname:9443` in your browser and [configure](configure-administr
 
 Configure Axibase Collector to send data into an Axibase Time Series Database instance.
 
-*   [ATSD Server connection](atsd-server-connection.md)
+* [ATSD Server connection](atsd-server-connection.md)
 
 ## Stoping Axibase Collector
 

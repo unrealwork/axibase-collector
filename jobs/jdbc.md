@@ -36,7 +36,7 @@ Apart from [common](../job-generic.md), JDBC job has an additional field. <br>
 
 ![JDBC job settings](examples/solarwinds/images/solarwinds-job.png)
 
-#### Job Configuration
+### Job Configuration
 
 To add a new query, on the JDBC Job page click 'Create Query'. <br>
 Use the table below to fill in the fields and configure the query.
@@ -45,12 +45,12 @@ Use the table below to fill in the fields and configure the query.
 | :----------------- |:-------------|
 | Query           | SELECT query containing the entity name, time, and a list of metric columns. |
 | Command Type    | Type of command sent to ATSD. Possible values: SERIES, PROPERTY, MESSAGE, METRIC, ENTITY. |
-| <a name="field-default-entity"></a>Default Entity  | Default entity assigned to the collected commands. |
+| Default Entity  | Default entity assigned to the collected commands. |
 | Entity Column   | Retrieve entity value from the specified entity column. |
-| Entity Replacement Expression | Freemarker expression to extract entity name from an input string or to retrieve it from a lookup table using the [LOOKUP](#lookup-function). |
+| Entity Replacement Expression | Freemarker expression to extract entity name from an input string or to retrieve it from a lookup table using [LOOKUP](#lookup-function). |
 | Split Condition  | One or multiple WHERE conditions to copy the base query into multiple queries returning smaller resultsets.  |
 | Tag Columns     | Columns that contain series tags. |
-| <a name="field-pre-tags"></a>Predefined Tags    | Assign predefined tags to all series. |
+| Predefined Tags    | Assign predefined tags to all series. |
 | Time Column | Column containing the timestamp. |
 | Last Time Column | Column containing last update time. |
 | Time Type | Timestamp type. <br> Possible values: TIMESTAMP, TIVOLI, TEXT, UNIX |
@@ -63,7 +63,7 @@ Use the table below to fill in the fields and configure the query.
 | Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited. |
 | Query Timeout Seconds| Number of seconds after which the query will be interrupted, -1 is unlimited. |
 
-##### Placeholders
+#### Placeholders
 
 [Default Entity](#field-default-entity) and [Predefined Tags](#field-pre-tags) fields support the following placeholders:
 
@@ -88,8 +88,7 @@ Use the table below to fill in the fields and configure the query.
 | Metric Prefix | Metric prefix can be assigned to easily sort and differentiate metrics in ATSD. |
 | Ignore Number Parse Errors | Ignore cells that fail to parse from string into number without raising error. Default: false.  |
 
-
-##### PROPERTY
+#### PROPERTY
 
 | FIELD              | DESCRIPTION  |
 | :----------------- |:-------------|
@@ -119,7 +118,7 @@ Use the table below to fill in the fields and configure the query.
 | Versioning | Default versioning behavior if versioning column is not specified, or column specifying if metric is versioned. |
 | Min and Max Value Columns | Minimum and Maximum Values |
 | Units | Measurement Units |
-| Metric Time Zone | Default Time Zone or column containing the [Time Zone Identifier](hhttps://github.com/axibase/atsd/blob/master/shared/timezone-list.md)  |
+| Metric Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://github.com/axibase/atsd/blob/master/shared/timezone-list.md)  |
 
 ##### ENTITY
 
@@ -130,6 +129,7 @@ Use the table below to fill in the fields and configure the query.
 | Entity Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://github.com/axibase/atsd/blob/master/shared/timezone-list.md) |
 
 ### Configuration Example
+
 The image below shows an example JDBC query configuration.
 
 ![JDBC Query](examples/solarwinds/images/solarwinds-configuration.png)

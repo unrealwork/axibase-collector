@@ -36,11 +36,11 @@ Field Name | Field Value
 :--------- | :----------
 Format     | JSON
 
-## Examples:
+## Examples
 
 * **Base**
 
-  #### Settings
+### Settings
 
   Field Name         | Field Value
 :----------------- | :----------
@@ -51,7 +51,7 @@ Included Fields    | ['x.y']
 Metric Name Field  | m
 Metric Value Field | v
 
-  #### Commands
+### Commands
 
    ```ls
  series e:tst d:2017-03-01T11:13:56.344Z t:['x.y']=v1 m:m=1
@@ -59,7 +59,7 @@ Metric Value Field | v
 
 * **Multiple Fields**
 
-  #### Settings
+### Additional Settings
 
   Field Name         | Field Value
 :----------------- | :----------
@@ -74,7 +74,7 @@ Metric Value Field | x.['a.b'].[2]
 
   [JSON Job Configuration](fields_with_non_alphanumeric.xml) file. Import the xml file into Collector.
 
-  ## Matched Object
+## Matched Object
 
   ```javascript
   $
@@ -102,7 +102,7 @@ Metric Value Field | x.['a.b'].[2]
   }
   ```
 
-  #### Commands
+### Additional Commands
 
   ```ls
   series e:tst d:2017-03-01T11:13:56.344Z t:test=v2 t:['z.y'].['b.c']=v2 m:v=1 m:['z.y'].a.[1]=2 m:['z.y'].a.[0]=1 m:m=3
@@ -110,14 +110,18 @@ Metric Value Field | x.['a.b'].[2]
 
 ## Screenshots
 
-### Configuration
+### Configurations
+
 ![](images/configuration.png)
 
-### Settings
+### Other Settings
+
 ![](images/settings.png)
 
 ### Viewer
+
 ![](images/viewer.png)
 
 ### Test Results
+
 ![](images/test_results.png)

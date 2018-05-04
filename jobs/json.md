@@ -69,7 +69,7 @@ The expression will select all elements of the `book` array in the root's child 
 | Name     | Name of the configuration. |
 | Protocol | HTTP or File protocol to download JSON files from a remote server or read them from the local file system. File protocol supports wildcards in Path. |
 | HTTP Pool                | Pre-defined HTTP connection parameters to limit the number of open connections, to customize timeout settings, and to re-use connections across multiple requests.<br> When HTTP Pool is selected, the Path field should contain a relative URI: [/]path[?query][#fragment] |
-| Path                     | URI Path to JSON file, for example https://example.com/api/daily-summary.json, or the absolute path to the file(s) on the local file system.<br> If the HTTP Pool is enabled, the path should be relative, for example `/api/daily-summary.json`. Otherwise, the Path should be a full URI including protocol, host, port, and the path.<br> The Path supports the following placeholders:<br> - `${ITEM}`: current element in the Item List.<br> - `${TIME()}`: text output of the `TIME` function.<br> - `${DATE_ITEM()}`: text output of the `DATE_ITEM` function.<br> If `${DATE_ITEM()}` is present in the Path, the job will execute as many queries as there are elements returned by the `${DATE_ITEM()}` function, substituting the `${DATE_ITEM()}` placeholder with the element value for each request.<br> The Path can include either the `${DATE_ITEM()}` or `${ITEM}` function, but not both. |
+| Path                     | URI Path to JSON file, for example `https://example.com/api/daily-summary.json`, or the absolute path to the file(s) on the local file system.<br> If the HTTP Pool is enabled, the path should be relative, for example `/api/daily-summary.json`. Otherwise, the Path should be a full URI including protocol, host, port, and the path.<br> The Path supports the following placeholders:<br> - `${ITEM}`: current element in the Item List.<br> - `${TIME()}`: text output of the `TIME` function.<br> - `${DATE_ITEM()}`: text output of the `DATE_ITEM` function.<br> If `${DATE_ITEM()}` is present in the Path, the job will execute as many queries as there are elements returned by the `${DATE_ITEM()}` function, substituting the `${DATE_ITEM()}` placeholder with the element value for each request.<br> The Path can include either the `${DATE_ITEM()}` or `${ITEM}` function, but not both. |
 | Format                   | JSON or JSON Lines. If the `JSON Lines` format is selected, the input lines contained in the file will be added to a parent array object and processed as a single JSON document. |
 | Delete Files on Upload   | _Applies to FILE protocol._ Delete source file(s) that were parsed into at least 1 command which was successfully sent to the database. |
 | Ignore Unchanged Files   | Prevents unchanged files or http entities from being repeatedly processed.<br>When enabled, the collector compares the file's last modified time (FILE) or "Last-Modified" header/MD5 hashcode (HTTP, HTTP_POOL) with the previously stored value and ignores it if there were no changes.<br>In the case of HTTP and HTTP_POOL protocols, the collector checks the "Last-Modified" response header. If the header is present and the value hasn't changed since the last execution, the response content is not downloaded. |
@@ -170,25 +170,25 @@ The expression will select all elements of the `book` array in the root's child 
 ## Additional Examples
 
 * [Json Fields](#json-fields-examples)
-  - [Custom Tags](#custom-tags)
+  * [Custom Tags](#custom-tags)
 * [Entity Fields](#entity-fields-examples)
-  - [Default Entity](#default-entity)
-  - [Entity Field](#entity-field)
+  * [Default Entity](#default-entity)
+  * [Entity Field](#entity-field)
 * [Series Fields](#series-fields-examples)
-  - [Metric Prefix](#metric-prefix)
-  - [Included Fields](#included-fields)
-  - [Excluded Fields](#excluded-fields)
-  - [Metric Name and Value Fields](#metric-name-and-value-fields)
+  * [Metric Prefix](#metric-prefix)
+  * [Included Fields](#included-fields)
+  * [Excluded Fields](#excluded-fields)
+  * [Metric Name and Value Fields](#metric-name-and-value-fields)
 * [Property Fields](#property-fields-examples)
-  - [Property Default Type](#property-default-type)
-  - [Property Type Field](#property-type-field)
-  - [Property Key and Value Fields](#property-key-and-value-fields)
+  * [Property Default Type](#property-default-type)
+  * [Property Type Field](#property-type-field)
+  * [Property Key and Value Fields](#property-key-and-value-fields)
 * [Time Fields](#time-fields-examples)
-  - [Time Default](#time-default)
-  - [Time Field](#time-field)
+  * [Time Default](#time-default)
+  * [Time Field](#time-field)
 * [Message Fields](#message-fields-examples)
-  - [Message Defaults](#message-defaults)
-  - [Message Fields](#message-fields)
+  * [Message Defaults](#message-defaults)
+  * [Message Fields](#message-fields)
 
 ### Json Fields Examples
 
@@ -259,7 +259,7 @@ JSON:
 
   Field Name         | Field Value
   :----------------- | :----------
-  Path               | http://example.com
+  Path               | `http://example.com`
   **Default Entity** | **${HOST}**
   JSON Path          | $.upstreams.demo-backend.peers.*
   Depth              | 2
@@ -274,7 +274,7 @@ JSON:
 
   Field Name         | Field Value
   :----------------- | :----------
-  Path               | http://example.com
+  Path               | `http://example.com`
   **Default Entity** | **${PARENT(2)}**
   JSON Path          | $.upstreams.demo-backend.peers.*
   Depth              | 2
@@ -289,7 +289,7 @@ JSON:
 
   Field Name         | Field Value
   :----------------- | :----------
-  Path               | http://example.com
+  Path               | `http://example.com`
   **Default Entity** | **tst**
   JSON Path          | $.upstreams.demo-backend.peers.*
   Depth              | 2
@@ -327,7 +327,7 @@ JSON:
 
 Field Name       | Field Value
 :--------------- | :----------
-Path             | http://example.com
+Path             | `http://example.com`
 **Entity Field** | **type**
 Entity Prefix    | tst.
 JSON Path        | $.upstreams.demo-backend.peers.*
@@ -718,7 +718,7 @@ series e:tst d:2016-01-02T00:00:00.000Z m:fail=2 m:ok=15
   message e:tst d:2016-07-06T08:19:30.563Z t:source=demo t:type=upstream m:test
   ```
 
-#### Message Fields
+#### Additional Message Fields
 
 JSON:
 

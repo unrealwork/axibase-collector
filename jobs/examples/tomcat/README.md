@@ -16,18 +16,21 @@ Configure your Java for JMX monitoring as described [here](../../jmx.md).
 
 ### Import Tomcat job into Axibase Collector
 
- * Open **Jobs:Import** and upload the job file depending on the version of your servlet container engine:
-    * [Catalina](configs/tomcat_catalina_job.xml)
-    * [Standalone](configs/tomcat_standalone_job.xml)
+* Open **Jobs:Import** and upload the job file depending on the version of your servlet container engine:
+* [Catalina](configs/tomcat_catalina_job.xml)
+* [Standalone](configs/tomcat_standalone_job.xml)
 
 ### Configure Tomcat JMX Connection
 
 * Open the **Jobs:JMX** page and select the `jmx-tomcat` job.
 * For each JMX Configuration:
-    * Provide connection parameters to the target Tomcat as displayed below:
-    ![](images/tomcat_jmx_configuration.png)
-    * Click the [Test] button and make sure that the result is similar to the below screenshot:
-    ![](images/tomcat_test_jmx_configuration.png)
+* Provide connection parameters to the target Tomcat:
+
+![](images/tomcat_jmx_configuration.png)
+
+* Click the [Test] button and make sure that the result is similar to the below screenshot:
+
+![](images/tomcat_test_jmx_configuration.png)
 
 ### Schedule the Job
 
@@ -55,13 +58,11 @@ Configure your Java for JMX monitoring as described [here](../../jmx.md).
 
 * List of collected [Tomcat properties](properties-list.md)
 
-
 ### Entity group
 
 * Open **Admin:Entity Groups**, click the [Import] button, and upload  [tomcat_entity_group.xml](configs/tomcat_entity_group.xml).
 * Select the imported `apache-tomcat` group.
 * Verify that the group contains your Tomcat hosts.
-
 
 ### Entity Views
 
@@ -69,8 +70,8 @@ Configure your Java for JMX monitoring as described [here](../../jmx.md).
 * Select the imported `Apache Tomcat Containers` view.
 * Select the Entity Group that you created earlier.
 * Click on the [View] button and browse information about your entities:
-![](images/tomcat_entity_view.png)
 
+![](images/tomcat_entity_view.png)
 
 ### Portal
 
@@ -81,4 +82,5 @@ Configure your Java for JMX monitoring as described [here](../../jmx.md).
 ![](images/tomcat_portal_icon.png)
 
 [**Tomcat Portal**](http://apps.axibase.com/chartlab/106bddba)
+
 ![](images/tomcat_portal.png)

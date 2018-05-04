@@ -112,11 +112,11 @@ The script should print items separated by line breaks to 'stdout'.
 
 ![SCRIPT Type](images/collection_script_type.png)
 
-**Example**
+* **Example**
 
 The directory `/tmp/report/csv` contains CSV files. The Item List should contain a collection of file name prefixes before the underscore symbol.
 
-```
+```txt
 ent-1_file-1.csv
 ent-1_file-2.csv
 ent-1_file-3.csv
@@ -125,7 +125,7 @@ ent-2_file-2.csv
 ent-3_file-3.csv
 ```
 
-```
+```sh
 nano prefix.sh
 ```
 
@@ -141,7 +141,7 @@ for file in $dir; do
 done
 ```
 
-```
+```sh
 chmod a+x prefix.sh
 prefix.sh /tmp/report/csv
 
@@ -169,6 +169,7 @@ Reads lines from a remote file/page.
 If the file is not found, an empty list is returned. List items should be separated with a line break when the `MULTILINE_TEXT` format is selected.
 
 Examples:
+
 * [MULTILINE_TEXT](#example-with-multiline-text-content)
 * [JSON](#example-with-json-content)
 
@@ -176,15 +177,15 @@ Examples:
 
 ![URL Type](images/collection_url_type.png)
 
-***Example***
+* ***Example***
 
-```
+```txt
 URL = http://m.uploadedit.com/bbtc/1502281772577.txt
 ```
 
 Remote file content:
 
-```
+```txt
 #ID
 2128406
 2513822
@@ -195,7 +196,7 @@ Remote file content:
 
 result:
 
-```
+```txt
 2128406
 2513822
 2513836
@@ -203,7 +204,7 @@ result:
 2513839
 ```
 
-##### Example with `JSON` content:
+##### Example with `JSON` content
 
 ![URL Type JSON](images/collection_url_type_json.png)
 

@@ -95,21 +95,24 @@ Axibase Collector will poll the NGINX status page every 5 seconds and upload the
 | Writing                 |The current number of connections where nginx is writing the response back to the client.|
 | Waiting                 |The current number of idle client connections waiting for a request.                     |
 
-# Viewing Data in ATSD
+## Viewing Data in ATSD
 
 ## Metrics
 
 List of collected [NGINX server metrics](./nginx-basic-server-metrics.md).
 
 ## Entity Group
+
 * Open **Admin:Entity Groups**, click the [Import] button, and upload [nginx_basic_entity_group.xml](./configs/nginx_entity_group.xml).
 * Select imported `nginx-servers` group.
 * Verify that the group contains your NGINX servers.
 
 ## Portal
+
 * Open **Configuration: Portals**, click the [Import] button, and upload [nginx_portal.xml](./configs/nginx_portal.xml).
 * Click the **Assign** link and associate the portal with the entity group you created earlier.
 * Open the *Entity* tab, find the NGINX servers you would like to see information about, and click on its portal icon.
+
 ![](./images/nginx-portal-selection.png)
 [Basic NGINX Status portal example](http://apps.axibase.com/chartlab/966f33e4)
 ![Basic NGINX Status portal](./images/nginx-portal-basic.png)

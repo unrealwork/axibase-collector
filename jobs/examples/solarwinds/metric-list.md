@@ -1,4 +1,4 @@
-#### Collected SolarWinds Metrics
+# Collected SolarWinds Metrics
 
 ## SolarWinds Base
 
@@ -48,6 +48,7 @@ sw.cpu.wait
 ```
 
 SolarWinds VMware Cluster
+
 ```css
 sw.avgcpuload
 sw.avgcpuusagemhz
@@ -240,8 +241,8 @@ sw.virtualdisk.writeloadmetric
 sw.virtualdisk.writeoio
 ```
 
-
 ## SolarWinds VMware Host
+
 ```css
 sw.cpuload
 sw.cpuusagemhz

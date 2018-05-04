@@ -147,7 +147,7 @@ This message indicates that the initial configuration is complete.
 docker ps | grep axibase-collector
 ```
 
-```
+```txt
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
 ee15099d9f88        axibase/collector   "/bin/bash /opt/axiba"   33 seconds ago      Up 32 seconds       0.0.0.0:32769->9443/tcp   axibase-collector
 ```

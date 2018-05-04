@@ -1,5 +1,7 @@
-#Collected Oracle Enterprise Manager Metrics
-####Oracle Databases
+# Collected Oracle Enterprise Manager Metrics
+
+## Oracle Databases
+
 ```css
 oem.oracle_database.archive_area.archive_area_used_%
 oem.oracle_database.archive_area.archive_area_used_kb
@@ -160,7 +162,7 @@ oem.oracle_database.waits_by_wait_class.database_time_spent_waiting_%
 oem.test_s_total_cpu_time_accumulated_minutes
 ```
 
-####Oracle Host
+## Oracle Host
 
 ```css
 oem.host.cpu_usage.cpu_idle_time_%
