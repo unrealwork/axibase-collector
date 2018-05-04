@@ -8,7 +8,7 @@ Download Sunspot Daily Count report in a CSV file and upload it into ATSD.
 
 ### URI
 
-`http://www.sidc.be/silso/DATA/EISN/EISN_current.csv`
+[http://www.sidc.be/silso/DATA/EISN/EISN_current.csv](http://www.sidc.be/silso/DATA/EISN/EISN_current.csv)
 
 ### Local Copy
 
