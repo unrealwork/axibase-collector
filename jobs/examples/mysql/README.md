@@ -48,6 +48,7 @@ Modify `mysql.cnf` by setting `bind-address = 0.0.0.0`.
 ```SQL
 SELECT 1
 ```
+
 * Query result must be `Query OK`.
 
 ### Verify Job Configuration
@@ -108,7 +109,6 @@ hasMetric('mysql.global_status.uptime')
 
 [**MySQL Server Perfomance Live Portal**](http://apps.axibase.com/chartlab/cf72dec3)
 ![](images/mysql-portal.png)
-
 
 ## Data Queries
 

@@ -36,7 +36,7 @@ Apart from [common](../job-generic.md), JDBC job has an additional field. <br>
 
 ![JDBC job settings](examples/solarwinds/images/solarwinds-job.png)
 
-#### Job Configuration
+### Job Configuration
 
 To add a new query, on the JDBC Job page click 'Create Query'. <br>
 Use the table below to fill in the fields and configure the query.
@@ -63,7 +63,7 @@ Use the table below to fill in the fields and configure the query.
 | Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited. |
 | Query Timeout Seconds| Number of seconds after which the query will be interrupted, -1 is unlimited. |
 
-##### Placeholders
+#### Placeholders
 
 [Default Entity](#field-default-entity) and [Predefined Tags](#field-pre-tags) fields support the following placeholders:
 
@@ -88,8 +88,7 @@ Use the table below to fill in the fields and configure the query.
 | Metric Prefix | Metric prefix can be assigned to easily sort and differentiate metrics in ATSD. |
 | Ignore Number Parse Errors | Ignore cells that fail to parse from string into number without raising error. Default: false.  |
 
-
-##### PROPERTY
+#### PROPERTY
 
 | FIELD              | DESCRIPTION  |
 | :----------------- |:-------------|
@@ -130,6 +129,7 @@ Use the table below to fill in the fields and configure the query.
 | Entity Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://github.com/axibase/atsd/blob/master/shared/timezone-list.md) |
 
 ### Configuration Example
+
 The image below shows an example JDBC query configuration.
 
 ![JDBC Query](examples/solarwinds/images/solarwinds-configuration.png)

@@ -11,7 +11,7 @@ Apart from [common](../job-generic.md), Kafka job has an additional `Consumer` f
 
 ![Kafka job settings](images/kafka_job.png)
 
-#### Job Configuration
+### Job Configuration
 
 To configure a Kafka job, click on the `Create Configuration` button.
 Use the table below to set configuration parameters.
@@ -108,7 +108,6 @@ Message Field   | Field with value that will be used as message text.
   "path":"/Axibase/NUR/AXI/Upstream/84BR02"
 }
 ```
-
 
 * Sample Command:
 

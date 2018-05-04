@@ -6,7 +6,6 @@
 
 SolarWinds Monitor products collect and store statistics from target devices in a Microsoft SQL Server database (`SolarWindsOrion`), which Axibase Collector queries every 5 minutes to offload incremental data into the Axibase Time Series Database for long-term retention and operations analytics.
 
-
 ## Requirements
 
 * SolarWinds Server & Application Monitor `6+`
@@ -31,7 +30,6 @@ SELECT 1
 ```
 
 * Query result must be `Query OK`.
-
 
 ### Verify Job Configuration
 
@@ -80,6 +78,7 @@ SELECT 1
 ### Portals
 
 * SolarWinds Base Portal
+
 ![](images/solarwinds_base_portal_31.png)
 
 * SolarWinds - VMware VM

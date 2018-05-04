@@ -16,16 +16,19 @@ Configure your Java application for JMX monitoring as described [here](../../jmx
 
 ### Import Jetty job into Axibase Collector
 
- * Open **Jobs:Import** and upload the [jetty-job.xml](configs/jetty_job.xml) file.
+* Open **Jobs:Import** and upload the [jetty-job.xml](configs/jetty_job.xml) file.
 
 ### Configure Jetty JMX Connection
 
 * Open the **Jobs:JMX** page and select the `jmx-jetty` job.
 * For each JMX Configuration:
-    * Provide connection parameters to the target Jetty as displayed below:
-    ![](images/jetty_jmx_configuration.png)
-    * Click the [Test] button and make sure that the result is similar to the below screenshot:
-    ![](images/jetty_test_jmx_configuration.png)
+* Provide connection parameters to the target Jetty:
+
+![](images/jetty_jmx_configuration.png)
+
+* Click the [Test] button and make sure that the result is correct:
+
+![](images/jetty_test_jmx_configuration.png)
 
 ### Schedule the Job
 
@@ -53,13 +56,11 @@ Configure your Java application for JMX monitoring as described [here](../../jmx
 
 * List of collected [Jetty properties](properties-list.md).
 
-
 ### Entity Group
 
 * Open **Admin:Entity Groups**, click the [Import] button, and upload  [jetty_entity_group.xml](configs/jetty_entity_group.xml).
 * Select the imported `jetty-web-server` group.
 * Verify that the group contains your Jetty hosts.
-
 
 ### Entity Views
 
@@ -67,10 +68,11 @@ Configure your Java application for JMX monitoring as described [here](../../jmx
 * Select the imported `Java Applications` view.
 * Select the Entity Group that you created earlier.
 * Click on the [View] button and browse information about your entities.
+
 ![](images/jetty_entity_view.png)
 
-
 ### Portal
+
 * Open the **Configuration: Portals**, click the [Import] button, and upload [jetty_portal.xml](configs/jetty_portal.xml).
 * Click the Assign link and associate the portal with the entity group you created earlier.
 * Open Entity tabs, find the java application by name, and click on its portal icon.

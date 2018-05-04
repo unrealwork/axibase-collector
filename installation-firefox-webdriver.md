@@ -1,11 +1,10 @@
 # FireFox WebDriver Installation
 
-
 ## Install Firefox 26
 
-Repository: https://ftp.mozilla.org/pub/firefox/releases/26.0/
+Repository: `https://ftp.mozilla.org/pub/firefox/releases/26.0/`
 
-#### Wget
+### Wget
 
 ```sh
 wget -qO- https://ftp.mozilla.org/pub/firefox/releases/26.0/linux-x86_64/en-US/firefox-26.0.tar.bz2 | tar -C /opt -xvj
@@ -13,7 +12,7 @@ wget -qO- https://ftp.mozilla.org/pub/firefox/releases/26.0/linux-x86_64/en-US/f
 
 ## Install Xvfb (X virtual framebuffer)
 
-#### Xvfb on Ubuntu or Debian
+### Xvfb on Ubuntu or Debian
 
 ```sh
 sudo apt-get update

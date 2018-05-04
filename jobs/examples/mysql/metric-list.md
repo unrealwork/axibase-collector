@@ -1,6 +1,7 @@
-#Collected MySQL Server Metrics
+# Collected MySQL Server Metrics
 
-#### MySQL server perfomance
+## MySQL server performance
+
 ```css
 mysql.global_status.aborted_clients
 mysql.global_status.aborted_connects

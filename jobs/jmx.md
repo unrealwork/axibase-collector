@@ -10,7 +10,7 @@ The JMX job can have one or multiple JMX configurations each describing connecti
 
 ## JMX Configuration
 
-#### Connection Parameters
+### Connection Parameters
 
 | Field       | Description |
 |:-------------|:-------------|
@@ -39,7 +39,7 @@ To verify connectivity with the remote host, click the [Test] or [Viewer] button
 Add hostname to the `/etc/hosts` file directory on the collector machine in case of `UnknownHostException`.
 
 ```java
-Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: NURSWGVML011; nested exception is:  	java.net.UnknownHostException: NURSWGVML011]
+Failed to retrieve RMIServer stub: javax.naming.ConfigurationException [Root exception is java.rmi.UnknownHostException: Unknown host: NURSWGVML011; nested exception is: java.net.UnknownHostException: NURSWGVML011]
 ```
 
 ## Query Parameters
@@ -62,7 +62,7 @@ If not specified, the entity name is set to the value of the Host field. You can
 
 In addition, the entity name can be retrieved dynamically by specifying the MBean Object Name followed by `>` and the attribute name (`mbean>attribute`). For example:
 
-```
+```java
 java.lang:type=Runtime>SystemProperties.java.rmi.server.hostname.value
 ```
 
@@ -83,13 +83,13 @@ Both parts of the query support wildcards:
 
 The pattern pattern matches MBean instances of specified type and name.
 
-```
+```sh
 org.apache.activemq:brokerName=localhost,type=Broker   -->     TotalProducerCount, TotalMessageCount
 ```
 
-Negation is not supported by JMX natively and is therefore implemented on the client. To exclude MBean use `!=` operator. For example, to exclude topics starting with underscore, specify the query as follows:
+Negation is not supported by JMX natively and is therefore implemented on the client. To exclude MBean use `!=` operator. For example, to exclude topics starting with underscore:
 
-```
+```sh
 kafka.cluster:name=*,partition=*,topic!=_*,type=Partition
 ```
 
@@ -102,7 +102,6 @@ kafka.cluster:name=*,partition=*,topic!=_*,type=Partition
 | `d:type=F*o,name=Bar`| matches for example `d:type=Fo,name=Bar` and `d:type=Frodo,name=Bar`.|
 | `d:type=Foo,name="B*"`| matches for example `d:type=Foo,name="Bling"`. Wildcards are recognized inside quotes and can be escaped with `\`.|
 | `d:type=Foo,name!=B*` | matches names that doesn't start with `B`, for example `d:type=Foo,name=Store`.|
-
 
 ### Attribute Name list
 
@@ -129,7 +128,7 @@ Special processing for `PROPERTY` command:
 
 Metric Prefix:
 
-```
+```sh
 jmx.${domain}.${name}
 ```
 
@@ -141,7 +140,7 @@ The attribute `name` is excluded from series tags, because the `Metric Prefix` f
 
 The `kafka-cluster-jmx` list contains items (`host,port,entity`):
 
-```
+```txt
 172.17.0.1,1099,kafka1
 172.17.0.2,1099,kafka2
 172.17.0.3,1099,kafka3
@@ -182,6 +181,6 @@ Restart Axibase Collector process, execute the JMX job, or open the Viewer.
 
 Review the log:
 
-```
+```txt
 tail -f ./axibase-collector/logs/axibase-collector.log
 ```

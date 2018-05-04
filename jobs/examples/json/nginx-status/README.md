@@ -12,7 +12,7 @@ The Path field contains the `${ITEM}` placeholder so that multiple servers can b
 
 Template: `http://${ITEM}/status`
 
-Example: http://demo.nginx.com/status
+Example: `http://demo.nginx.com/status`
 
 ### Local Copy
 
@@ -32,7 +32,7 @@ Example: http://demo.nginx.com/status
 
   [JSON](nginx_status.json) file.
 
-  #### Commands
+### Commands
 
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z m:nginx-plus.connections.accepted=20373129 m:nginx-plus.connections.dropped=0 m:nginx-plus.requests.current=6 m:nginx-plus.ssl.handshakes=84733 m:nginx-plus.connections.idle=46 m:nginx-plus.requests.total=48937280 m:nginx-plus.processes.respawned=0 m:nginx-plus.ssl.session_reuses=16478 m:nginx-plus.connections.active=8 m:nginx-plus.ssl.handshakes_failed=7022
@@ -42,6 +42,7 @@ Example: http://demo.nginx.com/status
 <br>
 
 * **Peers:**
+
   ```javascript
   $..peers.*
   ```
@@ -135,7 +136,7 @@ Example: http://demo.nginx.com/status
 
   [JSON](matched_objects_2.json) file.
 
-  #### Commands
+### Other Commands
 
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:upstream=trac-backend t:type=upstreams.peers m:nginx-plus.fails=18 m:nginx-plus.received=1362661342 m:nginx-plus.responses.4xx=14548 m:nginx-plus.responses.5xx=9109 m:nginx-plus.health_checks.fails=0 m:nginx-plus.sent=45523551 m:nginx-plus.responses.total=74535 m:nginx-plus.selected=1467986488000 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.health_checks.checks=7459 m:nginx-plus.active=0 m:nginx-plus.responses.3xx=988 m:nginx-plus.requests=74535 m:nginx-plus.unavail=18 m:nginx-plus.responses.2xx=49890 m:nginx-plus.downtime=14907 m:nginx-plus.downstart=0 m:nginx-plus.responses.1xx=0
@@ -153,6 +154,7 @@ Example: http://demo.nginx.com/status
 <br>
 
 * **Caches, Server Zones, and Upstreams:**
+
   ```javascript
   $['caches'|'server_zones'|'upstreams'].*
   ```
@@ -254,7 +256,7 @@ Example: http://demo.nginx.com/status
 
   [JSON](matched_objects_3.json) file.
 
-  #### Commands
+### Additional Commands
 
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=hg.nginx.org t:type=server_zones m:nginx-plus.received=34286911 m:nginx-plus.responses.4xx=1640 m:nginx-plus.responses.5xx=1227 m:nginx-plus.responses.3xx=1440 m:nginx-plus.requests=64805 m:nginx-plus.sent=1054502861 m:nginx-plus.processing=1 m:nginx-plus.responses.total=64668 m:nginx-plus.responses.2xx=60361 m:nginx-plus.discarded=136 m:nginx-plus.responses.1xx=0
@@ -268,6 +270,7 @@ Example: http://demo.nginx.com/status
 <br>
 
 * **Server Zones:**
+
   ```javascript
   $['stream']['server_zones'].*
   ```
@@ -289,7 +292,7 @@ Example: http://demo.nginx.com/status
   ]
   ```
 
-  #### Commands
+### Commands, Continued
 
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=postgresql_loadbalancer t:type=stream.server_zones m:nginx-plus.received=7892442 m:nginx-plus.connections=74457 m:nginx-plus.sent=549295747 m:nginx-plus.processing=0
@@ -299,6 +302,7 @@ Example: http://demo.nginx.com/status
 <br>
 
 * **Caches:**
+
   ```javascript
   $['caches'].*.*
   ```
@@ -347,7 +351,7 @@ Example: http://demo.nginx.com/status
 
   [JSON](matched_objects_5.json) file.
 
-  #### Commands
+### More Commands
 
   ```ls
   series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=http_cache t:cache_status=hit t:type=caches m:nginx-plus.responses=1233531 m:nginx-plus.bytes=16090273077
@@ -361,20 +365,26 @@ Example: http://demo.nginx.com/status
 
 ## Screenshots
 
-### Configuration
+### Additional Configurations
+
 ![](images/configuration.png)
 
 ### Settings 1
+
 ![](images/settings_1.png)
 
 ### Settings 2
+
 ![](images/settings_2.png)
 
 ### Settings 3
+
 ![](images/settings_3.png)
 
 ### Settings 4
+
 ![](images/settings_4.png)
 
 ### Settings 5
+
 ![](images/settings_5.png)

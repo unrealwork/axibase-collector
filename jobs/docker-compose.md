@@ -45,5 +45,4 @@ export ADMUSR=auser; export ADMPWD=apassword; \
       docker-compose up -d
 ```
 
-Login into ATSD on `https://docker_host:8443` using administrator credentials.
-
+Log in to ATSD on `https://docker_host:8443` using administrator credentials.

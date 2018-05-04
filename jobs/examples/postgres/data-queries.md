@@ -1,5 +1,7 @@
 # PostgreSQL Data Queries
+
 ## PostgreSQL Base Queries
+
 * Metrics Queries select the most recent statistics:
 
 ```SQL

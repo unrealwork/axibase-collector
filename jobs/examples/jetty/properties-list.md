@@ -1,6 +1,5 @@
 # Collected Jetty Properties
 
-
 ## jmx.jetty.hashsessionmanager
 
 ```json
@@ -38,6 +37,7 @@
 ```
 
 ## jmx.jetty.server
+
 ```json
 {
     "type": "jmx.jetty.server",

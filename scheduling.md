@@ -34,12 +34,12 @@ Field Control Symbols:
 
 | **Name** | **Description** |
 |---|---|
-| *	| Any value |
-| ?	| No specific value |
-| R	| Random value within allowed value range |
-| ,	| Value list separator |
-| -	| Range of values |
-| /	| Step values |
+| * | Any value |
+| ? | No specific value |
+| R | Random value within allowed value range |
+| , | Value list separator |
+| - | Range of values |
+| / | Step values |
 
 For example, `0 0 8 * * ?` means execution at 08:00:00 every day.
 

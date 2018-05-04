@@ -1,5 +1,7 @@
 # HP OpenView
+
 ## Overview
+
 [HP OpenView Performance Manager](https://h20392.www2.hp.com/portal/swdepot/displayProductInfo.do?productNumber=PERFMINFO "HP OpenView") provides an agent-based centralized data collection solution.
 
 OVPM stores collected statistics in files on the local file system for a period of several months.
@@ -59,12 +61,12 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 ## Viewing Data in ATSD
 
 ### Metrics
+
 * List of collected [HP OpenView metrics](metric-list.md)
 
 <!--- ### Properties
 * List of collected [HP OpenView properties](properties-list.md)
 -->
-
 
 ## Entity Group List
 

@@ -12,7 +12,7 @@ The Path field contains the `${ITEM}` placeholder so that multiple stations, def
 
 Template: `http://www.bom.gov.au:80/fwo/IDV60801/IDV60801.${ITEM}.json`
 
-Example: http://www.bom.gov.au:80/fwo/IDV60801/IDV60801.94693.json
+[Example](http://www.bom.gov.au:80/fwo/IDV60801/IDV60801.94693.json)
 
 ### Local Copy
 

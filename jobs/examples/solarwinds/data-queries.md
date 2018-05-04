@@ -1,6 +1,9 @@
 # SolarWinds Data Queries
+
 ## SolarWinds Base Queries
+
 * Metrics Queries select the most recent statistics:
+
 ```SQL
 SELECT REPLACE(ISNULL(NULLIF(N.SysName, ''), N.Caption), ' ', '_') AS SysName, V.Caption AS Name,
 T.DateTime, T.DiskSize, T.AvgDiskUsed, T.PercentDiskUsed
@@ -52,6 +55,7 @@ ORDER BY T.DateTime
 ```
 
 * Properties Query selects current properties:
+
 ```SQL
 SELECT REPLACE(ISNULL(NULLIF(N.SysName, ''), N.Caption), ' ', '_') AS ValidSysName, ObjectSubType,
 IP_Address, IP_Address_Type,
@@ -63,7 +67,9 @@ CPULoad, MemoryUsed, PercentMemoryUsed FROM Nodes N
 ```
 
 ## SolarWinds VMware Queries
+
 * Metrics Queries select the most recent statistics:
+
 ```SQL
 LECT N.HostName AS Name, C.Name AS Cluster, T.*
 FROM VIM_HostStatistics T, VIM_Hosts N, VIM_Clusters C

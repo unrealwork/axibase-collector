@@ -48,4 +48,3 @@ Launch containers:
 ```sh
 export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose up -d
 ```
-

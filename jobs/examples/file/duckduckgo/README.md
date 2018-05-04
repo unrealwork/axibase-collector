@@ -8,7 +8,7 @@ Download a Sunspot Daily Count report in a CSV file and upload it into ATSD.
 
 ### URI
 
-https://duckduckgo.com/traffic_data/direct.csv
+`https://duckduckgo.com/traffic_data/direct.csv`
 
 ### Local Copy
 

@@ -8,11 +8,11 @@ Download statistics from the [Bureau of Labor Statistics service](http://www.bls
 
 ### URI
 
-Example: http://api.bls.gov/publicAPI/v2/timeseries/data/
+Example: `http://api.bls.gov/publicAPI/v2/timeseries/data/`
 
 POST request headers:
 
-```
+```txt
 Content-Type:application/json
 ```
 

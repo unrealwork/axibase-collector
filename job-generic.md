@@ -14,7 +14,7 @@ Each job has the following generic properties:
 
 Type-specific properties, such as a SQL query in a JDBC job or a CSV parser in a FILE job, are specified in nested configuration objects.
 
-```
+```sh
 + job-1
   - configuration-1
 + job-2

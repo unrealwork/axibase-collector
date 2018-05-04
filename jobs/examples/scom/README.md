@@ -35,7 +35,6 @@ SELECT 1
 
 * Query result must be `Query OK`.
 
-
 ### Verify Job Configuration
 
 * Open SCOM job.
@@ -77,8 +76,8 @@ SELECT 1
 
 ### Entity Groups
 
-*   `scom-servers`
-*   `scom-databases`
+* `scom-servers`
+* `scom-databases`
 
 ### Portals
 
@@ -90,6 +89,6 @@ SELECT 1
 
 ![](images/scom_sql_server_portal.png)
 
-
 ## Data Queries
+
 [Data queries](data-queries.md) that offload recent metrics and properties.

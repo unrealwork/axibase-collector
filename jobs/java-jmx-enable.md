@@ -18,7 +18,7 @@ cd /opt/apache-activemq-5.13.1
 
 * Modify JMX settings in the ActiveMQ JVM launch options. <br>Search for the `ACTIVEMQ_SUNJMX_START` setting and change it as specified below.
 
-##### ActiveMQ 5.11.x and later:
+##### ActiveMQ 5.11.x and later
 
 ```sh
 vi ./bin/env
@@ -34,7 +34,7 @@ ACTIVEMQ_SUNJMX_START="$ACTIVEMQ_SUNJMX_START -Dcom.sun.management.jmxremote.pas
 ACTIVEMQ_SUNJMX_START="$ACTIVEMQ_SUNJMX_START -Dcom.sun.management.jmxremote.access.file=${ACTIVEMQ_CONF}/jmx.access"
 ```
 
-##### ActiveMQ 5.10.x and earlier:
+##### ActiveMQ 5.10.x and earlier
 
 ```sh
 vi ./bin/activemq
@@ -67,14 +67,14 @@ Make sure the owner of these files is the same as ActiveMQ user.
 
 `jmx.access`:
 
-```
+```txt
 # The "monitorRole" role has readonly access.
 monitorRole readonly
 ```
 
 `jmx.password`:
 
-```
+```txt
 # The "monitorRole" role has password "abc123".
 monitorRole abc123
 ```

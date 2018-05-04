@@ -1,6 +1,6 @@
-## Docker Metrics
+# Docker Metrics
 
-### Collected by [DOCKER Job](./jobs/docker.md)
+## Collected by [DOCKER Job](./jobs/docker.md)
 
 ### Host Metrics
 
@@ -147,7 +147,7 @@ docker.storage.write.size | I/O | The disk stats on Windows.
 
 ### Collected by [TCP Job](./jobs/tcp.md)
 
-### Container Metrics
+### TCP Job Container Metrics
 
 Name | Category | Description
 ---- | -------- | --------

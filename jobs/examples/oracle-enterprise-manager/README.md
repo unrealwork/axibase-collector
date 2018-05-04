@@ -68,6 +68,7 @@ SELECT NULL FROM dual
 * List of collected [Oracle EM metrics](metric-list.md)
 
 ### Properties
+
 * List of collected [Oracle EM properties](properties-list.md)
 
 ### Entity Groups
@@ -106,6 +107,7 @@ NULLIF(KEY_PART_5, '%') AS KEY_5, NULLIF(KEY_PART_6, '%') AS KEY_6, NULLIF(KEY_P
 FROM SYSMAN.gc$metric_values
 WHERE ENTITY_TYPE = 'host' AND COLLECTION_TIME_UTC >= ? ORDER BY COLLECTION_TIME_UTC
 ```
+
 * Properties Query selects current properties
 
 ```SQL
