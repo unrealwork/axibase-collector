@@ -16,16 +16,19 @@ Configure your Java applications for JMX monitoring as described [here](../../jm
 
 ### Import Derby Job into Axibase Collector
 
- * Open **Jobs:Import** and upload the [derby-job.xml](configs/derby_job.xml) file.
+* Open **Jobs:Import** and upload the [derby-job.xml](configs/derby_job.xml) file.
 
 ### Configure Derby JMX Connection
 
 * Open the **Jobs:JMX** page and select the `jmx-derby` job.
 * For each JMX Configuration:
-    * Provide connection parameters to the target Derby as displayed below:
-    ![](images/derby_jmx_configuration.png)
-    * Click the [Test] button and make sure that the result is similar to the below screenshot:
-    ![](images/derby_test_jmx_configuration.png)
+* Provide connection parameters to the target Derby:
+
+![](images/derby_jmx_configuration.png)
+
+* Click the [Test] button and confirm the result:
+
+![](images/derby_test_jmx_configuration.png)
 
 ### Schedule the Job
 
@@ -53,13 +56,11 @@ Configure your Java applications for JMX monitoring as described [here](../../jm
 
 * List of collected [Derby properties](properties-list.md)
 
-
 ### Entity group
 
 * Open **Admin:Entity Groups**, click the [Import] button, and upload  [derby_entity_group.xml](configs/derby_entity_group.xml).
 * Select the imported `apache-derby-databases` group.
 * Verify that the group contains your Derby hosts.
-
 
 ### Entity Views
 
@@ -67,8 +68,8 @@ Configure your Java applications for JMX monitoring as described [here](../../jm
 * Select the imported `Apache Derby Databases` view.
 * Select the Entity Group that you created earlier.
 * Click on [View] button and browse information about your entities:
-![](images/derby_entity_view.png)
 
+![](images/derby_entity_view.png)
 
 ### Portal
 

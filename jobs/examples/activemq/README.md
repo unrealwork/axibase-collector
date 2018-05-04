@@ -14,14 +14,14 @@ This document describes the process of configuring ActiveMQ for availability and
 
 #### Enable JMX and Log Aggregator
 
-* Login into the ActiveMQ server via SSH.
+* Log in to the ActiveMQ server via SSH.
 * Change to the ActiveMQ installation directory.
 
 ```sh
 cd /opt/apache-activemq-5.13.1
 ```
 
-*  Download the log aggregation filter `.jar` files to the ActiveMQ lib directory:
+* Download the log aggregation filter `.jar` files to the ActiveMQ lib directory:
 
 ```sh
 wget --content-disposition -P ./lib/ \
@@ -86,12 +86,15 @@ The result should be as shown on the image below:
 * Modify JMX security credential files in the `./conf` directory.
 
 jmx.access:
-```
+
+```sh
 # The "monitorRole" role has readonly access.
 monitorRole readonly
 ```
+
 jmx.password:
-```
+
+```sh
 # The "monitorRole" role has password "abc123".
 monitorRole abc123
 ```
@@ -111,12 +114,14 @@ chmod 600 ./conf/jmx.password
 
 #### Configure ActiveMQ JMX Job
 
-1. Login into Axibase Collector at `https://collector_hostname:9443`.
+1. Log in to Axibase Collector at `https://collector_hostname:9443`.
 1. Click the Jobs tab in the top menu.
 1. Locate the `jmx-activemq` job.
 1. On the JMX Job page, enable its status by checking on the 'Enabled' check box.
 1. Adjust the cron expression if required. By default, the job will be executed every 10 seconds.
-  - For more information on cron expressions, see [Scheduling](../../../scheduling.md).
+
+* For more information on cron expressions, see [Scheduling](../../../scheduling.md).
+
 ![JMX_JOB](https://axibase.com/wp-content/uploads/2016/03/jmx_job_to_configuration.png)
 
 ##### Configuring activemq-series
@@ -124,17 +129,21 @@ chmod 600 ./conf/jmx.password
 1. Select the `activemq-series` configuration.
 1. On the JMX Configuration page, enter the JMX connection parameters as above:
 
-  - **Host** — ActiveMQ hostname. Must be the same as the `activemq_hostname`.
-  - **Port** — JMX port.
-  - **User Name** — JMX user name such as `monitorRole`. Read-only permissions are sufficient.
-  - **Password** — Password for JMX user.
-  - **Entity** — Optionally, specify the output of the hostname command on the ActiveMQ server if it's different from `activemq_hostname` (for example if `activemq_hostname` represents a fully qualified name).
+* **Host** — ActiveMQ hostname. Must be the same as the `activemq_hostname`.
+* **Port** — JMX port.
+* **User Name** — JMX user name such as `monitorRole`. Read-only permissions are sufficient.
+* **Password** — Password for JMX user.
+* **Entity** — Optionally, specify the output of the hostname command on the ActiveMQ server if it's different from `activemq_hostname` (for example if `activemq_hostname` represents a fully qualified name).
+
 Other parameters are optional. For more information on JMX configuration, see [JMX](../../../jobs/jmx.md).
 
 1. Click Test to validate the configuration.
+
 If the specified configuration is correct, there must be no errors or empty fields in the test results.
-1. Click Save.
-    ![](https://axibase.com/wp-content/uploads/2016/03/series_config_85.png)
+
+1. Click **Save**.
+
+![](https://axibase.com/wp-content/uploads/2016/03/series_config_85.png)
 
 ##### Configuring activemq-property
 
@@ -144,7 +153,6 @@ If the specified configuration is correct, there must be no errors or empty fiel
 1. Click Save.
 
 ![](https://axibase.com/wp-content/uploads/2016/03/enitites_list_full-450x132.png)
-
 
 ## Viewing Data in ATSD
 
@@ -156,13 +164,11 @@ If the specified configuration is correct, there must be no errors or empty fiel
 
 * List of collected [Active MQ properties](properties-list.md)
 
-
 ### Entity group
 
 * Open **Admin:Entity Groups**, click the [Import], button and upload  [activemq_entity_group.xml](configs/activemq_entity_group.xml).
 * Select the imported `apache-activemq-brokers` group.
 * Verify that the group contains your Active MQ hosts.
-
 
 ### Entity Views
 
@@ -172,7 +178,6 @@ If the specified configuration is correct, there must be no errors or empty fiel
 * Click on the [View] button and browse information about your entities.
 
 ![](images/activemq_entity_view.png)
-
 
 ### Portal
 
@@ -206,6 +211,5 @@ Imported rules:
 | *activemq_enqueue_stopped* |  Raise an alert when enqueueing stops (no new messages are received). |
 | *activemq_health_status* |   Raise an alert when Activemq health status is abnormal. |
 | *activemq_unauthorized_connection* | Raise an alert when connection from unauthorized IP adddress is detected. |
-
 
 To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/rule-engine/README.md).
