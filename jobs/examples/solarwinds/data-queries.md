@@ -99,6 +99,7 @@ WHERE T.ClusterID = N.ClusterID
 AND N.TotalMemory > 0 AND T.DateTime > ?
 ORDER BY T.DateTime
 ```
+
 * Properties Query selects current properties:
 
 ```SQL
@@ -151,6 +152,7 @@ CPULoad, CPUUsageMHz, MemoryUsage, MemoryUsageMB, TriggeredAlarmDescription,
 VmCapacityCount, VmCapacityConstraint, DiskUtilizationDepletionDate,
 DatastoreUsedSpace, CpuUtilizationDepletionDate, MemoryUtilizationDepletionDate FROM VIM_Clusters
 ```
+
 ## SolarWinds AMP Queries
 
 * Metrics Queries select the most recent statistics:
