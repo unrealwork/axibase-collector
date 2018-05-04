@@ -254,7 +254,7 @@ The following message indicates that the initial configuration is finished:
 
 ## UI
 
-Verify the https port that is assigned to the collector and open it in your browser: https://container-ip:port`
+Verify the https port that is assigned to the collector and open it in your browser: `https://container-ip:port`
 
 ```sh
 docker ps | grep axibase-collector
