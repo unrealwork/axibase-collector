@@ -45,12 +45,12 @@ Use the table below to fill in the fields and configure the query.
 | :----------------- |:-------------|
 | Query           | SELECT query containing the entity name, time, and a list of metric columns. |
 | Command Type    | Type of command sent to ATSD. Possible values: SERIES, PROPERTY, MESSAGE, METRIC, ENTITY. |
-| <a name="field-default-entity"></a>Default Entity  | Default entity assigned to the collected commands. |
+| Default Entity  | Default entity assigned to the collected commands. |
 | Entity Column   | Retrieve entity value from the specified entity column. |
 | Entity Replacement Expression | Freemarker expression to extract entity name from an input string or to retrieve it from a lookup table using the [LOOKUP](#lookup-function). |
 | Split Condition  | One or multiple WHERE conditions to copy the base query into multiple queries returning smaller resultsets.  |
 | Tag Columns     | Columns that contain series tags. |
-| <a name="field-pre-tags"></a>Predefined Tags    | Assign predefined tags to all series. |
+| Predefined Tags    | Assign predefined tags to all series. |
 | Time Column | Column containing the timestamp. |
 | Last Time Column | Column containing last update time. |
 | Time Type | Timestamp type. <br> Possible values: TIMESTAMP, TIVOLI, TEXT, UNIX |
