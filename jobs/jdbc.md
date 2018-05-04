@@ -118,7 +118,7 @@ Use the table below to fill in the fields and configure the query.
 | Versioning | Default versioning behavior if versioning column is not specified, or column specifying if metric is versioned. |
 | Min and Max Value Columns | Minimum and Maximum Values |
 | Units | Measurement Units |
-| Metric Time Zone | Default Time Zone or column containing the [Time Zone Identifier](hhttps://github.com/axibase/atsd/blob/master/shared/timezone-list.md)  |
+| Metric Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://github.com/axibase/atsd/blob/master/shared/timezone-list.md)  |
 
 ##### ENTITY
 
