@@ -85,7 +85,7 @@ Switch to the Remote Collection option or follow one of the following steps to a
 * Run container in privileged mode (`--privileged`)
 * Run container with disabled security labeling (`--security-opt label=disable`)
 * Disable SELinux or set it into logging mode with `sudo setenforce Permissive`
-* Other alternatives using `semodule`: `https://github.com/dpw/selinux-dockersock`
+* Other alternatives using [`semodule`](https://github.com/dpw/selinux-dockersock)
 
 * **Launch Parameters**
 
@@ -254,7 +254,7 @@ The following message indicates that the initial configuration is finished:
 
 ## UI
 
-Verify the https port that is assigned to the collector and open it in your browser: `https://container-ip:port`
+Verify the https port that is assigned to the collector and open it in your browser: https://container-ip:port`
 
 ```sh
 docker ps | grep axibase-collector
