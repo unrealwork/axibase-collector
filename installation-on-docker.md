@@ -94,7 +94,7 @@ To bind the collector to a particular port instead of a random one, replace `--p
 |:---|:---|:---|
 |`ATSD_SERVICE_HOST` | No | Host where Axibase Time Series Database is installed. |
 |`ATSD_SERVICE_PORT_HTTPS` | No | Https port. |
-|`ATSD_SERVICE_PORT_TCP` | No | Tcp port for [network commands](https://github.com/axibase/atsd/blob/master/api/network#network-api). |
+|`ATSD_SERVICE_PORT_TCP` | No | Tcp port for [network commands](https://axibase.com/docs/atsd/api/network/). |
 |`ATSD_URL` | No | URL (protocol://host:port) for the Axibase Time Series Database connection.|
 |`COLLECTOR_USER_NAME` | No | User name for the [data collector](https://axibase.com/docs/atsd/administration/collector-rw-account.html) account. |
 |`COLLECTOR_USER_PASSWORD` | No | [Password](https://axibase.com/docs/atsd/administration/user-authentication.html#password-requirements) for the data collector account.|
