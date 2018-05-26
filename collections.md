@@ -226,7 +226,7 @@ If the result set is empty, an empty list is returned.
 
 #### ATSD_PROPERTY
 
-Requests a list of property records from ATSD with the [property query](https://github.com/axibase/atsd/blob/master/api/data/properties/query.md) method.
+Requests a list of property records from ATSD with the [property query](https://axibase.com/docs/atsd/api/data/properties/query.html) method.
 
 **Field** | **Description**
 :--- | :---

@@ -45,7 +45,7 @@ docker run \
  axibase/collector:latest
 ```
 
-To automatically configure a connection to the Axibase Time Series Database, add the `-atsd-url` parameter containing the ATSD hostname and https port (default 8443), as well as [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-account.md) credentials:
+To automatically configure a connection to the Axibase Time Series Database, add the `-atsd-url` parameter containing the ATSD hostname and https port (default 8443), as well as [collector account](https://axibase.com/docs/atsd/administration/collector-account.html) credentials:
 
 ```properties
 docker run \
@@ -59,7 +59,7 @@ docker run \
 
 If the user name or password contains a `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
-The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/administration/user-authentication.md#password-requirements).
+The password must contain at least **six** (6) characters and is subject to the following [requirements](https://axibase.com/docs/atsd/administration/user-authentication.html#password-requirements).
 
 For example, for user `adm-dev` with the password `my$pwd` sending data to ATSD at `https://10.102.0.6:8443`, specify:
 
@@ -96,8 +96,8 @@ To bind the collector to a particular port instead of a random one, replace `--p
 |`ATSD_SERVICE_PORT_HTTPS` | No | Https port. |
 |`ATSD_SERVICE_PORT_TCP` | No | Tcp port for [network commands](https://github.com/axibase/atsd/blob/master/api/network#network-api). |
 |`ATSD_URL` | No | URL (protocol://host:port) for the Axibase Time Series Database connection.|
-|`COLLECTOR_USER_NAME` | No | User name for the [data collector](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) account. |
-|`COLLECTOR_USER_PASSWORD` | No | [Password](https://github.com/axibase/atsd/blob/master/administration/user-authentication.md#password-requirements) for the data collector account.|
+|`COLLECTOR_USER_NAME` | No | User name for the [data collector](https://axibase.com/docs/atsd/administration/collector-rw-account.html) account. |
+|`COLLECTOR_USER_PASSWORD` | No | [Password](https://axibase.com/docs/atsd/administration/user-authentication.html#password-requirements) for the data collector account.|
 |`DOCKER_HOSTNAME` | No | Hostname of the Docker host where Axibase Collector container is running.|
 |`JAVA_OPTS` | No| Java VM options.<br>By default the collector starts with an option `-Xmx256m` |
 

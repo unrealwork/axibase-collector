@@ -194,7 +194,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 
 ### Setting up Mail Client
 
-* Configure [Mail Client](https://github.com/axibase/atsd/blob/master/administration/mail-client.md).
+* Configure [Mail Client](https://axibase.com/docs/atsd/administration/mail-client.html).
 
 #### Import Rules
 
@@ -212,4 +212,4 @@ Imported rules:
 | *activemq_health_status* |   Raise an alert when Activemq health status is abnormal. |
 | *activemq_unauthorized_connection* | Raise an alert when connection from unauthorized IP adddress is detected. |
 
-To create your own rules, refer to [Rule Engine documentation](https://github.com/axibase/atsd/blob/master/rule-engine/README.md).
+To create your own rules, refer to [Rule Engine documentation](https://axibase.com/docs/atsd/rule-engine/).

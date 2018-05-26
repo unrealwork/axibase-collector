@@ -27,7 +27,7 @@ Information is collected for the following object types:
 ## Prerequisites
 
 * [Docker Engine v1.7+](https://docs.docker.com/engine/installation/)
-* [Axibase Time Series Database](https://github.com/axibase/atsd/blob/master/installation/docker.md) container as a centralized metrics store and rule engine.
+* [Axibase Time Series Database](https://axibase.com/docs/atsd/installation/docker.html) container as a centralized metrics store and rule engine.
 
 ## Local Installation
 
@@ -35,7 +35,7 @@ In local collection mode, Axibase Collector containers run on each Docker host a
 
 ![Local Collection](images/docker-local.png)
 
-* Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
+* Create a [collector account](https://axibase.com/docs/atsd/administration/collector-rw-account.html) in ATSD.
 * Replace `atsd_host` and `atsd_https_port` with the ATSD hostname/IP address and https port (default 8443).
 * Replace `collector-rw` and `collector-password` with valid credentials in the script below.
 * Start Axibase Collector container:
@@ -55,7 +55,7 @@ docker run \
 
 If the user name or password contains `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
-The password must contain at least **six** (6) characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/administration/user-authentication.md#password-requirements).
+The password must contain at least **six** (6) characters and is subject to the following [requirements](https://axibase.com/docs/atsd/administration/user-authentication.html#password-requirements).
 
 For example, for user `adm-dev` with password `my$pwd` sending data to ATSD at `https://10.102.0.6:8443` specify:
 
@@ -208,7 +208,7 @@ In remote collection mode Axibase Collector fetches data from multiple remote Do
 
 ### Launch Axibase Collector Container
 
-* Create a [collector account](https://github.com/axibase/atsd/blob/master/administration/collector-rw-account.md) in ATSD.
+* Create a [collector account](https://axibase.com/docs/atsd/administration/collector-rw-account.html) in ATSD.
 
 * Start Axibase Collector container, replacing `collector-rw` and `collector-password` with valid credentials:
 
@@ -223,7 +223,7 @@ docker run \
 
 If the user name or password contains a `$`, `&`, `#`, or `!` character, escape it with backslash `\`.
 
-The password must contain at least **6** characters and is subject to the following [requirements](https://github.com/axibase/atsd/blob/master/administration/user-authentication.md#password-requirements).
+The password must contain at least **6** characters and is subject to the following [requirements](https://axibase.com/docs/atsd/administration/user-authentication.html#password-requirements).
 
 * Find the https port assigned to the `axibase-collector` container.
 

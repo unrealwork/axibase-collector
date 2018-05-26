@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes how to copy PI Tag attributes from a [PI Server](http://www.osisoft.com/pi-system/pi-capabilities/pi-server/) into the corresponding [metric](https://github.com/axibase/atsd/blob/master/api/meta/metric/list.md#fields) fields in the Axibase Time Series Database.
+This document describes how to copy PI Tag attributes from a [PI Server](http://www.osisoft.com/pi-system/pi-capabilities/pi-server/) into the corresponding [metric](https://axibase.com/docs/atsd/api/meta/metric/list.html#fields) fields in the Axibase Time Series Database.
 
 The process involves enabling a JDBC job in Axibase Collector.
 
@@ -37,10 +37,6 @@ In addition to copying PI Point attributes, the job can be configured to populat
 
 * PI SQL Data Access Server `1.5+`
 * PI JDBC Driver `1.5+`
-
-## Limitations
-
-* ATSD has limitations for the number of allowable stored metrics. Please check the limits in [ATSD Docs](https://github.com/axibase/atsd/blob/master/api/network#schema)
 
 ## Installation Steps
 

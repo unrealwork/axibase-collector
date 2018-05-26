@@ -59,7 +59,7 @@ Use the table below to fill in the fields and configure the query.
 | Time Zone | Time zone in which the data was originally collected and stored. |
 | Check Last Time | Ignore metrics that have time set to less than the previous entry. |
 | Query With Time | When executing the job, the server will be set to the maximum time of the previous data. |
-| Collection Start Time | [Calendar expression](https://github.com/axibase/atsd/blob/master/shared/calendar.md) defining the beginning of the data collection interval, for example, previous_week. |
+| Collection Start Time | [Calendar expression](https://axibase.com/docs/atsd/shared/calendar.html) defining the beginning of the data collection interval, for example, previous_week. |
 | Max Rows | Maximum number of rows that will be collected with each batch, -1 is unlimited. |
 | Query Timeout Seconds| Number of seconds after which the query will be interrupted, -1 is unlimited. |
 
@@ -118,7 +118,7 @@ Use the table below to fill in the fields and configure the query.
 | Versioning | Default versioning behavior if versioning column is not specified, or column specifying if metric is versioned. |
 | Min and Max Value Columns | Minimum and Maximum Values |
 | Units | Measurement Units |
-| Metric Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://github.com/axibase/atsd/blob/master/shared/timezone-list.md)  |
+| Metric Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://axibase.com/docs/atsd/shared/timezone-list.html)  |
 
 ##### ENTITY
 
@@ -126,7 +126,7 @@ Use the table below to fill in the fields and configure the query.
 | :----------------- |:-------------|
 | Label Column | Label Column: Column containing metric or entity label.<BR>Default Label: Label applied to all generated metrics or entities |
 | Interpolation Mode | Default interpolation mode setting or column containing interpolation mode setting. Should contain a string value, case-insensitive. Possible values: LINEAR, PREVIOUS, or NONE  |
-| Entity Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://github.com/axibase/atsd/blob/master/shared/timezone-list.md) |
+| Entity Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://axibase.com/docs/atsd/shared/timezone-list.html) |
 
 ### Configuration Example
 

@@ -76,7 +76,7 @@ Axibase Collector queries the OVPM server for particular GLOBAL classes every 15
 
 ## Portal List
 
-[OVPM Portal](http://axibase.com/chartlab/f9d176ac/2/)
+[OVPM Portal](https://apps.axibase.com/chartlab/f9d176ac/2/)
 
 ![](images/ovpm_portal_linux.png "HP OpenView")
 ![](images/ovpm_portal_windows.png "ovpm_portal_windows")
