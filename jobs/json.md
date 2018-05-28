@@ -656,7 +656,7 @@ JSON:
         {
             "timestamp": "2018-05-23T00:00:00Z",
             "count": 269,
-            uniques: 15
+            "uniques": 15
         },
         {
             "timestamp": "2018-05-24T00:00:00Z",
