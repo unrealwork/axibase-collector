@@ -637,7 +637,6 @@ series e:tst d:2016-01-01T00:00:00.000Z m:fail=2 m:ok=10
 series e:tst d:2016-01-02T00:00:00.000Z m:fail=2 m:ok=15
 ```
 
-
 #### Minimum time
 
 JSON:
@@ -666,7 +665,6 @@ JSON:
     ]
 }
 ```
-
 
 Field Name       | Field Value
 :--------------- | :----------
