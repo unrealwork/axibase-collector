@@ -127,4 +127,4 @@ series e:Tibooburra_Airport d:2016-07-07T18:30:00.000Z m:au-weather-nsw.air_temp
 
 ## Screenshot
 
-![Job Screenshot](australia-weather-config.png)
+![Job Screenshot](./australia-weather-config.png)
