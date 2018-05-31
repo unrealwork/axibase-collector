@@ -24,4 +24,4 @@ To add a database as a data source in Axibase Collector, navigate to **Data Sour
 | Idle Timeout (seconds) | Duration after which an unused connection is closed. |
 | Socket Timeout (seconds) | Duration after which the connection is dropped if there is no response from the server. |
 
-![](http://axibase.com/wp-content/uploads/2015/05/database_data_source.png)
+![](./images/datasource-database.png)
