@@ -110,7 +110,7 @@ Use the table below to fill in the fields and configure the query.
 | FIELD              | DESCRIPTION  |
 | :----------------- |:-------------|
 | Metric Name Column | Column containing metric names. |
-| Label Column | Label Column: Column containing metric or entity label.<BR>Default Label: Label applied to all generated metrics or entities |
+| Label Column | Label Column: Column containing metric or entity label.Default Label: Label applied to all generated metrics or entities |
 | Description Column | Column containing metric or entity description. |
 | Data Type | Default metric data type, or column containing metric datatype. One of: short, integer, long, float, double, decimal |
 | Interpolation Mode | Default interpolation mode setting or column containing interpolation mode setting. Should contain a string value, case-insensitive. Possible values: LINEAR, PREVIOUS, or NONE  |
@@ -124,7 +124,7 @@ Use the table below to fill in the fields and configure the query.
 
 | FIELD              | DESCRIPTION  |
 | :----------------- |:-------------|
-| Label Column | Label Column: Column containing metric or entity label.<BR>Default Label: Label applied to all generated metrics or entities |
+| Label Column | Label Column: Column containing metric or entity label.Default Label: Label applied to all generated metrics or entities |
 | Interpolation Mode | Default interpolation mode setting or column containing interpolation mode setting. Should contain a string value, case-insensitive. Possible values: LINEAR, PREVIOUS, or NONE  |
 | Entity Time Zone | Default Time Zone or column containing the [Time Zone Identifier](https://axibase.com/docs/atsd/shared/timezone-list.html) |
 

@@ -22,7 +22,7 @@ The files are parsed by ATSD using a [CSV Parser](https://axibase.com/docs/atsd/
 6. Repeat steps 1-to-5 if the Path is configured to download multiple files with an `ITEM` from the item list, the `DATE_ITEM` function, or a wildcard expression in the case of FILE, FTP, and SFTP protocols.
 7. Send a job status message into ATSD for monitoring.
 
-![File Job Workflow](images/file_job_steps.png)
+![File Job Workflow](./images/file_job_steps.png)
 
 ## Supported Protocols
 

@@ -134,7 +134,7 @@ jmx.${domain}.${name}
 
 The attribute `name` is excluded from series tags, because the `Metric Prefix` field contains it using placeholder:
 
-![image](images/jmx_configuration_metric_prefix_example.png)
+![image](./images/jmx_configuration_metric_prefix_example.png)
 
 #### Item List Example
 
@@ -148,11 +148,11 @@ The `kafka-cluster-jmx` list contains items (`host,port,entity`):
 
 The each row is splitted by [freemarker function](https://freemarker.apache.org/docs/ref_builtins_string.html#ref_builtin_split) to extract values:
 
-![image](images/jmx_configuration_item_list_example.png)
+![image](./images/jmx_configuration_item_list_example.png)
 
 ## JMX Configuration Example
 
-![](images/jmx_configuration_example.png)
+![](./images/jmx_configuration_example.png)
 
 ## Viewer
 

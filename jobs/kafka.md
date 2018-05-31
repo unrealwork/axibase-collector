@@ -9,7 +9,7 @@ The Kafka job provides a way to read messages from Apache Kafka broker(s) to con
 Apart from [common](../job-generic.md), Kafka job has an additional `Consumer` field. <br>
 **Consumer** list allows you to select a [consumer](kafka-consumer.md) that will be used.
 
-![Kafka job settings](images/kafka_job.png)
+![Kafka job settings](./images/kafka_job.png)
 
 ### Job Configuration
 
@@ -88,9 +88,9 @@ Message Field   | Field with value that will be used as message text.
 
 ### Configuration Example
 
-![Kafka Configuration Example](images/kafka_job_configuration.png)
+![Kafka Configuration Example](./images/kafka_job_configuration.png)
 
-![Kafka JSON mapping settings](images/kafka_json_mapping_settings.png)
+![Kafka JSON mapping settings](./images/kafka_json_mapping_settings.png)
 
 * Sample Message:
 

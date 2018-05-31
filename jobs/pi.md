@@ -23,7 +23,7 @@ Use the table below to set configuration parameters.
 
 | FIELD              | DESCRIPTION  |
 | :----------------- |:-------------|
-| Entity | The expression to retrieve entity name from PI tag name. Supported placeholders:<BR>- ${TAG} = current processed PI tag<BR>- ${[LOOKUP()](placeholders.md#lookup-function)} = function to retrieve a value for key from an Item List |
+| Entity | The expression to retrieve entity name from PI tag name. Supported placeholders:- ${TAG} = current processed PI tag- ${[LOOKUP()](placeholders.md#lookup-function)} = function to retrieve a value for key from an Item List |
 | Default Entity | Default entity applied if Entity Expression is not specified or entity is not found in the Item List. |
 | Default Tags | List of name=value tag pairs, one per line, stored as series tags. Tag value can refer to the ${TAG} placeholder. |
 | pisnapshot WHERE Filter | An expression included in the WHERE clause when querying the pisnapshot table. The expression must return a boolean value. |
@@ -34,7 +34,7 @@ Use the table below to set configuration parameters.
 | Ignore Unresolved Entity | If enabled, skip tags for which no valid entity can be retrieved. If the entity is invalid and this case is not ignored, the job will fail with an error. |
 | Collect QSA Fields | If enabled, collect non-default values of questionable, substituted, annotated, annotations columns. |
 | Collect Status Filelds | If enabled, collect non-default (non-zero) status. |
-| Store QSA and Status as Annotation | If enabled, QSA and status columns will be serialized into text (annotation) field like questionable=true;substituted=true;annotated=true;status=-253.<BR>If disabled, QSA and/or status columns will be stored as series tags. |
+| Store QSA and Status as Annotation | If enabled, QSA and status columns will be serialized into text (annotation) field like questionable=true;substituted=true;annotated=true;status=-253.If disabled, QSA and/or status columns will be stored as series tags. |
 | Number of Tags in One picomp2 Query | Maximum number of tags included in one query. |
 | Max Rows in picomp2 Result Set | Maximum number of rows per query |
 | Query Timeout, seconds | Query timeout in seconds |

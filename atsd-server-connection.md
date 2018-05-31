@@ -46,7 +46,7 @@ Socket Keep-Alive | true
 
 #### ATSD HTTP Pool Configuration Example
 
-![ATSD HTTP Pool](images/atsd_pool.png)
+![ATSD HTTP Pool](./images/atsd_pool.png)
 
 ## Storage Driver Configuration
 
@@ -56,4 +56,4 @@ Socket Keep-Alive | true
 * Keep API path as `/api/v1`.
 * Click Test. Response Code is 200 if the connection was successful.
 
-![ATSD Server Test](images/atsd_server.png)
+![ATSD Server Test](./images/atsd_server.png)

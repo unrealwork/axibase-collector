@@ -810,12 +810,12 @@ message e:tst d:2016-07-06T08:19:30.563Z t:id=1 t:source=1.2.3.4:1234 t:type=pee
 
 ## Configuration Example
 
-![](images/json_job_configuration.png)
+![](./images/json_job_configuration.png)
 
 ## Settings Example
 
-![](images/json_job_configuration_settings.png)
+![](./images/json_job_configuration_settings.png)
 
 ## JSON Viewer Example
 
-![](images/json_job_viewer.png)
+![](./images/json_job_viewer.png)

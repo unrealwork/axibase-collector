@@ -177,7 +177,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 * Select the Entity Group that you created earlier.
 * Click on the [View] button and browse information about your entities.
 
-![](images/activemq_entity_view.png)
+![](./images/activemq_entity_view.png)
 
 ### Portal
 
@@ -185,7 +185,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 * Click the Assign link and associate the portal with the entity group you created earlier.
 * Open the Entity tabs, find the java application by name, and click on its portal icon.
 
-![](images/activemq_portal_icon.png)
+![](./images/activemq_portal_icon.png)
 
 [**Active MQ Live Portal**](http://apps.axibase.com/chartlab/2f11a5ef)
 ![](https://axibase.com/wp-content/uploads/2016/03/log_portal_example.png)

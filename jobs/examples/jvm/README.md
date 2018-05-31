@@ -26,18 +26,18 @@ Configure your Java application for JMX data collection as described [here](../.
 * For each JMX Configuration:
 * Provide connection parameters to the target JVM:
 
-![](images/jvm_jmx_configuration.png)
+![](./images/jvm_jmx_configuration.png)
 
 * Click the [Test] button:
 
-![](images/jvm_test_jmx_configuration.png)
+![](./images/jvm_test_jmx_configuration.png)
 
 ### Schedule the Job
 
 * Open the `JMX Job` page and click the [Run] button for the JVM JMX job.
 * Make sure that the job status is `COMPLETED` and `Items Read` and `Sent commands` are greater than 0.
 
-![](images/test_run.png)
+![](./images/test_run.png)
 
 * If there are no errors, set the job status to 'Enabled' and save the job.
 
@@ -46,7 +46,7 @@ Configure your Java application for JMX data collection as described [here](../.
 * Log in to ATSD.
 * Click on Metrics tab and filter metrics by name `jmx.jvm*`.
 
-![](images/jvm_metrics.png)
+![](./images/jvm_metrics.png)
 
 ## Viewing Data in ATSD
 
@@ -71,7 +71,7 @@ Configure your Java application for JMX data collection as described [here](../.
 * Select the Entity Group that you created earlier.
 * Click on the [View] button and browse information about your entities:
 
-![](images/jvm_entity_view.png)
+![](./images/jvm_entity_view.png)
 
 ### Portal
 
@@ -79,10 +79,10 @@ Configure your Java application for JMX data collection as described [here](../.
 * Click the Assign link and associate the portal with the entity group you created earlier.
 * Open the Entity tab, find the java application by name, and click on its portal icon:
 
-![](images/jvm_portal_icon.png)
+![](./images/jvm_portal_icon.png)
 
 [**JVM Live Portal**](http://apps.axibase.com/chartlab/e6911d9d)
-![](images/jvm_portal.png)
+![](./images/jvm_portal.png)
 
 ### Rules
 
