@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Collector | JSON Job Example: Nginx Status</title>
+    <meta name="description" content="User manual and API reference for Axibase® Time Series Database">
+    <link rel="shortcut icon" href="/axibase-collector/favicon.ico">
+    
+    <link rel="stylesheet" href="/axibase-collector/assets/css/119.styles.64c5d684.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/axibase-collector/" class="home-link router-link-active"><img src="/axibase-collector/images/axibase_logo_green.gif" class="logo"><span class="site-name can-hide">
+      Collector
+    </span></a><div class="links"><nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Jobs</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/aws.html" class="nav-link">AWS</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/docker.html" class="nav-link">Docker</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/file.html" class="nav-link">File</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/http.html" class="nav-link">HTTP</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/icmp.html" class="nav-link">ICMP</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/jdbc.html" class="nav-link">JDBC</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/jmx.html" class="nav-link">JMX</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/json.html" class="nav-link">JSON</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/kafka.html" class="nav-link">Kafka</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/ovpm.html" class="nav-link">OVPM</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/pi.html" class="nav-link">PI</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/snmp.html" class="nav-link">SNMP</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/socrata.html" class="nav-link">Socrata</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/tcp.html" class="nav-link">TCP</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Data Sources</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/jdbc-data-source.html" class="nav-link">Database</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/http-pool.html" class="nav-link">HTTP Pool</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/kafka-consumer.html" class="nav-link">Kafka Consumer</a></li></ul></div></div><div class="nav-item"><a href="/axibase-collector/jobs/examples/" class="nav-link router-link-active">Examples</a></div><!----></nav><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Jobs</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/aws.html" class="nav-link">AWS</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/docker.html" class="nav-link">Docker</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/file.html" class="nav-link">File</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/http.html" class="nav-link">HTTP</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/icmp.html" class="nav-link">ICMP</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/jdbc.html" class="nav-link">JDBC</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/jmx.html" class="nav-link">JMX</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/json.html" class="nav-link">JSON</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/kafka.html" class="nav-link">Kafka</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/ovpm.html" class="nav-link">OVPM</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/pi.html" class="nav-link">PI</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/snmp.html" class="nav-link">SNMP</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/socrata.html" class="nav-link">Socrata</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/tcp.html" class="nav-link">TCP</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Data Sources</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/jdbc-data-source.html" class="nav-link">Database</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/http-pool.html" class="nav-link">HTTP Pool</a></li><li class="dropdown-item"><!----><a href="/axibase-collector/jobs/kafka-consumer.html" class="nav-link">Kafka Consumer</a></li></ul></div></div><div class="nav-item"><a href="/axibase-collector/jobs/examples/" class="nav-link router-link-active">Examples</a></div><!----></nav><ul class="sidebar-links"><li><a href="/axibase-collector/jobs/examples/activemq/" class="sidebar-link">ActiveMQ</a></li><li><a href="/axibase-collector/jobs/examples/derby/" class="sidebar-link">Derby Database</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>File</span><span class="arrow right"></span></p><!----></div></li><li><a href="/axibase-collector/jobs/examples/hp-openview/" class="sidebar-link">HP OpenView</a></li><li><a href="/axibase-collector/jobs/examples/jetty/" class="sidebar-link">Jetty</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>JSON</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/axibase-collector/jobs/examples/json/bls/" class="sidebar-link">BLS</a></li><li><a href="/axibase-collector/jobs/examples/json/github-daily-summary/" class="sidebar-link">GitHub Daily Summary</a></li><li><a href="/axibase-collector/jobs/examples/json/nginx-status/" class="active sidebar-link">Nginx Status</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/axibase-collector/jobs/examples/json/nginx-status/#overview" class="sidebar-link">Overview</a></li><li class="sidebar-sub-header"><a href="/axibase-collector/jobs/examples/json/nginx-status/#file" class="sidebar-link">File</a></li><li class="sidebar-sub-header"><a href="/axibase-collector/jobs/examples/json/nginx-status/#configuration" class="sidebar-link">Configuration</a></li><li class="sidebar-sub-header"><a href="/axibase-collector/jobs/examples/json/nginx-status/#screenshots" class="sidebar-link">Screenshots</a></li></ul></li><li><a href="/axibase-collector/jobs/examples/json/australia-weather/" class="sidebar-link">Australia Bureau of Meteorology</a></li><li><a href="/axibase-collector/jobs/examples/json/fields-with-non-alphanumeric/" class="sidebar-link">Fields with non alphanumeric characters</a></li><li><a href="/axibase-collector/jobs/examples/json/json_lines/" class="sidebar-link">JSON Lines</a></li></ul></div></li><li><a href="/axibase-collector/jobs/examples/jvm/" class="sidebar-link">JVM</a></li><li><a href="/axibase-collector/jobs/examples/mysql/" class="sidebar-link">MySQL</a></li><li><a href="/axibase-collector/jobs/examples/nginx/" class="sidebar-link">nginx</a></li><li><a href="/axibase-collector/jobs/examples/oracle-enterprise-manager/" class="sidebar-link">Oracle EM</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>PI</span><span class="arrow right"></span></p><!----></div></li><li><a href="/axibase-collector/jobs/examples/postgres/" class="sidebar-link">PostgreSQL</a></li><li><a href="/axibase-collector/jobs/examples/scom/" class="sidebar-link">SCOM</a></li><li><a href="/axibase-collector/jobs/examples/socrata/state-government.html" class="sidebar-link">Socrata</a></li><li><a href="/axibase-collector/jobs/examples/solarwinds/" class="sidebar-link">SolarWinds</a></li><li><a href="/axibase-collector/jobs/examples/tomcat/" class="sidebar-link">Tomcat</a></li><li><a href="/axibase-collector/jobs/examples/vmware/" class="sidebar-link">VMware</a></li></ul></div><div class="page"><div class="content"><h1 id="json-job-example-nginx-status"><a href="#json-job-example-nginx-status" aria-hidden="true" class="header-anchor">#</a> JSON Job Example: Nginx Status</h1><h2 id="overview"><a href="#overview" aria-hidden="true" class="header-anchor">#</a> Overview</h2><p>Download Nginx statistics using <a href="http://nginx.org/en/docs/http/ngx_http_status_module.html" target="_blank" rel="noopener noreferrer">api</a>.</p><p>The Path field contains the <code>${ITEM}</code> placeholder so that multiple servers can be queried with one configuration.</p><h2 id="file"><a href="#file" aria-hidden="true" class="header-anchor">#</a> File</h2><h3 id="uri"><a href="#uri" aria-hidden="true" class="header-anchor">#</a> URI</h3><p>Template: <code>http://${ITEM}/status</code></p><p>Example: <code>http://demo.nginx.com/status</code></p><h3 id="local-copy"><a href="#local-copy" aria-hidden="true" class="header-anchor">#</a> Local Copy</h3><p><a href="nginx_status.json">JSON</a> file.</p><h2 id="configuration"><a href="#configuration" aria-hidden="true" class="header-anchor">#</a> Configuration</h2><p><a href="nginx_status_job.xml">JSON Job Configuration</a> file. Import xml into Collector.</p><h3 id="matched-objects"><a href="#matched-objects" aria-hidden="true" class="header-anchor">#</a> Matched Objects</h3><ul><li><p><strong>Base:</strong></p><pre class="language-javascript"><code>$
+</code></pre><p><a href="nginx_status.json">JSON</a> file.</p></li></ul><h3 id="commands"><a href="#commands" aria-hidden="true" class="header-anchor">#</a> Commands</h3><pre class="language-text"><code>series e:demo.nginx.com d:2016-07-08T14:01:31.516Z m:nginx-plus.connections.accepted=20373129 m:nginx-plus.connections.dropped=0 m:nginx-plus.requests.current=6 m:nginx-plus.ssl.handshakes=84733 m:nginx-plus.connections.idle=46 m:nginx-plus.requests.total=48937280 m:nginx-plus.processes.respawned=0 m:nginx-plus.ssl.session_reuses=16478 m:nginx-plus.connections.active=8 m:nginx-plus.ssl.handshakes_failed=7022
+property t:nginx_info e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:address=206.251.255.64 v:nginx_version=1.9.13 v:pid=59970 v:load_timestamp=1467911779387 v:generation=11 v:version property t:nginx_info e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:address=206.251.255.64 v:nginx_version=1.9.13 v:pid=59970 v:load_timestamp=1467911779387 v:generation=11 v:version=6
+</code></pre><br><ul><li><p><strong>Peers:</strong></p><pre class="language-javascript"><code>$<span class="token punctuation">.</span><span class="token punctuation">.</span>peers<span class="token punctuation">.</span><span class="token operator">*</span>
+</code></pre><pre class="language-json"><code><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;active&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;backup&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;downstart&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;downtime&quot;</span><span class="token operator">:</span> <span class="token number">14907</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fails&quot;</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;health_checks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;checks&quot;</span><span class="token operator">:</span> <span class="token number">7459</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;fails&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;last_passed&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;unhealthy&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;received&quot;</span><span class="token operator">:</span> <span class="token number">1362661342</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;requests&quot;</span><span class="token operator">:</span> <span class="token number">74535</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;1xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;2xx&quot;</span><span class="token operator">:</span> <span class="token number">49890</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;3xx&quot;</span><span class="token operator">:</span> <span class="token number">988</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;4xx&quot;</span><span class="token operator">:</span> <span class="token number">14548</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;5xx&quot;</span><span class="token operator">:</span> <span class="token number">9109</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token number">74535</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;selected&quot;</span><span class="token operator">:</span> <span class="token number">1467986488000</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sent&quot;</span><span class="token operator">:</span> <span class="token number">45523551</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;server&quot;</span><span class="token operator">:</span> <span class="token string">&quot;10.0.0.1:8080&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;state&quot;</span><span class="token operator">:</span> <span class="token string">&quot;up&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;unavail&quot;</span><span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;weight&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;active&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;backup&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;downstart&quot;</span><span class="token operator">:</span> <span class="token number">1467911779938</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;downtime&quot;</span><span class="token operator">:</span> <span class="token number">74711578</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fails&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;health_checks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;checks&quot;</span><span class="token operator">:</span> <span class="token number">7468</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;fails&quot;</span><span class="token operator">:</span> <span class="token number">7468</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;last_passed&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;unhealthy&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;received&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;requests&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;1xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;2xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;3xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;4xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;5xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;selected&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sent&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;server&quot;</span><span class="token operator">:</span> <span class="token string">&quot;10.0.0.1:8081&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;state&quot;</span><span class="token operator">:</span> <span class="token string">&quot;unhealthy&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;unavail&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;weight&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  ...
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;active&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;backup&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;connections&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;downstart&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;downtime&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;fails&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;health_checks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;checks&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;fails&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;unhealthy&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;received&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;selected&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sent&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;server&quot;</span><span class="token operator">:</span> <span class="token string">&quot;[2001:1af8:4060:a004:21::e3]:80&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;state&quot;</span><span class="token operator">:</span> <span class="token string">&quot;down&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;unavail&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;weight&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre><p><a href="matched_objects_2.json">JSON</a> file.</p></li></ul><h3 id="other-commands"><a href="#other-commands" aria-hidden="true" class="header-anchor">#</a> Other Commands</h3><pre class="language-text"><code>series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:upstream=trac-backend t:type=upstreams.peers m:nginx-plus.fails=18 m:nginx-plus.received=1362661342 m:nginx-plus.responses.4xx=14548 m:nginx-plus.responses.5xx=9109 m:nginx-plus.health_checks.fails=0 m:nginx-plus.sent=45523551 m:nginx-plus.responses.total=74535 m:nginx-plus.selected=1467986488000 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.health_checks.checks=7459 m:nginx-plus.active=0 m:nginx-plus.responses.3xx=988 m:nginx-plus.requests=74535 m:nginx-plus.unavail=18 m:nginx-plus.responses.2xx=49890 m:nginx-plus.downtime=14907 m:nginx-plus.downstart=0 m:nginx-plus.responses.1xx=0
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:upstream=trac-backend t:type=upstreams.peers m:nginx-plus.fails=0 m:nginx-plus.received=0 m:nginx-plus.responses.4xx=0 m:nginx-plus.responses.5xx=0 m:nginx-plus.health_checks.fails=7468 m:nginx-plus.sent=0 m:nginx-plus.responses.total=0 m:nginx-plus.selected=0 m:nginx-plus.health_checks.unhealthy=1 m:nginx-plus.health_checks.checks=7468 m:nginx-plus.active=0 m:nginx-plus.responses.3xx=0 m:nginx-plus.requests=0 m:nginx-plus.unavail=0 m:nginx-plus.responses.2xx=0 m:nginx-plus.downtime=74711578 m:nginx-plus.downstart=1467911779938 m:nginx-plus.responses.1xx=0
+...
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:upstream=unused_tcp_backends t:type=stream.upstreams.peers m:nginx-plus.active=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.fails=0 m:nginx-plus.connections=0 m:nginx-plus.sent=0 m:nginx-plus.unavail=0 m:nginx-plus.selected=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.downtime=0 m:nginx-plus.downstart=0
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:upstream=unused_tcp_backends t:type=stream.upstreams.peers m:nginx-plus.active=0 m:nginx-plus.received=0 m:nginx-plus.fails=0 m:nginx-plus.health_checks.fails=0 m:nginx-plus.connections=0 m:nginx-plus.sent=0 m:nginx-plus.unavail=0 m:nginx-plus.selected=0 m:nginx-plus.health_checks.unhealthy=0 m:nginx-plus.health_checks.checks=0 m:nginx-plus.downtime=0 m:nginx-plus.downstart=0
+property t:upstreams.peers e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:upstream=lxr-backend k:server=unix:/tmp/cgib.sock k:type=upstreams.peers v:id=1 v:weight=1 v:state=up v:backup=true
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:upstream=dns_udp_backends k:server=10.0.0.2:53 k:type=stream.upstreams.peers v:id=1 v:weight=1 v:state=up v:health_checks.last_passed=true v:backup=false
+...
+property t:stream.upstreams.peers e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:upstream=unused_tcp_backends k:server=95.211.80.227:80 k:type=stream.upstreams.peers v:id=1 v:weight=1 v:state=down v:backup=false
+property t:upstreams.peers e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:upstream=demo-backend k:server=10.0.0.2:15431 k:type=upstreams.peers v:id=0 v:weight=1 v:state=up v:health_checks.last_passed=true v:backup=false
+</code></pre><br><ul><li><p><strong>Caches, Server Zones, and Upstreams:</strong></p><pre class="language-javascript"><code>$<span class="token punctuation">[</span><span class="token string">'caches'</span><span class="token operator">|</span><span class="token string">'server_zones'</span><span class="token operator">|</span><span class="token string">'upstreams'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token operator">*</span>
+</code></pre><pre class="language-json"><code><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;bypass&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">13010815042</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;bytes_written&quot;</span><span class="token operator">:</span> <span class="token number">13010806733</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">340141</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses_written&quot;</span><span class="token operator">:</span> <span class="token number">340113</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;cold&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;expired&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">6709984777</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;bytes_written&quot;</span><span class="token operator">:</span> <span class="token number">6537974501</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">198350</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses_written&quot;</span><span class="token operator">:</span> <span class="token number">177369</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;hit&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">16090273077</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">1233531</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;max_size&quot;</span><span class="token operator">:</span> <span class="token number">536870912</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;miss&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">77000388079</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;bytes_written&quot;</span><span class="token operator">:</span> <span class="token number">23642451487</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">1872931</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses_written&quot;</span><span class="token operator">:</span> <span class="token number">612094</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;revalidated&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;size&quot;</span><span class="token operator">:</span> <span class="token number">536838144</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;stale&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;updating&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;discarded&quot;</span><span class="token operator">:</span> <span class="token number">136</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;processing&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;received&quot;</span><span class="token operator">:</span> <span class="token number">34286911</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;requests&quot;</span><span class="token operator">:</span> <span class="token number">64805</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;1xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;2xx&quot;</span><span class="token operator">:</span> <span class="token number">60361</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;3xx&quot;</span><span class="token operator">:</span> <span class="token number">1440</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;4xx&quot;</span><span class="token operator">:</span> <span class="token number">1640</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;5xx&quot;</span><span class="token operator">:</span> <span class="token number">1227</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token number">64668</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sent&quot;</span><span class="token operator">:</span> <span class="token number">1054502861</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  ...
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;keepalive&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;peers&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token property">&quot;active&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;backup&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;downstart&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;downtime&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;fails&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;health_checks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;checks&quot;</span><span class="token operator">:</span> <span class="token number">74458</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;fails&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;last_passed&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;unhealthy&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;received&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;requests&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;1xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;2xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;3xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;4xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;5xx&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;total&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;selected&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;sent&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;server&quot;</span><span class="token operator">:</span> <span class="token string">&quot;10.0.0.2:15431&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;state&quot;</span><span class="token operator">:</span> <span class="token string">&quot;up&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;unavail&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;weight&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre><p><a href="matched_objects_3.json">JSON</a> file.</p></li></ul><h3 id="additional-commands"><a href="#additional-commands" aria-hidden="true" class="header-anchor">#</a> Additional Commands</h3><pre class="language-text"><code>series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=hg.nginx.org t:type=server_zones m:nginx-plus.received=34286911 m:nginx-plus.responses.4xx=1640 m:nginx-plus.responses.5xx=1227 m:nginx-plus.responses.3xx=1440 m:nginx-plus.requests=64805 m:nginx-plus.sent=1054502861 m:nginx-plus.processing=1 m:nginx-plus.responses.total=64668 m:nginx-plus.responses.2xx=60361 m:nginx-plus.discarded=136 m:nginx-plus.responses.1xx=0
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=trac.nginx.org t:type=server_zones m:nginx-plus.received=79989134 m:nginx-plus.responses.4xx=15632 m:nginx-plus.responses.5xx=9762 m:nginx-plus.responses.3xx=11006 m:nginx-plus.requests=142075 m:nginx-plus.sent=2025993239 m:nginx-plus.processing=1 m:nginx-plus.responses.total=139793 m:nginx-plus.responses.2xx=103393 m:nginx-plus.discarded=2281 m:nginx-plus.responses.1xx=0
+...
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=lxr-backend t:type=upstreams m:nginx-plus.keepalive=0
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=demo-backend t:type=upstreams m:nginx-plus.keepalive=0
+property t:caches e:demo.nginx.com d:2016-07-08T14:01:31.516Z k:name=http_cache k:type=caches v:cold=false v:max_size=536870912 v:size=536838144
+</code></pre><br><ul><li><p><strong>Server Zones:</strong></p><pre class="language-javascript"><code>$<span class="token punctuation">[</span><span class="token string">'stream'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'server_zones'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token operator">*</span>
+</code></pre><pre class="language-json"><code><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;connections&quot;</span><span class="token operator">:</span> <span class="token number">74457</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;processing&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;received&quot;</span><span class="token operator">:</span> <span class="token number">7892442</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sent&quot;</span><span class="token operator">:</span> <span class="token number">549295747</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;connections&quot;</span><span class="token operator">:</span> <span class="token number">42742</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;processing&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;received&quot;</span><span class="token operator">:</span> <span class="token number">1154034</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sent&quot;</span><span class="token operator">:</span> <span class="token number">5344776</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></li></ul><h3 id="commands-continued"><a href="#commands-continued" aria-hidden="true" class="header-anchor">#</a> Commands, Continued</h3><pre class="language-text"><code>series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=postgresql_loadbalancer t:type=stream.server_zones m:nginx-plus.received=7892442 m:nginx-plus.connections=74457 m:nginx-plus.sent=549295747 m:nginx-plus.processing=0
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=dns_loadbalancer t:type=stream.server_zones m:nginx-plus.received=1154034 m:nginx-plus.connections=42742 m:nginx-plus.sent=5344776 m:nginx-plus.processing=0
+</code></pre><br><ul><li><p><strong>Caches:</strong></p><pre class="language-javascript"><code>$<span class="token punctuation">[</span><span class="token string">'caches'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span>
+</code></pre><pre class="language-json"><code><span class="token punctuation">[</span>
+  <span class="token number">536838144</span><span class="token punctuation">,</span>
+  <span class="token number">536870912</span><span class="token punctuation">,</span>
+  <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">16090273077</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">1233531</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">77000388079</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;bytes_written&quot;</span><span class="token operator">:</span> <span class="token number">23642451487</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">1872931</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses_written&quot;</span><span class="token operator">:</span> <span class="token number">612094</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">6709984777</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;bytes_written&quot;</span><span class="token operator">:</span> <span class="token number">6537974501</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">198350</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses_written&quot;</span><span class="token operator">:</span> <span class="token number">177369</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token property">&quot;bytes&quot;</span><span class="token operator">:</span> <span class="token number">13010815042</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;bytes_written&quot;</span><span class="token operator">:</span> <span class="token number">13010806733</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses&quot;</span><span class="token operator">:</span> <span class="token number">340141</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;responses_written&quot;</span><span class="token operator">:</span> <span class="token number">340113</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre><p><a href="matched_objects_5.json">JSON</a> file.</p></li></ul><h3 id="more-commands"><a href="#more-commands" aria-hidden="true" class="header-anchor">#</a> More Commands</h3><pre class="language-text"><code>series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=http_cache t:cache_status=hit t:type=caches m:nginx-plus.responses=1233531 m:nginx-plus.bytes=16090273077
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=http_cache t:cache_status=stale t:type=caches m:nginx-plus.responses=0 m:nginx-plus.bytes=0
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=http_cache t:cache_status=updating t:type=caches m:nginx-plus.responses=0 m:nginx-plus.bytes=0
+...
+series e:demo.nginx.com d:2016-07-08T14:01:31.516Z t:name=http_cache t:cache_status=bypass t:type=caches m:nginx-plus.responses=340141 m:nginx-plus.bytes=13010815042 m:nginx-plus.responses_written=340113 m:nginx-plus.bytes_written=13010806733
+</code></pre><br><h2 id="screenshots"><a href="#screenshots" aria-hidden="true" class="header-anchor">#</a> Screenshots</h2><h3 id="additional-configurations"><a href="#additional-configurations" aria-hidden="true" class="header-anchor">#</a> Additional Configurations</h3><p><img src="/axibase-collector/assets/img/configuration.7e9c9dde.png" alt></p><h3 id="settings-1"><a href="#settings-1" aria-hidden="true" class="header-anchor">#</a> Settings 1</h3><p><img src="/axibase-collector/assets/img/settings_1.2b4a4a4b.png" alt></p><h3 id="settings-2"><a href="#settings-2" aria-hidden="true" class="header-anchor">#</a> Settings 2</h3><p><img src="/axibase-collector/assets/img/settings_2.e49bcf99.png" alt></p><h3 id="settings-3"><a href="#settings-3" aria-hidden="true" class="header-anchor">#</a> Settings 3</h3><p><img src="/axibase-collector/assets/img/settings_3.009d8e5c.png" alt></p><h3 id="settings-4"><a href="#settings-4" aria-hidden="true" class="header-anchor">#</a> Settings 4</h3><p><img src="/axibase-collector/assets/img/settings_4.2daecb9e.png" alt></p><h3 id="settings-5"><a href="#settings-5" aria-hidden="true" class="header-anchor">#</a> Settings 5</h3><p><img src="/axibase-collector/assets/img/settings_5.4d9791c4.png" alt></p></div><div class="content edit-link"><a href="https://github.com/axibase/axibase-collector/edit/master//jobs/examples/json/nginx-status/README.md" target="_blank" rel="noopener noreferrer">Help us improve this page!</a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/axibase-collector/jobs/examples/json/github-daily-summary/" class="prev">
+          GitHub Daily Summary
+        </a></span><span class="next"><a href="/axibase-collector/jobs/examples/json/australia-weather/">
+          Australia Bureau of Meteorology
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/axibase-collector/assets/js/66.367f7857.js" defer></script><script src="/axibase-collector/assets/js/app.ba8ff567.js" defer></script>
+  </body>
+</html>
