@@ -163,7 +163,7 @@ const confMenu = [
 
 module.exports = {
     base: '/docs/axibase-collector/',
-    title: 'Collector',
+    title: 'Axibase Collector',
     description: "User manual and API reference for Axibase® Time Series Database",
     head: [
         ['link', {rel: 'shortcut icon', href: '/favicon.ico'}]
@@ -171,7 +171,7 @@ module.exports = {
     staticFilesExtensionsTest: /(?:tcollector|\.(?:pdf|xlsx?|xml|txt|csv|str|java|json|sql|sps|yxmd|htm|prpt|do|tdc|jsonld|ktr|service))$/,
     themeConfig: {
         nav: topNavMenu,
-        logo: '/images/axibase_logo_green.gif',
+        logo: '/images/axibase_logo.png',
 
         sidebarDepth: 1,
         sidebar: {
