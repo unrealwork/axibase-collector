@@ -29,7 +29,7 @@ const topNavMenu = [
     {
         text: 'Data Sources', items: [
             {text: 'Database', link: '/jobs/jdbc-data-source.html'},
-            {text: 'HTTP Pool', link: '/atsd-server-connection.html#http-pool'},
+            {text: 'HTTP Pool', link: '/jobs/http-pool.md'},
             {text: 'Kafka Consumer', link: "/jobs/kafka-consumer.md"}
         ]
     },
@@ -111,9 +111,9 @@ const jobsMenu = [
 
 
 const dataSourcesMenu = [
-    ['/jobs/jdbc-data-source.md', 'Database'],
-    ['/atsd-server-connection.html#http-pool', 'HTTP Pool'],
-    ['/jobs/kafka-consumer.md', 'Kafka Consumer']
+    ['/jobs/jdbc-data-source.html', 'Database'],
+    ['/job/http-pool.html', 'HTTP Pool'],
+    ['/jobs/kafka-consumer.html', 'Kafka Consumer']
 ];
 
 const confMenu = [
@@ -149,7 +149,7 @@ module.exports = {
             // Keep it last
             '/jobs/jdbc-data-source.html': dataSourcesMenu,
             '/jobs/kafka-consumer.html': dataSourcesMenu,
-            '/atsd-server-connection.html#http-pool': dataSourcesMenu,
+            '/jobs/http-pool.html': dataSourcesMenu,
             '/jobs/aws.html': ['/jobs/aws.html'],
             '/jobs/docker.html': ['/jobs/docker.html'],
             '/jobs/file.html': ['/jobs/file.html'],
