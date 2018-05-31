@@ -33,7 +33,7 @@ const topNavMenu = [
             {text: 'Kafka Consumer', link: "/jobs/kafka-consumer.md"}
         ]
     },
-    {text: 'Examples', link: '/#examples', highlighted: true},
+    {text: 'Examples', link: '/jobs/examples/', highlighted: true},
 ];
 
 
@@ -88,31 +88,60 @@ const landingPageMenu = [
 
 const administrationMenu = ['/monitoring.md', '/logging.md'];
 
-const jobsMenu = [
+const examplesMenu = [
+    ['/jobs/examples/activemq/', 'ActiveMQ'],
+    ['/jobs/examples/derby/', 'Derby Database'],
     {
-        title: 'Job Types', children: [
-            ['/jobs/aws.md', 'AWS'],
-            ['/jobs/docker.md', 'Docker'],
-            ['/jobs/file.md', 'File'],
-            ['/jobs/http.md', 'HTTP'],
-            ['/jobs/icmp.md', 'ICMP'],
-            ['/jobs/jdbc.md', 'JDBC'],
-            ['/jobs/jmx.md', 'JMX'],
-            ['/jobs/json.md', 'JSON'],
-            ['/jobs/kafka.md', 'Kafka'],
-            ['/jobs/ovpm.md', 'OVPM'],
-            ['/jobs/pi.md', 'PI'],
-            ['/jobs/snmp.md', 'SNMP'],
-            ['/jobs/socrata.md', 'Socrata'],
-            ['/jobs/tcp.md', 'TCP']
+        title: 'File', children: [
+            '/jobs/examples/file/airnow/',
+            '/jobs/examples/file/australia-bom/',
+            '/jobs/examples/file/duckduckgo/',
+            '/jobs/examples/file/energinet-ftp/',
+            '/jobs/examples/file/nginx/',
+            '/jobs/examples/file/noaa-mooring/',
+            '/jobs/examples/file/pvout/',
+            '/jobs/examples/file/ssn/',
+            '/jobs/examples/file/stackoverflow/',
+            '/jobs/examples/file/uk-caa/',
+            '/jobs/examples/file/yahoo-finance/'
         ]
-    }
+    },
+    ['/jobs/examples/hp-openview/', 'HP OpenView'],
+    ['/jobs/examples/jetty/', 'Jetty'],
+    {
+        title: 'JSON', children: [
+            '/jobs/examples/json/bls/',
+            '/jobs/examples/json/github-daily-summary/',
+            '/jobs/examples/json/nginx-status/',
+            '/jobs/examples/json/australia-weather/',
+            '/jobs/examples/json/fields-with-non-alphanumeric/',
+            '/jobs/examples/json/json_lines/'
+
+        ]
+    },
+    ['/jobs/examples/jvm/', 'JVM'],
+    ['/jobs/examples/mysql/', 'MySQL'],
+    ['/jobs/examples/nginx/', 'nginx'],
+    ['/jobs/examples/oracle-enterprise-manager/', 'Oracle EM'],
+    {
+        title: 'PI', children: [
+            ['/jobs/examples/pi/export-metrics.html', 'Transform PI points to ATSD metrics'],
+            ['/jobs/examples/pi/export-archive-data.html', 'Export PI archive data as ATSD series']
+        ]
+    },
+    ['/jobs/examples/postgres/', 'PostgreSQL'],
+    ['/jobs/examples/scom/', 'SCOM'],
+    ['/jobs/examples/socrata/state-government.md', 'Socrata'],
+    ['/jobs/examples/solarwinds/', 'SolarWinds'],
+    ['/jobs/examples/tomcat/', 'Tomcat'],
+    ['/jobs/examples/vmware/', 'VMware']
+
 ];
 
 
 const dataSourcesMenu = [
     ['/jobs/jdbc-data-source.html', 'Database'],
-    ['/job/http-pool.html', 'HTTP Pool'],
+    ['/jobs/http-pool.html', 'HTTP Pool'],
     ['/jobs/kafka-consumer.html', 'Kafka Consumer']
 ];
 
@@ -164,6 +193,7 @@ module.exports = {
             '/jobs/snmp.html': ['/jobs/snmp.html'],
             '/jobs/socrata.html': ['/jobs/socrata.html'],
             '/jobs/tcp.html': ['/jobs/tcp.html'],
+            '/jobs/examples/': examplesMenu,
             '/': landingPageMenu,
             '': [],
         },

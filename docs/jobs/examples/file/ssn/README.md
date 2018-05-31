@@ -29,4 +29,4 @@ Download Sunspot Daily Count report in a CSV file and upload it into ATSD.
 
 ## Screenshot
 
-![Job Screenshot](ssn-config.png)
+![Job Screenshot](./ssn-config.png)

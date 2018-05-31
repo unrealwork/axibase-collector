@@ -32,7 +32,7 @@ For example, on a Docker host where the `/var/lib/docker` size is 30Gb with 20 r
   sys 0m0.032s
   ```
 
-![docker-ps](docker-ps-as.png)
+![docker-ps](./docker-ps-as.png)
 
 Executing API requests with the `&size=1` parameter typically requires even more time than the `docker ps -as` command and may cause timeout issues for API clients.
 
@@ -136,7 +136,7 @@ The following [collector](docker_volume_collect.sh) script executes the `ds` com
 
 To display volume sizes, import the [updated Entity View](volume-entity-view.xml) for Docker Volumes via ATSD -> [Configuration] -> Entity Views -> [Import] with the 'Replace Existing Entity Views' option enabled.
 
-![volume-view](volume-view.png)
+![volume-view](./volume-view.png)
 
 ## Volume Disk Rules
 
