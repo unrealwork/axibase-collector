@@ -1,5 +1,9 @@
 # Axibase Collector Installation
 
+## Quick Start
+
+For a quick installation of pre-integrated Axibase Collector and ATSD instances in a single Docker container, refer to the [ATSD Sandbox](https://github.com/axibase/dockers/tree/atsd-sandbox#overview) guide.
+
 ## Install Java 8 JDK
 
 ### OpenJDK on Ubuntu or Debian
