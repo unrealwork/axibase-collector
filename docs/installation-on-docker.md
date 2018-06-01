@@ -1,5 +1,9 @@
 # Installation on Docker
 
+## Quick Start
+
+For a quick installation of pre-integrated Axibase Collector and ATSD instances in a single Docker container, refer to the [ATSD Sandbox](https://github.com/axibase/dockers/tree/atsd-sandbox#overview) guide.
+
 ## Host Requirements
 
 * [Docker Engine](https://docs.docker.com/engine/installation/) 1.7+
