@@ -81,7 +81,7 @@ ACTIVEMQ_SUNJMX_START="-Dcom.sun.management.jmxremote \
 
 The result should be as shown on the image below:
 
-![SUN_JMX_START_IMAGE](https://axibase.com/wp-content/uploads/2016/03/very_new_screen.png)
+![SUN_JMX_START_IMAGE](./images/very_new_screen.png)
 
 * Modify JMX security credential files in the `./conf` directory.
 
@@ -122,7 +122,7 @@ chmod 600 ./conf/jmx.password
 
 * For more information on cron expressions, see [Scheduling](../../../scheduling.md).
 
-![JMX_JOB](https://axibase.com/wp-content/uploads/2016/03/jmx_job_to_configuration.png)
+![JMX_JOB](./images/jmx_job_to_configuration.png)
 
 ##### Configuring activemq-series
 
@@ -143,7 +143,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 
 1. Click **Save**.
 
-![](https://axibase.com/wp-content/uploads/2016/03/series_config_85.png)
+![](./images/series_config_85.png)
 
 ##### Configuring activemq-property
 
@@ -152,7 +152,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 1. Click Test to validate the configuration.
 1. Click Save.
 
-![](https://axibase.com/wp-content/uploads/2016/03/enitites_list_full-450x132.png)
+![](./images/enitites_list_full-450x132.png)
 
 ## Viewing Data in ATSD
 
@@ -188,7 +188,7 @@ If the specified configuration is correct, there must be no errors or empty fiel
 ![](./images/activemq_portal_icon.png)
 
 [**Active MQ Live Portal**](http://apps.axibase.com/chartlab/2f11a5ef)
-![](https://axibase.com/wp-content/uploads/2016/03/log_portal_example.png)
+![](./images/log_portal_example.png)
 
 ### Rules
 

@@ -108,7 +108,7 @@ The job assigns each metric to an entity which is determined based on the [prima
 
 ## Configuration Example
 
-![](https://axibase.com/wp-content/uploads/2016/03/aws_config.png)
+![](./images/aws_config.png)
 
 ## Sample AWS/EC2 CloudWatch Metrics
 

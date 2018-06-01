@@ -19,4 +19,4 @@ Some job types provide an extended set of tags and a modified message:
   * Tag [`error type`](./jobs/file.md#job-completion-messages)
   * Message: Completed in `N` ms. Files read: `N`. Files sent: `N`. <br>Failed requests: `N` COMPLETED_COUNT=N ERROR_COUNT=N FILE_COUNT=N <br> ROWS_PROCESSED=N. An error description will be included in the message if an error was raised.
 
-![Collector Messages](http://axibase.com/wp-content/uploads/2015/11/collector_messages_atsd.png)
+![Collector Messages](./images/collector_messages_atsd.png)

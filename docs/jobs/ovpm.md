@@ -8,7 +8,7 @@ Apart from the general job settings that are specified in the [Axibase Collector
 
 **Max. serial errors threshold** - defines the maximum amount of consecutive errors after which no more queries will be sent.
 
-![](https://axibase.com/wp-content/uploads/2015/08/ovpm_settings.png)
+![](./images/ovpm_settings.png)
 
 ## OVPM Configuration
 
@@ -38,4 +38,4 @@ Use the table below to set configuration parameters.
 | Property Keys Columns  | Columns containing the property keys. |
 | Property Values Columns  | Columns containing the property values. |
 
-![](https://axibase.com/wp-content/uploads/2016/03/ovpm_config.png)
+![](./images/ovpm_config.png)
